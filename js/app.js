@@ -64,6 +64,8 @@
       Array.isArray(o.nodes) && Array.isArray(o.edges));
   }
 
+  const ZOOM_STEP = 0.2;
+
   async function initZorgpad() {
     const refs = {
       main: document.getElementById("zp-main"),
@@ -119,11 +121,11 @@
       return;
     }
 
-    state.currentTumor = zorgpad;
+    setTumor(tumorId);
     document.title = zorgpad.titel + " – Gynaecologische zorgpaden";
 
     if (!zorgpad.overview) {
-      // Nog geen renderbaar zorgpad (bv. endometrium in Sprint 2)
+      // Nog geen renderbaar zorgpad (bv. endometrium in Sprint 3)
       refs.message.textContent = "";
       const label = document.createElement("p");
       label.className = "loaded-label";
@@ -145,9 +147,39 @@
       return;
     }
 
+    Renderer.init({main: refs.main, svg: refs.svg, message: refs.message});
+
+    function navigate(target) {
+      location.hash = target ? "#/" + target : "";
+    }
+
+    // Leest de URL-hash, werkt de state bij en laat de renderer tekenen.
+    function showRoute() {
+      const id = location.hash.replace(/^#\//, "");
+      const view = Renderer.resolve(zorgpad, id);
+      setTree(view.treeId);
+      if (view.graph && view.graph.native) setZoom(Renderer.fitZoom(view.graph));
+      document.title = view.treeId ? view.label + " – " + zorgpad.titel : zorgpad.titel;
+      Renderer.draw(view, navigate);
+      if (view.treeId) window.scrollTo(0, 0);
+    }
+
+    // De renderer past de viewport toe zodra de state ervan verandert.
+    subscribe(function (snapshot, key) {
+      if (key === "viewport") Renderer.applyViewport();
+    });
+
+    refs.zoomIn.addEventListener("click", function () {
+      setZoom(getState().viewport.zoom + ZOOM_STEP);
+    });
+    refs.zoomOut.addEventListener("click", function () {
+      setZoom(getState().viewport.zoom - ZOOM_STEP);
+    });
+    refs.back.addEventListener("click", function () { navigate(""); });
+    window.addEventListener("hashchange", showRoute);
+
     try {
-      Renderer.init(refs);
-      Renderer.show(zorgpad);
+      showRoute();
     } catch (err) {
       showMessage("Fout bij weergeven van zorgpad: " + err.message, true);
     }
