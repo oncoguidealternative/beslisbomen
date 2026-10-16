@@ -1,3 +1,4 @@
+/* ===== Gedeeld / homepage (Sprint 1) ===== */
 :root {
   --bg: #0b1f3a;
   --bg-card: #12305a;
@@ -10,7 +11,7 @@
 
 * { box-sizing: border-box; }
 
-html, body { margin: 0; padding: 0; }
+html, body { margin: 0; padding: 0; min-height: 100%; }
 
 body {
   background: var(--bg);
@@ -37,22 +38,13 @@ body {
   font-size: clamp(1rem, 2.5vw, 1.2rem);
 }
 
-.back-link {
-  display: inline-block;
-  margin-bottom: 1rem;
-  color: var(--accent);
-  text-decoration: none;
-  font-weight: 600;
-}
-.back-link:hover { text-decoration: underline; }
-
 .container {
   max-width: 1100px;
   margin: 0 auto;
   padding: 2rem 1.25rem 3rem;
 }
 
-.intro, .panel {
+.intro {
   background: rgba(255, 255, 255, .05);
   border-left: 4px solid var(--accent);
   border-radius: var(--radius);
@@ -90,10 +82,98 @@ body {
 .status { color: var(--text-muted); margin: 0; }
 .error { color: #ff9b9b; }
 
-.loaded-label { color: var(--text-muted); margin: 0 0 .25rem; }
-.loaded-title { margin: 0; font-size: 1.5rem; color: var(--accent); }
-
 @media (max-width: 600px) {
   .site-header { padding: 1.5rem 1rem 1rem; }
   .container { padding: 1.25rem 1rem 2rem; }
 }
+
+/* ===== Zorgpadpagina (Sprint 2, overgenomen uit prototype) ===== */
+body[data-page="zorgpad"] {
+  --zp-bg: #246e8b;
+  --zp-node: #6fa8bb;
+  --zp-node-hover: #85b9ca;
+  --zp-green: #5cb85c;
+  --zp-green-hover: #6cc46c;
+  --zp-cyan: #45b3e6;
+  --zp-line: #ffffff;
+  --zp-text: #ffffff;
+  background: var(--zp-bg);
+  color: var(--zp-text);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: normal;
+}
+
+.zp-hidden { display: none !important; }
+
+.zp-main { max-width: 760px; margin: 0 auto; padding: 8px 12px 40px; }
+.zp-main.is-native { max-width: none; }
+
+.zp-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 16px 0 0; }
+
+.zp-btn {
+  background: none;
+  border: 1.5px solid var(--zp-line);
+  color: var(--zp-text);
+  border-radius: 6px;
+  padding: 8px 14px;
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+.zp-btn:hover { background: rgba(255, 255, 255, .12); }
+.zp-btn:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+
+.zp-back { display: none; }
+.zp-main.in-detail .zp-back { display: inline-block; }
+
+.zp-tools { display: none; }
+.zp-main.is-native .zp-tools { display: inline-flex; gap: 8px; margin-left: 8px; }
+.zp-zoom { width: 38px; padding: 8px 0; }
+
+.zp-stage { overflow-x: auto; margin-top: 8px; }
+.zp-stage svg { display: block; height: auto; }
+.zp-main:not(.is-native) .zp-stage svg { width: 100%; }
+
+.zp-message { padding: 16px 4px; line-height: 1.6; max-width: 70ch; }
+.zp-message .loaded-label { color: var(--text-muted); margin: 0 0 .25rem; }
+.zp-message .loaded-title { margin: 0 0 .75rem; font-size: 1.5rem; color: var(--zp-text); }
+.zp-message p { margin: 0; }
+.zp-message .error { color: #ffd2d2; }
+
+/* SVG-onderdelen */
+.zp-stage .edge { fill: none; stroke: var(--zp-line); stroke-linecap: butt; }
+.zp-stage .edge.green { stroke: var(--zp-green); }
+.zp-stage .node rect { fill: var(--zp-node); transition: fill .15s; }
+.zp-stage .node.t-root rect,
+.zp-stage .node.t-decision rect { fill: var(--zp-green); }
+.zp-stage .node.t-root.tone-blue rect { fill: var(--zp-node); }
+.zp-stage .node.go.t-root.tone-blue:hover rect,
+.zp-stage .node.go.t-root.tone-blue:focus rect { fill: var(--zp-node-hover); }
+.zp-stage .node.t-criterion rect { fill: #fff; }
+.zp-stage .node.t-outcome rect { fill: var(--zp-cyan); }
+.zp-stage .node text { fill: var(--zp-text); text-anchor: middle; pointer-events: none; }
+.zp-stage .node.t-criterion text { fill: #111; }
+.zp-stage .node .lnk { fill: #1e9bf0; text-decoration: underline; pointer-events: all; cursor: pointer; }
+.zp-stage .edot { fill: #fff; }
+.zp-stage .elabel { fill: var(--zp-text); text-anchor: middle; }
+.zp-stage .node.go { cursor: pointer; }
+.zp-stage .node.go:hover rect,
+.zp-stage .node.go:focus rect { fill: var(--zp-node-hover); }
+.zp-stage .node.go.t-root:hover rect,
+.zp-stage .node.go.t-root:focus rect { fill: var(--zp-green-hover); }
+.zp-stage .node:focus { outline: none; }
+.zp-stage .node:focus-visible rect { stroke: #fff; stroke-width: 3; }
+
+/* Iconen */
+.zp-stage .icon path { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.zp-stage .icon.down circle { fill: var(--zp-node); stroke: #fff; stroke-width: 2.5; }
+.zp-stage .icon.down path { stroke: #fff; }
+.zp-stage .icon.minus-light circle,
+.zp-stage .icon.plus-light circle { fill: var(--zp-node); stroke: #fff; stroke-width: 2.5; }
+.zp-stage .icon.minus-light path,
+.zp-stage .icon.plus-light path { stroke: #fff; }
+.zp-stage .icon.minus circle { fill: #fff; stroke: var(--zp-green); stroke-width: 1.5; }
+.zp-stage .icon.minus path { stroke: var(--zp-green); stroke-width: 3; }
+.zp-stage .info circle { fill: none; stroke: #fff; stroke-width: 1.8; }
+.zp-stage .info path { fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; }
+.zp-stage .info .dot { fill: #fff; stroke: none; }
