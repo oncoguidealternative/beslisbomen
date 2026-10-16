@@ -1,3 +1,5 @@
 const state = {
-  currentTumor: null
+  currentTumor: null,
+  currentTree: null,
+  zoom: 1
 };
