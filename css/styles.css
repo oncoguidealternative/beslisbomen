@@ -1,11 +1,19 @@
-/* ===== Gedeeld / homepage (Sprint 1) ===== */
+/* ===== Centrale kleuren (basis: #246D8B) ===== */
 :root {
-  --bg: #0b1f3a;
-  --bg-card: #12305a;
-  --bg-card-hover: #173b6e;
-  --text: #ffffff;
-  --text-muted: #b8c7dc;
-  --accent: #1fb6c1;
+  --color-background: #246D8B;
+  --color-node: #6FA8BB;
+  --color-node-hover: #85B9CA;
+  --color-accent: #45B3E6;
+  --color-success: #5CB85C;
+  --color-success-hover: #6CC46C;
+  --color-text: #FFFFFF;
+  --color-text-muted: #E3F0F5;
+  --color-text-dark: #111111;
+  --color-line: #FFFFFF;
+  --color-link: #1E9BF0;
+  --color-error: #FFE1E1;
+  --color-surface: rgba(255, 255, 255, .1);
+  --color-hover-overlay: rgba(255, 255, 255, .12);
   --radius: 16px;
 }
 
@@ -14,17 +22,18 @@
 html, body { margin: 0; padding: 0; min-height: 100%; }
 
 body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: Arial, Helvetica, sans-serif;
   line-height: 1.6;
   min-height: 100vh;
 }
 
+/* ===== Homepage ===== */
 .site-header {
   padding: 2.5rem 1.25rem 1.5rem;
   text-align: center;
-  border-bottom: 3px solid var(--accent);
+  border-bottom: 3px solid var(--color-accent);
 }
 
 .site-header h1 {
@@ -34,7 +43,7 @@ body {
 
 .subtitle {
   margin: 0;
-  color: var(--text-muted);
+  color: var(--color-text-muted);
   font-size: clamp(1rem, 2.5vw, 1.2rem);
 }
 
@@ -45,13 +54,13 @@ body {
 }
 
 .intro {
-  background: rgba(255, 255, 255, .05);
-  border-left: 4px solid var(--accent);
+  background: var(--color-surface);
+  border-left: 4px solid var(--color-accent);
   border-radius: var(--radius);
   padding: 1.5rem;
   margin-bottom: 2rem;
 }
-.intro h2 { margin-top: 0; color: var(--accent); }
+.intro h2 { margin-top: 0; color: var(--color-text); }
 
 .cards {
   display: grid;
@@ -61,47 +70,38 @@ body {
 
 .card {
   display: block;
-  background: var(--bg-card);
-  color: var(--text);
+  background: var(--color-surface);
+  color: var(--color-text);
   text-decoration: none;
-  border: 1px solid rgba(31, 182, 193, .25);
+  border: 1.5px solid var(--color-line);
   border-radius: var(--radius);
   padding: 1.5rem;
-  transition: transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
 }
-.card:hover, .card:focus-visible {
-  background: var(--bg-card-hover);
-  border-color: var(--accent);
+.card:hover {
+  background: var(--color-node);
   transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, .35);
-  outline: none;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, .25);
 }
-.card h3 { margin: 0 0 .5rem; color: var(--accent); }
-.card p { margin: 0; color: var(--text-muted); }
+.card:focus-visible {
+  background: var(--color-node-hover);
+  outline: 3px solid var(--color-line);
+  outline-offset: 2px;
+}
+.card h3 { margin: 0 0 .5rem; color: var(--color-text); }
+.card p { margin: 0; color: var(--color-text-muted); }
+.card:hover p, .card:focus-visible p { color: var(--color-text); }
 
-.status { color: var(--text-muted); margin: 0; }
-.error { color: #ff9b9b; }
+.status { color: var(--color-text-muted); margin: 0; }
+.error { color: var(--color-error); }
 
 @media (max-width: 600px) {
   .site-header { padding: 1.5rem 1rem 1rem; }
   .container { padding: 1.25rem 1rem 2rem; }
 }
 
-/* ===== Zorgpadpagina (Sprint 2, overgenomen uit prototype) ===== */
-body[data-page="zorgpad"] {
-  --zp-bg: #246e8b;
-  --zp-node: #6fa8bb;
-  --zp-node-hover: #85b9ca;
-  --zp-green: #5cb85c;
-  --zp-green-hover: #6cc46c;
-  --zp-cyan: #45b3e6;
-  --zp-line: #ffffff;
-  --zp-text: #ffffff;
-  background: var(--zp-bg);
-  color: var(--zp-text);
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: normal;
-}
+/* ===== Zorgpadpagina ===== */
+body[data-page="zorgpad"] { line-height: normal; }
 
 .zp-hidden { display: none !important; }
 
@@ -112,16 +112,16 @@ body[data-page="zorgpad"] {
 
 .zp-btn {
   background: none;
-  border: 1.5px solid var(--zp-line);
-  color: var(--zp-text);
+  border: 1.5px solid var(--color-line);
+  color: var(--color-text);
   border-radius: 6px;
   padding: 8px 14px;
   font: inherit;
   text-decoration: none;
   cursor: pointer;
 }
-.zp-btn:hover { background: rgba(255, 255, 255, .12); }
-.zp-btn:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+.zp-btn:hover { background: var(--color-hover-overlay); }
+.zp-btn:focus-visible { outline: 3px solid var(--color-line); outline-offset: 2px; }
 
 .zp-back { display: none; }
 .zp-main.in-detail .zp-back { display: inline-block; }
@@ -135,45 +135,44 @@ body[data-page="zorgpad"] {
 .zp-main:not(.is-native) .zp-stage svg { width: 100%; }
 
 .zp-message { padding: 16px 4px; line-height: 1.6; max-width: 70ch; }
-.zp-message .loaded-label { color: var(--text-muted); margin: 0 0 .25rem; }
-.zp-message .loaded-title { margin: 0 0 .75rem; font-size: 1.5rem; color: var(--zp-text); }
+.zp-message .loaded-label { color: var(--color-text-muted); margin: 0 0 .25rem; }
+.zp-message .loaded-title { margin: 0 0 .75rem; font-size: 1.5rem; color: var(--color-text); }
 .zp-message p { margin: 0; }
-.zp-message .error { color: #ffd2d2; }
 
 /* SVG-onderdelen */
-.zp-stage .edge { fill: none; stroke: var(--zp-line); stroke-linecap: butt; }
-.zp-stage .edge.green { stroke: var(--zp-green); }
-.zp-stage .node rect { fill: var(--zp-node); transition: fill .15s; }
+.zp-stage .edge { fill: none; stroke: var(--color-line); stroke-linecap: butt; }
+.zp-stage .edge.green { stroke: var(--color-success); }
+.zp-stage .node rect { fill: var(--color-node); transition: fill .15s; }
 .zp-stage .node.t-root rect,
-.zp-stage .node.t-decision rect { fill: var(--zp-green); }
-.zp-stage .node.t-root.tone-blue rect { fill: var(--zp-node); }
+.zp-stage .node.t-decision rect { fill: var(--color-success); }
+.zp-stage .node.t-root.tone-blue rect { fill: var(--color-node); }
 .zp-stage .node.go.t-root.tone-blue:hover rect,
-.zp-stage .node.go.t-root.tone-blue:focus rect { fill: var(--zp-node-hover); }
-.zp-stage .node.t-criterion rect { fill: #fff; }
-.zp-stage .node.t-outcome rect { fill: var(--zp-cyan); }
-.zp-stage .node text { fill: var(--zp-text); text-anchor: middle; pointer-events: none; }
-.zp-stage .node.t-criterion text { fill: #111; }
-.zp-stage .node .lnk { fill: #1e9bf0; text-decoration: underline; pointer-events: all; cursor: pointer; }
-.zp-stage .edot { fill: #fff; }
-.zp-stage .elabel { fill: var(--zp-text); text-anchor: middle; }
+.zp-stage .node.go.t-root.tone-blue:focus rect { fill: var(--color-node-hover); }
+.zp-stage .node.t-criterion rect { fill: #FFFFFF; }
+.zp-stage .node.t-outcome rect { fill: var(--color-accent); }
+.zp-stage .node text { fill: var(--color-text); text-anchor: middle; pointer-events: none; }
+.zp-stage .node.t-criterion text { fill: var(--color-text-dark); }
+.zp-stage .node .lnk { fill: var(--color-link); text-decoration: underline; pointer-events: all; cursor: pointer; }
+.zp-stage .edot { fill: #FFFFFF; }
+.zp-stage .elabel { fill: var(--color-text); text-anchor: middle; }
 .zp-stage .node.go { cursor: pointer; }
 .zp-stage .node.go:hover rect,
-.zp-stage .node.go:focus rect { fill: var(--zp-node-hover); }
+.zp-stage .node.go:focus rect { fill: var(--color-node-hover); }
 .zp-stage .node.go.t-root:hover rect,
-.zp-stage .node.go.t-root:focus rect { fill: var(--zp-green-hover); }
+.zp-stage .node.go.t-root:focus rect { fill: var(--color-success-hover); }
 .zp-stage .node:focus { outline: none; }
-.zp-stage .node:focus-visible rect { stroke: #fff; stroke-width: 3; }
+.zp-stage .node:focus-visible rect { stroke: #FFFFFF; stroke-width: 3; }
 
 /* Iconen */
 .zp-stage .icon path { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
-.zp-stage .icon.down circle { fill: var(--zp-node); stroke: #fff; stroke-width: 2.5; }
-.zp-stage .icon.down path { stroke: #fff; }
+.zp-stage .icon.down circle { fill: var(--color-node); stroke: #FFFFFF; stroke-width: 2.5; }
+.zp-stage .icon.down path { stroke: #FFFFFF; }
 .zp-stage .icon.minus-light circle,
-.zp-stage .icon.plus-light circle { fill: var(--zp-node); stroke: #fff; stroke-width: 2.5; }
+.zp-stage .icon.plus-light circle { fill: var(--color-node); stroke: #FFFFFF; stroke-width: 2.5; }
 .zp-stage .icon.minus-light path,
-.zp-stage .icon.plus-light path { stroke: #fff; }
-.zp-stage .icon.minus circle { fill: #fff; stroke: var(--zp-green); stroke-width: 1.5; }
-.zp-stage .icon.minus path { stroke: var(--zp-green); stroke-width: 3; }
-.zp-stage .info circle { fill: none; stroke: #fff; stroke-width: 1.8; }
-.zp-stage .info path { fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; }
-.zp-stage .info .dot { fill: #fff; stroke: none; }
+.zp-stage .icon.plus-light path { stroke: #FFFFFF; }
+.zp-stage .icon.minus circle { fill: #FFFFFF; stroke: var(--color-success); stroke-width: 1.5; }
+.zp-stage .icon.minus path { stroke: var(--color-success); stroke-width: 3; }
+.zp-stage .info circle { fill: none; stroke: #FFFFFF; stroke-width: 1.8; }
+.zp-stage .info path { fill: none; stroke: #FFFFFF; stroke-width: 2; stroke-linecap: round; }
+.zp-stage .info .dot { fill: #FFFFFF; stroke: none; }
