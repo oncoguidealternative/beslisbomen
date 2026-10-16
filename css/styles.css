@@ -1,1 +1,99 @@
+:root {
+  --bg: #0b1f3a;
+  --bg-card: #12305a;
+  --bg-card-hover: #173b6e;
+  --text: #ffffff;
+  --text-muted: #b8c7dc;
+  --accent: #1fb6c1;
+  --radius: 16px;
+}
 
+* { box-sizing: border-box; }
+
+html, body { margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+.site-header {
+  padding: 2.5rem 1.25rem 1.5rem;
+  text-align: center;
+  border-bottom: 3px solid var(--accent);
+}
+
+.site-header h1 {
+  margin: 0 0 .5rem;
+  font-size: clamp(1.75rem, 5vw, 2.75rem);
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+.back-link:hover { text-decoration: underline; }
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+}
+
+.intro, .panel {
+  background: rgba(255, 255, 255, .05);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+.intro h2 { margin-top: 0; color: var(--accent); }
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  display: block;
+  background: var(--bg-card);
+  color: var(--text);
+  text-decoration: none;
+  border: 1px solid rgba(31, 182, 193, .25);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
+}
+.card:hover, .card:focus-visible {
+  background: var(--bg-card-hover);
+  border-color: var(--accent);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, .35);
+  outline: none;
+}
+.card h3 { margin: 0 0 .5rem; color: var(--accent); }
+.card p { margin: 0; color: var(--text-muted); }
+
+.status { color: var(--text-muted); margin: 0; }
+.error { color: #ff9b9b; }
+
+.loaded-label { color: var(--text-muted); margin: 0 0 .25rem; }
+.loaded-title { margin: 0; font-size: 1.5rem; color: var(--accent); }
+
+@media (max-width: 600px) {
+  .site-header { padding: 1.5rem 1rem 1rem; }
+  .container { padding: 1.25rem 1rem 2rem; }
+}
