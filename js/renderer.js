@@ -1,13 +1,13 @@
 /* Generieke SVG-renderer voor zorgpaden en beslisbomen.
+   De renderer tekent uitsluitend: hij beheert geen eigen applicatiestatus.
+   Status (zoom, huidige boom, ...) wordt gelezen uit state.js via getState().
    Bevat geen tumor- of medische inhoud; alles komt uit de zorgpaddata. */
 const Renderer = (function () {
   'use strict';
 
   var NS = 'http://www.w3.org/2000/svg';
-  var els = null;       // DOM-verwijzingen (via init)
-  var data = null;      // volledige zorgpaddata
-  var current = null;   // huidige graph (overzicht of boom)
-  var listening = false;
+  var els = null; // alleen DOM-verwijzingen: {main, svg, message}
+  var onNavigate = function () {}; // callback van de aanroeper, geen applicatiestatus
 
   function el(name, attrs, parent) {
     var e = document.createElementNS(NS, name);
@@ -24,14 +24,6 @@ const Renderer = (function () {
     });
     if (cur) lines.push(cur);
     return lines;
-  }
-
-  function applyZoom() {
-    if (current && current.native) {
-      els.svg.setAttribute('width', Math.round(current.viewBox[0] * state.zoom));
-    } else {
-      els.svg.removeAttribute('width');
-    }
   }
 
   function setRich(t, str) {
@@ -54,7 +46,37 @@ const Renderer = (function () {
     if (last < str.length) t.appendChild(document.createTextNode(str.slice(last)));
   }
 
-  function go(target) { location.hash = target ? '#/' + target : ''; }
+  /* Past de viewport uit de state toe op de getekende SVG.
+     Nu: alleen zoom (breedte van native diagrammen). panX/panY volgen in een latere sprint. */
+  function applyViewport() {
+    var native = els.main.classList.contains('is-native');
+    if (native) {
+      var vbWidth = els.svg.viewBox.baseVal.width;
+      els.svg.setAttribute('width', Math.round(vbWidth * getState().viewport.zoom));
+    } else {
+      els.svg.removeAttribute('width');
+    }
+  }
+
+  /* Startzoom voor een native graph: eigen instelling of passend op de schermbreedte.
+     Berekent alleen een waarde; de aanroeper zet die in de state. */
+  function fitZoom(graph) {
+    var fit = (document.documentElement.clientWidth - 24) / graph.viewBox[0];
+    return graph.zoom || Math.max(0.6, Math.min(1, fit));
+  }
+
+  /* Bepaalt wat getoond moet worden voor een boom-id (zonder iets te tekenen).
+     Geeft {treeId, graph, label}; graph is null als de boom nog niet is toegevoegd.
+     Een onbekende id valt terug op het overzicht (treeId = null). */
+  function resolve(zorgpad, id) {
+    var node = zorgpad.overview.nodes.filter(function (x) { return x.id === id && x.drill; })[0];
+    if (!node) {
+      return {treeId: null, graph: zorgpad.overview, label: zorgpad.titel};
+    }
+    var tree = zorgpad.trees && zorgpad.trees[id];
+    if (tree && tree.same) tree = zorgpad.trees[tree.same];
+    return {treeId: id, graph: tree || null, label: node.label};
+  }
 
   function render(graph, label) {
     var svg = els.svg;
@@ -62,13 +84,8 @@ const Renderer = (function () {
     svg.innerHTML = '';
     svg.setAttribute('viewBox', '0 0 ' + graph.viewBox[0] + ' ' + graph.viewBox[1]);
     svg.setAttribute('aria-label', label);
-    current = graph;
     els.main.classList.toggle('is-native', !!graph.native);
-    if (graph.native) {
-      var fit = (els.main.clientWidth - 24) / graph.viewBox[0];
-      state.zoom = graph.zoom || Math.max(0.6, Math.min(1, fit));
-    }
-    applyZoom();
+    applyViewport();
 
     var defs = el('defs', {}, svg);
     var mw = el('marker', {id: 'ah', viewBox: '0 0 10 10', refX: 10, refY: 5, markerUnits: 'userSpaceOnUse',
@@ -109,9 +126,9 @@ const Renderer = (function () {
         g.setAttribute('role', 'link');
         g.setAttribute('tabindex', '0');
         g.setAttribute('aria-label', target === '' ? 'Terug naar overzicht' : n.label);
-        g.addEventListener('click', function () { go(target); });
+        g.addEventListener('click', function () { onNavigate(target); });
         g.addEventListener('keydown', function (ev) {
-          if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); go(target); }
+          if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); onNavigate(target); }
         });
       }
       el('rect', {width: w, height: h, rx: n.rx !== undefined ? n.rx :
@@ -178,55 +195,23 @@ const Renderer = (function () {
     els.message.classList.remove('zp-hidden');
   }
 
-  function route() {
-    if (!data) return;
-    var id = location.hash.replace(/^#\//, '');
-    var node = data.overview.nodes.filter(function (x) { return x.id === id && x.drill; })[0];
-    if (!node) {
-      els.main.classList.remove('in-detail');
+  /* Tekent de view uit resolve(). onNavigate(target) wordt aangeroepen als een node wordt
+     geactiveerd ('' = terug naar overzicht); de aanroeper bepaalt wat dat betekent. */
+  function draw(view, onNavigate_) {
+    onNavigate = onNavigate_;
+    els.main.classList.toggle('in-detail', view.treeId !== null);
+    if (view.graph) {
       els.message.classList.add('zp-hidden');
       els.svg.classList.remove('zp-hidden');
-      document.title = data.titel;
-      state.currentTree = null;
-      render(data.overview, data.titel);
-      return;
-    }
-    els.main.classList.add('in-detail');
-    document.title = node.label + ' – ' + data.titel;
-    state.currentTree = id;
-    var tree = data.trees && data.trees[id];
-    if (tree && tree.same) tree = data.trees[tree.same];
-    if (tree) {
-      els.message.classList.add('zp-hidden');
-      els.svg.classList.remove('zp-hidden');
-      render(tree, node.label);
+      render(view.graph, view.label);
     } else {
       els.svg.classList.add('zp-hidden');
-      showMessage(node.label + ': de beslisboom van deze stap is nog niet toegevoegd.');
+      showMessage(view.label + ': de beslisboom van deze stap is nog niet toegevoegd.');
     }
-    window.scrollTo(0, 0);
   }
 
-  /* refs: {main, svg, message, back, zoomIn, zoomOut} */
-  function init(refs) {
-    els = refs;
-    if (listening) return;
-    listening = true;
-    els.zoomIn.addEventListener('click', function () {
-      state.zoom = Math.min(2, state.zoom + 0.2); applyZoom();
-    });
-    els.zoomOut.addEventListener('click', function () {
-      state.zoom = Math.max(0.3, state.zoom - 0.2); applyZoom();
-    });
-    els.back.addEventListener('click', function () { go(''); });
-    window.addEventListener('hashchange', route);
-  }
+  /* refs: {main, svg, message} */
+  function init(refs) { els = refs; }
 
-  /* Toont het zorgpad uit de volledige zorgpaddata. */
-  function show(zorgpad) {
-    data = zorgpad;
-    route();
-  }
-
-  return { init: init, show: show };
+  return { init: init, resolve: resolve, fitZoom: fitZoom, draw: draw, applyViewport: applyViewport };
 })();
