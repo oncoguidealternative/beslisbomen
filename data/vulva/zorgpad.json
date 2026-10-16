@@ -1,4 +1,435 @@
 {
   "id": "vulva",
-  "titel": "Vulvacarcinoom"
+  "titel": "Zorgpad vulvacarcinoom",
+  "overview": {
+    "viewBox": [1028, 1424],
+    "nodeSize": [179, 94],
+    "nodes": [
+      {"id": "start", "type": "start", "label": "Zorgpad vulvacarcinoom", "x": 493, "y": 61},
+      {"id": "screening", "drill": true, "label": "Screening", "x": 493, "y": 196},
+      {"id": "diagnostiek", "drill": true, "label": "Diagnostiek", "x": 493, "y": 331},
+      {"id": "aanvullend", "drill": true, "label": "Aanvullende diagnostiek", "x": 493, "y": 466},
+      {"id": "cyt-klein", "drill": true, "label": "Bepaling indicatie cytologisch punctie bij pcc < 4 cm en liesklieren niet verdacht", "x": 291, "y": 579},
+      {"id": "cyt-groot", "drill": true, "label": "Bepaling indicatie cytologische punctie bij pcc >= 4 cm", "x": 696, "y": 579},
+      {"id": "sn-links", "drill": true, "label": "Bepaling indicatie Lymfoscintogram/ Sentinel node procedure", "x": 291, "y": 714},
+      {"id": "sn-rechts", "drill": true, "label": "Bepaling indicatie Lymfoscintogram/ Sentinel node procedure", "x": 696, "y": 714},
+      {"id": "primair", "drill": true, "label": "Primaire behandeling", "x": 493, "y": 826},
+      {"id": "uni-ling", "drill": true, "label": "Beleid na unilaterale inguinofemorale lymfadenectomie", "x": 66, "y": 939},
+      {"id": "na-sn", "drill": true, "label": "Beleid na sentinel node procedure (postoperatief)", "x": 291, "y": 939},
+      {"id": "adjuvant", "drill": true, "label": "Adjuvante behandeling", "x": 493, "y": 1051},
+      {"id": "followup", "drill": true, "label": "Follow up", "x": 696, "y": 1164},
+      {"id": "recidief", "drill": true, "label": "Behandeling recidief", "x": 696, "y": 1299}
+    ],
+    "edges": [
+      {"points": [[583, 155], [583, 196]], "arrow": true},
+      {"points": [[583, 290], [583, 331]], "arrow": true},
+      {"points": [[583, 425], [583, 466]], "arrow": true},
+      {"points": [[493, 513], [380, 513], [380, 579]], "arrow": true},
+      {"points": [[672, 513], [785, 513], [785, 579]], "arrow": true},
+      {"points": [[583, 560], [583, 826]], "arrow": true},
+      {"points": [[470, 623], [696, 623]]},
+      {"points": [[380, 673], [380, 714]], "arrow": true},
+      {"points": [[785, 673], [785, 714]], "arrow": true},
+      {"points": [[470, 761], [696, 761]]},
+      {"points": [[493, 871], [155, 871], [155, 939]], "arrow": true},
+      {"points": [[380, 871], [380, 939]], "arrow": true},
+      {"points": [[583, 920], [583, 1051]], "arrow": true},
+      {"points": [[470, 983], [583, 983]]},
+      {"points": [[245, 985], [291, 985]]},
+      {"points": [[672, 871], [785, 871], [785, 1164]], "arrow": true},
+      {"points": [[672, 1096], [785, 1096]]},
+      {"points": [[785, 1258], [785, 1299]], "arrow": true}
+    ]
+  },
+  "trees": {
+    "screening": {
+      "viewBox": [669, 720],
+      "nodeSize": [270, 142],
+      "wrap": 17,
+      "nodes": [
+        {"id": "root", "type": "root", "label": "Screening", "x": 188, "y": 118, "icon": "minus", "to": ""},
+        {"id": "regel-1", "type": "decision", "label": "Screening niet geïndiceerd", "x": 188, "y": 321},
+        {"id": "volgende", "type": "link", "label": "Diagnostiek", "x": 188, "y": 523, "icon": "down", "to": "diagnostiek"}
+      ],
+      "edges": [
+        {"points": [[322, 260], [322, 299]], "arrow": true, "color": "green", "width": 6},
+        {"points": [[322, 463], [322, 523]], "arrow": true}
+      ]
+    },
+    "diagnostiek": {
+      "viewBox": [442, 1110],
+      "nodeSize": [270, 142],
+      "wrap": 17,
+      "nodes": [
+        {"id": "root", "type": "root", "label": "Diagnostiek", "x": 73, "y": 46, "icon": "minus", "to": ""},
+        {
+          "id": "acties",
+          "type": "decision",
+          "x": 73,
+          "y": 248,
+          "h": 535,
+          "items": [
+            {"text": "Anamnese\n(comorbiditeit)"},
+            {"text": "Lichamelijk onderzoek\n(Karnofsky of WHO\nperformance status)"},
+            {"text": "Gynaecologisch\nonderzoek"},
+            {"text": "Kleuren foto met meetlat"},
+            {"text": "Incisiebiopsie of\nstansbiopsie\n{i}vermeld invasiediepte\nen histologisch type", "info": ""}
+          ]
+        },
+        {"id": "volgende", "type": "link", "label": "Aanvullende diagnostiek", "x": 73, "y": 922, "icon": "down", "to": "aanvullend", "wrap": 30}
+      ],
+      "edges": [
+        {"points": [[208, 187], [208, 226]], "arrow": true, "color": "green", "width": 6},
+        {"points": [[208, 783], [208, 922]], "arrow": true}
+      ]
+    },
+    "aanvullend": {
+      "viewBox": [2324, 1595],
+      "nodeSize": [202, 106],
+      "wrap": 25,
+      "native": true,
+      "nodes": [
+        {"id": "root", "type": "root", "tone": "blue", "label": "Aanvullende diagnostiek", "x": 577, "y": 15, "icon": "minus-light", "to": "", "rx": 30},
+        {"id": "tumorgedrag", "type": "criterion", "label": "Tumorgedrag", "x": 577, "y": 162},
+        {"id": "histo", "type": "criterion", "label": "Histologisch type", "x": 1082, "y": 313},
+        {"id": "operabel", "type": "criterion", "label": "Operabel", "x": 1334, "y": 465},
+        {"id": "focaliteit", "type": "criterion", "label": "Focaliteit vd tumor", "x": 1082, "y": 591},
+        {"id": "ct", "type": "criterion", "label": "cT diameter", "x": 1082, "y": 768},
+        {"id": "invasie", "type": "criterion", "label": "Invasiediepte", "x": 830, "y": 894},
+        {"id": "lies", "type": "criterion", "label": "Lieslieren", "x": 1082, "y": 995},
+        {"id": "o-benigne", "type": "outcome", "text": "Behandeling afhankelijk\nvan diagnose en\nklachten", "x": 73, "y": 1171},
+        {"id": "o-insitu", "type": "outcome", "text": "Zie RL Premaligne\nafwijkingen van de vulva", "x": 325, "y": 1171},
+        {"id": "o-bcc", "type": "outcome", "text": "Ruime lokale excisie", "x": 577, "y": 1171},
+        {"id": "o-niet-verdacht", "type": "outcome", "text": "Verwijs naar oncologisch\ncentrum\n\n---\n\nEcho liezen\nEN\nX-thorax\n\nOF\n\nCT thorax/abdomen", "x": 1082, "y": 1171, "h": 208},
+        {"id": "o-multifocaal", "type": "outcome", "text": "Verwijs naar oncologisch\ncentrum\n---\nCT thorax/abomen", "x": 1334, "y": 1171},
+        {"id": "o-niet-operabel", "type": "outcome", "text": "Verwijs naar oncologisch\ncentrum\n\n---\n\nMRI liezen en bekken\n\nEN\n\nCT thorax/abomen\nOF\nOverweg PET-CT\nthorax/abomen", "x": 1587, "y": 1171, "h": 224},
+        {"id": "o-melanoom", "type": "outcome", "text": "Verwijs naar oncologisch\ncentrum\n\n---\n\nZie RL melanoom\n(voor de huid)", "x": 1839, "y": 1171, "h": 127},
+        {"id": "o-overig", "type": "outcome", "text": "Verwijs naar oncologisch\ncentrum\n\n---\n\nIndividualiseer\nbehandeling", "x": 2091, "y": 1171, "h": 127},
+        {"id": "l-cyt-klein", "type": "link", "label": "Bepaling indicatie cytologisch punctie bij pcc < 4 cm en liesklieren niet verdacht", "x": 1082, "y": 1449, "icon": "down", "to": "cyt-klein"},
+        {"id": "l-cyt-groot", "type": "link", "label": "Bepaling indicatie cytologische punctie bij pcc >= 4 cm", "x": 1334, "y": 1449, "icon": "down", "to": "cyt-groot"},
+        {"id": "l-primair", "type": "link", "label": "Primaire behandeling", "x": 1587, "y": 1449, "icon": "down", "to": "primair"}
+      ],
+      "edges": [
+        {"points": [[678, 121], [678, 162]], "arrow": true},
+        {"points": [[577, 212], [173, 212], [173, 1171]], "arrow": true, "label": "Benigne", "dot": [299, 212]},
+        {"points": [[426, 212], [426, 1171]], "arrow": true, "label": "In situ", "dot": [426, 691]},
+        {"points": [[779, 212], [1183, 212], [1183, 313]], "arrow": true, "label": "Maligne", "dot": [980, 212]},
+        {"points": [[1082, 363], [678, 363], [678, 1171]], "arrow": true, "label": "Basaalcelcarcinoom", "dot": [880, 363]},
+        {"points": [[1284, 363], [1435, 363], [1435, 465]], "arrow": true, "label": "Plaveiselcelcarcinoom", "dot": [1435, 414]},
+        {"points": [[1284, 363], [2192, 363], [2192, 1171]], "arrow": true, "label": "Overig", "dot": [2066, 363]},
+        {"points": [[1940, 363], [1940, 1171]], "arrow": true, "label": "Melanoom", "dot": [1940, 767]},
+        {"points": [[1334, 515], [1183, 515], [1183, 591]], "arrow": true, "label": "Operabel", "dot": [1258, 515]},
+        {"points": [[1536, 515], [1688, 515], [1688, 1171]], "arrow": true, "label": "Niet operabel", "dot": [1612, 515]},
+        {"points": [[1284, 641], [1435, 641], [1435, 1171]], "arrow": true, "label": "Multifocaal", "dot": [1359, 641]},
+        {"points": [[1183, 697], [1183, 768]], "arrow": true, "label": "Unifocaal", "dot": [1183, 729]},
+        {"points": [[1082, 818], [930, 818], [930, 894]], "arrow": true, "label": "<=2 cm", "dot": [1006, 818]},
+        {"points": [[1284, 818], [1435, 818]], "label": ">=4 cm", "dot": [1359, 818]},
+        {"points": [[1183, 874], [1183, 995]], "arrow": true, "label": "2-4 cm", "dot": [1183, 906]},
+        {"points": [[830, 944], [678, 944]], "label": "<=1 mm", "dot": [754, 944]},
+        {"points": [[1032, 944], [1183, 944]], "label": ">1 mm", "dot": [1107, 944]},
+        {"points": [[1284, 1045], [1435, 1045]], "label": "Verdacht", "dot": [1359, 1045]},
+        {"points": [[1183, 1101], [1183, 1171]], "arrow": true, "label": "Niet verdacht", "dot": [1183, 1133]},
+        {"points": [[1183, 1379], [1183, 1449]], "arrow": true},
+        {"points": [[1435, 1277], [1435, 1449]], "arrow": true},
+        {"points": [[1688, 1395], [1688, 1449]], "arrow": true}
+      ]
+    },
+    "primair": {
+      "viewBox": [2380, 1551],
+      "nodeSize": [136, 72],
+      "native": true,
+      "zoom": 1,
+      "nodes": [
+        {"id": "root", "type": "root", "tone": "blue", "label": "Primaire behandeling", "x": 1544, "y": 6, "icon": "minus-light", "to": "", "rx": 22},
+        {"id": "m", "type": "criterion", "label": "M", "x": 1544, "y": 108},
+        {"id": "cn", "type": "criterion", "label": "cN", "x": 1544, "y": 228, "icon": "plus-light"},
+        {"id": "cyt-gedaan", "type": "criterion", "label": "Cytologische punctie gedaan", "x": 1203, "y": 330},
+        {"id": "cyt-uitslag", "type": "criterion", "label": "Uitslag cytologische punctie", "x": 1203, "y": 449},
+        {"id": "ct-l", "type": "criterion", "label": "cT", "x": 1032, "y": 551, "icon": "plus-light"},
+        {"id": "focaliteit", "type": "criterion", "label": "Focaliteit vd tumor", "x": 862, "y": 670},
+        {"id": "diameter", "type": "criterion", "label": "Tumor diameter", "x": 691, "y": 773},
+        {"id": "regio-l", "type": "criterion", "label": "Regio tumor", "x": 521, "y": 875},
+        {"id": "regio-r", "type": "criterion", "label": "Regio tumor", "x": 862, "y": 875},
+        {"id": "drain-1", "type": "criterion", "label": "Drainage op Lymfoscintogram", "x": 350, "y": 994},
+        {"id": "drain-2", "type": "criterion", "label": "Drainage op Lymfoscintogram", "x": 521, "y": 994},
+        {"id": "ct-r", "type": "criterion", "label": "cT", "x": 1544, "y": 752, "icon": "plus-light"},
+        {"id": "loc-meta", "type": "criterion", "label": "Localisatie metastasen", "x": 2055, "y": 752},
+        {"id": "o1", "type": "outcome", "text": "Ruime lokale excisie", "x": 10, "y": 1114},
+        {"id": "o2", "type": "outcome", "h": 248, "x": 180, "y": 1114, "text": "Ruime lokale excisie\n{i}Primaire\nchemoradiotherapie,\nindien wens tot\norgaansparende\nbehadneling\n\nEN\n\nSentinel node (SN)\nprocedure aan drainage\nzijde\n{i}indien SN niet\ngevonden\ninguinofemorale\nlymfadenectomie\n\nEN\n\nInguinofemorale\nlymfadenectomie aan\nandere zijde"},
+        {"id": "o3", "type": "outcome", "h": 172, "x": 350, "y": 1114, "text": "Ruime lokale excisie\n{i}primair\nchemoradiatie, indien\nwens tot\norgaansparende\nbehandeling\n\nEN\n\nBilateraal sentinel node\nprocedure\n{i}indien SN niet\ngevonden\ninguinofemorale\nlymfadenectomie"},
+        {"id": "o4", "type": "outcome", "h": 183, "x": 521, "y": 1114, "text": "Ruime lokale excisie\n{i}primair\nchemoradiatie, indien\nwens tot\norgaansparende\nbehandeling\n\nEN\n\nUnilateraal sentinel node\nprocedure aan\ntumorzijde\n{i}indien SN niet\ngevonden\ninguinofemorale\nlymfadenectomie"},
+        {"id": "o5", "type": "outcome", "h": 172, "x": 692, "y": 1114, "text": "Ruime lokale excisie\n{i}primair\nchemoradiatie, indien\nwens tot\norgaansparende\nbehandeling\n\nEN\n\nBilateraal sentinel node\nprocedure\n{i}indien SN niet\ngevonden\ninguinofemorale\nlymfadenectomie"},
+        {"id": "o6", "type": "outcome", "h": 139, "x": 862, "y": 1114, "text": "Ruime lokale excisie\n{i}primair\nchemoradiatie, indien\nwens tot\norgaansparende\nbehandeling\n\nEN\n\nBilaterale\ninguinofemorale\nlymfadenectomie"},
+        {"id": "o7", "type": "outcome", "h": 139, "x": 1032, "y": 1114, "text": "Ruime lokale excisie\n{i}primair\nchemoradiatie, indien\nwens tot\norgaansparende\nbehandeling\n\nEN\n\nUnilaterale\ninguinofemorale\nlymfadenectomie"},
+        {"id": "o8", "type": "outcome", "h": 129, "x": 1203, "y": 1114, "text": "Ruime lokale excisie\nEN\nBilaterale\ninguinofemorale\nlymfadenectomie\n\nOF\n\nPrimaire\nchemoradiotherapie\n"},
+        {"id": "o9", "type": "outcome", "h": 129, "x": 1373, "y": 1114, "text": "Individualiseer\nbehandeling\n\n\n\nPrimaire\nchemoradiotherapie\n\nOF\n\nExenteratie"},
+        {"id": "o10", "type": "outcome", "h": 139, "x": 1544, "y": 1114, "text": "Ruime lokale excisie\nEN\nBilaterale\ninguinofemorale\nlymfadenectomie\n\nOF\n\nLiesklierdebulking\nEN\nAdjuvante regionale\nradiotherapie"},
+        {"id": "o11", "type": "outcome", "h": 129, "x": 1718, "y": 1114, "text": "Individualiseer\nbehandeling\n\n\n\nPrimaire\nchemoradiotherapie\n\nOF\n\nExenteratie"},
+        {"id": "o12", "type": "outcome", "x": 1889, "y": 1114, "text": "Primaire chemoradiatie\n\nOF\n\nDebulking"},
+        {"id": "o13", "type": "outcome", "h": 248, "x": 2055, "y": 1114, "text": "Ruime lokale excisie\nEN\nDebulking van pelviene\nlymfeklieren\n\nEN\n\nBilaterale\ninguinofemorale\nlymfadenectomie\nOF\nLiesklierdebulking\n\nEN\n\nAdjuvante regionale\nradiotherapie\n\n—OF—\n\nPrimaire chemoradiatie\n"},
+        {"id": "o14", "type": "outcome", "x": 2226, "y": 1114, "text": "Individualiseer\npalliatieve behandeling"},
+        {"id": "l1", "type": "link", "label": "Adjuvante behandeling", "x": 10, "y": 1318, "icon": "down", "to": "adjuvant"},
+        {"id": "l2", "type": "link", "label": "Beleid na sentinel node procedure (postoperatief)", "x": 180, "y": 1386, "icon": "down", "to": "na-sn"},
+        {"id": "l3", "type": "link", "label": "Beleid na sentinel node procedure (postoperatief)", "x": 350, "y": 1318, "icon": "down", "to": "na-sn"},
+        {"id": "l4", "type": "link", "label": "Beleid na sentinel node procedure (postoperatief)", "x": 521, "y": 1318, "icon": "down", "to": "na-sn"},
+        {"id": "l5", "type": "link", "label": "Beleid na sentinel node procedure (postoperatief)", "x": 692, "y": 1318, "icon": "down", "to": "na-sn"},
+        {"id": "l6", "type": "link", "label": "Adjuvante behandeling", "x": 862, "y": 1318, "icon": "down", "to": "adjuvant"},
+        {"id": "l7", "type": "link", "label": "Beleid na unilaterale inguinofemorale lymfadenectomie", "x": 1032, "y": 1318, "icon": "down", "to": "uni-ling"},
+        {"id": "l8", "type": "link", "label": "Adjuvante behandeling", "x": 1203, "y": 1318, "icon": "down", "to": "adjuvant"},
+        {"id": "l9", "type": "link", "label": "Adjuvante behandeling", "x": 1373, "y": 1318, "icon": "down", "to": "adjuvant"},
+        {"id": "l10", "type": "link", "label": "Adjuvante behandeling", "x": 1544, "y": 1318, "icon": "down", "to": "adjuvant"},
+        {"id": "l11", "type": "link", "label": "Adjuvante behandeling", "x": 1718, "y": 1318, "icon": "down", "to": "adjuvant"},
+        {"id": "l12", "type": "link", "label": "Adjuvante behandeling", "x": 1885, "y": 1318, "icon": "down", "to": "adjuvant"},
+        {"id": "f1", "type": "link", "label": "Follow up", "x": 1885, "y": 1437, "icon": "down", "to": "followup"},
+        {"id": "f2", "type": "link", "label": "Follow up", "x": 2055, "y": 1437, "icon": "down", "to": "followup"}
+      ],
+      "edges": [
+        {"points": [[1612, 77], [1612, 108]], "arrow": true},
+        {"points": [[1680, 142], [2123, 142], [2123, 752]], "arrow": true, "label": "cM1, pM1", "dot": [1901, 142]},
+        {"points": [[1612, 180], [1612, 228]], "arrow": true, "label": "cM0", "dot": [1612, 202]},
+        {"points": [[1544, 261], [1271, 261], [1271, 330]], "arrow": true, "label": "0", "dot": [1407, 261]},
+        {"points": [[1680, 261], [1956, 261], [1956, 1114]], "arrow": true, "label": "3", "dot": [1818, 261]},
+        {"points": [[1612, 299], [1612, 752]], "arrow": true, "label": "1,2", "dot": [1612, 389]},
+        {"points": [[1203, 364], [1100, 364], [1100, 551]], "arrow": true, "label": "Nee", "dot": [1151, 364]},
+        {"points": [[1271, 401], [1271, 449]], "arrow": true, "label": "Ja", "dot": [1271, 423]},
+        {"points": [[1203, 483], [1100, 483]], "label": "Negatief", "dot": [1151, 483]},
+        {"points": [[1339, 483], [1612, 483]], "label": "Positief", "dot": [1475, 483]},
+        {"points": [[1032, 585], [77, 585], [77, 1114]], "arrow": true, "label": "cT1a", "dot": [504, 585]},
+        {"points": [[930, 585], [930, 670]], "arrow": true, "label": "cT1b", "dot": [930, 628]},
+        {"points": [[1168, 585], [1271, 585], [1271, 1114]], "arrow": true, "label": "cT2", "dot": [1271, 849]},
+        {"points": [[1271, 585], [1441, 585], [1441, 1114]], "arrow": true, "label": "cT3", "dot": [1356, 585]},
+        {"points": [[862, 706], [759, 706], [759, 773]], "arrow": true, "label": "Unifocaal", "dot": [811, 704]},
+        {"points": [[930, 742], [930, 875]], "arrow": true, "label": "Multifocaal", "dot": [930, 772]},
+        {"points": [[691, 806], [589, 806], [589, 875]], "arrow": true, "label": "<4 cm", "dot": [640, 806]},
+        {"points": [[827, 806], [930, 806]], "label": ">=4 cm", "dot": [879, 806]},
+        {"points": [[521, 908], [418, 908], [418, 994]], "arrow": true, "label": "Midline", "dot": [469, 908]},
+        {"points": [[589, 946], [589, 994]], "arrow": true, "label": "Near midline, Lateraal", "dot": [589, 968]},
+        {"points": [[998, 908], [1100, 908], [1100, 1114]], "arrow": true, "label": "Lateraal", "dot": [1049, 908]},
+        {"points": [[930, 946], [930, 1114]], "arrow": true, "label": "Near midline, Midline", "dot": [930, 1027]},
+        {"points": [[350, 1028], [248, 1028], [248, 1114]], "arrow": true, "label": "Unilateraal", "dot": [299, 1028]},
+        {"points": [[418, 1065], [418, 1114]], "arrow": true, "label": "Bilateraal", "dot": [418, 1087]},
+        {"points": [[657, 1028], [759, 1028], [759, 1114]], "arrow": true, "label": "Bilateraal", "dot": [708, 1028]},
+        {"points": [[589, 1065], [589, 1114]], "arrow": true, "label": "Unilateraal", "dot": [589, 1087]},
+        {"points": [[1612, 823], [1612, 1114]], "arrow": true, "label": "cT1 - cT2", "dot": [1612, 966]},
+        {"points": [[1680, 786], [1786, 786], [1786, 1114]], "arrow": true, "label": "cT3", "dot": [1733, 786]},
+        {"points": [[2123, 823], [2123, 1114]], "arrow": true, "label": "Bekkenklieren", "dot": [2123, 966]},
+        {"points": [[2191, 786], [2294, 786], [2294, 1114]], "arrow": true, "label": "Buiten het bekken", "dot": [2243, 786]},
+        {"points": [[78, 1185], [78, 1318]], "arrow": true},
+        {"points": [[248, 1362], [248, 1386]], "arrow": true},
+        {"points": [[418, 1286], [418, 1318]], "arrow": true},
+        {"points": [[589, 1297], [589, 1318]], "arrow": true},
+        {"points": [[760, 1286], [760, 1318]], "arrow": true},
+        {"points": [[930, 1253], [930, 1318]], "arrow": true},
+        {"points": [[1100, 1253], [1100, 1318]], "arrow": true},
+        {"points": [[1271, 1243], [1271, 1318]], "arrow": true},
+        {"points": [[1441, 1243], [1441, 1318]], "arrow": true},
+        {"points": [[1612, 1253], [1612, 1318]], "arrow": true},
+        {"points": [[1786, 1243], [1786, 1318]], "arrow": true},
+        {"points": [[1953, 1185], [1953, 1318]], "arrow": true},
+        {"points": [[1953, 1389], [1953, 1437]], "arrow": true},
+        {"points": [[2123, 1362], [2123, 1437]], "arrow": true}
+      ]
+    },
+    "adjuvant": {
+      "viewBox": [1204, 1609],
+      "nodeSize": [231, 121],
+      "native": true,
+      "nodes": [
+        {"id": "root", "type": "root", "tone": "blue", "label": "Adjuvante behandeling", "x": 340, "y": 26, "icon": "minus-light", "to": "", "rx": 40},
+        {"id": "snijvlak", "type": "criterion", "label": "Snijvlak", "x": 340, "y": 199},
+        {"id": "pn", "type": "criterion", "label": "pN", "x": 340, "y": 430, "icon": "plus-light"},
+        {"id": "ingroei", "type": "criterion", "label": "Ingroei tumor", "x": 629, "y": 603},
+        {"id": "aantal", "type": "criterion", "label": "Aantal intranodale metastasen", "x": 629, "y": 834},
+        {"id": "cn", "type": "criterion", "label": "cN", "x": 629, "y": 1065, "icon": "plus-light"},
+        {"id": "o-reexcisie", "type": "outcome", "text": "Re-excisie\n\nOF\n\nLokale radiotherapie\n(totale dosis 60-70 Gy\nafhankelijk van het\nvolume residue tumor)", "x": 52, "y": 1239, "h": 165},
+        {"id": "o-geen", "type": "outcome", "text": "Geen adjuvante\nbehandeling", "x": 340, "y": 1239},
+        {"id": "o-radio", "type": "outcome", "text": "Radiotherapie\n\n{i}Bestraal alleen de\naangedane lies mits de\ncontralaterale lies\nadequaat gestadieerd is.", "x": 918, "y": 1239, "h": 127},
+        {"id": "f1", "type": "link", "label": "Follow up", "x": 52, "y": 1441, "icon": "down", "to": "followup"},
+        {"id": "f2", "type": "link", "label": "Follow up", "x": 340, "y": 1441, "icon": "down", "to": "followup"},
+        {"id": "f3", "type": "link", "label": "Follow up", "x": 918, "y": 1441, "icon": "down", "to": "followup"}
+      ],
+      "edges": [
+        {"points": [[456, 146], [456, 199]], "arrow": true},
+        {"points": [[340, 257], [167, 257], [167, 1239]], "arrow": true, "label": "Snijvlak niet vrij", "dot": [253, 257]},
+        {"points": [[456, 320], [456, 430]], "arrow": true, "label": "Snijvlak vrij", "dot": [456, 372]},
+        {"points": [[571, 488], [744, 488], [744, 603]], "arrow": true, "label": ">= pN1", "dot": [657, 488]},
+        {"points": [[456, 551], [456, 1239]], "arrow": true, "label": "pN0", "dot": [456, 834]},
+        {"points": [[860, 661], [1033, 661], [1033, 1239]], "arrow": true, "label": "Extranodaal", "dot": [946, 661]},
+        {"points": [[744, 724], [744, 834]], "arrow": true, "label": "Intranodaal", "dot": [744, 776]},
+        {"points": [[860, 891], [1033, 891]], "label": ">=2", "dot": [946, 891]},
+        {"points": [[744, 955], [744, 1065]], "arrow": true, "label": "<=1", "dot": [744, 1007]},
+        {"points": [[860, 1123], [1033, 1123]], "label": ">= cN1", "dot": [946, 1123]},
+        {"points": [[629, 1123], [456, 1123]], "label": "cN0", "dot": [542, 1123]},
+        {"points": [[167, 1404], [167, 1441]], "arrow": true},
+        {"points": [[456, 1359], [456, 1441]], "arrow": true},
+        {"points": [[1033, 1366], [1033, 1441]], "arrow": true}
+      ]
+    },
+    "followup": {
+      "viewBox": [483, 1088],
+      "nodeSize": [297, 155],
+      "native": true,
+      "wrap": 17,
+      "nodes": [
+        {"id": "root", "type": "root", "label": "Follow up", "x": 87, "y": 48, "icon": "minus", "to": ""},
+        {"id": "acties", "type": "decision", "x": 87, "y": 272, "h": 455, "text": "Anamnese\n\nEN\n\nLichamelijk onderzoek\n\nZie onderbouwing voor\nfollow up schema\nLink voor: {a:Nazorgplan|}\n\n\nFollow up ook\ngedeeltelijk door\nradiotherapeut indien\nradiotherapie onderdeel\nwas van de behandeling\n{i}follow-up in\noncologisch centrum"},
+        {"id": "volgende", "type": "link", "label": "Behandeling recidief", "x": 87, "y": 850, "icon": "down", "to": "recidief", "wrap": 30}
+      ],
+      "edges": [
+        {"points": [[235, 203], [235, 250]], "arrow": true, "color": "green", "width": 6},
+        {"points": [[235, 727], [235, 850]], "arrow": true}
+      ]
+    },
+    "recidief": {
+      "viewBox": [1887, 1144],
+      "nodeSize": [296, 155],
+      "native": true,
+      "nodes": [
+        {"id": "root", "type": "root", "tone": "blue", "label": "Behandeling recidief", "x": 777, "y": 29, "icon": "minus-light", "to": "", "rx": 50},
+        {"id": "lokalisatie", "type": "criterion", "label": "Lokalisatie recidief", "x": 777, "y": 252},
+        {"id": "prim-l", "type": "criterion", "label": "Primaire behandeling liezen", "x": 405, "y": 474},
+        {"id": "prim-r", "type": "criterion", "label": "Primaire behandeling liezen", "x": 1141, "y": 474},
+        {"id": "o1", "type": "outcome", "text": "Ruime lokale excisie\n\nOF\n\n(Chemo)radiatie\n{i}indien contra-indicatie\nchirurgie\n", "x": 34, "y": 735, "h": 212},
+        {"id": "o2", "type": "outcome", "text": "Ruime lokale excisie\nEN\nInguinofemorale\nlymfadenectomie\nOverweeg inclusie in\nstudie V2SLN\n{a:klik hier * V2SLN|}\n\nOF\n\n(Chemo)radiatie\n{i}indien contra-indicatie\nchirurgie", "x": 405, "y": 735, "h": 334},
+        {"id": "o3", "type": "outcome", "text": "Overweeg\nliesklierdebulking\n{i}indien operabel\n\nGEVOLGD DOOR\n(chemo)radiatie\n\nOF\n\n(Chemo)radiatie\n{i}indien contra-indicatie\nchirurgie", "x": 777, "y": 735, "h": 310},
+        {"id": "o4", "type": "outcome", "text": "Inguinofemorale\nlymfadenectomie\nOF\nOverweeg\nliesklierdebulking\n{i}indien operabel\n\nGEVOLGD DOOR\n(chemo)radiatie\n\n---OF---\n\n(Chemo)radiatie\n{i}indien contra-indicatie\nchirurgie", "x": 1141, "y": 735, "h": 383},
+        {"id": "o5", "type": "outcome", "text": "Individualiseer\nbehandeling", "x": 1519, "y": 735}
+      ],
+      "edges": [
+        {"points": [[925, 184], [925, 252]], "arrow": true},
+        {"points": [[777, 326], [553, 326], [553, 474]], "arrow": true, "label": "Lokaal", "dot": [665, 326]},
+        {"points": [[1073, 326], [1288, 326], [1288, 474]], "arrow": true, "label": "Liesrecidief", "dot": [1288, 400]},
+        {"points": [[1073, 326], [1667, 326], [1667, 735]], "arrow": true, "label": "Afstandsmetastasen", "dot": [1478, 326]},
+        {"points": [[405, 549], [182, 549], [182, 735]], "arrow": true, "label": "Inguinofemorale\nlymfadenectomie", "dot": [294, 549]},
+        {"points": [[553, 629], [553, 735]], "arrow": true, "label": "Sentinel node procedure", "dot": [553, 679]},
+        {"points": [[1141, 549], [925, 549], [925, 735]], "arrow": true, "label": "Inguinofemorale\nlymfadenectomie", "dot": [1032, 549]},
+        {"points": [[1288, 629], [1288, 735]], "arrow": true, "label": "Sentinel node procedure", "dot": [1288, 679]}
+      ]
+    },
+    "uni-ling": {
+      "viewBox": [789, 990],
+      "nodeSize": [296, 154],
+      "native": true,
+      "nodes": [
+        {"id": "root", "type": "root", "tone": "blue", "label": "Beleid na unilaterale inguinofemorale lymfadenectomie", "x": 64, "y": 37, "icon": "minus-light", "to": "", "rx": 50},
+        {"id": "uitslag", "type": "criterion", "label": "Uitslag unilaterale inguinofemorale lymfadenectomie", "x": 64, "y": 259},
+        {"id": "o-pos", "type": "outcome", "text": "Overweeg contralaterale\ninguinofemorale\nlymfadenectomie", "x": 64, "y": 556},
+        {"id": "o-neg", "type": "outcome", "text": "Geen contralaterale\ninguinofemorale\nlymfadenectomie", "x": 436, "y": 556},
+        {"id": "l1", "type": "link", "label": "Adjuvante behandeling", "x": 64, "y": 779, "icon": "down", "to": "adjuvant"},
+        {"id": "l2", "type": "link", "label": "Follow up", "x": 436, "y": 779, "icon": "down", "to": "followup"}
+      ],
+      "edges": [
+        {"points": [[212, 191], [212, 259]], "arrow": true},
+        {"points": [[360, 331], [584, 331], [584, 556]], "arrow": true, "label": "Negatief", "dot": [473, 333]},
+        {"points": [[212, 413], [212, 556]], "arrow": true, "label": "Positief", "dot": [213, 482]},
+        {"points": [[212, 711], [212, 779]], "arrow": true},
+        {"points": [[584, 711], [584, 779]], "arrow": true}
+      ]
+    },
+    "na-sn": {
+      "viewBox": [1875, 1549],
+      "nodeSize": [297, 155],
+      "native": true,
+      "nodes": [
+        {"id": "root", "type": "root", "tone": "blue", "label": "Beleid na sentinel node procedure (postoperatief)", "x": 407, "y": 23, "icon": "minus-light", "to": "", "rx": 50},
+        {"id": "sn", "type": "criterion", "label": "Sentinel node", "x": 407, "y": 245},
+        {"id": "locatie", "type": "criterion", "label": "Locatie positieve SN", "x": 407, "y": 505},
+        {"id": "groot-l", "type": "criterion", "label": "Grootte metastasen", "x": 407, "y": 765},
+        {"id": "groot-r", "type": "criterion", "label": "Grootte metastasen", "x": 1150, "y": 765},
+        {"id": "o1", "type": "outcome", "text": "Geen aanvullende\nbehandeling", "x": 35, "y": 1025},
+        {"id": "o2", "type": "outcome", "text": "Unilaterale\ninguinofemorale\nlymfadenectomie\n\nOF\n\nRadiotherapie", "x": 407, "y": 1025, "h": 189},
+        {"id": "o3", "type": "outcome", "text": "Unilaterale\ninguinofemorale\nlymfadenectomie\n\nOF\n\nInclusie in studie:\nGROINSS-V III", "x": 778, "y": 1025, "h": 213},
+        {"id": "o4", "type": "outcome", "text": "Bilaterale\ninguinofemorale\nlymfadenectomie\n\nOF\n\nRadiotherapie", "x": 1150, "y": 1025, "h": 189},
+        {"id": "o5", "type": "outcome", "text": "Bilaterale\ninguinofemorale\nlymfadenectomie\n\nOF\n\nInclusie in studie:\nGROINSS-V III", "x": 1521, "y": 1025, "h": 213},
+        {"id": "l1", "type": "link", "label": "Follow up", "x": 35, "y": 1359, "icon": "down", "to": "followup"},
+        {"id": "l2", "type": "link", "label": "Adjuvante behandeling", "x": 407, "y": 1359, "icon": "down", "to": "adjuvant"},
+        {"id": "l3", "type": "link", "label": "Adjuvante behandeling", "x": 778, "y": 1359, "icon": "down", "to": "adjuvant"},
+        {"id": "l4", "type": "link", "label": "Adjuvante behandeling", "x": 1150, "y": 1359, "icon": "down", "to": "adjuvant"},
+        {"id": "l5", "type": "link", "label": "Adjuvante behandeling", "x": 1521, "y": 1359, "icon": "down", "to": "adjuvant"}
+      ],
+      "edges": [
+        {"points": [[555, 178], [555, 245]], "arrow": true},
+        {"points": [[407, 319], [184, 319], [184, 1025]], "arrow": true, "label": "Negatief", "dot": [295, 319]},
+        {"points": [[555, 400], [555, 505]], "arrow": true, "label": "Positief", "dot": [555, 449]},
+        {"points": [[704, 579], [1298, 579], [1298, 765]], "arrow": true, "label": "Bilateraal", "dot": [1000, 579]},
+        {"points": [[555, 660], [555, 765]], "arrow": true, "label": "Unilateraal", "dot": [555, 709]},
+        {"points": [[704, 839], [926, 839], [926, 1025]], "arrow": true, "label": ">2 mm", "dot": [815, 839]},
+        {"points": [[555, 920], [555, 1025]], "arrow": true, "label": "<=2 mm", "dot": [555, 969]},
+        {"points": [[1447, 839], [1669, 839], [1669, 1025]], "arrow": true, "label": ">2 mm", "dot": [1557, 839]},
+        {"points": [[1298, 920], [1298, 1025]], "arrow": true, "label": "<=2 mm", "dot": [1298, 969]},
+        {"points": [[184, 1181], [184, 1359]], "arrow": true},
+        {"points": [[555, 1214], [555, 1359]], "arrow": true},
+        {"points": [[926, 1238], [926, 1359]], "arrow": true},
+        {"points": [[1298, 1214], [1298, 1359]], "arrow": true},
+        {"points": [[1669, 1238], [1669, 1359]], "arrow": true}
+      ]
+    },
+    "cyt-klein": {
+      "viewBox": [824, 1200],
+      "nodeSize": [297, 155],
+      "native": true,
+      "nodes": [
+        {"id": "root", "type": "root", "tone": "blue", "label": "Bepaling indicatie cytologisch punctie bij pcc < 4 cm en liesklieren niet verdacht", "x": 70, "y": 32, "icon": "minus-light", "to": "", "rx": 50},
+        {"id": "cn", "type": "criterion", "label": "cN", "x": 70, "y": 254, "icon": "plus-light"},
+        {"id": "verdacht", "type": "criterion", "label": "Verdachte klieren bij beeldvorming", "x": 70, "y": 515},
+        {"id": "o-niet", "type": "outcome", "text": "Cytologische punctie\nvan lieslieren niet\ngeïndiceerd", "x": 70, "y": 774},
+        {"id": "o-wel", "type": "outcome", "text": "Overweeg cytologische\npunctie van lieslieren", "x": 442, "y": 774},
+        {"id": "l1", "type": "link", "label": "Bepaling indicatie Lymfoscintogram/ Sentinel node procedure", "x": 70, "y": 997, "icon": "down", "to": "sn-links"},
+        {"id": "l2", "type": "link", "label": "Primaire behandeling", "x": 442, "y": 997, "icon": "down", "to": "primair"}
+      ],
+      "edges": [
+        {"points": [[219, 187], [219, 254]], "arrow": true},
+        {"points": [[368, 328], [590, 328], [590, 774]], "arrow": true, "label": ">= cN1", "dot": [479, 328]},
+        {"points": [[219, 409], [219, 515]], "arrow": true, "label": "cN0", "dot": [219, 459]},
+        {"points": [[368, 590], [590, 590]], "label": "Ja", "dot": [479, 590]},
+        {"points": [[219, 669], [219, 774]], "arrow": true, "label": "Nee", "dot": [219, 718]},
+        {"points": [[219, 930], [219, 997]], "arrow": true},
+        {"points": [[590, 930], [590, 997]], "arrow": true}
+      ]
+    },
+    "cyt-groot": {
+      "viewBox": [819, 1211],
+      "nodeSize": [297, 155],
+      "native": true,
+      "nodes": [
+        {"id": "root", "type": "root", "tone": "blue", "label": "Bepaling indicatie cytologische punctie bij pcc >= 4 cm", "x": 32, "y": 30, "icon": "minus-light", "to": "", "rx": 50},
+        {"id": "cn", "type": "criterion", "label": "cN", "x": 32, "y": 252, "icon": "plus-light"},
+        {"id": "verdacht", "type": "criterion", "label": "Verdachte klieren bij beeldvorming", "x": 32, "y": 513},
+        {"id": "o-niet", "type": "outcome", "text": "Cytologische punctie\nvan lieslieren niet\ngeïndiceerd", "x": 32, "y": 772},
+        {"id": "o-wel", "type": "outcome", "text": "Overweeg cytologische\npunctie van lieslieren", "x": 404, "y": 772},
+        {"id": "l1", "type": "link", "label": "Bepaling indicatie Lymfoscintogram/ Sentinel node procedure", "x": 32, "y": 994, "icon": "down", "to": "sn-rechts"},
+        {"id": "l2", "type": "link", "label": "Primaire behandeling", "x": 404, "y": 994, "icon": "down", "to": "primair"}
+      ],
+      "edges": [
+        {"points": [[181, 185], [181, 252]], "arrow": true},
+        {"points": [[330, 326], [552, 326], [552, 772]], "arrow": true, "label": ">= cN1", "dot": [441, 326]},
+        {"points": [[181, 407], [181, 513]], "arrow": true, "label": "cN0", "dot": [181, 457]},
+        {"points": [[330, 588], [552, 588]], "label": "Ja", "dot": [441, 588]},
+        {"points": [[181, 667], [181, 772]], "arrow": true, "label": "Nee", "dot": [181, 716]},
+        {"points": [[181, 928], [181, 994]], "arrow": true},
+        {"points": [[552, 928], [552, 994]], "arrow": true}
+      ]
+    },
+    "sn-links": {
+      "viewBox": [768, 928],
+      "nodeSize": [296, 156],
+      "native": true,
+      "nodes": [
+        {"id": "root", "type": "root", "tone": "blue", "label": "Bepaling indicatie Lymfoscintogram/ Sentinel node procedure", "x": 26, "y": 21, "icon": "minus-light", "to": "", "rx": 50},
+        {"id": "uitslag", "type": "criterion", "label": "Uitslag punctie liesklier", "x": 26, "y": 245, "wrap": 28},
+        {"id": "o-neg", "type": "outcome", "text": "SN procedure:\n\nLymfoscintogram\npre-operatief", "x": 26, "y": 505},
+        {"id": "o-pos", "type": "outcome", "text": "Geen SN procedure", "x": 397, "y": 505},
+        {"id": "l1", "type": "link", "label": "Primaire behandeling", "x": 26, "y": 727, "icon": "down", "to": "primair"},
+        {"id": "l2", "type": "link", "label": "Primaire behandeling", "x": 397, "y": 727, "icon": "down", "to": "primair"}
+      ],
+      "edges": [
+        {"points": [[174, 177], [174, 245]], "arrow": true},
+        {"points": [[322, 319], [545, 319], [545, 505]], "arrow": true, "label": "Positief", "dot": [433, 319]},
+        {"points": [[174, 400], [174, 505]], "arrow": true, "label": "Negatief", "dot": [174, 449]},
+        {"points": [[174, 660], [174, 727]], "arrow": true},
+        {"points": [[545, 660], [545, 727]], "arrow": true}
+      ]
+    },
+    "sn-rechts": {"same": "sn-links"}
+  }
 }
