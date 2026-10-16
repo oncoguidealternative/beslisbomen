@@ -1,1 +1,14 @@
-{}
+{
+  "tumoren": [
+    {
+      "id": "vulva",
+      "titel": "Vulvacarcinoom",
+      "beschrijving": "Interactief zorgpad vulvacarcinoom"
+    },
+    {
+      "id": "endometrium",
+      "titel": "Endometriumcarcinoom",
+      "beschrijving": "Interactief zorgpad endometriumcarcinoom"
+    }
+  ]
+}
