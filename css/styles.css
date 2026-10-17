@@ -134,6 +134,22 @@ body[data-page="zorgpad"] { line-height: normal; }
 .zp-stage svg { display: block; height: auto; }
 .zp-main:not(.is-native) .zp-stage svg { width: 100%; }
 
+/* Muisnavigatie (zoom en pan) voor native diagrammen */
+.zp-main.is-native .zp-stage {
+  height: calc(100vh - 130px);
+  height: calc(100dvh - 130px);
+  min-height: 320px;
+  overflow: hidden;
+  overflow: clip;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.zp-main.is-native .zp-stage svg { width: 100%; height: 100%; }
+.zp-main.is-native .zp-stage.is-dragging,
+.zp-main.is-native .zp-stage.is-dragging * { cursor: grabbing; }
+
 .zp-message { padding: 16px 4px; line-height: 1.6; max-width: 70ch; }
 .zp-message .loaded-label { color: var(--color-text-muted); margin: 0 0 .25rem; }
 .zp-message .loaded-title { margin: 0 0 .75rem; font-size: 1.5rem; color: var(--color-text); }
