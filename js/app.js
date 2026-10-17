@@ -65,12 +65,17 @@
   }
 
   const ZOOM_STEP = 0.2;
+  const WHEEL_SENSITIVITY = 0.0015;
+  const WHEEL_PINCH_SENSITIVITY = 0.01;
+  const DRAG_THRESHOLD = 4;
+  const FOCUS_MARGIN = 16;
 
   async function initZorgpad() {
     const refs = {
       main: document.getElementById("zp-main"),
       svg: document.getElementById("zp-chart"),
       message: document.getElementById("zp-message"),
+      stage: document.getElementById("zp-stage"),
       back: document.getElementById("zp-back"),
       zoomIn: document.getElementById("zp-zin"),
       zoomOut: document.getElementById("zp-zout")
@@ -153,10 +158,13 @@
       location.hash = target ? "#/" + target : "";
     }
 
+    let currentGraph = null;
+
     // Leest de URL-hash, werkt de state bij en laat de renderer tekenen.
     function showRoute() {
       const id = location.hash.replace(/^#\//, "");
       const view = Renderer.resolve(zorgpad, id);
+      currentGraph = view.graph;
       setTree(view.treeId);
       if (view.graph && view.graph.native) setZoom(Renderer.fitZoom(view.graph));
       document.title = view.treeId ? view.label + " – " + zorgpad.titel : zorgpad.titel;
@@ -169,14 +177,119 @@
       if (key === "viewport") Renderer.applyViewport();
     });
 
-    refs.zoomIn.addEventListener("click", function () {
-      setZoom(getState().viewport.zoom + ZOOM_STEP);
-    });
-    refs.zoomOut.addEventListener("click", function () {
-      setZoom(getState().viewport.zoom - ZOOM_STEP);
-    });
+    // ----- Muisnavigatie (alleen voor native diagrammen) -----
+    function navigationActive() {
+      return refs.main.classList.contains("is-native") && !refs.svg.classList.contains("zp-hidden");
+    }
+
+    // Zoomt naar newZoom en houdt het punt (cx, cy) in stage-pixels onder de cursor.
+    function zoomTo(newZoom, cx, cy) {
+      const before = getState().viewport;
+      setZoom(newZoom);
+      const after = getState().viewport;
+      if (after.zoom === before.zoom) return;
+      const ux = (cx - before.panX) / before.zoom;
+      const uy = (cy - before.panY) / before.zoom;
+      setPan(cx - ux * after.zoom, cy - uy * after.zoom);
+    }
+
+    function stageCenter() {
+      const r = refs.stage.getBoundingClientRect();
+      return { x: r.width / 2, y: r.height / 2 };
+    }
+
+    function stepZoom(delta) {
+      const c = stageCenter();
+      zoomTo(getState().viewport.zoom + delta, c.x, c.y);
+    }
+
+    refs.zoomIn.addEventListener("click", function () { stepZoom(ZOOM_STEP); });
+    refs.zoomOut.addEventListener("click", function () { stepZoom(-ZOOM_STEP); });
     refs.back.addEventListener("click", function () { navigate(""); });
     window.addEventListener("hashchange", showRoute);
+
+    // Muiswiel en touchpad: omhoog = inzoomen, omlaag = uitzoomen (pinch op touchpad komt als ctrl+wheel).
+    refs.stage.addEventListener("wheel", function (ev) {
+      if (!navigationActive()) return;
+      ev.preventDefault();
+      let dy = ev.deltaY;
+      if (ev.deltaMode === 1) dy *= 16;
+      else if (ev.deltaMode === 2) dy *= 100;
+      dy = Math.max(-120, Math.min(120, dy));
+      const factor = Math.exp(-dy * (ev.ctrlKey ? WHEEL_PINCH_SENSITIVITY : WHEEL_SENSITIVITY));
+      const r = refs.stage.getBoundingClientRect();
+      zoomTo(getState().viewport.zoom * factor, ev.clientX - r.left, ev.clientY - r.top);
+    }, { passive: false });
+
+    // Slepen: linkermuisknop (of vinger) ingedrukt houden en bewegen.
+    let drag = null;
+    let suppressClick = false;
+
+    refs.stage.addEventListener("pointerdown", function (ev) {
+      if (!navigationActive() || !ev.isPrimary) return;
+      if (ev.pointerType === "mouse" && ev.button !== 0) return;
+      const v = getState().viewport;
+      drag = { id: ev.pointerId, x: ev.clientX, y: ev.clientY, panX: v.panX, panY: v.panY, active: false };
+    });
+
+    refs.stage.addEventListener("pointermove", function (ev) {
+      if (!drag || ev.pointerId !== drag.id) return;
+      const dx = ev.clientX - drag.x;
+      const dy = ev.clientY - drag.y;
+      if (!drag.active) {
+        if (Math.hypot(dx, dy) < DRAG_THRESHOLD) return;
+        drag.active = true;
+        suppressClick = true;
+        refs.stage.classList.add("is-dragging");
+        refs.stage.setPointerCapture(ev.pointerId);
+      }
+      setPan(drag.panX + dx, drag.panY + dy);
+    });
+
+    function endDrag(ev) {
+      if (!drag || ev.pointerId !== drag.id) return;
+      if (drag.active) {
+        refs.stage.classList.remove("is-dragging");
+        if (refs.stage.hasPointerCapture(ev.pointerId)) refs.stage.releasePointerCapture(ev.pointerId);
+        setTimeout(function () { suppressClick = false; }, 0);
+      }
+      drag = null;
+    }
+    refs.stage.addEventListener("pointerup", endDrag);
+    refs.stage.addEventListener("pointercancel", endDrag);
+
+    // Een sleepgebaar mag geen node of link activeren.
+    refs.stage.addEventListener("click", function (ev) {
+      if (!suppressClick) return;
+      ev.stopPropagation();
+      ev.preventDefault();
+      suppressClick = false;
+    }, true);
+
+    // Dubbelklik op het diagram: terug naar standaardzoom en beginpositie.
+    refs.stage.addEventListener("dblclick", function (ev) {
+      if (!navigationActive() || ev.target.closest(".node.go")) return;
+      resetViewport();
+      if (currentGraph && currentGraph.native) setZoom(Renderer.fitZoom(currentGraph));
+    });
+
+    // Toetsenbordfocus: houd de gefocuste node in beeld door te pannen (het diagram scrolt zelf niet).
+    refs.stage.addEventListener("focusin", function (ev) {
+      if (!navigationActive()) return;
+      refs.stage.scrollLeft = 0;
+      refs.stage.scrollTop = 0;
+      const s = refs.stage.getBoundingClientRect();
+      const t = ev.target.getBoundingClientRect();
+      let dx = 0, dy = 0;
+      if (t.right > s.right - FOCUS_MARGIN) dx = s.right - FOCUS_MARGIN - t.right;
+      if (t.left + dx < s.left + FOCUS_MARGIN) dx = s.left + FOCUS_MARGIN - t.left;
+      if (t.bottom > s.bottom - FOCUS_MARGIN) dy = s.bottom - FOCUS_MARGIN - t.bottom;
+      if (t.top + dy < s.top + FOCUS_MARGIN) dy = s.top + FOCUS_MARGIN - t.top;
+      if (dx || dy) {
+        const v = getState().viewport;
+        setPan(v.panX + dx, v.panY + dy);
+      }
+    });
 
     try {
       showRoute();
