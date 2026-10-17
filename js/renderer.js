@@ -110,16 +110,15 @@ const Renderer = (function () {
       var d = e.points.map(function (p, i) { return (i ? 'L' : 'M') + p[0] + ',' + p[1]; }).join(' ');
       var a = {d: d, 'class': 'edge' + (e.color === 'green' ? ' green' : ''), 'stroke-width': e.width || 1.5};
       if (e.arrow) a['marker-end'] = e.color === 'green' ? 'url(#ah-green)' : 'url(#ah)';
-      if (e.value !== undefined && e.from) {
-        // Interactieve verbinding: koppeling aan de keuze van de node 'from'
+      if (e.id) {
+        // Edge met id: statussen worden later per id toegepast (selected, available, inactive, excluded)
         a['data-edge-id'] = e.id;
-        a['data-selection-node'] = e.from;
-        a['data-selection-value'] = e.value;
         a['data-d'] = d;
+        a['data-marker'] = a['marker-end'] || '';
         if (e.selectedPoints) {
           a['data-d-selected'] = e.selectedPoints.map(function (p, i) { return (i ? 'L' : 'M') + p[0] + ',' + p[1]; }).join(' ');
         }
-        if (a['marker-end']) a['data-marker'] = a['marker-end'];
+        if (e.arrow || e.selectedPoints) a['data-selected-arrow'] = '1';
       }
       el('path', a, vp);
     });
@@ -127,9 +126,7 @@ const Renderer = (function () {
     graph.edges.forEach(function (e) {
       if (!e.dot) return;
       var link = {};
-      if (e.value !== undefined && e.from) {
-        link = {'data-edge-id': e.id, 'data-selection-node': e.from, 'data-selection-value': e.value};
-      }
+      if (e.id) link = {'data-edge-id': e.id};
       var dotAttrs = {'class': 'edot', cx: e.dot[0], cy: e.dot[1], r: 9.3 * s};
       for (var dk in link) dotAttrs[dk] = link[dk];
       el('circle', dotAttrs, vp);
@@ -151,28 +148,28 @@ const Renderer = (function () {
       var icon = n.icon || (n.drill ? 'down' : null);
       var type = n.type || 'step';
       var interactive = n.interactive === true && Array.isArray(n.options);
-      var g = el('g', {'class': 'node t-' + type + (n.tone ? ' tone-' + n.tone : '') + (target !== null ? ' go' : '') +
+      var g = el('g', {'data-node-id': n.id, 'class': 'node t-' + type + (n.tone ? ' tone-' + n.tone : '') + (target !== null ? ' go' : '') +
         (interactive ? ' is-interactive' : ''),
         transform: 'translate(' + n.x + ',' + n.y + ')'}, vp);
       if (interactive) {
         var optionLabels = {};
         n.options.forEach(function (o) { optionLabels[o.value] = o.label; });
         var item = {id: n.id, label: n.label, options: n.options};
-        g.setAttribute('data-node-id', n.id);
         g.setAttribute('data-node-label', n.label);
         g.setAttribute('data-option-labels', JSON.stringify(optionLabels));
         g.setAttribute('role', 'button');
         g.setAttribute('aria-haspopup', 'dialog');
         g.setAttribute('tabindex', '0');
         g.setAttribute('aria-label', 'Kies een waarde voor ' + n.label);
-        g.addEventListener('click', function () { onInteract(item, g); });
+        var activate = function () { if (isClickable(g)) onInteract(item, g); };
+        g.addEventListener('click', activate);
         g.addEventListener('keydown', function (ev) {
-          if (ev.key === 'Enter') { ev.preventDefault(); onInteract(item, g); }
+          if (ev.key === 'Enter') { ev.preventDefault(); activate(); }
           else if (ev.key === ' ') { ev.preventDefault(); }
         });
         // Spatie activeert bij loslaten, zodat de keyup niet op de radioknop in het venster terechtkomt.
         g.addEventListener('keyup', function (ev) {
-          if (ev.key === ' ') { ev.preventDefault(); onInteract(item, g); }
+          if (ev.key === ' ') { ev.preventDefault(); activate(); }
         });
       }
       if (target !== null) {
@@ -243,36 +240,79 @@ const Renderer = (function () {
     });
 
     applyViewport();
-    applySelections();
   }
 
-  /* Past de selecties uit de state toe op de getekende SVG (gerichte statusupdate, geen rerender).
-     De SVG-elementen bevatten zelf geen keuze: alles wordt uit getState().selections afgeleid. */
-  function applySelections() {
+  var STATUS_CLASSES = ['is-selected', 'is-available', 'is-inactive', 'is-excluded'];
+
+  function setStatusClass(element, status) {
+    STATUS_CLASSES.forEach(function (c) { element.classList.remove(c); });
+    if (status && status !== 'normal') element.classList.add('is-' + status);
+  }
+
+  function isClickable(g) {
+    return g.classList.contains('is-available') || g.classList.contains('is-selected');
+  }
+
+  /* Past een berekende graph-status toe als CSS-klassen op nodes, edges, dots en labels.
+     status = {nodes: {id: status}, edges: {id: status}} (uit GraphState.compute).
+     Gerichte update zonder rerender; de renderer bepaalt zelf geen route of keuze. */
+  function applyStatus(status) {
     var selections = getState().selections;
-    els.svg.querySelectorAll('[data-selection-node]').forEach(function (item) {
-      var on = selections[item.getAttribute('data-selection-node')] === item.getAttribute('data-selection-value');
-      item.classList.toggle('is-selected', on);
-      if (item.tagName.toLowerCase() === 'path') {
-        var selectedD = item.getAttribute('data-d-selected');
-        item.setAttribute('d', on && selectedD ? selectedD : item.getAttribute('data-d'));
-        if (item.hasAttribute('data-marker')) {
-          item.setAttribute('marker-end', on ? 'url(#ah-selected)' : item.getAttribute('data-marker'));
-        }
-      }
-    });
-    els.svg.querySelectorAll('.node.is-interactive').forEach(function (g) {
-      var value = selections[g.getAttribute('data-node-id')];
-      var has = value !== undefined && value !== null;
+    els.svg.querySelectorAll('.node[data-node-id]').forEach(function (g) {
+      var id = g.getAttribute('data-node-id');
+      var st = status.nodes[id] || 'normal';
+      setStatusClass(g, st);
+      if (!g.classList.contains('is-interactive')) return;
       var label = g.getAttribute('data-node-label');
-      g.classList.toggle('is-selected', has);
       var text = 'Kies een waarde voor ' + label;
-      if (has) {
+      if (st === 'selected') {
         var labels = JSON.parse(g.getAttribute('data-option-labels'));
+        var value = selections[id];
         text += ' (huidige keuze: ' + (labels[value] || value) + ')';
+      }
+      if (st === 'available' || st === 'selected') {
+        g.setAttribute('tabindex', '0');
+        g.removeAttribute('aria-disabled');
+      } else {
+        g.removeAttribute('tabindex');
+        g.setAttribute('aria-disabled', 'true');
+        text = label + (st === 'excluded' ? ': niet meer mogelijk' : ': nog niet beschikbaar');
       }
       g.setAttribute('aria-label', text);
     });
+    els.svg.querySelectorAll('[data-edge-id]').forEach(function (item) {
+      var st = status.edges[item.getAttribute('data-edge-id')] || 'normal';
+      setStatusClass(item, st);
+      if (item.tagName.toLowerCase() !== 'path') return;
+      var on = st === 'selected';
+      var selectedD = item.getAttribute('data-d-selected');
+      item.setAttribute('d', on && selectedD ? selectedD : item.getAttribute('data-d'));
+      var normalMarker = item.getAttribute('data-marker');
+      if (on && item.getAttribute('data-selected-arrow') === '1') item.setAttribute('marker-end', 'url(#ah-selected)');
+      else if (normalMarker) item.setAttribute('marker-end', normalMarker);
+      else item.removeAttribute('marker-end');
+    });
+  }
+
+  /* Afmetingen van een node in SVG-coördinaten (voor het berekenen van de viewportbestemming). */
+  function nodeBox(graph, id) {
+    var n = graph.nodes.filter(function (x) { return x.id === id; })[0];
+    if (!n) return null;
+    return { x: n.x, y: n.y, w: graph.nodeSize[0], h: n.h || graph.nodeSize[1] };
+  }
+
+  /* Tijdelijke, niet-pulserende highlight van een node (null haalt de highlight weg). */
+  function setGuidedTarget(id) {
+    els.svg.querySelectorAll('.node.is-guided-target').forEach(function (g) { g.classList.remove('is-guided-target'); });
+    if (id === null || id === undefined) return;
+    var g = els.svg.querySelector('.node[data-node-id="' + id + '"]');
+    if (g) g.classList.add('is-guided-target');
+  }
+
+  /* Verplaatst de toetsenbordfocus naar een node zonder de pagina te laten scrollen. */
+  function focusNode(id) {
+    var g = els.svg.querySelector('.node[data-node-id="' + id + '"]');
+    if (g && g.hasAttribute('tabindex')) g.focus({ preventScroll: true });
   }
 
   function showMessage(text) {
@@ -302,5 +342,5 @@ const Renderer = (function () {
   function init(refs) { els = refs; }
 
   return { init: init, resolve: resolve, fitZoom: fitZoom, draw: draw, applyViewport: applyViewport,
-           applySelections: applySelections };
+           applyStatus: applyStatus, nodeBox: nodeBox, setGuidedTarget: setGuidedTarget, focusNode: focusNode };
 })();
