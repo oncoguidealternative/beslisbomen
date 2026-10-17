@@ -8,9 +8,9 @@
   --color-panel-border: rgba(255, 255, 255, 0.28);
   --color-dialog-text: #173f50;
   --page-width: 1180px;
-  --tile-size: 280px;
-  --grid-column-gap: 48px;
-  --grid-row-gap: 36px;
+  --tile-size: 200px;
+  --grid-column-gap: 30px;
+  --grid-row-gap: 30px;
 }
 
 * {
