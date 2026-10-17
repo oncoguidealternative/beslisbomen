@@ -1,6 +1,10 @@
 {
   "id": "gebruiksvoorwaarden",
   "title": "Gebruiksvoorwaarden",
-  "lastUpdated": "2026-10-17",
-  "content": "<p>...</p>"
+  "sections": [
+    {
+      "title": "Toepasselijkheid",
+      "text": "..."
+    }
+  ]
 }
