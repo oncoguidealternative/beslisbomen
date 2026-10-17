@@ -1,10 +1,151 @@
 {
   "id": "endometrium",
   "titel": "Zorgpad endometriumcarcinoom 2022",
+
   "overview": {
-    "viewBox": [...],
-    "nodes": [...],
-    "edges": [...]
+    "viewBox": [1400, 2200],
+    "nodeSize": [220, 120],
+
+    "nodes": [
+      {
+        "id": "start",
+        "type": "start",
+        "label": "Zorgpad endometriumcarcinoom 2022",
+        "x": 590,
+        "y": 40
+      },
+
+      {
+        "id": "initieel",
+        "label": "Initiële diagnostiek 2022",
+        "x": 590,
+        "y": 260,
+        "drill": true
+      },
+
+      {
+        "id": "aanvullend",
+        "label": "Aanvullende diagnostiek 2022",
+        "x": 590,
+        "y": 480,
+        "drill": true
+      },
+
+      {
+        "id": "stagering",
+        "label": "Stageringsdiagnostiek 2022",
+        "x": 590,
+        "y": 700,
+        "drill": true
+      },
+
+      {
+        "id": "primair",
+        "label": "Primaire behandeling 2022",
+        "x": 590,
+        "y": 920,
+        "drill": true
+      },
+
+      {
+        "id": "endometrioid",
+        "label": "Adjuvante behandeling endometrioïd 2022",
+        "x": 590,
+        "y": 1140,
+        "drill": true
+      },
+
+      {
+        "id": "followup",
+        "label": "Follow up 2022",
+        "x": 590,
+        "y": 1520,
+        "drill": true
+      },
+
+      {
+        "id": "recidiefdiag",
+        "label": "Recidief diagnostiek 2022",
+        "x": 590,
+        "y": 1740,
+        "drill": true
+      },
+
+      {
+        "id": "recidiefbehandeling",
+        "label": "Recidief behandeling 2022",
+        "x": 590,
+        "y": 1960,
+        "drill": true
+      }
+    ],
+
+    "edges": [
+      {
+        "points": [
+          [700,160],
+          [700,260]
+        ],
+        "arrow": true
+      },
+
+      {
+        "points": [
+          [700,380],
+          [700,480]
+        ],
+        "arrow": true
+      },
+
+      {
+        "points": [
+          [700,600],
+          [700,700]
+        ],
+        "arrow": true
+      },
+
+      {
+        "points": [
+          [700,820],
+          [700,920]
+        ],
+        "arrow": true
+      },
+
+      {
+        "points": [
+          [700,1040],
+          [700,1140]
+        ],
+        "arrow": true
+      },
+
+      {
+        "points": [
+          [700,1260],
+          [700,1520]
+        ],
+        "arrow": true
+      },
+
+      {
+        "points": [
+          [700,1640],
+          [700,1740]
+        ],
+        "arrow": true
+      },
+
+      {
+        "points": [
+          [700,1860],
+          [700,1960]
+        ],
+        "arrow": true
+      }
+    ]
   },
+
   "trees": {}
 }
