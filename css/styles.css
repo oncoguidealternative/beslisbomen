@@ -1,268 +1,304 @@
+/* ===== Centrale kleuren (basis: #246D8B) ===== */
 :root {
-  --color-background: #246d8b;
-  --color-tile: #1cb2df;
-  --color-tile-hover: #35bee7;
-  --color-text: #ffffff;
-  --color-focus: #ffffff;
-  --color-panel: rgba(255, 255, 255, 0.10);
-  --color-panel-border: rgba(255, 255, 255, 0.28);
-  --color-dialog-text: #173f50;
-  --page-width: 1180px;
-  --tile-size: 200px;
-  --grid-column-gap: 40px;
-  --grid-row-gap: 36px;
+  --color-background: #246D8B;
+  --color-node: #6FA8BB;
+  --color-node-hover: #85B9CA;
+  --color-accent: #45B3E6;
+  --color-success: #5CB85C;
+  --color-success-hover: #6CC46C;
+  --color-text: #FFFFFF;
+  --color-text-muted: #E3F0F5;
+  --color-text-dark: #111111;
+  --color-line: #FFFFFF;
+  --color-link: #1E9BF0;
+  --color-error: #FFE1E1;
+  --color-surface: rgba(255, 255, 255, .1);
+  --color-hover-overlay: rgba(255, 255, 255, .12);
+  --radius: 16px;
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
-html {
-  min-height: 100%;
-  background: var(--color-background);
-}
+html, body { margin: 0; padding: 0; min-height: 100%; }
 
 body {
-  min-height: 100vh;
-  margin: 0;
   background: var(--color-background);
   color: var(--color-text);
   font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
 }
 
-button,
-a {
-  font: inherit;
+/* ===== Homepage ===== */
+.site-header {
+  padding: 2.5rem 1.25rem 1.5rem;
+  text-align: center;
+  border-bottom: 3px solid var(--color-accent);
 }
 
-.home-shell {
-  width: min(calc(100% - 40px), var(--page-width));
+.site-header h1 {
+  margin: 0 0 .5rem;
+  font-size: clamp(1.75rem, 5vw, 2.75rem);
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+}
+
+.container {
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 52px 0 72px;
+  padding: 2rem 1.25rem 3rem;
 }
 
-.home-header {
-  margin-bottom: 28px;
-  text-align: center;
+.intro {
+  background: var(--color-surface);
+  border-left: 4px solid var(--color-accent);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
 }
+.intro h2 { margin-top: 0; color: var(--color-text); }
 
-.home-header h1 {
-  margin: 0;
-  color: var(--color-text);
-  font-size: clamp(2rem, 4vw, 3.25rem);
-  font-weight: 600;
-  line-height: 1.1;
-}
-
-.home-header p {
-  max-width: 760px;
-  margin: 16px auto 0;
-  color: var(--color-text);
-  font-size: clamp(1rem, 2vw, 1.3rem);
-  line-height: 1.5;
-}
-
-.intro-content {
-  max-width: 920px;
-  margin: 0 auto 44px;
-  padding: 22px 26px;
-  border: 1px solid var(--color-panel-border);
-  border-radius: 12px;
-  background: var(--color-panel);
-  text-align: center;
-}
-
-.intro-content h2 {
-  margin: 0 0 8px;
-  font-size: 1.45rem;
-  font-weight: 600;
-}
-
-.intro-content p {
-  margin: 0;
-  font-size: 1rem;
-  line-height: 1.55;
-}
-
-.tumor-grid {
+.cards {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, var(--tile-size)));
-  justify-content: center;
-  align-items: start;
-  gap: var(--grid-row-gap) var(--grid-column-gap);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
 }
 
-.tumor-card {
-  display: flex;
-  min-width: 0;
-  color: var(--color-text);
-  text-align: center;
-  text-decoration: none;
-  flex-direction: column;
-  align-items: stretch;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: transform 180ms ease, filter 180ms ease;
-}
-
-.tumor-card:hover {
-  transform: translateY(-4px);
-}
-
-.tumor-card:focus-visible {
-  outline: 4px solid var(--color-focus);
-  outline-offset: 6px;
-}
-
-.tumor-image {
+.card {
   display: block;
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  margin: 0;
-  object-fit: cover;
-  border-radius: 0;
-  background: var(--color-tile);
-  box-shadow: 0 7px 18px rgba(10, 43, 56, 0.16);
-  transition: box-shadow 180ms ease, filter 180ms ease;
-}
-
-.tumor-card:hover .tumor-image {
-  filter: brightness(1.06);
-  box-shadow: 0 11px 25px rgba(10, 43, 56, 0.24);
-}
-
-.tumor-title {
-  display: flex;
-  min-height: 3.15em;
-  padding: 10px 6px 0;
+  background: var(--color-surface);
   color: var(--color-text);
-  font-size: clamp(1rem, 1.7vw, 1.35rem);
-  font-weight: 400;
-  line-height: 1.25;
-  align-items: flex-start;
-  justify-content: center;
-  text-align: center;
-  overflow-wrap: anywhere;
+  text-decoration: none;
+  border: 1.5px solid var(--color-line);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.card:hover {
+  background: var(--color-node);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, .25);
+}
+.card:focus-visible {
+  background: var(--color-node-hover);
+  outline: 3px solid var(--color-line);
+  outline-offset: 2px;
+}
+.card h3 { margin: 0 0 .5rem; color: var(--color-text); }
+.card p { margin: 0; color: var(--color-text-muted); }
+.card:hover p, .card:focus-visible p { color: var(--color-text); }
+
+.status { color: var(--color-text-muted); margin: 0; }
+.error { color: var(--color-error); }
+
+@media (max-width: 600px) {
+  .site-header { padding: 1.5rem 1rem 1rem; }
+  .container { padding: 1.25rem 1rem 2rem; }
 }
 
-.tumor-card.is-coming-soon .tumor-image {
-  filter: saturate(0.92);
-}
+/* ===== Zorgpadpagina ===== */
+body[data-page="zorgpad"] { line-height: normal; }
 
-.page-message {
-  max-width: 700px;
-  margin: 28px auto 0;
-  padding: 18px;
-  border: 1px solid var(--color-panel-border);
-  border-radius: 10px;
-  background: var(--color-panel);
-  text-align: center;
-}
+.zp-hidden { display: none !important; }
 
-.coming-soon-dialog {
-  width: min(calc(100% - 36px), 480px);
-  padding: 0;
-  border: 0;
-  border-radius: 14px;
-  color: var(--color-dialog-text);
-  background: #ffffff;
-  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.30);
-}
+.zp-main { max-width: 760px; margin: 0 auto; padding: 8px 12px 40px; }
+.zp-main.is-native { max-width: none; }
 
-.coming-soon-dialog::backdrop {
-  background: rgba(9, 45, 59, 0.66);
-}
+.zp-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 16px 0 0; }
 
-.dialog-content {
-  padding: 28px;
-  text-align: center;
-}
-
-.dialog-content h2 {
-  margin: 0 0 12px;
-  font-size: 1.45rem;
-}
-
-.dialog-content p {
-  margin: 0 0 22px;
-  line-height: 1.5;
-}
-
-.dialog-button {
-  min-width: 110px;
-  padding: 10px 18px;
-  border: 2px solid var(--color-background);
-  border-radius: 7px;
-  color: #ffffff;
-  background: var(--color-background);
+.zp-btn {
+  background: none;
+  border: 1.5px solid var(--color-line);
+  color: var(--color-text);
+  border-radius: 6px;
+  padding: 8px 14px;
+  font: inherit;
+  text-decoration: none;
   cursor: pointer;
 }
+.zp-btn:hover { background: var(--color-hover-overlay); }
+.zp-btn:focus-visible { outline: 3px solid var(--color-line); outline-offset: 2px; }
 
-.dialog-button:hover {
-  filter: brightness(1.08);
+.zp-back { display: none; }
+.zp-main.in-detail .zp-back { display: inline-block; }
+
+.zp-tools { display: none; }
+.zp-main.is-native .zp-tools { display: inline-flex; gap: 8px; margin-left: 8px; }
+.zp-zoom { width: 38px; padding: 8px 0; }
+
+.zp-stage { overflow-x: auto; margin-top: 8px; }
+.zp-stage svg { display: block; height: auto; }
+.zp-main:not(.is-native) .zp-stage svg { width: 100%; }
+
+/* Muisnavigatie (zoom en pan) voor native diagrammen */
+.zp-main.is-native .zp-stage {
+  height: calc(100vh - 130px);
+  height: calc(100dvh - 130px);
+  min-height: 320px;
+  overflow: hidden;
+  overflow: clip;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.zp-main.is-native .zp-stage svg { width: 100%; height: 100%; }
+.zp-main.is-native .zp-stage.is-dragging,
+.zp-main.is-native .zp-stage.is-dragging * { cursor: grabbing; }
+
+.zp-message { padding: 16px 4px; line-height: 1.6; max-width: 70ch; }
+.zp-message .loaded-label { color: var(--color-text-muted); margin: 0 0 .25rem; }
+.zp-message .loaded-title { margin: 0 0 .75rem; font-size: 1.5rem; color: var(--color-text); }
+.zp-message p { margin: 0; }
+
+/* SVG-onderdelen */
+.zp-stage .edge { fill: none; stroke: var(--color-line); stroke-linecap: butt; }
+.zp-stage .edge.green { stroke: var(--color-success); }
+.zp-stage .node rect { fill: var(--color-node); transition: fill .15s; }
+.zp-stage .node.t-root rect,
+.zp-stage .node.t-decision rect { fill: var(--color-success); }
+.zp-stage .node.t-root.tone-blue rect { fill: var(--color-node); }
+.zp-stage .node.go.t-root.tone-blue:hover rect,
+.zp-stage .node.go.t-root.tone-blue:focus rect { fill: var(--color-node-hover); }
+.zp-stage .node.t-criterion rect { fill: #FFFFFF; }
+.zp-stage .node.t-outcome rect { fill: var(--color-accent); }
+.zp-stage .node text { fill: var(--color-text); text-anchor: middle; pointer-events: none; }
+.zp-stage .node.t-criterion text { fill: var(--color-text-dark); }
+.zp-stage .node .lnk { fill: var(--color-link); text-decoration: underline; pointer-events: all; cursor: pointer; }
+.zp-stage .edot { fill: #FFFFFF; }
+.zp-stage .elabel { fill: var(--color-text); text-anchor: middle; }
+.zp-stage .node.go { cursor: pointer; }
+.zp-stage .node.go:hover rect,
+.zp-stage .node.go:focus rect { fill: var(--color-node-hover); }
+.zp-stage .node.go.t-root:hover rect,
+.zp-stage .node.go.t-root:focus rect { fill: var(--color-success-hover); }
+.zp-stage .node:focus { outline: none; }
+.zp-stage .node:focus-visible rect { stroke: #FFFFFF; stroke-width: 3; }
+
+/* Iconen */
+.zp-stage .icon path { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.zp-stage .icon.down circle { fill: var(--color-node); stroke: #FFFFFF; stroke-width: 2.5; }
+.zp-stage .icon.down path { stroke: #FFFFFF; }
+.zp-stage .icon.minus-light circle,
+.zp-stage .icon.plus-light circle { fill: var(--color-node); stroke: #FFFFFF; stroke-width: 2.5; }
+.zp-stage .icon.minus-light path,
+.zp-stage .icon.plus-light path { stroke: #FFFFFF; }
+.zp-stage .icon.minus circle { fill: #FFFFFF; stroke: var(--color-success); stroke-width: 1.5; }
+.zp-stage .icon.minus path { stroke: var(--color-success); stroke-width: 3; }
+.zp-stage .info circle { fill: none; stroke: #FFFFFF; stroke-width: 1.8; }
+.zp-stage .info path { fill: none; stroke: #FFFFFF; stroke-width: 2; stroke-linecap: round; }
+.zp-stage .info .dot { fill: #FFFFFF; stroke: none; }
+
+/* ===== Interactieve route (Sprint 5 en 6) ===== */
+/* Statussen: is-selected, is-available, is-inactive, is-excluded; tijdelijk: is-guided-target */
+
+/* available: eerstvolgende criterium waarop een keuze gemaakt kan worden */
+.zp-stage .node.is-interactive.is-available,
+.zp-stage .node.is-interactive.is-selected { cursor: pointer; }
+.zp-stage .node.is-interactive.is-available rect { stroke: var(--color-accent); stroke-width: 4; }
+.zp-stage .node.is-interactive.is-available:hover rect,
+.zp-stage .node.is-interactive.is-available:focus rect { fill: var(--color-text-muted); }
+.zp-stage .node.is-interactive:focus-visible rect { stroke: var(--color-text-dark); stroke-width: 3; }
+
+/* selected: node op de gekozen route */
+.zp-stage .node.t-criterion.is-selected rect,
+.zp-stage .node.t-criterion.is-selected:hover rect,
+.zp-stage .node.t-criterion.is-selected:focus rect { fill: var(--color-success); stroke: var(--color-line); stroke-width: 2; }
+.zp-stage .node.t-criterion.is-selected:focus-visible rect { stroke: var(--color-text-dark); stroke-width: 3; }
+.zp-stage .node.t-outcome.is-selected rect { fill: var(--color-success); stroke: var(--color-line); stroke-width: 3; }
+.zp-stage .node.t-outcome.is-selected text { fill: var(--color-text-dark); }
+
+.zp-stage .edge.is-selected { stroke: var(--color-success); stroke-width: 3px; }
+.zp-stage .marker-selected { fill: var(--color-success); }
+.zp-stage .edot.is-selected { fill: var(--color-success); stroke: var(--color-line); stroke-width: 2; }
+.zp-stage .elabel.is-selected {
+  font-weight: bold;
+  text-decoration: underline;
+  text-decoration-color: var(--color-success);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
 }
 
-.dialog-button:focus-visible {
-  outline: 3px solid var(--color-background);
-  outline-offset: 3px;
-}
+/* inactive: nog niet bereikbaar; houdt de normale weergave maar is niet te bedienen */
+.zp-stage .node.is-interactive.is-inactive { cursor: default; }
 
-.visually-hidden {
-  position: absolute !important;
-  width: 1px !important;
-  height: 1px !important;
-  padding: 0 !important;
-  margin: -1px !important;
-  overflow: hidden !important;
-  clip: rect(0, 0, 0, 0) !important;
-  white-space: nowrap !important;
-  border: 0 !important;
-}
+/* excluded: door eerdere keuzes niet meer mogelijk; zichtbaar voor context */
+.zp-stage .node.is-excluded,
+.zp-stage .edge.is-excluded,
+.zp-stage .edot.is-excluded,
+.zp-stage .elabel.is-excluded { opacity: .25; }
+.zp-stage .node.is-excluded { pointer-events: none; cursor: default; }
+.zp-stage .node,
+.zp-stage .edge,
+.zp-stage .edot,
+.zp-stage .elabel { transition: opacity .3s ease; }
 
-@media (max-width: 980px) {
-  :root {
-    --tile-size: 250px;
-    --grid-column-gap: 30px;
-  }
-
-  .tumor-grid {
-    grid-template-columns: repeat(2, minmax(0, var(--tile-size)));
-  }
-}
-
-@media (max-width: 620px) {
-  .home-shell {
-    width: min(calc(100% - 28px), var(--page-width));
-    padding-top: 34px;
-  }
-
-  .intro-content {
-    margin-bottom: 32px;
-    padding: 18px;
-  }
-
-  .tumor-grid {
-    grid-template-columns: minmax(0, min(100%, 300px));
-    gap: 30px;
-  }
-
-  .tumor-title {
-    min-height: 0;
-    font-size: 1.2rem;
-  }
-}
+/* Tijdelijke highlight van het volgende criterium: andere rand, vulling blijft gelijk, geen pulsatie */
+.zp-stage .node.is-guided-target { filter: drop-shadow(0 0 8px var(--color-line)); }
+.zp-stage .node.is-guided-target rect { stroke: var(--color-line); stroke-width: 6; }
 
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    scroll-behavior: auto !important;
-    transition-duration: 0.01ms !important;
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-  }
+  .zp-stage .node,
+  .zp-stage .edge,
+  .zp-stage .edot,
+  .zp-stage .elabel,
+  .zp-stage .node rect { transition: none; }
 }
-/* PLAATS DIT ONDERAAN IN css/styles.css */
+
+/* Keuzevenster (HTML, boven de SVG) */
+.choice-panel {
+  position: fixed;
+  left: var(--choice-x, 0);
+  top: var(--choice-y, 0);
+  z-index: 1000;
+  width: 260px;
+  max-width: calc(100vw - 16px);
+  background: #FFFFFF;
+  color: var(--color-text-dark);
+  border-radius: 12px;
+  padding: 14px 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.4;
+}
+.choice-panel[hidden] { display: none; }
+.choice-fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+.choice-legend { font-weight: bold; font-size: 1.05rem; padding: 0; margin-bottom: 8px; }
+.choice-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 6px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.choice-option:hover { background: var(--color-text-muted); }
+.choice-option:focus-within { outline: 3px solid var(--color-text-dark); outline-offset: 1px; }
+.choice-option input { width: 18px; height: 18px; margin: 0; accent-color: var(--color-background); }
+.choice-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 12px; }
+.choice-panel .zp-btn { color: var(--color-text-dark); border-color: var(--color-text-dark); }
+.choice-panel .zp-btn:hover:not(:disabled) { background: var(--color-text-muted); }
+.choice-panel .zp-btn:focus-visible { outline: 3px solid var(--color-text-dark); outline-offset: 2px; }
+.choice-panel .zp-btn:disabled { opacity: .45; cursor: not-allowed; }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+
+/* ===== Footer en generiek contentpaneel ===== */
 .site-footer {
   display: flex;
   flex-wrap: wrap;
@@ -270,10 +306,11 @@ a {
   align-items: center;
   gap: 10px;
   width: min(calc(100% - 32px), 1180px);
-  margin: 42px auto 0;
-  padding: 22px 0 30px;
+  margin: 24px auto 0;
+  padding: 20px 0 28px;
   border-top: 1px solid rgba(255, 255, 255, 0.28);
   color: #ffffff;
+  line-height: 1.5;
 }
 
 .footer-link {
@@ -287,10 +324,7 @@ a {
   cursor: pointer;
 }
 
-.footer-link:hover {
-  text-decoration-thickness: 2px;
-}
-
+.footer-link:hover { text-decoration-thickness: 2px; }
 .footer-link:focus-visible {
   outline: 3px solid #ffffff;
   outline-offset: 4px;
@@ -305,10 +339,7 @@ a {
   opacity: 0;
   transition: opacity 260ms ease;
 }
-
-.content-panel-backdrop.is-open {
-  opacity: 1;
-}
+.content-panel-backdrop.is-open { opacity: 1; }
 
 .content-panel {
   position: fixed;
@@ -317,6 +348,7 @@ a {
   z-index: 9999;
   display: flex;
   width: min(720px, 94vw);
+  height: 100vh;
   height: 100dvh;
   color: #173f50;
   background: #ffffff;
@@ -325,10 +357,7 @@ a {
   transform: translateX(102%);
   transition: transform 260ms ease;
 }
-
-.content-panel.is-open {
-  transform: translateX(0);
-}
+.content-panel.is-open { transform: translateX(0); }
 
 .content-panel-header {
   position: sticky;
@@ -342,19 +371,16 @@ a {
   color: #ffffff;
   background: #246d8b;
 }
-
 .content-panel-header h2 {
   margin: 0;
   font-size: clamp(1.35rem, 2.5vw, 1.85rem);
   line-height: 1.2;
 }
-
 .content-panel-meta {
   margin: 5px 0 0;
   color: rgba(255, 255, 255, 0.84);
   font-size: 0.9rem;
 }
-
 .content-panel-close {
   display: grid;
   width: 42px;
@@ -369,16 +395,11 @@ a {
   cursor: pointer;
   place-items: center;
 }
-
-.content-panel-close:hover {
-  background: rgba(255, 255, 255, 0.14);
-}
-
+.content-panel-close:hover { background: rgba(255, 255, 255, 0.14); }
 .content-panel-close:focus-visible {
   outline: 3px solid #ffffff;
   outline-offset: 3px;
 }
-
 .content-panel-body {
   flex: 1;
   padding: 8px 28px 42px;
@@ -386,95 +407,53 @@ a {
   overscroll-behavior: contain;
   line-height: 1.62;
 }
-
 .content-section {
   padding: 24px 0 4px;
   border-bottom: 1px solid #dbe7ec;
 }
-
-.content-section:last-child {
-  border-bottom: 0;
-}
-
+.content-section:last-child { border-bottom: 0; }
 .content-section h3 {
   margin: 0 0 16px;
   color: #246d8b;
   font-size: 1.25rem;
 }
-
 .content-section h4 {
   margin: 20px 0 8px;
   color: #173f50;
   font-size: 1rem;
 }
-
-.content-paragraph {
-  margin: 0 0 15px;
-}
-
-.content-number {
-  color: #173f50;
-}
-
-.content-definition-list {
-  margin: 0 0 16px;
-}
-
+.content-paragraph { margin: 0 0 15px; }
+.content-number { color: #173f50; }
+.content-definition-list { margin: 0 0 16px; }
 .content-definition-list dt {
   margin-top: 13px;
   color: #173f50;
   font-weight: 700;
 }
-
-.content-definition-list dd {
-  margin: 4px 0 0;
-}
-
+.content-definition-list dd { margin: 4px 0 0; }
 .content-grouped-list ul {
   margin: 8px 0 18px;
   padding-left: 22px;
 }
-
 .content-links {
   display: block;
   margin-top: 8px;
 }
-
 .content-link {
   color: #126f93;
   overflow-wrap: anywhere;
 }
-
-.content-panel-status {
-  margin: 28px 0;
-}
-
-body.content-panel-is-open {
-  overflow: hidden;
-}
-
-[hidden] {
-  display: none !important;
-}
+.content-panel-status { margin: 28px 0; }
+body.content-panel-is-open { overflow: hidden; }
+[hidden] { display: none !important; }
 
 @media (max-width: 640px) {
-  .content-panel {
-    width: 100vw;
-  }
-
-  .content-panel-body {
-    padding-right: 20px;
-    padding-left: 20px;
-  }
-
-  .site-footer {
-    font-size: 0.95rem;
-  }
+  .content-panel { width: 100vw; }
+  .content-panel-body { padding-right: 20px; padding-left: 20px; }
+  .site-footer { font-size: 0.95rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .content-panel,
-  .content-panel-backdrop {
-    transition: none;
-  }
+  .content-panel-backdrop { transition: none; }
 }
