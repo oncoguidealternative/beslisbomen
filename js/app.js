@@ -218,6 +218,14 @@
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     let journey = null;
     let guidedTimer = null;
+    // Tijdens het programmatisch verplaatsen van de focus na een reis mag de viewport niet terugpannen.
+    let suppressFocusPan = false;
+
+    function focusWithoutPan(nodeId) {
+      suppressFocusPan = true;
+      Renderer.focusNode(nodeId);
+      suppressFocusPan = false;
+    }
 
     function cancelJourney() {
       if (journey) {
@@ -307,10 +315,11 @@
         if (target.kind === "available") {
           Renderer.setGuidedTarget(target.id);
           guidedTimer = setTimeout(function () { Renderer.setGuidedTarget(null); }, GUIDED_HIGHLIGHT_MS);
-          Renderer.focusNode(target.id);
+          focusWithoutPan(target.id);
         } else {
-          // Een outcome is niet interactief: de focus keert terug naar de node waar de keuze is gemaakt.
-          Renderer.focusNode(sourceNodeId);
+          // Een outcome is niet interactief: de focus keert terug naar de node waar de keuze is gemaakt,
+          // zonder dat de viewport terugpant van de gecentreerde uitkomst.
+          focusWithoutPan(sourceNodeId);
         }
       }
       if (currentGraph.native && (target.kind === "available" || target.kind === "outcome") &&
@@ -464,6 +473,7 @@
       if (!navigationActive()) return;
       refs.stage.scrollLeft = 0;
       refs.stage.scrollTop = 0;
+      if (suppressFocusPan) return;
       const s = refs.stage.getBoundingClientRect();
       const t = ev.target.getBoundingClientRect();
       let dx = 0, dy = 0;
