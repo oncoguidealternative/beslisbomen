@@ -47,14 +47,16 @@ const Renderer = (function () {
   }
 
   /* Past de viewport uit de state toe op de getekende SVG.
-     Nu: alleen zoom (breedte van native diagrammen). panX/panY volgen in een latere sprint. */
+     Native diagrammen: zoom en pan worden als transform op de inhoudsgroep gezet (in SVG-eenheden = px).
+     Andere diagrammen worden niet gezoomd of verschoven. De waarden komen uitsluitend uit state.js. */
   function applyViewport() {
-    var native = els.main.classList.contains('is-native');
-    if (native) {
-      var vbWidth = els.svg.viewBox.baseVal.width;
-      els.svg.setAttribute('width', Math.round(vbWidth * getState().viewport.zoom));
+    var vp = els.svg.querySelector('.vp');
+    if (!vp) return;
+    if (els.main.classList.contains('is-native')) {
+      var v = getState().viewport;
+      vp.setAttribute('transform', 'translate(' + v.panX + ' ' + v.panY + ') scale(' + v.zoom + ')');
     } else {
-      els.svg.removeAttribute('width');
+      vp.removeAttribute('transform');
     }
   }
 
@@ -82,12 +84,17 @@ const Renderer = (function () {
     var svg = els.svg;
     var size = graph.nodeSize, s = size[0] / 179, maxChars = graph.wrap || 24;
     svg.innerHTML = '';
-    svg.setAttribute('viewBox', '0 0 ' + graph.viewBox[0] + ' ' + graph.viewBox[1]);
+    if (graph.native) {
+      // Native: geen viewBox; 1 SVG-eenheid = 1 px, zoom en pan staan op de inhoudsgroep.
+      svg.removeAttribute('viewBox');
+    } else {
+      svg.setAttribute('viewBox', '0 0 ' + graph.viewBox[0] + ' ' + graph.viewBox[1]);
+    }
     svg.setAttribute('aria-label', label);
     els.main.classList.toggle('is-native', !!graph.native);
-    applyViewport();
 
-    var defs = el('defs', {}, svg);
+    var vp = el('g', {'class': 'vp'}, svg);
+    var defs = el('defs', {}, vp);
     var mw = el('marker', {id: 'ah', viewBox: '0 0 10 10', refX: 10, refY: 5, markerUnits: 'userSpaceOnUse',
       markerWidth: 13 * s, markerHeight: 13 * s, orient: 'auto'}, defs);
     el('path', {d: 'M0,0 L10,5 L0,10 z', fill: '#fff'}, mw);
@@ -99,17 +106,17 @@ const Renderer = (function () {
       var d = e.points.map(function (p, i) { return (i ? 'L' : 'M') + p[0] + ',' + p[1]; }).join(' ');
       var a = {d: d, 'class': 'edge' + (e.color === 'green' ? ' green' : ''), 'stroke-width': e.width || 1.5};
       if (e.arrow) a['marker-end'] = e.color === 'green' ? 'url(#ah-green)' : 'url(#ah)';
-      el('path', a, svg);
+      el('path', a, vp);
     });
 
     graph.edges.forEach(function (e) {
       if (!e.dot) return;
-      el('circle', {'class': 'edot', cx: e.dot[0], cy: e.dot[1], r: 9.3 * s}, svg);
+      el('circle', {'class': 'edot', cx: e.dot[0], cy: e.dot[1], r: 9.3 * s}, vp);
       if (e.label) {
         var parts = e.label.split('\n'), step = 12.5 * s * 1.45;
         parts.forEach(function (txt, i) {
           var lt = el('text', {'class': 'elabel', x: e.dot[0],
-            y: e.dot[1] - 17 * s - (parts.length - 1 - i) * step, 'font-size': 12.5 * s}, svg);
+            y: e.dot[1] - 17 * s - (parts.length - 1 - i) * step, 'font-size': 12.5 * s}, vp);
           lt.textContent = txt;
         });
       }
@@ -121,7 +128,7 @@ const Renderer = (function () {
       var icon = n.icon || (n.drill ? 'down' : null);
       var type = n.type || 'step';
       var g = el('g', {'class': 'node t-' + type + (n.tone ? ' tone-' + n.tone : '') + (target !== null ? ' go' : ''),
-        transform: 'translate(' + n.x + ',' + n.y + ')'}, svg);
+        transform: 'translate(' + n.x + ',' + n.y + ')'}, vp);
       if (target !== null) {
         g.setAttribute('role', 'link');
         g.setAttribute('tabindex', '0');
@@ -188,6 +195,8 @@ const Renderer = (function () {
           icon.indexOf('plus') === 0 ? 'M-8,0 H8 M0,-8 V8' : 'M0,-8 V8 M-7,2 L0,9 L7,2'}, ic);
       }
     });
+
+    applyViewport();
   }
 
   function showMessage(text) {
@@ -206,6 +215,7 @@ const Renderer = (function () {
       render(view.graph, view.label);
     } else {
       els.svg.classList.add('zp-hidden');
+      els.main.classList.remove('is-native');
       showMessage(view.label + ': de beslisboom van deze stap is nog niet toegevoegd.');
     }
   }
