@@ -1,33 +1,131 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Alternatieve Oncoguide voor gynaecologische zorgpaden</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <meta name="description" content="Interactieve zorgpaden en beslisbomen voor gynaecologische tumoren.">
+  <title>Gynaecologische zorgpaden</title>
+  <link rel="stylesheet" href="./css/styles.css">
 </head>
-<body data-page="home">
-  <header class="site-header">
-    <h1>Gynaecologische zorgpaden</h1>
-    <p class="subtitle">Interactieve zorgpaden en beslisbomen voor gynaecologische tumoren</p>
-  </header>
+<body class="home-page">
+  <main class="home-shell">
+    <header class="home-header">
+      <h1>Gynaecologische zorgpaden</h1>
+      <p>Interactieve zorgpaden en beslisbomen voor gynaecologische tumoren</p>
+    </header>
 
-  <main class="container">
-    <section id="intro-content" class="intro">
-      <!-- Plaats hier later eigen HTML-content -->
-      <h2>Welkom</h2>
-      <p>Dit is voorbeeldtekst. Hier komt later een introductie over het doel, de opzet en het gebruik van deze zorgpaden.</p>
-      <p>Kies hieronder een tumortype om het bijbehorende zorgpad te openen.</p>
+    <section id="intro-content" class="intro-content" aria-labelledby="intro-title">
+      <h2 id="intro-title">Kies een zorgpad</h2>
+      <p>Selecteer hieronder het gewenste zorgpad. Endometriumcarcinoom en vulvacarcinoom zijn beschikbaar; de overige zorgpaden worden later toegevoegd.</p>
     </section>
 
-    <section aria-label="Tumortypen">
-      <div id="tumor-cards" class="cards">
-        <p class="status">Laden…</p>
-      </div>
+    <section class="tumor-overview" aria-labelledby="tumor-overview-title">
+      <h2 id="tumor-overview-title" class="visually-hidden">Beschikbare gynaecologische zorgpaden</h2>
+      <div id="tumor-grid" class="tumor-grid" aria-live="polite"></div>
+      <p id="tumor-error" class="page-message" role="alert" hidden></p>
     </section>
   </main>
 
-  <script src="js/state.js"></script>
-  <script src="js/app.js"></script>
+  <dialog id="coming-soon-dialog" class="coming-soon-dialog" aria-labelledby="coming-soon-title">
+    <div class="dialog-content">
+      <h2 id="coming-soon-title">Zorgpad in voorbereiding</h2>
+      <p id="coming-soon-text"></p>
+      <button id="close-dialog" class="dialog-button" type="button">Sluiten</button>
+    </div>
+  </dialog>
+
+  <script>
+    (function () {
+      'use strict';
+
+      var grid = document.getElementById('tumor-grid');
+      var errorMessage = document.getElementById('tumor-error');
+      var dialog = document.getElementById('coming-soon-dialog');
+      var dialogText = document.getElementById('coming-soon-text');
+      var closeDialogButton = document.getElementById('close-dialog');
+      var lastTrigger = null;
+
+      function makeCard(tumor) {
+        var card = document.createElement('a');
+        var available = tumor.status === 'available';
+
+        card.className = 'tumor-card' + (available ? ' is-available' : ' is-coming-soon');
+        card.href = available ? './zorgpad.html?tumor=' + encodeURIComponent(tumor.id) : '#';
+        card.setAttribute('aria-label', available
+          ? tumor.titel + ' openen'
+          : tumor.titel + ', nog niet beschikbaar');
+
+        var image = document.createElement('img');
+        image.className = 'tumor-image';
+        image.src = './' + tumor.afbeelding.replace(/^\.\//, '');
+        image.alt = '';
+        image.width = 300;
+        image.height = 300;
+        image.loading = 'lazy';
+
+        var title = document.createElement('span');
+        title.className = 'tumor-title';
+        title.textContent = tumor.titel;
+
+        card.appendChild(image);
+        card.appendChild(title);
+
+        if (!available) {
+          card.addEventListener('click', function (event) {
+            event.preventDefault();
+            lastTrigger = card;
+            dialogText.textContent = 'Het zorgpad ' + tumor.titel + ' wordt later toegevoegd.';
+            if (typeof dialog.showModal === 'function') {
+              dialog.showModal();
+            } else {
+              window.alert(dialogText.textContent);
+            }
+          });
+        }
+
+        return card;
+      }
+
+      function renderTumors(data) {
+        var tumors = Array.isArray(data.tumoren) ? data.tumoren.slice() : [];
+        tumors.sort(function (a, b) {
+          return a.titel.localeCompare(b.titel, 'nl', { sensitivity: 'base' });
+        });
+
+        grid.replaceChildren();
+        tumors.forEach(function (tumor) {
+          grid.appendChild(makeCard(tumor));
+        });
+      }
+
+      function showError() {
+        errorMessage.hidden = false;
+        errorMessage.textContent = 'De zorgpaden konden niet worden geladen. Probeer de pagina opnieuw te openen.';
+      }
+
+      fetch('./data/tumoren.json')
+        .then(function (response) {
+          if (!response.ok) throw new Error('HTTP ' + response.status);
+          return response.json();
+        })
+        .then(renderTumors)
+        .catch(function (error) {
+          console.error('Tumoren laden mislukt:', error);
+          showError();
+        });
+
+      closeDialogButton.addEventListener('click', function () {
+        dialog.close();
+      });
+
+      dialog.addEventListener('close', function () {
+        if (lastTrigger) lastTrigger.focus();
+      });
+
+      dialog.addEventListener('click', function (event) {
+        if (event.target === dialog) dialog.close();
+      });
+    })();
+  </script>
 </body>
 </html>
