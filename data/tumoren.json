@@ -3,56 +3,57 @@
     {
       "id": "borderline-ovariumtumoren",
       "titel": "Borderline ovariumtumoren",
-      "status": "coming-soon",
-      "afbeelding": "images/Gynaecologie_vierkant.png"
+      "afbeelding": "images/Gynaecologie_vierkant.png",
+      "status": "coming-soon"
     },
     {
       "id": "cervixcarcinoom",
       "titel": "Cervixcarcinoom",
-      "status": "coming-soon",
-      "afbeelding": "images/Gynaecologie_vierkant.png"
+      "afbeelding": "images/Gynaecologie_vierkant.png",
+      "status": "coming-soon"
     },
     {
       "id": "cin-ais-vain",
       "titel": "CIN, AIS, VAIN",
-      "status": "coming-soon",
-      "afbeelding": "images/Gynaecologie_vierkant.png"
+      "afbeelding": "images/Gynaecologie_vierkant.png",
+      "status": "coming-soon"
     },
     {
       "id": "endometrium",
       "titel": "Endometriumcarcinoom",
-      "status": "available",
-      "afbeelding": "images/Gynaecologie_vierkant.png"
+      "afbeelding": "images/Gynaecologie_vierkant.png",
+      "status": "available"
     },
     {
       "id": "epitheliaal-ovariumcarcinoom",
       "titel": "Epitheliaal ovariumcarcinoom",
-      "status": "coming-soon",
-      "afbeelding": "images/Gynaecologie_vierkant.png"
+      "afbeelding": "images/Gynaecologie_vierkant.png",
+      "status": "coming-soon"
     },
     {
       "id": "niet-epitheliale-ovarium-maligniteiten",
       "titel": "Niet epitheliale ovarium maligniteiten",
-      "status": "coming-soon",
-      "afbeelding": "images/Gynaecologie_vierkant.png"
+      "afbeelding": "images/Gynaecologie_vierkant.png",
+      "status": "coming-soon"
     },
     {
       "id": "trofoblasttumoren",
       "titel": "Trofoblasttumoren",
-      "status": "coming-soon",
-      "afbeelding": "images/Gynaecologie_vierkant.png"
+      "afbeelding": "images/Gynaecologie_vierkant.png",
+      "status": "coming-soon"
     },
     {
       "id": "vergroot-ovarium",
       "titel": "Vergroot ovarium",
-      "status": "coming-soon",
-      "afbeelding": "images/Gynaecologie_vierkant.png"
+      "afbeelding": "images/Gynaecologie_vierkant.png",
+      "status": "coming-soon"
     },
     {
       "id": "vulva",
       "titel": "Vulvacarcinoom",
-      "status": "available",
-      "afbeelding": "images/Gynaecologie_vierkant.png"
+      "afbeelding": "images/Gynaecologie_vierkant.png",
+      "status": "available"
     }
   ]
 }
+``
