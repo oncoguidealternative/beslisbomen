@@ -3,57 +3,47 @@
     {
       "id": "borderline-ovariumtumoren",
       "titel": "Borderline ovariumtumoren",
-      "afbeelding": "images/Gynaecologie_vierkant.png",
-      "status": "coming-soon"
+      "afbeelding": "images/Gynaecologie_vierkant.png"
     },
     {
       "id": "cervixcarcinoom",
       "titel": "Cervixcarcinoom",
-      "afbeelding": "images/Gynaecologie_vierkant.png",
-      "status": "coming-soon"
+      "afbeelding": "images/Gynaecologie_vierkant.png"
     },
     {
       "id": "cin-ais-vain",
       "titel": "CIN, AIS, VAIN",
-      "afbeelding": "images/Gynaecologie_vierkant.png",
-      "status": "coming-soon"
+      "afbeelding": "images/Gynaecologie_vierkant.png"
     },
     {
       "id": "endometrium",
       "titel": "Endometriumcarcinoom",
-      "afbeelding": "images/Gynaecologie_vierkant.png",
-      "status": "available"
+      "afbeelding": "images/Gynaecologie_vierkant.png"
     },
     {
       "id": "epitheliaal-ovariumcarcinoom",
       "titel": "Epitheliaal ovariumcarcinoom",
-      "afbeelding": "images/Gynaecologie_vierkant.png",
-      "status": "coming-soon"
+      "afbeelding": "images/Gynaecologie_vierkant.png"
     },
     {
       "id": "niet-epitheliale-ovarium-maligniteiten",
       "titel": "Niet epitheliale ovarium maligniteiten",
-      "afbeelding": "images/Gynaecologie_vierkant.png",
-      "status": "coming-soon"
+      "afbeelding": "images/Gynaecologie_vierkant.png"
     },
     {
       "id": "trofoblasttumoren",
       "titel": "Trofoblasttumoren",
-      "afbeelding": "images/Gynaecologie_vierkant.png",
-      "status": "coming-soon"
+      "afbeelding": "images/Gynaecologie_vierkant.png"
     },
     {
       "id": "vergroot-ovarium",
       "titel": "Vergroot ovarium",
-      "afbeelding": "images/Gynaecologie_vierkant.png",
-      "status": "coming-soon"
+      "afbeelding": "images/Gynaecologie_vierkant.png"
     },
     {
       "id": "vulva",
       "titel": "Vulvacarcinoom",
-      "afbeelding": "images/Gynaecologie_vierkant.png",
-      "status": "available"
+      "afbeelding": "images/Gynaecologie_vierkant.png"
     }
   ]
 }
-``
