@@ -33,7 +33,50 @@
       <button id="close-dialog" class="dialog-button" type="button">Sluiten</button>
     </div>
   </dialog>
+<!-- PLAATS DEZE FOOTER ONDERAAN IN <body>, VOOR DE SCRIPTS -->
+<footer class="site-footer" aria-label="Website-informatie">
+  <button class="footer-link" type="button" data-content-page="gebruiksvoorwaarden">
+    Gebruiksvoorwaarden
+  </button>
+  <span aria-hidden="true">·</span>
+  <button class="footer-link" type="button" data-content-page="faq">FAQ</button>
+  <span aria-hidden="true">·</span>
+  <button class="footer-link" type="button" data-content-page="privacy-statement">Privacy</button>
+  <span aria-hidden="true">·</span>
+  <button class="footer-link" type="button" data-content-page="over">Over deze website</button>
+</footer>
 
+<!-- PLAATS DEZE DRAWER OOK ONDERAAN IN <body>, NA DE FOOTER -->
+<div id="content-panel-backdrop" class="content-panel-backdrop" hidden></div>
+
+<aside
+  id="content-panel"
+  class="content-panel"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="content-panel-title"
+  hidden>
+  <header class="content-panel-header">
+    <div>
+      <h2 id="content-panel-title">Informatie</h2>
+      <p id="content-panel-meta" class="content-panel-meta"></p>
+    </div>
+    <button
+      id="content-panel-close"
+      class="content-panel-close"
+      type="button"
+      aria-label="Informatiepaneel sluiten">×</button>
+  </header>
+
+  <div id="content-panel-body" class="content-panel-body"></div>
+</aside>
+<!-- PLAATS DIT SCRIPT NA DE HTML HIERBOVEN EN VOOR app.js -->
+<script src="./js/content-panel.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    ContentPanel.init();
+  });
+</script>
   <script>
     (function () {
       'use strict';
