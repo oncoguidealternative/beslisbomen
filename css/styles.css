@@ -61,7 +61,42 @@ body {
   margin-bottom: 2rem;
 }
 .intro h2 { margin-top: 0; color: var(--color-text); }
+.tumor-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
+.tumor-card {
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
+
+.tumor-image {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.2s ease;
+}
+
+.tumor-card:hover .tumor-image {
+    transform: scale(1.03);
+}
+
+.tumor-title {
+    margin-top: 14px;
+    color: white;
+    font-size: 1.9rem;
+    font-weight: 400;
+    line-height: 1.25;
+    text-align: center;
+}
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
