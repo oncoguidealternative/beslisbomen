@@ -1,4 +1,10 @@
 {
   "id": "endometrium",
-  "titel": "Endometriumcarcinoom"
+  "titel": "Zorgpad endometriumcarcinoom 2022",
+  "overview": {
+    "viewBox": [...],
+    "nodes": [...],
+    "edges": [...]
+  },
+  "trees": {}
 }
