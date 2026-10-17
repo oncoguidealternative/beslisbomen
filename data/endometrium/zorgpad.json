@@ -1,151 +1,4026 @@
 {
   "id": "endometrium",
   "titel": "Zorgpad endometriumcarcinoom 2022",
-
   "overview": {
-    "viewBox": [1400, 2200],
-    "nodeSize": [220, 120],
-
+    "viewBox": [
+      1460,
+      2050
+    ],
+    "nodeSize": [
+      230,
+      120
+    ],
     "nodes": [
       {
         "id": "start",
         "type": "start",
-        "label": "Zorgpad endometriumcarcinoom 2022",
-        "x": 590,
-        "y": 40
+        "x": 615,
+        "y": 25,
+        "label": "Zorgpad endometriumcarcinoom 2022"
       },
-
       {
         "id": "initieel",
+        "drill": true,
         "label": "Initiële diagnostiek 2022",
-        "x": 590,
-        "y": 260,
-        "drill": true
+        "x": 615,
+        "y": 180
       },
-
       {
         "id": "aanvullend",
+        "drill": true,
         "label": "Aanvullende diagnostiek 2022",
-        "x": 590,
-        "y": 480,
-        "drill": true
+        "x": 615,
+        "y": 335
       },
-
       {
         "id": "stagering",
+        "drill": true,
         "label": "Stageringsdiagnostiek 2022",
-        "x": 590,
-        "y": 700,
-        "drill": true
+        "x": 615,
+        "y": 490
       },
-
       {
         "id": "primair",
+        "drill": true,
         "label": "Primaire behandeling 2022",
-        "x": 590,
-        "y": 920,
-        "drill": true
+        "x": 615,
+        "y": 645
       },
-
       {
-        "id": "endometrioid",
-        "label": "Adjuvante behandeling endometrioïd 2022",
-        "x": 590,
-        "y": 1140,
-        "drill": true
+        "id": "kinder-primair",
+        "drill": true,
+        "label": "Kinderwens en primaire behandeling 2022",
+        "x": 240,
+        "y": 800
       },
-
+      {
+        "id": "evaluatie-stadiering",
+        "drill": true,
+        "label": "Evaluatie stadiëring 2022",
+        "x": 990,
+        "y": 800
+      },
+      {
+        "id": "adjuvant-endometrioid",
+        "drill": true,
+        "label": "Adjuvante behandeling endometrioïd 2022",
+        "x": 615,
+        "y": 955
+      },
+      {
+        "id": "adjuvant-serous",
+        "drill": true,
+        "label": "Adjuvante behandeling sereus/clear cell 2022",
+        "x": 990,
+        "y": 955
+      },
+      {
+        "id": "kinder-vervolg",
+        "drill": true,
+        "label": "Kinderwens en vervolg behandeling 2022",
+        "x": 240,
+        "y": 1110
+      },
       {
         "id": "followup",
+        "drill": true,
         "label": "Follow up 2022",
-        "x": 590,
-        "y": 1520,
-        "drill": true
+        "x": 615,
+        "y": 1265
       },
-
+      {
+        "id": "kinder-conceptie",
+        "drill": true,
+        "label": "Kinderwens en conceptiefase 2022",
+        "x": 240,
+        "y": 1420
+      },
       {
         "id": "recidiefdiag",
+        "drill": true,
         "label": "Recidief diagnostiek 2022",
-        "x": 590,
-        "y": 1740,
-        "drill": true
+        "x": 615,
+        "y": 1575
       },
-
+      {
+        "id": "kinder-followup",
+        "drill": true,
+        "label": "Kinderwens en follow up tijdens conceptiefase 2022",
+        "x": 240,
+        "y": 1730
+      },
       {
         "id": "recidiefbehandeling",
+        "drill": true,
         "label": "Recidief behandeling 2022",
-        "x": 590,
-        "y": 1960,
-        "drill": true
+        "x": 615,
+        "y": 1885
+      },
+      {
+        "id": "kinder-vervolg-followup",
+        "drill": true,
+        "label": "Kinderwens vervolg follow up tijdens conceptiefase 2022",
+        "x": 240,
+        "y": 1885
       }
     ],
-
     "edges": [
       {
         "points": [
-          [700,160],
-          [700,260]
+          [
+            730,
+            145
+          ],
+          [
+            730,
+            180
+          ]
         ],
         "arrow": true
       },
-
       {
         "points": [
-          [700,380],
-          [700,480]
+          [
+            730,
+            300
+          ],
+          [
+            730,
+            335
+          ]
         ],
         "arrow": true
       },
-
       {
         "points": [
-          [700,600],
-          [700,700]
+          [
+            730,
+            455
+          ],
+          [
+            730,
+            490
+          ]
         ],
         "arrow": true
       },
-
       {
         "points": [
-          [700,820],
-          [700,920]
+          [
+            730,
+            610
+          ],
+          [
+            730,
+            645
+          ]
         ],
         "arrow": true
       },
-
       {
         "points": [
-          [700,1040],
-          [700,1140]
+          [
+            615,
+            705
+          ],
+          [
+            355,
+            705
+          ],
+          [
+            355,
+            800
+          ]
         ],
         "arrow": true
       },
-
       {
         "points": [
-          [700,1260],
-          [700,1520]
+          [
+            845,
+            705
+          ],
+          [
+            1105,
+            705
+          ],
+          [
+            1105,
+            800
+          ]
         ],
         "arrow": true
       },
-
       {
         "points": [
-          [700,1640],
-          [700,1740]
+          [
+            730,
+            765
+          ],
+          [
+            730,
+            955
+          ]
         ],
         "arrow": true
       },
-
       {
         "points": [
-          [700,1860],
-          [700,1960]
+          [
+            1105,
+            920
+          ],
+          [
+            1105,
+            955
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            355,
+            920
+          ],
+          [
+            355,
+            1110
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            730,
+            1075
+          ],
+          [
+            730,
+            1265
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            355,
+            1230
+          ],
+          [
+            355,
+            1420
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            730,
+            1385
+          ],
+          [
+            730,
+            1575
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            355,
+            1540
+          ],
+          [
+            355,
+            1730
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            730,
+            1695
+          ],
+          [
+            730,
+            1885
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            355,
+            1850
+          ],
+          [
+            355,
+            1885
+          ]
         ],
         "arrow": true
       }
     ]
   },
-
-  "trees": {}
+  "trees": {
+    "initieel": {
+      "viewBox": [
+        600,
+        900
+      ],
+      "nodeSize": [
+        300,
+        150
+      ],
+      "native": true,
+      "wrap": 24,
+      "nodes": [
+        {
+          "id": "root",
+          "type": "root",
+          "x": 150,
+          "y": 25,
+          "label": "Initiële diagnostiek 2022",
+          "icon": "minus-light",
+          "tone": "blue",
+          "to": "",
+          "rx": 45
+        },
+        {
+          "id": "acties",
+          "type": "decision",
+          "x": 150,
+          "y": 250,
+          "h": 350,
+          "text": "Anamnese\n\nEN\n\nGynaecologisch onderzoek\n{i}incl rectaal toucher\n\nEN\n\nTransvaginale echo"
+        },
+        {
+          "id": "volgende",
+          "type": "link",
+          "x": 150,
+          "y": 700,
+          "label": "Aanvullende diagnostiek 2022",
+          "icon": "down",
+          "to": "aanvullend"
+        }
+      ],
+      "edges": [
+        {
+          "points": [
+            [
+              300,
+              175
+            ],
+            [
+              300,
+              230
+            ]
+          ],
+          "arrow": true,
+          "color": "green",
+          "width": 6
+        },
+        {
+          "points": [
+            [
+              300,
+              600
+            ],
+            [
+              300,
+              700
+            ]
+          ],
+          "arrow": true
+        }
+      ]
+    },
+    "aanvullend": {
+      "viewBox": [
+        950,
+        1100
+      ],
+      "nodeSize": [
+        300,
+        155
+      ],
+      "native": true,
+      "wrap": 24,
+      "nodes": [
+        {
+          "id": "root",
+          "type": "root",
+          "x": 75,
+          "y": 25,
+          "label": "Aanvullende diagnostiek 2022",
+          "icon": "minus-light",
+          "tone": "blue",
+          "to": "",
+          "rx": 45
+        },
+        {
+          "id": "echo",
+          "type": "criterion",
+          "x": 75,
+          "y": 250,
+          "label": "Uitslag echo"
+        },
+        {
+          "id": "normaal",
+          "type": "outcome",
+          "x": 75,
+          "y": 620,
+          "text": "Wordt niet beschreven in\nde richtlijn"
+        },
+        {
+          "id": "afwijkend",
+          "type": "outcome",
+          "x": 500,
+          "y": 620,
+          "h": 230,
+          "text": "Endometriumsampling\n\nEN\n\nEndocervicale curettage\n{i}indien baarmoeder afwijkend is"
+        },
+        {
+          "id": "volgende",
+          "type": "link",
+          "x": 500,
+          "y": 920,
+          "label": "Stageringsdiagnostiek 2022",
+          "icon": "down",
+          "to": "stagering"
+        }
+      ],
+      "edges": [
+        {
+          "points": [
+            [
+              225,
+              180
+            ],
+            [
+              225,
+              250
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "points": [
+            [
+              75,
+              328
+            ],
+            [
+              225,
+              328
+            ],
+            [
+              225,
+              620
+            ]
+          ],
+          "arrow": true,
+          "label": "Normaal",
+          "dot": [
+            225,
+            500
+          ]
+        },
+        {
+          "points": [
+            [
+              375,
+              328
+            ],
+            [
+              650,
+              328
+            ],
+            [
+              650,
+              620
+            ]
+          ],
+          "arrow": true,
+          "label": "Afwijkend",
+          "dot": [
+            525,
+            328
+          ]
+        },
+        {
+          "points": [
+            [
+              650,
+              850
+            ],
+            [
+              650,
+              920
+            ]
+          ],
+          "arrow": true
+        }
+      ]
+    },
+    "stagering": {
+      "viewBox": [
+        1700,
+        1700
+      ],
+      "nodeSize": [
+        360,
+        190
+      ],
+      "native": true,
+      "wrap": 24,
+      "nodes": [
+        {
+          "id": "root",
+          "type": "root",
+          "x": 60,
+          "y": 25,
+          "label": "Stageringsdiagnostiek 2022",
+          "icon": "minus-light",
+          "tone": "blue",
+          "to": "",
+          "rx": 45
+        },
+        {
+          "id": "uitslag",
+          "type": "criterion",
+          "x": 60,
+          "y": 280,
+          "label": "Uitslag endometrium sampling"
+        },
+        {
+          "id": "graad",
+          "type": "criterion",
+          "x": 470,
+          "y": 540,
+          "label": "Graad",
+          "icon": "plus-light"
+        },
+        {
+          "id": "uitbreiding",
+          "type": "criterion",
+          "x": 470,
+          "y": 860,
+          "label": "Verdenking uitbreiding"
+        },
+        {
+          "id": "benigne",
+          "type": "outcome",
+          "x": 60,
+          "y": 1250,
+          "text": "Individualiseer behandeling volgens\ndesbetreffende richtlijn"
+        },
+        {
+          "id": "geen",
+          "type": "outcome",
+          "x": 470,
+          "y": 1250,
+          "text": "X-thorax"
+        },
+        {
+          "id": "uitbr",
+          "type": "outcome",
+          "x": 880,
+          "y": 1250,
+          "h": 285,
+          "text": "CA-125\n\nEN\n\nCystoscopie en/of Rectoscopie\n\nEN\n\nCT/MRI"
+        },
+        {
+          "id": "g3",
+          "type": "outcome",
+          "x": 1290,
+          "y": 1250,
+          "text": "CA-125\n\nEN\n\nCT-abdomen"
+        },
+        {
+          "id": "p1",
+          "type": "link",
+          "x": 470,
+          "y": 1510,
+          "label": "Primaire behandeling 2022",
+          "icon": "down",
+          "to": "primair"
+        },
+        {
+          "id": "p2",
+          "type": "link",
+          "x": 880,
+          "y": 1510,
+          "label": "Primaire behandeling 2022",
+          "icon": "down",
+          "to": "primair"
+        },
+        {
+          "id": "p3",
+          "type": "link",
+          "x": 1290,
+          "y": 1510,
+          "label": "Primaire behandeling 2022",
+          "icon": "down",
+          "to": "primair"
+        }
+      ],
+      "edges": [
+        {
+          "points": [
+            [
+              240,
+              215
+            ],
+            [
+              240,
+              280
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "points": [
+            [
+              60,
+              375
+            ],
+            [
+              240,
+              375
+            ],
+            [
+              240,
+              1250
+            ]
+          ],
+          "arrow": true,
+          "label": "Benigne",
+          "dot": [
+            240,
+            780
+          ]
+        },
+        {
+          "points": [
+            [
+              420,
+              375
+            ],
+            [
+              650,
+              375
+            ],
+            [
+              650,
+              540
+            ]
+          ],
+          "arrow": true,
+          "label": "Maligne",
+          "dot": [
+            530,
+            375
+          ]
+        },
+        {
+          "points": [
+            [
+              650,
+              730
+            ],
+            [
+              650,
+              860
+            ]
+          ],
+          "arrow": true,
+          "label": "1,2",
+          "dot": [
+            650,
+            790
+          ]
+        },
+        {
+          "points": [
+            [
+              830,
+              635
+            ],
+            [
+              1470,
+              635
+            ],
+            [
+              1470,
+              1250
+            ]
+          ],
+          "arrow": true,
+          "label": "3",
+          "dot": [
+            1110,
+            635
+          ]
+        },
+        {
+          "points": [
+            [
+              650,
+              1050
+            ],
+            [
+              650,
+              1250
+            ]
+          ],
+          "arrow": true,
+          "label": "Geen",
+          "dot": [
+            650,
+            1140
+          ]
+        },
+        {
+          "points": [
+            [
+              830,
+              955
+            ],
+            [
+              1060,
+              955
+            ],
+            [
+              1060,
+              1250
+            ]
+          ],
+          "arrow": true,
+          "label": "Blaas en/of\nRectum",
+          "dot": [
+            945,
+            955
+          ]
+        },
+        {
+          "points": [
+            [
+              650,
+              1440
+            ],
+            [
+              650,
+              1510
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "points": [
+            [
+              1060,
+              1535
+            ],
+            [
+              1060,
+              1510
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "points": [
+            [
+              1470,
+              1440
+            ],
+            [
+              1470,
+              1510
+            ]
+          ],
+          "arrow": true
+        }
+      ]
+    },
+    "primair": {
+      "viewBox": [
+        2600,
+        1550
+      ],
+      "nodeSize": [
+        220,
+        120
+      ],
+      "native": true,
+      "zoom": 0.8,
+      "wrap": 22,
+      "nodes": [
+        {
+          "id": "root",
+          "type": "root",
+          "x": 1540,
+          "y": 15,
+          "label": "Primaire behandeling 2022",
+          "icon": "minus-light",
+          "tone": "blue",
+          "to": "",
+          "rx": 45
+        },
+        {
+          "id": "histologie",
+          "type": "criterion",
+          "x": 1540,
+          "y": 170,
+          "label": "Histologie"
+        },
+        {
+          "id": "stadium-e",
+          "type": "criterion",
+          "x": 980,
+          "y": 345,
+          "label": "Klinisch stadium",
+          "icon": "plus-light"
+        },
+        {
+          "id": "kinderwens",
+          "type": "criterion",
+          "x": 330,
+          "y": 520,
+          "label": "Kinderwens"
+        },
+        {
+          "id": "graad",
+          "type": "criterion",
+          "x": 110,
+          "y": 700,
+          "label": "Graad",
+          "icon": "plus-light"
+        },
+        {
+          "id": "leeftijd",
+          "type": "criterion",
+          "x": 110,
+          "y": 875,
+          "label": "Leeftijd"
+        },
+        {
+          "id": "pr",
+          "type": "criterion",
+          "x": 110,
+          "y": 1050,
+          "label": "Status progesteron receptor"
+        },
+        {
+          "id": "locatie",
+          "type": "criterion",
+          "x": 980,
+          "y": 580,
+          "label": "Locatie tumor"
+        },
+        {
+          "id": "radicaal",
+          "type": "criterion",
+          "x": 980,
+          "y": 780,
+          "label": "Radicale behandeling mogelijk"
+        },
+        {
+          "id": "stadium-s",
+          "type": "criterion",
+          "x": 1960,
+          "y": 345,
+          "label": "Klinisch stadium",
+          "icon": "plus-light"
+        },
+        {
+          "id": "mri",
+          "type": "outcome",
+          "x": 110,
+          "y": 1200,
+          "text": "MRI\n\nEN\n\nHysteroscopie\n{i}indien nog niet verricht"
+        },
+        {
+          "id": "hyst",
+          "type": "outcome",
+          "x": 380,
+          "y": 1120,
+          "h": 275,
+          "text": "Totale abdominale hysterectomie*\nOF\nTotale laparoscopische hysterectomie*\n\nEN\n\nBSO\n\n* zie onderbouwing"
+        },
+        {
+          "id": "endoi",
+          "type": "outcome",
+          "x": 690,
+          "y": 1080,
+          "h": 300,
+          "text": "Verwijs naar oncologisch centrum\n\nEN\n\nHysterectomie\n{i}streef naar R0, indien nodig (gemodificeerde) radicale hysterectomie"
+        },
+        {
+          "id": "endoiii",
+          "type": "outcome",
+          "x": 980,
+          "y": 1080,
+          "h": 340,
+          "text": "Verwijs naar oncologisch centrum\n\nEN\n\nTotale abdominale hysterectomie\nEN\nBSO*\n\nOF\n\nOverweeg hormoontherapie"
+        },
+        {
+          "id": "rad",
+          "type": "outcome",
+          "x": 1270,
+          "y": 1080,
+          "h": 340,
+          "text": "Primair uitwendige radiotherapie*\n\nEN\n\nInwendige radiotherapie evt gevolgd door hysterectomie*\n\nOF\n\nOverweeg hormoontherapie"
+        },
+        {
+          "id": "iiic",
+          "type": "outcome",
+          "x": 1560,
+          "y": 1080,
+          "h": 350,
+          "text": "Verwijs naar oncologisch centrum\n\nEN\n\nTotale abdominale hysterectomie\nEN\nBSO*\nEN\nOverweeg resectie lymfkliermetastasen*\n\nOF\n\nOverweeg hormoontherapie"
+        },
+        {
+          "id": "hormoon",
+          "type": "outcome",
+          "x": 1850,
+          "y": 1080,
+          "h": 300,
+          "text": "Overweeg laag gedoseerd medroxyprogesteron (200 mg/dag)\n{i}zeker bij PR+ tumoren\n\nOF\n\nOverweeg megestrol-acetaat (160 mg/dag)"
+        },
+        {
+          "id": "stad",
+          "type": "outcome",
+          "x": 2140,
+          "y": 820,
+          "h": 200,
+          "text": "Verwijs naar oncologisch centrum\n\nEN\n\nComplete stadiëring"
+        },
+        {
+          "id": "serousi",
+          "type": "outcome",
+          "x": 2140,
+          "y": 1080,
+          "h": 260,
+          "text": "Verwijs naar oncologisch centrum\n\nEN\n\nHysterectomie\n{i}streef naar R0, indien nodig"
+        },
+        {
+          "id": "serousiii",
+          "type": "outcome",
+          "x": 2360,
+          "y": 1080,
+          "h": 300,
+          "text": "Verwijs naar oncologisch centrum*\n\nEN\n\nDebulking*\n\nOF\n\nOverweeg hormoontherapie"
+        },
+        {
+          "id": "serousiv",
+          "type": "outcome",
+          "x": 2360,
+          "y": 720,
+          "h": 260,
+          "text": "Overweeg laag gedoseerd medroxyprogesteron\n\nOF\n\nOverweeg megestrol-acetaat"
+        },
+        {
+          "id": "lk",
+          "type": "link",
+          "x": 110,
+          "y": 1400,
+          "label": "Kinderwens en primaire behandeling 2022",
+          "icon": "down",
+          "to": "kinder-primair"
+        },
+        {
+          "id": "la1",
+          "type": "link",
+          "x": 380,
+          "y": 1400,
+          "label": "Adjuvante behandeling endometrioïd 2022",
+          "icon": "down",
+          "to": "adjuvant-endometrioid"
+        },
+        {
+          "id": "la2",
+          "type": "link",
+          "x": 690,
+          "y": 1400,
+          "label": "Adjuvante behandeling endometrioïd 2022",
+          "icon": "down",
+          "to": "adjuvant-endometrioid"
+        },
+        {
+          "id": "la3",
+          "type": "link",
+          "x": 980,
+          "y": 1400,
+          "label": "Adjuvante behandeling endometrioïd 2022",
+          "icon": "down",
+          "to": "adjuvant-endometrioid"
+        },
+        {
+          "id": "la4",
+          "type": "link",
+          "x": 1270,
+          "y": 1400,
+          "label": "Adjuvante behandeling endometrioïd 2022",
+          "icon": "down",
+          "to": "adjuvant-endometrioid"
+        },
+        {
+          "id": "le",
+          "type": "link",
+          "x": 1850,
+          "y": 1400,
+          "label": "Evaluatie stadiëring 2022",
+          "icon": "down",
+          "to": "evaluatie-stadiering"
+        },
+        {
+          "id": "ls",
+          "type": "link",
+          "x": 2140,
+          "y": 1400,
+          "label": "Adjuvante behandeling sereus/clear cell 2022",
+          "icon": "down",
+          "to": "adjuvant-serous"
+        },
+        {
+          "id": "lh",
+          "type": "link",
+          "x": 2360,
+          "y": 1400,
+          "label": "Beleid na hormoontherapie",
+          "icon": "down",
+          "to": "beleid-hormoon"
+        }
+      ],
+      "edges": [
+        {
+          "points": [
+            [
+              1650,
+              135
+            ],
+            [
+              1650,
+              170
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "points": [
+            [
+              1540,
+              230
+            ],
+            [
+              1090,
+              230
+            ],
+            [
+              1090,
+              345
+            ]
+          ],
+          "arrow": true,
+          "label": "Endometrioïd adenocarcinoom",
+          "dot": [
+            1320,
+            230
+          ]
+        },
+        {
+          "points": [
+            [
+              1760,
+              230
+            ],
+            [
+              2070,
+              230
+            ],
+            [
+              2070,
+              345
+            ]
+          ],
+          "arrow": true,
+          "label": "Clearcell adenocarcinoom, Sereus adenocarcinoom",
+          "dot": [
+            1915,
+            230
+          ]
+        },
+        {
+          "points": [
+            [
+              980,
+              405
+            ],
+            [
+              440,
+              405
+            ],
+            [
+              440,
+              520
+            ]
+          ],
+          "arrow": true,
+          "label": "I",
+          "dot": [
+            650,
+            405
+          ]
+        },
+        {
+          "points": [
+            [
+              330,
+              640
+            ],
+            [
+              220,
+              640
+            ],
+            [
+              220,
+              700
+            ]
+          ],
+          "arrow": true,
+          "label": "Aanwezig",
+          "dot": [
+            275,
+            640
+          ]
+        },
+        {
+          "points": [
+            [
+              440,
+              640
+            ],
+            [
+              440,
+              1120
+            ]
+          ],
+          "arrow": true,
+          "label": "Afwezig",
+          "dot": [
+            440,
+            760
+          ]
+        },
+        {
+          "points": [
+            [
+              220,
+              820
+            ],
+            [
+              220,
+              875
+            ]
+          ],
+          "arrow": true,
+          "label": "1",
+          "dot": [
+            220,
+            845
+          ]
+        },
+        {
+          "points": [
+            [
+              330,
+              760
+            ],
+            [
+              440,
+              760
+            ]
+          ],
+          "label": "2,3",
+          "dot": [
+            385,
+            760
+          ]
+        },
+        {
+          "points": [
+            [
+              220,
+              995
+            ],
+            [
+              220,
+              1050
+            ]
+          ],
+          "arrow": true,
+          "label": "<=40 Jaar",
+          "dot": [
+            220,
+            1020
+          ]
+        },
+        {
+          "points": [
+            [
+              330,
+              935
+            ],
+            [
+              440,
+              935
+            ]
+          ],
+          "label": ">40 Jaar",
+          "dot": [
+            385,
+            935
+          ]
+        },
+        {
+          "points": [
+            [
+              220,
+              1170
+            ],
+            [
+              220,
+              1200
+            ]
+          ],
+          "arrow": true,
+          "label": "Positief",
+          "dot": [
+            220,
+            1185
+          ]
+        },
+        {
+          "points": [
+            [
+              330,
+              1110
+            ],
+            [
+              440,
+              1110
+            ]
+          ],
+          "label": "Negatief",
+          "dot": [
+            385,
+            1110
+          ]
+        },
+        {
+          "points": [
+            [
+              1090,
+              465
+            ],
+            [
+              1090,
+              580
+            ]
+          ],
+          "arrow": true,
+          "label": "IIIB",
+          "dot": [
+            1090,
+            520
+          ]
+        },
+        {
+          "points": [
+            [
+              980,
+              640
+            ],
+            [
+              870,
+              640
+            ],
+            [
+              870,
+              1080
+            ]
+          ],
+          "arrow": true,
+          "label": "Parametrium",
+          "dot": [
+            925,
+            640
+          ]
+        },
+        {
+          "points": [
+            [
+              1090,
+              700
+            ],
+            [
+              1090,
+              780
+            ]
+          ],
+          "arrow": true,
+          "label": "Vagina",
+          "dot": [
+            1090,
+            740
+          ]
+        },
+        {
+          "points": [
+            [
+              980,
+              840
+            ],
+            [
+              870,
+              840
+            ]
+          ],
+          "label": "Ja",
+          "dot": [
+            925,
+            840
+          ]
+        },
+        {
+          "points": [
+            [
+              1090,
+              900
+            ],
+            [
+              1090,
+              1080
+            ]
+          ],
+          "arrow": true,
+          "label": "Nee",
+          "dot": [
+            1090,
+            980
+          ]
+        },
+        {
+          "points": [
+            [
+              1200,
+              405
+            ],
+            [
+              1560,
+              405
+            ],
+            [
+              1560,
+              1080
+            ]
+          ],
+          "arrow": true,
+          "label": "IIIC",
+          "dot": [
+            1380,
+            405
+          ]
+        },
+        {
+          "points": [
+            [
+              1200,
+              405
+            ],
+            [
+              1850,
+              405
+            ],
+            [
+              1850,
+              1080
+            ]
+          ],
+          "arrow": true,
+          "label": "IV",
+          "dot": [
+            1650,
+            405
+          ]
+        },
+        {
+          "points": [
+            [
+              1960,
+              405
+            ],
+            [
+              2140,
+              405
+            ],
+            [
+              2140,
+              820
+            ]
+          ],
+          "arrow": true,
+          "label": "I",
+          "dot": [
+            2050,
+            405
+          ]
+        },
+        {
+          "points": [
+            [
+              2070,
+              465
+            ],
+            [
+              2070,
+              1080
+            ]
+          ],
+          "arrow": true,
+          "label": "II",
+          "dot": [
+            2070,
+            730
+          ]
+        },
+        {
+          "points": [
+            [
+              2180,
+              405
+            ],
+            [
+              2360,
+              405
+            ],
+            [
+              2360,
+              1080
+            ]
+          ],
+          "arrow": true,
+          "label": "III",
+          "dot": [
+            2270,
+            405
+          ]
+        },
+        {
+          "points": [
+            [
+              2180,
+              405
+            ],
+            [
+              2470,
+              405
+            ],
+            [
+              2470,
+              720
+            ]
+          ],
+          "arrow": true,
+          "label": "IV",
+          "dot": [
+            2325,
+            405
+          ]
+        }
+      ]
+    },
+    "adjuvant-endometrioid": {
+      "viewBox": [
+        2200,
+        1150
+      ],
+      "nodeSize": [
+        190,
+        100
+      ],
+      "native": true,
+      "zoom": 0.8,
+      "nodes": [
+        {
+          "id": "root",
+          "type": "root",
+          "x": 1010,
+          "y": 15,
+          "label": "Adjuvante behandeling endometrioïd 2022",
+          "icon": "minus-light",
+          "tone": "blue",
+          "to": "",
+          "rx": 45
+        },
+        {
+          "id": "figo",
+          "type": "criterion",
+          "x": 1010,
+          "y": 175,
+          "label": "FIGO",
+          "icon": "plus-light"
+        },
+        {
+          "id": "gia",
+          "type": "criterion",
+          "x": 600,
+          "y": 335,
+          "label": "Graad",
+          "icon": "plus-light"
+        },
+        {
+          "id": "lv1",
+          "type": "criterion",
+          "x": 180,
+          "y": 520,
+          "label": "LVSI"
+        },
+        {
+          "id": "lv2",
+          "type": "criterion",
+          "x": 600,
+          "y": 520,
+          "label": "LVSI"
+        },
+        {
+          "id": "age2",
+          "type": "criterion",
+          "x": 600,
+          "y": 685,
+          "label": "Leeftijd"
+        },
+        {
+          "id": "gib",
+          "type": "criterion",
+          "x": 1010,
+          "y": 335,
+          "label": "Graad",
+          "icon": "plus-light"
+        },
+        {
+          "id": "lv3",
+          "type": "criterion",
+          "x": 1010,
+          "y": 520,
+          "label": "LVSI"
+        },
+        {
+          "id": "age3",
+          "type": "criterion",
+          "x": 1010,
+          "y": 685,
+          "label": "Leeftijd"
+        },
+        {
+          "id": "o1",
+          "type": "outcome",
+          "x": 20,
+          "y": 850,
+          "text": "⊘ Geen adjuvante\ntherapie",
+          "h": 100
+        },
+        {
+          "id": "o2",
+          "type": "outcome",
+          "x": 230,
+          "y": 850,
+          "text": "Radiotherapie",
+          "h": 100
+        },
+        {
+          "id": "o3",
+          "type": "outcome",
+          "x": 440,
+          "y": 850,
+          "text": "⊘ Geen adjuvante\ntherapie",
+          "h": 100
+        },
+        {
+          "id": "o4",
+          "type": "outcome",
+          "x": 650,
+          "y": 850,
+          "text": "Overweeg vaginale\nbrachytherapie",
+          "h": 100
+        },
+        {
+          "id": "o5",
+          "type": "outcome",
+          "x": 860,
+          "y": 850,
+          "text": "Overweeg uitwendige\nradiotherapie",
+          "h": 100
+        },
+        {
+          "id": "o6",
+          "type": "outcome",
+          "x": 1070,
+          "y": 850,
+          "text": "⊘ Geen adjuvante\ntherapie",
+          "h": 100
+        },
+        {
+          "id": "o7",
+          "type": "outcome",
+          "x": 1280,
+          "y": 850,
+          "text": "Overweeg vaginale\nbrachytherapie",
+          "h": 100
+        },
+        {
+          "id": "o8",
+          "type": "outcome",
+          "x": 1490,
+          "y": 850,
+          "text": "Overweeg uitwendige\nradiotherapie",
+          "h": 100
+        },
+        {
+          "id": "o9",
+          "type": "outcome",
+          "x": 1700,
+          "y": 850,
+          "text": "Uitwendige radiotherapie\n\nEN\n\nOverweeg chemotherapie",
+          "h": 130
+        },
+        {
+          "id": "o10",
+          "type": "outcome",
+          "x": 1910,
+          "y": 850,
+          "text": "Individualiseer\nbehandeling",
+          "h": 100
+        },
+        {
+          "id": "f1",
+          "type": "link",
+          "x": 20,
+          "y": 1030,
+          "label": "Follow up 2022",
+          "icon": "down",
+          "to": "followup"
+        },
+        {
+          "id": "f2",
+          "type": "link",
+          "x": 230,
+          "y": 1030,
+          "label": "Follow up 2022",
+          "icon": "down",
+          "to": "followup"
+        },
+        {
+          "id": "f3",
+          "type": "link",
+          "x": 440,
+          "y": 1030,
+          "label": "Follow up 2022",
+          "icon": "down",
+          "to": "followup"
+        },
+        {
+          "id": "f4",
+          "type": "link",
+          "x": 650,
+          "y": 1030,
+          "label": "Follow up 2022",
+          "icon": "down",
+          "to": "followup"
+        },
+        {
+          "id": "f5",
+          "type": "link",
+          "x": 860,
+          "y": 1030,
+          "label": "Follow up 2022",
+          "icon": "down",
+          "to": "followup"
+        },
+        {
+          "id": "f6",
+          "type": "link",
+          "x": 1070,
+          "y": 1030,
+          "label": "Follow up 2022",
+          "icon": "down",
+          "to": "followup"
+        },
+        {
+          "id": "f7",
+          "type": "link",
+          "x": 1280,
+          "y": 1030,
+          "label": "Follow up 2022",
+          "icon": "down",
+          "to": "followup"
+        },
+        {
+          "id": "f8",
+          "type": "link",
+          "x": 1490,
+          "y": 1030,
+          "label": "Follow up 2022",
+          "icon": "down",
+          "to": "followup"
+        },
+        {
+          "id": "f9",
+          "type": "link",
+          "x": 1700,
+          "y": 1030,
+          "label": "Follow up 2022",
+          "icon": "down",
+          "to": "followup"
+        }
+      ],
+      "edges": [
+        {
+          "points": [
+            [
+              1105,
+              115
+            ],
+            [
+              1105,
+              175
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "points": [
+            [
+              1010,
+              225
+            ],
+            [
+              695,
+              225
+            ],
+            [
+              695,
+              335
+            ]
+          ],
+          "arrow": true,
+          "label": "I A",
+          "dot": [
+            855,
+            225
+          ]
+        },
+        {
+          "points": [
+            [
+              1105,
+              275
+            ],
+            [
+              1105,
+              335
+            ]
+          ],
+          "arrow": true,
+          "label": "I B",
+          "dot": [
+            1105,
+            300
+          ]
+        },
+        {
+          "points": [
+            [
+              1200,
+              225
+            ],
+            [
+              1795,
+              225
+            ],
+            [
+              1795,
+              850
+            ]
+          ],
+          "arrow": true,
+          "label": "II, III",
+          "dot": [
+            1585,
+            225
+          ]
+        },
+        {
+          "points": [
+            [
+              1200,
+              225
+            ],
+            [
+              2005,
+              225
+            ],
+            [
+              2005,
+              850
+            ]
+          ],
+          "arrow": true,
+          "label": "IV",
+          "dot": [
+            1900,
+            225
+          ]
+        },
+        {
+          "points": [
+            [
+              600,
+              385
+            ],
+            [
+              275,
+              385
+            ],
+            [
+              275,
+              520
+            ]
+          ],
+          "arrow": true,
+          "label": "1,2",
+          "dot": [
+            435,
+            385
+          ]
+        },
+        {
+          "points": [
+            [
+              695,
+              435
+            ],
+            [
+              695,
+              520
+            ]
+          ],
+          "arrow": true,
+          "label": "3",
+          "dot": [
+            695,
+            460
+          ]
+        },
+        {
+          "points": [
+            [
+              180,
+              570
+            ],
+            [
+              115,
+              570
+            ],
+            [
+              115,
+              850
+            ]
+          ],
+          "arrow": true,
+          "label": "Nee",
+          "dot": [
+            145,
+            570
+          ]
+        },
+        {
+          "points": [
+            [
+              275,
+              620
+            ],
+            [
+              335,
+              620
+            ],
+            [
+              335,
+              850
+            ]
+          ],
+          "arrow": true,
+          "label": "Ja",
+          "dot": [
+            305,
+            620
+          ]
+        },
+        {
+          "points": [
+            [
+              695,
+              620
+            ],
+            [
+              695,
+              685
+            ]
+          ],
+          "arrow": true,
+          "label": "Nee",
+          "dot": [
+            695,
+            650
+          ]
+        },
+        {
+          "points": [
+            [
+              790,
+              570
+            ],
+            [
+              955,
+              570
+            ],
+            [
+              955,
+              850
+            ]
+          ],
+          "arrow": true,
+          "label": "Ja",
+          "dot": [
+            870,
+            570
+          ]
+        },
+        {
+          "points": [
+            [
+              600,
+              735
+            ],
+            [
+              545,
+              735
+            ],
+            [
+              545,
+              850
+            ]
+          ],
+          "arrow": true,
+          "label": "<60 Jaar",
+          "dot": [
+            570,
+            735
+          ]
+        },
+        {
+          "points": [
+            [
+              695,
+              785
+            ],
+            [
+              755,
+              785
+            ],
+            [
+              755,
+              850
+            ]
+          ],
+          "arrow": true,
+          "label": ">=60 Jaar",
+          "dot": [
+            725,
+            785
+          ]
+        },
+        {
+          "points": [
+            [
+              1105,
+              435
+            ],
+            [
+              1105,
+              520
+            ]
+          ],
+          "arrow": true,
+          "label": "1,2",
+          "dot": [
+            1105,
+            460
+          ]
+        },
+        {
+          "points": [
+            [
+              1200,
+              385
+            ],
+            [
+              1585,
+              385
+            ],
+            [
+              1585,
+              850
+            ]
+          ],
+          "arrow": true,
+          "label": "3",
+          "dot": [
+            1390,
+            385
+          ]
+        },
+        {
+          "points": [
+            [
+              1105,
+              620
+            ],
+            [
+              1105,
+              685
+            ]
+          ],
+          "arrow": true,
+          "label": "Nee",
+          "dot": [
+            1105,
+            650
+          ]
+        },
+        {
+          "points": [
+            [
+              1200,
+              570
+            ],
+            [
+              1585,
+              570
+            ]
+          ],
+          "label": "Ja",
+          "dot": [
+            1390,
+            570
+          ]
+        },
+        {
+          "points": [
+            [
+              1010,
+              735
+            ],
+            [
+              965,
+              735
+            ],
+            [
+              965,
+              850
+            ]
+          ],
+          "arrow": true,
+          "label": "<60 Jaar",
+          "dot": [
+            990,
+            735
+          ]
+        },
+        {
+          "points": [
+            [
+              1200,
+              735
+            ],
+            [
+              1375,
+              735
+            ],
+            [
+              1375,
+              850
+            ]
+          ],
+          "arrow": true,
+          "label": ">=60 Jaar",
+          "dot": [
+            1290,
+            735
+          ]
+        }
+      ]
+    },
+    "evaluatie-stadiering": {
+      "viewBox": [
+        760,
+        900
+      ],
+      "nodeSize": [
+        270,
+        140
+      ],
+      "native": true,
+      "wrap": 22,
+      "nodes": [
+        {
+          "id": "root",
+          "type": "root",
+          "x": 50,
+          "y": 25,
+          "label": "Evaluatie stadiëring 2022",
+          "icon": "minus-light",
+          "tone": "blue",
+          "to": "",
+          "rx": 45
+        },
+        {
+          "id": "uitslag",
+          "type": "criterion",
+          "x": 50,
+          "y": 230,
+          "label": "Uitslag stadiëring"
+        },
+        {
+          "id": "compleet",
+          "type": "outcome",
+          "x": 50,
+          "y": 500,
+          "text": "Adjuvante therapie"
+        },
+        {
+          "id": "incompleet",
+          "type": "outcome",
+          "x": 390,
+          "y": 500,
+          "h": 240,
+          "text": "Restadiëren\n{i}indien restadiëring niet kan worden verricht, of niet wenselijk wordt geacht, kan worden overwogen om patiënten aanvullend te behandelen als een FIGO III tumor"
+        },
+        {
+          "id": "l1",
+          "type": "link",
+          "x": 50,
+          "y": 770,
+          "label": "Adjuvante behandeling sereus/clear cell 2022",
+          "icon": "down",
+          "to": "adjuvant-serous"
+        },
+        {
+          "id": "l2",
+          "type": "link",
+          "x": 390,
+          "y": 770,
+          "label": "Adjuvante behandeling sereus/clear cell 2022",
+          "icon": "down",
+          "to": "adjuvant-serous"
+        }
+      ],
+      "edges": [
+        {
+          "points": [
+            [
+              185,
+              160
+            ],
+            [
+              185,
+              230
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "points": [
+            [
+              185,
+              370
+            ],
+            [
+              185,
+              500
+            ]
+          ],
+          "arrow": true,
+          "label": "Compleet",
+          "dot": [
+            185,
+            430
+          ]
+        },
+        {
+          "points": [
+            [
+              320,
+              300
+            ],
+            [
+              525,
+              300
+            ],
+            [
+              525,
+              500
+            ]
+          ],
+          "arrow": true,
+          "label": "Incompleet",
+          "dot": [
+            420,
+            300
+          ]
+        },
+        {
+          "points": [
+            [
+              185,
+              640
+            ],
+            [
+              185,
+              770
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "points": [
+            [
+              525,
+              740
+            ],
+            [
+              525,
+              770
+            ]
+          ],
+          "arrow": true
+        }
+      ]
+    },
+    "adjuvant-serous": {
+      "viewBox": [
+        430,
+        620
+      ],
+      "nodeSize": [
+        260,
+        125
+      ],
+      "native": true,
+      "nodes": [
+        {
+          "id": "root",
+          "type": "root",
+          "x": 55,
+          "y": 25,
+          "label": "Adjuvante behandeling sereus/clear cell 2022",
+          "icon": "minus-light",
+          "tone": "blue",
+          "to": "",
+          "rx": 45
+        },
+        {
+          "id": "acties",
+          "type": "decision",
+          "x": 55,
+          "y": 230,
+          "h": 190,
+          "text": "Uitwendige radiotherapie\n\nEN\n\nOverweeg chemotherapie"
+        },
+        {
+          "id": "v",
+          "type": "link",
+          "x": 55,
+          "y": 470,
+          "label": "Follow up 2022",
+          "icon": "down",
+          "to": "followup"
+        }
+      ],
+      "edges": [
+        {
+          "points": [
+            [
+              185,
+              150
+            ],
+            [
+              185,
+              210
+            ]
+          ],
+          "arrow": true,
+          "color": "green",
+          "width": 6
+        },
+        {
+          "points": [
+            [
+              185,
+              420
+            ],
+            [
+              185,
+              470
+            ]
+          ],
+          "arrow": true
+        }
+      ]
+    },
+    "followup": {
+      "viewBox": [
+        1200,
+        1250
+      ],
+      "nodeSize": [
+        300,
+        145
+      ],
+      "native": true,
+      "wrap": 24,
+      "nodes": [
+        {
+          "id": "root",
+          "type": "root",
+          "x": 450,
+          "y": 25,
+          "label": "Follow up 2022",
+          "icon": "minus-light",
+          "tone": "blue",
+          "to": "",
+          "rx": 45
+        },
+        {
+          "id": "jaren",
+          "type": "criterion",
+          "x": 450,
+          "y": 240,
+          "label": "Jaren sinds afloop\nprimaire behandeling"
+        },
+        {
+          "id": "o1",
+          "type": "outcome",
+          "x": 50,
+          "y": 540,
+          "h": 520,
+          "text": "Lichamelijk onderzoek\n\nEN\n\nGynaecologisch onderzoek\n{i}incl recto-vaginaal toucher\n\nEN\n\nVoorlichting\n\nEN\n\nControle na 3-4 maanden\n\n──────\n\n⊘ Routinematig afnemen vaginatopcytologie is niet geïndiceerd"
+        },
+        {
+          "id": "o2",
+          "type": "outcome",
+          "x": 450,
+          "y": 540,
+          "h": 520,
+          "text": "Lichamelijk onderzoek\n\nEN\n\nGynaecologisch onderzoek\n{i}incl recto-vaginaal toucher\n\nEN\n\nVoorlichting\n\nEN\n\nControle na 4-6 maanden\n\n──────\n\n⊘ Routinematig afnemen vaginatopcytologie is niet geïndiceerd"
+        },
+        {
+          "id": "o3",
+          "type": "outcome",
+          "x": 850,
+          "y": 540,
+          "h": 520,
+          "text": "Lichamelijk onderzoek\n\nEN\n\nGynaecologisch onderzoek\n{i}incl recto-vaginaal toucher\n\nEN\n\nVoorlichting\n\nEN\n\nControle elke 12 maanden\n\n──────\n\n⊘ Routinematig afnemen vaginatopcytologie is niet geïndiceerd"
+        },
+        {
+          "id": "l1",
+          "type": "link",
+          "x": 50,
+          "y": 1100,
+          "label": "Recidief diagnostiek 2022",
+          "icon": "down",
+          "to": "recidiefdiag"
+        },
+        {
+          "id": "l2",
+          "type": "link",
+          "x": 450,
+          "y": 1100,
+          "label": "Recidief diagnostiek 2022",
+          "icon": "down",
+          "to": "recidiefdiag"
+        },
+        {
+          "id": "l3",
+          "type": "link",
+          "x": 850,
+          "y": 1100,
+          "label": "Recidief diagnostiek 2022",
+          "icon": "down",
+          "to": "recidiefdiag"
+        }
+      ],
+      "edges": [
+        {
+          "points": [
+            [
+              600,
+              170
+            ],
+            [
+              600,
+              240
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "points": [
+            [
+              450,
+              312
+            ],
+            [
+              200,
+              312
+            ],
+            [
+              200,
+              540
+            ]
+          ],
+          "arrow": true,
+          "label": "<=2",
+          "dot": [
+            325,
+            312
+          ]
+        },
+        {
+          "points": [
+            [
+              600,
+              385
+            ],
+            [
+              600,
+              540
+            ]
+          ],
+          "arrow": true,
+          "label": "2-3",
+          "dot": [
+            600,
+            455
+          ]
+        },
+        {
+          "points": [
+            [
+              750,
+              312
+            ],
+            [
+              1000,
+              312
+            ],
+            [
+              1000,
+              540
+            ]
+          ],
+          "arrow": true,
+          "label": "3-5",
+          "dot": [
+            875,
+            312
+          ]
+        },
+        {
+          "points": [
+            [
+              200,
+              1060
+            ],
+            [
+              200,
+              1100
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "points": [
+            [
+              600,
+              1060
+            ],
+            [
+              600,
+              1100
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "points": [
+            [
+              1000,
+              1060
+            ],
+            [
+              1000,
+              1100
+            ]
+          ],
+          "arrow": true
+        }
+      ]
+    },
+    "recidiefdiag": {
+      "viewBox": [
+        900,
+        1300
+      ],
+      "nodeSize": [
+        300,
+        155
+      ],
+      "native": true,
+      "nodes": [
+        {
+          "id": "root",
+          "type": "root",
+          "x": 50,
+          "y": 25,
+          "label": "Recidief diagnostiek 2022",
+          "icon": "minus-light",
+          "tone": "blue",
+          "to": "",
+          "rx": 45
+        },
+        {
+          "id": "type",
+          "type": "criterion",
+          "x": 50,
+          "y": 245,
+          "label": "Type recidief"
+        },
+        {
+          "id": "l",
+          "type": "outcome",
+          "x": 50,
+          "y": 580,
+          "h": 500,
+          "text": "Biopt\n\nEN\n\nCT thorax/abdomen\n\nEN\n\nBloedbeeld,\n{i}lever- en nierfunctie\n\nEN\n\nCA 125\n\nEN\n\nIndien nodig cystoscopie/rectoscopie/botscan"
+        },
+        {
+          "id": "r",
+          "type": "outcome",
+          "x": 480,
+          "y": 580,
+          "h": 430,
+          "text": "CT thorax/abdomen\n\nEN\n\nBloedbeeld,\n{i}lever- en nierfunctie\n\nEN\n\nCA 125\n\nEN\n\nIndien nodig cystoscopie/rectoscopie/botscan"
+        },
+        {
+          "id": "l1",
+          "type": "link",
+          "x": 50,
+          "y": 1140,
+          "label": "Recidief behandeling 2022",
+          "icon": "down",
+          "to": "recidiefbehandeling"
+        },
+        {
+          "id": "l2",
+          "type": "link",
+          "x": 480,
+          "y": 1140,
+          "label": "Recidief behandeling 2022",
+          "icon": "down",
+          "to": "recidiefbehandeling"
+        }
+      ],
+      "edges": [
+        {
+          "points": [
+            [
+              200,
+              180
+            ],
+            [
+              200,
+              245
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "points": [
+            [
+              200,
+              400
+            ],
+            [
+              200,
+              580
+            ]
+          ],
+          "arrow": true,
+          "label": "Lokaal",
+          "dot": [
+            200,
+            485
+          ]
+        },
+        {
+          "points": [
+            [
+              350,
+              320
+            ],
+            [
+              630,
+              320
+            ],
+            [
+              630,
+              580
+            ]
+          ],
+          "arrow": true,
+          "label": "Regionaal,\nAfstands",
+          "dot": [
+            490,
+            320
+          ]
+        },
+        {
+          "points": [
+            [
+              200,
+              1080
+            ],
+            [
+              200,
+              1140
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "points": [
+            [
+              630,
+              1010
+            ],
+            [
+              630,
+              1140
+            ]
+          ],
+          "arrow": true
+        }
+      ]
+    },
+    "beleid-hormoon": {
+      "viewBox": [
+        500,
+        620
+      ],
+      "nodeSize": [
+        300,
+        150
+      ],
+      "native": true,
+      "nodes": [
+        {
+          "id": "root",
+          "type": "root",
+          "x": 70,
+          "y": 25,
+          "label": "Beleid na hormoontherapie",
+          "icon": "minus-light",
+          "tone": "blue",
+          "to": "",
+          "rx": 45
+        },
+        {
+          "id": "a",
+          "type": "decision",
+          "x": 70,
+          "y": 260,
+          "h": 250,
+          "text": "Overweeg tamoxifen\n{i}met name na eerdere respons op progestativa"
+        }
+      ],
+      "edges": [
+        {
+          "points": [
+            [
+              220,
+              175
+            ],
+            [
+              220,
+              240
+            ]
+          ],
+          "arrow": true,
+          "color": "green",
+          "width": 6
+        }
+      ]
+    },
+    "kinder-primair": {
+      "viewBox": [
+        850,
+        1250
+      ],
+      "nodeSize": [
+        300,
+        155
+      ],
+      "native": true,
+      "nodes": [
+        {
+          "id": "root",
+          "type": "root",
+          "x": 60,
+          "y": 25,
+          "label": "Kinderwens en primaire behandeling 2022",
+          "icon": "minus-light",
+          "tone": "blue",
+          "to": "",
+          "rx": 45
+        },
+        {
+          "id": "stadium",
+          "type": "criterion",
+          "x": 60,
+          "y": 260,
+          "label": "Klinisch stadium",
+          "icon": "plus-light"
+        },
+        {
+          "id": "laag",
+          "type": "outcome",
+          "x": 60,
+          "y": 610,
+          "h": 430,
+          "text": "Medroxyprogesteron\n200 mg/dag 3mnd\n\n(na 3mnd)\nGEVOLGD DOOR\n\nHysteroscopie\n\nEN\n\nEndometriumsampling na kuur I\n\nIncludeer in internationale registratiestudie"
+        },
+        {
+          "id": "hoog",
+          "type": "outcome",
+          "x": 480,
+          "y": 610,
+          "text": "Standaard behandeling"
+        },
+        {
+          "id": "v",
+          "type": "link",
+          "x": 60,
+          "y": 1100,
+          "label": "Kinderwens en vervolg behandeling 2022",
+          "icon": "down",
+          "to": "kinder-vervolg"
+        }
+      ],
+      "edges": [
+        {
+          "points": [
+            [
+              210,
+              180
+            ],
+            [
+              210,
+              260
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "points": [
+            [
+              210,
+              415
+            ],
+            [
+              210,
+              610
+            ]
+          ],
+          "arrow": true,
+          "label": "laagstadium",
+          "dot": [
+            210,
+            500
+          ]
+        },
+        {
+          "points": [
+            [
+              360,
+              335
+            ],
+            [
+              630,
+              335
+            ],
+            [
+              630,
+              610
+            ]
+          ],
+          "arrow": true,
+          "label": "hoogstadium",
+          "dot": [
+            500,
+            335
+          ]
+        },
+        {
+          "points": [
+            [
+              210,
+              1040
+            ],
+            [
+              210,
+              1100
+            ]
+          ],
+          "arrow": true
+        }
+      ]
+    },
+    "kinder-conceptie": {
+      "viewBox": [
+        900,
+        1050
+      ],
+      "nodeSize": [
+        310,
+        155
+      ],
+      "native": true,
+      "nodes": [
+        {
+          "id": "root",
+          "type": "root",
+          "x": 60,
+          "y": 25,
+          "label": "Kinderwens en conceptiefase 2022",
+          "icon": "minus-light",
+          "tone": "blue",
+          "to": "",
+          "rx": 45
+        },
+        {
+          "id": "pa",
+          "type": "criterion",
+          "x": 60,
+          "y": 260,
+          "label": "PA uitslag"
+        },
+        {
+          "id": "start",
+          "type": "outcome",
+          "x": 60,
+          "y": 600,
+          "text": "Start conceptie"
+        },
+        {
+          "id": "std",
+          "type": "outcome",
+          "x": 500,
+          "y": 600,
+          "text": "Standaard behandeling\n\nOF\n\nBehandeling recidief"
+        },
+        {
+          "id": "v",
+          "type": "link",
+          "x": 60,
+          "y": 850,
+          "label": "Kinderwens en follow up tijdens conceptiefase 2022",
+          "icon": "down",
+          "to": "kinder-followup"
+        }
+      ],
+      "edges": [
+        {
+          "points": [
+            [
+              215,
+              180
+            ],
+            [
+              215,
+              260
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "points": [
+            [
+              215,
+              415
+            ],
+            [
+              215,
+              600
+            ]
+          ],
+          "arrow": true,
+          "label": "Geen maligniteit",
+          "dot": [
+            215,
+            510
+          ]
+        },
+        {
+          "points": [
+            [
+              370,
+              335
+            ],
+            [
+              655,
+              335
+            ],
+            [
+              655,
+              600
+            ]
+          ],
+          "arrow": true,
+          "label": "Maligniteit",
+          "dot": [
+            510,
+            335
+          ]
+        },
+        {
+          "points": [
+            [
+              215,
+              755
+            ],
+            [
+              215,
+              850
+            ]
+          ],
+          "arrow": true
+        }
+      ]
+    },
+    "kinder-followup": {
+      "viewBox": [
+        1350,
+        1300
+      ],
+      "nodeSize": [
+        320,
+        170
+      ],
+      "native": true,
+      "nodes": [
+        {
+          "id": "root",
+          "type": "root",
+          "x": 55,
+          "y": 25,
+          "label": "Kinderwens en follow up tijdens conceptiefase 2022",
+          "icon": "minus-light",
+          "tone": "blue",
+          "to": "",
+          "rx": 45
+        },
+        {
+          "id": "zwanger",
+          "type": "criterion",
+          "x": 55,
+          "y": 285,
+          "label": "Zwanger"
+        },
+        {
+          "id": "wens",
+          "type": "criterion",
+          "x": 520,
+          "y": 610,
+          "label": "Kinderwens"
+        },
+        {
+          "id": "ja",
+          "type": "outcome",
+          "x": 55,
+          "y": 900,
+          "h": 330,
+          "text": "Follow up > 6mnd post partum:\n\nEcho\n\nEN\n\nPipelle\n\nEN\n\nHysteroscopie"
+        },
+        {
+          "id": "aan",
+          "type": "outcome",
+          "x": 520,
+          "y": 900,
+          "h": 330,
+          "text": "Elke 3 mnd:\n\nEcho\n\nEN\n\nPipelle\n\nEN\n\nHysteroscopie"
+        },
+        {
+          "id": "af",
+          "type": "outcome",
+          "x": 950,
+          "y": 900,
+          "text": "Standaard behandeling"
+        }
+      ],
+      "edges": [
+        {
+          "points": [
+            [
+              215,
+              195
+            ],
+            [
+              215,
+              285
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "points": [
+            [
+              215,
+              455
+            ],
+            [
+              215,
+              900
+            ]
+          ],
+          "arrow": true,
+          "label": "Ja",
+          "dot": [
+            215,
+            670
+          ]
+        },
+        {
+          "points": [
+            [
+              375,
+              370
+            ],
+            [
+              680,
+              370
+            ],
+            [
+              680,
+              610
+            ]
+          ],
+          "arrow": true,
+          "label": "Nee",
+          "dot": [
+            525,
+            370
+          ]
+        },
+        {
+          "points": [
+            [
+              680,
+              780
+            ],
+            [
+              680,
+              900
+            ]
+          ],
+          "arrow": true,
+          "label": "Aanwezig",
+          "dot": [
+            680,
+            835
+          ]
+        },
+        {
+          "points": [
+            [
+              840,
+              695
+            ],
+            [
+              1110,
+              695
+            ],
+            [
+              1110,
+              900
+            ]
+          ],
+          "arrow": true,
+          "label": "Afwezig",
+          "dot": [
+            975,
+            695
+          ]
+        }
+      ]
+    },
+    "kinder-vervolg-followup": {
+      "viewBox": [
+        850,
+        1050
+      ],
+      "nodeSize": [
+        310,
+        155
+      ],
+      "native": true,
+      "nodes": [
+        {
+          "id": "root",
+          "type": "root",
+          "x": 55,
+          "y": 25,
+          "label": "Kinderwens vervolg follow up tijdens conceptiefase 2022",
+          "icon": "minus-light",
+          "tone": "blue",
+          "to": "",
+          "rx": 45
+        },
+        {
+          "id": "cyt",
+          "type": "criterion",
+          "x": 55,
+          "y": 260,
+          "label": "Uitslag cytologie"
+        },
+        {
+          "id": "neg",
+          "type": "outcome",
+          "x": 55,
+          "y": 610,
+          "text": "Follow up"
+        },
+        {
+          "id": "pos",
+          "type": "outcome",
+          "x": 470,
+          "y": 610,
+          "text": "Standaard behandeling\n\nOF\n\nBehandeling recidief"
+        },
+        {
+          "id": "v",
+          "type": "link",
+          "x": 55,
+          "y": 850,
+          "label": "Kinderwens vervolg follow up tijdens conceptiefase 2022",
+          "icon": "down",
+          "to": "kinder-vervolg-followup"
+        }
+      ],
+      "edges": [
+        {
+          "points": [
+            [
+              210,
+              180
+            ],
+            [
+              210,
+              260
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "points": [
+            [
+              210,
+              415
+            ],
+            [
+              210,
+              610
+            ]
+          ],
+          "arrow": true,
+          "label": "Negatief",
+          "dot": [
+            210,
+            510
+          ]
+        },
+        {
+          "points": [
+            [
+              365,
+              335
+            ],
+            [
+              625,
+              335
+            ],
+            [
+              625,
+              610
+            ]
+          ],
+          "arrow": true,
+          "label": "Positief",
+          "dot": [
+            495,
+            335
+          ]
+        },
+        {
+          "points": [
+            [
+              210,
+              765
+            ],
+            [
+              210,
+              850
+            ]
+          ],
+          "arrow": true
+        }
+      ]
+    },
+    "kinder-vervolg": {
+      "viewBox": [
+        1400,
+        1500
+      ],
+      "nodeSize": [
+        300,
+        155
+      ],
+      "native": true,
+      "nodes": [
+        {
+          "id": "root",
+          "type": "root",
+          "x": 400,
+          "y": 25,
+          "label": "Kinderwens en vervolg behandeling 2022",
+          "icon": "minus-light",
+          "tone": "blue",
+          "to": "",
+          "rx": 45
+        },
+        {
+          "id": "pa",
+          "type": "criterion",
+          "x": 400,
+          "y": 245,
+          "label": "PA uitslag"
+        },
+        {
+          "id": "graad",
+          "type": "criterion",
+          "x": 400,
+          "y": 510,
+          "label": "Graad",
+          "icon": "plus-light"
+        },
+        {
+          "id": "tijd",
+          "type": "criterion",
+          "x": 400,
+          "y": 770,
+          "label": "Tijd na start behandeling"
+        },
+        {
+          "id": "vroeg",
+          "type": "outcome",
+          "x": 50,
+          "y": 1070,
+          "h": 310,
+          "text": "Medroxyprogesteron 200 mg/dag (elke 3 mnd)\n\nGEVOLGD DOOR\n\nHysteroscopie\n\nEN\n\nEndometriumsampling"
+        },
+        {
+          "id": "midden",
+          "type": "outcome",
+          "x": 400,
+          "y": 1070,
+          "h": 380,
+          "text": "Medroxyprogesteron 200 mg/dag\n\nOF\n\nOverweeg hormoonhoudend IUD\n\nGEVOLGD DOOR\n\nHysteroscopie\n\nEN\n\nEndometriumsampling"
+        },
+        {
+          "id": "std",
+          "type": "outcome",
+          "x": 750,
+          "y": 1070,
+          "text": "Standaard behandeling"
+        },
+        {
+          "id": "geen",
+          "type": "outcome",
+          "x": 1050,
+          "y": 1070,
+          "h": 230,
+          "text": "Medroxyprogesteron 200 mg/dag 3 mnd (consolidatiekuur)\n\nEN\n\nEndometriumsampling"
+        },
+        {
+          "id": "l1",
+          "type": "link",
+          "x": 50,
+          "y": 1360,
+          "label": "Kinderwens en vervolg behandeling 2022",
+          "icon": "down",
+          "to": "kinder-vervolg"
+        },
+        {
+          "id": "l2",
+          "type": "link",
+          "x": 400,
+          "y": 1360,
+          "label": "Kinderwens en vervolg behandeling 2022",
+          "icon": "down",
+          "to": "kinder-vervolg"
+        },
+        {
+          "id": "l3",
+          "type": "link",
+          "x": 1050,
+          "y": 1360,
+          "label": "Kinderwens en conceptiefase 2022",
+          "icon": "down",
+          "to": "kinder-conceptie"
+        }
+      ],
+      "edges": [
+        {
+          "points": [
+            [
+              550,
+              180
+            ],
+            [
+              550,
+              245
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "points": [
+            [
+              550,
+              400
+            ],
+            [
+              550,
+              510
+            ]
+          ],
+          "arrow": true,
+          "label": "Maligniteit",
+          "dot": [
+            550,
+            455
+          ]
+        },
+        {
+          "points": [
+            [
+              700,
+              320
+            ],
+            [
+              1200,
+              320
+            ],
+            [
+              1200,
+              1070
+            ]
+          ],
+          "arrow": true,
+          "label": "Geen maligniteit",
+          "dot": [
+            950,
+            320
+          ]
+        },
+        {
+          "points": [
+            [
+              550,
+              665
+            ],
+            [
+              550,
+              770
+            ]
+          ],
+          "arrow": true,
+          "label": "1",
+          "dot": [
+            550,
+            715
+          ]
+        },
+        {
+          "points": [
+            [
+              700,
+              585
+            ],
+            [
+              900,
+              585
+            ],
+            [
+              900,
+              1070
+            ]
+          ],
+          "arrow": true,
+          "label": ">1",
+          "dot": [
+            800,
+            585
+          ]
+        },
+        {
+          "points": [
+            [
+              400,
+              845
+            ],
+            [
+              200,
+              845
+            ],
+            [
+              200,
+              1070
+            ]
+          ],
+          "arrow": true,
+          "label": "<=6 mnd",
+          "dot": [
+            300,
+            845
+          ]
+        },
+        {
+          "points": [
+            [
+              550,
+              925
+            ],
+            [
+              550,
+              1070
+            ]
+          ],
+          "arrow": true,
+          "label": "6-12 mnd",
+          "dot": [
+            550,
+            980
+          ]
+        },
+        {
+          "points": [
+            [
+              700,
+              845
+            ],
+            [
+              900,
+              845
+            ]
+          ],
+          "label": ">=12 mnd",
+          "dot": [
+            800,
+            845
+          ]
+        }
+      ]
+    },
+    "recidiefbehandeling": {
+      "viewBox": [
+        2400,
+        1150
+      ],
+      "nodeSize": [
+        220,
+        120
+      ],
+      "native": true,
+      "zoom": 0.8,
+      "nodes": [
+        {
+          "id": "root",
+          "type": "root",
+          "x": 1180,
+          "y": 15,
+          "label": "Recidief behandeling 2022",
+          "icon": "minus-light",
+          "tone": "blue",
+          "to": "",
+          "rx": 45
+        },
+        {
+          "id": "type",
+          "type": "criterion",
+          "x": 1180,
+          "y": 170,
+          "label": "Type recidief"
+        },
+        {
+          "id": "behandeling",
+          "type": "criterion",
+          "x": 650,
+          "y": 310,
+          "label": "Eerdere behandeling"
+        },
+        {
+          "id": "grootte",
+          "type": "criterion",
+          "x": 230,
+          "y": 560,
+          "label": "Grootte recidief"
+        },
+        {
+          "id": "mogelijk",
+          "type": "criterion",
+          "x": 650,
+          "y": 500,
+          "label": "Mogelijke behandeling"
+        },
+        {
+          "id": "pr",
+          "type": "criterion",
+          "x": 650,
+          "y": 700,
+          "label": "Status progesteron receptor"
+        },
+        {
+          "id": "locatie",
+          "type": "criterion",
+          "x": 1180,
+          "y": 500,
+          "label": "Locatie regionaal recidief"
+        },
+        {
+          "id": "ev",
+          "type": "criterion",
+          "x": 1180,
+          "y": 700,
+          "label": "Eerdere behandeling"
+        },
+        {
+          "id": "eb",
+          "type": "criterion",
+          "x": 1660,
+          "y": 700,
+          "label": "Eerdere behandeling"
+        },
+        {
+          "id": "o1",
+          "type": "outcome",
+          "x": 20,
+          "y": 880,
+          "text": "Radiotherapie"
+        },
+        {
+          "id": "o2",
+          "type": "outcome",
+          "x": 260,
+          "y": 880,
+          "text": "Radiotherapie\nOF\nOverweeg debulking\nGEVOLGD DOOR\nRadiotherapie"
+        },
+        {
+          "id": "o3",
+          "type": "outcome",
+          "x": 500,
+          "y": 880,
+          "text": "Verwijs naar oncologisch centrum\nEN\nOverweeg exenteratie"
+        },
+        {
+          "id": "o4",
+          "type": "outcome",
+          "x": 740,
+          "y": 880,
+          "text": "Hormonale therapie"
+        },
+        {
+          "id": "o5",
+          "type": "outcome",
+          "x": 980,
+          "y": 880,
+          "text": "Overweeg systemische chemotherapie"
+        },
+        {
+          "id": "o6",
+          "type": "outcome",
+          "x": 1220,
+          "y": 880,
+          "text": "Chirurgie in oncologisch centrum"
+        },
+        {
+          "id": "o7",
+          "type": "outcome",
+          "x": 1460,
+          "y": 880,
+          "text": "Radiotherapie"
+        },
+        {
+          "id": "o8",
+          "type": "outcome",
+          "x": 1700,
+          "y": 880,
+          "text": "Hormonale therapie"
+        },
+        {
+          "id": "o9",
+          "type": "outcome",
+          "x": 1940,
+          "y": 880,
+          "text": "Radiotherapie"
+        },
+        {
+          "id": "o10",
+          "type": "outcome",
+          "x": 2180,
+          "y": 820,
+          "h": 260,
+          "text": "Overweeg laag gedoseerd medroxyprogesteron\nOF\nOverweeg megestrol-acetaat"
+        },
+        {
+          "id": "beleid",
+          "type": "link",
+          "x": 2180,
+          "y": 1080,
+          "label": "Beleid na hormoontherapie",
+          "icon": "down",
+          "to": "beleid-hormoon"
+        }
+      ],
+      "edges": [
+        {
+          "points": [
+            [
+              1290,
+              135
+            ],
+            [
+              1290,
+              170
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "points": [
+            [
+              1180,
+              230
+            ],
+            [
+              760,
+              230
+            ],
+            [
+              760,
+              310
+            ]
+          ],
+          "arrow": true,
+          "label": "Lokaal",
+          "dot": [
+            970,
+            230
+          ]
+        },
+        {
+          "points": [
+            [
+              1290,
+              290
+            ],
+            [
+              1290,
+              500
+            ]
+          ],
+          "arrow": true,
+          "label": "Regionaal",
+          "dot": [
+            1290,
+            385
+          ]
+        },
+        {
+          "points": [
+            [
+              1400,
+              230
+            ],
+            [
+              2290,
+              230
+            ],
+            [
+              2290,
+              820
+            ]
+          ],
+          "arrow": true,
+          "label": "Afstands",
+          "dot": [
+            1845,
+            230
+          ]
+        },
+        {
+          "points": [
+            [
+              650,
+              370
+            ],
+            [
+              340,
+              370
+            ],
+            [
+              340,
+              560
+            ]
+          ],
+          "arrow": true,
+          "label": "Anders",
+          "dot": [
+            495,
+            370
+          ]
+        },
+        {
+          "points": [
+            [
+              760,
+              430
+            ],
+            [
+              760,
+              500
+            ]
+          ],
+          "arrow": true,
+          "label": "Radiotherapie",
+          "dot": [
+            760,
+            460
+          ]
+        },
+        {
+          "points": [
+            [
+              230,
+              620
+            ],
+            [
+              130,
+              620
+            ],
+            [
+              130,
+              880
+            ]
+          ],
+          "arrow": true,
+          "label": "<=2 cm",
+          "dot": [
+            180,
+            620
+          ]
+        },
+        {
+          "points": [
+            [
+              340,
+              680
+            ],
+            [
+              370,
+              680
+            ],
+            [
+              370,
+              880
+            ]
+          ],
+          "arrow": true,
+          "label": ">2 cm",
+          "dot": [
+            355,
+            680
+          ]
+        },
+        {
+          "points": [
+            [
+              650,
+              560
+            ],
+            [
+              610,
+              560
+            ],
+            [
+              610,
+              880
+            ]
+          ],
+          "arrow": true,
+          "label": "Radicaal",
+          "dot": [
+            630,
+            560
+          ]
+        },
+        {
+          "points": [
+            [
+              760,
+              620
+            ],
+            [
+              760,
+              700
+            ]
+          ],
+          "arrow": true,
+          "label": "Niet-radicaal",
+          "dot": [
+            760,
+            660
+          ]
+        },
+        {
+          "points": [
+            [
+              650,
+              760
+            ],
+            [
+              850,
+              760
+            ],
+            [
+              850,
+              880
+            ]
+          ],
+          "arrow": true,
+          "label": "Positief",
+          "dot": [
+            760,
+            760
+          ]
+        },
+        {
+          "points": [
+            [
+              870,
+              760
+            ],
+            [
+              1090,
+              760
+            ],
+            [
+              1090,
+              880
+            ]
+          ],
+          "arrow": true,
+          "label": "Negatief",
+          "dot": [
+            980,
+            760
+          ]
+        },
+        {
+          "points": [
+            [
+              1290,
+              620
+            ],
+            [
+              1290,
+              700
+            ]
+          ],
+          "arrow": true,
+          "label": "Laag in vagina",
+          "dot": [
+            1290,
+            660
+          ]
+        },
+        {
+          "points": [
+            [
+              1400,
+              560
+            ],
+            [
+              1570,
+              560
+            ],
+            [
+              1570,
+              880
+            ]
+          ],
+          "arrow": true,
+          "label": "Bekkenwand, ingroei blaas of rectum",
+          "dot": [
+            1485,
+            560
+          ]
+        },
+        {
+          "points": [
+            [
+              1660,
+              760
+            ],
+            [
+              1810,
+              760
+            ],
+            [
+              1810,
+              880
+            ]
+          ],
+          "arrow": true,
+          "label": "Radiotherapie",
+          "dot": [
+            1735,
+            760
+          ]
+        },
+        {
+          "points": [
+            [
+              1880,
+              760
+            ],
+            [
+              2050,
+              760
+            ],
+            [
+              2050,
+              880
+            ]
+          ],
+          "arrow": true,
+          "label": "Anders",
+          "dot": [
+            1965,
+            760
+          ]
+        }
+      ]
+    }
+  }
 }
