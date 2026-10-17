@@ -1,10 +1,108 @@
 {
   "id": "gebruiksvoorwaarden",
-  "title": "Gebruiksvoorwaarden",
+  "title": "Gebruiksvoorwaarden Oncoguide",
+  "version": "november 2020",
+  "sourceFile": "Gebruiksvoorwaarden Oncoguide 2020.pdf",
   "sections": [
     {
+      "number": "1",
       "title": "Toepasselijkheid",
-      "text": "..."
+      "blocks": [
+        {"type": "paragraph", "number": "1.1", "text": "Deze gebruiksvoorwaarden beschrijven de voorwaarden voor het gebruik van de Oncoguide webapplicatie, Oncoguide iOS app en Oncoguide Android app (hierna: Oncoguide)."},
+        {"type": "paragraph", "number": "1.2", "text": "Door akkoord te gaan met deze gebruiksvoorwaarden aanvaardt Gebruiker de toepasselijkheid daarvan."}
+      ]
+    },
+    {
+      "number": "2",
+      "title": "Begrippen",
+      "blocks": [
+        {"type": "definitionList", "items": [
+          {"term": "Gebruiker", "definition": "individueel natuurlijk persoon die wettelijk bevoegd is om patiënten te behandelen."},
+          {"term": "Licentie", "definition": "het gebruiksrecht dat IKNL aan Gebruiker verleent indien Gebruiker akkoord gaat met deze Gebruiksvoorwaarden."},
+          {"term": "Oncoguide", "definition": "de Oncoguide webapplicatie (internetwebsite), Oncoguide iOS app en Oncoguide Android app."}
+        ]}
+      ]
+    },
+    {
+      "number": "3",
+      "title": "Inhoud Oncoguide",
+      "blocks": [
+        {"type": "paragraph", "number": "3.1", "text": "Oncoguide is ontwikkeld door Integraal Kankercentrum Nederland (IKNL)."},
+        {"type": "paragraph", "number": "3.2", "text": "Oncoguide biedt Gebruikers inzichten uit kennisbronnen, waaronder inzichten uit de Nederlandse Kankerregistratie, medische richtlijnen en predictie- en rekenmodellen. Oncoguide geeft de medische content (bijvoorbeeld de content van een richtlijn) visueel weer door middel van interactieve beslisbomen. Op basis van algoritmes gebaseerd op patiënt- en ziektekenmerken zoekt Oncoguide op een transparante manier naar de bijbehorende zorgaanbevelingen uit de medische content. Oncoguide stelt de Gebruiker aldus in staat gemakkelijk en overzichtelijk te zoeken in de medische content en dient dan ook enkel ter ondersteuning van de klinische besluitvorming. De Gebruiker/zorgverlener is en blijft zelfstandig verantwoordelijk voor het bepalen van de patiëntenzorg."},
+        {"type": "paragraph", "number": "3.3", "text": "Met behulp van een koppeling met het platform Evidencio worden voor bepaalde subpopulaties uitkomsten van gevalideerde predictie- en rekenmodellen getoond in Oncoguide. De voor de berekening relevante gegevens worden naar Evidencio gestuurd. Na uitvoering van de berekening ontvangt IKNL de uitkomst die vervolgens in Oncoguide wordt weergegeven. Hiervoor wordt een API gebruikt."},
+        {"type": "paragraph", "number": "3.4", "text": "De medische content die door middel van Oncoguide visueel ter beschikking wordt gesteld is en blijft eigendom van de relevante eigenaar van de content (bij de richtlijnen zijn dit bijvoorbeeld de verenigingen van beroepsbeoefenaren)."},
+        {"type": "paragraph", "number": "3.5", "text": "De medische content (waarvan Oncoguide een visuele representatie weergeeft) bevat aanbevelingen van algemene aard. Het is mogelijk dat deze aanbevelingen in een individueel geval niet van toepassing zijn. Er kunnen zich feiten of omstandigheden voordoen waardoor het wenselijk is dat in het belang van de patiënt van deze aanbevelingen wordt afgeweken. Wanneer van deze aanbevelingen wordt afgeweken biedt Oncoguide de mogelijkheden om dit beargumenteerd te documenteren."}
+      ]
+    },
+    {
+      "number": "4",
+      "title": "Gebruik",
+      "blocks": [
+        {"type": "paragraph", "number": "4.1", "text": "Het is Gebruiker niet toegestaan Oncoguide anders te gebruiken dan voor het doel zoals omschreven in artikel 3 van deze gebruiksvoorwaarden."},
+        {"type": "paragraph", "number": "4.2", "text": "Door in te stemmen met deze Gebruiksvoorwaarden verstrekt IKNL aan Gebruiker gratis een nietoverdraagbaar, herroepelijk, niet-exclusief, beperkt, niet-overdraagbaar en niet-sublicentieerbaar gebruiksrecht (\"Licentie\") voor het gebruik van Oncoguide."},
+        {"type": "paragraph", "number": "4.3", "text": "Instemming geschiedt via het aanklikken door Gebruiker van de digitale button ‘Akkoord’."},
+        {"type": "paragraph", "number": "4.4", "text": "Ten behoeve van het aanmaken van een (optioneel) gebruikersaccount stemt Gebruiker ermee in om de volgende gegevens te verstrekken: gebruikersnaam, e-mailadres en wachtwoord. Na aanmaken van het gebruikersaccount wordt een bevestigingsemail met activatielink gezonden aan Gebruiker."},
+        {"type": "paragraph", "number": "4.5", "text": "Wanneer een gebruikersaccount is aangemaakt, kunnen de door de Gebruiker ingevulde beslisbomen (casussen) worden opgeslagen. Optioneel kan door Gebruiker het persoonlijke BIGnummer worden gekoppeld aan het account teneinde gebruik te kunnen maken van de feedbackfunctionaliteit. U kunt dan inhoudelijke feedback achterlaten bij een individuele beslisboom of suggesties aangaande de applicatie doorgeven. Andere Gebruikers met eenzelfde type account kunnen deze feedback inzien."},
+        {"type": "groupedList", "number": "4.6", "intro": "Het hiervoor genoemde gebruiksrecht omvat de volgende functionaliteiten:", "groups": [
+          {"title": "Alle Gebruikers", "items": ["Doorlopen van beslisbomen om op basis van de medische content de behandelroute in kaart te brengen", "Raadplegen van predictie- en rekenmodellen op basis van medische content", "Delen van een (niet-opgeslagen) doorlopen beslisboom", "Raadplegen van een (niet-opgeslagen en door een andere Gebruiker gemaakte) doorlopen beslisboom"]},
+          {"title": "Gebruikers met een account", "items": ["Afwijken van aanbevelingen", "Opslaan van een casus", "Openen van een opgeslagen casus", "Aanpassen en/of verwijderen van het account"]},
+          {"title": "Gebruikers met een account gekoppeld aan hun BIG-nummer", "items": ["Achterlaten van feedback op de medische inhoud van een beslisboom", "Achterlaten van feedback op de functionele werking van de applicatie", "Inzien van feedback dat is achtergelaten door andere Gebruikers"]}
+        ]},
+        {"type": "paragraph", "number": "4.7", "text": "Om van Oncoguide gebruik te kunnen maken, dient Gebruiker op eigen kosten zorg te dragen voor de daarvoor noodzakelijke apparatuur, systeemprogrammatuur en (internet)verbinding."},
+        {"type": "paragraph", "number": "4.8", "text": "Het is de Gebruiker niet toegestaan om Oncoguide te gebruiken voor commerciële doeleinden."},
+        {"type": "paragraph", "number": "4.9", "text": "Het is Gebruiker toegestaan om op een andere website een hyperlink op te nemen naar Oncoguide (zoals beschikbaar in de Apple App Store en in de Google Play Store) of naar de webapplicatie van Oncoguide. Het is zonder voorafgaande schriftelijke toestemming van IKNL niet toegestaan om een verwijzing of verbinding (een hyperlink) naar de Oncoguide webapplicatie op dusdanige wijze te gebruiken dat een Gebruiker de Oncoguide webapplicatie krijgt te zien in een frame van een andere webpagina of geautomatiseerde toepassing."},
+        {"type": "paragraph", "number": "4.10", "text": "In geval van (vermeende) onjuistheden in de medische content (en/of de visuele weergave daarvan) die via Oncoguide ter beschikking worden gesteld, kan contact worden opgenomen met IKNL (oncoguide@iknl.nl) of via de feedbackfunctionaliteit. Ook ontvangt IKNL graag eventuele (verbeter)suggesties en/of opmerkingen met betrekking tot Oncoguide.", "links": [{"label": "oncoguide@iknl.nl", "href": "mailto:oncoguide@iknl.nl"}]},
+        {"type": "paragraph", "number": "4.11", "text": "IKNL heeft te allen tijde het recht om Oncoguide aan te passen, gegevens te wijzigen of verwijderen, het gebruik van Oncoguide geheel of gedeeltelijk, tijdelijk of blijvend te ontzeggen. IKNL zal Gebruiker hierover op passende wijze informeren."},
+        {"type": "paragraph", "number": "4.12", "text": "Oncoguide kan te allen tijde worden geüpdatet (voor onderhoud, beveiliging en andere technische vereisten) door IKNL zonder vooraf toestemming te verkrijgen van Gebruikers. IKNL zal met redelijke inspanning zorgen voor adequate informatieverstrekking hieromtrent."}
+      ]
+    },
+    {
+      "number": "5",
+      "title": "Aansprakelijkheid",
+      "blocks": [
+        {"type": "paragraph", "number": "5.1", "text": "Gebruiker is verantwoordelijk voor het correcte gebruik van Oncoguide. Het gebruik van Oncoguide geschiedt volledig op eigen risico en verantwoordelijkheid van de Gebruiker. De Gebruiker/zorgverlener is en blijft zelfstandig verantwoordelijk voor het bepalen van de patiëntenzorg (zie ook artikel 3.2)."},
+        {"type": "paragraph", "number": "5.2", "text": "Oncoguide (de visuele weergave van de medische content) is met de grootst mogelijke zorgvuldigheid door IKNL ontwikkeld en bevat slechts aanbevelingen van algemene aard. De Gebruiker/zorgverlener is zelfstandig verantwoordelijk voor het bepalen van de patiëntenzorg. Aan Oncoguide kunnen op geen enkele wijze rechten worden ontleend, hetgeen mede inhoudt dat iedere aansprakelijkheid van IKNL voor (indirecte) schade en/of kosten die op enige wijze voortvloeien uit of verband houden met het gebruik, het functioneren en/of de inhoud van Oncoguide is uitgesloten."},
+        {"type": "paragraph", "number": "5.3", "text": "De medische content (die door middel van Oncoguide visueel wordt weergegeven) is eveneens met de grootst mogelijke zorgvuldigheid ontwikkeld door de relevante eigenaar daarvan en bevat slechts aanbevelingen van algemene aard. Aan de medische content kunnen op geen enkele wijze rechten worden ontleend, hetgeen mede inhoudt dat aansprakelijkheid voor (indirecte) schade en/of kosten die op enige wijze voortvloeien uit of verband houden met het gebruik en/of de inhoud van de medische content is uitgesloten."},
+        {"type": "paragraph", "number": "5.4", "text": "De predicties en berekeningen die worden uitgevoerd door Evidencio en waarvan de uitkomst wordt weergegeven in Oncoguide worden eveneens met de grootst mogelijke zorgvuldigheid uitgevoerd door Evidencio. Aan de predicties en berekeningen kunnen op geen enkele wijze rechten worden ontleend, hetgeen mede inhoudt dat aansprakelijkheid voor (indirecte) schade en/of kosten die op enige wijze voortvloeien uit of verband houden met het gebruik en/of de inhoud van de predictiemodellen is uitgesloten."},
+        {"type": "paragraph", "number": "5.5", "text": "Elke medische zorg en elk medisch handelen is de verantwoordelijkheid van de Gebruiker. Gebruiker vrijwaart IKNL en de eigenaar van de op Oncoguide getoonde medische content dan ook voor aansprakelijkheid voor schade, verliezen, kosten of vorderingen van derden die direct of indirect voortvloeien uit of samenhangen met het (medisch) handelen van en/of de (medische) zorg verleend door of in opdracht van Gebruiker waarbij Oncoguide is gebruikt."},
+        {"type": "paragraph", "number": "5.6", "text": "IKNL sluit iedere aansprakelijkheid uit voor schade, verliezen, kosten of vorderingen van derden die direct of indirect voortvloeien uit of samenhangen met het al dan niet up-to-date zijn van de medische kennisbronnen, het voldoen daarvan aan de op het moment van gebruik geldende stand van de wetenschap en/of fouten, storingen en/of onderbrekingen ten aanzien van het functioneren van Oncoguide."},
+        {"type": "paragraph", "number": "5.7", "text": "Oncoguide kan links naar websites die door andere partijen dan IKNL worden aangeboden bevatten. Deze links zijn uitsluitend ter informatie. IKNL heeft geen zeggenschap over deze websites en is niet verantwoordelijk of aansprakelijk voor de daarop aangeboden informatie, producten of diensten."}
+      ]
+    },
+    {
+      "number": "6",
+      "title": "Intellectuele eigendom",
+      "blocks": [
+        {"type": "paragraph", "number": "6.1", "text": "De intellectuele eigendomsrechten van Oncoguide berusten bij IKNL. De intellectuele eigendomsrechten van de medische content berusten bij de eigenaren van de medische content. Niets in deze Gebruiksvoorwaarden strekt tot algehele of gedeeltelijke overdracht van een zodanig recht aan Gebruiker. Gebruiker erkent deze rechten en zal zich in iedere vorm van (in)directe inbreuk op deze rechten onthouden."},
+        {"type": "paragraph", "number": "6.2", "text": "Het is Gebruiker niet toegestaan om (informatie beschikbaar op) Oncoguide (gedeeltelijk) te verveelvoudigen en/of openbaar te maken en/of (her)gebruiken, zonder de uitdrukkelijke voorafgaande schriftelijke toestemming van IKNL en - indien van toepassing - de eigenaar van de medische content of de eigenaren van de predictie- en/of rekenmodellen. U kunt een verzoek voor toestemming richten aan IKNL, Postbus 19079, 3501 DB Utrecht. IKNL behandelt dit verzoek binnen een redelijke termijn, samen met de eigenaar van de medische content."},
+        {"type": "paragraph", "number": "6.3", "text": "Gebruiker zal niet op enige wijze de naam en/of het logo van IKNL (doen) gebruiken zonder voorafgaande toestemming van IKNL. Deze bepaling geldt ook voor logo’s van andere partijen zoals gebruikt op Oncoguide."}
+      ]
+    },
+    {
+      "number": "7",
+      "title": "Privacy en cookies",
+      "blocks": [
+        {"type": "paragraph", "number": "7.1", "text": "De door Gebruiker verstrekte gebruikersgegevens (gebruikersnaam, e-mailadres, wachtwoord en (optioneel) BIG-nummer) ten behoeve van het gebruik van Oncoguide zullen door IKNL op vertrouwelijke wijze worden behandeld. Oncoguide biedt Gebruiker de mogelijkheid om deze gegevens op te slaan, te wijzigen, dan wel te verwijderen. De gegevens die door Gebruiker worden opgeslagen zijn niet toegankelijk voor andere Gebruikers. Het is de Gebruiker niet toegestaan om gegevens zodanig op te slaan dat ze te herleiden zijn tot een individu (patiënt). Meer informatie over de manier waarop IKNL omgaat met persoonsgegevens vindt u op https://iknl.nl/privacyverklaring.", "links": [{"label": "Privacyverklaring IKNL", "href": "https://iknl.nl/privacyverklaring"}]},
+        {"type": "paragraph", "number": "7.2", "text": "Oncoguide maakt gebruik van sessiecookies. Sessiecookies zijn functionele cookies, bedoeld om Oncoguide goed te laten werken. Met sessiecookies kunnen we zien of Oncoguide geschikt is voor uw computer. Deze cookies bevatten elke keer dat u Oncoguide bezoekt een ander, tijdelijk nummer. De sessiecookies worden na het afsluiten van uw internetbrowser verwijderd. Meer informatie over het Cookiebeleid van IKNL vindt u op https://iknl.nl/cookiebeleid.", "links": [{"label": "Cookiebeleid IKNL", "href": "https://iknl.nl/cookiebeleid"}]}
+      ]
+    },
+    {
+      "number": "8",
+      "title": "Beveiliging van gegevens",
+      "blocks": [
+        {"type": "paragraph", "number": "8.1", "text": "IKNL heeft in overeenstemming met de AVG passende maatregelen genomen om Oncoguide te beveiligen. Binnen Oncoguide worden gegevens van de Gebruiker versleuteld en beveiligd opgeslagen. Transmissie van gegevens geschiedt door middel van een beveiligde openverbinding (internet, https). Het is de verantwoordelijkheid van de Gebruiker om vast te stellen dat het (mobiele) apparaat zich op een beveiligd en bekend netwerk bevindt, alvorens vertrouwelijke gegevens in te voeren."},
+        {"type": "paragraph", "number": "8.2", "text": "Gebruiker is gehouden het account af te schermen met een wachtwoord om ongeoorloofde toegang tot het account te voorkomen. Gebruiker is verantwoordelijk voor de geheimhouding en bescherming van eigen inloggegevens om daarmee ongeautoriseerde toegang tot het account te voorkomen."},
+        {"type": "paragraph", "number": "8.3", "text": "Het is Gebruiker niet toegestaan de beveiliging van Oncoguide of onderdelen ervan, te omzeilen of te verwijderen. Een ieder die de Oncoguide systeem- of netwerkbeveiliging verstoort dan wel uitschakelt kan aansprakelijk worden gesteld voor de schade die IKNL dientengevolge lijdt en zal lijden."}
+      ]
+    },
+    {
+      "number": "9",
+      "title": "Toepasselijk recht en wijzigingen",
+      "blocks": [
+        {"type": "paragraph", "number": "9.1", "text": "IKNL is gerechtigd deze gebruiksvoorwaarden te wijzigen en/of aan te vullen. IKNL streeft ernaar om Gebruiker te informeren over significante wijzigingen voorafgaand aan het eerstvolgend gebruik door Gebruiker van Oncoguide na doorvoering van de wijziging. Wijzigingen van ondergeschikt belang zullen worden doorgevoerd zonder Gebruikers daarover te informeren."},
+        {"type": "paragraph", "number": "9.2", "text": "Op deze Gebruiksvoorwaarden is Nederlands recht van toepassing."},
+        {"type": "paragraph", "number": "9.3", "text": "Geschillen omtrent het gebruik van Oncoguide kunnen worden voorgelegd aan de bevoegde rechter te Midden-Nederland."}
+      ]
     }
   ]
 }
