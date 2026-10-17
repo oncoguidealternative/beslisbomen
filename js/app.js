@@ -168,13 +168,41 @@
       setTree(view.treeId);
       if (view.graph && view.graph.native) setZoom(Renderer.fitZoom(view.graph));
       document.title = view.treeId ? view.label + " – " + zorgpad.titel : zorgpad.titel;
-      Renderer.draw(view, navigate);
+      ChoicePanel.close(false);
+      Renderer.draw(view, { navigate: navigate, interact: interact });
       if (view.treeId) window.scrollTo(0, 0);
     }
 
-    // De renderer past de viewport toe zodra de state ervan verandert.
+    // Een interactieve node: open het keuzevenster (of sluit het als het al voor deze node openstaat).
+    function interact(item, anchor) {
+      if (ChoicePanel.isOpenFor(item.id)) {
+        ChoicePanel.close(true);
+        return;
+      }
+      ChoicePanel.open({ nodeId: item.id, label: item.label, options: item.options, anchor: anchor });
+    }
+
+    // Keuzes gaan uitsluitend via de centrale state; SVG en venster volgen via subscribe.
+    ChoicePanel.init({
+      onSelect: function (nodeId, value, info) {
+        setSelection(nodeId, value);
+        ChoicePanel.announce(info.nodeLabel + ": " + info.optionLabel + " geselecteerd.");
+      },
+      onClear: function (nodeId, info) {
+        clearSelection(nodeId);
+        ChoicePanel.announce("Keuze voor " + info.nodeLabel + " gewist.");
+      }
+    });
+
+    // Eén abonnement voor de hele pagina: viewport en selecties worden toegepast zodra de state verandert.
     subscribe(function (snapshot, key) {
-      if (key === "viewport") Renderer.applyViewport();
+      if (key === "viewport") {
+        Renderer.applyViewport();
+        ChoicePanel.position();
+      } else if (key === "selections") {
+        Renderer.applySelections();
+        ChoicePanel.sync();
+      }
     });
 
     // ----- Muisnavigatie (alleen voor native diagrammen) -----
@@ -268,7 +296,7 @@
 
     // Dubbelklik op het diagram: terug naar standaardzoom en beginpositie.
     refs.stage.addEventListener("dblclick", function (ev) {
-      if (!navigationActive() || ev.target.closest(".node.go")) return;
+      if (!navigationActive() || ev.target.closest(".node.go, .node.is-interactive")) return;
       resetViewport();
       if (currentGraph && currentGraph.native) setZoom(Renderer.fitZoom(currentGraph));
     });
