@@ -69,6 +69,11 @@
   const WHEEL_PINCH_SENSITIVITY = 0.01;
   const DRAG_THRESHOLD = 4;
   const FOCUS_MARGIN = 16;
+  const JOURNEY_MIN_MS = 350;
+  const JOURNEY_MAX_MS = 700;
+  const VISIBLE_MARGIN = 24;
+  const CENTER_TOLERANCE = 0.2;
+  const GUIDED_HIGHLIGHT_MS = 1600;
 
   async function initZorgpad() {
     const refs = {
@@ -168,8 +173,11 @@
       setTree(view.treeId);
       if (view.graph && view.graph.native) setZoom(Renderer.fitZoom(view.graph));
       document.title = view.treeId ? view.label + " – " + zorgpad.titel : zorgpad.titel;
+      cancelJourney();
+      clearGuidedTarget();
       ChoicePanel.close(false);
       Renderer.draw(view, { navigate: navigate, interact: interact });
+      refreshGraph();
       if (view.treeId) window.scrollTo(0, 0);
     }
 
@@ -182,14 +190,160 @@
       ChoicePanel.open({ nodeId: item.id, label: item.label, options: item.options, anchor: anchor });
     }
 
-    // Keuzes gaan uitsluitend via de centrale state; SVG en venster volgen via subscribe.
+    // ----- Graph-status -----
+    function graphIsInteractive() {
+      return !!currentGraph && GraphState.isInteractive(currentGraph);
+    }
+
+    // Berekent de status uit graph + selecties en laat de renderer die toepassen.
+    function refreshGraph() {
+      if (!graphIsInteractive()) return;
+      Renderer.applyStatus(GraphState.compute(currentGraph, getState().selections));
+    }
+
+    // Verwijdert keuzes die door een wijziging niet meer geldig of bereikbaar zijn (via de state-functies).
+    function removeInvalidSelections() {
+      if (!graphIsInteractive()) return [];
+      const result = GraphState.prune(currentGraph, getState().selections);
+      result.removed.forEach(function (id) { clearSelection(id); });
+      return result.removed;
+    }
+
+    function nodeById(id) {
+      return currentGraph.nodes.filter(function (n) { return n.id === id; })[0];
+    }
+
+    // ----- Begeleide viewportreis -----
+    // Alleen tijdelijke animatiestatus; de eindpositie staat altijd in de centrale state (setPan).
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let journey = null;
+    let guidedTimer = null;
+
+    function cancelJourney() {
+      if (journey) {
+        cancelAnimationFrame(journey.raf);
+        journey = null;
+      }
+    }
+
+    function clearGuidedTarget() {
+      clearTimeout(guidedTimer);
+      guidedTimer = null;
+      Renderer.setGuidedTarget(null);
+    }
+
+    function easeInOutCubic(t) {
+      return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    }
+
+    // Positie van de node in de zichtbare stage (pixels), uit SVG-coördinaten, zoom en pan.
+    function nodeOnScreen(nodeId) {
+      const box = Renderer.nodeBox(currentGraph, nodeId);
+      const v = getState().viewport;
+      const left = v.panX + box.x * v.zoom;
+      const top = v.panY + box.y * v.zoom;
+      return { left: left, top: top, right: left + box.w * v.zoom, bottom: top + box.h * v.zoom, box: box };
+    }
+
+    // Pan waarbij de node in het midden van het zichtbare tree-workspace (de stage) staat; zoom blijft ongewijzigd.
+    function centeredPan(nodeId) {
+      const box = Renderer.nodeBox(currentGraph, nodeId);
+      const zoom = getState().viewport.zoom;
+      return {
+        x: refs.stage.clientWidth / 2 - (box.x + box.w / 2) * zoom,
+        y: refs.stage.clientHeight / 2 - (box.y + box.h / 2) * zoom
+      };
+    }
+
+    // Is een viewportbeweging nodig? Niet als de node volledig zichtbaar is (en bij een criterium ook redelijk centraal).
+    function needsMove(nodeId, kind) {
+      const r = nodeOnScreen(nodeId);
+      const w = refs.stage.clientWidth;
+      const h = refs.stage.clientHeight;
+      const fullyVisible = r.left >= VISIBLE_MARGIN && r.right <= w - VISIBLE_MARGIN &&
+        r.top >= VISIBLE_MARGIN && r.bottom <= h - VISIBLE_MARGIN;
+      if (!fullyVisible) return true;
+      if (kind === "outcome") return false;
+      const dx = (r.left + r.right) / 2 - w / 2;
+      const dy = (r.top + r.bottom) / 2 - h / 2;
+      return Math.abs(dx) > CENTER_TOLERANCE * w || Math.abs(dy) > CENTER_TOLERANCE * h;
+    }
+
+    // Beweegt de viewport (alleen pan) naar de bestemming: vloeiend, of direct bij reduced motion.
+    function movePanTo(end, onDone) {
+      const start = getState().viewport;
+      const distance = Math.hypot(end.x - start.panX, end.y - start.panY);
+      if (reducedMotion.matches || distance < 1) {
+        setPan(end.x, end.y);
+        onDone();
+        return;
+      }
+      const from = { x: start.panX, y: start.panY };
+      const duration = Math.min(JOURNEY_MAX_MS, Math.max(JOURNEY_MIN_MS, distance * 0.5));
+      const t0 = performance.now();
+      const current = { raf: 0 };
+      journey = current;
+      function step(now) {
+        if (journey !== current) return;
+        const t = Math.min(1, (now - t0) / duration);
+        const e = easeInOutCubic(t);
+        setPan(from.x + (end.x - from.x) * e, from.y + (end.y - from.y) * e);
+        if (t < 1) {
+          current.raf = requestAnimationFrame(step);
+        } else {
+          journey = null;
+          setPan(end.x, end.y);
+          onDone();
+        }
+      }
+      current.raf = requestAnimationFrame(step);
+    }
+
+    // Start de reis naar het volgende punt na een nieuwe of gewijzigde keuze.
+    function startJourney(target, sourceNodeId) {
+      cancelJourney();
+      clearGuidedTarget();
+      function finish() {
+        if (target.kind === "available") {
+          Renderer.setGuidedTarget(target.id);
+          guidedTimer = setTimeout(function () { Renderer.setGuidedTarget(null); }, GUIDED_HIGHLIGHT_MS);
+          Renderer.focusNode(target.id);
+        } else {
+          // Een outcome is niet interactief: de focus keert terug naar de node waar de keuze is gemaakt.
+          Renderer.focusNode(sourceNodeId);
+        }
+      }
+      if (currentGraph.native && (target.kind === "available" || target.kind === "outcome") &&
+          needsMove(target.id, target.kind)) {
+        movePanTo(centeredPan(target.id), finish);
+      } else {
+        finish();
+      }
+    }
+
+    // Keuzevenster: een keuze gaat uitsluitend via de centrale state; SVG en venster volgen via subscribe.
     ChoicePanel.init({
       onSelect: function (nodeId, value, info) {
+        if (getState().selections[nodeId] === value) return;
+        cancelJourney();
         setSelection(nodeId, value);
-        ChoicePanel.announce(info.nodeLabel + ": " + info.optionLabel + " geselecteerd.");
+        removeInvalidSelections();
+        ChoicePanel.close(false);
+        const target = GraphState.nextTarget(currentGraph, getState().selections, nodeId);
+        let message = info.nodeLabel + ": " + info.optionLabel + " geselecteerd.";
+        if (target && target.kind === "available") {
+          message += " Volgende stap: " + GraphState.describeNode(nodeById(target.id)) + ".";
+        } else if (target && target.kind === "outcome") {
+          message += " Uitkomst bereikt: " + GraphState.describeNode(nodeById(target.id)) + ".";
+        }
+        ChoicePanel.announce(message);
+        if (target) startJourney(target, nodeId);
       },
       onClear: function (nodeId, info) {
+        cancelJourney();
+        clearGuidedTarget();
         clearSelection(nodeId);
+        removeInvalidSelections();
         ChoicePanel.announce("Keuze voor " + info.nodeLabel + " gewist.");
       }
     });
@@ -200,7 +354,7 @@
         Renderer.applyViewport();
         ChoicePanel.position();
       } else if (key === "selections") {
-        Renderer.applySelections();
+        refreshGraph();
         ChoicePanel.sync();
       }
     });
@@ -227,6 +381,7 @@
     }
 
     function stepZoom(delta) {
+      cancelJourney();
       const c = stageCenter();
       zoomTo(getState().viewport.zoom + delta, c.x, c.y);
     }
@@ -240,6 +395,7 @@
     refs.stage.addEventListener("wheel", function (ev) {
       if (!navigationActive()) return;
       ev.preventDefault();
+      cancelJourney();
       let dy = ev.deltaY;
       if (ev.deltaMode === 1) dy *= 16;
       else if (ev.deltaMode === 2) dy *= 100;
@@ -256,6 +412,7 @@
     refs.stage.addEventListener("pointerdown", function (ev) {
       if (!navigationActive() || !ev.isPrimary) return;
       if (ev.pointerType === "mouse" && ev.button !== 0) return;
+      cancelJourney();
       const v = getState().viewport;
       drag = { id: ev.pointerId, x: ev.clientX, y: ev.clientY, panX: v.panX, panY: v.panY, active: false };
     });
@@ -297,6 +454,7 @@
     // Dubbelklik op het diagram: terug naar standaardzoom en beginpositie.
     refs.stage.addEventListener("dblclick", function (ev) {
       if (!navigationActive() || ev.target.closest(".node.go, .node.is-interactive")) return;
+      cancelJourney();
       resetViewport();
       if (currentGraph && currentGraph.native) setZoom(Renderer.fitZoom(currentGraph));
     });
