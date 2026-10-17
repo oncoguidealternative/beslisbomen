@@ -3,47 +3,56 @@
     {
       "id": "borderline-ovariumtumoren",
       "titel": "Borderline ovariumtumoren",
-      "beschrijving": "Interactief zorgpad borderline ovariumtumoren"
+      "status": "coming-soon",
+      "afbeelding": "images/Gynaecologie_vierkant.png"
     },
     {
       "id": "cervixcarcinoom",
       "titel": "Cervixcarcinoom",
-      "beschrijving": "Interactief zorgpad cervixcarcinoom"
+      "status": "coming-soon",
+      "afbeelding": "images/Gynaecologie_vierkant.png"
     },
     {
       "id": "cin-ais-vain",
       "titel": "CIN, AIS, VAIN",
-      "beschrijving": "Interactief zorgpad CIN, AIS en VAIN"
+      "status": "coming-soon",
+      "afbeelding": "images/Gynaecologie_vierkant.png"
     },
     {
       "id": "endometrium",
       "titel": "Endometriumcarcinoom",
-      "beschrijving": "Interactief zorgpad endometriumcarcinoom"
+      "status": "available",
+      "afbeelding": "images/Gynaecologie_vierkant.png"
     },
     {
       "id": "epitheliaal-ovariumcarcinoom",
       "titel": "Epitheliaal ovariumcarcinoom",
-      "beschrijving": "Interactief zorgpad epitheliaal ovariumcarcinoom"
+      "status": "coming-soon",
+      "afbeelding": "images/Gynaecologie_vierkant.png"
     },
     {
       "id": "niet-epitheliale-ovarium-maligniteiten",
       "titel": "Niet epitheliale ovarium maligniteiten",
-      "beschrijving": "Interactief zorgpad niet epitheliale ovarium maligniteiten"
+      "status": "coming-soon",
+      "afbeelding": "images/Gynaecologie_vierkant.png"
     },
     {
       "id": "trofoblasttumoren",
       "titel": "Trofoblasttumoren",
-      "beschrijving": "Interactief zorgpad trofoblasttumoren"
+      "status": "coming-soon",
+      "afbeelding": "images/Gynaecologie_vierkant.png"
     },
     {
       "id": "vergroot-ovarium",
       "titel": "Vergroot ovarium",
-      "beschrijving": "Interactief zorgpad vergroot ovarium"
+      "status": "coming-soon",
+      "afbeelding": "images/Gynaecologie_vierkant.png"
     },
     {
       "id": "vulva",
       "titel": "Vulvacarcinoom",
-      "beschrijving": "Interactief zorgpad vulvacarcinoom"
+      "status": "available",
+      "afbeelding": "images/Gynaecologie_vierkant.png"
     }
   ]
 }
