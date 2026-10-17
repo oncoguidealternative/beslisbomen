@@ -1,14 +1,49 @@
 {
   "tumoren": [
     {
-      "id": "vulva",
-      "titel": "Vulvacarcinoom",
-      "beschrijving": "Beslisbomen vulvacarcinoom"
+      "id": "borderline-ovariumtumoren",
+      "titel": "Borderline ovariumtumoren",
+      "beschrijving": "Interactief zorgpad borderline ovariumtumoren"
+    },
+    {
+      "id": "cervixcarcinoom",
+      "titel": "Cervixcarcinoom",
+      "beschrijving": "Interactief zorgpad cervixcarcinoom"
+    },
+    {
+      "id": "cin-ais-vain",
+      "titel": "CIN, AIS, VAIN",
+      "beschrijving": "Interactief zorgpad CIN, AIS en VAIN"
     },
     {
       "id": "endometrium",
       "titel": "Endometriumcarcinoom",
-      "beschrijving": "Beslisbomen endometriumcarcinoom"
+      "beschrijving": "Interactief zorgpad endometriumcarcinoom"
+    },
+    {
+      "id": "epitheliaal-ovariumcarcinoom",
+      "titel": "Epitheliaal ovariumcarcinoom",
+      "beschrijving": "Interactief zorgpad epitheliaal ovariumcarcinoom"
+    },
+    {
+      "id": "niet-epitheliale-ovarium-maligniteiten",
+      "titel": "Niet epitheliale ovarium maligniteiten",
+      "beschrijving": "Interactief zorgpad niet epitheliale ovarium maligniteiten"
+    },
+    {
+      "id": "trofoblasttumoren",
+      "titel": "Trofoblasttumoren",
+      "beschrijving": "Interactief zorgpad trofoblasttumoren"
+    },
+    {
+      "id": "vergroot-ovarium",
+      "titel": "Vergroot ovarium",
+      "beschrijving": "Interactief zorgpad vergroot ovarium"
+    },
+    {
+      "id": "vulva",
+      "titel": "Vulvacarcinoom",
+      "beschrijving": "Interactief zorgpad vulvacarcinoom"
     }
   ]
 }
