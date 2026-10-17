@@ -90,7 +90,7 @@
       "native": true,
       "nodes": [
         {"id": "root", "type": "root", "tone": "blue", "label": "Aanvullende diagnostiek", "x": 577, "y": 15, "icon": "minus-light", "to": "", "rx": 30},
-        {"id": "tumorgedrag", "type": "criterion", "label": "Tumorgedrag", "x": 577, "y": 162},
+        {"id": "tumorgedrag", "type": "criterion", "label": "Tumorgedrag", "x": 577, "y": 162, "interactive": true, "options": [{"value": "benigne", "label": "Benigne", "edge": "edge-tumorgedrag-benigne"}, {"value": "in-situ", "label": "In situ", "edge": "edge-tumorgedrag-in-situ"}, {"value": "maligne", "label": "Maligne", "edge": "edge-tumorgedrag-maligne"}]},
         {"id": "histo", "type": "criterion", "label": "Histologisch type", "x": 1082, "y": 313},
         {"id": "operabel", "type": "criterion", "label": "Operabel", "x": 1334, "y": 465},
         {"id": "focaliteit", "type": "criterion", "label": "Focaliteit vd tumor", "x": 1082, "y": 591},
@@ -111,9 +111,9 @@
       ],
       "edges": [
         {"points": [[678, 121], [678, 162]], "arrow": true},
-        {"points": [[577, 212], [173, 212], [173, 1171]], "arrow": true, "label": "Benigne", "dot": [299, 212]},
-        {"points": [[426, 212], [426, 1171]], "arrow": true, "label": "In situ", "dot": [426, 691]},
-        {"points": [[779, 212], [1183, 212], [1183, 313]], "arrow": true, "label": "Maligne", "dot": [980, 212]},
+        {"id": "edge-tumorgedrag-benigne", "from": "tumorgedrag", "to": "o-benigne", "value": "benigne", "label": "Benigne", "points": [[577, 212], [173, 212], [173, 1171]], "arrow": true, "dot": [299, 212]},
+        {"id": "edge-tumorgedrag-in-situ", "from": "tumorgedrag", "to": "o-insitu", "value": "in-situ", "label": "In situ", "points": [[426, 212], [426, 1171]], "selectedPoints": [[577, 212], [426, 212], [426, 1171]], "arrow": true, "dot": [426, 691]},
+        {"id": "edge-tumorgedrag-maligne", "from": "tumorgedrag", "to": "histo", "value": "maligne", "label": "Maligne", "points": [[779, 212], [1183, 212], [1183, 313]], "arrow": true, "dot": [980, 212]},
         {"points": [[1082, 363], [678, 363], [678, 1171]], "arrow": true, "label": "Basaalcelcarcinoom", "dot": [880, 363]},
         {"points": [[1284, 363], [1435, 363], [1435, 465]], "arrow": true, "label": "Plaveiselcelcarcinoom", "dot": [1435, 414]},
         {"points": [[1284, 363], [2192, 363], [2192, 1171]], "arrow": true, "label": "Overig", "dot": [2066, 363]},
