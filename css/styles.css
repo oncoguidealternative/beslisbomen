@@ -290,7 +290,7 @@ body[data-page="zorgpad"] { line-height: normal; }
     fill: var(--color-text);
     text-anchor: middle;
 
-    stroke: var(--color-bg);
+    stroke: #246D8B;
     stroke-width: 6px;
     paint-order: stroke;
 }
