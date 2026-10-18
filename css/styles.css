@@ -50,9 +50,9 @@ body {
 .breadcrumb-bar {
   display: flex;
   width: 100%;
-  min-height: 64px;
+  min-height: 44px;
   margin: 0;
-  padding: 10px 18px;
+  padding: 0 16px;
   color: #FFFFFF;
   background: var(--header-footer-bg);
   align-items: center;
@@ -69,8 +69,8 @@ body {
 .breadcrumb-icon-button,
 .breadcrumb-home {
   display: grid;
-  width: 43px;
-  height: 43px;
+  width: 32px;
+  height: 32px;
   padding: 0;
   border: 3px solid #FFFFFF;
   border-radius: 50%;
@@ -84,7 +84,7 @@ body {
 
 .breadcrumb-icon-button {
   font: inherit;
-  font-size: 1.7rem;
+  font-size: 1.1rem;
   font-weight: 700;
   line-height: 1;
 }
@@ -140,7 +140,7 @@ body {
   color: #FFFFFF;
   background: transparent;
   font: inherit;
-  font-size: clamp(1rem, 2vw, 1.4rem);
+  font-size: 13px;
   cursor: pointer;
   text-align: left;
 }
@@ -153,8 +153,8 @@ body {
 .breadcrumb-link.is-current { cursor: default; }
 .breadcrumb-separator {
   color: #FFFFFF;
-  font-size: 2.1rem;
-  font-weight: 300;
+  font-size: 13px;
+  font-weight: 700;
   line-height: 1;
 }
 
@@ -162,7 +162,7 @@ body {
   display: block;
   min-width: 0;
   color: #FFFFFF;
-  font-size: clamp(1rem, 2vw, 1.4rem);
+  font-size: 13px;
   line-height: 1.25;
   overflow: hidden;
   text-overflow: ellipsis;
