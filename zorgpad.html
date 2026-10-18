@@ -6,85 +6,90 @@
   <title>Zorgpad – Gynaecologische zorgpaden</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
-  
 <body data-page="zorgpad">
+
+  <header class="site-header">
+    <nav class="breadcrumb-bar" aria-label="Navigatie">
+      <div class="breadcrumb-actions">
+        <button id="zp-zin"
+                class="breadcrumb-icon-button"
+                type="button"
+                aria-label="Inzoomen">
+          +
+        </button>
+
+        <button id="zp-zout"
+                class="breadcrumb-icon-button"
+                type="button"
+                aria-label="Uitzoomen">
+          −
+        </button>
+
+        <a id="zp-home"
+           class="breadcrumb-home"
+           href="index.html"
+           aria-label="Homepage">
+          <svg viewBox="0 0 24 24"
+               width="28"
+               height="28"
+               aria-hidden="true">
+            <path d="M3 10.8 12 3l9 7.8"></path>
+            <path d="M5.5 9.5V21h5v-6h3v6h5V9.5"></path>
+          </svg>
+        </a>
+      </div>
+
+      <div class="breadcrumb-trail">
+        <button id="zp-back"
+                class="breadcrumb-link"
+                type="button">
+          Zorgpad vulvacarcinoom
+        </button>
+        <span class="breadcrumb-separator">›</span>
+        <span id="breadcrumb-current">Primaire behandeling</span>
+      </div>
+    </nav>
+  </header>
+
   <main id="zp-main" class="zp-main">
-<nav class="breadcrumb-bar" aria-label="Navigatie">
-
-  <div class="breadcrumb-actions">
-
-    <button id="zp-zin"
-            class="breadcrumb-icon-button"
-            type="button"
-            aria-label="Inzoomen">
-      +
-    </button>
-
-    <button id="zp-zout"
-            class="breadcrumb-icon-button"
-            type="button"
-            aria-label="Uitzoomen">
-      −
-    </button>
-
-    <a id="zp-home"
-       class="breadcrumb-home"
-       href="index.html"
-       aria-label="Homepage">
-
-      <svg viewBox="0 0 24 24"
-           width="28"
-           height="28"
-           aria-hidden="true">
-
-        <path d="M3 10.8 12 3l9 7.8"></path>
-        <path d="M5.5 9.5V21h5v-6h3v6h5V9.5"></path>
-
-      </svg>
-
-    </a>
-
-  </div>
-
-  <div class="breadcrumb-trail">
-
-    <button id="zp-back"
-            class="breadcrumb-link"
-            type="button">
-      Zorgpad vulvacarcinoom
-    </button>
-
-    <span class="breadcrumb-separator">›</span>
-
-    <span id="breadcrumb-current">
-      Primaire behandeling
-    </span>
-
-  </div>
-
-</nav>
+    <div id="zp-stage" class="zp-stage">
+      <svg id="zp-chart" role="group" aria-label="Zorgpad"></svg>
     </div>
-    <div id="zp-stage" class="zp-stage"><svg id="zp-chart" role="group" aria-label="Zorgpad"></svg></div>
     <div id="zp-message" class="zp-message" role="status" aria-live="polite">Laden…</div>
   </main>
 
-
   <footer class="site-footer" aria-label="Website-informatie">
-    <button class="footer-link" type="button" data-content-page="gebruiksvoorwaarden">U bent akkoord met de gebruiksvoorwaarden</button>
+    <button class="footer-link"
+            type="button"
+            data-content-page="gebruiksvoorwaarden">
+      U bent akkoord met de gebruiksvoorwaarden
+    </button>
     <span aria-hidden="true">|</span>
-    <button class="footer-link" type="button" data-content-page="over">Over deze website</button>
-      <span aria-hidden="true">| versie 0.5</span>
- </footer>
+    <button class="footer-link"
+            type="button"
+            data-content-page="over">
+      Over deze website
+    </button>
+    <span class="footer-version" aria-hidden="true">| versie 0.5</span>
+  </footer>
 
   <div id="content-panel-backdrop" class="content-panel-backdrop" hidden></div>
 
-  <aside id="content-panel" class="content-panel" role="dialog" aria-modal="true" aria-labelledby="content-panel-title" hidden>
+  <aside id="content-panel"
+         class="content-panel"
+         role="dialog"
+         aria-modal="true"
+         aria-labelledby="content-panel-title"
+         hidden>
     <header class="content-panel-header">
       <div>
         <h2 id="content-panel-title">Informatie</h2>
         <p id="content-panel-meta" class="content-panel-meta"></p>
       </div>
-      <button id="content-panel-close" class="content-panel-close" type="button" aria-label="Informatiepaneel sluiten">×</button>
+      <button id="content-panel-close"
+              class="content-panel-close"
+              type="button"
+              aria-label="Informatiepaneel sluiten">×</button>
     </header>
     <div id="content-panel-body" class="content-panel-body"></div>
   </aside>
