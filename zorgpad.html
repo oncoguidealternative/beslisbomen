@@ -8,13 +8,60 @@
 </head>
 <body data-page="zorgpad">
   <main id="zp-main" class="zp-main">
-    <div class="zp-toolbar">
-      <a id="zp-home" class="zp-btn" href="index.html">← Homepage</a>
-      <button id="zp-back" class="zp-btn zp-back" type="button">Terug naar zorgpad</button>
-      <span id="zp-tools" class="zp-tools">
-        <button id="zp-zout" class="zp-btn zp-zoom" type="button" aria-label="Uitzoomen">&minus;</button>
-        <button id="zp-zin" class="zp-btn zp-zoom" type="button" aria-label="Inzoomen">+</button>
-      </span>
+<nav class="breadcrumb-bar" aria-label="Navigatie">
+
+  <div class="breadcrumb-actions">
+
+    <button id="zp-zin"
+            class="breadcrumb-icon-button"
+            type="button"
+            aria-label="Inzoomen">
+      +
+    </button>
+
+    <button id="zp-zout"
+            class="breadcrumb-icon-button"
+            type="button"
+            aria-label="Uitzoomen">
+      −
+    </button>
+
+    <a id="zp-home"
+       class="breadcrumb-home"
+       href="index.html"
+       aria-label="Homepage">
+
+      <svg viewBox="0 0 24 24"
+           width="28"
+           height="28"
+           aria-hidden="true">
+
+        <path d="M3 10.8 12 3l9 7.8"></path>
+        <path d="M5.5 9.5V21h5v-6h3v6h5V9.5"></path>
+
+      </svg>
+
+    </a>
+
+  </div>
+
+  <div class="breadcrumb-trail">
+
+    <button id="zp-back"
+            class="breadcrumb-link"
+            type="button">
+      Zorgpad vulvacarcinoom
+    </button>
+
+    <span class="breadcrumb-separator">›</span>
+
+    <span id="breadcrumb-current">
+      Primaire behandeling
+    </span>
+
+  </div>
+
+</nav>
     </div>
     <div id="zp-stage" class="zp-stage"><svg id="zp-chart" role="group" aria-label="Zorgpad"></svg></div>
     <div id="zp-message" class="zp-message" role="status" aria-live="polite">Laden…</div>
