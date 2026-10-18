@@ -16,7 +16,58 @@
   --color-hover-overlay: rgba(255, 255, 255, .12);
   --radius: 16px;
 }
+:root {
+    --header-footer-height: 56px;
+    --header-footer-bg: #111111;
+}
 
+/* Header */
+
+.site-header {
+    min-height: var(--header-footer-height);
+    background: var(--header-footer-bg);
+    color: #ffffff;
+
+    display: flex;
+    align-items: center;
+}
+
+/* Footer */
+
+.site-footer {
+    min-height: var(--header-footer-height);
+    background: var(--header-footer-bg);
+    color: #ffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    margin-top: auto;
+    border-top: 1px solid rgba(255,255,255,0.12);
+}
+
+/* Footer links */
+
+.footer-link {
+    background: none;
+    border: none;
+    padding: 0;
+
+    color: #ffffff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+
+.footer-link:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 4px;
+}
 * { box-sizing: border-box; }
 
 html, body { margin: 0; padding: 0; min-height: 100%; }
