@@ -170,7 +170,14 @@ body[data-page="zorgpad"] { line-height: normal; }
 .zp-stage .node.t-criterion text { fill: var(--color-text-dark); }
 .zp-stage .node .lnk { fill: var(--color-link); text-decoration: underline; pointer-events: all; cursor: pointer; }
 .zp-stage .edot { fill: #FFFFFF; }
-.zp-stage .elabel { fill: var(--color-text); text-anchor: middle; }
+.zp-stage .elabel {
+    fill: var(--color-text);
+    text-anchor: middle;
+
+    stroke: var(--color-bg);
+    stroke-width: 6px;
+    paint-order: stroke;
+}
 .zp-stage .node.go { cursor: pointer; }
 .zp-stage .node.go:hover rect,
 .zp-stage .node.go:focus rect { fill: var(--color-node-hover); }
