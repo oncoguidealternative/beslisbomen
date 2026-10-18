@@ -1,1 +1,86 @@
-
+{
+  "id": "privacy-statement",
+  "title": "Privacyverklaring",
+  "version": "1.0",
+  "lastUpdated": "2026-10-18",
+  "sections": [
+    {
+      "title": "Privacy en gegevensbescherming",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Deze website ondersteunt zorgprofessionals bij het raadplegen van oncologische zorgpaden. Wij vinden een zorgvuldige omgang met persoonsgegevens belangrijk."
+        },
+        {
+          "type": "paragraph",
+          "text": "Persoonsgegevens worden uitsluitend verwerkt voor het doel waarvoor deze zijn verzameld en worden passend beschermd."
+        }
+      ]
+    },
+    {
+      "title": "Gebruik van deze website",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Het raadplegen van de zorgpaden vereist geen registratie van patiëntgegevens. Ingevoerde keuzes binnen beslisbomen worden uitsluitend gebruikt voor de werking van de applicatie."
+        }
+      ]
+    },
+    {
+      "title": "Beveiliging",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Passende technische en organisatorische maatregelen worden getroffen om gegevens te beschermen tegen verlies, onbevoegde toegang en onrechtmatig gebruik."
+        }
+      ]
+    },
+    {
+      "title": "Bewaartermijnen",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Gegevens worden niet langer bewaard dan noodzakelijk voor het doel waarvoor zij zijn verzameld of zolang wettelijke verplichtingen dit vereisen."
+        }
+      ]
+    },
+    {
+      "title": "Uw rechten",
+      "blocks": [
+        {
+          "type": "grouped-list",
+          "groups": [
+            {
+              "title": "U heeft onder meer recht op",
+              "items": [
+                "inzage in uw persoonsgegevens",
+                "correctie van onjuiste gegevens",
+                "verwijdering van gegevens wanneer dit mogelijk is",
+                "beperking van verwerking",
+                "bezwaar tegen verwerking"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Meer informatie",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Voor de volledige en actuele privacyverklaring van IKNL verwijzen wij naar de officiële website."
+        },
+        {
+          "type": "links",
+          "items": [
+            {
+              "label": "Privacyverklaring IKNL",
+              "url": "https://iknl.nl/privacyverklaring"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
