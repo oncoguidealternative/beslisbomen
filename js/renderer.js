@@ -248,7 +248,9 @@ maxY = Math.max(maxY, pos.y + height);
       var pos = nodePosition(n, graph);
        var g = el('g', {'data-node-id': n.id, 'class': 'node t-' + type + (n.tone ? ' tone-' + n.tone : '') + (target !== null ? ' go' : '') +
         (interactive ? ' is-interactive' : ''),
-                        var g = el('g', {
+var pos = nodePosition(n, graph);
+
+var g = el('g', {
   'data-node-id': n.id,
   'class':
     'node t-' +
@@ -262,6 +264,7 @@ maxY = Math.max(maxY, pos.y + height);
     ',' +
     pos.y +
     ')'
+}, vp);
 }, vp);
 var pos = nodePosition(n, graph);
 
