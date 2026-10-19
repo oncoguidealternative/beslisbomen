@@ -28,13 +28,15 @@
       </div>
 
       <div class="breadcrumb-trail">
-        <button id="zp-back"
+        <button id="breadcrumb-carepath"
                 class="breadcrumb-link"
-                type="button">
-          Zorgpad vulvacarcinoom
-        </button>
-        <span class="breadcrumb-separator">›</span>
-        <span id="breadcrumb-current"></span>
+                type="button">Zorgpad</button>
+        <span id="breadcrumb-current-item"
+              class="breadcrumb-current-item"
+              hidden>
+          <span class="breadcrumb-separator" aria-hidden="true">›</span>
+          <span id="breadcrumb-current" class="breadcrumb-current"></span>
+        </span>
       </div>
     </nav>
   </header>
