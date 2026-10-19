@@ -60,7 +60,25 @@ const Renderer = (function () {
       vp.removeAttribute('transform');
     }
   }
+/* Achterwaarts compatibele grid-ondersteuning.
+   Oude bomen gebruiken x/y.
+   Nieuwe bomen kunnen gridX/gridY gebruiken.
+*/
+function nodePosition(node, graph) {
 
+  var gridSizeX = graph.gridSizeX || 100;
+  var gridSizeY = graph.gridSizeY || 100;
+
+  return {
+    x: node.gridX !== undefined
+      ? node.gridX * gridSizeX
+      : node.x,
+
+    y: node.gridY !== undefined
+      ? node.gridY * gridSizeY
+      : node.y
+  };
+}
   /* Berekent de werkelijke grenzen van alle nodes en edges.
      Ongebruikte ruimte in de viewBox telt daardoor niet mee. */
   function graphBounds(graph) {
@@ -74,10 +92,12 @@ const Renderer = (function () {
 
     graph.nodes.forEach(function (node) {
       var height = node.h || nodeHeight;
-      minX = Math.min(minX, node.x);
-      minY = Math.min(minY, node.y);
-      maxX = Math.max(maxX, node.x + nodeWidth);
-      maxY = Math.max(maxY, node.y + height);
+var pos = nodePosition(node, graph);
+
+minX = Math.min(minX, pos.x);
+minY = Math.min(minY, pos.y);
+maxX = Math.max(maxX, pos.x + nodeWidth);
+maxY = Math.max(maxY, pos.y + height);
     });
 
     graph.edges.forEach(function (edge) {
@@ -227,7 +247,14 @@ const Renderer = (function () {
       var interactive = n.interactive === true && Array.isArray(n.options);
       var g = el('g', {'data-node-id': n.id, 'class': 'node t-' + type + (n.tone ? ' tone-' + n.tone : '') + (target !== null ? ' go' : '') +
         (interactive ? ' is-interactive' : ''),
-        transform: 'translate(' + n.x + ',' + n.y + ')'}, vp);
+var pos = nodePosition(n, graph);
+
+transform:
+  'translate(' +
+  pos.x +
+  ',' +
+  pos.y +
+  ')'
       if (interactive) {
         var optionLabels = {};
         n.options.forEach(function (o) { optionLabels[o.value] = o.label; });
@@ -383,7 +410,14 @@ const Renderer = (function () {
   function nodeBox(graph, id) {
     var n = graph.nodes.filter(function (x) { return x.id === id; })[0];
     if (!n) return null;
-    return { x: n.x, y: n.y, w: graph.nodeSize[0], h: n.h || graph.nodeSize[1] };
+var pos = nodePosition(n, graph);
+
+return {
+  x: pos.x,
+  y: pos.y,
+  w: graph.nodeSize[0],
+  h: n.h || graph.nodeSize[1]
+};
   }
 
   /* Tijdelijke, niet-pulserende highlight van een node (null haalt de highlight weg). */
