@@ -1,1 +1,407 @@
+{
+  "id": "cin-ais-vain",
+  "titel": "Zorgpad CIN, AIS, VAIN",
+  "overview": {
+    "native": true,
+    "viewBox": [
+      2200,
+      1950
+    ],
+    "nodeSize": [
+      220,
+      90
+    ],
+    "gridSizeX": 100,
+    "gridSizeY": 100,
+    "wrap": 28,
+    "nodes": [
+      {
+        "id": "zorgpad-cin-ais-vain",
+        "label": "2018 Zorgpad richtlijn CIN, AIS, VAIN",
+        "gridX": 7,
+        "gridY": 0,
+        "type": "root"
+      },
+      {
+        "id": "beleid-tijdens-colposcopie",
+        "label": "Beleid tijdens colposcopie",
+        "gridX": 7,
+        "gridY": 2,
+        "drill": true
+      },
+      {
+        "id": "beleid-na-histologie",
+        "label": "2019 Beleid na histologie",
+        "gridX": 7,
+        "gridY": 4,
+        "drill": true
+      },
+      {
+        "id": "laaggradige-afwijkingen",
+        "label": "Laaggradige afwijkingen",
+        "gridX": 2,
+        "gridY": 7,
+        "type": "outcome"
+      },
+      {
+        "id": "hooggradige-afwijkingen",
+        "label": "Hooggradige afwijkingen",
+        "gridX": 12,
+        "gridY": 7,
+        "type": "outcome"
+      },
+      {
+        "id": "follow-up-12-maanden-laaggradig",
+        "label": "Follow-up - 12 maanden na verdenking/diagnose laaggradige afwijking",
+        "gridX": 2,
+        "gridY": 9,
+        "drill": true
+      },
+      {
+        "id": "follow-up-24-maanden-laaggradig",
+        "label": "Follow-up - 24 maanden na verdenking/diagnose laaggradige afwijking",
+        "gridX": 2,
+        "gridY": 11,
+        "drill": true
+      },
+      {
+        "id": "beleid-na-histologie-laaggradig",
+        "label": "Beleid na histologie na primair onbehandelde laaggradige afwijking",
+        "gridX": 7,
+        "gridY": 13,
+        "drill": true
+      },
+      {
+        "id": "zoals-hooggradige-afwijkingen",
+        "label": "Zoals “hooggradige afwijkingen”",
+        "gridX": 7,
+        "gridY": 15,
+        "type": "outcome"
+      },
+      {
+        "id": "follow-up-6-maanden-cin",
+        "label": "Follow-up - 6 maanden na diagnose behandelde CIN 2/3",
+        "gridX": 12,
+        "gridY": 9,
+        "drill": true
+      },
+      {
+        "id": "follow-up-12-maanden-cin",
+        "label": "Follow-up - 12 maanden na diagnose behandelde CIN 2/3",
+        "gridX": 12,
+        "gridY": 11,
+        "drill": true
+      },
+      {
+        "id": "follow-up-24-maanden-cin",
+        "label": "Follow-up - 24 maanden na diagnose behandelde CIN 2/3",
+        "gridX": 12,
+        "gridY": 13,
+        "drill": true
+      },
+      {
+        "id": "follow-up-30-maanden-cin",
+        "label": "Follow-up - 30 maanden na diagnose behandelde CIN 2/3",
+        "gridX": 12,
+        "gridY": 15,
+        "drill": true
+      },
+      {
+        "id": "beleid-na-histologie-cin",
+        "label": "Beleid na histologie na primair behandelde CIN 2/3",
+        "gridX": 17,
+        "gridY": 17,
+        "drill": true
+      }
+    ],
+    "edges": [
+      {
+        "points": [
+          [
+            810,
+            90
+          ],
+          [
+            810,
+            200
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            810,
+            290
+          ],
+          [
+            810,
+            400
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            810,
+            490
+          ],
+          [
+            810,
+            595
+          ],
+          [
+            310,
+            595
+          ],
+          [
+            310,
+            700
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            810,
+            490
+          ],
+          [
+            810,
+            595
+          ],
+          [
+            1310,
+            595
+          ],
+          [
+            1310,
+            700
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            310,
+            790
+          ],
+          [
+            310,
+            900
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            310,
+            990
+          ],
+          [
+            310,
+            1100
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            310,
+            990
+          ],
+          [
+            310,
+            1145
+          ],
+          [
+            810,
+            1145
+          ],
+          [
+            810,
+            1300
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            310,
+            1190
+          ],
+          [
+            310,
+            1245
+          ],
+          [
+            810,
+            1245
+          ],
+          [
+            810,
+            1300
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            810,
+            1390
+          ],
+          [
+            810,
+            1500
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            1310,
+            790
+          ],
+          [
+            1310,
+            900
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            1310,
+            990
+          ],
+          [
+            1310,
+            1100
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            1310,
+            1190
+          ],
+          [
+            1310,
+            1300
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            1310,
+            1390
+          ],
+          [
+            1310,
+            1500
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            1310,
+            990
+          ],
+          [
+            1310,
+            1345
+          ],
+          [
+            1810,
+            1345
+          ],
+          [
+            1810,
+            1700
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            1310,
+            1190
+          ],
+          [
+            1310,
+            1445
+          ],
+          [
+            1810,
+            1445
+          ],
+          [
+            1810,
+            1700
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            1310,
+            1390
+          ],
+          [
+            1310,
+            1545
+          ],
+          [
+            1810,
+            1545
+          ],
+          [
+            1810,
+            1700
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            1310,
+            1590
+          ],
+          [
+            1310,
+            1645
+          ],
+          [
+            1810,
+            1645
+          ],
+          [
+            1810,
+            1700
+          ]
+        ],
+        "arrow": true
+      }
+    ]
+  },
+  "trees": {}
+}
 
