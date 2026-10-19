@@ -395,9 +395,23 @@
       zoomTo(getState().viewport.zoom + delta, c.x, c.y);
     }
 
-    refs.zoomIn.addEventListener("click", function () { stepZoom(ZOOM_STEP); });
-    refs.zoomOut.addEventListener("click", function () { stepZoom(-ZOOM_STEP); });
-    refs.back.addEventListener("click", function () { navigate(""); });
+if (refs.zoomIn) {
+    refs.zoomIn.addEventListener("click", function () {
+        stepZoom(ZOOM_STEP);
+    });
+}
+
+if (refs.zoomOut) {
+    refs.zoomOut.addEventListener("click", function () {
+        stepZoom(-ZOOM_STEP);
+    });
+}
+
+if (refs.back) {
+    refs.back.addEventListener("click", function () {
+        navigate("");
+    });
+}
     window.addEventListener("hashchange", showRoute);
 
     // Muiswiel en touchpad: omhoog = inzoomen, omlaag = uitzoomen (pinch op touchpad komt als ctrl+wheel).
