@@ -1,1 +1,16 @@
+{
+  "id": "over",
+  "title": "Over deze website",
+  "sections": [
+    {
+      "title": "Over deze website",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Deze pagina wordt later toegevoegd."
+        }
+      ]
+    }
+  ]
+}
 
