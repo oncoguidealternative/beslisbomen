@@ -666,3 +666,22 @@ body[data-page="zorgpad"] .site-footer { margin-top: 0; }
   .breadcrumb-icon-button,
   .breadcrumb-home { transition: none; }
 }
+
+/* Kruimelpad: tweede niveau (beslisboom), wordt door js/breadcrumb.js getoond of verborgen. */
+.breadcrumb-current-item {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 12px;
+}
+.breadcrumb-current-item[hidden] { display: none; }
+
+/* Zorgpadpagina in de flex-kolom van de body: de hoofdruimte vult de breedte (anders krimpt ze door margin: auto)
+   en neemt de resterende hoogte, zodat de footer onderaan staat. */
+.zp-main { width: 100%; flex: 1 0 auto; }
+
+/* Werkvlak van native bomen: schermhoogte min header (64px), footer (45px), marges en padding (56px). */
+.zp-main.is-native .zp-stage {
+  height: calc(100vh - 170px);
+  height: calc(100dvh - 170px);
+}
