@@ -1,1 +1,15 @@
-
+{
+  "id": "faq",
+  "title": "Veelgestelde vragen",
+  "sections": [
+    {
+      "title": "Veelgestelde vragen",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Deze pagina wordt later toegevoegd."
+        }
+      ]
+    }
+  ]
+}
