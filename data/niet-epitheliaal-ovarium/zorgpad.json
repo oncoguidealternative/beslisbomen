@@ -1,1 +1,431 @@
+{
+  "id": "niet-epitheliaal-ovarium",
+  "titel": "Zorgpad niet epitheliale ovarium maligniteiten",
+  "overview": {
+    "native": true,
+    "viewBox": [
+      1600,
+      2450
+    ],
+    "nodeSize": [
+      220,
+      90
+    ],
+    "gridSizeX": 100,
+    "gridSizeY": 100,
+    "wrap": 28,
+    "nodes": [
+      {
+        "id": "zorgpad-niet-epitheliaal-ovarium",
+        "label": "Zorgpad niet-epitheliale ovarium maligniteiten",
+        "gridX": 6,
+        "gridY": 0,
+        "type": "root"
+      },
+      {
+        "id": "klinisch-vergroot-ovarium",
+        "label": "Klinisch (verdenking op) vergroot ovarium",
+        "gridX": 6,
+        "gridY": 2,
+        "drill": true
+      },
+      {
+        "id": "initieel-beleid-vergroot-ovarium",
+        "label": "Initieel beleid vergroot ovarium",
+        "gridX": 6,
+        "gridY": 4,
+        "drill": true
+      },
+      {
+        "id": "aanvullende-diagnostiek",
+        "label": "Aanvullende diagnostiek niet epitheliale ovarium maligniteiten",
+        "gridX": 6,
+        "gridY": 6,
+        "drill": true
+      },
+      {
+        "id": "aanvullende-diagnostiek-tumormarkers-ct",
+        "label": "Aanvullende diagnostiek na tumormarkers en CT",
+        "gridX": 6,
+        "gridY": 8,
+        "drill": true
+      },
+      {
+        "id": "pathologie-stagering",
+        "label": "Pathologie en stagering",
+        "gridX": 6,
+        "gridY": 10,
+        "drill": true
+      },
+      {
+        "id": "beleid-definitieve-histologie",
+        "label": "Beleid na definitieve histologie",
+        "gridX": 2,
+        "gridY": 12,
+        "drill": true
+      },
+      {
+        "id": "beleid-vriescoupe",
+        "label": "Beleid na verkrijgen vriescoupe",
+        "gridX": 9,
+        "gridY": 12,
+        "drill": true
+      },
+      {
+        "id": "beleid-choriocarcinoom",
+        "label": "Beleid choriocarcinoom",
+        "gridX": 12,
+        "gridY": 12,
+        "drill": true
+      },
+      {
+        "id": "adjuvante-behandeling-kiemceltumoren",
+        "label": "Adjuvante behandeling kiemceltumoren",
+        "gridX": 3,
+        "gridY": 14,
+        "drill": true
+      },
+      {
+        "id": "adjuvante-behandeling-sexcord",
+        "label": "Adjuvante behandeling sexcordstromaceltumoren",
+        "gridX": 7,
+        "gridY": 14,
+        "drill": true
+      },
+      {
+        "id": "follow-up-kiemceltumoren",
+        "label": "Follow-up kiemceltumoren",
+        "gridX": 3,
+        "gridY": 16,
+        "drill": true
+      },
+      {
+        "id": "follow-up-sexcord",
+        "label": "Follow-up sexcord stromaceltumoren",
+        "gridX": 7,
+        "gridY": 16,
+        "drill": true
+      },
+      {
+        "id": "recidief-diagnostiek-kiemceltumoren",
+        "label": "Recidief diagnostiek kiemceltumoren",
+        "gridX": 3,
+        "gridY": 18,
+        "drill": true
+      },
+      {
+        "id": "recidief-diagnostiek-sexcord",
+        "label": "Recidief diagnostiek sexcordstromaceltumoren",
+        "gridX": 7,
+        "gridY": 18,
+        "drill": true
+      },
+      {
+        "id": "recidief-behandeling-kiemceltumoren",
+        "label": "Recidief behandeling kiemceltumoren",
+        "gridX": 3,
+        "gridY": 20,
+        "drill": true
+      },
+      {
+        "id": "recidief-behandeling-sexcord",
+        "label": "Recidief behandeling sexcord stromaceltumoren",
+        "gridX": 7,
+        "gridY": 20,
+        "drill": true
+      },
+      {
+        "id": "follow-up-kiemceltumoren-2",
+        "label": "Follow-up kiemceltumoren",
+        "gridX": 3,
+        "gridY": 22,
+        "drill": true
+      },
+      {
+        "id": "follow-up-sexcord-2",
+        "label": "Follow-up sexcord stromaceltumoren",
+        "gridX": 7,
+        "gridY": 22,
+        "drill": true
+      }
+    ],
+    "edges": [
+      {
+        "points": [
+          [
+            710,
+            90
+          ],
+          [
+            710,
+            200
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            710,
+            290
+          ],
+          [
+            710,
+            400
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            710,
+            490
+          ],
+          [
+            710,
+            600
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            710,
+            690
+          ],
+          [
+            710,
+            800
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            710,
+            890
+          ],
+          [
+            710,
+            1000
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            710,
+            890
+          ],
+          [
+            710,
+            1045
+          ],
+          [
+            1310,
+            1045
+          ],
+          [
+            1310,
+            1200
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            710,
+            1090
+          ],
+          [
+            710,
+            1145
+          ],
+          [
+            310,
+            1145
+          ],
+          [
+            310,
+            1200
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            710,
+            1090
+          ],
+          [
+            710,
+            1145
+          ],
+          [
+            1010,
+            1145
+          ],
+          [
+            1010,
+            1200
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            310,
+            1290
+          ],
+          [
+            310,
+            1345
+          ],
+          [
+            410,
+            1345
+          ],
+          [
+            410,
+            1400
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            310,
+            1290
+          ],
+          [
+            310,
+            1345
+          ],
+          [
+            810,
+            1345
+          ],
+          [
+            810,
+            1400
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            410,
+            1490
+          ],
+          [
+            410,
+            1600
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            810,
+            1490
+          ],
+          [
+            810,
+            1600
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            410,
+            1690
+          ],
+          [
+            410,
+            1800
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            810,
+            1690
+          ],
+          [
+            810,
+            1800
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            410,
+            1890
+          ],
+          [
+            410,
+            2000
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            810,
+            1890
+          ],
+          [
+            810,
+            2000
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            410,
+            2090
+          ],
+          [
+            410,
+            2200
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            810,
+            2090
+          ],
+          [
+            810,
+            2200
+          ]
+        ],
+        "arrow": true
+      }
+    ]
+  },
+  "trees": {}
+}
 
