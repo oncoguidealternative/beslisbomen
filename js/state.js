@@ -1,7 +1,14 @@
 /* Centrale applicatiestatus (bron van waarheid).
    - Lees de status via getState() (geeft een kopie terug).
    - Wijzig de status uitsluitend via de set/clear-functies hieronder.
-   - subscribe(fn) meldt wijzigingen: fn(snapshot, key) met key = 'tumor' | 'tree' | 'viewport' | 'selections'. */
+   - subscribe(fn) meldt wijzigingen: fn(snapshot, key, detail)
+     met key = 'tumor' | 'tree' | 'viewport' | 'selections'; bij 'selections' bevat detail {treeId}.
+
+   Selecties zijn gescheiden per tumor en per beslisboom:
+     state.selections[tumorId][treeId][nodeId] = waarde
+   getState().selections is de kopie voor de huidige tumor: { [treeId]: { [nodeId]: waarde } }.
+   Een node-id in de ene beslisboom beïnvloedt daardoor nooit een node met dezelfde id in een andere boom,
+   en setTumor() wist alle selecties zodat keuzes nooit naar een andere tumor doorlekken. */
 const state = {
   currentTumor: null,
   currentTree: null,
@@ -17,8 +24,35 @@ const state = {
 
 const ZOOM_MIN = 0.3;
 const ZOOM_MAX = 2;
+const NO_TUMOR_KEY = '_';
 
 const stateListeners = [];
+
+function tumorKey() {
+  return state.currentTumor || NO_TUMOR_KEY;
+}
+
+function treeSelectionsRef(treeId, create) {
+  const tumor = tumorKey();
+  if (!state.selections[tumor]) {
+    if (!create) return null;
+    state.selections[tumor] = {};
+  }
+  if (!state.selections[tumor][treeId]) {
+    if (!create) return null;
+    state.selections[tumor][treeId] = {};
+  }
+  return state.selections[tumor][treeId];
+}
+
+function copySelectionsOfCurrentTumor() {
+  const source = state.selections[tumorKey()] || {};
+  const copy = {};
+  Object.keys(source).forEach(function (treeId) {
+    copy[treeId] = Object.assign({}, source[treeId]);
+  });
+  return copy;
+}
 
 function getState() {
   return {
@@ -29,8 +63,14 @@ function getState() {
       panX: state.viewport.panX,
       panY: state.viewport.panY
     },
-    selections: Object.assign({}, state.selections)
+    selections: copySelectionsOfCurrentTumor()
   };
+}
+
+/* Selecties van één beslisboom van de huidige tumor: { nodeId: waarde } (kopie). */
+function getSelections(treeId) {
+  const ref = treeSelectionsRef(treeId, false);
+  return ref ? Object.assign({}, ref) : {};
 }
 
 function subscribe(listener) {
@@ -41,9 +81,9 @@ function subscribe(listener) {
   };
 }
 
-function notifyState(key) {
+function notifyState(key, detail) {
   const snapshot = getState();
-  stateListeners.slice().forEach(function (fn) { fn(snapshot, key); });
+  stateListeners.slice().forEach(function (fn) { fn(snapshot, key, detail || {}); });
 }
 
 function resetViewportValues() {
@@ -52,7 +92,7 @@ function resetViewportValues() {
   state.viewport.panY = 0;
 }
 
-/* Kiest een tumor (id) en zet alles wat daarvan afhangt terug. */
+/* Kiest een tumor (id) en zet alles wat daarvan afhangt terug, inclusief alle selecties. */
 function setTumor(id) {
   state.currentTumor = id || null;
   state.currentTree = null;
@@ -61,7 +101,8 @@ function setTumor(id) {
   notifyState('tumor');
 }
 
-/* Kiest een beslisboom (id) of het overzicht (null). Pan wordt teruggezet. */
+/* Kiest een beslisboom (id) of het overzicht (null). Pan wordt teruggezet.
+   Selecties van andere bomen blijven in het geheugen bewaard (alleen binnen deze paginasessie). */
 function setTree(id) {
   state.currentTree = id || null;
   state.viewport.panX = 0;
@@ -69,20 +110,27 @@ function setTree(id) {
   notifyState('tree');
 }
 
-/* Voorbereiding voor latere sprints: nog niet in gebruik. */
-function setSelection(id, value) {
-  state.selections[id] = value;
-  notifyState('selections');
+/* Slaat de keuze voor een node van een beslisboom op. */
+function setSelection(treeId, nodeId, value) {
+  treeSelectionsRef(treeId, true)[nodeId] = value;
+  notifyState('selections', { treeId: treeId });
 }
 
-function clearSelection(id) {
-  delete state.selections[id];
-  notifyState('selections');
+function clearSelection(treeId, nodeId) {
+  const ref = treeSelectionsRef(treeId, false);
+  if (ref) delete ref[nodeId];
+  notifyState('selections', { treeId: treeId });
 }
 
-function clearAllSelections() {
-  state.selections = {};
-  notifyState('selections');
+/* Wist alle keuzes van één beslisboom, of van alle bomen van de huidige tumor als treeId ontbreekt. */
+function clearAllSelections(treeId) {
+  if (treeId === undefined || treeId === null) {
+    state.selections[tumorKey()] = {};
+  } else {
+    const ref = treeSelectionsRef(treeId, false);
+    if (ref) state.selections[tumorKey()][treeId] = {};
+  }
+  notifyState('selections', { treeId: treeId === undefined ? null : treeId });
 }
 
 function setZoom(value) {
@@ -91,7 +139,6 @@ function setZoom(value) {
   notifyState('viewport');
 }
 
-/* Voorbereiding voor latere sprints: waarden blijven voorlopig 0 en worden nog niet gebruikt. */
 function setPan(x, y) {
   if (typeof x !== 'number' || typeof y !== 'number' || !isFinite(x) || !isFinite(y)) return;
   state.viewport.panX = x;
