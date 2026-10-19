@@ -2,10 +2,10 @@
   "id": "cervixcarcinoom",
   "titel": "Zorgpad cervixcarcinoom",
   "overview": {
-    "viewBox": [4200, 3200],
+"viewBox": [2200, 1800],
     "nodeSize": [220, 90],
-"gridSizeX": 180,
-"gridSizeY": 140,
+"gridSizeX": 100,
+"gridSizeY": 100,
     "wrap": 28,
 "nodes": [
   {
