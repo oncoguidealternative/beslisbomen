@@ -4,7 +4,7 @@
       "id": "borderline-ovarium",
       "titel": "Borderline ovariumtumoren",
       "afbeelding": "images/Gynaecologie_vierkant.png",
-      "status": "coming-soon"
+      "status": "available"
     },
 {
   "id": "cervixcarcinoom",
@@ -16,7 +16,7 @@
       "id": "cin-ais-vain",
       "titel": "CIN, AIS, VAIN",
       "afbeelding": "images/Gynaecologie_vierkant.png",
-      "status": "coming-soon"
+      "status": "available"
     },
     {
       "id": "endometrium",
@@ -28,25 +28,25 @@
       "id": "epitheliaal-ovarium",
       "titel": "Epitheliaal ovariumcarcinoom",
       "afbeelding": "images/Gynaecologie_vierkant.png",
-      "status": "coming-soon"
+      "status": "available"
     },
     {
       "id": "niet-epitheliaal-ovarium",
       "titel": "Niet epitheliale ovarium maligniteiten",
       "afbeelding": "images/Gynaecologie_vierkant.png",
-      "status": "coming-soon"
+      "status": "available"
     },
     {
       "id": "trofoblast",
       "titel": "Trofoblasttumoren",
       "afbeelding": "images/Gynaecologie_vierkant.png",
-      "status": "coming-soon"
+      "status": "available"
     },
     {
       "id": "vergroot-ovarium",
       "titel": "Vergroot ovarium",
       "afbeelding": "images/Gynaecologie_vierkant.png",
-      "status": "coming-soon"
+      "status": "available"
     },
     {
       "id": "vulva",
