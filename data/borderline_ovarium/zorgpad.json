@@ -1,1 +1,259 @@
+{
+  "id": "borderline-ovarium",
+  "titel": "Zorgpad borderline ovariumtumoren",
+  "overview": {
+    "native": true,
+    "viewBox": [
+      1400,
+      2200
+    ],
+    "nodeSize": [
+      220,
+      90
+    ],
+    "gridSizeX": 100,
+    "gridSizeY": 100,
+    "wrap": 28,
+    "nodes": [
+      {
+        "id": "zorgpad-borderline-ovariumtumor",
+        "label": "Zorgpad Borderline Ovariumtumor",
+        "gridX": 5,
+        "gridY": 0,
+        "type": "root"
+      },
+      {
+        "id": "screening",
+        "label": "Screening",
+        "gridX": 5,
+        "gridY": 2,
+        "drill": true
+      },
+      {
+        "id": "klinisch-vergroot-ovarium",
+        "label": "Klinisch (verdenking op) vergroot ovarium",
+        "gridX": 5,
+        "gridY": 4,
+        "drill": true
+      },
+      {
+        "id": "initieel-beleid-vergroot-ovarium",
+        "label": "Initieel beleid vergroot ovarium",
+        "gridX": 5,
+        "gridY": 6,
+        "drill": true
+      },
+      {
+        "id": "behandeling-borderline-ovariumtumor",
+        "label": "Behandeling borderline ovariumtumor",
+        "gridX": 5,
+        "gridY": 8,
+        "drill": true
+      },
+      {
+        "id": "aanvullende-diagnostiek-tijdens-operatie",
+        "label": "Aanvullende diagnostiek tijdens operatie",
+        "gridX": 5,
+        "gridY": 10,
+        "drill": true
+      },
+      {
+        "id": "postoperatief-beleid",
+        "label": "Postoperatief beleid",
+        "gridX": 5,
+        "gridY": 12,
+        "drill": true
+      },
+      {
+        "id": "follow-up-1",
+        "label": "Follow-up",
+        "gridX": 5,
+        "gridY": 14,
+        "drill": true
+      },
+      {
+        "id": "secundaire-behandeling-resttumor",
+        "label": "Secundaire behandeling resttumor",
+        "gridX": 9,
+        "gridY": 14,
+        "drill": true
+      },
+      {
+        "id": "diagnostiek-recidief",
+        "label": "Diagnostiek recidief",
+        "gridX": 5,
+        "gridY": 16,
+        "drill": true
+      },
+      {
+        "id": "behandeling-recidief",
+        "label": "Behandeling recidief",
+        "gridX": 5,
+        "gridY": 18,
+        "drill": true
+      },
+      {
+        "id": "follow-up-2",
+        "label": "Follow-up",
+        "gridX": 5,
+        "gridY": 20,
+        "drill": true
+      }
+    ],
+    "edges": [
+      {
+        "points": [
+          [
+            610,
+            90
+          ],
+          [
+            610,
+            200
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            610,
+            290
+          ],
+          [
+            610,
+            400
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            610,
+            490
+          ],
+          [
+            610,
+            600
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            610,
+            690
+          ],
+          [
+            610,
+            800
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            610,
+            890
+          ],
+          [
+            610,
+            1000
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            610,
+            1090
+          ],
+          [
+            610,
+            1200
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            610,
+            1290
+          ],
+          [
+            610,
+            1400
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            610,
+            1290
+          ],
+          [
+            610,
+            1345
+          ],
+          [
+            1010,
+            1345
+          ],
+          [
+            1010,
+            1400
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            610,
+            1490
+          ],
+          [
+            610,
+            1600
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            610,
+            1690
+          ],
+          [
+            610,
+            1800
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            610,
+            1890
+          ],
+          [
+            610,
+            2000
+          ]
+        ],
+        "arrow": true
+      }
+    ]
+  },
+  "trees": {}
+}
 
