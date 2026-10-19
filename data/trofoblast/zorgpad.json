@@ -1,1 +1,540 @@
+{
+  "id": "trofoblast",
+  "titel": "Zorgpad trofoblasttumoren",
+  "overview": {
+    "native": true,
+    "viewBox": [
+      1600,
+      2850
+    ],
+    "nodeSize": [
+      220,
+      90
+    ],
+    "gridSizeX": 100,
+    "gridSizeY": 100,
+    "wrap": 28,
+    "nodes": [
+      {
+        "id": "zorgpad-trofoblast",
+        "label": "Zorgpad trofoblastziekten",
+        "gridX": 6,
+        "gridY": 0,
+        "type": "root"
+      },
+      {
+        "id": "klinische-verdenking",
+        "label": "Klinische verdenking trofoblast ziekte",
+        "gridX": 6,
+        "gridY": 2,
+        "drill": true
+      },
+      {
+        "id": "primaire-behandeling",
+        "label": "Primaire behandeling (verdenking) trofoblast ziekte",
+        "gridX": 6,
+        "gridY": 4,
+        "drill": true
+      },
+      {
+        "id": "surveillance-na-mola",
+        "label": "Surveillance na mola behandeling",
+        "gridX": 6,
+        "gridY": 6,
+        "drill": true
+      },
+      {
+        "id": "behandeling-pstt",
+        "label": "Behandeling PSTT",
+        "gridX": 11,
+        "gridY": 6,
+        "drill": true
+      },
+      {
+        "id": "surveillance-non-mola",
+        "label": "Surveillance bij non-mola choriocarcinoom",
+        "gridX": 2,
+        "gridY": 8,
+        "drill": true
+      },
+      {
+        "id": "uitslag-hcg-na-mola",
+        "label": "Uitslag hCG surveillance na mola behandeling",
+        "gridX": 6,
+        "gridY": 8,
+        "drill": true
+      },
+      {
+        "id": "pstt-hcg-surveillance",
+        "label": "PSTT hCG surveillance",
+        "gridX": 11,
+        "gridY": 8,
+        "drill": true
+      },
+      {
+        "id": "uitslag-hcg-non-mola",
+        "label": "Uitslag hCG surveillance na non-mola choriocarcinoom",
+        "gridX": 2,
+        "gridY": 10,
+        "drill": true
+      },
+      {
+        "id": "behandeling-gtn",
+        "label": "Behandeling GTN",
+        "gridX": 6,
+        "gridY": 10,
+        "drill": true
+      },
+      {
+        "id": "uitslag-hcg-na-pstt",
+        "label": "Uitslag hCG surveillance na PSTT",
+        "gridX": 11,
+        "gridY": 10,
+        "drill": true
+      },
+      {
+        "id": "evaluatie-laag-risico",
+        "label": "Evaluatie laag risico na primaire behandeling GTN",
+        "gridX": 6,
+        "gridY": 12,
+        "drill": true
+      },
+      {
+        "id": "beleid-na-primaire-behandeling-gtn",
+        "label": "Beleid na primaire behandeling GTN",
+        "gridX": 6,
+        "gridY": 14,
+        "drill": true
+      },
+      {
+        "id": "beleid-na-gtn-chirurgie",
+        "label": "Beleid na GTN chirurgie",
+        "gridX": 2,
+        "gridY": 16,
+        "drill": true
+      },
+      {
+        "id": "uitslag-hcg-na-chirurgie",
+        "label": "Uitslag hCG surveillance na chirurgie",
+        "gridX": 2,
+        "gridY": 18,
+        "drill": true
+      },
+      {
+        "id": "evaluatie-dactinomycine",
+        "label": "Evaluatie bij dactinomycine chemotherapie",
+        "gridX": 6,
+        "gridY": 18,
+        "drill": true
+      },
+      {
+        "id": "beleid-methotrexaat-dactinomycine",
+        "label": "Beleid na methotrexaat en dactinomycine chemotherapie",
+        "gridX": 6,
+        "gridY": 20,
+        "drill": true
+      },
+      {
+        "id": "evaluatie-ema-co",
+        "label": "Evaluatie bij EMA/CO chemotherapie",
+        "gridX": 9,
+        "gridY": 22,
+        "drill": true
+      },
+      {
+        "id": "hcg-follow-up-laag-risico",
+        "label": "hCG follow up laag risico",
+        "gridX": 1,
+        "gridY": 24,
+        "drill": true
+      },
+      {
+        "id": "uitslag-hcg-follow-up-laag",
+        "label": "Uitslag hCG follow up na GTN",
+        "gridX": 1,
+        "gridY": 26,
+        "drill": true
+      },
+      {
+        "id": "hcg-follow-up-hoog-risico",
+        "label": "hCG follow up hoog risico",
+        "gridX": 9,
+        "gridY": 24,
+        "drill": true
+      },
+      {
+        "id": "uitslag-hcg-follow-up-hoog",
+        "label": "Uitslag hCG follow up na GTN",
+        "gridX": 9,
+        "gridY": 26,
+        "drill": true
+      },
+      {
+        "id": "beleid-na-ema-co",
+        "label": "Beleid na EMA/CO chemotherapie",
+        "gridX": 12,
+        "gridY": 24,
+        "drill": true
+      }
+    ],
+    "edges": [
+      {
+        "points": [
+          [
+            710,
+            90
+          ],
+          [
+            710,
+            200
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            710,
+            290
+          ],
+          [
+            710,
+            400
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            710,
+            490
+          ],
+          [
+            710,
+            600
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            710,
+            490
+          ],
+          [
+            710,
+            645
+          ],
+          [
+            310,
+            645
+          ],
+          [
+            310,
+            800
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            710,
+            490
+          ],
+          [
+            710,
+            545
+          ],
+          [
+            1210,
+            545
+          ],
+          [
+            1210,
+            600
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            710,
+            690
+          ],
+          [
+            710,
+            800
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            310,
+            890
+          ],
+          [
+            310,
+            1000
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            1210,
+            690
+          ],
+          [
+            1210,
+            800
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            1210,
+            890
+          ],
+          [
+            1210,
+            1000
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            710,
+            890
+          ],
+          [
+            710,
+            1000
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            310,
+            1090
+          ],
+          [
+            310,
+            1045
+          ],
+          [
+            710,
+            1045
+          ],
+          [
+            710,
+            1000
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            710,
+            1090
+          ],
+          [
+            710,
+            1200
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            710,
+            1290
+          ],
+          [
+            710,
+            1400
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            710,
+            1490
+          ],
+          [
+            710,
+            1545
+          ],
+          [
+            310,
+            1545
+          ],
+          [
+            310,
+            1600
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            310,
+            1690
+          ],
+          [
+            310,
+            1800
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            710,
+            1490
+          ],
+          [
+            710,
+            1800
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            710,
+            1890
+          ],
+          [
+            710,
+            2000
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            710,
+            2090
+          ],
+          [
+            710,
+            2145
+          ],
+          [
+            1010,
+            2145
+          ],
+          [
+            1010,
+            2200
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            1010,
+            2290
+          ],
+          [
+            1010,
+            2400
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            1010,
+            2290
+          ],
+          [
+            1010,
+            2345
+          ],
+          [
+            1310,
+            2345
+          ],
+          [
+            1310,
+            2400
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            710,
+            1490
+          ],
+          [
+            710,
+            1945
+          ],
+          [
+            210,
+            1945
+          ],
+          [
+            210,
+            2400
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            210,
+            2490
+          ],
+          [
+            210,
+            2600
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            1010,
+            2490
+          ],
+          [
+            1010,
+            2600
+          ]
+        ],
+        "arrow": true
+      }
+    ]
+  },
+  "trees": {}
+}
 
