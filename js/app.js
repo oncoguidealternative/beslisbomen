@@ -81,7 +81,7 @@
       svg: document.getElementById("zp-chart"),
       message: document.getElementById("zp-message"),
       stage: document.getElementById("zp-stage"),
-      back: document.getElementById("zp-back"),
+      // Optioneel: zoomknoppen bestaan alleen als ze in de HTML staan
       zoomIn: document.getElementById("zp-zin"),
       zoomOut: document.getElementById("zp-zout")
     };
@@ -164,30 +164,90 @@
     }
 
     let currentGraph = null;
+    let currentTreeId = null;
+
+    // Zet de door de renderer berekende passende zoom en pan in de centrale state.
+    function applyFit(graph) {
+      const fit = Renderer.fitViewport(graph, refs.stage.clientWidth, refs.stage.clientHeight);
+      setZoom(fit.zoom);
+      setPan(fit.panX, fit.panY);
+    }
+
+    // Zorgt dat de eerste beschikbare keuzenode na het passend maken in beeld staat (bij een grote boom kan de
+    // minimale zoom de bovenkant buiten het werkvlak laten vallen). Zoom blijft ongewijzigd; alleen de pan past aan.
+    function ensureFirstAvailableVisible() {
+      if (!graphIsInteractive() || !refs.stage.clientWidth) return;
+      const status = GraphState.compute(currentGraph, getSelections(currentTreeId));
+      const id = status.available[0];
+      if (!id) return;
+      const r = nodeOnScreen(id);
+      const w = refs.stage.clientWidth;
+      const h = refs.stage.clientHeight;
+      const fullyVisible = r.left >= VISIBLE_MARGIN && r.right <= w - VISIBLE_MARGIN &&
+        r.top >= VISIBLE_MARGIN && r.bottom <= h - VISIBLE_MARGIN;
+      if (!fullyVisible) {
+        const c = centeredPan(id);
+        setPan(c.x, c.y);
+      }
+    }
+
+    // Kruimelpad: zorgpadtitel uit de JSON; bij een beslisboom ook de titel van die boom.
+    function updateBreadcrumb(view) {
+      if (typeof Breadcrumb === "undefined") return;
+      Breadcrumb.update({
+        carepathTitle: zorgpad.titel,
+        treeTitle: view.treeId ? view.label : "",
+        isOverview: !view.treeId
+      });
+    }
+
+    // Validatie van de interactiemetadata: eenmalig per zorgpad; meldingen alleen in de console.
+    // Alleen nodes die de validator goedkeurt blijven interactief; de boom wordt altijd gewoon getekend.
+    const validation = GraphValidator.validateTumor(zorgpad, tumorId);
+    GraphValidator.report({ issues: validation.issues });
+
+    function validatedGraph(treeId, graph) {
+      if (!treeId || !graph) return graph;
+      let result = validation.trees[treeId];
+      if (!result) {
+        // Hergebruikte boom (same): dezelfde graph, aparte keuzes; de meldingen staan al onder de bronboom.
+        const source = zorgpad.trees[treeId] && zorgpad.trees[treeId].same;
+        result = (source && validation.trees[source]) || GraphValidator.validate(graph, { tumor: tumorId, tree: treeId });
+        validation.trees[treeId] = result;
+      }
+      return result.graph;
+    }
 
     // Leest de URL-hash, werkt de state bij en laat de renderer tekenen.
     function showRoute() {
       const id = location.hash.replace(/^#\//, "");
       const view = Renderer.resolve(zorgpad, id);
+      view.graph = validatedGraph(view.treeId, view.graph);
       currentGraph = view.graph;
+      currentTreeId = view.treeId;
       setTree(view.treeId);
-      if (view.graph && view.graph.native) setZoom(Renderer.fitZoom(view.graph));
       document.title = view.treeId ? view.label + " – " + zorgpad.titel : zorgpad.titel;
+      updateBreadcrumb(view);
       cancelJourney();
       clearGuidedTarget();
       ChoicePanel.close(false);
       Renderer.draw(view, { navigate: navigate, interact: interact });
+      // Pas na het tekenen: pas dan heeft het werkvlak zijn (native) afmetingen.
+      if (view.graph && view.graph.native) {
+        applyFit(view.graph);
+        ensureFirstAvailableVisible();
+      }
       refreshGraph();
       if (view.treeId) window.scrollTo(0, 0);
     }
 
     // Een interactieve node: open het keuzevenster (of sluit het als het al voor deze node openstaat).
     function interact(item, anchor) {
-      if (ChoicePanel.isOpenFor(item.id)) {
+      if (ChoicePanel.isOpenFor(currentTreeId, item.id)) {
         ChoicePanel.close(true);
         return;
       }
-      ChoicePanel.open({ nodeId: item.id, label: item.label, options: item.options, anchor: anchor });
+      ChoicePanel.open({ tumorId: tumorId, treeId: currentTreeId, nodeId: item.id, label: item.label, options: item.options, anchor: anchor });
     }
 
     // ----- Graph-status -----
@@ -198,14 +258,15 @@
     // Berekent de status uit graph + selecties en laat de renderer die toepassen.
     function refreshGraph() {
       if (!graphIsInteractive()) return;
-      Renderer.applyStatus(GraphState.compute(currentGraph, getState().selections));
+      const values = getSelections(currentTreeId);
+      Renderer.applyStatus(GraphState.compute(currentGraph, values), values);
     }
 
     // Verwijdert keuzes die door een wijziging niet meer geldig of bereikbaar zijn (via de state-functies).
     function removeInvalidSelections() {
       if (!graphIsInteractive()) return [];
-      const result = GraphState.prune(currentGraph, getState().selections);
-      result.removed.forEach(function (id) { clearSelection(id); });
+      const result = GraphState.prune(currentGraph, getSelections(currentTreeId));
+      result.removed.forEach(function (id) { clearSelection(currentTreeId, id); });
       return result.removed;
     }
 
@@ -322,8 +383,9 @@
           focusWithoutPan(sourceNodeId);
         }
       }
-      if (currentGraph.native && (target.kind === "available" || target.kind === "outcome") &&
-          needsMove(target.id, target.kind)) {
+      // Een outcome of een nog niet interactieve node waar de route stopt ('end') wordt alleen gecentreerd
+      // als die onvoldoende zichtbaar is.
+      if (currentGraph.native && needsMove(target.id, target.kind === "available" ? "available" : "outcome")) {
         movePanTo(centeredPan(target.id), finish);
       } else {
         finish();
@@ -332,39 +394,45 @@
 
     // Keuzevenster: een keuze gaat uitsluitend via de centrale state; SVG en venster volgen via subscribe.
     ChoicePanel.init({
-      onSelect: function (nodeId, value, info) {
-        if (getState().selections[nodeId] === value) return;
+      onSelect: function (treeId, nodeId, value, info) {
+        if (treeId !== currentTreeId || getSelections(treeId)[nodeId] === value) return;
         cancelJourney();
-        setSelection(nodeId, value);
+        setSelection(treeId, nodeId, value);
         removeInvalidSelections();
         ChoicePanel.close(false);
-        const target = GraphState.nextTarget(currentGraph, getState().selections, nodeId);
+        const target = GraphState.nextTarget(currentGraph, getSelections(treeId), nodeId);
         let message = info.nodeLabel + ": " + info.optionLabel + " geselecteerd.";
         if (target && target.kind === "available") {
           message += " Volgende stap: " + GraphState.describeNode(nodeById(target.id)) + ".";
         } else if (target && target.kind === "outcome") {
           message += " Uitkomst bereikt: " + GraphState.describeNode(nodeById(target.id)) + ".";
+        } else if (target && target.kind === "end") {
+          message += " De route loopt verder bij: " + GraphState.describeNode(nodeById(target.id)) + ".";
         }
         ChoicePanel.announce(message);
         if (target) startJourney(target, nodeId);
       },
-      onClear: function (nodeId, info) {
+      onClear: function (treeId, nodeId, info) {
+        if (treeId !== currentTreeId) return;
         cancelJourney();
         clearGuidedTarget();
-        clearSelection(nodeId);
+        clearSelection(treeId, nodeId);
         removeInvalidSelections();
         ChoicePanel.announce("Keuze voor " + info.nodeLabel + " gewist.");
       }
     });
 
     // Eén abonnement voor de hele pagina: viewport en selecties worden toegepast zodra de state verandert.
-    subscribe(function (snapshot, key) {
+    subscribe(function (snapshot, key, detail) {
       if (key === "viewport") {
         Renderer.applyViewport();
         ChoicePanel.position();
       } else if (key === "selections") {
-        refreshGraph();
-        ChoicePanel.sync();
+        // Alleen herberekenen als de wijziging de getoonde boom betreft (of alle bomen).
+        if (!detail || !detail.treeId || detail.treeId === currentTreeId) {
+          refreshGraph();
+          ChoicePanel.sync();
+        }
       }
     });
 
@@ -395,23 +463,11 @@
       zoomTo(getState().viewport.zoom + delta, c.x, c.y);
     }
 
-if (refs.zoomIn) {
-    refs.zoomIn.addEventListener("click", function () {
-        stepZoom(ZOOM_STEP);
-    });
-}
-
-if (refs.zoomOut) {
-    refs.zoomOut.addEventListener("click", function () {
-        stepZoom(-ZOOM_STEP);
-    });
-}
-
-if (refs.back) {
-    refs.back.addEventListener("click", function () {
-        navigate("");
-    });
-}
+    if (refs.zoomIn) refs.zoomIn.addEventListener("click", function () { stepZoom(ZOOM_STEP); });
+    if (refs.zoomOut) refs.zoomOut.addEventListener("click", function () { stepZoom(-ZOOM_STEP); });
+    if (typeof Breadcrumb !== "undefined") {
+      Breadcrumb.init({ onCarepathNavigate: function () { navigate(""); } });
+    }
     window.addEventListener("hashchange", showRoute);
 
     // Muiswiel en touchpad: omhoog = inzoomen, omlaag = uitzoomen (pinch op touchpad komt als ctrl+wheel).
@@ -479,7 +535,10 @@ if (refs.back) {
       if (!navigationActive() || ev.target.closest(".node.go, .node.is-interactive")) return;
       cancelJourney();
       resetViewport();
-      if (currentGraph && currentGraph.native) setZoom(Renderer.fitZoom(currentGraph));
+      if (currentGraph && currentGraph.native) {
+        applyFit(currentGraph);
+        ensureFirstAvailableVisible();
+      }
     });
 
     // Toetsenbordfocus: houd de gefocuste node in beeld door te pannen (het diagram scrolt zelf niet).
