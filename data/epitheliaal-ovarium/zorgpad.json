@@ -1,1 +1,419 @@
+{
+  "id": "epitheliaal-ovarium",
+  "titel": "Zorgpad epitheliaal ovariumcarcinoom",
+  "overview": {
+    "native": true,
+    "viewBox": [
+      1300,
+      2800
+    ],
+    "nodeSize": [
+      220,
+      90
+    ],
+    "gridSizeX": 100,
+    "gridSizeY": 100,
+    "wrap": 28,
+    "nodes": [
+      {
+        "id": "zorgpad-epitheliaal-ovarium",
+        "label": "Zorgpad epitheliaal ovariumcarcinoom",
+        "gridX": 5,
+        "gridY": 0,
+        "type": "root"
+      },
+      {
+        "id": "klinisch-vergroot-ovarium",
+        "label": "Klinisch (verdenking op) vergroot ovarium",
+        "gridX": 5,
+        "gridY": 2,
+        "drill": true
+      },
+      {
+        "id": "initieel-beleid-vergroot-ovarium",
+        "label": "Initieel beleid (verdenking op) vergroot ovarium",
+        "gridX": 5,
+        "gridY": 4,
+        "drill": true
+      },
+      {
+        "id": "diagnose-epitheliaal-ovarium",
+        "label": "Diagnose epitheliaal ovariumcarcinoom",
+        "gridX": 5,
+        "gridY": 6,
+        "type": "outcome"
+      },
+      {
+        "id": "aanvullende-diagnostiek",
+        "label": "Aanvullende diagnostiek epitheliaal ovariumcarcinoom",
+        "gridX": 5,
+        "gridY": 8,
+        "drill": true
+      },
+      {
+        "id": "vervolg-aanvullende-diagnostiek",
+        "label": "Vervolg aanvullende diagnostiek",
+        "gridX": 5,
+        "gridY": 10,
+        "drill": true
+      },
+      {
+        "id": "primaire-behandeling",
+        "label": "Primaire behandeling",
+        "gridX": 5,
+        "gridY": 12,
+        "drill": true
+      },
+      {
+        "id": "vervolg-exploratieve-chirurgie",
+        "label": "Vervolg exploratieve chirurgie laag stadium epitheliaal ovariumcarcinoom",
+        "gridX": 1,
+        "gridY": 14,
+        "drill": true
+      },
+      {
+        "id": "beleid-na-primaire-operatie",
+        "label": "Beleid na primaire operatie",
+        "gridX": 5,
+        "gridY": 16,
+        "drill": true
+      },
+      {
+        "id": "beleid-na-stadiering",
+        "label": "Beleid na stadiering",
+        "gridX": 1,
+        "gridY": 18,
+        "drill": true
+      },
+      {
+        "id": "beleid-na-chemotherapie",
+        "label": "Beleid na chemotherapie",
+        "gridX": 9,
+        "gridY": 18,
+        "drill": true
+      },
+      {
+        "id": "follow-up",
+        "label": "Follow up",
+        "gridX": 5,
+        "gridY": 20,
+        "drill": true
+      },
+      {
+        "id": "aanvullend-onderzoek-follow-up",
+        "label": "Aanvullend onderzoek follow up",
+        "gridX": 5,
+        "gridY": 22,
+        "drill": true
+      },
+      {
+        "id": "behandeling-recidief",
+        "label": "Behandeling recidief",
+        "gridX": 5,
+        "gridY": 24,
+        "drill": true
+      },
+      {
+        "id": "beleid-na-behandeling-recidief",
+        "label": "Beleid na behandeling recidief",
+        "gridX": 5,
+        "gridY": 26,
+        "drill": true
+      }
+    ],
+    "edges": [
+      {
+        "points": [
+          [
+            610,
+            90
+          ],
+          [
+            610,
+            200
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            610,
+            290
+          ],
+          [
+            610,
+            400
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            610,
+            490
+          ],
+          [
+            610,
+            600
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            610,
+            690
+          ],
+          [
+            610,
+            800
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            610,
+            890
+          ],
+          [
+            610,
+            1000
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            610,
+            1290
+          ],
+          [
+            610,
+            1345
+          ],
+          [
+            210,
+            1345
+          ],
+          [
+            210,
+            1400
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            610,
+            1290
+          ],
+          [
+            610,
+            1600
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            610,
+            1290
+          ],
+          [
+            610,
+            1545
+          ],
+          [
+            1010,
+            1545
+          ],
+          [
+            1010,
+            1800
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            210,
+            1490
+          ],
+          [
+            210,
+            1800
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            210,
+            1490
+          ],
+          [
+            210,
+            1545
+          ],
+          [
+            610,
+            1545
+          ],
+          [
+            610,
+            1600
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            610,
+            1690
+          ],
+          [
+            610,
+            1745
+          ],
+          [
+            210,
+            1745
+          ],
+          [
+            210,
+            1800
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            610,
+            1690
+          ],
+          [
+            610,
+            1745
+          ],
+          [
+            1010,
+            1745
+          ],
+          [
+            1010,
+            1800
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            210,
+            1890
+          ],
+          [
+            210,
+            1945
+          ],
+          [
+            610,
+            1945
+          ],
+          [
+            610,
+            2000
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            610,
+            1690
+          ],
+          [
+            610,
+            2000
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            1010,
+            1890
+          ],
+          [
+            1010,
+            1945
+          ],
+          [
+            610,
+            1945
+          ],
+          [
+            610,
+            2000
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            610,
+            2090
+          ],
+          [
+            610,
+            2200
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            610,
+            2290
+          ],
+          [
+            610,
+            2400
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            610,
+            2490
+          ],
+          [
+            610,
+            2600
+          ]
+        ],
+        "arrow": true
+      }
+    ]
+  },
+  "trees": {}
+}
 
