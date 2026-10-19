@@ -115,7 +115,48 @@ function graphBounds(graph) {
     height: Math.max(1, maxY - minY)
   };
 }
+/*
+ * Berekent de optimale startzoom en beginpositie voor desktop.
+ * De werkelijke inhoud van de boom wordt zo groot mogelijk en
+ * gecentreerd binnen de beschikbare stage weergegeven.
+ */
+function fitViewport(graph, stageWidth, stageHeight) {
+  var bounds = graphBounds(graph);
+  var padding = 48;
 
+  var availableWidth = Math.max(
+    1,
+    stageWidth - padding * 2
+  );
+
+  var availableHeight = Math.max(
+    1,
+    stageHeight - padding * 2
+  );
+
+  var zoomX = availableWidth / bounds.width;
+  var zoomY = availableHeight / bounds.height;
+
+  var zoom = Math.min(zoomX, zoomY);
+
+  /* Desktop-first: groter dan 100% is toegestaan. */
+  zoom = Math.max(0.75, Math.min(1.75, zoom));
+
+  var panX =
+    stageWidth / 2 -
+    (bounds.x + bounds.width / 2) * zoom;
+
+  var panY =
+    stageHeight / 2 -
+    (bounds.y + bounds.height / 2) * zoom;
+
+  return {
+    zoom: zoom,
+    panX: panX,
+    panY: panY,
+    bounds: bounds
+  };
+}
 /*
  * Berekent voor desktop zowel de beginzoom als de begin-pan.
  * De volledige relevante boom blijft zichtbaar, maar gebruikt
@@ -440,6 +481,18 @@ function fitViewport(graph, stageWidth, stageHeight) {
   /* refs: {main, svg, message} */
   function init(refs) { els = refs; }
 
-  return { init: init, resolve: resolve, fitZoom: fitZoom, draw: draw, applyViewport: applyViewport,
-           applyStatus: applyStatus, nodeBox: nodeBox, setGuidedTarget: setGuidedTarget, focusNode: focusNode };
+return {
+  init: init,
+  resolve: resolve,
+
+  graphBounds: graphBounds,
+  fitViewport: fitViewport,
+
+  draw: draw,
+  applyViewport: applyViewport,
+  applyStatus: applyStatus,
+  nodeBox: nodeBox,
+  setGuidedTarget: setGuidedTarget,
+  focusNode: focusNode
+};
 })();
