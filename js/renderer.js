@@ -173,6 +173,7 @@ const Renderer = (function () {
         });
       }
       if (target !== null) {
+        g.setAttribute('data-focusable', 'link');
         g.setAttribute('role', 'link');
         g.setAttribute('tabindex', '0');
         g.setAttribute('aria-label', target === '' ? 'Terug naar overzicht' : n.label);
@@ -254,14 +255,21 @@ const Renderer = (function () {
   }
 
   /* Past een berekende graph-status toe als CSS-klassen op nodes, edges, dots en labels.
-     status = {nodes: {id: status}, edges: {id: status}} (uit GraphState.compute).
+     status = {nodes: {id: status}, edges: {id: status}} (uit GraphState.compute);
+     values = {nodeId: waarde} met de keuzes van de getoonde beslisboom (alleen voor de aria-labels).
      Gerichte update zonder rerender; de renderer bepaalt zelf geen route of keuze. */
-  function applyStatus(status) {
-    var selections = getState().selections;
+  function applyStatus(status, values) {
+    var selections = values || {};
     els.svg.querySelectorAll('.node[data-node-id]').forEach(function (g) {
       var id = g.getAttribute('data-node-id');
       var st = status.nodes[id] || 'normal';
       setStatusClass(g, st);
+      if (g.getAttribute('data-focusable') === 'link') {
+        // Een navigatielink bij een uitgesloten uitkomst is niet bruikbaar: uit de tabvolgorde en niet aanklikbaar.
+        if (st === 'excluded') { g.removeAttribute('tabindex'); g.setAttribute('aria-disabled', 'true'); }
+        else { g.setAttribute('tabindex', '0'); g.removeAttribute('aria-disabled'); }
+        return;
+      }
       if (!g.classList.contains('is-interactive')) return;
       var label = g.getAttribute('data-node-label');
       var text = 'Kies een waarde voor ' + label;
