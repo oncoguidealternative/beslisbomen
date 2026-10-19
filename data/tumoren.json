@@ -6,12 +6,12 @@
       "afbeelding": "images/Gynaecologie_vierkant.png",
       "status": "coming-soon"
     },
-    {
-      "id": "cervixcarcinoom",
-      "titel": "Cervixcarcinoom",
-      "afbeelding": "images/Gynaecologie_vierkant.png",
-      "status": "coming-soon"
-    },
+{
+  "id": "cervixcarcinoom",
+  "titel": "Cervixcarcinoom",
+  "afbeelding": "images/Gynaecologie_vierkant.png",
+  "status": "available"
+}
     {
       "id": "cin-ais-vain",
       "titel": "CIN, AIS, VAIN",
