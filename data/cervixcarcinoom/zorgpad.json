@@ -1,1 +1,129 @@
+{
+  "id": "cervixcarcinoom",
+  "titel": "Zorgpad cervixcarcinoom",
+  "overview": {
+    "viewBox": [2200, 1550],
+    "nodeSize": [220, 90],
+    "gridSizeX": 100,
+    "gridSizeY": 100,
+    "wrap": 28,
+    "nodes": [
+      {
+        "id": "primaire-tumor",
+        "drill": true,
+        "label": "Primaire tumor",
+        "gridX": 9,
+        "gridY": 0
+      },
+      {
+        "id": "initiele-diagnostiek",
+        "drill": true,
+        "label": "Initiële diagnostiek",
+        "gridX": 9,
+        "gridY": 2
+      },
+      {
+        "id": "vervolg-initiele-diagnostiek",
+        "drill": true,
+        "label": "Vervolg initiële diagnostiek",
+        "gridX": 9,
+        "gridY": 4
+      },
+      {
+        "id": "vervolg-diagnostiek-tumor",
+        "drill": true,
+        "label": "Vervolg diagnostiek tumor",
+        "gridX": 9,
+        "gridY": 6
+      },
+      {
+        "id": "vervolg-diagnostiek-lymfkliermetastasen",
+        "drill": true,
+        "label": "Vervolg diagnostiek lymfkliermetastasen",
+        "gridX": 9,
+        "gridY": 8
+      },
+      {
+        "id": "stadium-bepalen",
+        "drill": true,
+        "label": "Stadium bepalen",
+        "gridX": 9,
+        "gridY": 10
+      },
+      {
+        "id": "stadium-ia1",
+        "drill": true,
+        "label": "Stadium IA1",
+        "gridX": 0,
+        "gridY": 13
+      },
+      {
+        "id": "stadium-ia2",
+        "drill": true,
+        "label": "Stadium IA2",
+        "gridX": 3,
+        "gridY": 13
+      },
+      {
+        "id": "stadium-ib1-ib2",
+        "drill": true,
+        "label": "Stadium IB1/IB2",
+        "gridX": 6,
+        "gridY": 13
+      },
+      {
+        "id": "stadium-iia",
+        "drill": true,
+        "label": "Stadium IIA",
+        "gridX": 9,
+        "gridY": 13
+      },
+      {
+        "id": "stadium-ib3-iia-iiib",
+        "drill": true,
+        "label": "Stadium IB3/IIA–IIIB",
+        "gridX": 12,
+        "gridY": 13
+      },
+      {
+        "id": "stadium-iiic-iva",
+        "drill": true,
+        "label": "Stadium IIIC/IVA",
+        "gridX": 15,
+        "gridY": 13
+      },
+      {
+        "id": "stadium-ivb",
+        "drill": true,
+        "label": "Stadium IVB",
+        "gridX": 18,
+        "gridY": 13
+      },
+      {
+        "id": "recidief",
+        "drill": true,
+        "label": "Recidief",
+        "gridX": 18,
+        "gridY": 9
+      }
+    ],
+    "edges": [
+      {"points": [[1010, 90], [1010, 200]], "arrow": true},
+      {"points": [[1010, 290], [1010, 400]], "arrow": true},
+      {"points": [[1010, 490], [1010, 600]], "arrow": true},
+      {"points": [[1010, 690], [1010, 800]], "arrow": true},
+      {"points": [[1010, 890], [1010, 1000]], "arrow": true},
+      {"points": [[1010, 1090], [1010, 1200]], "arrow": false},
+      {"points": [[110, 1200], [1910, 1200]], "arrow": false},
+      {"points": [[110, 1200], [110, 1300]], "arrow": true},
+      {"points": [[410, 1200], [410, 1300]], "arrow": true},
+      {"points": [[710, 1200], [710, 1300]], "arrow": true},
+      {"points": [[1010, 1200], [1010, 1300]], "arrow": true},
+      {"points": [[1310, 1200], [1310, 1300]], "arrow": true},
+      {"points": [[1610, 1200], [1610, 1300]], "arrow": true},
+      {"points": [[1910, 1200], [1910, 1300]], "arrow": true}
+    ]
+  },
+  "trees": {}
+}
 
