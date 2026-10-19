@@ -2,111 +2,105 @@
   "id": "cervixcarcinoom",
   "titel": "Zorgpad cervixcarcinoom",
   "overview": {
-    "viewBox": [2200, 1550],
+    "viewBox": [4200, 3200],
     "nodeSize": [220, 90],
-    "gridSizeX": 100,
-    "gridSizeY": 100,
+"gridSizeX": 180,
+"gridSizeY": 140,
     "wrap": 28,
-    "nodes": [
-      {
-        "id": "primaire-tumor",
-        "drill": true,
-        "label": "Primaire tumor",
-        "gridX": 9,
-        "gridY": 0
-      },
-      {
-        "id": "initiele-diagnostiek",
-        "drill": true,
-        "label": "Initiële diagnostiek",
-        "gridX": 9,
-        "gridY": 2
-      },
-      {
-        "id": "vervolg-initiele-diagnostiek",
-        "drill": true,
-        "label": "Vervolg initiële diagnostiek",
-        "gridX": 9,
-        "gridY": 4
-      },
-      {
-        "id": "vervolg-diagnostiek-tumor",
-        "drill": true,
-        "label": "Vervolg diagnostiek tumor",
-        "gridX": 9,
-        "gridY": 6
-      },
-      {
-        "id": "vervolg-diagnostiek-lymfkliermetastasen",
-        "drill": true,
-        "label": "Vervolg diagnostiek lymfkliermetastasen",
-        "gridX": 9,
-        "gridY": 8
-      },
-      {
-        "id": "stadium-bepalen",
-        "drill": true,
-        "label": "Stadium bepalen",
-        "gridX": 9,
-        "gridY": 10
-      },
-      {
-        "id": "stadium-ia1",
-        "drill": true,
-        "label": "Stadium IA1",
-        "gridX": 0,
-        "gridY": 13
-      },
-      {
-        "id": "stadium-ia2",
-        "drill": true,
-        "label": "Stadium IA2",
-        "gridX": 3,
-        "gridY": 13
-      },
-      {
-        "id": "stadium-ib1-ib2",
-        "drill": true,
-        "label": "Stadium IB1/IB2",
-        "gridX": 6,
-        "gridY": 13
-      },
-      {
-        "id": "stadium-iia",
-        "drill": true,
-        "label": "Stadium IIA",
-        "gridX": 9,
-        "gridY": 13
-      },
-      {
-        "id": "stadium-ib3-iia-iiib",
-        "drill": true,
-        "label": "Stadium IB3/IIA–IIIB",
-        "gridX": 12,
-        "gridY": 13
-      },
-      {
-        "id": "stadium-iiic-iva",
-        "drill": true,
-        "label": "Stadium IIIC/IVA",
-        "gridX": 15,
-        "gridY": 13
-      },
-      {
-        "id": "stadium-ivb",
-        "drill": true,
-        "label": "Stadium IVB",
-        "gridX": 18,
-        "gridY": 13
-      },
-      {
-        "id": "recidief",
-        "drill": true,
-        "label": "Recidief",
-        "gridX": 18,
-        "gridY": 9
-      }
-    ],
+"nodes": [
+  {
+    "id": "primaire-tumor",
+    "label": "Primaire tumor",
+    "gridX": 5,
+    "gridY": 0,
+    "drill": true
+  },
+  {
+    "id": "initiele-diagnostiek",
+    "label": "Initiële diagnostiek bij verdenking cervixcarcinoom",
+    "gridX": 5,
+    "gridY": 2,
+    "drill": true
+  },
+  {
+    "id": "vervolg-initiele-diagnostiek",
+    "label": "Vervolg initiële diagnostiek tumor",
+    "gridX": 5,
+    "gridY": 4,
+    "drill": true
+  },
+  {
+    "id": "vervolg-diagnostiek-tumor",
+    "label": "Vervolg diagnostiek tumor",
+    "gridX": 5,
+    "gridY": 6,
+    "drill": true
+  },
+  {
+    "id": "vervolg-diagnostiek-lymfeklieren",
+    "label": "Vervolg diagnostiek lymfekliermetastasen",
+    "gridX": 5,
+    "gridY": 8,
+    "drill": true
+  },
+  {
+    "id": "stadium-bepalen",
+    "label": "Stadium bepalen",
+    "gridX": 8,
+    "gridY": 10,
+    "drill": true
+  },
+
+  {
+    "id": "stadium-ia1",
+    "label": "Behandeling stadium IA1",
+    "gridX": 0,
+    "gridY": 13,
+    "drill": true
+  },
+  {
+    "id": "stadium-ia2",
+    "label": "Behandeling stadium IA2",
+    "gridX": 3,
+    "gridY": 13,
+    "drill": true
+  },
+  {
+    "id": "stadium-ib1-ib2",
+    "label": "Behandeling stadium IB1 & IB2",
+    "gridX": 6,
+    "gridY": 13,
+    "drill": true
+  },
+  {
+    "id": "stadium-ib3-iia-iiib",
+    "label": "Behandeling stadium IB3, IIA-IIIB",
+    "gridX": 9,
+    "gridY": 13,
+    "drill": true
+  },
+  {
+    "id": "stadium-iiic-iva",
+    "label": "Behandeling stadium IIIC, IVA",
+    "gridX": 12,
+    "gridY": 13,
+    "drill": true
+  },
+  {
+    "id": "stadium-ivb",
+    "label": "Behandeling stadium IVB",
+    "gridX": 15,
+    "gridY": 13,
+    "drill": true
+  },
+  {
+    "id": "recidief",
+    "label": "Behandeling recidief",
+    "gridX": 19,
+    "gridY": 13,
+    "drill": true
+  }
+],
     "edges": [
       {"points": [[1010, 90], [1010, 200]], "arrow": true},
       {"points": [[1010, 290], [1010, 400]], "arrow": true},
