@@ -1,7 +1,7 @@
 {
   "tumoren": [
     {
-      "id": "borderline-ovariumtumoren",
+      "id": "borderline-ovarium",
       "titel": "Borderline ovariumtumoren",
       "afbeelding": "images/Gynaecologie_vierkant.png",
       "status": "coming-soon"
@@ -25,19 +25,19 @@
       "status": "available"
     },
     {
-      "id": "epitheliaal-ovariumcarcinoom",
+      "id": "epitheliaal-ovarium",
       "titel": "Epitheliaal ovariumcarcinoom",
       "afbeelding": "images/Gynaecologie_vierkant.png",
       "status": "coming-soon"
     },
     {
-      "id": "niet-epitheliale-ovarium-maligniteiten",
+      "id": "niet-epitheliaal-ovarium",
       "titel": "Niet epitheliale ovarium maligniteiten",
       "afbeelding": "images/Gynaecologie_vierkant.png",
       "status": "coming-soon"
     },
     {
-      "id": "trofoblasttumoren",
+      "id": "trofoblast",
       "titel": "Trofoblasttumoren",
       "afbeelding": "images/Gynaecologie_vierkant.png",
       "status": "coming-soon"
