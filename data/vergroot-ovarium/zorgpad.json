@@ -1,1 +1,159 @@
+{
+  "id": "vergroot-ovarium",
+  "titel": "Zorgpad vergroot ovarium",
+  "overview": {
+    "native": true,
+    "viewBox": [
+      1300,
+      1750
+    ],
+    "nodeSize": [
+      220,
+      90
+    ],
+    "gridSizeX": 100,
+    "gridSizeY": 100,
+    "wrap": 28,
+    "nodes": [
+      {
+        "id": "zorgpad-vergroot-ovarium",
+        "label": "Zorgpad bij richtlijn Vergroot ovarium",
+        "gridX": 4,
+        "gridY": 0,
+        "type": "root"
+      },
+      {
+        "id": "klinisch-vergroot-ovarium",
+        "label": "Klinisch (verdenking op) vergroot ovarium",
+        "gridX": 4,
+        "gridY": 3,
+        "drill": true
+      },
+      {
+        "id": "initieel-beleid",
+        "label": "Initieel beleid (verdenking op) vergroot ovarium",
+        "gridX": 4,
+        "gridY": 6,
+        "drill": true
+      },
+      {
+        "id": "follow-up-na-chirurgie",
+        "label": "Follow up na chirurgie",
+        "gridX": 4,
+        "gridY": 9,
+        "drill": true
+      },
+      {
+        "id": "follow-up-expectatief",
+        "label": "Follow up bij expectatief beleid",
+        "gridX": 8,
+        "gridY": 9,
+        "drill": true
+      },
+      {
+        "id": "follow-up-benigne-cyste",
+        "label": "Follow up benigne ovariumcyste",
+        "gridX": 8,
+        "gridY": 12,
+        "drill": true
+      },
+      {
+        "id": "follow-up-na-chirurgie-2",
+        "label": "Follow up na chirurgie",
+        "gridX": 8,
+        "gridY": 15,
+        "drill": true
+      }
+    ],
+    "edges": [
+      {
+        "points": [
+          [
+            510,
+            90
+          ],
+          [
+            510,
+            300
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            510,
+            390
+          ],
+          [
+            510,
+            600
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            510,
+            690
+          ],
+          [
+            510,
+            900
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            510,
+            690
+          ],
+          [
+            510,
+            795
+          ],
+          [
+            910,
+            795
+          ],
+          [
+            910,
+            900
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            910,
+            990
+          ],
+          [
+            910,
+            1200
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "points": [
+          [
+            910,
+            1290
+          ],
+          [
+            910,
+            1500
+          ]
+        ],
+        "arrow": true
+      }
+    ]
+  },
+  "trees": {}
+}
 
