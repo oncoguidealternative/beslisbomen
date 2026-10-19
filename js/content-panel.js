@@ -263,3 +263,11 @@ const ContentPanel = (function () {
     close: close
   };
 })();
+
+/* Het paneel initialiseert zichzelf, zodat footerlinks ook werken als de pagina ContentPanel.init() niet aanroept.
+   init() is idempotent: een tweede aanroep (bijvoorbeeld vanuit de HTML) doet niets. */
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', function () { ContentPanel.init(); });
+} else {
+  ContentPanel.init();
+}
