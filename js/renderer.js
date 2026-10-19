@@ -245,8 +245,24 @@ maxY = Math.max(maxY, pos.y + height);
       var icon = n.icon || (n.drill ? 'down' : null);
       var type = n.type || 'step';
       var interactive = n.interactive === true && Array.isArray(n.options);
-      var g = el('g', {'data-node-id': n.id, 'class': 'node t-' + type + (n.tone ? ' tone-' + n.tone : '') + (target !== null ? ' go' : '') +
+      var pos = nodePosition(n, graph);
+       var g = el('g', {'data-node-id': n.id, 'class': 'node t-' + type + (n.tone ? ' tone-' + n.tone : '') + (target !== null ? ' go' : '') +
         (interactive ? ' is-interactive' : ''),
+                        var g = el('g', {
+  'data-node-id': n.id,
+  'class':
+    'node t-' +
+    type +
+    (n.tone ? ' tone-' + n.tone : '') +
+    (target !== null ? ' go' : '') +
+    (interactive ? ' is-interactive' : ''),
+  transform:
+    'translate(' +
+    pos.x +
+    ',' +
+    pos.y +
+    ')'
+}, vp);
 var pos = nodePosition(n, graph);
 
 transform:
