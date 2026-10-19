@@ -60,25 +60,21 @@ const Renderer = (function () {
       vp.removeAttribute('transform');
     }
   }
-/* Achterwaarts compatibele grid-ondersteuning.
-   Oude bomen gebruiken x/y.
-   Nieuwe bomen kunnen gridX/gridY gebruiken.
-*/
-function nodePosition(node, graph) {
 
-  var gridSizeX = graph.gridSizeX || 100;
-  var gridSizeY = graph.gridSizeY || 100;
 
-  return {
-    x: node.gridX !== undefined
-      ? node.gridX * gridSizeX
-      : node.x,
+  /* Achterwaarts compatibele grid-ondersteuning.
+     Oude bomen gebruiken x/y; nieuwe bomen kunnen gridX/gridY gebruiken.
+     gridSizeX en gridSizeY zijn per graph instelbaar en standaard 100. */
+  function nodePosition(node, graph) {
+    var gridSizeX = graph.gridSizeX || 100;
+    var gridSizeY = graph.gridSizeY || 100;
 
-    y: node.gridY !== undefined
-      ? node.gridY * gridSizeY
-      : node.y
-  };
-}
+    return {
+      x: node.gridX !== undefined ? node.gridX * gridSizeX : node.x,
+      y: node.gridY !== undefined ? node.gridY * gridSizeY : node.y
+    };
+  }
+
   /* Berekent de werkelijke grenzen van alle nodes en edges.
      Ongebruikte ruimte in de viewBox telt daardoor niet mee. */
   function graphBounds(graph) {
@@ -92,12 +88,12 @@ function nodePosition(node, graph) {
 
     graph.nodes.forEach(function (node) {
       var height = node.h || nodeHeight;
-var pos = nodePosition(node, graph);
+      var pos = nodePosition(node, graph);
 
-minX = Math.min(minX, pos.x);
-minY = Math.min(minY, pos.y);
-maxX = Math.max(maxX, pos.x + nodeWidth);
-maxY = Math.max(maxY, pos.y + height);
+      minX = Math.min(minX, pos.x);
+      minY = Math.min(minY, pos.y);
+      maxX = Math.max(maxX, pos.x + nodeWidth);
+      maxY = Math.max(maxY, pos.y + height);
     });
 
     graph.edges.forEach(function (edge) {
@@ -246,34 +242,9 @@ maxY = Math.max(maxY, pos.y + height);
       var type = n.type || 'step';
       var interactive = n.interactive === true && Array.isArray(n.options);
       var pos = nodePosition(n, graph);
-       var g = el('g', {'data-node-id': n.id, 'class': 'node t-' + type + (n.tone ? ' tone-' + n.tone : '') + (target !== null ? ' go' : '') +
+      var g = el('g', {'data-node-id': n.id, 'class': 'node t-' + type + (n.tone ? ' tone-' + n.tone : '') + (target !== null ? ' go' : '') +
         (interactive ? ' is-interactive' : ''),
-var pos = nodePosition(n, graph);
-
-var g = el('g', {
-  'data-node-id': n.id,
-  'class':
-    'node t-' +
-    type +
-    (n.tone ? ' tone-' + n.tone : '') +
-    (target !== null ? ' go' : '') +
-    (interactive ? ' is-interactive' : ''),
-  transform:
-    'translate(' +
-    pos.x +
-    ',' +
-    pos.y +
-    ')'
-}, vp);
-}, vp);
-var pos = nodePosition(n, graph);
-
-transform:
-  'translate(' +
-  pos.x +
-  ',' +
-  pos.y +
-  ')'
+        transform: 'translate(' + pos.x + ',' + pos.y + ')'}, vp);
       if (interactive) {
         var optionLabels = {};
         n.options.forEach(function (o) { optionLabels[o.value] = o.label; });
@@ -429,14 +400,13 @@ transform:
   function nodeBox(graph, id) {
     var n = graph.nodes.filter(function (x) { return x.id === id; })[0];
     if (!n) return null;
-var pos = nodePosition(n, graph);
-
-return {
-  x: pos.x,
-  y: pos.y,
-  w: graph.nodeSize[0],
-  h: n.h || graph.nodeSize[1]
-};
+    var pos = nodePosition(n, graph);
+    return {
+      x: pos.x,
+      y: pos.y,
+      w: graph.nodeSize[0],
+      h: n.h || graph.nodeSize[1]
+    };
   }
 
   /* Tijdelijke, niet-pulserende highlight van een node (null haalt de highlight weg). */
