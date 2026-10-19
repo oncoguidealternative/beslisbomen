@@ -61,12 +61,103 @@ const Renderer = (function () {
     }
   }
 
-  /* Startzoom voor een native graph: eigen instelling of passend op de schermbreedte.
-     Berekent alleen een waarde; de aanroeper zet die in de state. */
-  function fitZoom(graph) {
-    var fit = (document.documentElement.clientWidth - 24) / graph.viewBox[0];
-    return graph.zoom || Math.max(0.6, Math.min(1, fit));
+/*
+ * Berekent de werkelijke grenzen van alle nodes en edges.
+ * Hierdoor telt ongebruikte ruimte in de viewBox niet mee.
+ */
+function graphBounds(graph) {
+  var minX = Infinity;
+  var minY = Infinity;
+  var maxX = -Infinity;
+  var maxY = -Infinity;
+
+  var nodeWidth = graph.nodeSize[0];
+  var nodeHeight = graph.nodeSize[1];
+
+  graph.nodes.forEach(function (node) {
+    var height = node.h || nodeHeight;
+
+    minX = Math.min(minX, node.x);
+    minY = Math.min(minY, node.y);
+    maxX = Math.max(maxX, node.x + nodeWidth);
+    maxY = Math.max(maxY, node.y + height);
+  });
+
+  graph.edges.forEach(function (edge) {
+    (edge.points || []).forEach(function (point) {
+      minX = Math.min(minX, point[0]);
+      minY = Math.min(minY, point[1]);
+      maxX = Math.max(maxX, point[0]);
+      maxY = Math.max(maxY, point[1]);
+    });
+
+    if (edge.dot) {
+      minX = Math.min(minX, edge.dot[0]);
+      minY = Math.min(minY, edge.dot[1]);
+      maxX = Math.max(maxX, edge.dot[0]);
+      maxY = Math.max(maxY, edge.dot[1]);
+    }
+  });
+
+  if (!Number.isFinite(minX)) {
+    return {
+      x: 0,
+      y: 0,
+      width: graph.viewBox[0],
+      height: graph.viewBox[1]
+    };
   }
+
+  return {
+    x: minX,
+    y: minY,
+    width: Math.max(1, maxX - minX),
+    height: Math.max(1, maxY - minY)
+  };
+}
+
+/*
+ * Berekent voor desktop zowel de beginzoom als de begin-pan.
+ * De volledige relevante boom blijft zichtbaar, maar gebruikt
+ * zoveel mogelijk van het beschikbare werkvlak.
+ */
+function fitViewport(graph, stageWidth, stageHeight) {
+  var bounds = graphBounds(graph);
+  var padding = 48;
+
+  var availableWidth = Math.max(1, stageWidth - padding * 2);
+  var availableHeight = Math.max(1, stageHeight - padding * 2);
+
+  var zoomX = availableWidth / bounds.width;
+  var zoomY = availableHeight / bounds.height;
+
+  var zoom = Math.min(zoomX, zoomY);
+
+  /*
+   * Desktop-first:
+   * - niet extreem uitzoomen;
+   * - wel toestaan dat een kleinere boom groter dan 100% wordt;
+   * - graph.zoom blijft een expliciete bovengrens indien aanwezig.
+   */
+  var maximumZoom = graph.zoom || 1.75;
+
+  zoom = Math.max(0.75, Math.min(maximumZoom, zoom));
+
+  var panX =
+    stageWidth / 2 -
+    (bounds.x + bounds.width / 2) * zoom;
+
+  var panY =
+    stageHeight / 2 -
+    (bounds.y + bounds.height / 2) * zoom;
+
+  return {
+    zoom: zoom,
+    panX: panX,
+    panY: panY,
+    bounds: bounds
+  };
+}
 
   /* Bepaalt wat getoond moet worden voor een boom-id (zonder iets te tekenen).
      Geeft {treeId, graph, label}; graph is null als de boom nog niet is toegevoegd.
