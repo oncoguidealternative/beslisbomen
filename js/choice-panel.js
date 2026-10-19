@@ -9,7 +9,7 @@ const ChoicePanel = (function () {
 
   var panel = null, legend = null, optionsBox = null, clearBtn = null, closeBtn = null, live = null;
   var handlers = { onSelect: function () {}, onClear: function () {} };
-  var open_ = null; // alleen UI: welke node het venster nu toont {nodeId, label, options, anchor}
+  var open_ = null; // alleen UI: welke node het venster nu toont {tumorId, treeId, nodeId, label, options, anchor}
 
   function make(tag, className, parent) {
     var e = document.createElement(tag);
@@ -46,14 +46,14 @@ const ChoicePanel = (function () {
     optionsBox.addEventListener('change', function (ev) {
       if (!open_ || ev.target.type !== 'radio') return;
       var option = open_.options.filter(function (o) { return o.value === ev.target.value; })[0];
-      handlers.onSelect(open_.nodeId, ev.target.value,
+      handlers.onSelect(open_.treeId, open_.nodeId, ev.target.value,
         { nodeLabel: open_.label, optionLabel: option ? option.label : ev.target.value });
     });
 
     clearBtn.addEventListener('click', function () {
       if (!open_) return;
       var info = { nodeLabel: open_.label };
-      handlers.onClear(open_.nodeId, info);
+      handlers.onClear(open_.treeId, open_.nodeId, info);
       // De knop wordt uitgeschakeld; houd de focus binnen het venster.
       var first = optionsBox.querySelector('input[type="radio"]');
       if (first) first.focus();
@@ -86,14 +86,14 @@ const ChoicePanel = (function () {
     window.addEventListener('resize', position);
   }
 
-  /* handlers: {onSelect(nodeId, value, info), onClear(nodeId, info)} */
+  /* handlers: {onSelect(treeId, nodeId, value, info), onClear(treeId, nodeId, info)} */
   function init(h) {
     handlers = h;
     if (!panel) build();
   }
 
-  function isOpenFor(nodeId) {
-    return !!open_ && open_.nodeId === nodeId;
+  function isOpenFor(treeId, nodeId) {
+    return !!open_ && open_.treeId === treeId && open_.nodeId === nodeId;
   }
 
   /* Plaatst het venster naast de node, binnen het zichtbare browservenster. */
@@ -121,7 +121,7 @@ const ChoicePanel = (function () {
   function sync() {
     if (!open_) return;
     if (!open_.anchor.isConnected) { close(false); return; }
-    var value = getState().selections[open_.nodeId];
+    var value = (getState().selections[open_.treeId] || {})[open_.nodeId];
     var has = value !== undefined && value !== null;
     optionsBox.querySelectorAll('input[type="radio"]').forEach(function (r) {
       r.checked = has && r.value === value;
@@ -129,18 +129,21 @@ const ChoicePanel = (function () {
     clearBtn.disabled = !has;
   }
 
-  /* spec: {nodeId, label, options: [{value, label}], anchor: SVG-element} */
+  /* spec: {tumorId, treeId, nodeId, label, options: [{value, label}], anchor: SVG-element}
+     Alles wat getoond wordt komt uit de meegegeven node; er staat geen medische inhoud in dit bestand. */
   function open(spec) {
     if (!panel) return;
     if (open_) close(false);
-    open_ = { nodeId: spec.nodeId, label: spec.label, options: spec.options, anchor: spec.anchor };
+    open_ = { tumorId: spec.tumorId, treeId: spec.treeId, nodeId: spec.nodeId, label: spec.label, options: spec.options, anchor: spec.anchor };
+    panel.setAttribute('data-tumor', spec.tumorId || '');
+    panel.setAttribute('data-tree', spec.treeId || '');
     legend.textContent = spec.label;
     optionsBox.textContent = '';
     spec.options.forEach(function (o) {
       var label = make('label', 'choice-option', optionsBox);
       var input = make('input', '', label);
       input.type = 'radio';
-      input.name = 'choice-' + spec.nodeId;
+      input.name = 'choice-' + spec.treeId + '-' + spec.nodeId;
       input.value = o.value;
       var text = make('span', '', label);
       text.textContent = o.label;
