@@ -6,6 +6,9 @@
    - keuzenode: node met interactive: true en options.
    - bereikt (reached): vanaf een startnode gevolgd via de gekozen edges; een onbeantwoorde keuzenode is bereikt, maar wordt niet verder gevolgd.
    - mogelijk (possible): alles wat nog bereikt kan worden als de onbeantwoorde keuzes nog alle kanten op kunnen.
+   - gemodelleerd (modelled): alles wat vanaf de root via edges met id/from/to bereikbaar is; de rest krijgt nooit een status.
+
+   De functies krijgen de selecties van één beslisboom mee: { nodeId: waarde }.
 
    Statussen:
    - selected: ligt op de gekozen route (beantwoorde keuzenode, gekozen edge, bereikte outcome)
@@ -36,9 +39,15 @@ const GraphState = (function () {
       connected[e.from] = true;
       connected[e.to] = true;
     });
+    // Startnodes: de root van de boom. Alleen zonder enige root-node: nodes zonder inkomende edge.
     var starts = graph.nodes
-      .filter(function (n) { return out[n.id] && !incoming[n.id]; })
+      .filter(function (n) { return n.type === 'root'; })
       .map(function (n) { return n.id; });
+    if (starts.length === 0) {
+      starts = graph.nodes
+        .filter(function (n) { return out[n.id] && !incoming[n.id]; })
+        .map(function (n) { return n.id; });
+    }
     return { nodes: nodes, out: out, edges: edges, connected: connected, starts: starts };
   }
 
@@ -105,10 +114,13 @@ const GraphState = (function () {
     var clean = pruneWithModel(model, selections).selections;
     var reached = traverse(model, clean, false);
     var possible = traverse(model, clean, true);
+    // Alles wat vanaf de root via gemodelleerde edges bereikbaar is, ongeacht keuzes.
+    // Delen van de boom die (nog) niet gemodelleerd zijn krijgen nooit een status.
+    var modelled = traverse(model, {}, true);
     var nodeStatus = {}, edgeStatus = {}, available = [];
 
     graph.nodes.forEach(function (n) {
-      if (!model.connected[n.id]) { nodeStatus[n.id] = 'normal'; return; }
+      if (!model.connected[n.id] || !modelled[n.id]) { nodeStatus[n.id] = 'normal'; return; }
       if (!possible[n.id]) { nodeStatus[n.id] = 'excluded'; return; }
       if (isChoice(n)) {
         if (!reached[n.id]) nodeStatus[n.id] = 'inactive';
@@ -123,6 +135,7 @@ const GraphState = (function () {
 
     model.edges.forEach(function (e) {
       var from = model.nodes[e.from];
+      if (!modelled[e.from]) { edgeStatus[e.id] = 'normal'; return; }
       if (!possible[e.from]) { edgeStatus[e.id] = 'excluded'; return; }
       if (isChoice(from)) {
         if (hasValue(clean, e.from)) {
