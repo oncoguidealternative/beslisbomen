@@ -431,7 +431,20 @@
           "type": "criterion",
           "x": 75,
           "y": 250,
-          "label": "Uitslag echo"
+          "label": "Uitslag echo",
+          "interactive": true,
+          "options": [
+            {
+              "value": "normaal",
+              "label": "Normaal",
+              "edge": "edge-echo-normaal"
+            },
+            {
+              "value": "afwijkend",
+              "label": "Afwijkend",
+              "edge": "edge-echo-afwijkend"
+            }
+          ]
         },
         {
           "id": "normaal",
@@ -460,6 +473,9 @@
       ],
       "edges": [
         {
+          "id": "edge-root-echo",
+          "from": "root",
+          "to": "echo",
           "points": [
             [
               225,
@@ -473,6 +489,10 @@
           "arrow": true
         },
         {
+          "id": "edge-echo-normaal",
+          "from": "echo",
+          "to": "normaal",
+          "value": "normaal",
           "points": [
             [
               75,
@@ -495,6 +515,10 @@
           ]
         },
         {
+          "id": "edge-echo-afwijkend",
+          "from": "echo",
+          "to": "afwijkend",
+          "value": "afwijkend",
           "points": [
             [
               375,
@@ -517,6 +541,9 @@
           ]
         },
         {
+          "id": "edge-afwijkend-volgende",
+          "from": "afwijkend",
+          "to": "volgende",
           "points": [
             [
               650,
@@ -559,7 +586,20 @@
           "type": "criterion",
           "x": 60,
           "y": 280,
-          "label": "Uitslag endometrium sampling"
+          "label": "Uitslag endometrium sampling",
+          "interactive": true,
+          "options": [
+            {
+              "value": "benigne",
+              "label": "Benigne",
+              "edge": "edge-uitslag-benigne"
+            },
+            {
+              "value": "maligne",
+              "label": "Maligne",
+              "edge": "edge-uitslag-maligne"
+            }
+          ]
         },
         {
           "id": "graad",
@@ -567,14 +607,40 @@
           "x": 470,
           "y": 540,
           "label": "Graad",
-          "icon": "plus-light"
+          "icon": "plus-light",
+          "interactive": true,
+          "options": [
+            {
+              "value": "1-2",
+              "label": "1,2",
+              "edge": "edge-graad-1-2"
+            },
+            {
+              "value": "3",
+              "label": "3",
+              "edge": "edge-graad-3"
+            }
+          ]
         },
         {
           "id": "uitbreiding",
           "type": "criterion",
           "x": 470,
           "y": 860,
-          "label": "Verdenking uitbreiding"
+          "label": "Verdenking uitbreiding",
+          "interactive": true,
+          "options": [
+            {
+              "value": "geen",
+              "label": "Geen",
+              "edge": "edge-uitbreiding-geen"
+            },
+            {
+              "value": "blaas-en-of-rectum",
+              "label": "Blaas en/of Rectum",
+              "edge": "edge-uitbreiding-blaas-en-of-rectum"
+            }
+          ]
         },
         {
           "id": "benigne",
@@ -635,6 +701,9 @@
       ],
       "edges": [
         {
+          "id": "edge-root-uitslag",
+          "from": "root",
+          "to": "uitslag",
           "points": [
             [
               240,
@@ -648,6 +717,10 @@
           "arrow": true
         },
         {
+          "id": "edge-uitslag-benigne",
+          "from": "uitslag",
+          "to": "benigne",
+          "value": "benigne",
           "points": [
             [
               60,
@@ -670,6 +743,10 @@
           ]
         },
         {
+          "id": "edge-uitslag-maligne",
+          "from": "uitslag",
+          "to": "graad",
+          "value": "maligne",
           "points": [
             [
               420,
@@ -692,6 +769,10 @@
           ]
         },
         {
+          "id": "edge-graad-1-2",
+          "from": "graad",
+          "to": "uitbreiding",
+          "value": "1-2",
           "points": [
             [
               650,
@@ -710,6 +791,10 @@
           ]
         },
         {
+          "id": "edge-graad-3",
+          "from": "graad",
+          "to": "g3",
+          "value": "3",
           "points": [
             [
               830,
@@ -732,6 +817,10 @@
           ]
         },
         {
+          "id": "edge-uitbreiding-geen",
+          "from": "uitbreiding",
+          "to": "geen",
+          "value": "geen",
           "points": [
             [
               650,
@@ -750,6 +839,10 @@
           ]
         },
         {
+          "id": "edge-uitbreiding-blaas-en-of-rectum",
+          "from": "uitbreiding",
+          "to": "uitbr",
+          "value": "blaas-en-of-rectum",
           "points": [
             [
               830,
@@ -772,6 +865,9 @@
           ]
         },
         {
+          "id": "edge-geen-p1",
+          "from": "geen",
+          "to": "p1",
           "points": [
             [
               650,
@@ -785,6 +881,9 @@
           "arrow": true
         },
         {
+          "id": "edge-uitbr-p2",
+          "from": "uitbr",
+          "to": "p2",
           "points": [
             [
               1060,
@@ -798,6 +897,9 @@
           "arrow": true
         },
         {
+          "id": "edge-g3-p3",
+          "from": "g3",
+          "to": "p3",
           "points": [
             [
               1470,
@@ -841,7 +943,20 @@
           "type": "criterion",
           "x": 1540,
           "y": 170,
-          "label": "Histologie"
+          "label": "Histologie",
+          "interactive": true,
+          "options": [
+            {
+              "value": "endometrioid-adenocarcinoom",
+              "label": "Endometrioïd adenocarcinoom",
+              "edge": "edge-histologie-endometrioid-adenocarcinoom"
+            },
+            {
+              "value": "clearcell-adenocarcinoom-sereus-adenocarcinoom",
+              "label": "Clearcell adenocarcinoom, Sereus adenocarcinoom",
+              "edge": "edge-histologie-clearcell-adenocarcinoom-sereus-adenocarcinoom"
+            }
+          ]
         },
         {
           "id": "stadium-e",
@@ -849,14 +964,50 @@
           "x": 980,
           "y": 345,
           "label": "Klinisch stadium",
-          "icon": "plus-light"
+          "icon": "plus-light",
+          "interactive": true,
+          "options": [
+            {
+              "value": "i",
+              "label": "I",
+              "edge": "edge-stadium-e-i"
+            },
+            {
+              "value": "iiib",
+              "label": "IIIB",
+              "edge": "edge-stadium-e-iiib"
+            },
+            {
+              "value": "iiic",
+              "label": "IIIC",
+              "edge": "edge-stadium-e-iiic"
+            },
+            {
+              "value": "iv",
+              "label": "IV",
+              "edge": "edge-stadium-e-iv"
+            }
+          ]
         },
         {
           "id": "kinderwens",
           "type": "criterion",
           "x": 330,
           "y": 520,
-          "label": "Kinderwens"
+          "label": "Kinderwens",
+          "interactive": true,
+          "options": [
+            {
+              "value": "aanwezig",
+              "label": "Aanwezig",
+              "edge": "edge-kinderwens-aanwezig"
+            },
+            {
+              "value": "afwezig",
+              "label": "Afwezig",
+              "edge": "edge-kinderwens-afwezig"
+            }
+          ]
         },
         {
           "id": "graad",
@@ -864,35 +1015,100 @@
           "x": 110,
           "y": 700,
           "label": "Graad",
-          "icon": "plus-light"
+          "icon": "plus-light",
+          "interactive": true,
+          "options": [
+            {
+              "value": "1",
+              "label": "1",
+              "edge": "edge-graad-1"
+            },
+            {
+              "value": "2-3",
+              "label": "2,3",
+              "edge": "edge-graad-2-3"
+            }
+          ]
         },
         {
           "id": "leeftijd",
           "type": "criterion",
           "x": 110,
           "y": 875,
-          "label": "Leeftijd"
+          "label": "Leeftijd",
+          "interactive": true,
+          "options": [
+            {
+              "value": "lte-40-jaar",
+              "label": "<=40 Jaar",
+              "edge": "edge-leeftijd-lte-40-jaar"
+            },
+            {
+              "value": "gt-40-jaar",
+              "label": ">40 Jaar",
+              "edge": "edge-leeftijd-gt-40-jaar"
+            }
+          ]
         },
         {
           "id": "pr",
           "type": "criterion",
           "x": 110,
           "y": 1050,
-          "label": "Status progesteron receptor"
+          "label": "Status progesteron receptor",
+          "interactive": true,
+          "options": [
+            {
+              "value": "positief",
+              "label": "Positief",
+              "edge": "edge-pr-positief"
+            },
+            {
+              "value": "negatief",
+              "label": "Negatief",
+              "edge": "edge-pr-negatief"
+            }
+          ]
         },
         {
           "id": "locatie",
           "type": "criterion",
           "x": 980,
           "y": 580,
-          "label": "Locatie tumor"
+          "label": "Locatie tumor",
+          "interactive": true,
+          "options": [
+            {
+              "value": "parametrium",
+              "label": "Parametrium",
+              "edge": "edge-locatie-parametrium"
+            },
+            {
+              "value": "vagina",
+              "label": "Vagina",
+              "edge": "edge-locatie-vagina"
+            }
+          ]
         },
         {
           "id": "radicaal",
           "type": "criterion",
           "x": 980,
           "y": 780,
-          "label": "Radicale behandeling mogelijk"
+          "label": "Radicale behandeling mogelijk",
+          "interactive": true,
+          "options": [
+            {
+              "value": "ja",
+              "label": "Ja",
+              "edge": "edge-radicaal-ja"
+            },
+            {
+              "value": "nee",
+              "label": "Nee",
+              "edge": "edge-radicaal-nee"
+            }
+          ]
         },
         {
           "id": "stadium-s",
@@ -900,7 +1116,8 @@
           "x": 1960,
           "y": 345,
           "label": "Klinisch stadium",
-          "icon": "plus-light"
+          "icon": "plus-light",
+          "interactionNote": "Niet interactief (AMBIGUOUS): optie \"III\": pijl eindigt op de grens van meerdere nodes serousi,serousiii."
         },
         {
           "id": "mri",
@@ -1064,6 +1281,9 @@
       ],
       "edges": [
         {
+          "id": "edge-root-histologie",
+          "from": "root",
+          "to": "histologie",
           "points": [
             [
               1650,
@@ -1077,6 +1297,10 @@
           "arrow": true
         },
         {
+          "id": "edge-histologie-endometrioid-adenocarcinoom",
+          "from": "histologie",
+          "to": "stadium-e",
+          "value": "endometrioid-adenocarcinoom",
           "points": [
             [
               1540,
@@ -1099,6 +1323,10 @@
           ]
         },
         {
+          "id": "edge-histologie-clearcell-adenocarcinoom-sereus-adenocarcinoom",
+          "from": "histologie",
+          "to": "stadium-s",
+          "value": "clearcell-adenocarcinoom-sereus-adenocarcinoom",
           "points": [
             [
               1760,
@@ -1121,6 +1349,10 @@
           ]
         },
         {
+          "id": "edge-stadium-e-i",
+          "from": "stadium-e",
+          "to": "kinderwens",
+          "value": "i",
           "points": [
             [
               980,
@@ -1143,6 +1375,10 @@
           ]
         },
         {
+          "id": "edge-kinderwens-aanwezig",
+          "from": "kinderwens",
+          "to": "graad",
+          "value": "aanwezig",
           "points": [
             [
               330,
@@ -1165,6 +1401,10 @@
           ]
         },
         {
+          "id": "edge-kinderwens-afwezig",
+          "from": "kinderwens",
+          "to": "hyst",
+          "value": "afwezig",
           "points": [
             [
               440,
@@ -1183,6 +1423,10 @@
           ]
         },
         {
+          "id": "edge-graad-1",
+          "from": "graad",
+          "to": "leeftijd",
+          "value": "1",
           "points": [
             [
               220,
@@ -1201,6 +1445,10 @@
           ]
         },
         {
+          "id": "edge-graad-2-3",
+          "from": "graad",
+          "to": "hyst",
+          "value": "2-3",
           "points": [
             [
               330,
@@ -1211,6 +1459,20 @@
               760
             ]
           ],
+          "selectedPoints": [
+            [
+              330,
+              760
+            ],
+            [
+              440,
+              760
+            ],
+            [
+              440,
+              1120
+            ]
+          ],
           "label": "2,3",
           "dot": [
             385,
@@ -1218,6 +1480,10 @@
           ]
         },
         {
+          "id": "edge-leeftijd-lte-40-jaar",
+          "from": "leeftijd",
+          "to": "pr",
+          "value": "lte-40-jaar",
           "points": [
             [
               220,
@@ -1236,6 +1502,10 @@
           ]
         },
         {
+          "id": "edge-leeftijd-gt-40-jaar",
+          "from": "leeftijd",
+          "to": "hyst",
+          "value": "gt-40-jaar",
           "points": [
             [
               330,
@@ -1246,6 +1516,20 @@
               935
             ]
           ],
+          "selectedPoints": [
+            [
+              330,
+              935
+            ],
+            [
+              440,
+              935
+            ],
+            [
+              440,
+              1120
+            ]
+          ],
           "label": ">40 Jaar",
           "dot": [
             385,
@@ -1253,6 +1537,10 @@
           ]
         },
         {
+          "id": "edge-pr-positief",
+          "from": "pr",
+          "to": "mri",
+          "value": "positief",
           "points": [
             [
               220,
@@ -1271,6 +1559,10 @@
           ]
         },
         {
+          "id": "edge-pr-negatief",
+          "from": "pr",
+          "to": "hyst",
+          "value": "negatief",
           "points": [
             [
               330,
@@ -1281,6 +1573,20 @@
               1110
             ]
           ],
+          "selectedPoints": [
+            [
+              330,
+              1110
+            ],
+            [
+              440,
+              1110
+            ],
+            [
+              440,
+              1120
+            ]
+          ],
           "label": "Negatief",
           "dot": [
             385,
@@ -1288,6 +1594,10 @@
           ]
         },
         {
+          "id": "edge-stadium-e-iiib",
+          "from": "stadium-e",
+          "to": "locatie",
+          "value": "iiib",
           "points": [
             [
               1090,
@@ -1306,6 +1616,10 @@
           ]
         },
         {
+          "id": "edge-locatie-parametrium",
+          "from": "locatie",
+          "to": "endoi",
+          "value": "parametrium",
           "points": [
             [
               980,
@@ -1328,6 +1642,10 @@
           ]
         },
         {
+          "id": "edge-locatie-vagina",
+          "from": "locatie",
+          "to": "radicaal",
+          "value": "vagina",
           "points": [
             [
               1090,
@@ -1346,6 +1664,10 @@
           ]
         },
         {
+          "id": "edge-radicaal-ja",
+          "from": "radicaal",
+          "to": "endoi",
+          "value": "ja",
           "points": [
             [
               980,
@@ -1356,6 +1678,20 @@
               840
             ]
           ],
+          "selectedPoints": [
+            [
+              980,
+              840
+            ],
+            [
+              870,
+              840
+            ],
+            [
+              870,
+              1080
+            ]
+          ],
           "label": "Ja",
           "dot": [
             925,
@@ -1363,6 +1699,10 @@
           ]
         },
         {
+          "id": "edge-radicaal-nee",
+          "from": "radicaal",
+          "to": "endoiii",
+          "value": "nee",
           "points": [
             [
               1090,
@@ -1381,6 +1721,10 @@
           ]
         },
         {
+          "id": "edge-stadium-e-iiic",
+          "from": "stadium-e",
+          "to": "iiic",
+          "value": "iiic",
           "points": [
             [
               1200,
@@ -1403,6 +1747,10 @@
           ]
         },
         {
+          "id": "edge-stadium-e-iv",
+          "from": "stadium-e",
+          "to": "hormoon",
+          "value": "iv",
           "points": [
             [
               1200,
@@ -1539,7 +1887,30 @@
           "x": 1010,
           "y": 175,
           "label": "FIGO",
-          "icon": "plus-light"
+          "icon": "plus-light",
+          "interactive": true,
+          "options": [
+            {
+              "value": "i-a",
+              "label": "I A",
+              "edge": "edge-figo-i-a"
+            },
+            {
+              "value": "i-b",
+              "label": "I B",
+              "edge": "edge-figo-i-b"
+            },
+            {
+              "value": "ii-iii",
+              "label": "II, III",
+              "edge": "edge-figo-ii-iii"
+            },
+            {
+              "value": "iv",
+              "label": "IV",
+              "edge": "edge-figo-iv"
+            }
+          ]
         },
         {
           "id": "gia",
@@ -1547,28 +1918,80 @@
           "x": 600,
           "y": 335,
           "label": "Graad",
-          "icon": "plus-light"
+          "icon": "plus-light",
+          "interactive": true,
+          "options": [
+            {
+              "value": "1-2",
+              "label": "1,2",
+              "edge": "edge-gia-1-2"
+            },
+            {
+              "value": "3",
+              "label": "3",
+              "edge": "edge-gia-3"
+            }
+          ]
         },
         {
           "id": "lv1",
           "type": "criterion",
           "x": 180,
           "y": 520,
-          "label": "LVSI"
+          "label": "LVSI",
+          "interactive": true,
+          "options": [
+            {
+              "value": "nee",
+              "label": "Nee",
+              "edge": "edge-lv1-nee"
+            },
+            {
+              "value": "ja",
+              "label": "Ja",
+              "edge": "edge-lv1-ja"
+            }
+          ]
         },
         {
           "id": "lv2",
           "type": "criterion",
           "x": 600,
           "y": 520,
-          "label": "LVSI"
+          "label": "LVSI",
+          "interactive": true,
+          "options": [
+            {
+              "value": "nee",
+              "label": "Nee",
+              "edge": "edge-lv2-nee"
+            },
+            {
+              "value": "ja",
+              "label": "Ja",
+              "edge": "edge-lv2-ja"
+            }
+          ]
         },
         {
           "id": "age2",
           "type": "criterion",
           "x": 600,
           "y": 685,
-          "label": "Leeftijd"
+          "label": "Leeftijd",
+          "interactive": true,
+          "options": [
+            {
+              "value": "lt-60-jaar",
+              "label": "<60 Jaar",
+              "edge": "edge-age2-lt-60-jaar"
+            },
+            {
+              "value": "gte-60-jaar",
+              "label": ">=60 Jaar",
+              "edge": "edge-age2-gte-60-jaar"
+            }
+          ]
         },
         {
           "id": "gib",
@@ -1576,21 +1999,60 @@
           "x": 1010,
           "y": 335,
           "label": "Graad",
-          "icon": "plus-light"
+          "icon": "plus-light",
+          "interactive": true,
+          "options": [
+            {
+              "value": "1-2",
+              "label": "1,2",
+              "edge": "edge-gib-1-2"
+            },
+            {
+              "value": "3",
+              "label": "3",
+              "edge": "edge-gib-3"
+            }
+          ]
         },
         {
           "id": "lv3",
           "type": "criterion",
           "x": 1010,
           "y": 520,
-          "label": "LVSI"
+          "label": "LVSI",
+          "interactive": true,
+          "options": [
+            {
+              "value": "nee",
+              "label": "Nee",
+              "edge": "edge-lv3-nee"
+            },
+            {
+              "value": "ja",
+              "label": "Ja",
+              "edge": "edge-lv3-ja"
+            }
+          ]
         },
         {
           "id": "age3",
           "type": "criterion",
           "x": 1010,
           "y": 685,
-          "label": "Leeftijd"
+          "label": "Leeftijd",
+          "interactive": true,
+          "options": [
+            {
+              "value": "lt-60-jaar",
+              "label": "<60 Jaar",
+              "edge": "edge-age3-lt-60-jaar"
+            },
+            {
+              "value": "gte-60-jaar",
+              "label": ">=60 Jaar",
+              "edge": "edge-age3-gte-60-jaar"
+            }
+          ]
         },
         {
           "id": "o1",
@@ -1756,6 +2218,9 @@
       ],
       "edges": [
         {
+          "id": "edge-root-figo",
+          "from": "root",
+          "to": "figo",
           "points": [
             [
               1105,
@@ -1769,6 +2234,10 @@
           "arrow": true
         },
         {
+          "id": "edge-figo-i-a",
+          "from": "figo",
+          "to": "gia",
+          "value": "i-a",
           "points": [
             [
               1010,
@@ -1791,6 +2260,10 @@
           ]
         },
         {
+          "id": "edge-figo-i-b",
+          "from": "figo",
+          "to": "gib",
+          "value": "i-b",
           "points": [
             [
               1105,
@@ -1809,6 +2282,10 @@
           ]
         },
         {
+          "id": "edge-figo-ii-iii",
+          "from": "figo",
+          "to": "o9",
+          "value": "ii-iii",
           "points": [
             [
               1200,
@@ -1831,6 +2308,10 @@
           ]
         },
         {
+          "id": "edge-figo-iv",
+          "from": "figo",
+          "to": "o10",
+          "value": "iv",
           "points": [
             [
               1200,
@@ -1853,6 +2334,10 @@
           ]
         },
         {
+          "id": "edge-gia-1-2",
+          "from": "gia",
+          "to": "lv1",
+          "value": "1-2",
           "points": [
             [
               600,
@@ -1875,6 +2360,10 @@
           ]
         },
         {
+          "id": "edge-gia-3",
+          "from": "gia",
+          "to": "lv2",
+          "value": "3",
           "points": [
             [
               695,
@@ -1893,6 +2382,10 @@
           ]
         },
         {
+          "id": "edge-lv1-nee",
+          "from": "lv1",
+          "to": "o1",
+          "value": "nee",
           "points": [
             [
               180,
@@ -1915,6 +2408,10 @@
           ]
         },
         {
+          "id": "edge-lv1-ja",
+          "from": "lv1",
+          "to": "o2",
+          "value": "ja",
           "points": [
             [
               275,
@@ -1937,6 +2434,10 @@
           ]
         },
         {
+          "id": "edge-lv2-nee",
+          "from": "lv2",
+          "to": "age2",
+          "value": "nee",
           "points": [
             [
               695,
@@ -1955,6 +2456,10 @@
           ]
         },
         {
+          "id": "edge-lv2-ja",
+          "from": "lv2",
+          "to": "o5",
+          "value": "ja",
           "points": [
             [
               790,
@@ -1977,6 +2482,10 @@
           ]
         },
         {
+          "id": "edge-age2-lt-60-jaar",
+          "from": "age2",
+          "to": "o3",
+          "value": "lt-60-jaar",
           "points": [
             [
               600,
@@ -1999,6 +2508,10 @@
           ]
         },
         {
+          "id": "edge-age2-gte-60-jaar",
+          "from": "age2",
+          "to": "o4",
+          "value": "gte-60-jaar",
           "points": [
             [
               695,
@@ -2021,6 +2534,10 @@
           ]
         },
         {
+          "id": "edge-gib-1-2",
+          "from": "gib",
+          "to": "lv3",
+          "value": "1-2",
           "points": [
             [
               1105,
@@ -2039,6 +2556,10 @@
           ]
         },
         {
+          "id": "edge-gib-3",
+          "from": "gib",
+          "to": "o8",
+          "value": "3",
           "points": [
             [
               1200,
@@ -2061,6 +2582,10 @@
           ]
         },
         {
+          "id": "edge-lv3-nee",
+          "from": "lv3",
+          "to": "age3",
+          "value": "nee",
           "points": [
             [
               1105,
@@ -2079,6 +2604,10 @@
           ]
         },
         {
+          "id": "edge-lv3-ja",
+          "from": "lv3",
+          "to": "o8",
+          "value": "ja",
           "points": [
             [
               1200,
@@ -2089,6 +2618,20 @@
               570
             ]
           ],
+          "selectedPoints": [
+            [
+              1200,
+              570
+            ],
+            [
+              1585,
+              570
+            ],
+            [
+              1585,
+              850
+            ]
+          ],
           "label": "Ja",
           "dot": [
             1390,
@@ -2096,6 +2639,10 @@
           ]
         },
         {
+          "id": "edge-age3-lt-60-jaar",
+          "from": "age3",
+          "to": "o5",
+          "value": "lt-60-jaar",
           "points": [
             [
               1010,
@@ -2118,6 +2665,10 @@
           ]
         },
         {
+          "id": "edge-age3-gte-60-jaar",
+          "from": "age3",
+          "to": "o7",
+          "value": "gte-60-jaar",
           "points": [
             [
               1200,
@@ -2169,7 +2720,20 @@
           "type": "criterion",
           "x": 50,
           "y": 230,
-          "label": "Uitslag stadiëring"
+          "label": "Uitslag stadiëring",
+          "interactive": true,
+          "options": [
+            {
+              "value": "compleet",
+              "label": "Compleet",
+              "edge": "edge-uitslag-compleet"
+            },
+            {
+              "value": "incompleet",
+              "label": "Incompleet",
+              "edge": "edge-uitslag-incompleet"
+            }
+          ]
         },
         {
           "id": "compleet",
@@ -2207,6 +2771,9 @@
       ],
       "edges": [
         {
+          "id": "edge-root-uitslag",
+          "from": "root",
+          "to": "uitslag",
           "points": [
             [
               185,
@@ -2220,6 +2787,10 @@
           "arrow": true
         },
         {
+          "id": "edge-uitslag-compleet",
+          "from": "uitslag",
+          "to": "compleet",
+          "value": "compleet",
           "points": [
             [
               185,
@@ -2238,6 +2809,10 @@
           ]
         },
         {
+          "id": "edge-uitslag-incompleet",
+          "from": "uitslag",
+          "to": "incompleet",
+          "value": "incompleet",
           "points": [
             [
               320,
@@ -2260,6 +2835,9 @@
           ]
         },
         {
+          "id": "edge-compleet-l1",
+          "from": "compleet",
+          "to": "l1",
           "points": [
             [
               185,
@@ -2273,6 +2851,9 @@
           "arrow": true
         },
         {
+          "id": "edge-incompleet-l2",
+          "from": "incompleet",
+          "to": "l2",
           "points": [
             [
               525,
@@ -2386,7 +2967,25 @@
           "type": "criterion",
           "x": 450,
           "y": 240,
-          "label": "Jaren sinds afloop\nprimaire behandeling"
+          "label": "Jaren sinds afloop\nprimaire behandeling",
+          "interactive": true,
+          "options": [
+            {
+              "value": "lte-2",
+              "label": "<=2",
+              "edge": "edge-jaren-lte-2"
+            },
+            {
+              "value": "2-3",
+              "label": "2-3",
+              "edge": "edge-jaren-2-3"
+            },
+            {
+              "value": "3-5",
+              "label": "3-5",
+              "edge": "edge-jaren-3-5"
+            }
+          ]
         },
         {
           "id": "o1",
@@ -2442,6 +3041,9 @@
       ],
       "edges": [
         {
+          "id": "edge-root-jaren",
+          "from": "root",
+          "to": "jaren",
           "points": [
             [
               600,
@@ -2455,6 +3057,10 @@
           "arrow": true
         },
         {
+          "id": "edge-jaren-lte-2",
+          "from": "jaren",
+          "to": "o1",
+          "value": "lte-2",
           "points": [
             [
               450,
@@ -2477,6 +3083,10 @@
           ]
         },
         {
+          "id": "edge-jaren-2-3",
+          "from": "jaren",
+          "to": "o2",
+          "value": "2-3",
           "points": [
             [
               600,
@@ -2495,6 +3105,10 @@
           ]
         },
         {
+          "id": "edge-jaren-3-5",
+          "from": "jaren",
+          "to": "o3",
+          "value": "3-5",
           "points": [
             [
               750,
@@ -2517,6 +3131,9 @@
           ]
         },
         {
+          "id": "edge-o1-l1",
+          "from": "o1",
+          "to": "l1",
           "points": [
             [
               200,
@@ -2530,6 +3147,9 @@
           "arrow": true
         },
         {
+          "id": "edge-o2-l2",
+          "from": "o2",
+          "to": "l2",
           "points": [
             [
               600,
@@ -2543,6 +3163,9 @@
           "arrow": true
         },
         {
+          "id": "edge-o3-l3",
+          "from": "o3",
+          "to": "l3",
           "points": [
             [
               1000,
@@ -2584,7 +3207,20 @@
           "type": "criterion",
           "x": 50,
           "y": 245,
-          "label": "Type recidief"
+          "label": "Type recidief",
+          "interactive": true,
+          "options": [
+            {
+              "value": "lokaal",
+              "label": "Lokaal",
+              "edge": "edge-type-lokaal"
+            },
+            {
+              "value": "regionaal-afstands",
+              "label": "Regionaal, Afstands",
+              "edge": "edge-type-regionaal-afstands"
+            }
+          ]
         },
         {
           "id": "l",
@@ -2623,6 +3259,9 @@
       ],
       "edges": [
         {
+          "id": "edge-root-type",
+          "from": "root",
+          "to": "type",
           "points": [
             [
               200,
@@ -2636,6 +3275,10 @@
           "arrow": true
         },
         {
+          "id": "edge-type-lokaal",
+          "from": "type",
+          "to": "l",
+          "value": "lokaal",
           "points": [
             [
               200,
@@ -2654,6 +3297,10 @@
           ]
         },
         {
+          "id": "edge-type-regionaal-afstands",
+          "from": "type",
+          "to": "r",
+          "value": "regionaal-afstands",
           "points": [
             [
               350,
@@ -2676,6 +3323,9 @@
           ]
         },
         {
+          "id": "edge-l-l1",
+          "from": "l",
+          "to": "l1",
           "points": [
             [
               200,
@@ -2689,6 +3339,9 @@
           "arrow": true
         },
         {
+          "id": "edge-r-l2",
+          "from": "r",
+          "to": "l2",
           "points": [
             [
               630,
@@ -2780,7 +3433,20 @@
           "x": 60,
           "y": 260,
           "label": "Klinisch stadium",
-          "icon": "plus-light"
+          "icon": "plus-light",
+          "interactive": true,
+          "options": [
+            {
+              "value": "laagstadium",
+              "label": "laagstadium",
+              "edge": "edge-stadium-laagstadium"
+            },
+            {
+              "value": "hoogstadium",
+              "label": "hoogstadium",
+              "edge": "edge-stadium-hoogstadium"
+            }
+          ]
         },
         {
           "id": "laag",
@@ -2809,6 +3475,9 @@
       ],
       "edges": [
         {
+          "id": "edge-root-stadium",
+          "from": "root",
+          "to": "stadium",
           "points": [
             [
               210,
@@ -2822,6 +3491,10 @@
           "arrow": true
         },
         {
+          "id": "edge-stadium-laagstadium",
+          "from": "stadium",
+          "to": "laag",
+          "value": "laagstadium",
           "points": [
             [
               210,
@@ -2840,6 +3513,10 @@
           ]
         },
         {
+          "id": "edge-stadium-hoogstadium",
+          "from": "stadium",
+          "to": "hoog",
+          "value": "hoogstadium",
           "points": [
             [
               360,
@@ -2862,6 +3539,9 @@
           ]
         },
         {
+          "id": "edge-laag-v",
+          "from": "laag",
+          "to": "v",
           "points": [
             [
               210,
@@ -2903,7 +3583,20 @@
           "type": "criterion",
           "x": 60,
           "y": 260,
-          "label": "PA uitslag"
+          "label": "PA uitslag",
+          "interactive": true,
+          "options": [
+            {
+              "value": "geen-maligniteit",
+              "label": "Geen maligniteit",
+              "edge": "edge-pa-geen-maligniteit"
+            },
+            {
+              "value": "maligniteit",
+              "label": "Maligniteit",
+              "edge": "edge-pa-maligniteit"
+            }
+          ]
         },
         {
           "id": "start",
@@ -2931,6 +3624,9 @@
       ],
       "edges": [
         {
+          "id": "edge-root-pa",
+          "from": "root",
+          "to": "pa",
           "points": [
             [
               215,
@@ -2944,6 +3640,10 @@
           "arrow": true
         },
         {
+          "id": "edge-pa-geen-maligniteit",
+          "from": "pa",
+          "to": "start",
+          "value": "geen-maligniteit",
           "points": [
             [
               215,
@@ -2962,6 +3662,10 @@
           ]
         },
         {
+          "id": "edge-pa-maligniteit",
+          "from": "pa",
+          "to": "std",
+          "value": "maligniteit",
           "points": [
             [
               370,
@@ -2984,6 +3688,9 @@
           ]
         },
         {
+          "id": "edge-start-v",
+          "from": "start",
+          "to": "v",
           "points": [
             [
               215,
@@ -3025,14 +3732,40 @@
           "type": "criterion",
           "x": 55,
           "y": 285,
-          "label": "Zwanger"
+          "label": "Zwanger",
+          "interactive": true,
+          "options": [
+            {
+              "value": "ja",
+              "label": "Ja",
+              "edge": "edge-zwanger-ja"
+            },
+            {
+              "value": "nee",
+              "label": "Nee",
+              "edge": "edge-zwanger-nee"
+            }
+          ]
         },
         {
           "id": "wens",
           "type": "criterion",
           "x": 520,
           "y": 610,
-          "label": "Kinderwens"
+          "label": "Kinderwens",
+          "interactive": true,
+          "options": [
+            {
+              "value": "aanwezig",
+              "label": "Aanwezig",
+              "edge": "edge-wens-aanwezig"
+            },
+            {
+              "value": "afwezig",
+              "label": "Afwezig",
+              "edge": "edge-wens-afwezig"
+            }
+          ]
         },
         {
           "id": "ja",
@@ -3060,6 +3793,9 @@
       ],
       "edges": [
         {
+          "id": "edge-root-zwanger",
+          "from": "root",
+          "to": "zwanger",
           "points": [
             [
               215,
@@ -3073,6 +3809,10 @@
           "arrow": true
         },
         {
+          "id": "edge-zwanger-ja",
+          "from": "zwanger",
+          "to": "ja",
+          "value": "ja",
           "points": [
             [
               215,
@@ -3091,6 +3831,10 @@
           ]
         },
         {
+          "id": "edge-zwanger-nee",
+          "from": "zwanger",
+          "to": "wens",
+          "value": "nee",
           "points": [
             [
               375,
@@ -3113,6 +3857,10 @@
           ]
         },
         {
+          "id": "edge-wens-aanwezig",
+          "from": "wens",
+          "to": "aan",
+          "value": "aanwezig",
           "points": [
             [
               680,
@@ -3131,6 +3879,10 @@
           ]
         },
         {
+          "id": "edge-wens-afwezig",
+          "from": "wens",
+          "to": "af",
+          "value": "afwezig",
           "points": [
             [
               840,
@@ -3181,7 +3933,20 @@
           "type": "criterion",
           "x": 55,
           "y": 260,
-          "label": "Uitslag cytologie"
+          "label": "Uitslag cytologie",
+          "interactive": true,
+          "options": [
+            {
+              "value": "negatief",
+              "label": "Negatief",
+              "edge": "edge-cyt-negatief"
+            },
+            {
+              "value": "positief",
+              "label": "Positief",
+              "edge": "edge-cyt-positief"
+            }
+          ]
         },
         {
           "id": "neg",
@@ -3209,6 +3974,9 @@
       ],
       "edges": [
         {
+          "id": "edge-root-cyt",
+          "from": "root",
+          "to": "cyt",
           "points": [
             [
               210,
@@ -3222,6 +3990,10 @@
           "arrow": true
         },
         {
+          "id": "edge-cyt-negatief",
+          "from": "cyt",
+          "to": "neg",
+          "value": "negatief",
           "points": [
             [
               210,
@@ -3240,6 +4012,10 @@
           ]
         },
         {
+          "id": "edge-cyt-positief",
+          "from": "cyt",
+          "to": "pos",
+          "value": "positief",
           "points": [
             [
               365,
@@ -3262,6 +4038,9 @@
           ]
         },
         {
+          "id": "edge-neg-v",
+          "from": "neg",
+          "to": "v",
           "points": [
             [
               210,
@@ -3303,7 +4082,20 @@
           "type": "criterion",
           "x": 400,
           "y": 245,
-          "label": "PA uitslag"
+          "label": "PA uitslag",
+          "interactive": true,
+          "options": [
+            {
+              "value": "maligniteit",
+              "label": "Maligniteit",
+              "edge": "edge-pa-maligniteit"
+            },
+            {
+              "value": "geen-maligniteit",
+              "label": "Geen maligniteit",
+              "edge": "edge-pa-geen-maligniteit"
+            }
+          ]
         },
         {
           "id": "graad",
@@ -3311,14 +4103,45 @@
           "x": 400,
           "y": 510,
           "label": "Graad",
-          "icon": "plus-light"
+          "icon": "plus-light",
+          "interactive": true,
+          "options": [
+            {
+              "value": "1",
+              "label": "1",
+              "edge": "edge-graad-1"
+            },
+            {
+              "value": "gt-1",
+              "label": ">1",
+              "edge": "edge-graad-gt-1"
+            }
+          ]
         },
         {
           "id": "tijd",
           "type": "criterion",
           "x": 400,
           "y": 770,
-          "label": "Tijd na start behandeling"
+          "label": "Tijd na start behandeling",
+          "interactive": true,
+          "options": [
+            {
+              "value": "lte-6-mnd",
+              "label": "<=6 mnd",
+              "edge": "edge-tijd-lte-6-mnd"
+            },
+            {
+              "value": "6-12-mnd",
+              "label": "6-12 mnd",
+              "edge": "edge-tijd-6-12-mnd"
+            },
+            {
+              "value": "gte-12-mnd",
+              "label": ">=12 mnd",
+              "edge": "edge-tijd-gte-12-mnd"
+            }
+          ]
         },
         {
           "id": "vroeg",
@@ -3381,6 +4204,9 @@
       ],
       "edges": [
         {
+          "id": "edge-root-pa",
+          "from": "root",
+          "to": "pa",
           "points": [
             [
               550,
@@ -3394,6 +4220,10 @@
           "arrow": true
         },
         {
+          "id": "edge-pa-maligniteit",
+          "from": "pa",
+          "to": "graad",
+          "value": "maligniteit",
           "points": [
             [
               550,
@@ -3412,6 +4242,10 @@
           ]
         },
         {
+          "id": "edge-pa-geen-maligniteit",
+          "from": "pa",
+          "to": "geen",
+          "value": "geen-maligniteit",
           "points": [
             [
               700,
@@ -3434,6 +4268,10 @@
           ]
         },
         {
+          "id": "edge-graad-1",
+          "from": "graad",
+          "to": "tijd",
+          "value": "1",
           "points": [
             [
               550,
@@ -3452,6 +4290,10 @@
           ]
         },
         {
+          "id": "edge-graad-gt-1",
+          "from": "graad",
+          "to": "std",
+          "value": "gt-1",
           "points": [
             [
               700,
@@ -3474,6 +4316,10 @@
           ]
         },
         {
+          "id": "edge-tijd-lte-6-mnd",
+          "from": "tijd",
+          "to": "vroeg",
+          "value": "lte-6-mnd",
           "points": [
             [
               400,
@@ -3496,6 +4342,10 @@
           ]
         },
         {
+          "id": "edge-tijd-6-12-mnd",
+          "from": "tijd",
+          "to": "midden",
+          "value": "6-12-mnd",
           "points": [
             [
               550,
@@ -3514,6 +4364,10 @@
           ]
         },
         {
+          "id": "edge-tijd-gte-12-mnd",
+          "from": "tijd",
+          "to": "std",
+          "value": "gte-12-mnd",
           "points": [
             [
               700,
@@ -3522,6 +4376,20 @@
             [
               900,
               845
+            ]
+          ],
+          "selectedPoints": [
+            [
+              700,
+              845
+            ],
+            [
+              900,
+              845
+            ],
+            [
+              900,
+              1070
             ]
           ],
           "label": ">=12 mnd",
@@ -3560,56 +4428,141 @@
           "type": "criterion",
           "x": 1180,
           "y": 170,
-          "label": "Type recidief"
+          "label": "Type recidief",
+          "interactive": true,
+          "options": [
+            {
+              "value": "lokaal",
+              "label": "Lokaal",
+              "edge": "edge-type-lokaal"
+            },
+            {
+              "value": "regionaal",
+              "label": "Regionaal",
+              "edge": "edge-type-regionaal"
+            },
+            {
+              "value": "afstands",
+              "label": "Afstands",
+              "edge": "edge-type-afstands"
+            }
+          ]
         },
         {
           "id": "behandeling",
           "type": "criterion",
           "x": 650,
           "y": 310,
-          "label": "Eerdere behandeling"
+          "label": "Eerdere behandeling",
+          "interactive": true,
+          "options": [
+            {
+              "value": "anders",
+              "label": "Anders",
+              "edge": "edge-behandeling-anders"
+            },
+            {
+              "value": "radiotherapie",
+              "label": "Radiotherapie",
+              "edge": "edge-behandeling-radiotherapie"
+            }
+          ]
         },
         {
           "id": "grootte",
           "type": "criterion",
           "x": 230,
           "y": 560,
-          "label": "Grootte recidief"
+          "label": "Grootte recidief",
+          "interactive": true,
+          "options": [
+            {
+              "value": "lte-2-cm",
+              "label": "<=2 cm",
+              "edge": "edge-grootte-lte-2-cm"
+            },
+            {
+              "value": "gt-2-cm",
+              "label": ">2 cm",
+              "edge": "edge-grootte-gt-2-cm"
+            }
+          ]
         },
         {
           "id": "mogelijk",
           "type": "criterion",
           "x": 650,
           "y": 500,
-          "label": "Mogelijke behandeling"
+          "label": "Mogelijke behandeling",
+          "interactive": true,
+          "options": [
+            {
+              "value": "radicaal",
+              "label": "Radicaal",
+              "edge": "edge-mogelijk-radicaal"
+            },
+            {
+              "value": "niet-radicaal",
+              "label": "Niet-radicaal",
+              "edge": "edge-mogelijk-niet-radicaal"
+            }
+          ]
         },
         {
           "id": "pr",
           "type": "criterion",
           "x": 650,
           "y": 700,
-          "label": "Status progesteron receptor"
+          "label": "Status progesteron receptor",
+          "interactive": true,
+          "options": [
+            {
+              "value": "positief",
+              "label": "Positief",
+              "edge": "edge-pr-positief"
+            },
+            {
+              "value": "negatief",
+              "label": "Negatief",
+              "edge": "edge-pr-negatief"
+            }
+          ]
         },
         {
           "id": "locatie",
           "type": "criterion",
           "x": 1180,
           "y": 500,
-          "label": "Locatie regionaal recidief"
+          "label": "Locatie regionaal recidief",
+          "interactive": true,
+          "options": [
+            {
+              "value": "laag-in-vagina",
+              "label": "Laag in vagina",
+              "edge": "edge-locatie-laag-in-vagina"
+            },
+            {
+              "value": "bekkenwand-ingroei-blaas-of-rectum",
+              "label": "Bekkenwand, ingroei blaas of rectum",
+              "edge": "edge-locatie-bekkenwand-ingroei-blaas-of-rectum"
+            }
+          ]
         },
         {
           "id": "ev",
           "type": "criterion",
           "x": 1180,
           "y": 700,
-          "label": "Eerdere behandeling"
+          "label": "Eerdere behandeling",
+          "interactionNote": "Niet interactief (INCOMPLETE): geen uitgaande edges in de data."
         },
         {
           "id": "eb",
           "type": "criterion",
           "x": 1660,
           "y": 700,
-          "label": "Eerdere behandeling"
+          "label": "Eerdere behandeling",
+          "interactionNote": "Niet interactief (INCOMPLETE): niet bereikbaar vanaf de root via gemodelleerde edges (upstream onvolledig of dubbelzinnig, of inkomende edge ontbreekt)."
         },
         {
           "id": "o1",
@@ -3694,6 +4647,9 @@
       ],
       "edges": [
         {
+          "id": "edge-root-type",
+          "from": "root",
+          "to": "type",
           "points": [
             [
               1290,
@@ -3707,6 +4663,10 @@
           "arrow": true
         },
         {
+          "id": "edge-type-lokaal",
+          "from": "type",
+          "to": "behandeling",
+          "value": "lokaal",
           "points": [
             [
               1180,
@@ -3729,6 +4689,10 @@
           ]
         },
         {
+          "id": "edge-type-regionaal",
+          "from": "type",
+          "to": "locatie",
+          "value": "regionaal",
           "points": [
             [
               1290,
@@ -3747,6 +4711,10 @@
           ]
         },
         {
+          "id": "edge-type-afstands",
+          "from": "type",
+          "to": "o10",
+          "value": "afstands",
           "points": [
             [
               1400,
@@ -3769,6 +4737,10 @@
           ]
         },
         {
+          "id": "edge-behandeling-anders",
+          "from": "behandeling",
+          "to": "grootte",
+          "value": "anders",
           "points": [
             [
               650,
@@ -3791,6 +4763,10 @@
           ]
         },
         {
+          "id": "edge-behandeling-radiotherapie",
+          "from": "behandeling",
+          "to": "mogelijk",
+          "value": "radiotherapie",
           "points": [
             [
               760,
@@ -3809,6 +4785,10 @@
           ]
         },
         {
+          "id": "edge-grootte-lte-2-cm",
+          "from": "grootte",
+          "to": "o1",
+          "value": "lte-2-cm",
           "points": [
             [
               230,
@@ -3831,6 +4811,10 @@
           ]
         },
         {
+          "id": "edge-grootte-gt-2-cm",
+          "from": "grootte",
+          "to": "o2",
+          "value": "gt-2-cm",
           "points": [
             [
               340,
@@ -3853,6 +4837,10 @@
           ]
         },
         {
+          "id": "edge-mogelijk-radicaal",
+          "from": "mogelijk",
+          "to": "o3",
+          "value": "radicaal",
           "points": [
             [
               650,
@@ -3875,6 +4863,10 @@
           ]
         },
         {
+          "id": "edge-mogelijk-niet-radicaal",
+          "from": "mogelijk",
+          "to": "pr",
+          "value": "niet-radicaal",
           "points": [
             [
               760,
@@ -3893,6 +4885,10 @@
           ]
         },
         {
+          "id": "edge-pr-positief",
+          "from": "pr",
+          "to": "o4",
+          "value": "positief",
           "points": [
             [
               650,
@@ -3915,6 +4911,10 @@
           ]
         },
         {
+          "id": "edge-pr-negatief",
+          "from": "pr",
+          "to": "o5",
+          "value": "negatief",
           "points": [
             [
               870,
@@ -3937,6 +4937,10 @@
           ]
         },
         {
+          "id": "edge-locatie-laag-in-vagina",
+          "from": "locatie",
+          "to": "ev",
+          "value": "laag-in-vagina",
           "points": [
             [
               1290,
@@ -3955,6 +4959,10 @@
           ]
         },
         {
+          "id": "edge-locatie-bekkenwand-ingroei-blaas-of-rectum",
+          "from": "locatie",
+          "to": "o7",
+          "value": "bekkenwand-ingroei-blaas-of-rectum",
           "points": [
             [
               1400,
