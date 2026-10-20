@@ -1,0 +1,30 @@
+{
+  "id": "cervixcytologie",
+  "titel": "Zorgpad richtlijn Cervixcytologie",
+  "overview": {
+    "viewBox": [1380, 1324],
+    "nodeSize": [300, 150],
+    "wrap": 25,
+    "nodes": [
+      {"id": "start", "label": "Zorgpad richtlijn Cervixcytologie", "x": 532, "y": 117},
+      {"id": "initiele-diagnostiek", "drill": true, "label": "Initiële diagnostiek", "x": 532, "y": 312},
+      {"id": "indicatie-bvo", "drill": true, "label": "Indicatie cytologie volgens BVO", "x": 157, "y": 507},
+      {"id": "beleid-cervixcytologie", "drill": true, "label": "Beleid na cervixcytologie", "x": 532, "y": 702},
+      {"id": "beleid-hrhpv-klachten", "drill": true, "label": "Beleid na hrHPV-bepaling bij klachten", "text": "Beleid na hrHPV-\nbepaling bij klachten", "x": 907, "y": 897},
+      {"id": "followup-bvo", "drill": true, "label": "Follow-up 6 maanden na BVO", "x": 157, "y": 1092},
+      {"id": "cin-ais-vain", "drill": true, "label": "Zorgpad richtlijn CIN, AIS, VAIN", "x": 532, "y": 1092},
+      {"id": "followup-klachten", "drill": true, "label": "Follow-up 6 maanden na klachten", "x": 907, "y": 1092}
+    ],
+    "edges": [
+      {"points": [[682, 267], [682, 312]], "arrow": true, "width": 3},
+      {"points": [[532, 387], [307, 387], [307, 507]], "arrow": true, "width": 3},
+      {"points": [[682, 462], [682, 702]], "arrow": true, "width": 3},
+      {"points": [[457, 582], [682, 582]], "width": 3},
+      {"points": [[532, 777], [307, 777], [307, 1092]], "arrow": true, "width": 3},
+      {"points": [[682, 852], [682, 1092]], "arrow": true, "width": 3},
+      {"points": [[832, 777], [1057, 777], [1057, 897]], "arrow": true, "width": 3},
+      {"points": [[1057, 1047], [1057, 1092]], "arrow": true, "width": 3}
+    ]
+  },
+  "trees": {}
+}
