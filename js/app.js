@@ -60,8 +60,10 @@
   // ---------- Zorgpadpagina ----------
   function isRenderable(zorgpad) {
     const o = zorgpad && zorgpad.overview;
-    return !!(o && Array.isArray(o.viewBox) && Array.isArray(o.nodeSize) &&
-      Array.isArray(o.nodes) && Array.isArray(o.edges));
+    if (!o || !Array.isArray(o.nodes)) return false;
+    // Met de layout-engine mogen viewBox, nodeSize en edges ontbreken (die worden dan afgeleid).
+    if (typeof LayoutEngine !== "undefined") return true;
+    return Array.isArray(o.viewBox) && Array.isArray(o.nodeSize) && Array.isArray(o.edges);
   }
 
   const ZOOM_STEP = 0.2;
@@ -130,6 +132,10 @@
       showMessage("Het zorgpadbestand heeft een ongeldige opbouw.", true);
       return;
     }
+
+    // Alias-nodetypes (title, dataItem, recommendation, reference) omzetten naar de bestaande types, zodat
+    // renderer, validator en route-engine hetzelfde zien. Zonder aliassen komt hetzelfde object terug.
+    if (typeof LayoutEngine !== "undefined") zorgpad = LayoutEngine.normalize(zorgpad);
 
     setTumor(tumorId);
     document.title = zorgpad.titel + " – Gynaecologische zorgpaden";
