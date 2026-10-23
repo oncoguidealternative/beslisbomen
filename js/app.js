@@ -237,7 +237,7 @@
       cancelJourney();
       clearGuidedTarget();
       ChoicePanel.close(false);
-      Renderer.draw(view, { navigate: navigate, interact: interact });
+      Renderer.draw(view, { navigate: navigate, interact: interact, select: selectEdge });
       // Pas na het tekenen: pas dan heeft het werkvlak zijn (native) afmetingen.
       if (view.graph && view.graph.native) {
         applyFit(view.graph);
@@ -398,26 +398,36 @@
       }
     }
 
-    // Keuzevenster: een keuze gaat uitsluitend via de centrale state; SVG en venster volgen via subscribe.
+    // Eén selectiepad voor een keuze, ongeacht de bron (radioknop in het keuzevenster of klik op een connector):
+    // centrale state -> opschonen -> melding -> begeleide reis. SVG en venster volgen via subscribe.
+    function selectOption(treeId, nodeId, value, info) {
+      if (treeId !== currentTreeId || getSelections(treeId)[nodeId] === value) return;
+      cancelJourney();
+      setSelection(treeId, nodeId, value);
+      removeInvalidSelections();
+      ChoicePanel.close(false);
+      const target = GraphState.nextTarget(currentGraph, getSelections(treeId), nodeId);
+      let message = info.nodeLabel + ": " + info.optionLabel + " geselecteerd.";
+      if (target && target.kind === "available") {
+        message += " Volgende stap: " + GraphState.describeNode(nodeById(target.id)) + ".";
+      } else if (target && target.kind === "outcome") {
+        message += " Uitkomst bereikt: " + GraphState.describeNode(nodeById(target.id)) + ".";
+      } else if (target && target.kind === "end") {
+        message += " De route loopt verder bij: " + GraphState.describeNode(nodeById(target.id)) + ".";
+      }
+      ChoicePanel.announce(message);
+      if (target) startJourney(target, nodeId);
+    }
+
+    // Klik of toets op een connector: dezelfde functie als de radioknop in het keuzevenster.
+    function selectEdge(choice) {
+      selectOption(currentTreeId, choice.nodeId, choice.value,
+        { nodeLabel: choice.nodeLabel, optionLabel: choice.optionLabel });
+    }
+
+    // Keuzevenster (fallback): een keuze gaat uitsluitend via selectOption.
     ChoicePanel.init({
-      onSelect: function (treeId, nodeId, value, info) {
-        if (treeId !== currentTreeId || getSelections(treeId)[nodeId] === value) return;
-        cancelJourney();
-        setSelection(treeId, nodeId, value);
-        removeInvalidSelections();
-        ChoicePanel.close(false);
-        const target = GraphState.nextTarget(currentGraph, getSelections(treeId), nodeId);
-        let message = info.nodeLabel + ": " + info.optionLabel + " geselecteerd.";
-        if (target && target.kind === "available") {
-          message += " Volgende stap: " + GraphState.describeNode(nodeById(target.id)) + ".";
-        } else if (target && target.kind === "outcome") {
-          message += " Uitkomst bereikt: " + GraphState.describeNode(nodeById(target.id)) + ".";
-        } else if (target && target.kind === "end") {
-          message += " De route loopt verder bij: " + GraphState.describeNode(nodeById(target.id)) + ".";
-        }
-        ChoicePanel.announce(message);
-        if (target) startJourney(target, nodeId);
-      },
+      onSelect: selectOption,
       onClear: function (treeId, nodeId, info) {
         if (treeId !== currentTreeId) return;
         cancelJourney();
@@ -538,7 +548,7 @@
 
     // Dubbelklik op het diagram: terug naar standaardzoom en beginpositie.
     refs.stage.addEventListener("dblclick", function (ev) {
-      if (!navigationActive() || ev.target.closest(".node.go, .node.is-interactive")) return;
+      if (!navigationActive() || ev.target.closest(".node.go, .node.is-interactive, .edge-choice")) return;
       cancelJourney();
       resetViewport();
       if (currentGraph && currentGraph.native) {
