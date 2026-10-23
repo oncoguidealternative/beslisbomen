@@ -6,6 +6,12 @@ const Renderer = (function () {
   'use strict';
 
   var NS = 'http://www.w3.org/2000/svg';
+  /* Posities, afmetingen en edge-points uit de layout-engine (js/layout-engine.js). Een graph zonder
+     layout-velden komt ongewijzigd terug; ontbreekt de engine, dan werkt de renderer zoals voorheen. */
+  function laidOut(graph) {
+    return (graph && typeof LayoutEngine !== 'undefined') ? LayoutEngine.resolve(graph) : graph;
+  }
+
   var els = null; // alleen DOM-verwijzingen: {main, svg, message}
   var onNavigate = function () {}; // callbacks van de aanroeper, geen applicatiestatus
   var onInteract = function () {};
@@ -61,20 +67,6 @@ const Renderer = (function () {
     }
   }
 
-
-  /* Achterwaarts compatibele grid-ondersteuning.
-     Oude bomen gebruiken x/y; nieuwe bomen kunnen gridX/gridY gebruiken.
-     gridSizeX en gridSizeY zijn per graph instelbaar en standaard 100. */
-  function nodePosition(node, graph) {
-    var gridSizeX = graph.gridSizeX || 100;
-    var gridSizeY = graph.gridSizeY || 100;
-
-    return {
-      x: node.gridX !== undefined ? node.gridX * gridSizeX : node.x,
-      y: node.gridY !== undefined ? node.gridY * gridSizeY : node.y
-    };
-  }
-
   /* Berekent de werkelijke grenzen van alle nodes en edges.
      Ongebruikte ruimte in de viewBox telt daardoor niet mee. */
   function graphBounds(graph) {
@@ -88,12 +80,10 @@ const Renderer = (function () {
 
     graph.nodes.forEach(function (node) {
       var height = node.h || nodeHeight;
-      var pos = nodePosition(node, graph);
-
-      minX = Math.min(minX, pos.x);
-      minY = Math.min(minY, pos.y);
-      maxX = Math.max(maxX, pos.x + nodeWidth);
-      maxY = Math.max(maxY, pos.y + height);
+      minX = Math.min(minX, node.x);
+      minY = Math.min(minY, node.y);
+      maxX = Math.max(maxX, node.x + (node.w || nodeWidth));
+      maxY = Math.max(maxY, node.y + height);
     });
 
     graph.edges.forEach(function (edge) {
@@ -132,6 +122,7 @@ const Renderer = (function () {
   /* Berekent voor desktop de optimale beginzoom en begin-pan.
      De werkelijke boom wordt zo groot mogelijk en gecentreerd weergegeven. */
   function fitViewport(graph, stageWidth, stageHeight) {
+    graph = laidOut(graph);
     var bounds = graphBounds(graph);
     var padding = 48;
 
@@ -175,6 +166,7 @@ const Renderer = (function () {
   }
 
   function render(graph, label) {
+    graph = laidOut(graph);
     var svg = els.svg;
     var size = graph.nodeSize, s = size[0] / 179, maxChars = graph.wrap || 24;
     svg.innerHTML = '';
@@ -236,15 +228,14 @@ const Renderer = (function () {
     });
 
     graph.nodes.forEach(function (n) {
-      var w = size[0], h = n.h || size[1];
+      var w = n.w || size[0], h = n.h || size[1];
       var target = n.to !== undefined ? n.to : (n.drill ? n.id : null);
       var icon = n.icon || (n.drill ? 'down' : null);
       var type = n.type || 'step';
       var interactive = n.interactive === true && Array.isArray(n.options);
-      var pos = nodePosition(n, graph);
       var g = el('g', {'data-node-id': n.id, 'class': 'node t-' + type + (n.tone ? ' tone-' + n.tone : '') + (target !== null ? ' go' : '') +
         (interactive ? ' is-interactive' : ''),
-        transform: 'translate(' + pos.x + ',' + pos.y + ')'}, vp);
+        transform: 'translate(' + n.x + ',' + n.y + ')'}, vp);
       if (interactive) {
         var optionLabels = {};
         n.options.forEach(function (o) { optionLabels[o.value] = o.label; });
@@ -398,15 +389,10 @@ const Renderer = (function () {
 
   /* Afmetingen van een node in SVG-coördinaten (voor het berekenen van de viewportbestemming). */
   function nodeBox(graph, id) {
+    graph = laidOut(graph);
     var n = graph.nodes.filter(function (x) { return x.id === id; })[0];
     if (!n) return null;
-    var pos = nodePosition(n, graph);
-    return {
-      x: pos.x,
-      y: pos.y,
-      w: graph.nodeSize[0],
-      h: n.h || graph.nodeSize[1]
-    };
+    return { x: n.x, y: n.y, w: n.w || graph.nodeSize[0], h: n.h || graph.nodeSize[1] };
   }
 
   /* Tijdelijke, niet-pulserende highlight van een node (null haalt de highlight weg). */
