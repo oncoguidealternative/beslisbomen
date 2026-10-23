@@ -292,13 +292,22 @@ body[data-page="zorgpad"] { line-height: normal; }
 .zp-stage .edge.is-selected { stroke: var(--color-success); stroke-width: 3px; }
 .zp-stage .marker-selected { fill: var(--color-success); }
 .zp-stage .edot.is-selected { fill: var(--color-success); stroke: var(--color-line); stroke-width: 2; }
+/* Edge-labels (ook "Maligne") krijgen in geen enkele status vet, onderstreping of andere speciale opmaak;
+   de gekozen connector herkent men aan de groene lijn en de groene dot. */
+.zp-stage .elabel,
 .zp-stage .elabel.is-selected {
-  font-weight: bold;
-  text-decoration: underline;
-  text-decoration-color: var(--color-success);
-  text-decoration-thickness: 2px;
-  text-underline-offset: 3px;
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: none;
 }
+
+/* Klikbare connectoren: onzichtbaar vlak over dot en label */
+.zp-stage .edge-choice { cursor: pointer; }
+.zp-stage .edge-choice:focus { outline: none; }
+.zp-stage .edge-hit { fill: transparent; stroke: none; pointer-events: all; transition: fill .15s; }
+.zp-stage .edge-choice:hover .edge-hit { fill: rgba(255, 255, 255, .2); }
+.zp-stage .edge-choice:focus-visible .edge-hit { fill: rgba(255, 255, 255, .2); stroke: #FFFFFF; stroke-width: 3; }
+.zp-stage .edge-choice[aria-disabled="true"] { pointer-events: none; cursor: default; }
 
 /* inactive: nog niet bereikbaar; houdt de normale weergave maar is niet te bedienen */
 .zp-stage .node.is-interactive.is-inactive { cursor: default; }
@@ -323,7 +332,8 @@ body[data-page="zorgpad"] { line-height: normal; }
   .zp-stage .edge,
   .zp-stage .edot,
   .zp-stage .elabel,
-  .zp-stage .node rect { transition: none; }
+  .zp-stage .node rect,
+  .zp-stage .edge-hit { transition: none; }
 }
 
 /* Keuzevenster (HTML, boven de SVG) */
