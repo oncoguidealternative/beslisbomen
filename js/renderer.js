@@ -15,6 +15,7 @@ const Renderer = (function () {
   var els = null; // alleen DOM-verwijzingen: {main, svg, message}
   var onNavigate = function () {}; // callbacks van de aanroeper, geen applicatiestatus
   var onInteract = function () {};
+  var onSelect = function () {}; // een klik op een connector (edge-label) van een interactief criterium
 
   function el(name, attrs, parent) {
     var e = document.createElementNS(NS, name);
@@ -166,6 +167,7 @@ const Renderer = (function () {
   }
 
   function render(graph, label) {
+    var source = graph; // oorspronkelijke graph: bevat from/value van de edges
     graph = laidOut(graph);
     var svg = els.svg;
     var size = graph.nodeSize, s = size[0] / 179, maxChars = graph.wrap || 24;
@@ -208,6 +210,25 @@ const Renderer = (function () {
       el('path', a, vp);
     });
 
+    // Connectoren van interactieve criteria: edge met id, dot en een waarde die bij een optie van de from-node hoort.
+    var srcEdges = {};
+    ((source && source.edges) || []).forEach(function (se) { if (se.id) srcEdges[se.id] = se; });
+    var nodesById = {};
+    graph.nodes.forEach(function (nn) { nodesById[nn.id] = nn; });
+    function choiceFor(e) {
+      if (!e.id || !e.dot) return null;
+      var se = srcEdges[e.id] || e;
+      var from = se.from || e.from;
+      var value = se.value !== undefined ? se.value : e.value;
+      var parent = nodesById[from];
+      if (value === undefined || value === null || !parent) return null;
+      if (parent.interactive !== true || !Array.isArray(parent.options)) return null;
+      var option = parent.options.filter(function (o) { return o.value === value; })[0];
+      if (!option) return null;
+      return {edgeId: e.id, nodeId: from, nodeLabel: parent.label || from, value: value,
+        optionLabel: option.label !== undefined ? option.label : String(value)};
+    }
+
     graph.edges.forEach(function (e) {
       if (!e.dot) return;
       var link = {};
@@ -225,6 +246,8 @@ const Renderer = (function () {
           lt.textContent = txt;
         });
       }
+      var choice = choiceFor(e);
+      if (choice) drawEdgeChoice(vp, e, choice, s);
     });
 
     graph.nodes.forEach(function (n) {
@@ -328,6 +351,67 @@ const Renderer = (function () {
     applyViewport();
   }
 
+  /* Onzichtbaar, klikbaar vlak over de dot en het label van een connector (alleen tekenen, geen logica).
+     Een activatie wordt doorgegeven via onSelect; app.js gebruikt daarvoor dezelfde functie als het keuzevenster.
+     De bedienbaarheid (tabindex, aria-disabled) volgt de status van de from-node in applyStatus. */
+  function drawEdgeChoice(parent, e, choice, s) {
+    var fs = 12.5 * s, step = fs * 1.45, r = 9.3 * s;
+    var parts = e.label ? String(e.label).split('\n') : [];
+    var longest = parts.reduce(function (m, t) { return Math.max(m, t.length); }, 0);
+    var halfW = Math.max(r + 6, longest * fs * 0.3 + 8);
+    var top = parts.length ? e.dot[1] - 17 * s - (parts.length - 1) * step - fs - 2 : e.dot[1] - r - 4;
+    var bottom = e.dot[1] + r + 4;
+    var g = el('g', {
+      'class': 'edge-choice',
+      'data-edge-id': choice.edgeId,
+      'data-from': choice.nodeId,
+      'data-value': String(choice.value),
+      'data-node-label': choice.nodeLabel,
+      'data-option-label': choice.optionLabel,
+      'role': 'button',
+      'aria-pressed': 'false',
+      'aria-disabled': 'true',
+      'aria-label': choice.nodeLabel + ': ' + choice.optionLabel
+    }, parent);
+    el('rect', {'class': 'edge-hit', x: e.dot[0] - halfW, y: top, width: halfW * 2, height: bottom - top, rx: 6}, g);
+    var activate = function () {
+      if (g.getAttribute('aria-disabled') === 'true') return;
+      onSelect({nodeId: choice.nodeId, nodeLabel: choice.nodeLabel, value: choice.value, optionLabel: choice.optionLabel});
+    };
+    g.addEventListener('click', activate);
+    g.addEventListener('keydown', function (ev) {
+      if (ev.key === 'Enter') { ev.preventDefault(); activate(); }
+      else if (ev.key === ' ') { ev.preventDefault(); }
+    });
+    g.addEventListener('keyup', function (ev) {
+      if (ev.key === ' ') { ev.preventDefault(); activate(); }
+    });
+  }
+
+  /* Bedienbaarheid en aria van een connector uit de status van de from-node (zelfde regel als bij de node zelf:
+     alleen bij een beschikbare of beantwoorde keuzenode). Beantwoorde keuzes blijven aanklikbaar om te wijzigen;
+     alleen de eerstvolgende (available) keuzenode staat in de tabvolgorde. */
+  function updateEdgeChoice(item, status, selections) {
+    var from = item.getAttribute('data-from');
+    var st = status.nodes[from] || 'normal';
+    var nodeLabel = item.getAttribute('data-node-label');
+    var optionLabel = item.getAttribute('data-option-label');
+    var chosen = selections[from] !== undefined && selections[from] !== null &&
+      String(selections[from]) === item.getAttribute('data-value');
+    var text = nodeLabel + ': ' + optionLabel;
+    if (st === 'available' || st === 'selected') {
+      item.setAttribute('tabindex', st === 'available' ? '0' : '-1');
+      item.removeAttribute('aria-disabled');
+      if (chosen) text += ' (huidige keuze)';
+    } else {
+      item.removeAttribute('tabindex');
+      item.setAttribute('aria-disabled', 'true');
+      text += st === 'excluded' ? ' (niet meer mogelijk)' : ' (nog niet beschikbaar)';
+    }
+    item.setAttribute('aria-pressed', chosen ? 'true' : 'false');
+    item.setAttribute('aria-label', text);
+  }
+
   var STATUS_CLASSES = ['is-selected', 'is-available', 'is-inactive', 'is-excluded'];
 
   function setStatusClass(element, status) {
@@ -376,6 +460,7 @@ const Renderer = (function () {
     els.svg.querySelectorAll('[data-edge-id]').forEach(function (item) {
       var st = status.edges[item.getAttribute('data-edge-id')] || 'normal';
       setStatusClass(item, st);
+      if (item.classList.contains('edge-choice')) { updateEdgeChoice(item, status, selections); return; }
       if (item.tagName.toLowerCase() !== 'path') return;
       var on = st === 'selected';
       var selectedD = item.getAttribute('data-d-selected');
@@ -420,6 +505,7 @@ const Renderer = (function () {
   function draw(view, handlers) {
     onNavigate = handlers.navigate;
     onInteract = handlers.interact;
+    onSelect = handlers.select || function () {};
     els.main.classList.toggle('in-detail', view.treeId !== null);
     if (view.graph) {
       els.message.classList.add('zp-hidden');
