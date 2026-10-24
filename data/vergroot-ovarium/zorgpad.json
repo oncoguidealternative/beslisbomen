@@ -1,159 +1,1502 @@
 {
   "id": "vergroot-ovarium",
-  "titel": "Zorgpad vergroot ovarium",
+  "titel": "Vergroot ovarium",
   "overview": {
-    "native": true,
-    "viewBox": [
-      1300,
-      1750
-    ],
-    "nodeSize": [
-      220,
-      90
-    ],
-    "gridSizeX": 100,
-    "gridSizeY": 100,
-    "wrap": 28,
+    "layout": {},
     "nodes": [
       {
-        "id": "zorgpad-vergroot-ovarium",
-        "label": "Zorgpad bij richtlijn Vergroot ovarium",
-        "gridX": 4,
-        "gridY": 0,
-        "type": "root"
+        "id": "start",
+        "type": "title",
+        "label": "Zorgpad bij richtlijn Vergroot ovarium"
       },
       {
         "id": "klinisch-vergroot-ovarium",
+        "drill": true,
         "label": "Klinisch (verdenking op) vergroot ovarium",
-        "gridX": 4,
-        "gridY": 3,
-        "drill": true
+        "below": "start"
       },
       {
         "id": "initieel-beleid",
+        "drill": true,
         "label": "Initieel beleid (verdenking op) vergroot ovarium",
-        "gridX": 4,
-        "gridY": 6,
-        "drill": true
+        "below": "klinisch-vergroot-ovarium"
       },
       {
         "id": "follow-up-na-chirurgie",
+        "drill": true,
         "label": "Follow up na chirurgie",
-        "gridX": 4,
-        "gridY": 9,
-        "drill": true
+        "childOf": "initieel-beleid"
       },
       {
-        "id": "follow-up-expectatief",
+        "id": "follow-up-expectatief-beleid",
+        "drill": true,
         "label": "Follow up bij expectatief beleid",
-        "gridX": 8,
-        "gridY": 9,
-        "drill": true
+        "childOf": "initieel-beleid"
       },
       {
-        "id": "follow-up-benigne-cyste",
+        "id": "follow-up-benigne-ovariumcyste",
+        "drill": true,
         "label": "Follow up benigne ovariumcyste",
-        "gridX": 8,
-        "gridY": 12,
-        "drill": true
+        "below": "follow-up-expectatief-beleid"
       },
       {
         "id": "follow-up-na-chirurgie-2",
+        "drill": true,
+        "to": "follow-up-na-chirurgie",
         "label": "Follow up na chirurgie",
-        "gridX": 8,
-        "gridY": 15,
-        "drill": true
+        "below": "follow-up-benigne-ovariumcyste"
       }
     ],
     "edges": [
       {
-        "points": [
-          [
-            510,
-            90
-          ],
-          [
-            510,
-            300
-          ]
-        ],
-        "arrow": true
+        "id": "edge-start-klinisch-vergroot-ovarium",
+        "from": "start",
+        "to": "klinisch-vergroot-ovarium"
       },
       {
-        "points": [
-          [
-            510,
-            390
-          ],
-          [
-            510,
-            600
-          ]
-        ],
-        "arrow": true
+        "id": "edge-klinisch-vergroot-ovarium-initieel-beleid",
+        "from": "klinisch-vergroot-ovarium",
+        "to": "initieel-beleid"
       },
       {
-        "points": [
-          [
-            510,
-            690
-          ],
-          [
-            510,
-            900
-          ]
-        ],
-        "arrow": true
+        "id": "edge-initieel-beleid-follow-up-na-chirurgie",
+        "from": "initieel-beleid",
+        "to": "follow-up-na-chirurgie"
       },
       {
-        "points": [
-          [
-            510,
-            690
-          ],
-          [
-            510,
-            795
-          ],
-          [
-            910,
-            795
-          ],
-          [
-            910,
-            900
-          ]
-        ],
-        "arrow": true
+        "id": "edge-initieel-beleid-follow-up-expectatief-beleid",
+        "from": "initieel-beleid",
+        "to": "follow-up-expectatief-beleid"
       },
       {
-        "points": [
-          [
-            910,
-            990
-          ],
-          [
-            910,
-            1200
-          ]
-        ],
-        "arrow": true
+        "id": "edge-follow-up-expectatief-beleid-follow-up-benigne-ovariumcyste",
+        "from": "follow-up-expectatief-beleid",
+        "to": "follow-up-benigne-ovariumcyste"
       },
       {
-        "points": [
-          [
-            910,
-            1290
-          ],
-          [
-            910,
-            1500
-          ]
-        ],
-        "arrow": true
+        "id": "edge-follow-up-benigne-ovariumcyste-follow-up-na-chirurgie-2",
+        "from": "follow-up-benigne-ovariumcyste",
+        "to": "follow-up-na-chirurgie-2"
       }
     ]
   },
-  "trees": {}
+  "trees": {
+    "klinisch-vergroot-ovarium": {
+      "layout": {},
+      "nodes": [
+        {
+          "id": "titel",
+          "type": "title",
+          "label": "Klinisch (verdenking op) vergroot ovarium"
+        },
+        {
+          "id": "aanbeveling-onderzoek",
+          "type": "recommendation",
+          "text": "Anamnese\nEN\nGynaecologisch onderzoek\nEN\nTransvaginale/Abdominale echo\n{i} Overweeg adnex-model\nEN\nOverweeg CA125\nEN\nOverweeg bepaling overige tumormarkers",
+          "below": "titel"
+        },
+        {
+          "id": "verwijzing-initieel-beleid",
+          "type": "reference",
+          "label": "Initieel beleid (verdenking op) vergroot ovarium",
+          "to": "initieel-beleid",
+          "below": "aanbeveling-onderzoek"
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-titel-aanbeveling-onderzoek",
+          "from": "titel",
+          "to": "aanbeveling-onderzoek"
+        },
+        {
+          "id": "edge-aanbeveling-onderzoek-verwijzing-initieel-beleid",
+          "from": "aanbeveling-onderzoek",
+          "to": "verwijzing-initieel-beleid"
+        }
+      ]
+    },
+    "initieel-beleid": {
+      "layout": {},
+      "nodes": [
+        {
+          "id": "titel",
+          "type": "title",
+          "label": "Initieel beleid (verdenking op) vergroot ovarium"
+        },
+        {
+          "id": "zwanger",
+          "type": "dataItem",
+          "label": "Zwanger",
+          "below": "titel",
+          "interactive": true,
+          "options": [
+            {
+              "value": "ja",
+              "label": "Ja",
+              "edge": "edge-zwanger-ja"
+            },
+            {
+              "value": "nee",
+              "label": "Nee",
+              "edge": "edge-zwanger-nee"
+            }
+          ]
+        },
+        {
+          "id": "verdenking-maligniteit",
+          "type": "dataItem",
+          "label": "Verdenking maligniteit",
+          "childOf": "zwanger",
+          "interactive": true,
+          "options": [
+            {
+              "value": "nee",
+              "label": "nee",
+              "edge": "edge-verdenking-maligniteit-nee"
+            },
+            {
+              "value": "ja",
+              "label": "ja",
+              "edge": "edge-verdenking-maligniteit-ja"
+            }
+          ],
+          "order": 1
+        },
+        {
+          "id": "overleg-derde-lijn",
+          "type": "recommendation",
+          "text": "Overleg met derde lijn",
+          "recommendationOf": "verdenking-maligniteit",
+          "order": 2
+        },
+        {
+          "id": "klachten-zwanger",
+          "type": "dataItem",
+          "label": "Klachten",
+          "childOf": "verdenking-maligniteit",
+          "interactive": true,
+          "options": [
+            {
+              "value": "ja",
+              "label": "Ja",
+              "edge": "edge-klachten-zwanger-ja"
+            },
+            {
+              "value": "nee",
+              "label": "Nee",
+              "edge": "edge-klachten-zwanger-nee"
+            }
+          ],
+          "order": 1
+        },
+        {
+          "id": "expectatief-tot-na-zwangerschap",
+          "type": "recommendation",
+          "text": "Expectatief beleid tot na zwangerschap",
+          "recommendationOf": "klachten-zwanger",
+          "order": 1
+        },
+        {
+          "id": "trimester-zwangerschap",
+          "type": "dataItem",
+          "label": "Trimester zwangerschap",
+          "childOf": "klachten-zwanger",
+          "interactive": true,
+          "options": [
+            {
+              "value": "1",
+              "label": "1",
+              "edge": "edge-trimester-zwangerschap-1"
+            },
+            {
+              "value": "2-3",
+              "label": "2-3",
+              "edge": "edge-trimester-zwangerschap-2-3"
+            }
+          ],
+          "order": 2
+        },
+        {
+          "id": "cystectomie-of-adnexextirpatie",
+          "type": "recommendation",
+          "text": "Cystectomie\nOF\nAdnexextirpatie\nEN\nOverweeg laparoscopie\n{i} indien uterus boven de navel reikt overweeg laparotomie",
+          "recommendationOf": "trimester-zwangerschap",
+          "order": 2
+        },
+        {
+          "id": "torsie",
+          "type": "dataItem",
+          "label": "Torsie",
+          "childOf": "trimester-zwangerschap",
+          "interactive": true,
+          "options": [
+            {
+              "value": "ja",
+              "label": "Ja",
+              "edge": "edge-torsie-ja"
+            },
+            {
+              "value": "nee",
+              "label": "Nee",
+              "edge": "edge-torsie-nee"
+            }
+          ],
+          "order": 1
+        },
+        {
+          "id": "detorsie",
+          "type": "recommendation",
+          "text": "Detorsie\nEN\nGeen cystectomie",
+          "recommendationOf": "torsie",
+          "order": 2
+        },
+        {
+          "id": "terughoudendheid-chirurgie",
+          "type": "recommendation",
+          "text": "Terughoudendheid inzake chirurgie\n{i} indien chirurgie noodzakelijk is, plannen in tweede trimester",
+          "recommendationOf": "torsie",
+          "order": 1
+        },
+        {
+          "id": "verdenking-torsie",
+          "type": "dataItem",
+          "label": "Verdenking torsie",
+          "childOf": "zwanger",
+          "interactive": true,
+          "options": [
+            {
+              "value": "nee",
+              "label": "Nee",
+              "edge": "edge-verdenking-torsie-nee"
+            },
+            {
+              "value": "ja",
+              "label": "Ja",
+              "edge": "edge-verdenking-torsie-ja"
+            }
+          ],
+          "order": 2
+        },
+        {
+          "id": "menopauzale-status-torsie",
+          "type": "dataItem",
+          "label": "Menopauzale status",
+          "childOf": "verdenking-torsie",
+          "interactive": true,
+          "options": [
+            {
+              "value": "premenopauzaal",
+              "label": "Premenopauzaal",
+              "edge": "edge-menopauzale-status-torsie-premenopauzaal"
+            },
+            {
+              "value": "postmenopauzaal",
+              "label": "Postmenopauzaal",
+              "edge": "edge-menopauzale-status-torsie-postmenopauzaal"
+            }
+          ],
+          "order": 2
+        },
+        {
+          "id": "laparoscopische-detorsie",
+          "type": "recommendation",
+          "text": "Bij voorkeur laparoscopische detorsie\nEN\nGeen standaard cystectomie\nEN\nGeen standaard adnexextirpatie",
+          "recommendationOf": "menopauzale-status-torsie",
+          "order": 1
+        },
+        {
+          "id": "adnexextirpatie-torsie",
+          "type": "recommendation",
+          "text": "Adnexextirpatie",
+          "recommendationOf": "menopauzale-status-torsie",
+          "order": 2
+        },
+        {
+          "id": "easy-denominators",
+          "type": "dataItem",
+          "label": "Easy denominators",
+          "childOf": "verdenking-torsie",
+          "interactive": true,
+          "options": [
+            {
+              "value": "aanwezig",
+              "label": "Aanwezig",
+              "edge": "edge-easy-denominators-aanwezig"
+            },
+            {
+              "value": "afwezig",
+              "label": "Afwezig",
+              "edge": "edge-easy-denominators-afwezig"
+            }
+          ],
+          "order": 1
+        },
+        {
+          "id": "type-easy-denominators",
+          "type": "dataItem",
+          "label": "Type easy denominators",
+          "childOf": "easy-denominators",
+          "interactive": true,
+          "options": [
+            {
+              "value": "benigne",
+              "label": "Benigne",
+              "edge": "edge-type-easy-denominators-benigne"
+            },
+            {
+              "value": "maligne",
+              "label": "Maligne",
+              "edge": "edge-type-easy-denominators-maligne"
+            }
+          ],
+          "order": 2
+        },
+        {
+          "id": "overleg-oncologisch-centrum",
+          "type": "recommendation",
+          "text": "Overleg met oncologisch centrum",
+          "recommendationOf": "type-easy-denominators",
+          "order": 2
+        },
+        {
+          "id": "morfologie",
+          "type": "dataItem",
+          "label": "Morfologie",
+          "childOf": "type-easy-denominators",
+          "interactive": true,
+          "options": [
+            {
+              "value": "endometrioom",
+              "label": "Endometrioom",
+              "edge": "edge-morfologie-endometrioom"
+            },
+            {
+              "value": "dermoid-cyste",
+              "label": "Dermoid cyste",
+              "edge": "edge-morfologie-dermoid-cyste"
+            },
+            {
+              "value": "uniloculaire-gladwandige-cyste",
+              "label": "Uniloculaire gladwandige cyste",
+              "edge": "edge-morfologie-uniloculaire-gladwandige-cyste"
+            }
+          ],
+          "order": 1
+        },
+        {
+          "id": "ga-naar-rl-eshre",
+          "type": "recommendation",
+          "text": "Ga naar RL ESHRE",
+          "recommendationOf": "morfologie",
+          "order": 1
+        },
+        {
+          "id": "klachten-dermoid",
+          "type": "dataItem",
+          "label": "Klachten",
+          "childOf": "morfologie",
+          "interactive": true,
+          "options": [
+            {
+              "value": "ja",
+              "label": "Ja",
+              "edge": "edge-klachten-dermoid-ja"
+            },
+            {
+              "value": "nee",
+              "label": "Nee",
+              "edge": "edge-klachten-dermoid-nee"
+            }
+          ],
+          "order": 2
+        },
+        {
+          "id": "chirurgie-dermoid",
+          "type": "recommendation",
+          "text": "Chirurgie (in algemeen ziekenhuis)",
+          "recommendationOf": "klachten-dermoid",
+          "order": 2,
+          "icon": "plus",
+          "to": "chirurgie"
+        },
+        {
+          "id": "grootte-dermoid",
+          "type": "dataItem",
+          "label": "Grootte dermoid cyste",
+          "childOf": "klachten-dermoid",
+          "interactive": true,
+          "options": [
+            {
+              "value": "lte-5-cm",
+              "label": "<=5 cm",
+              "edge": "edge-grootte-dermoid-lte-5-cm"
+            },
+            {
+              "value": "5-10-cm",
+              "label": "5-10 cm",
+              "edge": "edge-grootte-dermoid-5-10-cm"
+            },
+            {
+              "value": "gt-10-cm",
+              "label": ">10 cm",
+              "edge": "edge-grootte-dermoid-gt-10-cm"
+            }
+          ],
+          "order": 1
+        },
+        {
+          "id": "expectatief-geen-behandeling-dermoid",
+          "type": "recommendation",
+          "text": "Expectatief beleid/Geen behandeling\nEN\nGeen follow up\nEN\nHerevaluatie bij klachten",
+          "recommendationOf": "grootte-dermoid",
+          "order": 1
+        },
+        {
+          "id": "individualiseer-behandeling-dermoid",
+          "type": "recommendation",
+          "text": "Individualiseer behandeling",
+          "recommendationOf": "grootte-dermoid",
+          "order": 2
+        },
+        {
+          "id": "adnexextirpatie-of-cystectomie-dermoid",
+          "type": "recommendation",
+          "text": "Unilaterale adnexextirpatie indien normale contralaterale adnex\nOF\nOverweeg cystectomie\n{i} bij (latente) kinderwens",
+          "recommendationOf": "grootte-dermoid",
+          "order": 3
+        },
+        {
+          "id": "klachten-uniloculair",
+          "type": "dataItem",
+          "label": "Klachten",
+          "childOf": "morfologie",
+          "interactive": true,
+          "options": [
+            {
+              "value": "ja",
+              "label": "Ja",
+              "edge": "edge-klachten-uniloculair-ja"
+            },
+            {
+              "value": "nee",
+              "label": "Nee",
+              "edge": "edge-klachten-uniloculair-nee"
+            }
+          ],
+          "order": 3
+        },
+        {
+          "id": "chirurgie-uniloculair",
+          "type": "recommendation",
+          "text": "Chirurgie (in algemeen ziekenhuis)",
+          "recommendationOf": "klachten-uniloculair",
+          "order": 2,
+          "icon": "plus",
+          "to": "chirurgie"
+        },
+        {
+          "id": "grootte-uniloculair",
+          "type": "dataItem",
+          "label": "Grootte Uniloculaire gladwandige cyste",
+          "childOf": "klachten-uniloculair",
+          "interactive": true,
+          "options": [
+            {
+              "value": "lte-5-cm",
+              "label": "<=5 cm",
+              "edge": "edge-grootte-uniloculair-lte-5-cm"
+            },
+            {
+              "value": "5-10-cm",
+              "label": "5-10 cm",
+              "edge": "edge-grootte-uniloculair-5-10-cm"
+            },
+            {
+              "value": "gt-10-cm",
+              "label": ">10 cm",
+              "edge": "edge-grootte-uniloculair-gt-10-cm"
+            }
+          ],
+          "order": 1
+        },
+        {
+          "id": "menopauzale-status-uniloculair",
+          "type": "dataItem",
+          "label": "Menopauzale status",
+          "childOf": "grootte-uniloculair",
+          "interactive": true,
+          "options": [
+            {
+              "value": "premenopauzaal",
+              "label": "Premenopauzaal",
+              "edge": "edge-menopauzale-status-uniloculair-premenopauzaal"
+            },
+            {
+              "value": "postmenopauzaal",
+              "label": "Postmenopauzaal",
+              "edge": "edge-menopauzale-status-uniloculair-postmenopauzaal"
+            }
+          ],
+          "order": 2
+        },
+        {
+          "id": "expectatief-geen-behandeling-uniloculair",
+          "type": "recommendation",
+          "text": "Expectatief beleid/Geen behandeling\nEN\nGeen follow up\nEN\nHerevaluatie bij klachten",
+          "recommendationOf": "grootte-uniloculair",
+          "order": 1
+        },
+        {
+          "id": "expectatief-follow-up-uniloculair",
+          "type": "recommendation",
+          "text": "Expectatief beleid\nEN\nFollow up",
+          "recommendationOf": "menopauzale-status-uniloculair"
+        },
+        {
+          "id": "verwijzing-follow-up-expectatief-uniloculair",
+          "type": "reference",
+          "label": "Follow up bij expectatief beleid",
+          "to": "follow-up-expectatief-beleid",
+          "below": "expectatief-follow-up-uniloculair"
+        },
+        {
+          "id": "predictiemodel",
+          "type": "dataItem",
+          "label": "Predictiemodel\n(bij voorkeur ADNEX)",
+          "childOf": "easy-denominators",
+          "interactive": true,
+          "options": [
+            {
+              "value": "gt-40",
+              "label": ">40 %\nkans op maligniteit",
+              "edge": "edge-predictiemodel-gt-40"
+            },
+            {
+              "value": "lte-40",
+              "label": "<=40 %\nkans op maligniteit",
+              "edge": "edge-predictiemodel-lte-40"
+            }
+          ],
+          "order": 1
+        },
+        {
+          "id": "expectatief-of-chirurgie",
+          "type": "recommendation",
+          "text": "Overweeg expectatief beleid\n{i} bij zeer lage kans op maligniteit\nOF\nChirurgie (in algemeen ziekenhuis)\nBespreek de ACCEPT studie\n(zie link)",
+          "recommendationOf": "predictiemodel",
+          "order": 1,
+          "icon": "plus",
+          "to": "chirurgie"
+        },
+        {
+          "id": "type-afwijking",
+          "type": "dataItem",
+          "label": "Type afwijking",
+          "childOf": "predictiemodel",
+          "interactive": true,
+          "options": [
+            {
+              "value": "verdenking-borderline-tumor",
+              "label": "Verdenking\nborderline tumor",
+              "edge": "edge-type-afwijking-verdenking-borderline-tumor"
+            },
+            {
+              "value": "verdenking-niet-epitheliaal",
+              "label": "Verdenking\nniet epitheliale maligniteiten\nvan het ovarium",
+              "edge": "edge-type-afwijking-verdenking-niet-epitheliaal"
+            },
+            {
+              "value": "verdenking-epitheliaal",
+              "label": "Verdenking\nepitheliaal ovarium kanker",
+              "edge": "edge-type-afwijking-verdenking-epitheliaal"
+            },
+            {
+              "value": "metastase",
+              "label": "Metastase",
+              "edge": "edge-type-afwijking-metastase"
+            }
+          ],
+          "order": 2
+        },
+        {
+          "id": "ga-naar-rl-borderline",
+          "type": "recommendation",
+          "text": "Ga naar RL Borderline ovariumtumoren\nBespreek de ACCEPT studie\n(zie link)",
+          "recommendationOf": "type-afwijking"
+        },
+        {
+          "id": "verwijzing-behandeling-borderline",
+          "type": "reference",
+          "label": "Behandeling borderline ovariumtumor",
+          "to": "behandeling-borderline-ovariumtumor",
+          "below": "ga-naar-rl-borderline"
+        },
+        {
+          "id": "ga-naar-rl-niet-epitheliaal",
+          "type": "recommendation",
+          "text": "Ga naar RL Niet-epitheliale maligniteiten van het ovarium\nBespreek de ACCEPT studie\n(zie link)",
+          "recommendationOf": "type-afwijking"
+        },
+        {
+          "id": "verwijzing-aanvullende-diagnostiek",
+          "type": "reference",
+          "label": "Aanvullende diagnostiek",
+          "to": "aanvullende-diagnostiek",
+          "below": "ga-naar-rl-niet-epitheliaal"
+        },
+        {
+          "id": "ga-naar-rl-epitheliaal",
+          "type": "recommendation",
+          "text": "Ga naar RL Epitheliaal ovariumcarcinoom\nBespreek de ACCEPT studie\n(zie link)",
+          "recommendationOf": "type-afwijking"
+        },
+        {
+          "id": "individualiseer-behandeling-metastase",
+          "type": "recommendation",
+          "text": "Individualiseer behandeling",
+          "recommendationOf": "type-afwijking"
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-titel-zwanger",
+          "from": "titel",
+          "to": "zwanger"
+        },
+        {
+          "id": "edge-zwanger-ja",
+          "from": "zwanger",
+          "to": "verdenking-maligniteit",
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "id": "edge-zwanger-nee",
+          "from": "zwanger",
+          "to": "verdenking-torsie",
+          "value": "nee",
+          "label": "Nee"
+        },
+        {
+          "id": "edge-verdenking-maligniteit-nee",
+          "from": "verdenking-maligniteit",
+          "to": "klachten-zwanger",
+          "value": "nee",
+          "label": "nee"
+        },
+        {
+          "id": "edge-verdenking-maligniteit-ja",
+          "from": "verdenking-maligniteit",
+          "to": "overleg-derde-lijn",
+          "value": "ja",
+          "label": "ja"
+        },
+        {
+          "id": "edge-klachten-zwanger-ja",
+          "from": "klachten-zwanger",
+          "to": "trimester-zwangerschap",
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "id": "edge-klachten-zwanger-nee",
+          "from": "klachten-zwanger",
+          "to": "expectatief-tot-na-zwangerschap",
+          "value": "nee",
+          "label": "Nee"
+        },
+        {
+          "id": "edge-trimester-zwangerschap-1",
+          "from": "trimester-zwangerschap",
+          "to": "torsie",
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "id": "edge-trimester-zwangerschap-2-3",
+          "from": "trimester-zwangerschap",
+          "to": "cystectomie-of-adnexextirpatie",
+          "value": "2-3",
+          "label": "2-3"
+        },
+        {
+          "id": "edge-torsie-ja",
+          "from": "torsie",
+          "to": "detorsie",
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "id": "edge-torsie-nee",
+          "from": "torsie",
+          "to": "terughoudendheid-chirurgie",
+          "value": "nee",
+          "label": "Nee"
+        },
+        {
+          "id": "edge-verdenking-torsie-nee",
+          "from": "verdenking-torsie",
+          "to": "easy-denominators",
+          "value": "nee",
+          "label": "Nee"
+        },
+        {
+          "id": "edge-verdenking-torsie-ja",
+          "from": "verdenking-torsie",
+          "to": "menopauzale-status-torsie",
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "id": "edge-menopauzale-status-torsie-premenopauzaal",
+          "from": "menopauzale-status-torsie",
+          "to": "laparoscopische-detorsie",
+          "value": "premenopauzaal",
+          "label": "Premenopauzaal"
+        },
+        {
+          "id": "edge-menopauzale-status-torsie-postmenopauzaal",
+          "from": "menopauzale-status-torsie",
+          "to": "adnexextirpatie-torsie",
+          "value": "postmenopauzaal",
+          "label": "Postmenopauzaal"
+        },
+        {
+          "id": "edge-easy-denominators-aanwezig",
+          "from": "easy-denominators",
+          "to": "type-easy-denominators",
+          "value": "aanwezig",
+          "label": "Aanwezig"
+        },
+        {
+          "id": "edge-easy-denominators-afwezig",
+          "from": "easy-denominators",
+          "to": "predictiemodel",
+          "value": "afwezig",
+          "label": "Afwezig"
+        },
+        {
+          "id": "edge-type-easy-denominators-benigne",
+          "from": "type-easy-denominators",
+          "to": "morfologie",
+          "value": "benigne",
+          "label": "Benigne"
+        },
+        {
+          "id": "edge-type-easy-denominators-maligne",
+          "from": "type-easy-denominators",
+          "to": "overleg-oncologisch-centrum",
+          "value": "maligne",
+          "label": "Maligne"
+        },
+        {
+          "id": "edge-morfologie-endometrioom",
+          "from": "morfologie",
+          "to": "ga-naar-rl-eshre",
+          "value": "endometrioom",
+          "label": "Endometrioom"
+        },
+        {
+          "id": "edge-morfologie-dermoid-cyste",
+          "from": "morfologie",
+          "to": "klachten-dermoid",
+          "value": "dermoid-cyste",
+          "label": "Dermoid cyste"
+        },
+        {
+          "id": "edge-morfologie-uniloculaire-gladwandige-cyste",
+          "from": "morfologie",
+          "to": "klachten-uniloculair",
+          "value": "uniloculaire-gladwandige-cyste",
+          "label": "Uniloculaire gladwandige cyste"
+        },
+        {
+          "id": "edge-klachten-dermoid-ja",
+          "from": "klachten-dermoid",
+          "to": "chirurgie-dermoid",
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "id": "edge-klachten-dermoid-nee",
+          "from": "klachten-dermoid",
+          "to": "grootte-dermoid",
+          "value": "nee",
+          "label": "Nee"
+        },
+        {
+          "id": "edge-grootte-dermoid-lte-5-cm",
+          "from": "grootte-dermoid",
+          "to": "expectatief-geen-behandeling-dermoid",
+          "value": "lte-5-cm",
+          "label": "<=5 cm"
+        },
+        {
+          "id": "edge-grootte-dermoid-5-10-cm",
+          "from": "grootte-dermoid",
+          "to": "individualiseer-behandeling-dermoid",
+          "value": "5-10-cm",
+          "label": "5-10 cm"
+        },
+        {
+          "id": "edge-grootte-dermoid-gt-10-cm",
+          "from": "grootte-dermoid",
+          "to": "adnexextirpatie-of-cystectomie-dermoid",
+          "value": "gt-10-cm",
+          "label": ">10 cm"
+        },
+        {
+          "id": "edge-klachten-uniloculair-ja",
+          "from": "klachten-uniloculair",
+          "to": "chirurgie-uniloculair",
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "id": "edge-klachten-uniloculair-nee",
+          "from": "klachten-uniloculair",
+          "to": "grootte-uniloculair",
+          "value": "nee",
+          "label": "Nee"
+        },
+        {
+          "id": "edge-grootte-uniloculair-lte-5-cm",
+          "from": "grootte-uniloculair",
+          "to": "expectatief-geen-behandeling-uniloculair",
+          "value": "lte-5-cm",
+          "label": "<=5 cm"
+        },
+        {
+          "id": "edge-grootte-uniloculair-5-10-cm",
+          "from": "grootte-uniloculair",
+          "to": "menopauzale-status-uniloculair",
+          "value": "5-10-cm",
+          "label": "5-10 cm"
+        },
+        {
+          "id": "edge-grootte-uniloculair-gt-10-cm",
+          "from": "grootte-uniloculair",
+          "to": "chirurgie-uniloculair",
+          "value": "gt-10-cm",
+          "label": ">10 cm"
+        },
+        {
+          "id": "edge-menopauzale-status-uniloculair-premenopauzaal",
+          "from": "menopauzale-status-uniloculair",
+          "to": "expectatief-geen-behandeling-uniloculair",
+          "value": "premenopauzaal",
+          "label": "Premenopauzaal"
+        },
+        {
+          "id": "edge-menopauzale-status-uniloculair-postmenopauzaal",
+          "from": "menopauzale-status-uniloculair",
+          "to": "expectatief-follow-up-uniloculair",
+          "value": "postmenopauzaal",
+          "label": "Postmenopauzaal"
+        },
+        {
+          "id": "edge-expectatief-follow-up-uniloculair-verwijzing-follow-up-expectatief-uniloculair",
+          "from": "expectatief-follow-up-uniloculair",
+          "to": "verwijzing-follow-up-expectatief-uniloculair"
+        },
+        {
+          "id": "edge-predictiemodel-gt-40",
+          "from": "predictiemodel",
+          "to": "type-afwijking",
+          "value": "gt-40",
+          "label": ">40 %\nkans op maligniteit"
+        },
+        {
+          "id": "edge-predictiemodel-lte-40",
+          "from": "predictiemodel",
+          "to": "expectatief-of-chirurgie",
+          "value": "lte-40",
+          "label": "<=40 %\nkans op maligniteit"
+        },
+        {
+          "id": "edge-type-afwijking-verdenking-borderline-tumor",
+          "from": "type-afwijking",
+          "to": "ga-naar-rl-borderline",
+          "value": "verdenking-borderline-tumor",
+          "label": "Verdenking\nborderline tumor"
+        },
+        {
+          "id": "edge-type-afwijking-verdenking-niet-epitheliaal",
+          "from": "type-afwijking",
+          "to": "ga-naar-rl-niet-epitheliaal",
+          "value": "verdenking-niet-epitheliaal",
+          "label": "Verdenking\nniet epitheliale maligniteiten\nvan het ovarium"
+        },
+        {
+          "id": "edge-type-afwijking-verdenking-epitheliaal",
+          "from": "type-afwijking",
+          "to": "ga-naar-rl-epitheliaal",
+          "value": "verdenking-epitheliaal",
+          "label": "Verdenking\nepitheliaal ovarium kanker"
+        },
+        {
+          "id": "edge-type-afwijking-metastase",
+          "from": "type-afwijking",
+          "to": "individualiseer-behandeling-metastase",
+          "value": "metastase",
+          "label": "Metastase"
+        },
+        {
+          "id": "edge-ga-naar-rl-borderline-verwijzing-behandeling-borderline",
+          "from": "ga-naar-rl-borderline",
+          "to": "verwijzing-behandeling-borderline"
+        },
+        {
+          "id": "edge-ga-naar-rl-niet-epitheliaal-verwijzing-aanvullende-diagnostiek",
+          "from": "ga-naar-rl-niet-epitheliaal",
+          "to": "verwijzing-aanvullende-diagnostiek"
+        }
+      ]
+    },
+    "chirurgie": {
+      "layout": {},
+      "nodes": [
+        {
+          "id": "titel",
+          "type": "title",
+          "label": "Chirurgie"
+        },
+        {
+          "id": "menopauzale-status",
+          "type": "dataItem",
+          "label": "Menopauzale status",
+          "below": "titel",
+          "interactive": true,
+          "options": [
+            {
+              "value": "postmenopauzaal",
+              "label": "Postmenopauzaal",
+              "edge": "edge-menopauzale-status-postmenopauzaal"
+            },
+            {
+              "value": "premenopauzaal",
+              "label": "Premenopauzaal",
+              "edge": "edge-menopauzale-status-premenopauzaal"
+            }
+          ]
+        },
+        {
+          "id": "adnextirpatie-of-cystectomie",
+          "type": "recommendation",
+          "text": "Adnextirpatie\nOF\nCystectomie\nEN\nOverweeg behoud contralaterale adnex",
+          "recommendationOf": "menopauzale-status",
+          "order": 1
+        },
+        {
+          "id": "familiaire-belasting",
+          "type": "dataItem",
+          "label": "Familiaire belasting",
+          "childOf": "menopauzale-status",
+          "interactive": true,
+          "options": [
+            {
+              "value": "ja",
+              "label": "Ja",
+              "edge": "edge-familiaire-belasting-ja"
+            },
+            {
+              "value": "nee",
+              "label": "Nee",
+              "edge": "edge-familiaire-belasting-nee"
+            }
+          ],
+          "order": 2
+        },
+        {
+          "id": "bilaterale-adnexextirpatie-erfelijk",
+          "type": "recommendation",
+          "text": "Overweeg bilaterale adnexextirpatie\nEN\nZie RL Erfelijke en familiaire ovariumtumoren",
+          "recommendationOf": "familiaire-belasting",
+          "order": 2
+        },
+        {
+          "id": "leeftijd",
+          "type": "dataItem",
+          "label": "Leeftijd",
+          "childOf": "familiaire-belasting",
+          "interactive": true,
+          "options": [
+            {
+              "value": "jonger-dan-51",
+              "label": "<51 jaar",
+              "edge": "edge-leeftijd-jonger-dan-51"
+            },
+            {
+              "value": "51-65",
+              "label": "51-65 jaar",
+              "edge": "edge-leeftijd-51-65"
+            },
+            {
+              "value": "ouder-dan-65",
+              "label": ">65 jaar",
+              "edge": "edge-leeftijd-ouder-dan-65"
+            }
+          ],
+          "order": 1
+        },
+        {
+          "id": "adnextirpatie-behoud-adnex",
+          "type": "recommendation",
+          "text": "Adnextirpatie\nEN\nOverweeg behoud contralaterale adnex",
+          "recommendationOf": "leeftijd"
+        },
+        {
+          "id": "adnextirpatie-bespreek-behoud-ovarium",
+          "type": "recommendation",
+          "text": "Adnextirpatie\nEN\nBespreek het wel/niet behouden van contralaterale ovarium",
+          "recommendationOf": "leeftijd"
+        },
+        {
+          "id": "bilaterale-adnexextirpatie-leeftijd",
+          "type": "recommendation",
+          "text": "Overweeg bilaterale adnexextirpatie",
+          "recommendationOf": "leeftijd"
+        },
+        {
+          "id": "verwijzing-follow-up-na-chirurgie-adnextirpatie-of-cystectomie",
+          "type": "reference",
+          "label": "Follow up na chirurgie",
+          "to": "follow-up-na-chirurgie",
+          "below": "adnextirpatie-of-cystectomie"
+        },
+        {
+          "id": "verwijzing-follow-up-na-chirurgie-adnextirpatie-behoud-adnex",
+          "type": "reference",
+          "label": "Follow up na chirurgie",
+          "to": "follow-up-na-chirurgie",
+          "below": "adnextirpatie-behoud-adnex"
+        },
+        {
+          "id": "verwijzing-follow-up-na-chirurgie-adnextirpatie-bespreek-behoud-ovarium",
+          "type": "reference",
+          "label": "Follow up na chirurgie",
+          "to": "follow-up-na-chirurgie",
+          "below": "adnextirpatie-bespreek-behoud-ovarium"
+        },
+        {
+          "id": "verwijzing-follow-up-na-chirurgie-bilaterale-adnexextirpatie-leeftijd",
+          "type": "reference",
+          "label": "Follow up na chirurgie",
+          "to": "follow-up-na-chirurgie",
+          "below": "bilaterale-adnexextirpatie-leeftijd"
+        },
+        {
+          "id": "verwijzing-follow-up-na-chirurgie-bilaterale-adnexextirpatie-erfelijk",
+          "type": "reference",
+          "label": "Follow up na chirurgie",
+          "to": "follow-up-na-chirurgie",
+          "below": "bilaterale-adnexextirpatie-erfelijk"
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-titel-menopauzale-status",
+          "from": "titel",
+          "to": "menopauzale-status"
+        },
+        {
+          "id": "edge-menopauzale-status-postmenopauzaal",
+          "from": "menopauzale-status",
+          "to": "familiaire-belasting",
+          "value": "postmenopauzaal",
+          "label": "Postmenopauzaal"
+        },
+        {
+          "id": "edge-menopauzale-status-premenopauzaal",
+          "from": "menopauzale-status",
+          "to": "adnextirpatie-of-cystectomie",
+          "value": "premenopauzaal",
+          "label": "Premenopauzaal"
+        },
+        {
+          "id": "edge-familiaire-belasting-ja",
+          "from": "familiaire-belasting",
+          "to": "bilaterale-adnexextirpatie-erfelijk",
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "id": "edge-familiaire-belasting-nee",
+          "from": "familiaire-belasting",
+          "to": "leeftijd",
+          "value": "nee",
+          "label": "Nee"
+        },
+        {
+          "id": "edge-leeftijd-jonger-dan-51",
+          "from": "leeftijd",
+          "to": "adnextirpatie-behoud-adnex",
+          "value": "jonger-dan-51",
+          "label": "<51 jaar"
+        },
+        {
+          "id": "edge-leeftijd-51-65",
+          "from": "leeftijd",
+          "to": "adnextirpatie-bespreek-behoud-ovarium",
+          "value": "51-65",
+          "label": "51-65 jaar"
+        },
+        {
+          "id": "edge-leeftijd-ouder-dan-65",
+          "from": "leeftijd",
+          "to": "bilaterale-adnexextirpatie-leeftijd",
+          "value": "ouder-dan-65",
+          "label": ">65 jaar"
+        },
+        {
+          "id": "edge-adnextirpatie-of-cystectomie-verwijzing-follow-up-na-chirurgie-adnextirpatie-of-cystectomie",
+          "from": "adnextirpatie-of-cystectomie",
+          "to": "verwijzing-follow-up-na-chirurgie-adnextirpatie-of-cystectomie"
+        },
+        {
+          "id": "edge-adnextirpatie-behoud-adnex-verwijzing-follow-up-na-chirurgie-adnextirpatie-behoud-adnex",
+          "from": "adnextirpatie-behoud-adnex",
+          "to": "verwijzing-follow-up-na-chirurgie-adnextirpatie-behoud-adnex"
+        },
+        {
+          "id": "edge-adnextirpatie-bespreek-behoud-ovarium-verwijzing-follow-up-na-chirurgie-adnextirpatie-bespreek-behoud-ovarium",
+          "from": "adnextirpatie-bespreek-behoud-ovarium",
+          "to": "verwijzing-follow-up-na-chirurgie-adnextirpatie-bespreek-behoud-ovarium"
+        },
+        {
+          "id": "edge-bilaterale-adnexextirpatie-leeftijd-verwijzing-follow-up-na-chirurgie-bilaterale-adnexextirpatie-leeftijd",
+          "from": "bilaterale-adnexextirpatie-leeftijd",
+          "to": "verwijzing-follow-up-na-chirurgie-bilaterale-adnexextirpatie-leeftijd"
+        },
+        {
+          "id": "edge-bilaterale-adnexextirpatie-erfelijk-verwijzing-follow-up-na-chirurgie-bilaterale-adnexextirpatie-erfelijk",
+          "from": "bilaterale-adnexextirpatie-erfelijk",
+          "to": "verwijzing-follow-up-na-chirurgie-bilaterale-adnexextirpatie-erfelijk"
+        }
+      ]
+    },
+    "follow-up-benigne-ovariumcyste": {
+      "layout": {},
+      "nodes": [
+        {
+          "id": "titel",
+          "type": "title",
+          "label": "Follow up benigne ovariumcyste"
+        },
+        {
+          "id": "klachten",
+          "type": "dataItem",
+          "label": "Klachten",
+          "below": "titel",
+          "interactive": true,
+          "options": [
+            {
+              "value": "ja",
+              "label": "Ja",
+              "edge": "edge-klachten-ja"
+            },
+            {
+              "value": "nee",
+              "label": "Nee",
+              "edge": "edge-klachten-nee"
+            }
+          ]
+        },
+        {
+          "id": "groei",
+          "type": "dataItem",
+          "label": "Groei",
+          "childOf": "klachten",
+          "interactive": true,
+          "options": [
+            {
+              "value": "ja",
+              "label": "Ja",
+              "edge": "edge-groei-ja"
+            },
+            {
+              "value": "nee",
+              "label": "Nee",
+              "edge": "edge-groei-nee"
+            }
+          ],
+          "order": 1
+        },
+        {
+          "id": "morfologische-veranderingen",
+          "type": "dataItem",
+          "label": "Morfologische veranderingen",
+          "childOf": "groei",
+          "interactive": true,
+          "options": [
+            {
+              "value": "ja",
+              "label": "Ja",
+              "edge": "edge-morfologische-veranderingen-ja"
+            },
+            {
+              "value": "nee",
+              "label": "Nee",
+              "edge": "edge-morfologische-veranderingen-nee"
+            }
+          ]
+        },
+        {
+          "id": "terug-naar-follow-up",
+          "type": "recommendation",
+          "text": "Terug naar follow up\n{i} einde follow up na 12 maanden",
+          "recommendationOf": "morfologische-veranderingen",
+          "order": 1
+        },
+        {
+          "id": "predictiemodel",
+          "type": "dataItem",
+          "label": "Predictiemodel\nBij voorkeur adnex-model",
+          "childOf": "morfologische-veranderingen",
+          "interactive": true,
+          "options": [
+            {
+              "value": "gte-40",
+              "label": ">=40%\nkans op maligniteit",
+              "edge": "edge-predictiemodel-gte-40"
+            },
+            {
+              "value": "lt-40",
+              "label": "<40%\nkans op maligniteit",
+              "edge": "edge-predictiemodel-lt-40"
+            }
+          ],
+          "order": 2
+        },
+        {
+          "id": "verwijs-oncologisch-centrum",
+          "type": "recommendation",
+          "text": "Verwijs naar oncologisch centrum\nEN\nChirurgie door oncologisch gynaecoloog",
+          "recommendationOf": "predictiemodel",
+          "order": 2
+        },
+        {
+          "id": "chirurgie-algemeen-ziekenhuis-predictie",
+          "type": "recommendation",
+          "text": "Chirurgie in algemeen ziekenhuis",
+          "recommendationOf": "predictiemodel",
+          "order": 1,
+          "icon": "plus",
+          "to": "chirurgie"
+        },
+        {
+          "id": "chirurgie-algemeen-ziekenhuis-klachten",
+          "type": "recommendation",
+          "text": "Chirurgie in algemeen ziekenhuis",
+          "recommendationOf": "klachten",
+          "order": 2,
+          "icon": "plus",
+          "to": "chirurgie"
+        },
+        {
+          "id": "verwijzing-follow-up-na-chirurgie-predictie",
+          "type": "reference",
+          "label": "Follow up na chirurgie",
+          "to": "follow-up-na-chirurgie",
+          "below": "chirurgie-algemeen-ziekenhuis-predictie"
+        },
+        {
+          "id": "verwijzing-follow-up-na-chirurgie-klachten",
+          "type": "reference",
+          "label": "Follow up na chirurgie",
+          "to": "follow-up-na-chirurgie",
+          "below": "chirurgie-algemeen-ziekenhuis-klachten"
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-titel-klachten",
+          "from": "titel",
+          "to": "klachten"
+        },
+        {
+          "id": "edge-klachten-ja",
+          "from": "klachten",
+          "to": "chirurgie-algemeen-ziekenhuis-klachten",
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "id": "edge-klachten-nee",
+          "from": "klachten",
+          "to": "groei",
+          "value": "nee",
+          "label": "Nee"
+        },
+        {
+          "id": "edge-groei-ja",
+          "from": "groei",
+          "to": "chirurgie-algemeen-ziekenhuis-klachten",
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "id": "edge-groei-nee",
+          "from": "groei",
+          "to": "morfologische-veranderingen",
+          "value": "nee",
+          "label": "Nee"
+        },
+        {
+          "id": "edge-morfologische-veranderingen-ja",
+          "from": "morfologische-veranderingen",
+          "to": "predictiemodel",
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "id": "edge-morfologische-veranderingen-nee",
+          "from": "morfologische-veranderingen",
+          "to": "terug-naar-follow-up",
+          "value": "nee",
+          "label": "Nee"
+        },
+        {
+          "id": "edge-predictiemodel-gte-40",
+          "from": "predictiemodel",
+          "to": "verwijs-oncologisch-centrum",
+          "value": "gte-40",
+          "label": ">=40%\nkans op maligniteit"
+        },
+        {
+          "id": "edge-predictiemodel-lt-40",
+          "from": "predictiemodel",
+          "to": "chirurgie-algemeen-ziekenhuis-predictie",
+          "value": "lt-40",
+          "label": "<40%\nkans op maligniteit"
+        },
+        {
+          "id": "edge-chirurgie-algemeen-ziekenhuis-predictie-verwijzing-follow-up-na-chirurgie-predictie",
+          "from": "chirurgie-algemeen-ziekenhuis-predictie",
+          "to": "verwijzing-follow-up-na-chirurgie-predictie"
+        },
+        {
+          "id": "edge-chirurgie-algemeen-ziekenhuis-klachten-verwijzing-follow-up-na-chirurgie-klachten",
+          "from": "chirurgie-algemeen-ziekenhuis-klachten",
+          "to": "verwijzing-follow-up-na-chirurgie-klachten"
+        }
+      ]
+    },
+    "follow-up-expectatief-beleid": {
+      "layout": {},
+      "nodes": [
+        {
+          "id": "titel",
+          "type": "title",
+          "label": "Follow up bij expectatief beleid"
+        },
+        {
+          "id": "echoscopie-controle",
+          "type": "recommendation",
+          "text": "Echoscopie na 3,6 en 12 maanden gerekend vanaf baseline\n{i} geen tekenen van groei of morfologische veranderingen",
+          "below": "titel"
+        },
+        {
+          "id": "verwijzing-follow-up-benigne-ovariumcyste",
+          "type": "reference",
+          "label": "Follow up benigne ovariumcyste",
+          "to": "follow-up-benigne-ovariumcyste",
+          "below": "echoscopie-controle"
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-titel-echoscopie-controle",
+          "from": "titel",
+          "to": "echoscopie-controle"
+        },
+        {
+          "id": "edge-echoscopie-controle-verwijzing-follow-up-benigne-ovariumcyste",
+          "from": "echoscopie-controle",
+          "to": "verwijzing-follow-up-benigne-ovariumcyste"
+        }
+      ]
+    },
+    "follow-up-na-chirurgie": {
+      "layout": {},
+      "nodes": [
+        {
+          "id": "titel",
+          "type": "title",
+          "label": "Follow up na chirurgie"
+        },
+        {
+          "id": "uitslag-pathologie",
+          "type": "dataItem",
+          "label": "Uitslag pathologie",
+          "below": "titel",
+          "interactive": true,
+          "options": [
+            {
+              "value": "benigne",
+              "label": "Benigne",
+              "edge": "edge-uitslag-pathologie-benigne"
+            },
+            {
+              "value": "borderline",
+              "label": "Borderline",
+              "edge": "edge-uitslag-pathologie-borderline"
+            },
+            {
+              "value": "maligne",
+              "label": "Maligne",
+              "edge": "edge-uitslag-pathologie-maligne"
+            }
+          ]
+        },
+        {
+          "id": "stop-follow-up",
+          "type": "recommendation",
+          "text": "Stop follow up",
+          "recommendationOf": "uitslag-pathologie"
+        },
+        {
+          "id": "follow-up-borderline",
+          "type": "recommendation",
+          "text": "Follow up\nOF\nStop follow up indien beiderzijds adnextirpatie\nOF\nIndividualiseer follow up\n{i} bij aanwezigheid implants",
+          "recommendationOf": "uitslag-pathologie"
+        },
+        {
+          "id": "verwijs-oncologisch-centrum-stagering",
+          "type": "recommendation",
+          "text": "Verwijs naar oncologisch centrum\nEN\nStagering",
+          "recommendationOf": "uitslag-pathologie"
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-titel-uitslag-pathologie",
+          "from": "titel",
+          "to": "uitslag-pathologie"
+        },
+        {
+          "id": "edge-uitslag-pathologie-benigne",
+          "from": "uitslag-pathologie",
+          "to": "stop-follow-up",
+          "value": "benigne",
+          "label": "Benigne"
+        },
+        {
+          "id": "edge-uitslag-pathologie-borderline",
+          "from": "uitslag-pathologie",
+          "to": "follow-up-borderline",
+          "value": "borderline",
+          "label": "Borderline"
+        },
+        {
+          "id": "edge-uitslag-pathologie-maligne",
+          "from": "uitslag-pathologie",
+          "to": "verwijs-oncologisch-centrum-stagering",
+          "value": "maligne",
+          "label": "Maligne"
+        }
+      ]
+    }
+  }
 }
-
