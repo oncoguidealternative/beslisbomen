@@ -18,7 +18,10 @@
    - normal: geen bijzondere status
 
    Aanbevelingenoverzicht (Sprint 13): recommendations(graph) leidt per outcome af welke combinaties van keuzes
-   erheen leiden, uitsluitend uit de graph. describeConditions(conditions) maakt daar leesbare tekst van. */
+   erheen leiden, uitsluitend uit de graph. describeConditions(conditions) maakt daar leesbare tekst van.
+
+   Hulpbeslisbomen: subtreeOf(node) en subtreeValue(node, outcome) lezen de koppeling tussen een keuzenode en
+   de uitkomsten van zijn hulpbeslisboom (zie docs/hulpbeslisbomen.md). */
 const GraphState = (function () {
   'use strict';
 
@@ -466,6 +469,32 @@ const GraphState = (function () {
     return lines;
   }
 
+  /* ===== Hulpbeslisbomen ===== */
+
+  /* Leest het veld subtree van een node: { tree, map } of null.
+     Schrijfwijzen: "subtree": "<boom-id>"  of  "subtree": { "tree": "<boom-id>", "map": { "<outcome-id>": "<optiewaarde>" } }.
+     map koppelt per uitkomst van de hulpbeslisboom een waarde (value) van een optie van deze node. */
+  function subtreeOf(node) {
+    if (!node || node.subtree === undefined || node.subtree === null) return null;
+    var s = node.subtree;
+    if (typeof s === 'string') return s.trim() ? { tree: s.trim(), map: {} } : null;
+    if (typeof s === 'object' && !Array.isArray(s) && typeof s.tree === 'string' && s.tree.trim()) {
+      return { tree: s.tree.trim(), map: (s.map && typeof s.map === 'object' && !Array.isArray(s.map)) ? s.map : {} };
+    }
+    return null;
+  }
+
+  /* De optiewaarde van keuzenode `node` die hoort bij een uitkomst van zijn hulpbeslisboom, of null.
+     Volgorde: de map op de node, anders het veld "value" op de uitkomst zelf. De waarde moet een
+     bestaande optie van de node zijn; anders is de uitkomst niet over te nemen. */
+  function subtreeValue(node, outcome) {
+    var cfg = subtreeOf(node);
+    if (!cfg || !outcome || !isChoice(node)) return null;
+    var v = Object.prototype.hasOwnProperty.call(cfg.map, outcome.id) ? cfg.map[outcome.id] : outcome.value;
+    if (v === undefined || v === null) return null;
+    return node.options.some(function (o) { return o.value === v; }) ? v : null;
+  }
+
   return {
     isChoice: isChoice,
     isInteractive: isInteractive,
@@ -476,6 +505,8 @@ const GraphState = (function () {
     describeNodeLines: describeNodeLines,
     recommendations: recommendations,
     describeConditions: describeConditions,
-    routeStatus: routeStatus
+    routeStatus: routeStatus,
+    subtreeOf: subtreeOf,
+    subtreeValue: subtreeValue
   };
 })();
