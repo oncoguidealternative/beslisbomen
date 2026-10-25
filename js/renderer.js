@@ -192,6 +192,10 @@ const Renderer = (function () {
     var ms = el('marker', {id: 'ah-selected', viewBox: '0 0 10 10', refX: 10, refY: 5, markerUnits: 'userSpaceOnUse',
       markerWidth: 15 * s, markerHeight: 15 * s, orient: 'auto'}, defs);
     el('path', {d: 'M0,0 L10,5 L0,10 z', fill: '#5cb85c', 'class': 'marker-selected'}, ms);
+    // Pijlpunt voor een gemarkeerde route (aanbevelingenoverzicht); gekozen via CSS (.edge.is-route).
+    var mr = el('marker', {id: 'ah-route', viewBox: '0 0 10 10', refX: 10, refY: 5, markerUnits: 'userSpaceOnUse',
+      markerWidth: 15 * s, markerHeight: 15 * s, orient: 'auto'}, defs);
+    el('path', {d: 'M0,0 L10,5 L0,10 z', fill: '#FFD60A'}, mr);
 
     graph.edges.forEach(function (e) {
       var d = e.points.map(function (p, i) { return (i ? 'L' : 'M') + p[0] + ',' + p[1]; }).join(' ');
@@ -488,6 +492,25 @@ const Renderer = (function () {
     if (g) g.classList.add('is-guided-target');
   }
 
+  /* Markeert een route in de boom (geel) uit {nodeIds, edgeIds}; null haalt de markering weg.
+     Alleen klassen (is-route): geen eigen status, en applyStatus laat de markering ongemoeid.
+     Na een nieuwe render (andere boom) is de markering vanzelf verdwenen. */
+  function setRouteHighlight(route) {
+    if (!els || !els.svg) return;
+    els.svg.querySelectorAll('.is-route').forEach(function (item) { item.classList.remove('is-route'); });
+    els.svg.classList.toggle('has-route', !!route);
+    if (!route) return;
+    var nodes = {}, edges = {};
+    (route.nodeIds || []).forEach(function (id) { nodes[id] = true; });
+    (route.edgeIds || []).forEach(function (id) { edges[id] = true; });
+    els.svg.querySelectorAll('.node[data-node-id]').forEach(function (g) {
+      if (nodes[g.getAttribute('data-node-id')]) g.classList.add('is-route');
+    });
+    els.svg.querySelectorAll('[data-edge-id]').forEach(function (item) {
+      if (edges[item.getAttribute('data-edge-id')]) item.classList.add('is-route');
+    });
+  }
+
   /* Verplaatst de toetsenbordfocus naar een node zonder de pagina te laten scrollen. */
   function focusNode(id) {
     var g = els.svg.querySelector('.node[data-node-id="' + id + '"]');
@@ -531,6 +554,7 @@ const Renderer = (function () {
     applyStatus: applyStatus,
     nodeBox: nodeBox,
     setGuidedTarget: setGuidedTarget,
+    setRouteHighlight: setRouteHighlight,
     focusNode: focusNode
   };
 })();
