@@ -243,7 +243,11 @@
         applyFit(view.graph);
         ensureFirstAvailableVisible();
       }
+      if (typeof RecommendationsPanel !== "undefined") {
+        RecommendationsPanel.setTree({ treeId: view.treeId, graph: view.graph });
+      }
       refreshGraph();
+      refreshRecommendations();
       if (view.treeId) window.scrollTo(0, 0);
     }
 
@@ -266,6 +270,12 @@
       if (!graphIsInteractive()) return;
       const values = getSelections(currentTreeId);
       Renderer.applyStatus(GraphState.compute(currentGraph, values), values);
+    }
+
+    // Werkt het aanbevelingenoverzicht bij (badges, voorwaarden) uit dezelfde statusberekening als de boom.
+    function refreshRecommendations() {
+      if (typeof RecommendationsPanel === "undefined" || !currentTreeId || !currentGraph) return;
+      RecommendationsPanel.refresh(GraphState.compute(currentGraph, getSelections(currentTreeId)));
     }
 
     // Verwijdert keuzes die door een wijziging niet meer geldig of bereikbaar zijn (via de state-functies).
@@ -398,6 +408,30 @@
       }
     }
 
+    // Aanbevelingenoverzicht: markeer de route in de boom en breng de aanbeveling in beeld. Het deel van het
+    // werkvlak dat het open paneel afdekt telt niet mee. Alleen pan (zoom blijft); niets als de node al zichtbaar is.
+    function showRecommendation(target) {
+      cancelJourney();
+      clearGuidedTarget();
+      Renderer.setRouteHighlight(target);
+      if (!currentGraph || !currentGraph.native || !target || !target.targetId) return;
+      const box = Renderer.nodeBox(currentGraph, target.targetId);
+      if (!box) return;
+      const inset = RecommendationsPanel.coveredInsets();
+      const v = getState().viewport;
+      const w = refs.stage.clientWidth - inset.right;
+      const h = refs.stage.clientHeight - inset.bottom;
+      const left = v.panX + box.x * v.zoom;
+      const top = v.panY + box.y * v.zoom;
+      const fullyVisible = left >= VISIBLE_MARGIN && left + box.w * v.zoom <= w - VISIBLE_MARGIN &&
+        top >= VISIBLE_MARGIN && top + box.h * v.zoom <= h - VISIBLE_MARGIN;
+      if (fullyVisible) return;
+      movePanTo({
+        x: w / 2 - (box.x + box.w / 2) * v.zoom,
+        y: h / 2 - (box.y + box.h / 2) * v.zoom
+      }, function () {});
+    }
+
     // Eén selectiepad voor een keuze, ongeacht de bron (radioknop in het keuzevenster of klik op een connector):
     // centrale state -> opschonen -> melding -> begeleide reis. SVG en venster volgen via subscribe.
     function selectOption(treeId, nodeId, value, info) {
@@ -438,6 +472,16 @@
       }
     });
 
+    // Aanbevelingenoverzicht (Sprint 13): paneel naast het diagram; klik markeert de route in de boom.
+    if (typeof RecommendationsPanel !== "undefined") {
+      RecommendationsPanel.init({
+        host: refs.main,
+        stage: refs.stage,
+        onShow: showRecommendation,
+        onClear: function () { Renderer.setRouteHighlight(null); }
+      });
+    }
+
     // Eén abonnement voor de hele pagina: viewport en selecties worden toegepast zodra de state verandert.
     subscribe(function (snapshot, key, detail) {
       if (key === "viewport") {
@@ -447,6 +491,7 @@
         // Alleen herberekenen als de wijziging de getoonde boom betreft (of alle bomen).
         if (!detail || !detail.treeId || detail.treeId === currentTreeId) {
           refreshGraph();
+          refreshRecommendations();
           ChoicePanel.sync();
         }
       }
