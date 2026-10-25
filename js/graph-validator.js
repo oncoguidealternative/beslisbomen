@@ -229,6 +229,72 @@ const GraphValidator = (function () {
     });
   }
 
+  /* Leest het veld subtree van een node: { tree, map } of null (zelfde schrijfwijzen als GraphState.subtreeOf). */
+  function subtreeRef(node) {
+    var sub = node && node.subtree;
+    if (typeof sub === 'string') return nonEmptyString(sub) ? { tree: sub.trim(), map: {} } : null;
+    if (isObject(sub) && nonEmptyString(sub.tree)) return { tree: sub.tree.trim(), map: isObject(sub.map) ? sub.map : {} };
+    return null;
+  }
+
+  /* Controleert de koppelingen met hulpbeslisbomen (alleen meldingen; wijzigt niets). */
+  function validateSubtrees(zorgpad, tumorId, summary) {
+    var trees = zorgpad.trees || {};
+    function nodesOf(id) {
+      var t = trees[id];
+      if (t && t.same) t = trees[t.same];
+      return t && Array.isArray(t.nodes) ? t.nodes : null;
+    }
+    var links = {};   // boom-id -> [hulpbeslisboom-id's], voor de cyclus-controle
+    Object.keys(trees).forEach(function (treeId) {
+      var t = trees[treeId];
+      if (!t || t.same || !Array.isArray(t.nodes)) return;
+      function warn(nodeId, message) {
+        summary.issues.push({ level: 'warning', tumor: tumorId, tree: treeId, node: nodeId, edge: null, message: message });
+      }
+      t.nodes.forEach(function (n) {
+        if (n.subtree === undefined) return;
+        var ref = subtreeRef(n);
+        if (!ref) { warn(n.id, 'Node "' + n.id + '": "subtree" moet een boom-id zijn of { "tree": "<boom-id>", "map": { ... } }.'); return; }
+        if (n.interactive !== true || !Array.isArray(n.options)) {
+          warn(n.id, 'Node "' + n.id + '" heeft "subtree" maar is geen interactief criterium (interactive/options); de hulpbeslisboom is niet te openen.');
+        }
+        var subNodes = nodesOf(ref.tree);
+        if (!subNodes) { warn(n.id, 'Node "' + n.id + '": hulpbeslisboom "' + ref.tree + '" bestaat niet in "trees".'); return; }
+        (links[treeId] = links[treeId] || []).push(ref.tree);
+        var outcomes = {};
+        subNodes.forEach(function (x) { if (x.type === 'outcome') outcomes[x.id] = x; });
+        var optionValues = Array.isArray(n.options) ? n.options.map(function (o) { return o && o.value; }) : [];
+        Object.keys(ref.map).forEach(function (outcomeId) {
+          if (!outcomes[outcomeId]) warn(n.id, 'Node "' + n.id + '": map verwijst naar "' + outcomeId + '", maar dat is geen uitkomst (outcome) in hulpbeslisboom "' + ref.tree + '".');
+          if (optionValues.indexOf(ref.map[outcomeId]) < 0) warn(n.id, 'Node "' + n.id + '": map koppelt "' + outcomeId + '" aan "' + ref.map[outcomeId] + '", maar dat is geen optie van deze node.');
+        });
+        Object.keys(outcomes).forEach(function (outcomeId) {
+          var o = outcomes[outcomeId];
+          var mapped = Object.prototype.hasOwnProperty.call(ref.map, outcomeId) ? ref.map[outcomeId] : o.value;
+          if (mapped === undefined) warn(n.id, 'Node "' + n.id + '": uitkomst "' + outcomeId + '" van hulpbeslisboom "' + ref.tree + '" heeft geen gekoppelde waarde; die uitkomst is niet over te nemen.');
+          else if (Object.prototype.hasOwnProperty.call(o, 'value') && !Object.prototype.hasOwnProperty.call(ref.map, outcomeId) && optionValues.indexOf(mapped) < 0) {
+            warn(n.id, 'Node "' + n.id + '": "value" "' + mapped + '" van uitkomst "' + outcomeId + '" is geen optie van deze node.');
+          }
+        });
+      });
+    });
+    // Een hulpbeslisboom mag zichzelf (direct of indirect) niet aanwijzen.
+    Object.keys(links).forEach(function (start) {
+      var seen = {}, stack = (links[start] || []).slice();
+      while (stack.length) {
+        var id = stack.pop();
+        if (id === start) {
+          summary.issues.push({ level: 'warning', tumor: tumorId, tree: start, node: null, edge: null, message: 'Boom "' + start + '" wijst via subtree direct of indirect zichzelf aan (cyclus).' });
+          return;
+        }
+        if (seen[id]) continue;
+        seen[id] = true;
+        (links[id] || []).forEach(function (x) { stack.push(x); });
+      }
+    });
+  }
+
   /* Valideert alle bomen van een zorgpad (zonder de weergave te beïnvloeden). */
   function validateTumor(zorgpad, tumorId) {
     var summary = { trees: {}, issues: [] };
@@ -239,6 +305,7 @@ const GraphValidator = (function () {
       summary.trees[treeId] = r;
       summary.issues = summary.issues.concat(r.issues);
     });
+    validateSubtrees(zorgpad, tumorId, summary);
     return summary;
   }
 
