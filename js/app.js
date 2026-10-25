@@ -171,6 +171,10 @@
 
     let currentGraph = null;
     let currentTreeId = null;
+    // Alleen in een hulpbeslisboom: de node in de beslisboom van herkomst waarvoor deze hulpboom een waarde bepaalt.
+    let currentContext = null;
+    // Gekozen uitkomst van een hulpbeslisboom, te verwerken zodra de beslisboom van herkomst getoond is.
+    let pendingReturn = null;
 
     // Zet de door de renderer berekende passende zoom en pan in de centrale state.
     function applyFit(graph) {
@@ -226,7 +230,12 @@
 
     // Leest de URL-hash, werkt de state bij en laat de renderer tekenen.
     function showRoute() {
-      const id = location.hash.replace(/^#\//, "");
+      // Hash: #/<boom-id> of, voor een hulpbeslisboom, #/<boom-id>?from=<boom-id>:<node-id> (de aanwijzende node).
+      const rawHash = location.hash.replace(/^#\//, "");
+      const queryAt = rawHash.indexOf("?");
+      let id = queryAt < 0 ? rawHash : rawHash.slice(0, queryAt);
+      try { id = decodeURIComponent(id); } catch (e) { /* ongeldige codering: gebruik de ruwe tekst */ }
+      const fromParam = new URLSearchParams(queryAt < 0 ? "" : rawHash.slice(queryAt + 1)).get("from");
       const view = Renderer.resolve(zorgpad, id);
       view.graph = validatedGraph(view.treeId, view.graph);
       currentGraph = view.graph;
@@ -237,7 +246,16 @@
       cancelJourney();
       clearGuidedTarget();
       ChoicePanel.close(false);
-      Renderer.draw(view, { navigate: navigate, interact: interact, select: selectEdge });
+      currentContext = view.subtree ? resolveContext(view.treeId, fromParam) : null;
+      Renderer.draw(view, {
+        // De wortel van een hulpbeslisboom (minus-icoon) gaat een niveau omhoog, naar de beslisboom van herkomst.
+        navigate: function (target) { if (target === "" && currentContext) goUp(); else navigate(target); },
+        interact: interact,
+        select: selectEdge,
+        subtree: enterSubtree,
+        take: takeOutcome
+      });
+      if (currentContext) Renderer.setTakeable(takeableItems());
       // Pas na het tekenen: pas dan heeft het werkvlak zijn (native) afmetingen.
       if (view.graph && view.graph.native) {
         applyFit(view.graph);
@@ -248,6 +266,8 @@
       }
       refreshGraph();
       refreshRecommendations();
+      refreshSubtreeBar();
+      applyPendingReturn();
       if (view.treeId) window.scrollTo(0, 0);
     }
 
@@ -258,6 +278,163 @@
         return;
       }
       ChoicePanel.open({ tumorId: tumorId, treeId: currentTreeId, nodeId: item.id, label: item.label, options: item.options, anchor: anchor });
+    }
+
+    // ----- Hulpbeslisbomen -----
+    // Een keuzenode met `subtree` opent een hulpbeslisboom; een bereikte uitkomst daarvan kiest een waarde van die
+    // node en keert terug (zie docs/hulpbeslisbomen.md). Alles volgt uit de zorgpaddata; geen tumorspecifieke code.
+    function graphOfTree(treeId) {
+      const view = Renderer.resolve(zorgpad, treeId);
+      if (view.treeId !== treeId || !view.graph) return null;
+      return validatedGraph(treeId, view.graph);
+    }
+
+    function contextFor(parentTreeId, parentNodeId, subTreeId) {
+      const graph = graphOfTree(parentTreeId);
+      const node = graph && graph.nodes.filter(function (n) { return n.id === parentNodeId; })[0];
+      const ref = node && GraphState.subtreeOf(node);
+      if (!node || !ref || ref.tree !== subTreeId || !GraphState.isChoice(node)) return null;
+      return {
+        parentTreeId: parentTreeId,
+        parentNodeId: parentNodeId,
+        parentNode: node,
+        parentLabel: Renderer.resolve(zorgpad, parentTreeId).label
+      };
+    }
+
+    // Herkomst uit de URL; zonder (geldige) herkomst alleen als precies één node naar deze hulpbeslisboom verwijst.
+    function resolveContext(subTreeId, fromParam) {
+      if (fromParam) {
+        const at = fromParam.indexOf(":");
+        if (at > 0) {
+          const ctx = contextFor(fromParam.slice(0, at), fromParam.slice(at + 1), subTreeId);
+          if (ctx) return ctx;
+        }
+      }
+      const found = [];
+      Object.keys(zorgpad.trees || {}).forEach(function (treeId) {
+        const t = zorgpad.trees[treeId];
+        if (!t || t.same || !Array.isArray(t.nodes)) return;
+        t.nodes.forEach(function (n) {
+          const ref = GraphState.subtreeOf(n);
+          if (ref && ref.tree === subTreeId && n.interactive === true) found.push({ tree: treeId, node: n.id });
+        });
+      });
+      return found.length === 1 ? contextFor(found[0].tree, found[0].node, subTreeId) : null;
+    }
+
+    function goUp() {
+      if (currentContext) location.hash = "#/" + currentContext.parentTreeId;
+    }
+
+    function enterSubtree(item) {
+      if (!zorgpad.trees || !zorgpad.trees[item.tree]) {
+        ChoicePanel.announce("De hulpbeslisboom voor " + item.label + " is nog niet beschikbaar.");
+        return;
+      }
+      location.hash = "#/" + encodeURIComponent(item.tree) + "?from=" + encodeURIComponent(currentTreeId + ":" + item.nodeId);
+    }
+
+    // Uitkomsten van de getoonde hulpbeslisboom die een waarde van de node van herkomst opleveren.
+    function takeableItems() {
+      if (!currentContext) return [];
+      return currentGraph.nodes.filter(function (n) {
+        return n.type === "outcome" && GraphState.subtreeValue(currentContext.parentNode, n) !== null;
+      }).map(function (n) { return { id: n.id, label: GraphState.describeNode(n) }; });
+    }
+
+    // Een bereikte uitkomst aangeklikt: waarde onthouden en terug; de keuze zelf gaat via selectOption zodra
+    // de beslisboom van herkomst getoond is (dan loopt alles via hetzelfde pad als een klik op een connector).
+    function takeOutcome(item) {
+      if (!currentContext) return;
+      const parent = currentContext.parentNode;
+      const value = GraphState.subtreeValue(parent, nodeById(item.nodeId));
+      if (value === null) return;
+      const option = parent.options.filter(function (o) { return o.value === value; })[0];
+      pendingReturn = {
+        treeId: currentContext.parentTreeId,
+        nodeId: currentContext.parentNodeId,
+        value: value,
+        nodeLabel: parent.label || parent.id,
+        optionLabel: option && option.label !== undefined ? option.label : String(value)
+      };
+      goUp();
+    }
+
+    function applyPendingReturn() {
+      if (!pendingReturn) return;
+      const p = pendingReturn;
+      pendingReturn = null;
+      if (p.treeId !== currentTreeId) return;
+      selectOption(p.treeId, p.nodeId, p.value, { nodeLabel: p.nodeLabel, optionLabel: p.optionLabel });
+    }
+
+    // Verwijdert in een andere boom dan de getoonde de keuzes die door een wijziging niet meer gelden.
+    function pruneTree(treeId) {
+      const graph = graphOfTree(treeId);
+      if (!graph || !GraphState.isInteractive(graph)) return;
+      GraphState.prune(graph, getSelections(treeId)).removed.forEach(function (nodeId) { clearSelection(treeId, nodeId); });
+    }
+
+    // Balk linksboven in een hulpbeslisboom: terug, uitleg over de uitkomst, en de keuze in de ouder wissen.
+    const subBar = document.createElement("div");
+    subBar.className = "sub-bar";
+    subBar.hidden = true;
+    const subRow = document.createElement("div");
+    subRow.className = "sub-row";
+    const subBack = document.createElement("button");
+    subBack.type = "button";
+    subBack.className = "zp-btn sub-back";
+    subBack.addEventListener("click", goUp);
+    const subClear = document.createElement("button");
+    subClear.type = "button";
+    subClear.className = "zp-btn sub-clear";
+    subClear.hidden = true;
+    subClear.addEventListener("click", function () {
+      if (!currentContext) return;
+      const ctx = currentContext;
+      clearSelection(ctx.parentTreeId, ctx.parentNodeId);
+      pruneTree(ctx.parentTreeId);
+      refreshSubtreeBar();
+      ChoicePanel.announce("Keuze voor " + (ctx.parentNode.label || ctx.parentNodeId) + " gewist.");
+    });
+    const subStatus = document.createElement("p");
+    subStatus.className = "sub-status";
+    subStatus.setAttribute("role", "status");
+    subStatus.setAttribute("aria-live", "polite");
+    subRow.appendChild(subBack);
+    subRow.appendChild(subClear);
+    subBar.appendChild(subRow);
+    subBar.appendChild(subStatus);
+    refs.main.appendChild(subBar);
+
+    function refreshSubtreeBar() {
+      const ctx = currentContext;
+      subBar.hidden = !ctx;
+      if (!ctx) return;
+      const name = ctx.parentNode.label || ctx.parentNodeId;
+      subBack.textContent = "\u2190 Terug naar " + ctx.parentLabel;
+      const current = getSelections(ctx.parentTreeId)[ctx.parentNodeId];
+      const currentOption = current === undefined ? null
+        : ctx.parentNode.options.filter(function (o) { return o.value === current; })[0];
+      subClear.hidden = !currentOption;
+      subClear.textContent = "Keuze " + name + " wissen";
+      const status = GraphState.compute(currentGraph, getSelections(currentTreeId));
+      const reached = currentGraph.nodes.filter(function (n) {
+        return n.type === "outcome" && status.nodes[n.id] === "selected";
+      })[0];
+      let text;
+      if (!reached) {
+        text = "Beantwoord de vragen om een waarde voor " + name + " te bepalen.";
+      } else {
+        const value = GraphState.subtreeValue(ctx.parentNode, reached);
+        const option = value === null ? null : ctx.parentNode.options.filter(function (o) { return o.value === value; })[0];
+        text = "Uitkomst: " + GraphState.describeNode(reached) + ". " + (option
+          ? "Klik op de uitkomst om " + name + ": " + option.label + " te kiezen."
+          : "Deze uitkomst is niet gekoppeld aan een waarde van " + name + ".");
+      }
+      if (currentOption) text += " Huidige keuze: " + currentOption.label + ".";
+      subStatus.textContent = text;
     }
 
     // ----- Graph-status -----
@@ -488,6 +665,7 @@
         Renderer.applyViewport();
         ChoicePanel.position();
       } else if (key === "selections") {
+        refreshSubtreeBar();
         // Alleen herberekenen als de wijziging de getoonde boom betreft (of alle bomen).
         if (!detail || !detail.treeId || detail.treeId === currentTreeId) {
           refreshGraph();
@@ -593,7 +771,7 @@
 
     // Dubbelklik op het diagram: terug naar standaardzoom en beginpositie.
     refs.stage.addEventListener("dblclick", function (ev) {
-      if (!navigationActive() || ev.target.closest(".node.go, .node.is-interactive, .edge-choice")) return;
+      if (!navigationActive() || ev.target.closest(".node.go, .node.is-interactive, .node.is-takeable, .edge-choice")) return;
       cancelJourney();
       resetViewport();
       if (currentGraph && currentGraph.native) {
