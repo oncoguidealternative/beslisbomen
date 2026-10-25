@@ -835,3 +835,47 @@ body[data-page="zorgpad"] .site-footer { margin-top: 0; }
 @media (prefers-reduced-motion: reduce) {
   .rec-title, .rec-route { transition: none; }
 }
+
+/* ===== Hulpbeslisbomen ===== */
+/* Balk linksboven in een hulpbeslisboom (terug, uitleg, keuze wissen) */
+.sub-bar {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: min(440px, calc(100% - 48px));
+}
+.sub-bar[hidden],
+.sub-clear[hidden] { display: none; }
+.sub-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.sub-bar .zp-btn {
+  background: var(--color-background);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .3);
+}
+.sub-bar .zp-btn:hover { background: #2c7d9e; }
+.sub-status {
+  margin: 0;
+  padding: 8px 12px;
+  background: #FFFFFF;
+  color: var(--color-text-dark);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .3);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: .9rem;
+  line-height: 1.4;
+}
+
+/* Bereikte uitkomst van een hulpbeslisboom: aanklikbaar om de waarde in de beslisboom van herkomst te kiezen */
+.zp-stage .node.is-takeable.is-selected { cursor: pointer; }
+.zp-stage .node.is-takeable.is-selected:hover rect,
+.zp-stage .node.is-takeable.is-selected:focus rect { fill: var(--color-success-hover); }
+.zp-stage .node.is-takeable.is-selected rect { stroke-dasharray: 10 5; stroke-width: 4; }
+.zp-stage .node.is-takeable.is-selected:focus-visible rect { stroke: var(--color-text-dark); stroke-dasharray: none; stroke-width: 4; }
+
+@media (max-width: 720px) {
+  /* smal scherm: de hulpbalk staat onder het aanbevelingenpaneel niet in de weg; schuif hem onder de knoppen */
+  .sub-bar { top: 72px; }
+}
