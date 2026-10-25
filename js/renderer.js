@@ -16,6 +16,8 @@ const Renderer = (function () {
   var onNavigate = function () {}; // callbacks van de aanroeper, geen applicatiestatus
   var onInteract = function () {};
   var onSelect = function () {}; // een klik op een connector (edge-label) van een interactief criterium
+  var onSubtree = function () {}; // een klik op een node met een hulpbeslisboom (subtree)
+  var onTake = function () {};    // activeren van een bereikte uitkomst in een hulpbeslisboom
 
   function el(name, attrs, parent) {
     var e = document.createElementNS(NS, name);
@@ -153,12 +155,41 @@ const Renderer = (function () {
     };
   }
 
+  /* Alle bomen die door een node als hulpbeslisboom worden aangewezen: { boom-id: titel }.
+     De titel is het label van de root van die boom, anders het label van de aanwijzende node. */
+  function subtreeLabels(zorgpad) {
+    var out = {};
+    var trees = (zorgpad && zorgpad.trees) || {};
+    if (typeof GraphState === 'undefined') return out;
+    Object.keys(trees).forEach(function (treeId) {
+      var t = trees[treeId];
+      if (!t || !Array.isArray(t.nodes)) return;
+      t.nodes.forEach(function (n) {
+        var ref = GraphState.subtreeOf(n);
+        if (!ref || Object.prototype.hasOwnProperty.call(out, ref.tree)) return;
+        var target = trees[ref.tree];
+        if (target && target.same) target = trees[target.same];
+        var root = target && Array.isArray(target.nodes)
+          ? target.nodes.filter(function (x) { return x.type === 'root' || x.type === 'title'; })[0] : null;
+        out[ref.tree] = (root && root.label) || n.label || ref.tree;
+      });
+    });
+    return out;
+  }
+
   /* Bepaalt wat getoond moet worden voor een boom-id (zonder iets te tekenen).
      Geeft {treeId, graph, label}; graph is null als de boom nog niet is toegevoegd.
      Een onbekende id valt terug op het overzicht (treeId = null). */
   function resolve(zorgpad, id) {
     var node = zorgpad.overview.nodes.filter(function (x) { return x.id === id && x.drill; })[0];
     if (!node) {
+      // Een hulpbeslisboom staat niet in het overzicht, maar wordt door een node (subtree) aangewezen.
+      var helper = subtreeLabels(zorgpad);
+      if (Object.prototype.hasOwnProperty.call(helper, id) && zorgpad.trees && zorgpad.trees[id]) {
+        var sub = zorgpad.trees[id];
+        if (sub.same) sub = zorgpad.trees[sub.same];
+        return {treeId: id, graph: sub || null, label: helper[id], subtree: true};
+      }
       return {treeId: null, graph: zorgpad.overview, label: zorgpad.titel};
     }
     var tree = zorgpad.trees && zorgpad.trees[id];
@@ -257,9 +288,11 @@ const Renderer = (function () {
     graph.nodes.forEach(function (n) {
       var w = n.w || size[0], h = n.h || size[1];
       var target = n.to !== undefined ? n.to : (n.drill ? n.id : null);
-      var icon = n.icon || (n.drill ? 'down' : null);
       var type = n.type || 'step';
       var interactive = n.interactive === true && Array.isArray(n.options);
+      // Een keuzenode met een hulpbeslisboom krijgt standaard het plus-icoon; een klik opent de hulpbeslisboom.
+      var subRef = (interactive && typeof GraphState !== 'undefined') ? GraphState.subtreeOf(n) : null;
+      var icon = n.icon || (n.drill ? 'down' : (subRef ? 'plus-light' : null));
       var g = el('g', {'data-node-id': n.id, 'class': 'node t-' + type + (n.tone ? ' tone-' + n.tone : '') + (target !== null ? ' go' : '') +
         (interactive ? ' is-interactive' : ''),
         transform: 'translate(' + n.x + ',' + n.y + ')'}, vp);
@@ -270,10 +303,15 @@ const Renderer = (function () {
         g.setAttribute('data-node-label', n.label);
         g.setAttribute('data-option-labels', JSON.stringify(optionLabels));
         g.setAttribute('role', 'button');
-        g.setAttribute('aria-haspopup', 'dialog');
+        if (subRef) g.setAttribute('data-subtree', subRef.tree);
+        else g.setAttribute('aria-haspopup', 'dialog');
         g.setAttribute('tabindex', '0');
-        g.setAttribute('aria-label', 'Kies een waarde voor ' + n.label);
-        var activate = function () { if (isClickable(g)) onInteract(item, g); };
+        g.setAttribute('aria-label', (subRef ? 'Open hulpbeslisboom voor ' : 'Kies een waarde voor ') + n.label);
+        var activate = function () {
+          if (!isClickable(g)) return;
+          if (subRef) onSubtree({nodeId: n.id, tree: subRef.tree, label: n.label});
+          else onInteract(item, g);
+        };
         g.addEventListener('click', activate);
         g.addEventListener('keydown', function (ev) {
           if (ev.key === 'Enter') { ev.preventDefault(); activate(); }
@@ -427,6 +465,44 @@ const Renderer = (function () {
     return g.classList.contains('is-available') || g.classList.contains('is-selected');
   }
 
+  /* Maakt uitkomsten (outcomes) van een hulpbeslisboom aanklikbaar: items = [{id, label}]. Aanroepen na draw().
+     Alleen een bereikte uitkomst (status selected) is te activeren; de aanroeper bepaalt wat dat betekent (onTake). */
+  function setTakeable(items) {
+    if (!els || !els.svg) return;
+    (items || []).forEach(function (it) {
+      var g = els.svg.querySelector('.node[data-node-id="' + it.id + '"]');
+      if (!g || g.getAttribute('data-takeable') === '1') return;
+      g.setAttribute('data-takeable', '1');
+      g.setAttribute('data-take-label', it.label || it.id);
+      g.setAttribute('role', 'button');
+      g.classList.add('is-takeable');
+      var activate = function () {
+        if (g.classList.contains('is-selected')) onTake({nodeId: it.id});
+      };
+      g.addEventListener('click', activate);
+      g.addEventListener('keydown', function (ev) {
+        if (ev.key === 'Enter') { ev.preventDefault(); activate(); }
+        else if (ev.key === ' ') { ev.preventDefault(); }
+      });
+      g.addEventListener('keyup', function (ev) {
+        if (ev.key === ' ') { ev.preventDefault(); activate(); }
+      });
+    });
+  }
+
+  function updateTakeable(g, st) {
+    var label = g.getAttribute('data-take-label');
+    if (st === 'selected') {
+      g.setAttribute('tabindex', '0');
+      g.removeAttribute('aria-disabled');
+      g.setAttribute('aria-label', 'Uitkomst ' + label + ': neem deze waarde over in de beslisboom');
+    } else {
+      g.removeAttribute('tabindex');
+      g.setAttribute('aria-disabled', 'true');
+      g.setAttribute('aria-label', label + (st === 'excluded' ? ': niet meer mogelijk' : ': nog niet bereikt'));
+    }
+  }
+
   /* Past een berekende graph-status toe als CSS-klassen op nodes, edges, dots en labels.
      status = {nodes: {id: status}, edges: {id: status}} (uit GraphState.compute);
      values = {nodeId: waarde} met de keuzes van de getoonde beslisboom (alleen voor de aria-labels).
@@ -437,6 +513,7 @@ const Renderer = (function () {
       var id = g.getAttribute('data-node-id');
       var st = status.nodes[id] || 'normal';
       setStatusClass(g, st);
+      if (g.getAttribute('data-takeable') === '1') { updateTakeable(g, st); return; }
       if (g.getAttribute('data-focusable') === 'link') {
         // Een navigatielink bij een uitgesloten uitkomst is niet bruikbaar: uit de tabvolgorde en niet aanklikbaar.
         if (st === 'excluded') { g.removeAttribute('tabindex'); g.setAttribute('aria-disabled', 'true'); }
@@ -445,7 +522,7 @@ const Renderer = (function () {
       }
       if (!g.classList.contains('is-interactive')) return;
       var label = g.getAttribute('data-node-label');
-      var text = 'Kies een waarde voor ' + label;
+      var text = (g.hasAttribute('data-subtree') ? 'Open hulpbeslisboom voor ' : 'Kies een waarde voor ') + label;
       if (st === 'selected') {
         var labels = JSON.parse(g.getAttribute('data-option-labels'));
         var value = selections[id];
@@ -529,6 +606,8 @@ const Renderer = (function () {
     onNavigate = handlers.navigate;
     onInteract = handlers.interact;
     onSelect = handlers.select || function () {};
+    onSubtree = handlers.subtree || function () {};
+    onTake = handlers.take || function () {};
     els.main.classList.toggle('in-detail', view.treeId !== null);
     if (view.graph) {
       els.message.classList.add('zp-hidden');
@@ -552,6 +631,7 @@ const Renderer = (function () {
     draw: draw,
     applyViewport: applyViewport,
     applyStatus: applyStatus,
+    setTakeable: setTakeable,
     nodeBox: nodeBox,
     setGuidedTarget: setGuidedTarget,
     setRouteHighlight: setRouteHighlight,
