@@ -695,3 +695,143 @@ body[data-page="zorgpad"] .site-footer { margin-top: 0; }
   height: calc(100vh - 170px);
   height: calc(100dvh - 170px);
 }
+
+/* ===== Aanbevelingenoverzicht (Sprint 13) ===== */
+/* Het paneel staat absoluut boven het werkvlak (rechtsboven); de hoofdruimte is daarvoor het anker. */
+.zp-main { position: relative; }
+
+.rec-bar {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  z-index: 50;
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+.rec-bar[hidden],
+.rec-clear[hidden] { display: none; }
+.rec-bar .zp-btn {
+  background: var(--color-background);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .3);
+}
+.rec-bar .zp-btn:hover { background: #2c7d9e; }
+.rec-toggle[aria-expanded="true"] { background: #FFFFFF; color: var(--color-text-dark); }
+.rec-toggle[aria-expanded="true"]:hover { background: var(--color-text-muted); }
+
+.rec-panel {
+  position: absolute;
+  top: 72px;
+  right: 24px;
+  z-index: 50;
+  width: 400px;
+  max-width: calc(100% - 48px);
+  max-height: calc(100vh - 260px);
+  max-height: calc(100dvh - 260px);
+  min-height: 160px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  box-sizing: border-box;
+  padding: 14px 16px 16px;
+  background: #FFFFFF;
+  color: var(--color-text-dark);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.4;
+  /* de stage heeft touch-action: none; het paneel is een eigen scrollgebied */
+  touch-action: pan-y;
+}
+.rec-panel[hidden] { display: none; }
+.rec-panel-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.rec-panel-title { margin: 0; font-size: 1.15rem; }
+.rec-close {
+  border: 0;
+  background: transparent;
+  color: var(--color-text-dark);
+  font-size: 1.6rem;
+  line-height: 1;
+  padding: 2px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.rec-close:hover { background: var(--color-text-muted); }
+.rec-hint { margin: 6px 0 12px; font-size: .85rem; color: #444; }
+.rec-note { margin: 0 0 12px; padding: 8px 10px; font-size: .85rem; background: #FFF3B0; border-radius: 6px; }
+.rec-note[hidden] { display: none; }
+
+.rec-list, .rec-routes { list-style: none; margin: 0; padding: 0; }
+.rec-item { padding: 12px 0; border-top: 1px solid #D5DDE0; }
+.rec-item:first-child { border-top: 0; padding-top: 0; }
+
+.rec-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+.rec-title,
+.rec-route {
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  background: transparent;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.rec-title { flex: 1 1 auto; padding: 4px 8px; margin-left: -8px; font-weight: bold; font-size: 1rem; }
+.rec-title:hover, .rec-route:hover { background: #E8F1F5; }
+.rec-title:focus-visible, .rec-route:focus-visible { outline: 3px solid var(--color-text-dark); outline-offset: 1px; }
+.rec-title[aria-pressed="true"], .rec-route[aria-pressed="true"] { background: #FFF3B0; border-color: #E0B800; }
+
+.rec-badge {
+  flex: 0 0 auto;
+  margin-top: 5px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: .75rem;
+  white-space: nowrap;
+  background: #E8F1F5;
+}
+.rec-badge[hidden] { display: none; }
+.rec-badge.is-selected { background: var(--color-success); color: var(--color-text-dark); font-weight: bold; }
+.rec-badge.is-excluded { background: #E4E4E4; color: #555; }
+.rec-item.is-excluded .rec-title { color: #666; }
+
+.rec-details { margin: 4px 0 0; font-size: .85rem; }
+.rec-details summary { cursor: pointer; color: #1459A8; }
+.rec-fulltext { margin: 6px 0 0; white-space: pre-line; color: #333; }
+
+.rec-routes { margin-top: 6px; }
+.rec-route-item { margin: 0; }
+.rec-or { display: block; margin: 4px 0 4px 10px; font-size: .8rem; font-weight: bold; text-transform: uppercase; color: #555; }
+.rec-route { display: block; width: 100%; padding: 6px 8px; font-size: .9rem; }
+.rec-cond { display: block; }
+.rec-mark { display: inline-block; width: 1.2em; font-weight: bold; }
+.rec-cond[data-state="met"] .rec-mark { color: #2E7D32; }
+.rec-cond[data-state="conflict"] { color: #777; }
+.rec-cond[data-state="conflict"] .rec-mark { color: #B00020; }
+.rec-route-state { display: block; margin: 4px 0 0 1.2em; font-size: .75rem; font-weight: bold; color: #555; }
+.rec-route-state[hidden] { display: none; }
+.rec-route-item.is-reached .rec-route { background: #E3F4E3; }
+.rec-route-item.is-reached .rec-route[aria-pressed="true"] { background: #FFF3B0; }
+.rec-route-item.is-conflict .rec-route { color: #666; }
+
+@media (max-width: 720px) {
+  .rec-bar { right: 16px; }
+  .rec-panel { right: 12px; left: 12px; width: auto; max-width: none; }
+}
+
+/* Gemarkeerde route in de boom (geel): knooppunten, lijnen, dots en labels van de gekozen aanbeveling.
+   Bewust sterker dan de statusstijlen (selected/available), zodat de markering altijd zichtbaar is. */
+.zp-stage .node.is-route rect { stroke: #FFD60A !important; stroke-width: 7px !important; }
+.zp-stage .node.is-route { filter: drop-shadow(0 0 6px rgba(255, 214, 10, .8)); }
+.zp-stage .edge.is-route { stroke: #FFD60A; stroke-width: 4px; }
+.zp-stage .edge.is-route[data-marker]:not([data-marker=""]) { marker-end: url(#ah-route); }
+.zp-stage .edot.is-route { fill: #FFD60A; stroke: var(--color-line); stroke-width: 2; }
+.zp-stage .elabel.is-route { fill: #FFD60A; }
+/* Een gemarkeerde route die niet meer mogelijk is blijft zichtbaar, maar wel duidelijk gedempt. */
+.zp-stage .node.is-route.is-excluded,
+.zp-stage .edge.is-route.is-excluded,
+.zp-stage .edot.is-route.is-excluded,
+.zp-stage .elabel.is-route.is-excluded { opacity: .6; }
+
+@media (prefers-reduced-motion: reduce) {
+  .rec-title, .rec-route { transition: none; }
+}
