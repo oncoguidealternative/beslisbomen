@@ -142,17 +142,17 @@
       "nodes": [
         {"id": "root", "type": "root", "tone": "blue", "label": "Primaire behandeling", "x": 1544, "y": 6, "icon": "minus-light", "to": "", "rx": 22},
         {"id": "m", "type": "criterion", "label": "M", "x": 1544, "y": 108, "interactive": true, "options": [{"value": "cm1-pm1", "label": "cM1, pM1", "edge": "edge-m-cm1-pm1"}, {"value": "cm0", "label": "cM0", "edge": "edge-m-cm0"}]},
-        {"id": "cn", "type": "criterion", "label": "cN", "x": 1544, "y": 228, "icon": "plus-light", "interactive": true, "options": [{"value": "0", "label": "0", "edge": "edge-cn-0"}, {"value": "3", "label": "3", "edge": "edge-cn-3"}, {"value": "1-2", "label": "1,2", "edge": "edge-cn-1-2"}]},
+        {"id": "cn", "type": "criterion", "label": "cN", "x": 1544, "y": 228, "icon": "plus-light", "interactive": true, "options": [{"value": "0", "label": "0", "edge": "edge-cn-0"}, {"value": "3", "label": "3", "edge": "edge-cn-3"}, {"value": "1-2", "label": "1,2", "edge": "edge-cn-1-2"}], "subtree": {"tree": "sub-cn", "map": {"o-cn0": "0", "o-cn1": "1-2", "o-cn2": "1-2", "o-cn3": "3"}}},
         {"id": "cyt-gedaan", "type": "criterion", "label": "Cytologische punctie gedaan", "x": 1203, "y": 330, "interactive": true, "options": [{"value": "nee", "label": "Nee", "edge": "edge-cyt-gedaan-nee"}, {"value": "ja", "label": "Ja", "edge": "edge-cyt-gedaan-ja"}]},
         {"id": "cyt-uitslag", "type": "criterion", "label": "Uitslag cytologische punctie", "x": 1203, "y": 449, "interactive": true, "options": [{"value": "negatief", "label": "Negatief", "edge": "edge-cyt-uitslag-negatief"}, {"value": "positief", "label": "Positief", "edge": "edge-cyt-uitslag-positief"}]},
-        {"id": "ct-l", "type": "criterion", "label": "cT", "x": 1032, "y": 551, "icon": "plus-light", "interactive": true, "options": [{"value": "ct1a", "label": "cT1a", "edge": "edge-ct-l-ct1a"}, {"value": "ct1b", "label": "cT1b", "edge": "edge-ct-l-ct1b"}, {"value": "ct2", "label": "cT2", "edge": "edge-ct-l-ct2"}, {"value": "ct3", "label": "cT3", "edge": "edge-ct-l-ct3"}]},
+        {"id": "ct-l", "type": "criterion", "label": "cT", "x": 1032, "y": 551, "icon": "plus-light", "interactive": true, "options": [{"value": "ct1a", "label": "cT1a", "edge": "edge-ct-l-ct1a"}, {"value": "ct1b", "label": "cT1b", "edge": "edge-ct-l-ct1b"}, {"value": "ct2", "label": "cT2", "edge": "edge-ct-l-ct2"}, {"value": "ct3", "label": "cT3", "edge": "edge-ct-l-ct3"}], "subtree": {"tree": "sub-ct", "map": {"o-ct1a": "ct1a", "o-ct1b": "ct1b", "o-ct2": "ct2", "o-ct3": "ct3"}}},
         {"id": "focaliteit", "type": "criterion", "label": "Focaliteit vd tumor", "x": 862, "y": 670, "interactive": true, "options": [{"value": "unifocaal", "label": "Unifocaal", "edge": "edge-focaliteit-unifocaal"}, {"value": "multifocaal", "label": "Multifocaal", "edge": "edge-focaliteit-multifocaal"}]},
         {"id": "diameter", "type": "criterion", "label": "Tumor diameter", "x": 691, "y": 773, "interactive": true, "options": [{"value": "lt-4-cm", "label": "<4 cm", "edge": "edge-diameter-lt-4-cm"}, {"value": "gte-4-cm", "label": ">=4 cm", "edge": "edge-diameter-gte-4-cm"}]},
         {"id": "regio-l", "type": "criterion", "label": "Regio tumor", "x": 521, "y": 875, "interactive": true, "options": [{"value": "midline", "label": "Midline", "edge": "edge-regio-l-midline"}, {"value": "near-midline-lateraal", "label": "Near midline, Lateraal", "edge": "edge-regio-l-near-midline-lateraal"}]},
         {"id": "regio-r", "type": "criterion", "label": "Regio tumor", "x": 862, "y": 875, "interactive": true, "options": [{"value": "lateraal", "label": "Lateraal", "edge": "edge-regio-r-lateraal"}, {"value": "near-midline-midline", "label": "Near midline, Midline", "edge": "edge-regio-r-near-midline-midline"}]},
         {"id": "drain-1", "type": "criterion", "label": "Drainage op Lymfoscintogram", "x": 350, "y": 994, "interactive": true, "options": [{"value": "unilateraal", "label": "Unilateraal", "edge": "edge-drain-1-unilateraal"}, {"value": "bilateraal", "label": "Bilateraal", "edge": "edge-drain-1-bilateraal"}]},
         {"id": "drain-2", "type": "criterion", "label": "Drainage op Lymfoscintogram", "x": 521, "y": 994, "interactive": true, "options": [{"value": "bilateraal", "label": "Bilateraal", "edge": "edge-drain-2-bilateraal"}, {"value": "unilateraal", "label": "Unilateraal", "edge": "edge-drain-2-unilateraal"}]},
-        {"id": "ct-r", "type": "criterion", "label": "cT", "x": 1544, "y": 752, "icon": "plus-light", "interactive": true, "options": [{"value": "ct1-ct2", "label": "cT1 - cT2", "edge": "edge-ct-r-ct1-ct2"}, {"value": "ct3", "label": "cT3", "edge": "edge-ct-r-ct3"}]},
+        {"id": "ct-r", "type": "criterion", "label": "cT", "x": 1544, "y": 752, "icon": "plus-light", "interactive": true, "options": [{"value": "ct1-ct2", "label": "cT1 - cT2", "edge": "edge-ct-r-ct1-ct2"}, {"value": "ct3", "label": "cT3", "edge": "edge-ct-r-ct3"}], "subtree": {"tree": "sub-ct", "map": {"o-ct1a": "ct1-ct2", "o-ct1b": "ct1-ct2", "o-ct2": "ct1-ct2", "o-ct3": "ct3"}}},
         {"id": "loc-meta", "type": "criterion", "label": "Localisatie metastasen", "x": 2055, "y": 752, "interactive": true, "options": [{"value": "bekkenklieren", "label": "Bekkenklieren", "edge": "edge-loc-meta-bekkenklieren"}, {"value": "buiten-het-bekken", "label": "Buiten het bekken", "edge": "edge-loc-meta-buiten-het-bekken"}]},
         {"id": "o1", "type": "outcome", "text": "Ruime lokale excisie", "x": 10, "y": 1114},
         {"id": "o2", "type": "outcome", "h": 248, "x": 180, "y": 1114, "text": "Ruime lokale excisie\n{i}Primaire\nchemoradiotherapie,\nindien wens tot\norgaansparende\nbehadneling\n\nEN\n\nSentinel node (SN)\nprocedure aan drainage\nzijde\n{i}indien SN niet\ngevonden\ninguinofemorale\nlymfadenectomie\n\nEN\n\nInguinofemorale\nlymfadenectomie aan\nandere zijde"},
@@ -237,10 +237,10 @@
       "nodes": [
         {"id": "root", "type": "root", "tone": "blue", "label": "Adjuvante behandeling", "x": 340, "y": 26, "icon": "minus-light", "to": "", "rx": 40},
         {"id": "snijvlak", "type": "criterion", "label": "Snijvlak", "x": 340, "y": 199, "interactive": true, "options": [{"value": "snijvlak-niet-vrij", "label": "Snijvlak niet vrij", "edge": "edge-snijvlak-snijvlak-niet-vrij"}, {"value": "snijvlak-vrij", "label": "Snijvlak vrij", "edge": "edge-snijvlak-snijvlak-vrij"}]},
-        {"id": "pn", "type": "criterion", "label": "pN", "x": 340, "y": 430, "icon": "plus-light", "interactive": true, "options": [{"value": "gte-pn1", "label": ">= pN1", "edge": "edge-pn-gte-pn1"}, {"value": "pn0", "label": "pN0", "edge": "edge-pn-pn0"}]},
+        {"id": "pn", "type": "criterion", "label": "pN", "x": 340, "y": 430, "icon": "plus-light", "interactive": true, "options": [{"value": "gte-pn1", "label": ">= pN1", "edge": "edge-pn-gte-pn1"}, {"value": "pn0", "label": "pN0", "edge": "edge-pn-pn0"}], "subtree": {"tree": "sub-pn", "map": {"o-pn0": "pn0", "o-pn1a": "gte-pn1", "o-pn1b": "gte-pn1", "o-pn2a": "gte-pn1", "o-pn2b-links": "gte-pn1", "o-pn2b-rechts": "gte-pn1", "o-pn2c": "gte-pn1", "o-pn3": "gte-pn1"}}},
         {"id": "ingroei", "type": "criterion", "label": "Ingroei tumor", "x": 629, "y": 603, "interactive": true, "options": [{"value": "extranodaal", "label": "Extranodaal", "edge": "edge-ingroei-extranodaal"}, {"value": "intranodaal", "label": "Intranodaal", "edge": "edge-ingroei-intranodaal"}]},
         {"id": "aantal", "type": "criterion", "label": "Aantal intranodale metastasen", "x": 629, "y": 834, "interactive": true, "options": [{"value": "gte-2", "label": ">=2", "edge": "edge-aantal-gte-2"}, {"value": "lte-1", "label": "<=1", "edge": "edge-aantal-lte-1"}]},
-        {"id": "cn", "type": "criterion", "label": "cN", "x": 629, "y": 1065, "icon": "plus-light", "interactive": true, "options": [{"value": "gte-cn1", "label": ">= cN1", "edge": "edge-cn-gte-cn1"}, {"value": "cn0", "label": "cN0", "edge": "edge-cn-cn0"}]},
+        {"id": "cn", "type": "criterion", "label": "cN", "x": 629, "y": 1065, "icon": "plus-light", "interactive": true, "options": [{"value": "gte-cn1", "label": ">= cN1", "edge": "edge-cn-gte-cn1"}, {"value": "cn0", "label": "cN0", "edge": "edge-cn-cn0"}], "subtree": {"tree": "sub-cn", "map": {"o-cn0": "cn0", "o-cn1": "gte-cn1", "o-cn2": "gte-cn1", "o-cn3": "gte-cn1"}}},
         {"id": "o-reexcisie", "type": "outcome", "text": "Re-excisie\n\nOF\n\nLokale radiotherapie\n(totale dosis 60-70 Gy\nafhankelijk van het\nvolume residue tumor)", "x": 52, "y": 1239, "h": 165},
         {"id": "o-geen", "type": "outcome", "text": "Geen adjuvante\nbehandeling", "x": 340, "y": 1239},
         {"id": "o-radio", "type": "outcome", "text": "Radiotherapie\n\n{i}Bestraal alleen de\naangedane lies mits de\ncontralaterale lies\nadequaat gestadieerd is.", "x": 918, "y": 1239, "h": 127},
@@ -370,7 +370,7 @@
       "native": true,
       "nodes": [
         {"id": "root", "type": "root", "tone": "blue", "label": "Bepaling indicatie cytologisch punctie bij pcc < 4 cm en liesklieren niet verdacht", "x": 70, "y": 32, "icon": "minus-light", "to": "", "rx": 50},
-        {"id": "cn", "type": "criterion", "label": "cN", "x": 70, "y": 254, "icon": "plus-light", "interactive": true, "options": [{"value": "gte-cn1", "label": ">= cN1", "edge": "edge-cn-gte-cn1"}, {"value": "cn0", "label": "cN0", "edge": "edge-cn-cn0"}]},
+        {"id": "cn", "type": "criterion", "label": "cN", "x": 70, "y": 254, "icon": "plus-light", "interactive": true, "options": [{"value": "gte-cn1", "label": ">= cN1", "edge": "edge-cn-gte-cn1"}, {"value": "cn0", "label": "cN0", "edge": "edge-cn-cn0"}], "subtree": {"tree": "sub-cn", "map": {"o-cn0": "cn0", "o-cn1": "gte-cn1", "o-cn2": "gte-cn1", "o-cn3": "gte-cn1"}}},
         {"id": "verdacht", "type": "criterion", "label": "Verdachte klieren bij beeldvorming", "x": 70, "y": 515, "interactive": true, "options": [{"value": "ja", "label": "Ja", "edge": "edge-verdacht-ja"}, {"value": "nee", "label": "Nee", "edge": "edge-verdacht-nee"}]},
         {"id": "o-niet", "type": "outcome", "text": "Cytologische punctie\nvan lieslieren niet\ngeïndiceerd", "x": 70, "y": 774},
         {"id": "o-wel", "type": "outcome", "text": "Overweeg cytologische\npunctie van lieslieren", "x": 442, "y": 774},
@@ -393,7 +393,7 @@
       "native": true,
       "nodes": [
         {"id": "root", "type": "root", "tone": "blue", "label": "Bepaling indicatie cytologische punctie bij pcc >= 4 cm", "x": 32, "y": 30, "icon": "minus-light", "to": "", "rx": 50},
-        {"id": "cn", "type": "criterion", "label": "cN", "x": 32, "y": 252, "icon": "plus-light", "interactive": true, "options": [{"value": "gte-cn1", "label": ">= cN1", "edge": "edge-cn-gte-cn1"}, {"value": "cn0", "label": "cN0", "edge": "edge-cn-cn0"}]},
+        {"id": "cn", "type": "criterion", "label": "cN", "x": 32, "y": 252, "icon": "plus-light", "interactive": true, "options": [{"value": "gte-cn1", "label": ">= cN1", "edge": "edge-cn-gte-cn1"}, {"value": "cn0", "label": "cN0", "edge": "edge-cn-cn0"}], "subtree": {"tree": "sub-cn", "map": {"o-cn0": "cn0", "o-cn1": "gte-cn1", "o-cn2": "gte-cn1", "o-cn3": "gte-cn1"}}},
         {"id": "verdacht", "type": "criterion", "label": "Verdachte klieren bij beeldvorming", "x": 32, "y": 513, "interactive": true, "options": [{"value": "ja", "label": "Ja", "edge": "edge-verdacht-ja"}, {"value": "nee", "label": "Nee", "edge": "edge-verdacht-nee"}]},
         {"id": "o-niet", "type": "outcome", "text": "Cytologische punctie\nvan lieslieren niet\ngeïndiceerd", "x": 32, "y": 772},
         {"id": "o-wel", "type": "outcome", "text": "Overweeg cytologische\npunctie van lieslieren", "x": 404, "y": 772},
@@ -428,6 +428,98 @@
         {"id": "edge-uitslag-negatief", "from": "uitslag", "to": "o-neg", "value": "negatief", "points": [[174, 400], [174, 505]], "arrow": true, "label": "Negatief", "dot": [174, 449]},
         {"id": "edge-o-neg-l1", "from": "o-neg", "to": "l1", "points": [[174, 660], [174, 727]], "arrow": true},
         {"id": "edge-o-pos-l2", "from": "o-pos", "to": "l2", "points": [[545, 660], [545, 727]], "arrow": true}
+      ]
+    },
+    "sub-cn": {
+      "viewBox": [1270, 1219],
+      "nodeSize": [231, 121],
+      "native": true,
+      "nodes": [
+        {"id": "root", "type": "root", "tone": "blue", "label": "cN", "icon": "minus-light", "to": "", "rx": 40, "x": 407, "y": 3},
+        {"id": "papabel", "type": "criterion", "label": "Papabel suspecte klieren", "interactive": true, "options": [{"value": "afwezig", "label": "Afwezig", "edge": "edge-papabel-afwezig"}, {"value": "aanwezig", "label": "Aanwezig", "edge": "edge-papabel-aanwezig"}], "x": 407, "y": 176},
+        {"id": "gefixeerd", "type": "criterion", "label": "Gefixeerde klier", "interactive": true, "options": [{"value": "gefixeerd", "label": "Gefixeerd", "edge": "edge-gefixeerd-gefixeerd"}, {"value": "niet-gefixeerd", "label": "Niet gefixeerd", "edge": "edge-gefixeerd-niet-gefixeerd"}], "x": 407, "y": 406},
+        {"id": "ulcererend", "type": "criterion", "label": "Ulcererende klier", "interactive": true, "options": [{"value": "ulcererend", "label": "Ulcererend", "edge": "edge-ulcererend-ulcererend"}, {"value": "niet-ulcererend", "label": "Niet ulcererend", "edge": "edge-ulcererend-niet-ulcererend"}], "x": 407, "y": 636},
+        {"id": "lateraliteit", "type": "criterion", "label": "Lateraliteit", "interactive": true, "options": [{"value": "bilateraal", "label": "Bilateraal", "edge": "edge-lateraliteit-bilateraal"}, {"value": "unilateraal", "label": "Unilateraal", "edge": "edge-lateraliteit-unilateraal"}], "x": 407, "y": 865},
+        {"id": "o-cn0", "type": "outcome", "text": "cN0", "x": 119, "y": 1094},
+        {"id": "o-cn1", "type": "outcome", "text": "cN1", "x": 407, "y": 1094},
+        {"id": "o-cn2", "type": "outcome", "text": "cN2", "x": 696, "y": 1094},
+        {"id": "o-cn3", "type": "outcome", "text": "cN3", "x": 985, "y": 1094}
+      ],
+      "edges": [
+        {"id": "edge-root-papabel", "from": "root", "to": "papabel", "points": [[523, 124], [523, 176]], "arrow": true},
+        {"id": "edge-papabel-afwezig", "from": "papabel", "to": "o-cn0", "value": "afwezig", "label": "Afwezig", "points": [[407, 232], [235, 232], [235, 1094]], "arrow": true, "dot": [320, 232]},
+        {"id": "edge-papabel-aanwezig", "from": "papabel", "to": "gefixeerd", "value": "aanwezig", "label": "Aanwezig", "points": [[523, 297], [523, 406]], "arrow": true, "dot": [523, 347]},
+        {"id": "edge-gefixeerd-gefixeerd", "from": "gefixeerd", "to": "o-cn3", "value": "gefixeerd", "label": "Gefixeerd", "points": [[638, 462], [1101, 462], [1101, 1094]], "arrow": true, "dot": [869, 462]},
+        {"id": "edge-gefixeerd-niet-gefixeerd", "from": "gefixeerd", "to": "ulcererend", "value": "niet-gefixeerd", "label": "Niet gefixeerd", "points": [[523, 527], [523, 636]], "arrow": true, "dot": [523, 577]},
+        {"id": "edge-ulcererend-ulcererend", "from": "ulcererend", "to": "o-cn3", "value": "ulcererend", "label": "Ulcererend", "points": [[638, 692], [1101, 692]], "selectedPoints": [[638, 692], [1101, 692], [1101, 1094]], "dot": [869, 692]},
+        {"id": "edge-ulcererend-niet-ulcererend", "from": "ulcererend", "to": "lateraliteit", "value": "niet-ulcererend", "label": "Niet ulcererend", "points": [[523, 757], [523, 865]], "arrow": true, "dot": [523, 806]},
+        {"id": "edge-lateraliteit-bilateraal", "from": "lateraliteit", "to": "o-cn2", "value": "bilateraal", "label": "Bilateraal", "points": [[638, 921], [812, 921], [812, 1094]], "arrow": true, "dot": [724, 921]},
+        {"id": "edge-lateraliteit-unilateraal", "from": "lateraliteit", "to": "o-cn1", "value": "unilateraal", "label": "Unilateraal", "points": [[523, 986], [523, 1094]], "arrow": true, "dot": [523, 1036]}
+      ]
+    },
+    "sub-ct": {
+      "viewBox": [1525, 1013],
+      "nodeSize": [231, 121],
+      "native": true,
+      "nodes": [
+        {"id": "root", "type": "root", "tone": "blue", "label": "cT", "icon": "minus-light", "to": "", "rx": 40, "x": 631, "y": 18},
+        {"id": "uitbreiding", "type": "criterion", "label": "Tumor uitbreiding", "interactive": true, "options": [{"value": "in-situ", "label": "Carcinoma in situ, Intraepitheliaal carcinoom", "edge": "edge-uitbreiding-in-situ"}, {"value": "beperkt", "label": "Beperkt tot vulva, of perineum", "edge": "edge-uitbreiding-beperkt"}, {"value": "onderste-derde", "label": "Onderste derde urethra, Onderste derde vagina, Anus", "edge": "edge-uitbreiding-onderste-derde"}, {"value": "bovenste-twee-derde", "label": "Bovenste 2/3 urethra, Bovenste 2/3 vagina, Tunica mucosa vesicae urinariae (betrokkenheid met blaasslijmvlies), Mucosa van rectum, Ingroei in bekkenbot", "edge": "edge-uitbreiding-bovenste-twee-derde"}], "x": 631, "y": 202},
+        {"id": "diameter", "type": "criterion", "label": "cT diameter", "interactive": true, "options": [{"value": "lte-2", "label": "<=2 cm", "edge": "edge-diameter-lte-2"}, {"value": "gt-2", "label": ">2 cm", "edge": "edge-diameter-gt-2"}], "x": 631, "y": 448},
+        {"id": "stromaal", "type": "criterion", "label": "Stromale invasie", "interactive": true, "options": [{"value": "lte-1", "label": "<=1 mm", "edge": "edge-stromaal-lte-1"}, {"value": "gt-1", "label": ">1 mm", "edge": "edge-stromaal-gt-1"}], "x": 343, "y": 632},
+        {"id": "o-ctis", "type": "outcome", "text": "cTis", "x": 54, "y": 877},
+        {"id": "o-ct1a", "type": "outcome", "text": "cT1a", "x": 343, "y": 877},
+        {"id": "o-ct1b", "type": "outcome", "text": "cT1b", "x": 631, "y": 877},
+        {"id": "o-ct2", "type": "outcome", "text": "cT2", "x": 920, "y": 877},
+        {"id": "o-ct3", "type": "outcome", "text": "cT3", "x": 1209, "y": 877}
+      ],
+      "edges": [
+        {"id": "edge-root-uitbreiding", "from": "root", "to": "uitbreiding", "points": [[747, 139], [747, 202]], "arrow": true},
+        {"id": "edge-uitbreiding-in-situ", "from": "uitbreiding", "to": "o-ctis", "value": "in-situ", "label": "Carcinoma in situ,\nIntraepitheliaal carcinoom", "points": [[631, 262], [170, 262], [170, 877]], "arrow": true, "dot": [400, 262]},
+        {"id": "edge-uitbreiding-beperkt", "from": "uitbreiding", "to": "diameter", "value": "beperkt", "label": "Beperkt tot vulva,\nof perineum", "points": [[747, 323], [747, 448]], "arrow": true, "dot": [747, 385]},
+        {"id": "edge-uitbreiding-onderste-derde", "from": "uitbreiding", "to": "o-ct2", "value": "onderste-derde", "label": "Onderste derde urethra,\nOnderste derde vagina,\nAnus", "points": [[862, 262], [1036, 262], [1036, 877]], "arrow": true, "dot": [1036, 568]},
+        {"id": "edge-uitbreiding-bovenste-twee-derde", "from": "uitbreiding", "to": "o-ct3", "value": "bovenste-twee-derde", "label": "Bovenste 2/3 urethra,\nBovenste 2/3 vagina,\nTunica mucosa vesicae urinariae\n(betrokkenheid met blaasslijmvlies),\nMucosa van rectum,\nIngroei in bekkenbot", "points": [[1036, 262], [1325, 262], [1325, 877]], "selectedPoints": [[862, 262], [1036, 262], [1325, 262], [1325, 877]], "arrow": true, "dot": [1180, 262]},
+        {"id": "edge-diameter-lte-2", "from": "diameter", "to": "stromaal", "value": "lte-2", "label": "<=2 cm", "points": [[631, 508], [459, 508], [459, 632]], "arrow": true, "dot": [545, 508]},
+        {"id": "edge-diameter-gt-2", "from": "diameter", "to": "o-ct1b", "value": "gt-2", "label": ">2 cm", "points": [[747, 569], [747, 877]], "arrow": true, "dot": [747, 630]},
+        {"id": "edge-stromaal-lte-1", "from": "stromaal", "to": "o-ct1a", "value": "lte-1", "label": "<=1 mm", "points": [[459, 753], [459, 877]], "arrow": true, "dot": [459, 813]},
+        {"id": "edge-stromaal-gt-1", "from": "stromaal", "to": "o-ct1b", "value": "gt-1", "label": ">1 mm", "points": [[574, 692], [747, 692]], "selectedPoints": [[574, 692], [747, 692], [747, 877]], "dot": [660, 692]}
+      ]
+    },
+    "sub-pn": {
+      "viewBox": [2372, 1067],
+      "nodeSize": [231, 121],
+      "native": true,
+      "nodes": [
+        {"id": "root", "type": "root", "tone": "blue", "label": "pN", "icon": "minus-light", "to": "", "rx": 40, "x": 811, "y": 54},
+        {"id": "positief", "type": "criterion", "label": "Positieve regionale lymfeklieren", "interactive": true, "options": [{"value": "niet-te-beoordelen", "label": "Niet te beoordelen", "edge": "edge-positief-niet-te-beoordelen"}, {"value": "afwezig", "label": "Afwezig", "edge": "edge-positief-afwezig"}, {"value": "aanwezig", "label": "Aanwezig", "edge": "edge-positief-aanwezig"}], "x": 811, "y": 239},
+        {"id": "kenmerken", "type": "criterion", "label": "Kenmerken pN", "interactive": true, "options": [{"value": "geen", "label": "Geen", "edge": "edge-kenmerken-geen"}, {"value": "extracapsulair", "label": "Extracapsulaire uitbreiding", "edge": "edge-kenmerken-extracapsulair"}, {"value": "ulcererend-gefixeerd", "label": "Ulcererend, gefixeerd", "edge": "edge-kenmerken-ulcererend-gefixeerd"}], "x": 1590, "y": 393},
+        {"id": "aantal-positief", "type": "criterion", "label": "Aantal positieve klieren", "interactive": true, "options": [{"value": "lte-2", "label": "<=2", "edge": "edge-aantal-positief-lte-2"}, {"value": "gte-3", "label": ">=3", "edge": "edge-aantal-positief-gte-3"}], "x": 1070, "y": 544},
+        {"id": "mm5-links", "type": "criterion", "label": "Aantal klieren ≥ 5 mm", "interactive": true, "options": [{"value": "0", "label": "0", "edge": "edge-mm5-links-0"}, {"value": "1", "label": "1", "edge": "edge-mm5-links-1"}, {"value": "2", "label": "2", "edge": "edge-mm5-links-2"}], "x": 811, "y": 697},
+        {"id": "mm5-rechts", "type": "criterion", "label": "Aantal klieren ≥ 5 mm", "interactive": true, "options": [{"value": "lte-1", "label": "<=1", "edge": "edge-mm5-rechts-lte-1"}, {"value": "gte-2", "label": ">=2", "edge": "edge-mm5-rechts-gte-2"}], "x": 1331, "y": 697},
+        {"id": "o-pnx", "type": "outcome", "text": "pNX", "x": 30, "y": 912},
+        {"id": "o-pn0", "type": "outcome", "text": "pN0", "x": 290, "y": 912},
+        {"id": "o-pn1a", "type": "outcome", "text": "pN1a", "x": 550, "y": 912},
+        {"id": "o-pn1b", "type": "outcome", "text": "pN1b", "x": 810, "y": 912},
+        {"id": "o-pn2b-links", "type": "outcome", "text": "pN2b", "x": 1070, "y": 912},
+        {"id": "o-pn2a", "type": "outcome", "text": "pN2a", "x": 1330, "y": 912},
+        {"id": "o-pn2b-rechts", "type": "outcome", "text": "pN2b", "x": 1589, "y": 912},
+        {"id": "o-pn2c", "type": "outcome", "text": "pN2c", "x": 1849, "y": 912},
+        {"id": "o-pn3", "type": "outcome", "text": "pN3", "x": 2109, "y": 912}
+      ],
+      "edges": [
+        {"id": "edge-root-positief", "from": "root", "to": "positief", "points": [[927, 175], [927, 239]], "arrow": true},
+        {"id": "edge-positief-niet-te-beoordelen", "from": "positief", "to": "o-pnx", "value": "niet-te-beoordelen", "label": "Niet te beoordelen", "points": [[811, 299], [146, 299], [146, 912]], "arrow": true, "dot": [276, 299]},
+        {"id": "edge-positief-afwezig", "from": "positief", "to": "o-pn0", "value": "afwezig", "label": "Afwezig", "points": [[406, 299], [406, 912]], "selectedPoints": [[811, 299], [406, 299], [406, 912]], "arrow": true, "dot": [406, 604]},
+        {"id": "edge-positief-aanwezig", "from": "positief", "to": "kenmerken", "value": "aanwezig", "label": "Aanwezig", "points": [[1042, 299], [1706, 299], [1706, 393]], "arrow": true, "dot": [1373, 299]},
+        {"id": "edge-kenmerken-geen", "from": "kenmerken", "to": "aantal-positief", "value": "geen", "label": "Geen", "points": [[1590, 453], [1186, 453], [1186, 544]], "arrow": true, "dot": [1388, 453]},
+        {"id": "edge-kenmerken-extracapsulair", "from": "kenmerken", "to": "o-pn2c", "value": "extracapsulair", "label": "Extracapsulaire uitbreiding", "points": [[1821, 453], [1965, 453], [1965, 912]], "arrow": true, "dot": [1965, 681]},
+        {"id": "edge-kenmerken-ulcererend-gefixeerd", "from": "kenmerken", "to": "o-pn3", "value": "ulcererend-gefixeerd", "label": "Ulcererend,\ngefixeerd", "points": [[1965, 453], [2225, 453], [2225, 912]], "selectedPoints": [[1821, 453], [1965, 453], [2225, 453], [2225, 912]], "arrow": true, "dot": [2095, 453]},
+        {"id": "edge-aantal-positief-lte-2", "from": "aantal-positief", "to": "mm5-links", "value": "lte-2", "label": "<=2", "points": [[1070, 604], [927, 604], [927, 697]], "arrow": true, "dot": [998, 604]},
+        {"id": "edge-aantal-positief-gte-3", "from": "aantal-positief", "to": "mm5-rechts", "value": "gte-3", "label": ">=3", "points": [[1301, 604], [1447, 604], [1447, 697]], "arrow": true, "dot": [1373, 604]},
+        {"id": "edge-mm5-links-0", "from": "mm5-links", "to": "o-pn1a", "value": "0", "label": "0", "points": [[811, 757], [666, 757], [666, 912]], "arrow": true, "dot": [738, 757]},
+        {"id": "edge-mm5-links-1", "from": "mm5-links", "to": "o-pn1b", "value": "1", "label": "1", "points": [[927, 818], [927, 912]], "arrow": true, "dot": [927, 864]},
+        {"id": "edge-mm5-links-2", "from": "mm5-links", "to": "o-pn2b-links", "value": "2", "label": "2", "points": [[1042, 757], [1186, 757], [1186, 912]], "arrow": true, "dot": [1113, 757]},
+        {"id": "edge-mm5-rechts-lte-1", "from": "mm5-rechts", "to": "o-pn2a", "value": "lte-1", "label": "<=1", "points": [[1447, 818], [1447, 912]], "arrow": true, "dot": [1447, 865]},
+        {"id": "edge-mm5-rechts-gte-2", "from": "mm5-rechts", "to": "o-pn2b-rechts", "value": "gte-2", "label": ">=2", "points": [[1562, 757], [1705, 757], [1705, 912]], "arrow": true, "dot": [1633, 757]}
       ]
     },
     "sn-rechts": {"same": "sn-links"}
