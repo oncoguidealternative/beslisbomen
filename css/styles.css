@@ -1,6 +1,6 @@
 /* ===== Centrale kleuren en basisinstellingen ===== */
 :root {
-  --color-background: #246D8B;
+  --color-background: #1F627D;
   --color-node: #6FA8BB;
   --color-node-hover: #85B9CA;
   --color-accent: #45B3E6;
@@ -244,7 +244,7 @@ body[data-page="zorgpad"] { line-height: normal; }
     fill: var(--color-text);
     text-anchor: middle;
 
-    stroke: #246D8B;
+    stroke: #1F627D;
     stroke-width: 6px;
     paint-order: stroke;
 }
@@ -817,3 +817,6 @@ body[data-page="zorgpad"] .site-footer { margin-top: 0; }
 
 .zp-message-link { display: inline-block; margin-top: 14px; color: var(--color-text); text-decoration: underline; }
 .zp-message-link:focus-visible { outline: 3px solid var(--color-line); outline-offset: 3px; }
+
+/* Groepskop in een overzicht (zonder link), bv. "Laaggradige afwijking" bij CIN, AIS, VAIN */
+.zp-stage .node.tone-dark rect { fill: #1F627D; }
