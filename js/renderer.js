@@ -183,12 +183,18 @@ const Renderer = (function () {
   function resolve(zorgpad, id) {
     var node = zorgpad.overview.nodes.filter(function (x) { return x.id === id && x.drill; })[0];
     if (!node) {
-      // Een hulpbeslisboom staat niet in het overzicht, maar wordt door een node (subtree) aangewezen.
+      // Elke andere boom in "trees" is ook te openen (een verwijzing "to" mag naar een boom wijzen die niet in het
+      // overzicht staat). Een hulpbeslisboom (door een node met subtree aangewezen) krijgt daarnaast de vlag subtree.
       var helper = subtreeLabels(zorgpad);
-      if (Object.prototype.hasOwnProperty.call(helper, id) && zorgpad.trees && zorgpad.trees[id]) {
-        var sub = zorgpad.trees[id];
-        if (sub.same) sub = zorgpad.trees[sub.same];
-        return {treeId: id, graph: sub || null, label: helper[id], subtree: true};
+      var trees = zorgpad.trees || {};
+      if (Object.prototype.hasOwnProperty.call(trees, id) && trees[id]) {
+        var sub = trees[id];
+        if (sub.same) sub = trees[sub.same];
+        if (sub && Array.isArray(sub.nodes)) {
+          var isHelper = Object.prototype.hasOwnProperty.call(helper, id);
+          var rootNode = sub.nodes.filter(function (x) { return x.type === 'root' || x.type === 'title'; })[0];
+          return {treeId: id, graph: sub, label: isHelper ? helper[id] : ((rootNode && rootNode.label) || id), subtree: isHelper};
+        }
       }
       return {treeId: null, graph: zorgpad.overview, label: zorgpad.titel};
     }
@@ -287,7 +293,9 @@ const Renderer = (function () {
 
     graph.nodes.forEach(function (n) {
       var w = n.w || size[0], h = n.h || size[1];
-      var target = n.to !== undefined ? n.to : (n.drill ? n.id : null);
+      // Een node met "tumor" (en eventueel "tree") verwijst naar het zorgpad van een andere tumor.
+      var target = n.tumor ? {tumor: String(n.tumor), tree: n.tree ? String(n.tree) : ''}
+        : (n.to !== undefined ? n.to : (n.drill ? n.id : null));
       var type = n.type || 'step';
       var interactive = n.interactive === true && Array.isArray(n.options);
       // Een keuzenode met een hulpbeslisboom krijgt standaard het plus-icoon; een klik opent de hulpbeslisboom.
@@ -354,9 +362,10 @@ const Renderer = (function () {
           if (seg === '') lines.push({t: ''});
           else if (seg.indexOf('{a:') >= 0) lines.push({t: seg});
           else {
-            var marked = seg.indexOf('{i}') === 0;
-            wrap(seg.replace('{i}', ''), textMax).forEach(function (l, j) {
-              lines.push({t: l, info: marked && j === 0 ? '' : null});
+            // {i} = info-icoon, {x} = "geen"-symbool (doorgestreepte cirkel) aan het begin van een regel
+            var marker = seg.indexOf('{i}') === 0 ? 'i' : (seg.indexOf('{x}') === 0 ? 'x' : null);
+            wrap(seg.replace(/^\{[ix]\}/, ''), textMax).forEach(function (l, j) {
+              lines.push({t: l, info: marker && j === 0 ? '' : null, kind: marker});
             });
           }
         });
@@ -376,8 +385,13 @@ const Renderer = (function () {
             (y0 + i * lh - fs * 0.36) + ') scale(' + s + ')'}, g);
           if (l.info) el('title', {}, ig).textContent = l.info;
           el('circle', {r: 7.5}, ig);
-          el('path', {d: 'M0,-0.5 V4'}, ig);
-          el('circle', {'class': 'dot', cy: -3.8, r: 1.3}, ig);
+          if (l.kind === 'x') {
+            ig.setAttribute('class', 'info no');
+            el('path', {d: 'M-5.3,-5.3 L5.3,5.3'}, ig);
+          } else {
+            el('path', {d: 'M0,-0.5 V4'}, ig);
+            el('circle', {'class': 'dot', cy: -3.8, r: 1.3}, ig);
+          }
         }
       });
 
@@ -465,44 +479,6 @@ const Renderer = (function () {
     return g.classList.contains('is-available') || g.classList.contains('is-selected');
   }
 
-  /* Maakt uitkomsten (outcomes) van een hulpbeslisboom aanklikbaar: items = [{id, label}]. Aanroepen na draw().
-     Alleen een bereikte uitkomst (status selected) is te activeren; de aanroeper bepaalt wat dat betekent (onTake). */
-  function setTakeable(items) {
-    if (!els || !els.svg) return;
-    (items || []).forEach(function (it) {
-      var g = els.svg.querySelector('.node[data-node-id="' + it.id + '"]');
-      if (!g || g.getAttribute('data-takeable') === '1') return;
-      g.setAttribute('data-takeable', '1');
-      g.setAttribute('data-take-label', it.label || it.id);
-      g.setAttribute('role', 'button');
-      g.classList.add('is-takeable');
-      var activate = function () {
-        if (g.classList.contains('is-selected')) onTake({nodeId: it.id});
-      };
-      g.addEventListener('click', activate);
-      g.addEventListener('keydown', function (ev) {
-        if (ev.key === 'Enter') { ev.preventDefault(); activate(); }
-        else if (ev.key === ' ') { ev.preventDefault(); }
-      });
-      g.addEventListener('keyup', function (ev) {
-        if (ev.key === ' ') { ev.preventDefault(); activate(); }
-      });
-    });
-  }
-
-  function updateTakeable(g, st) {
-    var label = g.getAttribute('data-take-label');
-    if (st === 'selected') {
-      g.setAttribute('tabindex', '0');
-      g.removeAttribute('aria-disabled');
-      g.setAttribute('aria-label', 'Uitkomst ' + label + ': neem deze waarde over in de beslisboom');
-    } else {
-      g.removeAttribute('tabindex');
-      g.setAttribute('aria-disabled', 'true');
-      g.setAttribute('aria-label', label + (st === 'excluded' ? ': niet meer mogelijk' : ': nog niet bereikt'));
-    }
-  }
-
   /* Past een berekende graph-status toe als CSS-klassen op nodes, edges, dots en labels.
      status = {nodes: {id: status}, edges: {id: status}} (uit GraphState.compute);
      values = {nodeId: waarde} met de keuzes van de getoonde beslisboom (alleen voor de aria-labels).
@@ -588,6 +564,44 @@ const Renderer = (function () {
     });
   }
 
+  /* Maakt uitkomsten (outcomes) van een hulpbeslisboom aanklikbaar: items = [{id, label}]. Aanroepen na draw().
+     Alleen een bereikte uitkomst (status selected) is te activeren; de aanroeper bepaalt wat dat betekent (onTake). */
+  function setTakeable(items) {
+    if (!els || !els.svg) return;
+    (items || []).forEach(function (it) {
+      var g = els.svg.querySelector('.node[data-node-id="' + it.id + '"]');
+      if (!g || g.getAttribute('data-takeable') === '1') return;
+      g.setAttribute('data-takeable', '1');
+      g.setAttribute('data-take-label', it.label || it.id);
+      g.setAttribute('role', 'button');
+      g.classList.add('is-takeable');
+      var activate = function () {
+        if (g.classList.contains('is-selected')) onTake({nodeId: it.id});
+      };
+      g.addEventListener('click', activate);
+      g.addEventListener('keydown', function (ev) {
+        if (ev.key === 'Enter') { ev.preventDefault(); activate(); }
+        else if (ev.key === ' ') { ev.preventDefault(); }
+      });
+      g.addEventListener('keyup', function (ev) {
+        if (ev.key === ' ') { ev.preventDefault(); activate(); }
+      });
+    });
+  }
+
+  function updateTakeable(g, st) {
+    var label = g.getAttribute('data-take-label');
+    if (st === 'selected') {
+      g.setAttribute('tabindex', '0');
+      g.removeAttribute('aria-disabled');
+      g.setAttribute('aria-label', 'Uitkomst ' + label + ': neem deze waarde over in de beslisboom');
+    } else {
+      g.removeAttribute('tabindex');
+      g.setAttribute('aria-disabled', 'true');
+      g.setAttribute('aria-label', label + (st === 'excluded' ? ': niet meer mogelijk' : ': nog niet bereikt'));
+    }
+  }
+
   /* Verplaatst de toetsenbordfocus naar een node zonder de pagina te laten scrollen. */
   function focusNode(id) {
     var g = els.svg.querySelector('.node[data-node-id="' + id + '"]');
@@ -631,10 +645,10 @@ const Renderer = (function () {
     draw: draw,
     applyViewport: applyViewport,
     applyStatus: applyStatus,
-    setTakeable: setTakeable,
     nodeBox: nodeBox,
     setGuidedTarget: setGuidedTarget,
     setRouteHighlight: setRouteHighlight,
+    setTakeable: setTakeable,
     focusNode: focusNode
   };
 })();
