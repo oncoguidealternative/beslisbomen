@@ -202,7 +202,7 @@ const GraphState = (function () {
       }
       lines.push(line);
     }
-    return lines.join(' ').replace(/\{i\}/g, '').replace(/\{a:([^|}]*)\|[^}]*\}/g, '$1').trim();
+    return lines.join(' ').replace(/\{[ix]\}/g, '').replace(/\{a:([^|}]*)\|[^}]*\}/g, '$1').trim();
   }
 
   /* ===== Aanbevelingenoverzicht (Sprint 13) ===== */
@@ -460,7 +460,7 @@ const GraphState = (function () {
     }
     var lines = [];
     raw.forEach(function (l) {
-      var t = l.replace(/\{i\}/g, '').replace(/\{a:([^|}]*)\|[^}]*\}/g, '$1').trim();
+      var t = l.replace(/\{[ix]\}/g, '').replace(/\{a:([^|}]*)\|[^}]*\}/g, '$1').trim();
       if (t === '---') t = '';
       if (t === '' && (!lines.length || lines[lines.length - 1] === '')) return;
       lines.push(t);
