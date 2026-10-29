@@ -89,6 +89,12 @@
     };
     if (!refs.main || !refs.svg || !refs.message) return;
 
+    // Het aanbevelingenpaneel is optioneel: ontbreekt js/recommendations-panel.js (nog) op de server, dan werkt het
+    // zorgpad gewoon zonder dat paneel in plaats van te blijven hangen op "Laden…".
+    const RP = (typeof RecommendationsPanel !== "undefined" && RecommendationsPanel) || {
+      init: function () {}, setTree: function () {}, refresh: function () {}, coveredInsets: function () { return {right: 0, bottom: 0}; }
+    };
+
     function showMessage(text, isError, homeLink) {
       refs.svg.classList.add("zp-hidden");
       refs.message.classList.remove("zp-hidden");
@@ -278,7 +284,7 @@
       ChoicePanel.close(false);
       Renderer.draw(view, { navigate: navigate, interact: interact, select: selectEdge, subtree: enterSubtree, take: takeOutcome });
       Renderer.setTakeable(takeableItems());
-      RecommendationsPanel.setTree({ treeId: view.treeId, graph: view.treeId && view.graph && GraphState.isInteractive(view.graph) ? view.graph : null });
+      RP.setTree({ treeId: view.treeId, graph: view.treeId && view.graph && GraphState.isInteractive(view.graph) ? view.graph : null });
       // Pas na het tekenen: pas dan heeft het werkvlak zijn (native) afmetingen.
       if (view.graph && view.graph.native) {
         applyFit(view.graph);
@@ -434,7 +440,7 @@
 
     // ----- Aanbevelingenoverzicht -----
     function refreshRecommendations(status) {
-      RecommendationsPanel.refresh(status);
+      RP.refresh(status);
     }
 
     // Markeert de route (nodes en connectors) in de boom en brengt de aanbeveling in beeld, buiten het paneel.
@@ -443,7 +449,7 @@
       if (!currentGraph || !currentGraph.native || !target.targetId) return;
       cancelJourney();
       clearGuidedTarget();
-      const ins = RecommendationsPanel.coveredInsets();
+      const ins = RP.coveredInsets();
       const w = refs.stage.clientWidth - ins.right;
       const h = refs.stage.clientHeight - ins.bottom;
       const r = nodeOnScreen(target.targetId);
@@ -457,7 +463,7 @@
       }, function () {});
     }
 
-    RecommendationsPanel.init({
+    RP.init({
       host: refs.main,
       stage: refs.stage,
       onShow: showRecommendation,
@@ -807,6 +813,12 @@
   document.addEventListener("DOMContentLoaded", function () {
     const page = document.body.dataset.page;
     if (page === "home") initHome();
-    if (page === "zorgpad") initZorgpad();
+    if (page === "zorgpad") {
+      initZorgpad().catch(function (err) {
+        const m = document.getElementById("zp-message");
+        if (m) { m.textContent = ""; const p = document.createElement("p"); p.className = "error"; p.textContent = "Fout bij starten van het zorgpad: " + err.message; m.appendChild(p); }
+        if (window.console) console.error(err);
+      });
+    }
   });
 })();
