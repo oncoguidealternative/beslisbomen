@@ -1,401 +1,641 @@
 {
   "id": "cin-ais-vain",
-  "titel": "Zorgpad CIN, AIS, VAIN",
+  "titel": "CIN, AIS, VAIN",
   "overview": {
-    "native": true,
-    "viewBox": [
-      2200,
-      1950
-    ],
-    "nodeSize": [
-      220,
-      90
-    ],
-    "gridSizeX": 100,
-    "gridSizeY": 100,
-    "wrap": 28,
+    "layout": {
+      "unit": 5,
+      "blockWidth": 40,
+      "blockHeight": 20,
+      "margin": 10
+    },
     "nodes": [
       {
-        "id": "zorgpad-cin-ais-vain",
-        "label": "2018 Zorgpad richtlijn CIN, AIS, VAIN",
-        "gridX": 7,
-        "gridY": 0,
-        "type": "root"
+        "id": "start",
+        "type": "title",
+        "label": "Zorgpad 2021 CIN, AIS, VAIN",
+        "text": "Zorgpad 2021\nCIN, AIS, VAIN",
+        "gridX": 30,
+        "gridY": 0
       },
       {
         "id": "beleid-tijdens-colposcopie",
+        "drill": true,
         "label": "Beleid tijdens colposcopie",
-        "gridX": 7,
-        "gridY": 2,
-        "drill": true
+        "gridX": 30,
+        "gridY": 30
       },
       {
         "id": "beleid-na-histologie",
-        "label": "2019 Beleid na histologie",
-        "gridX": 7,
-        "gridY": 4,
-        "drill": true
+        "drill": true,
+        "label": "Beleid na histologie",
+        "gridX": 30,
+        "gridY": 60
       },
       {
-        "id": "laaggradige-afwijkingen",
-        "label": "Laaggradige afwijkingen",
-        "gridX": 2,
-        "gridY": 7,
-        "type": "outcome"
+        "id": "laaggradige-afwijking",
+        "tone": "dark",
+        "label": "Laaggradige afwijking",
+        "gridX": 0,
+        "gridY": 85
       },
       {
-        "id": "hooggradige-afwijkingen",
-        "label": "Hooggradige afwijkingen",
-        "gridX": 12,
-        "gridY": 7,
-        "type": "outcome"
+        "id": "hooggradige-afwijking",
+        "tone": "dark",
+        "label": "Hooggradige afwijking",
+        "gridX": 80,
+        "gridY": 85
       },
       {
-        "id": "follow-up-12-maanden-laaggradig",
-        "label": "Follow-up - 12 maanden na verdenking/diagnose laaggradige afwijking",
-        "gridX": 2,
-        "gridY": 9,
-        "drill": true
+        "id": "expectatief-beleid",
+        "tone": "dark",
+        "label": "Expectatief beleid",
+        "gridX": 180,
+        "gridY": 85
       },
       {
-        "id": "follow-up-24-maanden-laaggradig",
-        "label": "Follow-up - 24 maanden na verdenking/diagnose laaggradige afwijking",
-        "gridX": 2,
-        "gridY": 11,
-        "drill": true
+        "id": "fu-12-laaggradig",
+        "drill": true,
+        "label": "Follow up - 12 maanden na verdenking/diagnose laaggradige afwijking",
+        "gridX": 0,
+        "gridY": 110
       },
       {
-        "id": "beleid-na-histologie-laaggradig",
+        "id": "fu-6-behandeld-cin23",
+        "drill": true,
+        "label": "Follow up - 6 maanden na diagnose behandelde CIN 2/3",
+        "gridX": 80,
+        "gridY": 110
+      },
+      {
+        "id": "fu-6-onbehandeld-cin2",
+        "drill": true,
+        "label": "Follow up - 6 maanden na diagnose onbehandelde CIN2",
+        "gridX": 180,
+        "gridY": 110
+      },
+      {
+        "id": "fu-24-laaggradig",
+        "drill": true,
+        "label": "Follow up - 24 maanden na verdenking/diagnose laaggradige afwijking",
+        "gridX": 0,
+        "gridY": 135
+      },
+      {
+        "id": "fu-12-behandeld-cin23",
+        "drill": true,
+        "label": "Follow up - 12 maanden na diagnose behandelde CIN 2/3",
+        "gridX": 80,
+        "gridY": 135
+      },
+      {
+        "id": "fu-12-onbehandeld-cin2",
+        "drill": true,
+        "label": "Follow up - 12 maanden na diagnose onbehandelde CIN2",
+        "gridX": 180,
+        "gridY": 135
+      },
+      {
+        "id": "beleid-histologie-primair-onbehandeld-laaggradig",
+        "drill": true,
         "label": "Beleid na histologie na primair onbehandelde laaggradige afwijking",
-        "gridX": 7,
-        "gridY": 13,
-        "drill": true
+        "gridX": 30,
+        "gridY": 160
       },
       {
-        "id": "zoals-hooggradige-afwijkingen",
-        "label": "Zoals “hooggradige afwijkingen”",
-        "gridX": 7,
-        "gridY": 15,
-        "type": "outcome"
+        "id": "fu-24-behandeld-cin23",
+        "drill": true,
+        "label": "Follow up - 24 maanden na diagnose behandelde CIN 2/3",
+        "gridX": 80,
+        "gridY": 160
       },
       {
-        "id": "follow-up-6-maanden-cin",
-        "label": "Follow-up - 6 maanden na diagnose behandelde CIN 2/3",
-        "gridX": 12,
-        "gridY": 9,
-        "drill": true
+        "id": "fu-24-behandeld-cin23-expectatief",
+        "drill": true,
+        "label": "Follow up - 24 maanden na diagnose behandelde CIN 2/3",
+        "gridX": 150,
+        "gridY": 160
       },
       {
-        "id": "follow-up-12-maanden-cin",
-        "label": "Follow-up - 12 maanden na diagnose behandelde CIN 2/3",
-        "gridX": 12,
-        "gridY": 11,
-        "drill": true
+        "id": "beleid-biopt-12-onbehandeld-cin2",
+        "drill": true,
+        "label": "Beleid na biopt na 12 maanden onbehandelde CIN2",
+        "gridX": 210,
+        "gridY": 160
       },
       {
-        "id": "follow-up-24-maanden-cin",
-        "label": "Follow-up - 24 maanden na diagnose behandelde CIN 2/3",
-        "gridX": 12,
-        "gridY": 13,
-        "drill": true
+        "id": "fu-30-behandeld-cin23",
+        "drill": true,
+        "label": "Follow up - 30 maanden na diagnose behandelde CIN 2/3",
+        "gridX": 80,
+        "gridY": 185
       },
       {
-        "id": "follow-up-30-maanden-cin",
-        "label": "Follow-up - 30 maanden na diagnose behandelde CIN 2/3",
-        "gridX": 12,
-        "gridY": 15,
-        "drill": true
+        "id": "fu-18-onbehandeld-cin2",
+        "drill": true,
+        "label": "Follow up – 18 maanden na diagnose onbehandelde CIN2",
+        "gridX": 210,
+        "gridY": 185
       },
       {
-        "id": "beleid-na-histologie-cin",
+        "id": "beleid-histologie-primair-behandeld-cin23",
+        "drill": true,
         "label": "Beleid na histologie na primair behandelde CIN 2/3",
-        "gridX": 17,
-        "gridY": 17,
-        "drill": true
+        "gridX": 110,
+        "gridY": 210
+      },
+      {
+        "id": "fu-24-onbehandeld-cin2",
+        "drill": true,
+        "label": "Follow up - 24 maanden na diagnose onbehandelde CIN2",
+        "gridX": 180,
+        "gridY": 210
+      },
+      {
+        "id": "beleid-biopten-24-onbehandeld-cin2",
+        "drill": true,
+        "label": "Beleid na biopten (bij follow up 24 mnd na diagnose onbehandelde CIN2)",
+        "text": "Beleid na biopten\n(bij follow up 24 mnd na diagnose onbehandelde CIN2)",
+        "gridX": 180,
+        "gridY": 235
+      },
+      {
+        "id": "beleid-na-histologie-2",
+        "drill": true,
+        "label": "Beleid na histologie",
+        "gridX": 255,
+        "gridY": 235
       }
     ],
     "edges": [
       {
+        "id": "edge-start-beleid-tijdens-colposcopie",
+        "from": "start",
+        "to": "beleid-tijdens-colposcopie",
         "points": [
           [
-            810,
-            90
+            250,
+            100
           ],
           [
-            810,
-            200
+            250,
+            150
           ]
         ],
         "arrow": true
       },
       {
+        "id": "edge-beleid-tijdens-colposcopie-beleid-na-histologie",
+        "from": "beleid-tijdens-colposcopie",
+        "to": "beleid-na-histologie",
         "points": [
           [
-            810,
-            290
+            250,
+            250
           ],
           [
-            810,
-            400
+            250,
+            300
           ]
         ],
         "arrow": true
       },
       {
+        "id": "edge-beleid-na-histologie-laaggradige-afwijking",
+        "from": "beleid-na-histologie",
+        "to": "laaggradige-afwijking",
         "points": [
           [
-            810,
-            490
+            150,
+            350
           ],
           [
-            810,
-            595
+            100,
+            350
           ],
           [
-            310,
-            595
-          ],
-          [
-            310,
-            700
+            100,
+            425
           ]
         ],
         "arrow": true
       },
       {
+        "id": "edge-beleid-na-histologie-hooggradige-afwijking",
+        "from": "beleid-na-histologie",
+        "to": "hooggradige-afwijking",
         "points": [
           [
-            810,
-            490
+            350,
+            350
           ],
           [
-            810,
-            595
+            500,
+            350
           ],
           [
-            1310,
-            595
-          ],
-          [
-            1310,
-            700
+            500,
+            425
           ]
         ],
         "arrow": true
       },
       {
+        "id": "edge-beleid-na-histologie-expectatief-beleid",
+        "from": "beleid-na-histologie",
+        "to": "expectatief-beleid",
         "points": [
           [
-            310,
-            790
+            500,
+            350
           ],
           [
-            310,
+            1000,
+            350
+          ],
+          [
+            1000,
+            425
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "id": "edge-laaggradige-afwijking-fu-12-laaggradig",
+        "from": "laaggradige-afwijking",
+        "to": "fu-12-laaggradig",
+        "points": [
+          [
+            100,
+            525
+          ],
+          [
+            100,
+            550
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "id": "edge-hooggradige-afwijking-fu-6-behandeld-cin23",
+        "from": "hooggradige-afwijking",
+        "to": "fu-6-behandeld-cin23",
+        "points": [
+          [
+            500,
+            525
+          ],
+          [
+            500,
+            550
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "id": "edge-expectatief-beleid-fu-6-onbehandeld-cin2",
+        "from": "expectatief-beleid",
+        "to": "fu-6-onbehandeld-cin2",
+        "points": [
+          [
+            1000,
+            525
+          ],
+          [
+            1000,
+            550
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "id": "edge-fu-12-laaggradig-fu-24-laaggradig",
+        "from": "fu-12-laaggradig",
+        "to": "fu-24-laaggradig",
+        "points": [
+          [
+            100,
+            650
+          ],
+          [
+            100,
+            675
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "id": "edge-fu-6-behandeld-cin23-fu-12-behandeld-cin23",
+        "from": "fu-6-behandeld-cin23",
+        "to": "fu-12-behandeld-cin23",
+        "points": [
+          [
+            500,
+            650
+          ],
+          [
+            500,
+            675
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "id": "edge-fu-12-behandeld-cin23-fu-24-behandeld-cin23",
+        "from": "fu-12-behandeld-cin23",
+        "to": "fu-24-behandeld-cin23",
+        "points": [
+          [
+            500,
+            775
+          ],
+          [
+            500,
+            800
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "id": "edge-fu-24-behandeld-cin23-fu-30-behandeld-cin23",
+        "from": "fu-24-behandeld-cin23",
+        "to": "fu-30-behandeld-cin23",
+        "points": [
+          [
+            500,
             900
+          ],
+          [
+            500,
+            925
           ]
         ],
         "arrow": true
       },
       {
+        "id": "edge-fu-6-onbehandeld-cin2-fu-12-onbehandeld-cin2",
+        "from": "fu-6-onbehandeld-cin2",
+        "to": "fu-12-onbehandeld-cin2",
         "points": [
           [
-            310,
-            990
+            1000,
+            650
           ],
           [
-            310,
-            1100
+            1000,
+            675
           ]
         ],
         "arrow": true
       },
       {
+        "id": "edge-fu-12-laaggradig-beleid-histologie-primair-onbehandeld-laaggradig",
+        "from": "fu-12-laaggradig",
+        "to": "beleid-histologie-primair-onbehandeld-laaggradig",
         "points": [
           [
-            310,
-            990
+            200,
+            600
           ],
           [
-            310,
-            1145
+            250,
+            600
           ],
           [
-            810,
-            1145
-          ],
-          [
-            810,
-            1300
+            250,
+            800
           ]
         ],
         "arrow": true
       },
       {
+        "id": "edge-fu-24-laaggradig-beleid-histologie-primair-onbehandeld-laaggradig",
+        "from": "fu-24-laaggradig",
+        "to": "beleid-histologie-primair-onbehandeld-laaggradig",
         "points": [
           [
-            310,
-            1190
+            200,
+            725
           ],
           [
-            310,
-            1245
+            250,
+            725
+          ]
+        ]
+      },
+      {
+        "id": "edge-fu-6-behandeld-cin23-beleid-histologie-primair-behandeld-cin23",
+        "from": "fu-6-behandeld-cin23",
+        "to": "beleid-histologie-primair-behandeld-cin23",
+        "points": [
+          [
+            600,
+            600
           ],
           [
-            810,
-            1245
+            650,
+            600
           ],
           [
-            810,
-            1300
+            650,
+            1050
           ]
         ],
         "arrow": true
       },
       {
+        "id": "edge-fu-12-behandeld-cin23-beleid-histologie-primair-behandeld-cin23",
+        "from": "fu-12-behandeld-cin23",
+        "to": "beleid-histologie-primair-behandeld-cin23",
         "points": [
           [
-            810,
-            1390
+            600,
+            725
           ],
           [
-            810,
-            1500
+            650,
+            725
+          ]
+        ]
+      },
+      {
+        "id": "edge-fu-24-behandeld-cin23-beleid-histologie-primair-behandeld-cin23",
+        "from": "fu-24-behandeld-cin23",
+        "to": "beleid-histologie-primair-behandeld-cin23",
+        "points": [
+          [
+            600,
+            850
+          ],
+          [
+            650,
+            850
+          ]
+        ]
+      },
+      {
+        "id": "edge-fu-30-behandeld-cin23-beleid-histologie-primair-behandeld-cin23",
+        "from": "fu-30-behandeld-cin23",
+        "to": "beleid-histologie-primair-behandeld-cin23",
+        "points": [
+          [
+            600,
+            975
+          ],
+          [
+            650,
+            975
+          ]
+        ]
+      },
+      {
+        "id": "edge-fu-6-onbehandeld-cin2-fu-24-behandeld-cin23-expectatief",
+        "from": "fu-6-onbehandeld-cin2",
+        "to": "fu-24-behandeld-cin23-expectatief",
+        "points": [
+          [
+            900,
+            600
+          ],
+          [
+            850,
+            600
+          ],
+          [
+            850,
+            800
           ]
         ],
         "arrow": true
       },
       {
+        "id": "edge-fu-6-onbehandeld-cin2-beleid-na-histologie-2",
+        "from": "fu-6-onbehandeld-cin2",
+        "to": "beleid-na-histologie-2",
         "points": [
           [
-            1310,
-            790
+            1100,
+            600
           ],
           [
-            1310,
+            1375,
+            600
+          ],
+          [
+            1375,
+            1175
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "id": "edge-fu-12-onbehandeld-cin2-beleid-biopt-12-onbehandeld-cin2",
+        "from": "fu-12-onbehandeld-cin2",
+        "to": "beleid-biopt-12-onbehandeld-cin2",
+        "points": [
+          [
+            1100,
+            725
+          ],
+          [
+            1150,
+            725
+          ],
+          [
+            1150,
+            800
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "id": "edge-fu-12-onbehandeld-cin2-beleid-na-histologie-2",
+        "from": "fu-12-onbehandeld-cin2",
+        "to": "beleid-na-histologie-2",
+        "points": [
+          [
+            1100,
+            725
+          ],
+          [
+            1375,
+            725
+          ]
+        ]
+      },
+      {
+        "id": "edge-fu-12-onbehandeld-cin2-fu-24-onbehandeld-cin2",
+        "from": "fu-12-onbehandeld-cin2",
+        "to": "fu-24-onbehandeld-cin2",
+        "points": [
+          [
+            1000,
+            775
+          ],
+          [
+            1000,
+            1050
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "id": "edge-beleid-biopt-12-onbehandeld-cin2-fu-18-onbehandeld-cin2",
+        "from": "beleid-biopt-12-onbehandeld-cin2",
+        "to": "fu-18-onbehandeld-cin2",
+        "points": [
+          [
+            1150,
             900
+          ],
+          [
+            1150,
+            925
           ]
         ],
         "arrow": true
       },
       {
+        "id": "edge-beleid-biopt-12-onbehandeld-cin2-beleid-na-histologie-2",
+        "from": "beleid-biopt-12-onbehandeld-cin2",
+        "to": "beleid-na-histologie-2",
         "points": [
           [
-            1310,
-            990
+            1250,
+            850
           ],
           [
-            1310,
-            1100
+            1375,
+            850
           ]
-        ],
-        "arrow": true
+        ]
       },
       {
+        "id": "edge-fu-18-onbehandeld-cin2-fu-24-onbehandeld-cin2",
+        "from": "fu-18-onbehandeld-cin2",
+        "to": "fu-24-onbehandeld-cin2",
         "points": [
           [
-            1310,
-            1190
+            1050,
+            975
           ],
           [
-            1310,
-            1300
+            1000,
+            975
           ]
-        ],
-        "arrow": true
+        ]
       },
       {
+        "id": "edge-fu-24-onbehandeld-cin2-beleid-biopten-24-onbehandeld-cin2",
+        "from": "fu-24-onbehandeld-cin2",
+        "to": "beleid-biopten-24-onbehandeld-cin2",
         "points": [
           [
-            1310,
-            1390
+            1000,
+            1150
           ],
           [
-            1310,
-            1500
-          ]
-        ],
-        "arrow": true
-      },
-      {
-        "points": [
-          [
-            1310,
-            990
-          ],
-          [
-            1310,
-            1345
-          ],
-          [
-            1810,
-            1345
-          ],
-          [
-            1810,
-            1700
-          ]
-        ],
-        "arrow": true
-      },
-      {
-        "points": [
-          [
-            1310,
-            1190
-          ],
-          [
-            1310,
-            1445
-          ],
-          [
-            1810,
-            1445
-          ],
-          [
-            1810,
-            1700
-          ]
-        ],
-        "arrow": true
-      },
-      {
-        "points": [
-          [
-            1310,
-            1390
-          ],
-          [
-            1310,
-            1545
-          ],
-          [
-            1810,
-            1545
-          ],
-          [
-            1810,
-            1700
-          ]
-        ],
-        "arrow": true
-      },
-      {
-        "points": [
-          [
-            1310,
-            1590
-          ],
-          [
-            1310,
-            1645
-          ],
-          [
-            1810,
-            1645
-          ],
-          [
-            1810,
-            1700
+            1000,
+            1175
           ]
         ],
         "arrow": true
@@ -404,4 +644,3 @@
   },
   "trees": {}
 }
-
