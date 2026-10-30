@@ -35,8 +35,26 @@ const GraphState = (function () {
     return selections[id] !== undefined && selections[id] !== null;
   }
 
-  /* Bouwt opzoektabellen. Alleen edges met id, from en to doen mee. */
+  /* Het model van een graph wordt één keer opgebouwd en bewaard (per graph-object). Elke klik roept
+     compute, prune en nextTarget aan; zonder cache werden de opzoektabellen dan steeds opnieuw opgebouwd.
+     De cache vervalt vanzelf als de graph een ander nodes- of edges-array of een ander aantal elementen krijgt. */
+  var modelCache = typeof WeakMap === 'function' ? new WeakMap() : null;
+
   function buildModel(graph) {
+    if (!modelCache) return createModel(graph);
+    var hit = modelCache.get(graph);
+    if (hit && hit.nodes === graph.nodes && hit.edges === graph.edges &&
+        hit.nodeCount === graph.nodes.length && hit.edgeCount === graph.edges.length) {
+      return hit.model;
+    }
+    var model = createModel(graph);
+    modelCache.set(graph, { nodes: graph.nodes, edges: graph.edges,
+      nodeCount: graph.nodes.length, edgeCount: graph.edges.length, model: model });
+    return model;
+  }
+
+  /* Bouwt opzoektabellen. Alleen edges met id, from en to doen mee. */
+  function createModel(graph) {
     var nodes = {}, out = {}, incoming = {}, connected = {}, edges = [];
     graph.nodes.forEach(function (n) { nodes[n.id] = n; });
     graph.edges.forEach(function (e) {
@@ -126,7 +144,8 @@ const GraphState = (function () {
     var possible = traverse(model, clean, true);
     // Alles wat vanaf de root via gemodelleerde edges bereikbaar is, ongeacht keuzes.
     // Delen van de boom die (nog) niet gemodelleerd zijn krijgen nooit een status.
-    var modelled = traverse(model, {}, true);
+    // Hangt alleen van de graph af en wordt daarom één keer per model berekend.
+    var modelled = model.modelled || (model.modelled = traverse(model, {}, true));
     var nodeStatus = {}, edgeStatus = {}, available = [];
 
     graph.nodes.forEach(function (n) {
