@@ -1,1 +1,1520 @@
-
+{
+  "bron": {
+    "naam": "Informatiestandaard oncologische gynaecologie",
+    "organisatie": "IKNL",
+    "repository": "ART-DECOR (Nictiz), project onco-gyn-new-",
+    "dataset": {
+      "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.1.1",
+      "effectiveDate": "2019-01-28T16:24:03"
+    },
+    "groep": {
+      "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.2.444",
+      "effectiveDate": "2021-12-21T16:05:57",
+      "naam": "Cervixcarcinoom"
+    },
+    "url": "https://decor.nictiz.nl/ad/#/onco-gyn-new-/datasets/dataset/2.16.840.1.113883.2.4.3.11.31.1.77.18.1.1/2019-01-28T16:24:03/concept/2.16.840.1.113883.2.4.3.11.31.1.77.18.2.444/2021-12-21T16:05:57",
+    "opgehaald": "2026-10-30",
+    "toelichting": "De codes komen uit de waardelijsten van de Nictiz-dataset (codesysteem SNOMED CT; sommige codes zijn lokale codes uit de dataset). \"waarde\" is de waarde die het zorgpad gebruikt."
+  },
+  "dataitems": [
+    {
+      "id": "beeldvormend-onderzoek",
+      "naam": "Beeldvormend onderzoek",
+      "concept": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.2.445",
+        "effectiveDate": "2021-12-21T16:06:38"
+      },
+      "type": "keuze",
+      "valueSet": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.11.362",
+        "effectiveDate": "2021-12-21T16:39:52",
+        "naam": "BeeldvormendOnderzoekCer"
+      },
+      "waarden": [
+        {
+          "waarde": "cytoscopie",
+          "naam": "Cytoscopie",
+          "code": "Cytoscopie",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "mri",
+          "naam": "MRI",
+          "code": "113091000",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "echo",
+          "naam": "Echo",
+          "code": "16310003",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "mri-bekken",
+          "naam": "MRI bekken",
+          "code": "2690005",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "mri-liesen",
+          "naam": "MRI liesen",
+          "code": "447218006",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "ct-abdomen",
+          "naam": "CT abdomen",
+          "code": "169070004",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "ct-thorax",
+          "naam": "CT thorax",
+          "code": "169069000",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "x-thorax",
+          "naam": "X thorax",
+          "code": "399208008",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "protoscopie",
+          "naam": "Protoscopie",
+          "code": "Protoscopie",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "pet",
+          "naam": "PET",
+          "code": "82918005",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "mri-onderbuik",
+          "naam": "MRI onderbuik",
+          "code": "98641000146106",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "fdg-pet-ct",
+          "naam": "FDG-PET/CT",
+          "code": "443271005",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        }
+      ]
+    },
+    {
+      "id": "beleid",
+      "naam": "Beleid",
+      "concept": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.2.446",
+        "effectiveDate": "2021-12-21T16:07:18"
+      },
+      "type": "keuze",
+      "valueSet": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.11.363",
+        "effectiveDate": "2021-12-21T16:51:26",
+        "naam": "BeleidCerv"
+      },
+      "waarden": [
+        {
+          "waarde": "hyperthermie",
+          "naam": "Hyperthermie",
+          "code": "31847002",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "adjuvante-behandeling",
+          "naam": "Adjuvante behandeling",
+          "code": "AdjuvanteBehandeling",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "beeldvormende-onderzoek",
+          "naam": "Beeldvormende onderzoek",
+          "code": "363679005",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "bepaal-vervolg-chirurgie",
+          "naam": "Bepaal vervolg chirurgie",
+          "code": "BepaalVervolgChirurgie",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "brachytherapie",
+          "naam": "Brachytherapie",
+          "code": "152198000",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "chemotherapie",
+          "naam": "Chemotherapie",
+          "code": "367336001",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "chemoradiotherapie",
+          "naam": "Chemoradiotherapie",
+          "code": "703423002",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "expectatief-beleid",
+          "naam": "Expectatief beleid",
+          "code": "ExpectatiefBeleid",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "follow-up",
+          "naam": "Follow-up",
+          "code": "281036007",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "gynaecologisch-onderzoek",
+          "naam": "Gynaecologisch onderzoek",
+          "code": "83607001",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "hypertherme-intraperitoneale-chemotherapie",
+          "naam": "Hypertherme intraperitoneale chemotherapie",
+          "code": "116621000146109",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "individualiseer-behandeling",
+          "naam": "Individualiseer behandeling",
+          "code": "225292002",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "informeer",
+          "naam": "Informeer",
+          "code": "Informeer",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "palliatieve-behandeling",
+          "naam": "Palliatieve behandeling",
+          "code": "362964009",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "radiotherapie",
+          "naam": "Radiotherapie",
+          "code": "108290001",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "response-beoordeling",
+          "naam": "Response beoordeling",
+          "code": "ResponseBeoordeling",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "sentinel-node-procedure",
+          "naam": "Sentinel node procedure",
+          "code": "396487001",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "verwijzen-naar-oncologisch-centrum",
+          "naam": "Verwijzen (naar oncologisch centrum)",
+          "code": "3457005",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "vriescoupetechniek",
+          "naam": "Vriescoupetechniek",
+          "code": "817011007",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        }
+      ]
+    },
+    {
+      "id": "chirurgie",
+      "naam": "Chirurgie",
+      "concept": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.2.447",
+        "effectiveDate": "2021-12-21T16:07:43"
+      },
+      "type": "keuze",
+      "valueSet": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.11.364",
+        "effectiveDate": "2021-12-21T17:07:02",
+        "naam": "ChirurgieCer"
+      },
+      "waarden": [
+        {
+          "waarde": "clip-achtergebleven-macroscopische-tumor",
+          "naam": "Clip achtergebleven macroscopische tumor",
+          "code": "Clip",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "conisatie",
+          "naam": "Conisatie",
+          "code": "110469002",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "debulking-vergrote-klieren",
+          "naam": "Debulking vergrote klieren",
+          "code": "Debulking",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "eenvoudige-trachelectomie",
+          "naam": "Eenvoudige trachelectomie",
+          "code": "387626007",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "fertiliteitsparende-chirurgie",
+          "naam": "Fertiliteitsparende chirurgie",
+          "code": "FertiliteitsparendeChirurgie",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "lisexcisie",
+          "naam": "Lisexcisie",
+          "code": "23140002",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "pelviene-lymfadenectomie",
+          "naam": "Pelviene lymfadenectomie",
+          "code": "14059008",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "radicale-chirurgie",
+          "naam": "Radicale chirurgie",
+          "code": "62141006",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "radicale-trachelectomie",
+          "naam": "Radicale trachelectomie",
+          "code": "RadicaleTrachelectomie",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "radicale-uterusextirpatie",
+          "naam": "Radicale uterusextirpatie",
+          "code": "RadicaleUterusextirpatie",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "reeds-verrichtte-lisexcisie-met-snijraden-goed-beoordeelbaar-en-tumorvrij",
+          "naam": "Reeds verrichtte lisexcisie met snijraden goed beoordeelbaar en tumorvrij",
+          "code": "VerrichteLisexcisie",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "salvage-procedure",
+          "naam": "Salvage procedure",
+          "code": "257950002",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "uterusextirpatie",
+          "naam": "Uterusextirpatie",
+          "code": "236886002",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "verplaatsen-ovaria-uit-het-bestralingsgebied",
+          "naam": "Verplaatsen ovaria uit het bestralingsgebied",
+          "code": "VerplaatsenOvaria",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "verwijder-bulky-lymfeklieren",
+          "naam": "Verwijder bulky lymfeklieren",
+          "code": "VerwijderBulkyLymfeklieren",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        }
+      ]
+    },
+    {
+      "id": "contra-indicatie-chemotherapie",
+      "naam": "Contra indicatie chemotherapie",
+      "concept": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.2.448",
+        "effectiveDate": "2021-12-21T16:08:16"
+      },
+      "type": "keuze",
+      "valueSet": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.11.365",
+        "effectiveDate": "2021-12-21T17:10:20",
+        "naam": "AanwezigAfwezigCer"
+      },
+      "waarden": [
+        {
+          "waarde": "aanwezig",
+          "naam": "Aanwezig",
+          "code": "52101004",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "afwezig",
+          "naam": "Afwezig",
+          "code": "2667000",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        }
+      ]
+    },
+    {
+      "id": "contra-indicatie-operatie",
+      "naam": "Contra indicatie operatie",
+      "concept": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.2.449",
+        "effectiveDate": "2021-12-21T16:08:39"
+      },
+      "type": "keuze",
+      "valueSet": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.11.365",
+        "effectiveDate": "2021-12-21T17:10:20",
+        "naam": "AanwezigAfwezigCer"
+      },
+      "waarden": [
+        {
+          "waarde": "aanwezig",
+          "naam": "Aanwezig",
+          "code": "52101004",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "afwezig",
+          "naam": "Afwezig",
+          "code": "2667000",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        }
+      ]
+    },
+    {
+      "id": "ct-tumorgrootte",
+      "naam": "cT tumorgrootte",
+      "concept": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.2.457",
+        "effectiveDate": "2021-12-21T16:13:45"
+      },
+      "type": "keuze",
+      "valueSet": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.11.372",
+        "effectiveDate": "2021-12-21T17:35:12",
+        "naam": "Invasiediepte cT"
+      },
+      "waarden": [
+        {
+          "waarde": "microscopisch",
+          "naam": "Microscopisch",
+          "code": "84496004",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "macroscopisch",
+          "naam": "Macroscopisch",
+          "code": "58147004",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        }
+      ]
+    },
+    {
+      "id": "diagnostiek",
+      "naam": "Diagnostiek",
+      "concept": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.2.450",
+        "effectiveDate": "2021-12-21T16:10:04"
+      },
+      "type": "keuze",
+      "valueSet": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.11.366",
+        "effectiveDate": "2021-12-21T17:17:51",
+        "naam": "DiagnostiekCer"
+      },
+      "waarden": [
+        {
+          "waarde": "afnemen-van-anamnese",
+          "naam": "Afnemen van anamnese",
+          "code": "84100007",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "biopt",
+          "naam": "Biopt",
+          "code": "Biopt",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "gynaecologisch-onderzoek",
+          "naam": "Gynaecologisch onderzoek",
+          "code": "83607001",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "histologisch-biopt",
+          "naam": "Histologisch biopt",
+          "code": "9911007",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "lichamelijk-onderzoek",
+          "naam": "Lichamelijk onderzoek",
+          "code": "5880005",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "pathologische-beoordeling",
+          "naam": "Pathologische beoordeling",
+          "code": "PathologischeBeoordeling",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "squamous-cell-carcinoma-scc-bepaling",
+          "naam": "Squamous cell carcinoma (SCC ) bepaling",
+          "code": "SCC",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "bepaal-tumormarkers",
+          "naam": "Bepaal Tumormarkers",
+          "code": "Tumormarkers",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        }
+      ]
+    },
+    {
+      "id": "diameter-tumor",
+      "naam": "Diameter (tumor)",
+      "concept": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.2.451",
+        "effectiveDate": "2021-12-21T16:10:39"
+      },
+      "type": "meting",
+      "eenheid": "mm"
+    },
+    {
+      "id": "eerdere-behandeling-primaire-tumor",
+      "naam": "Eerdere behandeling primaire tumor",
+      "concept": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.2.452",
+        "effectiveDate": "2021-12-21T16:11:00"
+      },
+      "type": "keuze",
+      "valueSet": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.11.367",
+        "effectiveDate": "2021-12-21T17:20:55",
+        "naam": "Eerdere behandeling primaire tumor"
+      },
+      "waarden": [
+        {
+          "waarde": "chemotherapie",
+          "naam": "Chemotherapie",
+          "code": "367336001",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "chirurgie",
+          "naam": "Chirurgie",
+          "code": "387713003",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "radiotherapie",
+          "naam": "Radiotherapie",
+          "code": "108290001",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        }
+      ]
+    },
+    {
+      "id": "fertiliteit",
+      "naam": "Fertiliteit",
+      "concept": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.2.453",
+        "effectiveDate": "2021-12-21T16:11:19"
+      },
+      "type": "keuze",
+      "valueSet": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.11.368",
+        "effectiveDate": "2021-12-21T17:22:08",
+        "naam": "Fertiliteit"
+      },
+      "waarden": [
+        {
+          "waarde": "behouden",
+          "naam": "Behouden",
+          "code": "Behouden",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "niet-behouden",
+          "naam": "Niet behouden",
+          "code": "NietBehouden",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        }
+      ]
+    },
+    {
+      "id": "figo-2009",
+      "naam": "FIGO 2009",
+      "concept": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.2.463",
+        "effectiveDate": "2021-12-21T16:17:18"
+      },
+      "type": "keuze",
+      "valueSet": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.11.383",
+        "effectiveDate": "2021-12-24T13:13:19",
+        "naam": "FIGO2009Cervix"
+      },
+      "waarden": [
+        {
+          "waarde": "ia1",
+          "naam": "IA1",
+          "code": "IA1",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "ia2",
+          "naam": "IA2",
+          "code": "IA2",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "ib1",
+          "naam": "IB1",
+          "code": "IB1",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "ib2",
+          "naam": "IB2",
+          "code": "IB2",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "iia1",
+          "naam": "IIA1",
+          "code": "IIA1",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "iia2",
+          "naam": "IIA2",
+          "code": "IIA2",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "iib",
+          "naam": "IIB",
+          "code": "IIB",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "iiia",
+          "naam": "IIIA",
+          "code": "IIIA",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "iiib",
+          "naam": "IIIB",
+          "code": "IIIB",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "iva",
+          "naam": "IVA",
+          "code": "IVA",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "ivb",
+          "naam": "IVB",
+          "code": "IVB",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "geen",
+          "naam": "Geen",
+          "code": "NON",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        }
+      ]
+    },
+    {
+      "id": "figo-2018",
+      "naam": "FIGO 2018",
+      "concept": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.2.464",
+        "effectiveDate": "2021-12-21T16:17:59"
+      },
+      "type": "keuze",
+      "valueSet": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.11.384",
+        "effectiveDate": "2021-12-24T13:14:57",
+        "naam": "FIGO2018Cervix"
+      },
+      "waarden": [
+        {
+          "waarde": "ia1",
+          "naam": "IA1",
+          "code": "IA1",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "ia2",
+          "naam": "IA2",
+          "code": "IA2",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "ib1",
+          "naam": "IB1",
+          "code": "IB1",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "ib2",
+          "naam": "IB2",
+          "code": "IB2",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "ib3",
+          "naam": "IB3",
+          "code": "IB3",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "iia1",
+          "naam": "IIA1",
+          "code": "IIA1",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "iia2",
+          "naam": "IIA2",
+          "code": "IIA2",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "iib",
+          "naam": "IIB",
+          "code": "IIB",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "iiia",
+          "naam": "IIIA",
+          "code": "IIIA",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "iiib",
+          "naam": "IIIB",
+          "code": "IIIB",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "iiic1",
+          "naam": "IIIC1",
+          "code": "IIIC1",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "iiic2",
+          "naam": "IIIC2",
+          "code": "IIIC2",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "iva",
+          "naam": "IVA",
+          "code": "IVA",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "ivb",
+          "naam": "IVB",
+          "code": "IVB",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        }
+      ]
+    },
+    {
+      "id": "gynaecologisch-onderzoek",
+      "naam": "Gynaecologisch onderzoek",
+      "concept": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.2.454",
+        "effectiveDate": "2021-12-21T16:12:10"
+      },
+      "type": "keuze",
+      "valueSet": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.11.369",
+        "effectiveDate": "2021-12-21T17:26:47",
+        "naam": "Gynaecologisch onderzoek"
+      },
+      "waarden": [
+        {
+          "waarde": "niet-mogelijk",
+          "naam": "Niet mogelijk",
+          "code": "NietMogelijk",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "verricht",
+          "naam": "Verricht",
+          "code": "Verricht",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "niet-wenselijk",
+          "naam": "Niet wenselijk",
+          "code": "NietWenselijk",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        }
+      ]
+    },
+    {
+      "id": "histologie-10-12-wk-na-rt",
+      "naam": "Histologie (10-12 wk na RT)",
+      "concept": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.2.455",
+        "effectiveDate": "2021-12-21T16:12:46"
+      },
+      "type": "keuze",
+      "valueSet": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.11.370",
+        "effectiveDate": "2021-12-21T17:28:30",
+        "naam": "Histologie (10 wk na RT)"
+      },
+      "waarden": [
+        {
+          "waarde": "positief",
+          "naam": "Positief",
+          "code": "10828004",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "negatief",
+          "naam": "Negatief",
+          "code": "260385009",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        }
+      ]
+    },
+    {
+      "id": "infiltratie",
+      "naam": "Infiltratie",
+      "concept": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.2.456",
+        "effectiveDate": "2021-12-21T16:13:08"
+      },
+      "type": "keuze",
+      "valueSet": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.11.371",
+        "effectiveDate": "2021-12-21T17:32:28",
+        "naam": "Infiltratie"
+      },
+      "waarden": [
+        {
+          "waarde": "bovenste-2-derde-deel-vagina",
+          "naam": "Bovenste (2 derde) deel vagina",
+          "code": "BovenVag",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "onderste-3de-deel-vagina",
+          "naam": "Onderste (3de) deel vagina",
+          "code": "OnderVag",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "parametrium",
+          "naam": "Parametrium",
+          "code": "45682005",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "tot-aan-de-bekkenwand",
+          "naam": "Tot aan de bekkenwand",
+          "code": "TADB",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "mucosa",
+          "naam": "Mucosa",
+          "code": "414781009",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "rectum",
+          "naam": "Rectum",
+          "code": "34402009",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "blaas",
+          "naam": "Blaas",
+          "code": "89837001",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "buiten-kleine-bekken",
+          "naam": "Buiten kleine bekken",
+          "code": "BuitenKbekken",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "aangrenzende-organen",
+          "naam": "Aangrenzende organen",
+          "code": "AangrenzendeOrganen",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        }
+      ]
+    },
+    {
+      "id": "interval",
+      "naam": "Interval",
+      "concept": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.2.468",
+        "effectiveDate": "2021-12-21T16:21:08"
+      },
+      "type": "keuze",
+      "valueSet": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.11.376",
+        "effectiveDate": "2021-12-24T12:30:56",
+        "naam": "Interval"
+      },
+      "waarden": [
+        {
+          "waarde": "3-4-mnd",
+          "naam": "3-4 mnd",
+          "code": "3-4mnd",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "4-6-mnd",
+          "naam": "4-6 mnd",
+          "code": "4-6mnd",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "6-12-mnd",
+          "naam": "6-12 mnd",
+          "code": "6-12mnd",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        }
+      ]
+    },
+    {
+      "id": "invasiediepte",
+      "naam": "Invasiediepte",
+      "concept": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.2.458",
+        "effectiveDate": "2021-12-21T16:14:05"
+      },
+      "type": "meting",
+      "eenheid": "mm"
+    },
+    {
+      "id": "lineaire-extension",
+      "naam": "Lineaire extension",
+      "concept": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.2.459",
+        "effectiveDate": "2021-12-21T16:14:47"
+      },
+      "type": "meting",
+      "eenheid": "mm"
+    },
+    {
+      "id": "m",
+      "naam": "M",
+      "concept": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.2.479",
+        "effectiveDate": "2021-12-29T08:55:38"
+      },
+      "type": "keuze",
+      "valueSet": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.11.386",
+        "effectiveDate": "2021-12-29T08:58:59",
+        "naam": "M_cer"
+      },
+      "waarden": [
+        {
+          "waarde": "cm0-uicc",
+          "naam": "cM0 (UICC)",
+          "code": "1352512001",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "cm1-uicc",
+          "naam": "cM1 (UICC)",
+          "code": "1352513006",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "pm1-uicc",
+          "naam": "pM1 (UICC)",
+          "code": "1352583000",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        }
+      ]
+    },
+    {
+      "id": "medicatie",
+      "naam": "Medicatie",
+      "concept": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.2.461",
+        "effectiveDate": "2021-12-21T16:16:30"
+      },
+      "type": "keuze",
+      "valueSet": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.11.374",
+        "effectiveDate": "2021-12-24T12:25:09",
+        "naam": "Medicatie_cc"
+      },
+      "waarden": [
+        {
+          "waarde": "bevacizumab",
+          "naam": "Bevacizumab",
+          "code": "409406007",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "cisplatine",
+          "naam": "Cisplatine",
+          "code": "387318005",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "cisplatine-houdende-chemotherapie",
+          "naam": "Cisplatine houdende chemotherapie",
+          "code": "57066004",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "oestriol",
+          "naam": "Oestriol",
+          "code": "73723004",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        }
+      ]
+    },
+    {
+      "id": "parametriale-invasie",
+      "naam": "Parametriale invasie",
+      "concept": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.2.462",
+        "effectiveDate": "2021-12-21T16:16:54"
+      },
+      "type": "keuze",
+      "valueSet": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.11.365",
+        "effectiveDate": "2021-12-21T17:10:20",
+        "naam": "AanwezigAfwezigCer"
+      },
+      "waarden": [
+        {
+          "waarde": "aanwezig",
+          "naam": "Aanwezig",
+          "code": "52101004",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "afwezig",
+          "naam": "Afwezig",
+          "code": "2667000",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        }
+      ]
+    },
+    {
+      "id": "resectievlak",
+      "naam": "Resectievlak",
+      "concept": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.2.466",
+        "effectiveDate": "2021-12-21T16:18:57"
+      },
+      "type": "keuze",
+      "valueSet": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.11.375",
+        "effectiveDate": "2021-12-24T12:28:48",
+        "naam": "Snijvlak"
+      },
+      "waarden": [
+        {
+          "waarde": "snijvlak-niet-vrij",
+          "naam": "Snijvlak niet vrij",
+          "code": "384689007",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "snijvlak-vrij",
+          "naam": "Snijvlak vrij",
+          "code": "384690003",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        }
+      ]
+    },
+    {
+      "id": "sublokalisatie-recidief",
+      "naam": "Sublokalisatie recidief",
+      "concept": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.2.460",
+        "effectiveDate": "2021-12-21T16:16:05"
+      },
+      "type": "keuze",
+      "valueSet": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.11.373",
+        "effectiveDate": "2021-12-24T12:17:55",
+        "naam": "SublokalisatieRecidief"
+      },
+      "waarden": [
+        {
+          "waarde": "centraal-bekken",
+          "naam": "Centraal bekken",
+          "code": "CentraalBekken",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "vagina",
+          "naam": "Vagina",
+          "code": "76784001",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "para-aortaal",
+          "naam": "Para-aortaal",
+          "code": "90769006",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        }
+      ]
+    },
+    {
+      "id": "t-2009",
+      "naam": "T 2009",
+      "concept": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.2.465",
+        "effectiveDate": "2021-12-21T16:18:28"
+      },
+      "type": "keuze",
+      "valueSet": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.11.382",
+        "effectiveDate": "2021-12-24T13:10:02",
+        "naam": "T2009Cervix"
+      },
+      "waarden": [
+        {
+          "waarde": "t1a1",
+          "naam": "T1a1",
+          "code": "T1a1",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "t1a2",
+          "naam": "T1a2",
+          "code": "T1a2",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "t1b1",
+          "naam": "T1b1",
+          "code": "T1b1",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "t1b2",
+          "naam": "T1b2",
+          "code": "T1b2",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "t2a1",
+          "naam": "T2a1",
+          "code": "T2a1",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "t2a2",
+          "naam": "T2a2",
+          "code": "T2a2",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "t2b",
+          "naam": "T2b",
+          "code": "T2b",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "t3a",
+          "naam": "T3a",
+          "code": "T3a",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "t3b",
+          "naam": "T3b",
+          "code": "T3b",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "t4",
+          "naam": "T4",
+          "code": "T4",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        }
+      ]
+    },
+    {
+      "id": "t-veroorzaakt-symptoom",
+      "naam": "T veroorzaakt symptoom",
+      "ookBekendAls": [
+        "Tumor veroorzaakt symptoom"
+      ],
+      "concept": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.2.478",
+        "effectiveDate": "2021-12-24T17:11:27"
+      },
+      "type": "keuze",
+      "valueSet": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.11.385",
+        "effectiveDate": "2021-12-24T17:11:00",
+        "naam": "T Veroorzaakt Symptoom"
+      },
+      "waarden": [
+        {
+          "waarde": "hydronefrose",
+          "naam": "Hydronefrose",
+          "code": "43064006",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "nierfunctiestoornis",
+          "naam": "Nierfunctiestoornis",
+          "code": "236423003",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "afwezig",
+          "naam": "Afwezig",
+          "code": "2667000",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        }
+      ]
+    },
+    {
+      "id": "tijd-na-laatste-behandeling",
+      "naam": "Tijd na laatste behandeling",
+      "concept": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.2.467",
+        "effectiveDate": "2021-12-21T16:20:20"
+      },
+      "type": "meting",
+      "eenheid": "jaar"
+    },
+    {
+      "id": "uitgebreidheid-ziekte-2009",
+      "naam": "Uitgebreidheid ziekte (2009)",
+      "concept": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.2.469",
+        "effectiveDate": "2021-12-21T16:21:36"
+      },
+      "type": "keuze",
+      "valueSet": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.11.377",
+        "effectiveDate": "2021-12-24T12:37:55",
+        "naam": "Uitgebreidheid ziekte (2009)"
+      },
+      "waarden": [
+        {
+          "waarde": "microscopisch-beperkt-tot-uterus",
+          "naam": "Microscopisch beperkt tot uterus",
+          "code": "MiTU",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "macroscopisch-beperkt-tot-uterus",
+          "naam": "Macroscopisch beperkt tot uterus",
+          "code": "MaBTU",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "buiten-uterus",
+          "naam": "Buiten uterus",
+          "code": "BU",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "uitgebreid-tot-aangrenzende-organen",
+          "naam": "Uitgebreid tot aangrenzende organen",
+          "code": "Utao",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        }
+      ]
+    },
+    {
+      "id": "uitgebreidheid-ziekte",
+      "naam": "Uitgebreidheid ziekte",
+      "concept": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.2.470",
+        "effectiveDate": "2021-12-21T16:22:00"
+      },
+      "type": "keuze",
+      "valueSet": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.11.378",
+        "effectiveDate": "2021-12-24T12:39:51",
+        "naam": "Uitgebreidheid ziekte"
+      },
+      "waarden": [
+        {
+          "waarde": "microscopisch-beperkt-tot-uterus",
+          "naam": "Microscopisch beperkt tot uterus",
+          "code": "MiTU",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "macroscopisch-beperkt-tot-uterus",
+          "naam": "Macroscopisch beperkt tot uterus",
+          "code": "MaBTU",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "buiten-uterus",
+          "naam": "Buiten uterus",
+          "code": "BU",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "bekken-lymfekliermetastasen",
+          "naam": "Bekken lymfekliermetastasen",
+          "code": "54268001",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "paraaortale-lymfekliermetastasen",
+          "naam": "Paraaortale lymfekliermetastasen",
+          "code": "Plm",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "afstandsmetastasen",
+          "naam": "Afstandsmetastasen",
+          "code": "am",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        }
+      ]
+    },
+    {
+      "id": "uitslag-vriescoupe",
+      "naam": "Uitslag vriescoupe",
+      "concept": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.2.471",
+        "effectiveDate": "2021-12-21T16:22:23"
+      },
+      "type": "keuze",
+      "valueSet": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.11.379",
+        "effectiveDate": "2021-12-24T12:45:47",
+        "naam": "Uitslag vriescoupe"
+      },
+      "waarden": [
+        {
+          "waarde": "positief",
+          "naam": "Positief",
+          "code": "10828004",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "negatief",
+          "naam": "Negatief",
+          "code": "260385009",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        }
+      ]
+    },
+    {
+      "id": "vaso-invasie-lvsi",
+      "naam": "Vaso-invasie (LVSI)",
+      "concept": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.2.472",
+        "effectiveDate": "2021-12-21T16:22:44"
+      },
+      "type": "keuze",
+      "valueSet": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.11.365",
+        "effectiveDate": "2021-12-21T17:10:20",
+        "naam": "AanwezigAfwezigCer"
+      },
+      "waarden": [
+        {
+          "waarde": "aanwezig",
+          "naam": "Aanwezig",
+          "code": "52101004",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "afwezig",
+          "naam": "Afwezig",
+          "code": "2667000",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        }
+      ]
+    },
+    {
+      "id": "locatie-verdenking-doorgroei-tumor",
+      "naam": "Locatie verdenking doorgroei tumor",
+      "concept": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.2.473",
+        "effectiveDate": "2021-12-21T16:23:32"
+      },
+      "type": "keuze",
+      "valueSet": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.11.380",
+        "effectiveDate": "2021-12-24T12:48:01",
+        "naam": "Verdenking doorgroei tumor"
+      },
+      "waarden": [
+        {
+          "waarde": "blaas",
+          "naam": "Blaas",
+          "code": "89837001",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "rectum",
+          "naam": "Rectum",
+          "code": "34402009",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "geen",
+          "naam": "Geen",
+          "code": "260413007",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        }
+      ]
+    },
+    {
+      "id": "verdenking-op-afstandsmetastasen",
+      "naam": "Verdenking op afstandsmetastasen",
+      "concept": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.2.474",
+        "effectiveDate": "2021-12-21T16:24:38"
+      },
+      "type": "keuze",
+      "valueSet": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.11.365",
+        "effectiveDate": "2021-12-21T17:10:20",
+        "naam": "AanwezigAfwezigCer"
+      },
+      "waarden": [
+        {
+          "waarde": "aanwezig",
+          "naam": "Aanwezig",
+          "code": "52101004",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "afwezig",
+          "naam": "Afwezig",
+          "code": "2667000",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        }
+      ]
+    },
+    {
+      "id": "verdenking-op-lymfekliermetastasen",
+      "naam": "Verdenking op lymfekliermetastasen",
+      "concept": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.2.475",
+        "effectiveDate": "2021-12-21T16:25:04"
+      },
+      "type": "keuze",
+      "valueSet": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.11.365",
+        "effectiveDate": "2021-12-21T17:10:20",
+        "naam": "AanwezigAfwezigCer"
+      },
+      "waarden": [
+        {
+          "waarde": "aanwezig",
+          "naam": "Aanwezig",
+          "code": "52101004",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "afwezig",
+          "naam": "Afwezig",
+          "code": "2667000",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        }
+      ]
+    },
+    {
+      "id": "verdenking-residu",
+      "naam": "Verdenking residu",
+      "concept": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.2.476",
+        "effectiveDate": "2021-12-21T16:25:28"
+      },
+      "type": "keuze",
+      "valueSet": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.11.365",
+        "effectiveDate": "2021-12-21T17:10:20",
+        "naam": "AanwezigAfwezigCer"
+      },
+      "waarden": [
+        {
+          "waarde": "aanwezig",
+          "naam": "Aanwezig",
+          "code": "52101004",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "afwezig",
+          "naam": "Afwezig",
+          "code": "2667000",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        }
+      ]
+    },
+    {
+      "id": "uitslag-biopt",
+      "naam": "Uitslag biopt",
+      "concept": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.2.477",
+        "effectiveDate": "2021-12-21T16:25:53"
+      },
+      "type": "keuze",
+      "valueSet": {
+        "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.11.381",
+        "effectiveDate": "2021-12-24T12:50:23",
+        "naam": "Uitslag biopt"
+      },
+      "waarden": [
+        {
+          "waarde": "positief",
+          "naam": "Positief",
+          "code": "10828004",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "negatief",
+          "naam": "Negatief",
+          "code": "260385009",
+          "codeSystem": "2.16.840.1.113883.6.96"
+        }
+      ]
+    }
+  ]
+}
