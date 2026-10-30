@@ -17,6 +17,7 @@ const Renderer = (function () {
   var onInteract = function () {};
   var onSelect = function () {}; // een klik op een connector (edge-label) van een interactief criterium
   var onSubtree = function () {}; // een klik op een node met een hulpbeslisboom (subtree)
+  var onInfo = null;              // een klik op de titel van een zorgpad of beslisboom (bronvermelding); null = uit
   var onTake = function () {};    // activeren van een bereikte uitkomst in een hulpbeslisboom
 
   function el(name, attrs, parent) {
@@ -146,6 +147,12 @@ const Renderer = (function () {
     var panY =
       stageHeight / 2 -
       (bounds.y + bounds.height / 2) * zoom;
+
+    /* Past de boom niet in de hoogte, dan begint de weergave bovenaan: daar staan de titel (met de
+       bronvermelding) en de eerste stap. Centreren zou juist die bovenkant buiten beeld laten vallen. */
+    if (bounds.height * zoom > availableHeight) {
+      panY = padding - bounds.y * zoom;
+    }
 
     return {
       zoom: zoom,
@@ -330,7 +337,22 @@ const Renderer = (function () {
           if (ev.key === ' ') { ev.preventDefault(); activate(); }
         });
       }
-      if (target !== null) {
+      // De titel van een beslisboom (root) en van het zorgpad (start) tonen de bronvermelding. Bij een root blijft
+      // het min-icoon de weg terug naar het overzicht (zie het icoon hieronder).
+      var infoNode = onInfo !== null && (type === 'start' || (type === 'root' && target === ''));
+      if (infoNode) {
+        g.classList.add('has-info');
+        g.setAttribute('data-focusable', 'info');
+        g.setAttribute('role', 'button');
+        g.setAttribute('tabindex', '0');
+        g.setAttribute('aria-haspopup', 'dialog');
+        g.setAttribute('aria-label', 'Bron en verantwoording: ' + (n.label || ''));
+        var openInfo = function () { onInfo({nodeId: n.id, label: n.label, element: g}); };
+        g.addEventListener('click', openInfo);
+        g.addEventListener('keydown', function (ev) {
+          if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); openInfo(); }
+        });
+      } else if (target !== null) {
         g.setAttribute('data-focusable', 'link');
         g.setAttribute('role', 'link');
         g.setAttribute('tabindex', '0');
@@ -401,6 +423,17 @@ const Renderer = (function () {
         el('circle', {r: 16}, ic);
         el('path', {d: icon.indexOf('minus') === 0 ? 'M-8,0 H8' :
           icon.indexOf('plus') === 0 ? 'M-8,0 H8 M0,-8 V8' : 'M0,-8 V8 M-7,2 L0,9 L7,2'}, ic);
+        if (infoNode && target !== null) {
+          // Het icoon van een root met bronvermelding is een eigen link terug naar het overzicht.
+          ic.classList.add('icon-link');
+          ic.setAttribute('role', 'link');
+          ic.setAttribute('tabindex', '0');
+          ic.setAttribute('aria-label', 'Terug naar overzicht');
+          el('title', {}, ic).textContent = 'Terug naar overzicht';
+          var back = function (ev) { ev.stopPropagation(); ev.preventDefault(); onNavigate(target); };
+          ic.addEventListener('click', back);
+          ic.addEventListener('keydown', function (ev) { if (ev.key === 'Enter' || ev.key === ' ') back(ev); });
+        }
       }
     });
 
@@ -631,6 +664,7 @@ const Renderer = (function () {
     onSelect = handlers.select || function () {};
     onSubtree = handlers.subtree || function () {};
     onTake = handlers.take || function () {};
+    onInfo = handlers.info || null;
     els.main.classList.toggle('in-detail', view.treeId !== null);
     if (view.graph) {
       els.message.classList.add('zp-hidden');
