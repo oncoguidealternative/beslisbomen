@@ -17,6 +17,10 @@
         - de layout-engine en de validator van de website zelf (dezelfde code als in de browser)
         - bronvermelding ("bron"): datums als jjjj-mm-dd, url met https
         - onderbouwing per beslisboom: juiste opbouw; welke bomen er nog geen hebben
+     2b. elk data/<tumor>/informatiestandaard.json (als die er is): juiste opbouw, en een overzicht van
+        de verschillen met het zorgpad (gegevens of waarden die niet in de informatiestandaard staan,
+        en metingen die in het zorgpad nog als keuzelijst staan). Die verschillen zijn ter informatie:
+        de controle mislukt er niet door.
      3. de HTML-pagina's: alle gekoppelde scripts en stylesheets bestaan en hebben hetzelfde versienummer (?v=)
      4. inhoudspagina's in data/pages: geldige JSON
 
@@ -37,6 +41,7 @@ const warnings = [];
 function error(where, message) { errors.push(where + ': ' + message); }
 function warn(where, message) { warnings.push(where + ': ' + message); }
 
+const notes = [];
 function rel(p) { return path.relative(ROOT, p).split(path.sep).join('/'); }
 function exists(p) { return fs.existsSync(path.join(ROOT, p)); }
 
@@ -197,6 +202,71 @@ function checkZorgpad(tumor, engine) {
   });
 }
 
+/* ---------- 2b. Informatiestandaard ---------- */
+// Naam van een gegeven zonder hoofdletters, regeleinden en "(UICC)"; zo vergelijkt "M (UICC)" gelijk aan "M".
+function plain(s) { return String(s || '').replace(/\(UICC\)/gi, '').replace(/\s+/g, ' ').trim().toLowerCase(); }
+
+function checkInformatiestandaard(tumor) {
+  const file = 'data/' + tumor.id + '/informatiestandaard.json';
+  if (!exists(file)) return;
+  const std = readJSON(file);
+  if (!std) return;
+  if (!std.bron || typeof std.bron.naam !== 'string') error(file, '"bron" met "naam" ontbreekt');
+  if (!Array.isArray(std.dataitems)) { error(file, '"dataitems" moet een lijst zijn'); return; }
+  const ids = {};
+  const byName = {};
+  std.dataitems.forEach(function (it, i) {
+    const where = file + ' dataitem ' + (it && it.id ? '"' + it.id + '"' : '#' + (i + 1));
+    if (!it || !SAFE_ID.test(String(it.id))) { error(where, 'id ontbreekt of bevat andere tekens dan a-z, 0-9, - en _'); return; }
+    if (ids[it.id]) error(where, 'id komt vaker voor');
+    ids[it.id] = it;
+    if (typeof it.naam !== 'string' || !it.naam.trim()) error(where, 'naam ontbreekt');
+    else byName[plain(it.naam)] = it;
+    // "ookBekendAls": andere namen waaronder dit gegeven in het zorgpad voorkomt.
+    if (it.ookBekendAls !== undefined && !Array.isArray(it.ookBekendAls)) error(where, '"ookBekendAls" moet een lijst met namen zijn');
+    (Array.isArray(it.ookBekendAls) ? it.ookBekendAls : []).forEach(function (a) { byName[plain(a)] = it; });
+    if (it.type === 'meting') {
+      if (typeof it.eenheid !== 'string' || !it.eenheid) error(where, 'een meting heeft een "eenheid" nodig');
+    } else if (it.type === 'keuze') {
+      if (!Array.isArray(it.waarden) || !it.waarden.length) { error(where, 'een keuze heeft "waarden" nodig'); return; }
+      const seen = {};
+      it.waarden.forEach(function (w) {
+        if (!w || w.waarde === undefined || typeof w.naam !== 'string') error(where, 'elke waarde heeft "waarde" en "naam" nodig');
+        else if (seen[w.waarde]) error(where, 'waarde "' + w.waarde + '" komt vaker voor');
+        else seen[w.waarde] = true;
+      });
+    } else error(where, 'type moet "keuze" of "meting" zijn');
+  });
+
+  // Vergelijking met het zorgpad: per keuzenode het bijbehorende gegeven (via dataKey of naam).
+  const zorgpad = readJSON('data/' + tumor.id + '/zorgpad.json');
+  if (!zorgpad) return;
+  const reported = {};
+  function note(key, message) { if (!reported[key]) { reported[key] = true; notes.push(file + ': ' + message); } }
+  const trees = zorgpad.trees || {};
+  Object.keys(trees).forEach(function (treeId) {
+    const t = trees[treeId];
+    if (!t || t.same || !Array.isArray(t.nodes)) return;
+    t.nodes.forEach(function (n) {
+      if (!n.interactive || !Array.isArray(n.options)) return;
+      const label = String(n.label || n.id).replace(/\s+/g, ' ').trim();
+      const it = (n.dataKey && ids[n.dataKey]) || byName[plain(n.label || n.id)];
+      if (!it) { note('ontbreekt:' + plain(label), '"' + label + '" (' + treeId + ') staat niet in de informatiestandaard'); return; }
+      if (it.type === 'meting') {
+        if (!n.measure) note('meting:' + treeId + ':' + plain(label), '"' + label + '" (' + treeId + ') is in de informatiestandaard een meting in ' + it.eenheid + ', maar staat in het zorgpad als keuzelijst');
+        else if (String(n.measure.unit || '') !== it.eenheid) note('eenheid:' + treeId + ':' + n.id, '"' + label + '" (' + treeId + ') gebruikt eenheid "' + n.measure.unit + '", de informatiestandaard "' + it.eenheid + '"');
+        return;
+      }
+      if (n.measure) { note('keuze:' + treeId + ':' + n.id, '"' + label + '" (' + treeId + ') is een meting, maar in de informatiestandaard een keuzelijst'); return; }
+      const known = {};
+      it.waarden.forEach(function (w) { known[String(w.waarde)] = true; });
+      const extra = n.options.filter(function (o) { return !known[String(o.value)]; })
+        .map(function (o) { return String(o.label || o.value).replace(/\s+/g, ' ').trim(); });
+      if (extra.length) note('waarden:' + plain(label) + ':' + extra.join('|'), '"' + label + '" (' + treeId + ') heeft waarden die niet in de informatiestandaard staan: ' + extra.join('; '));
+    });
+  });
+}
+
 /* ---------- 3. HTML ---------- */
 function checkHtml() {
   const versions = {};
@@ -243,7 +313,7 @@ function main() {
     process.exit(1);
   }
   const tumoren = checkTumoren();
-  tumoren.forEach(function (t) { checkZorgpad(t, engine); });
+  tumoren.forEach(function (t) { checkZorgpad(t, engine); checkInformatiestandaard(t); });
   checkHtml();
   checkPages();
 
@@ -252,6 +322,7 @@ function main() {
     console.log('\n' + title + ' (' + list.length + ')');
     list.forEach(function (m) { console.log('  ' + symbol + ' ' + m); });
   };
+  print('Verschillen met de informatiestandaard (ter informatie)', notes, '·');
   print('Waarschuwingen', warnings, '!');
   print('Fouten', errors, '✗');
 
