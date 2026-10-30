@@ -182,7 +182,20 @@ Een `dataItem` wordt een keuze met `interactive: true` en een lijst `options`. E
 
 1. Elke optie heeft een unieke `value`, een `label` en een `edge`.
 2. Die edge bestaat, heeft `from` gelijk aan deze node en `value` gelijk aan de `value` van de optie.
-3. Elke optie heeft precies één edge; een edge hoort bij precies één optie.
+3. Elke optie heeft precies één edge. Meestal hoort een edge ook bij precies één optie. Leiden meerdere opties naar dezelfde plek, dan delen ze één edge met een **lijst** van waarden:
+
+   ```json
+   "options": [
+     { "value": "0", "label": "0", "edge": "edge-cn-0" },
+     { "value": "1", "label": "1", "edge": "edge-cn-1-2" },
+     { "value": "2", "label": "2", "edge": "edge-cn-1-2" },
+     { "value": "3", "label": "3", "edge": "edge-cn-3" }
+   ]
+   …
+   { "id": "edge-cn-1-2", "from": "cn", "to": "ct-r", "value": ["1", "2"], "label": "1,2", … }
+   ```
+
+   In het keuzevenster en het paneel staan dan vier aparte waarden. De connector "1,2" wordt groen bij 1 én bij 2; een klik op die connector opent het keuzevenster om 1 of 2 te kiezen.
 4. De keuzenode is vanaf de titel bereikbaar via edges met `id`, `from` en `to`.
 5. Een `recommendation` heeft nooit `options`.
 

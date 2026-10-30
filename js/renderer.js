@@ -271,10 +271,16 @@ const Renderer = (function () {
       var parent = nodesById[from];
       if (value === undefined || value === null || !parent) return null;
       if (parent.interactive !== true || !Array.isArray(parent.options)) return null;
-      var option = parent.options.filter(function (o) { return o.value === value; })[0];
-      if (!option) return null;
-      return {edgeId: e.id, nodeId: from, nodeLabel: parent.label || from, value: value,
-        optionLabel: option.label !== undefined ? option.label : String(value)};
+      // Een edge kan bij meerdere opties horen ("value": ["1", "2"]); dan opent een klik het keuzevenster.
+      var values = Array.isArray(value) ? value : [value];
+      var options = parent.options.filter(function (o) { return values.indexOf(o.value) >= 0; });
+      if (!options.length) return null;
+      var label = function (o) { return o.label !== undefined ? o.label : String(o.value); };
+      return {edgeId: e.id, nodeId: from, nodeLabel: parent.label || from,
+        value: options.length === 1 ? options[0].value : null,
+        values: options.map(function (o) { return o.value; }),
+        optionLabel: options.length === 1 ? label(options[0])
+          : (e.label ? String(e.label).replace(/\s+/g, ' ') : options.map(label).join(' of '))};
     }
 
     graph.edges.forEach(function (e) {
@@ -478,7 +484,8 @@ const Renderer = (function () {
       'class': 'edge-choice',
       'data-edge-id': choice.edgeId,
       'data-from': choice.nodeId,
-      'data-value': String(choice.value),
+      'data-value': choice.values.join('|'),
+      'data-values': JSON.stringify(choice.values),
       'data-node-label': choice.nodeLabel,
       'data-option-label': choice.optionLabel,
       'role': 'button',
@@ -489,7 +496,7 @@ const Renderer = (function () {
     el('rect', {'class': 'edge-hit', x: e.dot[0] - halfW, y: top, width: halfW * 2, height: bottom - top, rx: 6}, g);
     var activate = function () {
       if (g.getAttribute('aria-disabled') === 'true') return;
-      onSelect({nodeId: choice.nodeId, nodeLabel: choice.nodeLabel, value: choice.value, optionLabel: choice.optionLabel});
+      onSelect({nodeId: choice.nodeId, nodeLabel: choice.nodeLabel, value: choice.value, values: choice.values, optionLabel: choice.optionLabel});
     };
     g.addEventListener('click', activate);
     g.addEventListener('keydown', function (ev) {
@@ -509,8 +516,9 @@ const Renderer = (function () {
     var st = status.nodes[from] || 'normal';
     var nodeLabel = item.getAttribute('data-node-label');
     var optionLabel = item.getAttribute('data-option-label');
+    var values = JSON.parse(item.getAttribute('data-values') || '[]');
     var chosen = selections[from] !== undefined && selections[from] !== null &&
-      String(selections[from]) === item.getAttribute('data-value');
+      values.indexOf(selections[from]) >= 0;
     var text = nodeLabel + ': ' + optionLabel;
     if (isSelectableStatus(st)) {
       item.setAttribute('tabindex', st === 'available' ? '0' : '-1');

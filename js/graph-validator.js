@@ -13,6 +13,13 @@ const GraphValidator = (function () {
 
   function isObject(x) { return x !== null && typeof x === 'object' && !Array.isArray(x); }
   function nonEmptyString(x) { return typeof x === 'string' && x.trim() !== ''; }
+  // De waarde(n) van een edge: "value": "0" of "value": ["1", "2"] (meerdere opties via dezelfde edge).
+  function edgeValues(e) {
+    if (!e || e.value === undefined || e.value === null) return [];
+    return Array.isArray(e.value) ? e.value : [e.value];
+  }
+  function edgeHas(e, v) { return edgeValues(e).indexOf(v) >= 0; }
+  function showValue(e) { return Array.isArray(e.value) ? e.value.join(', ') : String(e.value); }
 
   /* graph: {nodes, edges}; ctx: {tumor, tree}
      Geeft {graph, issues, validInteractive, invalidInteractive}. */
@@ -141,27 +148,33 @@ const GraphValidator = (function () {
         else values[o.value] = true;
         if (!nonEmptyString(o.label)) nodeError(n.id, tag + ' heeft geen label.');
         if (!nonEmptyString(o.edge)) { nodeError(n.id, tag + ' heeft geen edge.'); return; }
-        if (usedEdges[o.edge]) nodeError(n.id, tag + ' gebruikt edge "' + o.edge + '" die al door een andere option wordt gebruikt.', o.edge);
+        // Meerdere opties mogen dezelfde edge gebruiken als die edge al hun waarden noemt ("value": ["1", "2"]).
+        if (usedEdges[o.edge] && !(edgeById[o.edge] && Array.isArray(edgeById[o.edge].value))) {
+          nodeError(n.id, tag + ' gebruikt edge "' + o.edge + '" die al door een andere option wordt gebruikt. ' +
+            'Leiden meerdere opties naar dezelfde plek, geef de edge dan een lijst: "value": ["…", "…"].', o.edge);
+        }
         usedEdges[o.edge] = true;
         var e = edgeById[o.edge];
         if (!e) { nodeError(n.id, tag + ' verwijst naar onbekende edge "' + o.edge + '".', o.edge); return; }
         if (brokenEdgeIds[e.id]) { nodeError(n.id, tag + ': edge "' + o.edge + '" mist from/to of verwijst naar onbekende nodes.', o.edge); return; }
         if (e.from !== n.id) nodeError(n.id, tag + ': edge "' + o.edge + '" heeft from "' + e.from + '" in plaats van "' + n.id + '".', o.edge);
-        if (e.value !== o.value) nodeError(n.id, tag + ': option.value en edge.value verschillen ("' + o.value + '" ≠ "' + e.value + '").', o.edge);
+        if (!edgeHas(e, o.value)) nodeError(n.id, tag + ': option.value komt niet voor in edge.value ("' + o.value + '" ≠ "' + showValue(e) + '").', o.edge);
         if (e.from === e.to) nodeError(n.id, tag + ': edge "' + o.edge + '" is een directe zelflus.', o.edge);
-        if (nonEmptyString(e.label) && nonEmptyString(o.label) && e.label.replace(/\s+/g, ' ').trim() !== o.label.replace(/\s+/g, ' ').trim()) {
+        if (!Array.isArray(e.value) && nonEmptyString(e.label) && nonEmptyString(o.label) && e.label.replace(/\s+/g, ' ').trim() !== o.label.replace(/\s+/g, ' ').trim()) {
           add('warning', n.id, tag + ': label "' + o.label + '" wijkt af van het edge-label "' + e.label.replace(/\s+/g, ' ').trim() + '".', o.edge);
         }
       });
       // meerdere edges voor dezelfde option: andere gemodelleerde edges met dezelfde from+value
       n.options.forEach(function (o) {
         if (!isObject(o) || !nonEmptyString(o.value)) return;
-        var same = modelled.filter(function (e) { return e.from === n.id && e.value === o.value; });
+        var same = modelled.filter(function (e) { return e.from === n.id && edgeHas(e, o.value); });
         if (same.length > 1) nodeError(n.id, 'Node "' + n.id + '": option "' + o.value + '" heeft ' + same.length + ' edges (' + same.map(function (e) { return e.id; }).join(', ') + '); niet ondubbelzinnig.');
       });
       // edges van deze node met een value zonder option
       (out[n.id] || []).forEach(function (e) {
-        if (e.value !== undefined && !values[e.value]) add('warning', n.id, 'Node "' + n.id + '": edge "' + e.id + '" heeft value "' + e.value + '" zonder bijbehorende option.', e.id);
+        edgeValues(e).forEach(function (v) {
+          if (!values[v]) add('warning', n.id, 'Node "' + n.id + '": edge "' + e.id + '" heeft value "' + v + '" zonder bijbehorende option.', e.id);
+        });
       });
     });
 

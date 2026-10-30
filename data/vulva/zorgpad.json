@@ -1487,22 +1487,27 @@
               "edge": "edge-cn-0"
             },
             {
+              "value": "1",
+              "label": "1",
+              "edge": "edge-cn-1-2"
+            },
+            {
+              "value": "2",
+              "label": "2",
+              "edge": "edge-cn-1-2"
+            },
+            {
               "value": "3",
               "label": "3",
               "edge": "edge-cn-3"
-            },
-            {
-              "value": "1-2",
-              "label": "1,2",
-              "edge": "edge-cn-1-2"
             }
           ],
           "subtree": {
             "tree": "sub-cn",
             "map": {
               "o-cn0": "0",
-              "o-cn1": "1-2",
-              "o-cn2": "1-2",
+              "o-cn1": "1",
+              "o-cn2": "2",
               "o-cn3": "3"
             }
           }
@@ -2114,7 +2119,10 @@
           "id": "edge-cn-1-2",
           "from": "cn",
           "to": "ct-r",
-          "value": "1-2",
+          "value": [
+            "1",
+            "2"
+          ],
           "label": "1,2",
           "points": [
             [

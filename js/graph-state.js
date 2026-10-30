@@ -31,6 +31,17 @@ const GraphState = (function () {
     return !!node && node.interactive === true && Array.isArray(node.options);
   }
 
+  /* De waarde(n) van een edge. Een edge hoort meestal bij één optie ("value": "0"), maar kan ook bij meerdere
+     opties horen die naar dezelfde plek leiden ("value": ["1", "2"]). */
+  function edgeValues(e) {
+    if (!e || e.value === undefined || e.value === null) return [];
+    return Array.isArray(e.value) ? e.value : [e.value];
+  }
+
+  function edgeHas(e, value) {
+    return value !== undefined && value !== null && edgeValues(e).indexOf(value) >= 0;
+  }
+
   function hasValue(selections, id) {
     return selections[id] !== undefined && selections[id] !== null;
   }
@@ -94,7 +105,7 @@ const GraphState = (function () {
       var outs = model.out[id] || [];
       if (isChoice(node)) {
         if (hasValue(selections, id)) {
-          outs = outs.filter(function (e) { return e.value === selections[id]; });
+          outs = outs.filter(function (e) { return edgeHas(e, selections[id]); });
         } else if (!optimistic) {
           continue;
         }
@@ -168,7 +179,7 @@ const GraphState = (function () {
       if (!possible[e.from]) { edgeStatus[e.id] = 'excluded'; return; }
       if (isChoice(from)) {
         if (hasValue(clean, e.from)) {
-          if (e.value !== clean[e.from]) edgeStatus[e.id] = 'excluded';
+          if (!edgeHas(e, clean[e.from])) edgeStatus[e.id] = 'excluded';
           else edgeStatus[e.id] = reached[e.from] ? 'selected' : 'preselected';
         } else {
           edgeStatus[e.id] = reached[e.from] ? 'normal' : 'inactive';
@@ -187,7 +198,7 @@ const GraphState = (function () {
   function nextTarget(graph, selections, nodeId) {
     var model = buildModel(graph);
     var clean = pruneWithModel(model, selections).selections;
-    var start = (model.out[nodeId] || []).filter(function (e) { return e.value === clean[nodeId]; })[0];
+    var start = (model.out[nodeId] || []).filter(function (e) { return edgeHas(e, clean[nodeId]); })[0];
     if (!start) return null;
     var seen = {};
     var id = start.to;
@@ -196,7 +207,7 @@ const GraphState = (function () {
       var node = model.nodes[id];
       if (isChoice(node)) {
         if (!hasValue(clean, id)) return { kind: 'available', id: id };
-        var chosen = (model.out[id] || []).filter(function (e) { return e.value === clean[id]; })[0];
+        var chosen = (model.out[id] || []).filter(function (e) { return edgeHas(e, clean[id]); })[0];
         id = chosen ? chosen.to : null;
         continue;
       }
@@ -415,28 +426,32 @@ const GraphState = (function () {
       onPath[id] = true;
       outs.forEach(function (e) {
         if (onPath[e.to]) { cut = true; return; }
-        var cond = null;
+        // Per optie die via deze edge loopt één voorwaarde (een edge kan bij meerdere opties horen).
+        var conds = [null];
         if (isChoice(node)) {
-          var option = node.options.filter(function (o) { return o.value === e.value; })[0];
-          if (!option) return;   // edge zonder bijbehorende optie: niet te kiezen, dus geen route
-          cond = {
-            nodeId: id,
-            nodeLabel: nodeName(node),
-            value: e.value,
-            valueLabel: clean(option.label !== undefined ? option.label : (e.label !== undefined ? e.label : e.value))
-          };
+          conds = node.options.filter(function (o) { return edgeHas(e, o.value); }).map(function (option) {
+            return {
+              nodeId: id,
+              nodeLabel: nodeName(node),
+              value: option.value,
+              valueLabel: clean(option.label !== undefined ? option.label : option.value)
+            };
+          });
+          if (!conds.length) return;   // edge zonder bijbehorende optie: niet te kiezen, dus geen route
         } else if (outs.length > 1 && e.label) {
           // Vertakking zonder keuzemetadata: alleen een voorwaarde als de edge zelf een label heeft.
-          cond = { nodeId: id, nodeLabel: nodeName(node), value: e.id, valueLabel: clean(e.label) };
+          conds = [{ nodeId: id, nodeLabel: nodeName(node), value: e.id, valueLabel: clean(e.label) }];
         }
         var sub = routesFrom(e.to);
         if (sub.cut) cut = true;
         Object.keys(sub.map).forEach(function (outcomeId) {
           sub.map[outcomeId].forEach(function (r) {
-            (map[outcomeId] = map[outcomeId] || []).push({
-              conditions: cond ? [cond].concat(r.conditions) : r.conditions,
-              nodeIds: [id].concat(r.nodeIds),
-              edgeIds: [e.id].concat(r.edgeIds)
+            conds.forEach(function (cond) {
+              (map[outcomeId] = map[outcomeId] || []).push({
+                conditions: cond ? [cond].concat(r.conditions) : r.conditions,
+                nodeIds: [id].concat(r.nodeIds),
+                edgeIds: [e.id].concat(r.edgeIds)
+              });
             });
           });
         });
@@ -544,6 +559,8 @@ const GraphState = (function () {
 
   return {
     isChoice: isChoice,
+    edgeValues: edgeValues,
+    edgeHas: edgeHas,
     isInteractive: isInteractive,
     prune: prune,
     compute: compute,

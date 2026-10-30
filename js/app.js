@@ -404,8 +404,17 @@
       ChoicePanel.announce("Keuze voor " + info.nodeLabel + " gewist." + removedMessage(removed));
     }
 
-    // Klik of toets op een connector: dezelfde functie als de radioknop in het keuzevenster.
+    // Klik of toets op een connector: dezelfde functie als de radioknop in het keuzevenster. Hoort de connector
+    // bij meerdere waarden ("value": ["1", "2"]), dan opent het keuzevenster van de node om er één te kiezen.
     function selectEdge(choice) {
+      if (choice.values && choice.values.length > 1) {
+        const node = nodeById(choice.nodeId);
+        const anchor = refs.svg.querySelector('.node[data-node-id="' + choice.nodeId + '"]');
+        if (!node || !anchor) return;
+        const ref = GraphState.subtreeOf(node);
+        interact({ id: node.id, label: node.label, options: node.options, subtree: ref ? { tree: ref.tree } : null }, anchor);
+        return;
+      }
       selectOption(currentTreeId, choice.nodeId, choice.value,
         { nodeLabel: choice.nodeLabel, optionLabel: choice.optionLabel });
     }
