@@ -190,11 +190,28 @@ Klopt iets niet, dan wordt de boom **wel getekend**, maar blijft die node statis
 
 ### Gedrag op de website
 
-- **Kiezen kan op twee manieren:** via het keuzevenster (klik op de node) of door direct op een connector te klikken.
+- **Kiezen kan op drie manieren:** via het keuzevenster (klik op de node), door direct op een connector te klikken, of in het paneel met patiëntinformatie (zie hieronder). Alle drie gebruiken hetzelfde selectiepad en blijven altijd gelijk.
 - **Vrije volgorde:** elke keuze die nog mogelijk is, kan worden ingevuld, ook als eerdere stappen nog leeg zijn. Zo'n vooruit ingevulde keuze is groen met een stippelrand. Zodra de eerdere keuzes de route ernaartoe leggen, wordt het een gewone gekozen stap.
 - **Uitsluiten:** maakt een keuze een andere keuze onmogelijk, dan wordt die andere keuze gewist. De melding noemt welke.
 - **Statussen** (CSS-klassen in de tekening): `is-selected` (op de gekozen route), `is-preselected` (alvast ingevuld), `is-available` (volgende stap), `is-inactive` (nog niet bereikt), `is-excluded` (niet meer mogelijk, vervaagd).
 - **Aanbevelingen:** de knop "Aanbevelingen (n)" toont per aanbeveling welke combinaties van keuzes ertoe leiden. Dat wordt volledig afgeleid uit de edges; er staat geen medische logica in de code.
+
+### Paneel met patiëntinformatie
+
+Links naast elke beslisboom met keuzes staat een in- en uitklapbaar paneel met alle gegevens die in die boom kunnen worden ingevuld. Het paneel wordt **automatisch** opgebouwd uit de keuzenodes; er is geen extra JSON nodig.
+
+- **Volgorde:** van boven naar beneden zoals de boom loopt (vanaf de titel langs de verbindingen).
+- **Eén gegeven, meerdere takken:** komt hetzelfde gegeven in meerdere takken voor (bijvoorbeeld "Eerdere behandeling primaire tumor" onder zowel "Lokaal" als "Regionaal"), dan is dat één regel in het paneel. Een waarde die je daar kiest, wordt ingevuld in elke tak waar die waarde bestaat. Takken die later afvallen, worden vanzelf gewist.
+- **Wanneer is het hetzelfde gegeven?** Standaard bij hetzelfde `label`. Verschillen de labels, of wil je juist twee gegevens met hetzelfde label apart houden, geef de nodes dan een `dataKey`:
+
+```json
+{ "id": "eerdere-beh-lokaal", "type": "dataItem", "label": "Eerdere behandeling primaire tumor",
+  "dataKey": "eerdere-behandeling", "interactive": true, "options": [ … ] }
+```
+
+- Gegevens die door eerdere keuzes niet meer van toepassing zijn, staan grijs en zijn niet te kiezen. Dat geldt ook voor waarden die alleen in een uitgesloten tak voorkomen.
+- Heeft een gegeven een hulpbeslisboom, dan staat er een knop **Bepalen met hulpbeslisboom**.
+- Of het paneel open of dicht staat, onthoudt de browser van de gebruiker.
 
 ### Hulpbeslisboom
 

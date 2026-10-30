@@ -18,12 +18,12 @@ Interactief kiezen van waarden bij dataknooppunten, in vrije volgorde
 Markeren van het gekozen pad en uitfaden van uitgesloten routes
 Aanbevelingenoverzicht per beslisboom
 Hulpbeslisbomen die een keuze bepalen
+Paneel met patiëntinformatie: alle gegevens van een beslisboom invullen vanuit één lijst
 Bronvermelding per zorgpad en beslisboom (klik op de titel)
 Automatische controle van alle inhoud (tools/check.js, ook op GitHub)
 In voorbereiding
 Endometriumcarcinoom opnieuw opbouwen op het raster
 Bronvermelding voor alle zorgpaden
-Paneel met patiëntinformatie
 Technische uitgangspunten
 De applicatie gebruikt uitsluitend:
 
@@ -53,6 +53,7 @@ js/
   journey.js               begeleiding naar de volgende stap
   subtrees.js              hulpbeslisbomen
   choice-panel.js          keuzevenster
+  patient-panel.js         paneel met patiëntinformatie
   recommendations-panel.js aanbevelingenoverzicht
   bron.js                  bronvermelding
   content-panel.js         informatiepaneel
