@@ -290,8 +290,22 @@ const Renderer = (function () {
           var labelAttrs = {'class': 'elabel', x: e.dot[0],
             y: e.dot[1] - 17 * s - (parts.length - 1 - i) * step, 'font-size': 12.5 * s};
           for (var lk in link) labelAttrs[lk] = link[lk];
+          // Vlak in de achtergrondkleur achter het label: de lijn wordt over de hele hoogte van de tekst
+          // onderbroken (met wat ruimte erboven en eronder), zodat het label goed leesbaar is.
+          var bg = el('rect', {'class': 'elabel-bg'}, vp);
           var lt = el('text', labelAttrs, vp);
           lt.textContent = txt;
+          var fsz = 12.5 * s, padX = 3 * s, padY = 3 * s, box = null;
+          try { box = lt.getBBox(); } catch (err) { box = null; }
+          if (!box || !box.width) {
+            // Nog geen layout (bv. verborgen): schat de afmetingen uit de tekstlengte.
+            var estW = txt.length * fsz * 0.55;
+            box = { x: e.dot[0] - estW / 2, y: labelAttrs.y - fsz * 0.9, width: estW, height: fsz * 1.15 };
+          }
+          bg.setAttribute('x', box.x - padX);
+          bg.setAttribute('y', box.y - padY);
+          bg.setAttribute('width', box.width + 2 * padX);
+          bg.setAttribute('height', box.height + 2 * padY);
         });
       }
       var choice = choiceFor(e);

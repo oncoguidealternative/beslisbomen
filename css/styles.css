@@ -973,3 +973,6 @@ body[data-page="zorgpad"] { height: 100vh; height: 100dvh; min-height: 0; }
 /* Het werkgebied (paneel en diagram) sluit direct aan op kop, footer en zijranden: geen blauwe rand eromheen. */
 .zp-main.is-native { padding: 0; }
 .zp-main.is-native .zp-stage { margin-top: 0; }
+
+/* Vlak achter een verbindingslabel, in de kleur van de achtergrond (zie renderer.js). */
+.zp-stage .elabel-bg { fill: var(--color-background); stroke: none; pointer-events: none; }
