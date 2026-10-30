@@ -276,7 +276,6 @@ body[data-page="zorgpad"] { line-height: normal; }
 /* available: eerstvolgende criterium waarop een keuze gemaakt kan worden */
 .zp-stage .node.is-interactive.is-available,
 .zp-stage .node.is-interactive.is-selected { cursor: pointer; }
-.zp-stage .node.is-interactive.is-available rect { stroke: var(--color-accent); stroke-width: 4; }
 .zp-stage .node.is-interactive.is-available:hover rect,
 .zp-stage .node.is-interactive.is-available:focus rect { fill: var(--color-text-muted); }
 .zp-stage .node.is-interactive:focus-visible rect { stroke: var(--color-text-dark); stroke-width: 3; }
