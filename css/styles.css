@@ -287,11 +287,11 @@ body[data-page="zorgpad"] { line-height: normal; }
 .zp-stage .node.t-criterion.is-selected:focus rect { fill: var(--color-success); stroke: var(--color-line); stroke-width: 2; }
 .zp-stage .node.t-criterion.is-selected:focus-visible rect { stroke: var(--color-text-dark); stroke-width: 3; }
 .zp-stage .node.t-outcome.is-selected rect { fill: var(--color-success); stroke: var(--color-line); stroke-width: 3; }
-.zp-stage .node.t-outcome.is-selected text { fill: var(--color-text-dark); }
+.zp-stage .node.t-outcome.is-selected text { fill: #FFFFFF; }
 
 .zp-stage .edge.is-selected { stroke: var(--color-success); stroke-width: 3px; }
 .zp-stage .marker-selected { fill: var(--color-success); }
-.zp-stage .edot.is-selected { fill: var(--color-success); stroke: var(--color-line); stroke-width: 2; }
+.zp-stage .edot.is-selected { fill: var(--color-success); stroke: none; }
 /* Edge-labels (ook "Maligne") krijgen in geen enkele status vet, onderstreping of andere speciale opmaak;
    de gekozen connector herkent men aan de groene lijn en de groene dot. */
 .zp-stage .elabel,
@@ -324,7 +324,7 @@ body[data-page="zorgpad"] { line-height: normal; }
 }
 .zp-stage .node.t-criterion.is-preselected:focus-visible rect { stroke: var(--color-text-dark); }
 .zp-stage .edge.is-preselected { stroke: var(--color-success); stroke-width: 3px; stroke-dasharray: 8 6; }
-.zp-stage .edot.is-preselected { fill: var(--color-success); stroke: #FFFFFF; stroke-width: 2; stroke-dasharray: 3 2; }
+.zp-stage .edot.is-preselected { fill: var(--color-success); stroke: none; }
 
 /* excluded: door eerdere keuzes niet meer mogelijk; zichtbaar voor context */
 .zp-stage .node.is-excluded,
@@ -984,3 +984,7 @@ body[data-page="zorgpad"] { height: 100vh; height: 100dvh; min-height: 0; }
 /* Oplichten bij aanwijzen van de titel, maar niet als het min-icoon (terug naar overzicht) wordt aangewezen. */
 .zp-stage .node.has-info:hover:not(:has(.icon-link:hover)) .info-badge circle:not(.dot),
 .zp-stage .node.has-info:focus-visible .info-badge circle:not(.dot) { fill: var(--color-accent); }
+
+/* Gekozen en alvast ingevulde blokken (groen): witte tekst. Links in de tekst houden hun eigen kleur. */
+.zp-stage .node.is-selected text,
+.zp-stage .node.is-preselected text { fill: #FFFFFF; }
