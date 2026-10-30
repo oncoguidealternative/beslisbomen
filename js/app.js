@@ -10,6 +10,7 @@
      journey.js               begeleide reis naar de volgende stap na een keuze
      subtrees.js              hulpbeslisbomen (openen, uitkomst overnemen, balk)
      choice-panel.js          keuzevenster bij een keuzenode
+     patient-panel.js         paneel met patiëntinformatie (links, in- en uitklapbaar)
      recommendations-panel.js aanbevelingenoverzicht
      bron.js                  bronvermelding in het informatiepaneel
      app.js                   dit bestand: laden, navigatie en het selectiepad
@@ -179,6 +180,26 @@
       viewport: viewport,
       onClearAll: function () { journey.cancel(); journey.clearGuidedTarget(); }
     });
+    // Paneel met patiëntinformatie: dezelfde keuzes als in de boom, als lijst met invoervelden.
+    const patientPanel = PatientPanel.create({
+      refs: refs,
+      onSelect: function (treeId, nodeIds, value, info) { selectNodes(treeId, nodeIds, value, info); },
+      onClear: function (treeId, nodeIds, info) { clearNodes(treeId, nodeIds, info); },
+      onClearAll: function (treeId) {
+        if (treeId !== currentTreeId) return;
+        journey.cancel();
+        journey.clearGuidedTarget();
+        clearAllSelections(treeId);
+        ChoicePanel.announce("Alle keuzes in " + currentLabel + " gewist.");
+      },
+      onLocate: function (nodeId) { journey.locate(nodeId); },
+      onSubtree: function (info) { subtrees.enter(info); },
+      // Het werkvlak wordt smaller of breder: houd het midden van het beeld op dezelfde plek.
+      onResize: function (oldWidth, newWidth) {
+        const v = getState().viewport;
+        if (oldWidth && newWidth && oldWidth !== newWidth) setPan(v.panX + (newWidth - oldWidth) / 2, v.panY);
+      }
+    });
 
     // ---------- Navigatie ----------
     // target: boom-id ("" = overzicht) binnen dit zorgpad, of { tumor, tree } voor het zorgpad van een andere tumor.
@@ -269,6 +290,7 @@
         info: showBron
       });
       Renderer.setTakeable(subtrees.takeableItems());
+      patientPanel.setTree({ treeId: view.treeId, label: view.label, graph: view.treeId ? view.graph : null });
       RP.setTree({ treeId: view.treeId, graph: view.treeId && view.graph && GraphState.isInteractive(view.graph) ? view.graph : null });
       // Pas na het tekenen: pas dan heeft het werkvlak zijn (native) afmetingen.
       if (view.graph && view.graph.native) {
@@ -323,6 +345,7 @@
       const status = GraphState.compute(currentGraph, values);
       Renderer.applyStatus(status, values);
       RP.refresh(status);
+      patientPanel.refresh(status, values);
       subtrees.refreshBar(status);
     }
 
@@ -341,24 +364,33 @@
       return " Niet meer van toepassing, keuze gewist: " + names.join(", ") + ".";
     }
 
-    // Eén selectiepad voor een keuze, ongeacht de bron (radioknop in het keuzevenster of klik op een connector):
-    // centrale state -> opschonen -> melding -> begeleide reis. SVG en venster volgen via subscribe.
-    function selectOption(treeId, nodeId, value, info) {
-      if (treeId !== currentTreeId || getSelections(treeId)[nodeId] === value) return;
+    // Eén selectiepad voor een keuze, ongeacht de bron (keuzevenster, connector of paneel met patiëntinformatie):
+    // centrale state -> opschonen -> melding -> begeleide reis. SVG, venster en paneel volgen via subscribe.
+    // nodeIds: één node, of alle nodes van hetzelfde gegeven (het paneel vult een gegeven in elke tak in waar het
+    // voorkomt). info: { nodeLabel, optionLabel, source }. Bij source "panel" blijft de toetsenbordfocus in het paneel.
+    function selectNodes(treeId, nodeIds, value, info) {
+      if (treeId !== currentTreeId || !nodeIds.length) return;
+      const before = getSelections(treeId);
+      const changed = nodeIds.filter(function (id) { return before[id] !== value; });
+      if (!changed.length) return;
+      const keepFocus = info.source === "panel";
       journey.cancel();
-      setSelection(treeId, nodeId, value);
-      const removed = removeInvalidSelections();
+      changed.forEach(function (id) { setSelection(treeId, id, value); });
+      // Nodes van hetzelfde gegeven die door deze keuze afvallen, worden stil gewist (het gegeven zelf staat er nog).
+      const removed = removeInvalidSelections().filter(function (id) { return nodeIds.indexOf(id) < 0; });
       ChoicePanel.close(false);
       const vervallen = removedMessage(removed);
-      // Vrije volgorde: een keuze bij een node die nog niet bereikt is, wordt alvast vastgelegd. Er is dan nog
-      // geen route om te volgen; die loopt automatisch door zodra de eerdere keuzes zijn gemaakt.
-      if (GraphState.compute(currentGraph, getSelections(treeId)).nodes[nodeId] === "preselected") {
+      const status = GraphState.compute(currentGraph, getSelections(treeId));
+      // De node op de route; is er geen, dan is de keuze alvast ingevuld (vrije volgorde) en is er nog geen route
+      // om te volgen. Die loopt automatisch door zodra de eerdere keuzes zijn gemaakt.
+      const reached = nodeIds.filter(function (id) { return status.nodes[id] === "selected"; })[0];
+      if (!reached) {
         journey.clearGuidedTarget();
         ChoicePanel.announce(info.nodeLabel + ": " + info.optionLabel + " alvast geselecteerd." + vervallen);
-        viewport.focusWithoutPan(nodeId);
+        if (!keepFocus) viewport.focusWithoutPan(nodeIds[0]);
         return;
       }
-      const target = GraphState.nextTarget(currentGraph, getSelections(treeId), nodeId);
+      const target = GraphState.nextTarget(currentGraph, getSelections(treeId), reached);
       let message = info.nodeLabel + ": " + info.optionLabel + " geselecteerd.";
       if (target && target.kind === "available") {
         message += " Volgende stap: " + GraphState.describeNode(nodeById(target.id)) + ".";
@@ -368,7 +400,21 @@
         message += " De route loopt verder bij: " + GraphState.describeNode(nodeById(target.id)) + ".";
       }
       ChoicePanel.announce(message + vervallen);
-      if (target) journey.start(target, nodeId);
+      if (target) journey.start(target, reached, { keepFocus: keepFocus });
+    }
+
+    function selectOption(treeId, nodeId, value, info) {
+      selectNodes(treeId, [nodeId], value, info);
+    }
+
+    // Wist de keuze van één of meer nodes (keuzevenster of paneel) en wat daardoor niet meer geldig is.
+    function clearNodes(treeId, nodeIds, info) {
+      if (treeId !== currentTreeId) return;
+      journey.cancel();
+      journey.clearGuidedTarget();
+      nodeIds.forEach(function (id) { clearSelection(treeId, id); });
+      const removed = removeInvalidSelections();
+      ChoicePanel.announce("Keuze voor " + info.nodeLabel + " gewist." + removedMessage(removed));
     }
 
     // Klik of toets op een connector: dezelfde functie als de radioknop in het keuzevenster.
@@ -380,14 +426,7 @@
     // Keuzevenster: een keuze gaat uitsluitend via selectOption.
     ChoicePanel.init({
       onSelect: selectOption,
-      onClear: function (treeId, nodeId, info) {
-        if (treeId !== currentTreeId) return;
-        journey.cancel();
-        journey.clearGuidedTarget();
-        clearSelection(treeId, nodeId);
-        const removed = removeInvalidSelections();
-        ChoicePanel.announce("Keuze voor " + info.nodeLabel + " gewist." + removedMessage(removed));
-      }
+      onClear: function (treeId, nodeId, info) { clearNodes(treeId, [nodeId], info); }
     });
 
     // Eén abonnement voor de hele pagina: viewport en selecties worden toegepast zodra de state verandert.

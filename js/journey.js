@@ -3,9 +3,10 @@
 
    Gebruik:
      const journey = Journey.create({ viewport, getGraph });
-     journey.start(target, sourceNodeId);   // target uit GraphState.nextTarget
+     journey.start(target, sourceNodeId, { keepFocus });   // target uit GraphState.nextTarget
      journey.cancel();                       // stopt een lopende beweging
-     journey.clearGuidedTarget();            // haalt de tijdelijke markering weg */
+     journey.clearGuidedTarget();            // haalt de tijdelijke markering weg
+     journey.locate(nodeId);                 // licht een node kort op en brengt hem in beeld */
 const Journey = (function () {
   'use strict';
 
@@ -27,14 +28,18 @@ const Journey = (function () {
     }
 
     // Start de reis naar het volgende punt na een nieuwe of gewijzigde keuze.
-    function start(target, sourceNodeId) {
+    // options.keepFocus: de toetsenbordfocus blijft waar hij is (bv. bij een keuze in het paneel met patiëntinformatie).
+    function start(target, sourceNodeId, options) {
       cancel();
       clearGuidedTarget();
+      const keepFocus = !!(options && options.keepFocus);
       function finish() {
         if (target.kind === "available") {
           Renderer.setGuidedTarget(target.id);
           guidedTimer = setTimeout(function () { Renderer.setGuidedTarget(null); }, GUIDED_HIGHLIGHT_MS);
-          viewport.focusWithoutPan(target.id);
+          if (!keepFocus) viewport.focusWithoutPan(target.id);
+        } else if (keepFocus) {
+          return;
         } else {
           // Een outcome is niet interactief: de focus keert terug naar de node waar de keuze is gemaakt,
           // zonder dat de viewport terugpant van de gecentreerde uitkomst.
@@ -51,7 +56,17 @@ const Journey = (function () {
       }
     }
 
-    return { start: start, cancel: cancel, clearGuidedTarget: clearGuidedTarget };
+    // Licht een node kort op en brengt hem in beeld als hij (grotendeels) buiten beeld staat.
+    function locate(nodeId) {
+      cancel();
+      clearGuidedTarget();
+      Renderer.setGuidedTarget(nodeId);
+      guidedTimer = setTimeout(function () { Renderer.setGuidedTarget(null); }, GUIDED_HIGHLIGHT_MS);
+      const graph = getGraph();
+      if (graph && graph.native && !viewport.isFullyVisible(nodeId)) viewport.movePanTo(viewport.centeredPan(nodeId));
+    }
+
+    return { start: start, locate: locate, cancel: cancel, clearGuidedTarget: clearGuidedTarget };
   }
 
   return { create: create };

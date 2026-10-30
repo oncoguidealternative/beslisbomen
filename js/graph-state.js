@@ -208,6 +208,29 @@ const GraphState = (function () {
     return null;
   }
 
+  /* Alle keuzenodes van een boom in een logische invulvolgorde: breedte-eerst vanaf de titel langs de
+     verbindingen (dus van boven naar beneden in de boom), daarna eventuele keuzenodes die niet vanaf de titel
+     bereikbaar zijn, in de volgorde van de graph. Gebruikt door het paneel met patiëntinformatie. */
+  function choiceOrder(graph) {
+    if (!graph || !Array.isArray(graph.nodes)) return [];
+    var model = buildModel(graph);
+    if (model.choiceOrder) return model.choiceOrder.slice();
+    var order = [], seen = {}, queue = model.starts.slice();
+    queue.forEach(function (id) { seen[id] = true; });
+    while (queue.length) {
+      var id = queue.shift();
+      if (isChoice(model.nodes[id])) order.push(id);
+      (model.out[id] || []).forEach(function (e) {
+        if (!seen[e.to]) { seen[e.to] = true; queue.push(e.to); }
+      });
+    }
+    graph.nodes.forEach(function (n) {
+      if (isChoice(n) && order.indexOf(n.id) < 0) order.push(n.id);
+    });
+    model.choiceOrder = order;
+    return order.slice();
+  }
+
   /* Leesbare naam van een node voor meldingen: het label, of het eerste blok van de tekst
      (tot een lege regel of '---') op één regel, zonder opmaakcodes. */
   function describeNode(node) {
@@ -525,6 +548,7 @@ const GraphState = (function () {
     prune: prune,
     compute: compute,
     nextTarget: nextTarget,
+    choiceOrder: choiceOrder,
     describeNode: describeNode,
     describeNodeLines: describeNodeLines,
     recommendations: recommendations,
