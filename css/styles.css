@@ -836,3 +836,13 @@ body[data-page="zorgpad"] .site-footer { margin-top: 0; }
 
 /* Groepskop in een overzicht (zonder link), bv. "Laaggradige afwijking" bij CIN, AIS, VAIN */
 .zp-stage .node.tone-dark rect { fill: #1F627D; }
+
+/* ===== Bronvermelding: titel van zorgpad of beslisboom ===== */
+.zp-stage .node.has-info { cursor: pointer; }
+.zp-stage .node.has-info:hover rect,
+.zp-stage .node.has-info:focus-visible rect { filter: brightness(1.12); }
+.zp-stage .node.has-info:focus-visible rect { stroke: #FFFFFF; stroke-width: 3; }
+.zp-stage .node.has-info .icon-link { cursor: pointer; }
+.zp-stage .node.has-info .icon-link:hover circle,
+.zp-stage .node.has-info .icon-link:focus-visible circle { fill: rgba(255, 255, 255, .25); }
+.zp-stage .node.has-info .icon-link:focus { outline: none; }
