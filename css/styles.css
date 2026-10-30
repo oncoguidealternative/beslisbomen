@@ -38,7 +38,7 @@ body {
   z-index: 100;
   display: flex;
   width: 100%;
-  min-height: 64px;
+  min-height: 44px;          /* even hoog als de footer (.site-footer) */
   padding: 0;
   color: #FFFFFF;
   background: var(--header-footer-bg);
@@ -936,13 +936,13 @@ body[data-page="zorgpad"] .site-footer { margin-top: 0; }
 
 /* Tab om het paneel uit te klappen */
 .pp-tab {
-  position: absolute; top: 16px; left: 20px; z-index: 5;
+  position: absolute; top: 8px; left: 20px; z-index: 5;   /* op één lijn met de knop Aanbevelingen */
   display: inline-flex; align-items: center; gap: 6px;
   background: var(--color-background);
 }
 .pp-tab:hover { background: #2F7B9B; }
 .pp-tab[hidden] { display: none; }
-.zp-main.in-subtree .pp-tab { top: 16px; }
+.zp-main.in-subtree .pp-tab { top: 8px; }
 
 @media (max-width: 700px) {
   /* Op een smal scherm legt het paneel zich over het diagram heen. */
