@@ -2,127 +2,125 @@
   "id": "epitheliaal-ovarium",
   "titel": "Zorgpad epitheliaal ovariumcarcinoom",
   "overview": {
-    "native": true,
-    "viewBox": [
-      1300,
-      2800
-    ],
-    "nodeSize": [
-      220,
-      90
-    ],
-    "gridSizeX": 100,
-    "gridSizeY": 100,
+    "layout": {
+      "unit": 5,
+      "blockWidth": 44,
+      "blockHeight": 18,
+      "margin": 2
+    },
     "wrap": 28,
     "nodes": [
       {
         "id": "zorgpad-epitheliaal-ovarium",
-        "label": "Zorgpad epitheliaal ovariumcarcinoom",
-        "gridX": 5,
+        "type": "title",
+        "gridX": 100,
         "gridY": 0,
-        "type": "root"
+        "label": "Zorgpad epitheliaal ovariumcarcinoom"
       },
       {
         "id": "klinisch-vergroot-ovarium",
+        "gridX": 100,
+        "gridY": 40,
         "label": "Klinisch (verdenking op) vergroot ovarium",
-        "gridX": 5,
-        "gridY": 2,
         "drill": true
       },
       {
         "id": "initieel-beleid-vergroot-ovarium",
+        "gridX": 100,
+        "gridY": 80,
         "label": "Initieel beleid (verdenking op) vergroot ovarium",
-        "gridX": 5,
-        "gridY": 4,
         "drill": true
       },
       {
         "id": "diagnose-epitheliaal-ovarium",
-        "label": "Diagnose epitheliaal ovariumcarcinoom",
-        "gridX": 5,
-        "gridY": 6,
-        "type": "outcome"
+        "type": "recommendation",
+        "gridX": 100,
+        "gridY": 120,
+        "label": "Diagnose epitheliaal ovariumcarcinoom"
       },
       {
         "id": "aanvullende-diagnostiek",
+        "gridX": 100,
+        "gridY": 160,
         "label": "Aanvullende diagnostiek epitheliaal ovariumcarcinoom",
-        "gridX": 5,
-        "gridY": 8,
         "drill": true
       },
       {
         "id": "vervolg-aanvullende-diagnostiek",
+        "gridX": 100,
+        "gridY": 200,
         "label": "Vervolg aanvullende diagnostiek",
-        "gridX": 5,
-        "gridY": 10,
         "drill": true
       },
       {
         "id": "primaire-behandeling",
+        "gridX": 100,
+        "gridY": 240,
         "label": "Primaire behandeling",
-        "gridX": 5,
-        "gridY": 12,
         "drill": true
       },
       {
         "id": "vervolg-exploratieve-chirurgie",
+        "gridX": 20,
+        "gridY": 280,
         "label": "Vervolg exploratieve chirurgie laag stadium epitheliaal ovariumcarcinoom",
-        "gridX": 1,
-        "gridY": 14,
         "drill": true
       },
       {
         "id": "beleid-na-primaire-operatie",
+        "gridX": 100,
+        "gridY": 320,
         "label": "Beleid na primaire operatie",
-        "gridX": 5,
-        "gridY": 16,
         "drill": true
       },
       {
         "id": "beleid-na-stadiering",
+        "gridX": 20,
+        "gridY": 360,
         "label": "Beleid na stadiering",
-        "gridX": 1,
-        "gridY": 18,
         "drill": true
       },
       {
         "id": "beleid-na-chemotherapie",
+        "gridX": 180,
+        "gridY": 360,
         "label": "Beleid na chemotherapie",
-        "gridX": 9,
-        "gridY": 18,
         "drill": true
       },
       {
         "id": "follow-up",
+        "gridX": 100,
+        "gridY": 400,
         "label": "Follow up",
-        "gridX": 5,
-        "gridY": 20,
         "drill": true
       },
       {
         "id": "aanvullend-onderzoek-follow-up",
+        "gridX": 100,
+        "gridY": 440,
         "label": "Aanvullend onderzoek follow up",
-        "gridX": 5,
-        "gridY": 22,
         "drill": true
       },
       {
         "id": "behandeling-recidief",
+        "gridX": 100,
+        "gridY": 480,
         "label": "Behandeling recidief",
-        "gridX": 5,
-        "gridY": 24,
         "drill": true
       },
       {
         "id": "beleid-na-behandeling-recidief",
+        "gridX": 100,
+        "gridY": 520,
         "label": "Beleid na behandeling recidief",
-        "gridX": 5,
-        "gridY": 26,
         "drill": true
       }
     ],
     "edges": [
       {
+        "id": "edge-zorgpad-epitheliaal-ovarium-klinisch-vergroot-ovarium",
+        "from": "zorgpad-epitheliaal-ovarium",
+        "to": "klinisch-vergroot-ovarium",
         "points": [
           [
             610,
@@ -136,6 +134,9 @@
         "arrow": true
       },
       {
+        "id": "edge-klinisch-vergroot-ovarium-initieel-beleid-vergroot-ovarium",
+        "from": "klinisch-vergroot-ovarium",
+        "to": "initieel-beleid-vergroot-ovarium",
         "points": [
           [
             610,
@@ -149,6 +150,9 @@
         "arrow": true
       },
       {
+        "id": "edge-initieel-beleid-vergroot-ovarium-diagnose-epitheliaal-ovarium",
+        "from": "initieel-beleid-vergroot-ovarium",
+        "to": "diagnose-epitheliaal-ovarium",
         "points": [
           [
             610,
@@ -162,6 +166,9 @@
         "arrow": true
       },
       {
+        "id": "edge-diagnose-epitheliaal-ovarium-aanvullende-diagnostiek",
+        "from": "diagnose-epitheliaal-ovarium",
+        "to": "aanvullende-diagnostiek",
         "points": [
           [
             610,
@@ -175,6 +182,9 @@
         "arrow": true
       },
       {
+        "id": "edge-aanvullende-diagnostiek-vervolg-aanvullende-diagnostiek",
+        "from": "aanvullende-diagnostiek",
+        "to": "vervolg-aanvullende-diagnostiek",
         "points": [
           [
             610,
@@ -188,6 +198,9 @@
         "arrow": true
       },
       {
+        "id": "edge-primaire-behandeling-vervolg-exploratieve-chirurgie",
+        "from": "primaire-behandeling",
+        "to": "vervolg-exploratieve-chirurgie",
         "points": [
           [
             610,
@@ -209,6 +222,9 @@
         "arrow": true
       },
       {
+        "id": "edge-primaire-behandeling-beleid-na-primaire-operatie",
+        "from": "primaire-behandeling",
+        "to": "beleid-na-primaire-operatie",
         "points": [
           [
             610,
@@ -222,6 +238,9 @@
         "arrow": true
       },
       {
+        "id": "edge-primaire-behandeling-beleid-na-chemotherapie",
+        "from": "primaire-behandeling",
+        "to": "beleid-na-chemotherapie",
         "points": [
           [
             610,
@@ -243,6 +262,9 @@
         "arrow": true
       },
       {
+        "id": "edge-vervolg-exploratieve-chirurgie-beleid-na-stadiering",
+        "from": "vervolg-exploratieve-chirurgie",
+        "to": "beleid-na-stadiering",
         "points": [
           [
             210,
@@ -256,6 +278,9 @@
         "arrow": true
       },
       {
+        "id": "edge-vervolg-exploratieve-chirurgie-beleid-na-primaire-operatie",
+        "from": "vervolg-exploratieve-chirurgie",
+        "to": "beleid-na-primaire-operatie",
         "points": [
           [
             210,
@@ -277,6 +302,9 @@
         "arrow": true
       },
       {
+        "id": "edge-beleid-na-primaire-operatie-beleid-na-stadiering",
+        "from": "beleid-na-primaire-operatie",
+        "to": "beleid-na-stadiering",
         "points": [
           [
             610,
@@ -298,6 +326,9 @@
         "arrow": true
       },
       {
+        "id": "edge-beleid-na-primaire-operatie-beleid-na-chemotherapie",
+        "from": "beleid-na-primaire-operatie",
+        "to": "beleid-na-chemotherapie",
         "points": [
           [
             610,
@@ -319,6 +350,9 @@
         "arrow": true
       },
       {
+        "id": "edge-beleid-na-stadiering-follow-up",
+        "from": "beleid-na-stadiering",
+        "to": "follow-up",
         "points": [
           [
             210,
@@ -340,6 +374,9 @@
         "arrow": true
       },
       {
+        "id": "edge-beleid-na-primaire-operatie-follow-up",
+        "from": "beleid-na-primaire-operatie",
+        "to": "follow-up",
         "points": [
           [
             610,
@@ -353,6 +390,9 @@
         "arrow": true
       },
       {
+        "id": "edge-beleid-na-chemotherapie-follow-up",
+        "from": "beleid-na-chemotherapie",
+        "to": "follow-up",
         "points": [
           [
             1010,
@@ -374,6 +414,9 @@
         "arrow": true
       },
       {
+        "id": "edge-follow-up-aanvullend-onderzoek-follow-up",
+        "from": "follow-up",
+        "to": "aanvullend-onderzoek-follow-up",
         "points": [
           [
             610,
@@ -387,6 +430,9 @@
         "arrow": true
       },
       {
+        "id": "edge-aanvullend-onderzoek-follow-up-behandeling-recidief",
+        "from": "aanvullend-onderzoek-follow-up",
+        "to": "behandeling-recidief",
         "points": [
           [
             610,
@@ -400,6 +446,9 @@
         "arrow": true
       },
       {
+        "id": "edge-behandeling-recidief-beleid-na-behandeling-recidief",
+        "from": "behandeling-recidief",
+        "to": "beleid-na-behandeling-recidief",
         "points": [
           [
             610,
@@ -416,4 +465,3 @@
   },
   "trees": {}
 }
-
