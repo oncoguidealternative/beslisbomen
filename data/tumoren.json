@@ -1,102 +1,64 @@
-<!DOCTYPE html>
-<html lang="nl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Zorgpad – Gynaecologische zorgpaden</title>
-  <link rel="stylesheet" href="css/styles.css?v=2026-10-30">
-</head>
-<body data-page="zorgpad">
-
-  <header class="site-header">
-    <nav class="breadcrumb-bar" aria-label="Navigatie">
-      <div class="breadcrumb-actions">
-
-
-        <a id="zp-home"
-           class="breadcrumb-home"
-           href="index.html"
-           aria-label="Homepage">
-          <svg viewBox="0 0 24 24"
-               width="22"
-               height="22"
-               aria-hidden="true">
-            <path d="M3 10.8 12 3l9 7.8"></path>
-            <path d="M5.5 9.5V21h5v-6h3v6h5V9.5"></path>
-          </svg>
-        </a>
-      </div>
-
-      <div class="breadcrumb-trail">
-        <button id="breadcrumb-carepath"
-                class="breadcrumb-link"
-                type="button">Zorgpad</button>
-        <span id="breadcrumb-current-item"
-              class="breadcrumb-current-item"
-              hidden>
-          <span class="breadcrumb-separator" aria-hidden="true">›</span>
-          <span id="breadcrumb-current" class="breadcrumb-current"></span>
-        </span>
-      </div>
-    </nav>
-  </header>
-
-  <main id="zp-main" class="zp-main">
-    <div id="zp-stage" class="zp-stage">
-      <svg id="zp-chart" role="group" aria-label="Zorgpad"></svg>
-    </div>
-    <div id="zp-message" class="zp-message" role="status" aria-live="polite">Laden…</div>
-  </main>
-
-  <footer class="site-footer" aria-label="Website-informatie">
-    <button class="footer-link"
-            type="button"
-            data-content-page="gebruiksvoorwaarden">
-      U bent akkoord met de gebruiksvoorwaarden
-    </button>
-    <span aria-hidden="true">|</span>
-    <button class="footer-link"
-            type="button"
-            data-content-page="over">
-      Over deze website
-    </button>
-  </footer>
-
-  <div id="content-panel-backdrop" class="content-panel-backdrop" hidden></div>
-
-  <aside id="content-panel"
-         class="content-panel"
-         role="dialog"
-         aria-modal="true"
-         aria-labelledby="content-panel-title"
-         hidden>
-    <header class="content-panel-header">
-      <div>
-        <h2 id="content-panel-title">Informatie</h2>
-        <p id="content-panel-meta" class="content-panel-meta"></p>
-      </div>
-      <button id="content-panel-close"
-              class="content-panel-close"
-              type="button"
-              aria-label="Informatiepaneel sluiten">×</button>
-    </header>
-    <div id="content-panel-body" class="content-panel-body"></div>
-  </aside>
-
-  <!-- Verhoog ?v= bij elke publicatie, zodat browsers de nieuwe versie laden in plaats van een oude uit de cache. -->
-  <script src="js/content-panel.js?v=2026-10-30"></script>
-  <script src="js/state.js?v=2026-10-30"></script>
-  <script src="js/graph-state.js?v=2026-10-30"></script>
-  <script src="js/graph-validator.js?v=2026-10-30"></script>
-  <script src="js/layout-engine.js?v=2026-10-30"></script>
-  <script src="js/renderer.js?v=2026-10-30"></script>
-  <script src="js/choice-panel.js?v=2026-10-30"></script>
-  <script src="js/breadcrumb.js?v=2026-10-30"></script>
-  <script src="js/recommendations-panel.js?v=2026-10-30"></script>
-  <script src="js/bron.js?v=2026-10-30"></script>
-  <script src="js/viewport.js?v=2026-10-30"></script>
-  <script src="js/journey.js?v=2026-10-30"></script>
-  <script src="js/subtrees.js?v=2026-10-30"></script>
-  <script src="js/app.js?v=2026-10-30"></script>
-</body>
-</html>
+{
+  "tumoren": [
+    {
+      "id": "borderline-ovarium",
+      "titel": "Borderline ovariumtumoren",
+      "afbeelding": "images/Gynaecologie_vierkant.png",
+      "status": "available"
+    },
+{
+  "id": "cervixcarcinoom",
+  "titel": "Cervixcarcinoom",
+  "afbeelding": "images/Gynaecologie_vierkant.png",
+  "status": "available"
+},
+    {
+  "id": "cervixcytologie",
+  "titel": "Cervixcytologie",
+  "afbeelding": "images/Gynaecologie_vierkant.png",
+  "status": "available"
+},
+    {
+      "id": "cin-ais-vain",
+      "titel": "CIN, AIS, VAIN",
+      "afbeelding": "images/Gynaecologie_vierkant.png",
+      "status": "available"
+    },
+    {
+      "id": "endometrium",
+      "titel": "Endometrium carcinoom",
+      "afbeelding": "images/Gynaecologie_vierkant.png",
+      "status": "available"
+    },
+    {
+      "id": "epitheliaal-ovarium",
+      "titel": "Epitheliaal ovariumcarcinoom",
+      "afbeelding": "images/Gynaecologie_vierkant.png",
+      "status": "available"
+    },
+    {
+      "id": "niet-epitheliaal-ovarium",
+      "titel": "Niet epitheliale ovarium maligniteiten",
+      "afbeelding": "images/Gynaecologie_vierkant.png",
+      "status": "available"
+    },
+    {
+      "id": "trofoblast",
+      "titel": "Trofoblasttumoren",
+      "afbeelding": "images/Gynaecologie_vierkant.png",
+      "status": "available"
+    },
+    {
+      "id": "vergroot-ovarium",
+      "titel": "Vergroot ovarium",
+      "afbeelding": "images/Gynaecologie_vierkant.png",
+      "status": "available"
+    },
+    {
+      "id": "vulva",
+      "titel": "Vulvacarcinoom",
+      "afbeelding": "images/Gynaecologie_vierkant.png",
+      "status": "available"
+    }
+  ]
+}
