@@ -445,8 +445,8 @@ const Renderer = (function () {
   }
 
   /* Bedienbaarheid en aria van een connector uit de status van de from-node (zelfde regel als bij de node zelf:
-     alleen bij een beschikbare of beantwoorde keuzenode). Beantwoorde keuzes blijven aanklikbaar om te wijzigen;
-     alleen de eerstvolgende (available) keuzenode staat in de tabvolgorde. */
+     elke keuzenode die nog mogelijk is, ook als die nog niet bereikt is: vrije volgorde). Beantwoorde keuzes
+     blijven aanklikbaar om te wijzigen; alleen de eerstvolgende (available) keuzenode staat in de tabvolgorde. */
   function updateEdgeChoice(item, status, selections) {
     var from = item.getAttribute('data-from');
     var st = status.nodes[from] || 'normal';
@@ -455,20 +455,27 @@ const Renderer = (function () {
     var chosen = selections[from] !== undefined && selections[from] !== null &&
       String(selections[from]) === item.getAttribute('data-value');
     var text = nodeLabel + ': ' + optionLabel;
-    if (st === 'available' || st === 'selected') {
+    if (isSelectableStatus(st)) {
       item.setAttribute('tabindex', st === 'available' ? '0' : '-1');
       item.removeAttribute('aria-disabled');
-      if (chosen) text += ' (huidige keuze)';
+      if (chosen) text += st === 'preselected' ? ' (alvast gekozen)' : ' (huidige keuze)';
+      else if (st === 'inactive') text += ' (alvast kiezen)';
     } else {
       item.removeAttribute('tabindex');
       item.setAttribute('aria-disabled', 'true');
-      text += st === 'excluded' ? ' (niet meer mogelijk)' : ' (nog niet beschikbaar)';
+      text += ' (niet meer mogelijk)';
     }
     item.setAttribute('aria-pressed', chosen ? 'true' : 'false');
     item.setAttribute('aria-label', text);
   }
 
-  var STATUS_CLASSES = ['is-selected', 'is-available', 'is-inactive', 'is-excluded'];
+  var STATUS_CLASSES = ['is-selected', 'is-preselected', 'is-available', 'is-inactive', 'is-excluded'];
+
+  /* Een keuzenode (en zijn connectoren) is te bedienen zolang die nog mogelijk is: ook als die nog niet bereikt
+     is, zodat waarden in willekeurige volgorde kunnen worden ingevuld. Alleen 'excluded' is niet te bedienen. */
+  function isSelectableStatus(st) {
+    return st === 'available' || st === 'selected' || st === 'preselected' || st === 'inactive';
+  }
 
   function setStatusClass(element, status) {
     STATUS_CLASSES.forEach(function (c) { element.classList.remove(c); });
@@ -476,7 +483,7 @@ const Renderer = (function () {
   }
 
   function isClickable(g) {
-    return g.classList.contains('is-available') || g.classList.contains('is-selected');
+    return !g.classList.contains('is-excluded');
   }
 
   /* Past een berekende graph-status toe als CSS-klassen op nodes, edges, dots en labels.
@@ -499,18 +506,20 @@ const Renderer = (function () {
       if (!g.classList.contains('is-interactive')) return;
       var label = g.getAttribute('data-node-label');
       var text = (g.hasAttribute('data-subtree') ? 'Open hulpbeslisboom voor ' : 'Kies een waarde voor ') + label;
-      if (st === 'selected') {
+      if (st === 'selected' || st === 'preselected') {
         var labels = JSON.parse(g.getAttribute('data-option-labels'));
         var value = selections[id];
-        text += ' (huidige keuze: ' + (labels[value] || value) + ')';
+        text += (st === 'preselected' ? ' (alvast gekozen: ' : ' (huidige keuze: ') + (labels[value] || value) + ')';
+      } else if (st === 'inactive') {
+        text += ' (nog niet bereikt, alvast in te vullen)';
       }
-      if (st === 'available' || st === 'selected') {
+      if (isSelectableStatus(st)) {
         g.setAttribute('tabindex', '0');
         g.removeAttribute('aria-disabled');
       } else {
         g.removeAttribute('tabindex');
         g.setAttribute('aria-disabled', 'true');
-        text = label + (st === 'excluded' ? ': niet meer mogelijk' : ': nog niet beschikbaar');
+        text = label + ': niet meer mogelijk';
       }
       g.setAttribute('aria-label', text);
     });
