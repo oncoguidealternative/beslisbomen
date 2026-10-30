@@ -2,183 +2,181 @@
   "id": "trofoblast",
   "titel": "Zorgpad trofoblasttumoren",
   "overview": {
-    "native": true,
-    "viewBox": [
-      1600,
-      2850
-    ],
-    "nodeSize": [
-      220,
-      90
-    ],
-    "gridSizeX": 100,
-    "gridSizeY": 100,
+    "layout": {
+      "unit": 5,
+      "blockWidth": 44,
+      "blockHeight": 18,
+      "margin": 2
+    },
     "wrap": 28,
     "nodes": [
       {
         "id": "zorgpad-trofoblast",
-        "label": "Zorgpad trofoblastziekten",
-        "gridX": 6,
+        "type": "title",
+        "gridX": 120,
         "gridY": 0,
-        "type": "root"
+        "label": "Zorgpad trofoblastziekten"
       },
       {
         "id": "klinische-verdenking",
+        "gridX": 120,
+        "gridY": 40,
         "label": "Klinische verdenking trofoblast ziekte",
-        "gridX": 6,
-        "gridY": 2,
         "drill": true
       },
       {
         "id": "primaire-behandeling",
+        "gridX": 120,
+        "gridY": 80,
         "label": "Primaire behandeling (verdenking) trofoblast ziekte",
-        "gridX": 6,
-        "gridY": 4,
         "drill": true
       },
       {
         "id": "surveillance-na-mola",
+        "gridX": 120,
+        "gridY": 120,
         "label": "Surveillance na mola behandeling",
-        "gridX": 6,
-        "gridY": 6,
         "drill": true
       },
       {
         "id": "behandeling-pstt",
+        "gridX": 220,
+        "gridY": 120,
         "label": "Behandeling PSTT",
-        "gridX": 11,
-        "gridY": 6,
         "drill": true
       },
       {
         "id": "surveillance-non-mola",
+        "gridX": 40,
+        "gridY": 160,
         "label": "Surveillance bij non-mola choriocarcinoom",
-        "gridX": 2,
-        "gridY": 8,
         "drill": true
       },
       {
         "id": "uitslag-hcg-na-mola",
+        "gridX": 120,
+        "gridY": 160,
         "label": "Uitslag hCG surveillance na mola behandeling",
-        "gridX": 6,
-        "gridY": 8,
         "drill": true
       },
       {
         "id": "pstt-hcg-surveillance",
+        "gridX": 220,
+        "gridY": 160,
         "label": "PSTT hCG surveillance",
-        "gridX": 11,
-        "gridY": 8,
         "drill": true
       },
       {
         "id": "uitslag-hcg-non-mola",
+        "gridX": 40,
+        "gridY": 200,
         "label": "Uitslag hCG surveillance na non-mola choriocarcinoom",
-        "gridX": 2,
-        "gridY": 10,
         "drill": true
       },
       {
         "id": "behandeling-gtn",
+        "gridX": 120,
+        "gridY": 200,
         "label": "Behandeling GTN",
-        "gridX": 6,
-        "gridY": 10,
         "drill": true
       },
       {
         "id": "uitslag-hcg-na-pstt",
+        "gridX": 220,
+        "gridY": 200,
         "label": "Uitslag hCG surveillance na PSTT",
-        "gridX": 11,
-        "gridY": 10,
         "drill": true
       },
       {
         "id": "evaluatie-laag-risico",
+        "gridX": 120,
+        "gridY": 240,
         "label": "Evaluatie laag risico na primaire behandeling GTN",
-        "gridX": 6,
-        "gridY": 12,
         "drill": true
       },
       {
         "id": "beleid-na-primaire-behandeling-gtn",
+        "gridX": 120,
+        "gridY": 280,
         "label": "Beleid na primaire behandeling GTN",
-        "gridX": 6,
-        "gridY": 14,
         "drill": true
       },
       {
         "id": "beleid-na-gtn-chirurgie",
+        "gridX": 40,
+        "gridY": 320,
         "label": "Beleid na GTN chirurgie",
-        "gridX": 2,
-        "gridY": 16,
         "drill": true
       },
       {
         "id": "uitslag-hcg-na-chirurgie",
+        "gridX": 40,
+        "gridY": 360,
         "label": "Uitslag hCG surveillance na chirurgie",
-        "gridX": 2,
-        "gridY": 18,
         "drill": true
       },
       {
         "id": "evaluatie-dactinomycine",
+        "gridX": 120,
+        "gridY": 360,
         "label": "Evaluatie bij dactinomycine chemotherapie",
-        "gridX": 6,
-        "gridY": 18,
         "drill": true
       },
       {
         "id": "beleid-methotrexaat-dactinomycine",
+        "gridX": 120,
+        "gridY": 400,
         "label": "Beleid na methotrexaat en dactinomycine chemotherapie",
-        "gridX": 6,
-        "gridY": 20,
         "drill": true
       },
       {
         "id": "evaluatie-ema-co",
+        "gridX": 180,
+        "gridY": 440,
         "label": "Evaluatie bij EMA/CO chemotherapie",
-        "gridX": 9,
-        "gridY": 22,
         "drill": true
       },
       {
         "id": "hcg-follow-up-laag-risico",
+        "gridX": 20,
+        "gridY": 480,
         "label": "hCG follow up laag risico",
-        "gridX": 1,
-        "gridY": 24,
         "drill": true
       },
       {
         "id": "uitslag-hcg-follow-up-laag",
+        "gridX": 20,
+        "gridY": 520,
         "label": "Uitslag hCG follow up na GTN",
-        "gridX": 1,
-        "gridY": 26,
         "drill": true
       },
       {
         "id": "hcg-follow-up-hoog-risico",
+        "gridX": 180,
+        "gridY": 480,
         "label": "hCG follow up hoog risico",
-        "gridX": 9,
-        "gridY": 24,
         "drill": true
       },
       {
         "id": "uitslag-hcg-follow-up-hoog",
+        "gridX": 180,
+        "gridY": 520,
         "label": "Uitslag hCG follow up na GTN",
-        "gridX": 9,
-        "gridY": 26,
         "drill": true
       },
       {
         "id": "beleid-na-ema-co",
+        "gridX": 240,
+        "gridY": 480,
         "label": "Beleid na EMA/CO chemotherapie",
-        "gridX": 12,
-        "gridY": 24,
         "drill": true
       }
     ],
     "edges": [
       {
+        "id": "edge-zorgpad-trofoblast-klinische-verdenking",
+        "from": "zorgpad-trofoblast",
+        "to": "klinische-verdenking",
         "points": [
           [
             710,
@@ -192,6 +190,9 @@
         "arrow": true
       },
       {
+        "id": "edge-klinische-verdenking-primaire-behandeling",
+        "from": "klinische-verdenking",
+        "to": "primaire-behandeling",
         "points": [
           [
             710,
@@ -205,6 +206,9 @@
         "arrow": true
       },
       {
+        "id": "edge-primaire-behandeling-surveillance-na-mola",
+        "from": "primaire-behandeling",
+        "to": "surveillance-na-mola",
         "points": [
           [
             710,
@@ -218,6 +222,9 @@
         "arrow": true
       },
       {
+        "id": "edge-primaire-behandeling-surveillance-non-mola",
+        "from": "primaire-behandeling",
+        "to": "surveillance-non-mola",
         "points": [
           [
             710,
@@ -239,6 +246,9 @@
         "arrow": true
       },
       {
+        "id": "edge-primaire-behandeling-behandeling-pstt",
+        "from": "primaire-behandeling",
+        "to": "behandeling-pstt",
         "points": [
           [
             710,
@@ -260,6 +270,9 @@
         "arrow": true
       },
       {
+        "id": "edge-surveillance-na-mola-uitslag-hcg-na-mola",
+        "from": "surveillance-na-mola",
+        "to": "uitslag-hcg-na-mola",
         "points": [
           [
             710,
@@ -273,6 +286,9 @@
         "arrow": true
       },
       {
+        "id": "edge-surveillance-non-mola-uitslag-hcg-non-mola",
+        "from": "surveillance-non-mola",
+        "to": "uitslag-hcg-non-mola",
         "points": [
           [
             310,
@@ -286,6 +302,9 @@
         "arrow": true
       },
       {
+        "id": "edge-behandeling-pstt-pstt-hcg-surveillance",
+        "from": "behandeling-pstt",
+        "to": "pstt-hcg-surveillance",
         "points": [
           [
             1210,
@@ -299,6 +318,9 @@
         "arrow": true
       },
       {
+        "id": "edge-pstt-hcg-surveillance-uitslag-hcg-na-pstt",
+        "from": "pstt-hcg-surveillance",
+        "to": "uitslag-hcg-na-pstt",
         "points": [
           [
             1210,
@@ -312,6 +334,9 @@
         "arrow": true
       },
       {
+        "id": "edge-uitslag-hcg-na-mola-behandeling-gtn",
+        "from": "uitslag-hcg-na-mola",
+        "to": "behandeling-gtn",
         "points": [
           [
             710,
@@ -325,6 +350,9 @@
         "arrow": true
       },
       {
+        "id": "edge-uitslag-hcg-non-mola-behandeling-gtn",
+        "from": "uitslag-hcg-non-mola",
+        "to": "behandeling-gtn",
         "points": [
           [
             310,
@@ -346,6 +374,9 @@
         "arrow": true
       },
       {
+        "id": "edge-behandeling-gtn-evaluatie-laag-risico",
+        "from": "behandeling-gtn",
+        "to": "evaluatie-laag-risico",
         "points": [
           [
             710,
@@ -359,6 +390,9 @@
         "arrow": true
       },
       {
+        "id": "edge-evaluatie-laag-risico-beleid-na-primaire-behandeling-gtn",
+        "from": "evaluatie-laag-risico",
+        "to": "beleid-na-primaire-behandeling-gtn",
         "points": [
           [
             710,
@@ -372,6 +406,9 @@
         "arrow": true
       },
       {
+        "id": "edge-beleid-na-primaire-behandeling-gtn-beleid-na-gtn-chirurgie",
+        "from": "beleid-na-primaire-behandeling-gtn",
+        "to": "beleid-na-gtn-chirurgie",
         "points": [
           [
             710,
@@ -393,6 +430,9 @@
         "arrow": true
       },
       {
+        "id": "edge-beleid-na-gtn-chirurgie-uitslag-hcg-na-chirurgie",
+        "from": "beleid-na-gtn-chirurgie",
+        "to": "uitslag-hcg-na-chirurgie",
         "points": [
           [
             310,
@@ -406,6 +446,9 @@
         "arrow": true
       },
       {
+        "id": "edge-beleid-na-primaire-behandeling-gtn-evaluatie-dactinomycine",
+        "from": "beleid-na-primaire-behandeling-gtn",
+        "to": "evaluatie-dactinomycine",
         "points": [
           [
             710,
@@ -419,6 +462,9 @@
         "arrow": true
       },
       {
+        "id": "edge-evaluatie-dactinomycine-beleid-methotrexaat-dactinomycine",
+        "from": "evaluatie-dactinomycine",
+        "to": "beleid-methotrexaat-dactinomycine",
         "points": [
           [
             710,
@@ -432,6 +478,9 @@
         "arrow": true
       },
       {
+        "id": "edge-beleid-methotrexaat-dactinomycine-evaluatie-ema-co",
+        "from": "beleid-methotrexaat-dactinomycine",
+        "to": "evaluatie-ema-co",
         "points": [
           [
             710,
@@ -453,6 +502,9 @@
         "arrow": true
       },
       {
+        "id": "edge-evaluatie-ema-co-hcg-follow-up-hoog-risico",
+        "from": "evaluatie-ema-co",
+        "to": "hcg-follow-up-hoog-risico",
         "points": [
           [
             1010,
@@ -466,6 +518,9 @@
         "arrow": true
       },
       {
+        "id": "edge-evaluatie-ema-co-beleid-na-ema-co",
+        "from": "evaluatie-ema-co",
+        "to": "beleid-na-ema-co",
         "points": [
           [
             1010,
@@ -487,6 +542,9 @@
         "arrow": true
       },
       {
+        "id": "edge-beleid-na-primaire-behandeling-gtn-hcg-follow-up-laag-risico",
+        "from": "beleid-na-primaire-behandeling-gtn",
+        "to": "hcg-follow-up-laag-risico",
         "points": [
           [
             710,
@@ -508,6 +566,9 @@
         "arrow": true
       },
       {
+        "id": "edge-hcg-follow-up-laag-risico-uitslag-hcg-follow-up-laag",
+        "from": "hcg-follow-up-laag-risico",
+        "to": "uitslag-hcg-follow-up-laag",
         "points": [
           [
             210,
@@ -521,6 +582,9 @@
         "arrow": true
       },
       {
+        "id": "edge-hcg-follow-up-hoog-risico-uitslag-hcg-follow-up-hoog",
+        "from": "hcg-follow-up-hoog-risico",
+        "to": "uitslag-hcg-follow-up-hoog",
         "points": [
           [
             1010,
@@ -537,4 +601,3 @@
   },
   "trees": {}
 }
-
