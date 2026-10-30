@@ -235,6 +235,17 @@ function checkInformatiestandaard(tumor) {
         else if (seen[w.waarde]) error(where, 'waarde "' + w.waarde + '" komt vaker voor');
         else seen[w.waarde] = true;
       });
+      // "zorgpadWaarden": een zorgpadwaarde die staat voor meerdere (of andere) waarden van de informatiestandaard.
+      // { "<zorgpadwaarde>": { "alle": [...] } } = al die waarden tegelijk; { "eenVan": [...] } = één ervan.
+      if (it.zorgpadWaarden !== undefined) {
+        if (!it.zorgpadWaarden || typeof it.zorgpadWaarden !== 'object' || Array.isArray(it.zorgpadWaarden)) { error(where, '"zorgpadWaarden" moet een object zijn'); return; }
+        Object.keys(it.zorgpadWaarden).forEach(function (v) {
+          const m = it.zorgpadWaarden[v];
+          const list = m && (Array.isArray(m.alle) ? m.alle : Array.isArray(m.eenVan) ? m.eenVan : null);
+          if (!list || (Array.isArray(m.alle) && Array.isArray(m.eenVan)) || !list.length) { error(where, 'zorgpadWaarden "' + v + '" moet óf "alle" óf "eenVan" met een lijst waarden hebben'); return; }
+          list.forEach(function (w) { if (!seen[w]) error(where, 'zorgpadWaarden "' + v + '" verwijst naar onbekende waarde "' + w + '"'); });
+        });
+      }
     } else error(where, 'type moet "keuze" of "meting" zijn');
   });
 
@@ -260,6 +271,7 @@ function checkInformatiestandaard(tumor) {
       if (n.measure) { note('keuze:' + treeId + ':' + n.id, '"' + label + '" (' + treeId + ') is een meting, maar in de informatiestandaard een keuzelijst'); return; }
       const known = {};
       it.waarden.forEach(function (w) { known[String(w.waarde)] = true; });
+      Object.keys(it.zorgpadWaarden || {}).forEach(function (v) { known[v] = true; });
       const extra = n.options.filter(function (o) { return !known[String(o.value)]; })
         .map(function (o) { return String(o.label || o.value).replace(/\s+/g, ' ').trim(); });
       if (extra.length) note('waarden:' + plain(label) + ':' + extra.join('|'), '"' + label + '" (' + treeId + ') heeft waarden die niet in de informatiestandaard staan: ' + extra.join('; '));

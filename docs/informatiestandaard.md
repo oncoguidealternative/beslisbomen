@@ -41,6 +41,7 @@ ermee te vergelijken.
 | `ookBekendAls` | Optioneel: andere labels waaronder het gegeven in het zorgpad staat. |
 | `type` | `keuze` (een waarde uit een lijst) of `meting` (een getal). |
 | `eenheid` | Bij een meting: de eenheid, gelijk aan `measure.unit` in het zorgpad. |
+| `zorgpadWaarden` | Optioneel, bij een keuze: een waarde in het zorgpad die staat voor andere of meerdere waarden van de informatiestandaard. `{ "chemo-radiatie": { "alle": ["chemotherapie", "radiotherapie"] } }` betekent: beide tegelijk. `{ "beperkt-tot-de-cervix-uteri": { "eenVan": ["microscopisch-beperkt-tot-uterus", "macroscopisch-beperkt-tot-uterus"] } }` betekent: één van beide. |
 | `waarden` | Bij een keuze: `waarde` is de waarde die het zorgpad gebruikt (`options[].value`); `naam`, `code` en `codeSystem` komen uit de waardelijst. |
 
 ## Controle
