@@ -14,7 +14,7 @@
     },
     "url": "https://decor.nictiz.nl/ad/#/onco-gyn-new-/datasets/dataset/2.16.840.1.113883.2.4.3.11.31.1.77.18.1.1/2019-01-28T16:24:03/concept/2.16.840.1.113883.2.4.3.11.31.1.77.18.2.444/2021-12-21T16:05:57",
     "opgehaald": "2026-10-30",
-    "toelichting": "De codes komen uit de waardelijsten van de Nictiz-dataset (codesysteem SNOMED CT; sommige codes zijn lokale codes uit de dataset). \"waarde\" is de waarde die het zorgpad gebruikt."
+    "toelichting": "De codes komen uit de waardelijsten van de Nictiz-dataset (codesysteem SNOMED CT; sommige codes zijn lokale codes uit de dataset). \"waarde\" is de waarde die het zorgpad gebruikt. \"zorgpadWaarden\" legt vast hoe een samengevoegde zorgpadwaarde zich verhoudt tot de waarden van de informatiestandaard: \"alle\" = alle genoemde waarden tegelijk, \"eenVan\" = één van de genoemde waarden."
   },
   "dataitems": [
     {
@@ -531,7 +531,15 @@
           "code": "108290001",
           "codeSystem": "2.16.840.1.113883.6.96"
         }
-      ]
+      ],
+      "zorgpadWaarden": {
+        "chemo-radiatie": {
+          "alle": [
+            "chemotherapie",
+            "radiotherapie"
+          ]
+        }
+      }
     },
     {
       "id": "fertiliteit",
@@ -918,6 +926,9 @@
     {
       "id": "invasiediepte",
       "naam": "Invasiediepte",
+      "ookBekendAls": [
+        "Invasiediepte bij biopt"
+      ],
       "concept": {
         "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.2.458",
         "effectiveDate": "2021-12-21T16:14:05"
@@ -1012,6 +1023,9 @@
     {
       "id": "parametriale-invasie",
       "naam": "Parametriale invasie",
+      "ookBekendAls": [
+        "Parametriumingroei"
+      ],
       "concept": {
         "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.2.462",
         "effectiveDate": "2021-12-21T16:16:54"
@@ -1068,6 +1082,9 @@
     {
       "id": "sublokalisatie-recidief",
       "naam": "Sublokalisatie recidief",
+      "ookBekendAls": [
+        "Lokalisatie recidief"
+      ],
       "concept": {
         "id": "2.16.840.1.113883.2.4.3.11.31.1.77.18.2.460",
         "effectiveDate": "2021-12-21T16:16:05"
@@ -1097,7 +1114,14 @@
           "code": "90769006",
           "codeSystem": "2.16.840.1.113883.6.96"
         }
-      ]
+      ],
+      "zorgpadWaarden": {
+        "klein-vaginaal-recidief": {
+          "eenVan": [
+            "vagina"
+          ]
+        }
+      }
     },
     {
       "id": "t-2009",
@@ -1312,7 +1336,20 @@
           "code": "am",
           "codeSystem": "2.16.840.1.113883.6.96"
         }
-      ]
+      ],
+      "zorgpadWaarden": {
+        "beperkt-tot-de-cervix-uteri": {
+          "eenVan": [
+            "microscopisch-beperkt-tot-uterus",
+            "macroscopisch-beperkt-tot-uterus"
+          ]
+        },
+        "buiten-cervix-uteri": {
+          "eenVan": [
+            "buiten-uterus"
+          ]
+        }
+      }
     },
     {
       "id": "uitslag-vriescoupe",
@@ -1401,6 +1438,12 @@
           "naam": "Geen",
           "code": "260413007",
           "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "anders",
+          "naam": "Anders",
+          "code": "OTH",
+          "codeSystem": "2.16.840.1.113883.2.4.3.11.31.1.77.18.11.380"
         }
       ]
     },
