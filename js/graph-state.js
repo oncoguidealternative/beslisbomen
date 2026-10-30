@@ -13,7 +13,9 @@
    Statussen:
    - selected: ligt op de gekozen route (beantwoorde keuzenode, gekozen edge, bereikte outcome)
    - available: bereikte, nog onbeantwoorde keuzenode
-   - inactive: nog mogelijk, maar nog niet bereikt
+   - preselected: keuzenode die al een waarde heeft maar nog niet bereikt is (alvast ingevuld, vooruitlopend
+     op eerdere keuzes); de gekozen edge krijgt ook deze status
+   - inactive: nog mogelijk, maar nog niet bereikt (een keuzenode is wel al te beantwoorden)
    - excluded: door eerdere keuzes niet meer mogelijk
    - normal: geen bijzondere status
 
@@ -84,8 +86,10 @@ const GraphState = (function () {
     return seen;
   }
 
-  /* Verwijdert selecties die niet (meer) geldig zijn: de node wordt niet meer bereikt of de waarde bestaat niet.
-     Selecties die bereikbaar blijven (ook via een andere route) blijven staan.
+  /* Verwijdert selecties die niet (meer) geldig zijn: de node is door andere keuzes niet meer mogelijk of de
+     waarde bestaat niet. Een keuze hoeft niet eerst bereikt te zijn: een nog niet bereikte keuzenode mag alvast
+     worden ingevuld (vrije volgorde) en blijft staan zolang die nog mogelijk is.
+     Selecties die mogelijk blijven (ook via een andere route) blijven staan.
      Selecties voor nodes die niet in deze graph voorkomen blijven onaangeroerd. */
   function pruneWithModel(model, selections) {
     var current = {};
@@ -94,11 +98,11 @@ const GraphState = (function () {
     var changed = true;
     while (changed) {
       changed = false;
-      var reached = traverse(model, current, false);
+      var possible = traverse(model, current, true);
       Object.keys(current).forEach(function (id) {
         var node = model.nodes[id];
         if (!node) return;
-        var valid = isChoice(node) && reached[id] === true &&
+        var valid = isChoice(node) && possible[id] === true &&
           node.options.some(function (o) { return o.value === current[id]; });
         if (!valid) {
           delete current[id];
@@ -129,7 +133,7 @@ const GraphState = (function () {
       if (!model.connected[n.id] || !modelled[n.id]) { nodeStatus[n.id] = 'normal'; return; }
       if (!possible[n.id]) { nodeStatus[n.id] = 'excluded'; return; }
       if (isChoice(n)) {
-        if (!reached[n.id]) nodeStatus[n.id] = 'inactive';
+        if (!reached[n.id]) nodeStatus[n.id] = hasValue(clean, n.id) ? 'preselected' : 'inactive';
         else if (hasValue(clean, n.id)) nodeStatus[n.id] = 'selected';
         else { nodeStatus[n.id] = 'available'; available.push(n.id); }
       } else if (n.type === 'outcome') {
@@ -145,7 +149,8 @@ const GraphState = (function () {
       if (!possible[e.from]) { edgeStatus[e.id] = 'excluded'; return; }
       if (isChoice(from)) {
         if (hasValue(clean, e.from)) {
-          edgeStatus[e.id] = (reached[e.from] && e.value === clean[e.from]) ? 'selected' : 'excluded';
+          if (e.value !== clean[e.from]) edgeStatus[e.id] = 'excluded';
+          else edgeStatus[e.id] = reached[e.from] ? 'selected' : 'preselected';
         } else {
           edgeStatus[e.id] = reached[e.from] ? 'normal' : 'inactive';
         }
