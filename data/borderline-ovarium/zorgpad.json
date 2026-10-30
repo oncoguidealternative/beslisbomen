@@ -2,106 +2,104 @@
   "id": "borderline-ovarium",
   "titel": "Zorgpad borderline ovariumtumoren",
   "overview": {
-    "native": true,
-    "viewBox": [
-      1400,
-      2200
-    ],
-    "nodeSize": [
-      220,
-      90
-    ],
-    "gridSizeX": 100,
-    "gridSizeY": 100,
+    "layout": {
+      "unit": 5,
+      "blockWidth": 44,
+      "blockHeight": 18,
+      "margin": 2
+    },
     "wrap": 28,
     "nodes": [
       {
         "id": "zorgpad-borderline-ovariumtumor",
-        "label": "Zorgpad Borderline Ovariumtumor",
-        "gridX": 5,
+        "type": "title",
+        "gridX": 100,
         "gridY": 0,
-        "type": "root"
+        "label": "Zorgpad Borderline Ovariumtumor"
       },
       {
         "id": "screening",
+        "gridX": 100,
+        "gridY": 40,
         "label": "Screening",
-        "gridX": 5,
-        "gridY": 2,
         "drill": true
       },
       {
         "id": "klinisch-vergroot-ovarium",
+        "gridX": 100,
+        "gridY": 80,
         "label": "Klinisch (verdenking op) vergroot ovarium",
-        "gridX": 5,
-        "gridY": 4,
         "drill": true
       },
       {
         "id": "initieel-beleid-vergroot-ovarium",
+        "gridX": 100,
+        "gridY": 120,
         "label": "Initieel beleid vergroot ovarium",
-        "gridX": 5,
-        "gridY": 6,
         "drill": true
       },
       {
         "id": "behandeling-borderline-ovariumtumor",
+        "gridX": 100,
+        "gridY": 160,
         "label": "Behandeling borderline ovariumtumor",
-        "gridX": 5,
-        "gridY": 8,
         "drill": true
       },
       {
         "id": "aanvullende-diagnostiek-tijdens-operatie",
+        "gridX": 100,
+        "gridY": 200,
         "label": "Aanvullende diagnostiek tijdens operatie",
-        "gridX": 5,
-        "gridY": 10,
         "drill": true
       },
       {
         "id": "postoperatief-beleid",
+        "gridX": 100,
+        "gridY": 240,
         "label": "Postoperatief beleid",
-        "gridX": 5,
-        "gridY": 12,
         "drill": true
       },
       {
         "id": "follow-up-1",
+        "gridX": 100,
+        "gridY": 280,
         "label": "Follow-up",
-        "gridX": 5,
-        "gridY": 14,
         "drill": true
       },
       {
         "id": "secundaire-behandeling-resttumor",
+        "gridX": 180,
+        "gridY": 280,
         "label": "Secundaire behandeling resttumor",
-        "gridX": 9,
-        "gridY": 14,
         "drill": true
       },
       {
         "id": "diagnostiek-recidief",
+        "gridX": 100,
+        "gridY": 320,
         "label": "Diagnostiek recidief",
-        "gridX": 5,
-        "gridY": 16,
         "drill": true
       },
       {
         "id": "behandeling-recidief",
+        "gridX": 100,
+        "gridY": 360,
         "label": "Behandeling recidief",
-        "gridX": 5,
-        "gridY": 18,
         "drill": true
       },
       {
         "id": "follow-up-2",
+        "gridX": 100,
+        "gridY": 400,
         "label": "Follow-up",
-        "gridX": 5,
-        "gridY": 20,
         "drill": true
       }
     ],
     "edges": [
       {
+        "id": "edge-zorgpad-borderline-ovariumtumor-screening",
+        "from": "zorgpad-borderline-ovariumtumor",
+        "to": "screening",
         "points": [
           [
             610,
@@ -115,6 +113,9 @@
         "arrow": true
       },
       {
+        "id": "edge-screening-klinisch-vergroot-ovarium",
+        "from": "screening",
+        "to": "klinisch-vergroot-ovarium",
         "points": [
           [
             610,
@@ -128,6 +129,9 @@
         "arrow": true
       },
       {
+        "id": "edge-klinisch-vergroot-ovarium-initieel-beleid-vergroot-ovarium",
+        "from": "klinisch-vergroot-ovarium",
+        "to": "initieel-beleid-vergroot-ovarium",
         "points": [
           [
             610,
@@ -141,6 +145,9 @@
         "arrow": true
       },
       {
+        "id": "edge-initieel-beleid-vergroot-ovarium-behandeling-borderline-ovariumtumor",
+        "from": "initieel-beleid-vergroot-ovarium",
+        "to": "behandeling-borderline-ovariumtumor",
         "points": [
           [
             610,
@@ -154,6 +161,9 @@
         "arrow": true
       },
       {
+        "id": "edge-behandeling-borderline-ovariumtumor-aanvullende-diagnostiek-tijdens-operatie",
+        "from": "behandeling-borderline-ovariumtumor",
+        "to": "aanvullende-diagnostiek-tijdens-operatie",
         "points": [
           [
             610,
@@ -167,6 +177,9 @@
         "arrow": true
       },
       {
+        "id": "edge-aanvullende-diagnostiek-tijdens-operatie-postoperatief-beleid",
+        "from": "aanvullende-diagnostiek-tijdens-operatie",
+        "to": "postoperatief-beleid",
         "points": [
           [
             610,
@@ -180,6 +193,9 @@
         "arrow": true
       },
       {
+        "id": "edge-postoperatief-beleid-follow-up-1",
+        "from": "postoperatief-beleid",
+        "to": "follow-up-1",
         "points": [
           [
             610,
@@ -193,6 +209,9 @@
         "arrow": true
       },
       {
+        "id": "edge-postoperatief-beleid-secundaire-behandeling-resttumor",
+        "from": "postoperatief-beleid",
+        "to": "secundaire-behandeling-resttumor",
         "points": [
           [
             610,
@@ -214,6 +233,9 @@
         "arrow": true
       },
       {
+        "id": "edge-follow-up-1-diagnostiek-recidief",
+        "from": "follow-up-1",
+        "to": "diagnostiek-recidief",
         "points": [
           [
             610,
@@ -227,6 +249,9 @@
         "arrow": true
       },
       {
+        "id": "edge-diagnostiek-recidief-behandeling-recidief",
+        "from": "diagnostiek-recidief",
+        "to": "behandeling-recidief",
         "points": [
           [
             610,
@@ -240,6 +265,9 @@
         "arrow": true
       },
       {
+        "id": "edge-behandeling-recidief-follow-up-2",
+        "from": "behandeling-recidief",
+        "to": "follow-up-2",
         "points": [
           [
             610,
@@ -256,4 +284,3 @@
   },
   "trees": {}
 }
-
