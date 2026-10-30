@@ -1461,8 +1461,13 @@
           "interactive": true,
           "options": [
             {
-              "value": "cm1-pm1",
-              "label": "cM1, pM1",
+              "value": "cm1",
+              "label": "cM1",
+              "edge": "edge-m-cm1-pm1"
+            },
+            {
+              "value": "pm1",
+              "label": "pM1",
               "edge": "edge-m-cm1-pm1"
             },
             {
@@ -1646,8 +1651,13 @@
               "edge": "edge-regio-l-midline"
             },
             {
-              "value": "near-midline-lateraal",
-              "label": "Near midline, Lateraal",
+              "value": "near-midline",
+              "label": "Near midline",
+              "edge": "edge-regio-l-near-midline-lateraal"
+            },
+            {
+              "value": "lateraal",
+              "label": "Lateraal",
               "edge": "edge-regio-l-near-midline-lateraal"
             }
           ]
@@ -1666,8 +1676,13 @@
               "edge": "edge-regio-r-lateraal"
             },
             {
-              "value": "near-midline-midline",
-              "label": "Near midline, Midline",
+              "value": "near-midline",
+              "label": "Near midline",
+              "edge": "edge-regio-r-near-midline-midline"
+            },
+            {
+              "value": "midline",
+              "label": "Midline",
               "edge": "edge-regio-r-near-midline-midline"
             }
           ]
@@ -1722,8 +1737,13 @@
           "interactive": true,
           "options": [
             {
-              "value": "ct1-ct2",
-              "label": "cT1 - cT2",
+              "value": "ct1",
+              "label": "cT1",
+              "edge": "edge-ct-r-ct1-ct2"
+            },
+            {
+              "value": "ct2",
+              "label": "cT2",
               "edge": "edge-ct-r-ct1-ct2"
             },
             {
@@ -1735,9 +1755,9 @@
           "subtree": {
             "tree": "sub-ct",
             "map": {
-              "o-ct1a": "ct1-ct2",
-              "o-ct1b": "ct1-ct2",
-              "o-ct2": "ct1-ct2",
+              "o-ct1a": "ct1",
+              "o-ct1b": "ct1",
+              "o-ct2": "ct2",
               "o-ct3": "ct3"
             }
           }
@@ -2019,7 +2039,10 @@
           "id": "edge-m-cm1-pm1",
           "from": "m",
           "to": "loc-meta",
-          "value": "cm1-pm1",
+          "value": [
+            "cm1",
+            "pm1"
+          ],
           "label": "cM1, pM1",
           "points": [
             [
@@ -2529,7 +2552,10 @@
           "id": "edge-regio-l-near-midline-lateraal",
           "from": "regio-l",
           "to": "drain-2",
-          "value": "near-midline-lateraal",
+          "value": [
+            "near-midline",
+            "lateraal"
+          ],
           "label": "Near midline, Lateraal",
           "points": [
             [
@@ -2577,7 +2603,10 @@
           "id": "edge-regio-r-near-midline-midline",
           "from": "regio-r",
           "to": "o6",
-          "value": "near-midline-midline",
+          "value": [
+            "near-midline",
+            "midline"
+          ],
           "label": "Near midline, Midline",
           "points": [
             [
@@ -2695,7 +2724,10 @@
           "id": "edge-ct-r-ct1-ct2",
           "from": "ct-r",
           "to": "o10",
-          "value": "ct1-ct2",
+          "value": [
+            "ct1",
+            "ct2"
+          ],
           "label": "cT1 - cT2",
           "points": [
             [
@@ -5648,23 +5680,63 @@
           "interactive": true,
           "options": [
             {
-              "value": "in-situ",
-              "label": "Carcinoma in situ, Intraepitheliaal carcinoom",
+              "value": "carcinoma-in-situ",
+              "label": "Carcinoma in situ",
               "edge": "edge-uitbreiding-in-situ"
             },
             {
-              "value": "beperkt",
-              "label": "Beperkt tot vulva, of perineum",
+              "value": "intraepitheliaal-carcinoom",
+              "label": "Intraepitheliaal carcinoom",
+              "edge": "edge-uitbreiding-in-situ"
+            },
+            {
+              "value": "beperkt-tot-vulva",
+              "label": "Beperkt tot vulva",
               "edge": "edge-uitbreiding-beperkt"
             },
             {
-              "value": "onderste-derde",
-              "label": "Onderste derde urethra, Onderste derde vagina, Anus",
+              "value": "beperkt-tot-perineum",
+              "label": "Beperkt tot perineum",
+              "edge": "edge-uitbreiding-beperkt"
+            },
+            {
+              "value": "onderste-derde-urethra",
+              "label": "Onderste derde urethra",
               "edge": "edge-uitbreiding-onderste-derde"
             },
             {
-              "value": "bovenste-twee-derde",
-              "label": "Bovenste 2/3 urethra, Bovenste 2/3 vagina, Tunica mucosa vesicae urinariae (betrokkenheid met blaasslijmvlies), Mucosa van rectum, Ingroei in bekkenbot",
+              "value": "onderste-derde-vagina",
+              "label": "Onderste derde vagina",
+              "edge": "edge-uitbreiding-onderste-derde"
+            },
+            {
+              "value": "anus",
+              "label": "Anus",
+              "edge": "edge-uitbreiding-onderste-derde"
+            },
+            {
+              "value": "bovenste-twee-derde-urethra",
+              "label": "Bovenste 2/3 urethra",
+              "edge": "edge-uitbreiding-bovenste-twee-derde"
+            },
+            {
+              "value": "bovenste-twee-derde-vagina",
+              "label": "Bovenste 2/3 vagina",
+              "edge": "edge-uitbreiding-bovenste-twee-derde"
+            },
+            {
+              "value": "tunica-mucosa-vesicae-urinariae",
+              "label": "Tunica mucosa vesicae urinariae (betrokkenheid met blaasslijmvlies)",
+              "edge": "edge-uitbreiding-bovenste-twee-derde"
+            },
+            {
+              "value": "mucosa-van-rectum",
+              "label": "Mucosa van rectum",
+              "edge": "edge-uitbreiding-bovenste-twee-derde"
+            },
+            {
+              "value": "ingroei-in-bekkenbot",
+              "label": "Ingroei in bekkenbot",
               "edge": "edge-uitbreiding-bovenste-twee-derde"
             }
           ]
@@ -5766,7 +5838,10 @@
           "id": "edge-uitbreiding-in-situ",
           "from": "uitbreiding",
           "to": "o-ctis",
-          "value": "in-situ",
+          "value": [
+            "carcinoma-in-situ",
+            "intraepitheliaal-carcinoom"
+          ],
           "label": "Carcinoma in situ,\nIntraepitheliaal carcinoom",
           "points": [
             [
@@ -5792,7 +5867,10 @@
           "id": "edge-uitbreiding-beperkt",
           "from": "uitbreiding",
           "to": "diameter",
-          "value": "beperkt",
+          "value": [
+            "beperkt-tot-vulva",
+            "beperkt-tot-perineum"
+          ],
           "label": "Beperkt tot vulva,\nof perineum",
           "points": [
             [
@@ -5814,7 +5892,11 @@
           "id": "edge-uitbreiding-onderste-derde",
           "from": "uitbreiding",
           "to": "o-ct2",
-          "value": "onderste-derde",
+          "value": [
+            "onderste-derde-urethra",
+            "onderste-derde-vagina",
+            "anus"
+          ],
           "label": "Onderste derde urethra,\nOnderste derde vagina,\nAnus",
           "points": [
             [
@@ -5840,7 +5922,13 @@
           "id": "edge-uitbreiding-bovenste-twee-derde",
           "from": "uitbreiding",
           "to": "o-ct3",
-          "value": "bovenste-twee-derde",
+          "value": [
+            "bovenste-twee-derde-urethra",
+            "bovenste-twee-derde-vagina",
+            "tunica-mucosa-vesicae-urinariae",
+            "mucosa-van-rectum",
+            "ingroei-in-bekkenbot"
+          ],
           "label": "Bovenste 2/3 urethra,\nBovenste 2/3 vagina,\nTunica mucosa vesicae urinariae\n(betrokkenheid met blaasslijmvlies),\nMucosa van rectum,\nIngroei in bekkenbot",
           "points": [
             [
@@ -6050,8 +6138,13 @@
               "edge": "edge-kenmerken-extracapsulair"
             },
             {
-              "value": "ulcererend-gefixeerd",
-              "label": "Ulcererend, gefixeerd",
+              "value": "ulcererend",
+              "label": "Ulcererend",
+              "edge": "edge-kenmerken-ulcererend-gefixeerd"
+            },
+            {
+              "value": "gefixeerd",
+              "label": "Gefixeerd",
               "edge": "edge-kenmerken-ulcererend-gefixeerd"
             }
           ]
@@ -6346,7 +6439,10 @@
           "id": "edge-kenmerken-ulcererend-gefixeerd",
           "from": "kenmerken",
           "to": "o-pn3",
-          "value": "ulcererend-gefixeerd",
+          "value": [
+            "ulcererend",
+            "gefixeerd"
+          ],
           "label": "Ulcererend,\ngefixeerd",
           "points": [
             [

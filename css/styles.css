@@ -1052,3 +1052,7 @@ body[data-page="zorgpad"] { height: 100vh; height: 100dvh; min-height: 0; }
 .choice-btn:hover:not(:disabled) { background: #f1f6f8; }
 .choice-btn:disabled { color: #9aa7ad; cursor: default; }
 .choice-btn:focus-visible { outline: 3px solid var(--color-text-dark); outline-offset: 1px; position: relative; }
+
+/* Rondjes houden hun maat, ook naast een lange optietekst. */
+.choice-panel .choice-option input,
+.pp-option input { flex: none; }
