@@ -271,7 +271,7 @@ body[data-page="zorgpad"] { line-height: normal; }
 .zp-stage .info .dot { fill: #FFFFFF; stroke: none; }
 
 /* ===== Interactieve route (Sprint 5 en 6) ===== */
-/* Statussen: is-selected, is-available, is-inactive, is-excluded; tijdelijk: is-guided-target */
+/* Statussen: is-selected, is-preselected, is-available, is-inactive, is-excluded; tijdelijk: is-guided-target */
 
 /* available: eerstvolgende criterium waarop een keuze gemaakt kan worden */
 .zp-stage .node.is-interactive.is-available,
@@ -309,8 +309,22 @@ body[data-page="zorgpad"] { line-height: normal; }
 .zp-stage .edge-choice:focus-visible .edge-hit { fill: rgba(255, 255, 255, .2); stroke: #FFFFFF; stroke-width: 3; }
 .zp-stage .edge-choice[aria-disabled="true"] { pointer-events: none; cursor: default; }
 
-/* inactive: nog niet bereikbaar; houdt de normale weergave maar is niet te bedienen */
-.zp-stage .node.is-interactive.is-inactive { cursor: default; }
+/* inactive: nog niet bereikt; houdt de normale weergave, maar een keuzenode is al in te vullen (vrije volgorde) */
+.zp-stage .node.is-interactive.is-inactive { cursor: pointer; }
+.zp-stage .node.is-interactive.is-inactive:hover rect,
+.zp-stage .node.is-interactive.is-inactive:focus rect { fill: var(--color-text-muted); }
+
+/* preselected: alvast ingevuld, maar nog niet bereikt. Groen zoals een gekozen node, met een gestippelde rand
+   en een gestippelde connector, zodat zichtbaar is dat de route er nog niet naartoe loopt. */
+.zp-stage .node.is-interactive.is-preselected { cursor: pointer; }
+.zp-stage .node.t-criterion.is-preselected rect,
+.zp-stage .node.t-criterion.is-preselected:hover rect,
+.zp-stage .node.t-criterion.is-preselected:focus rect {
+  fill: var(--color-success); stroke: #FFFFFF; stroke-width: 3; stroke-dasharray: 8 5;
+}
+.zp-stage .node.t-criterion.is-preselected:focus-visible rect { stroke: var(--color-text-dark); }
+.zp-stage .edge.is-preselected { stroke: var(--color-success); stroke-width: 3px; stroke-dasharray: 8 6; }
+.zp-stage .edot.is-preselected { fill: var(--color-success); stroke: #FFFFFF; stroke-width: 2; stroke-dasharray: 3 2; }
 
 /* excluded: door eerdere keuzes niet meer mogelijk; zichtbaar voor context */
 .zp-stage .node.is-excluded,
