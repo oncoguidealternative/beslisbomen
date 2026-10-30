@@ -998,3 +998,57 @@ body[data-page="zorgpad"] { height: 100vh; height: 100dvh; min-height: 0; }
   line-height: 1.55;
 }
 .content-panel-notice[hidden] { display: none; }
+
+/* ===== Keuzevenster: kop en voet in de kleur van de nodes, opties als lijst (zelfde stijl als het paneel met
+   patiëntinformatie). Overschrijft de eerdere opmaak hierboven. ===== */
+.choice-panel {
+  width: 280px;
+  padding: 0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.choice-head {
+  padding: 9px 14px;
+  background: var(--color-node);
+  color: #FFFFFF;
+  font-weight: bold;
+  font-size: 1rem;
+}
+.choice-options { max-height: min(60vh, 460px); overflow-y: auto; }
+.choice-panel .choice-option {
+  gap: 10px;
+  padding: 7px 14px;
+  border-radius: 0;
+  border-bottom: 1px solid #e3ecf0;
+  font-size: .92rem;
+}
+.choice-panel .choice-option:last-child { border-bottom: 0; }
+.choice-panel .choice-option:hover { background: #f1f6f8; }
+.choice-panel .choice-option:focus-within { outline: 3px solid var(--color-accent); outline-offset: -3px; }
+.choice-panel .choice-option input { width: 20px; height: 20px; accent-color: var(--color-success); }
+.choice-actions {
+  justify-content: flex-end;
+  gap: 0;
+  margin: 0;
+  padding: 10px 12px;
+  background: var(--color-node);
+}
+.choice-btn {
+  padding: 6px 12px;
+  border: 1px solid #c9d9e0;
+  background: #FFFFFF;
+  color: var(--color-text-dark);
+  font: inherit;
+  font-size: .85rem;
+  cursor: pointer;
+}
+.choice-btn + .choice-btn { border-left: 0; }
+.choice-btn:first-of-type,
+.choice-btn[hidden] + .choice-btn { border-radius: 3px 0 0 3px; }
+.choice-btn:last-child { border-radius: 0 3px 3px 0; }
+.choice-btn:only-child,
+.choice-btn[hidden] + .choice-btn:last-child { border-radius: 3px; border-left: 1px solid #c9d9e0; }
+.choice-btn[hidden] { display: none; }
+.choice-btn:hover:not(:disabled) { background: #f1f6f8; }
+.choice-btn:disabled { color: #9aa7ad; cursor: default; }
+.choice-btn:focus-visible { outline: 3px solid var(--color-text-dark); outline-offset: 1px; position: relative; }

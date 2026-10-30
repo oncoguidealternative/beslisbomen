@@ -1,5 +1,7 @@
 /* HTML-keuzevenster voor interactieve data-items.
    Beheert alleen de weergave van het venster (openen, positioneren, radioknoppen, sluiten, focus).
+   Heeft de node een hulpbeslisboom, dan staat onderaan ook de knop "Hulpbeslisboom" (handlers.onSubtree).
+   Sluiten: Escape of klikken buiten het venster.
    De gekozen waarden staan uitsluitend in state.js en worden via getState() gelezen. */
 const ChoicePanel = (function () {
   'use strict';
@@ -7,8 +9,8 @@ const ChoicePanel = (function () {
   var MARGIN = 8;
   var GAP = 12;
 
-  var panel = null, legend = null, optionsBox = null, clearBtn = null, closeBtn = null, live = null;
-  var handlers = { onSelect: function () {}, onClear: function () {} };
+  var panel = null, head = null, legend = null, optionsBox = null, clearBtn = null, subtreeBtn = null, live = null;
+  var handlers = { onSelect: function () {}, onClear: function () {}, onSubtree: function () {} };
   var open_ = null; // alleen UI: welke node het venster nu toont {tumorId, treeId, nodeId, label, options, anchor}
 
   function make(tag, className, parent) {
@@ -26,18 +28,21 @@ const ChoicePanel = (function () {
     panel.setAttribute('aria-labelledby', 'choice-legend');
     panel.hidden = true;
 
+    // Kop met de naam van het gegeven; de opties staan in een fieldset met die naam als legend (voor schermlezers).
+    head = make('div', 'choice-head', panel);
+    head.id = 'choice-legend';
     var fieldset = make('fieldset', 'choice-fieldset', panel);
-    legend = make('legend', 'choice-legend', fieldset);
-    legend.id = 'choice-legend';
+    legend = make('legend', 'visually-hidden', fieldset);
     optionsBox = make('div', 'choice-options', fieldset);
 
     var actions = make('div', 'choice-actions', panel);
-    clearBtn = make('button', 'zp-btn choice-clear', actions);
+    subtreeBtn = make('button', 'choice-btn choice-subtree', actions);
+    subtreeBtn.type = 'button';
+    subtreeBtn.textContent = 'Hulpbeslisboom';
+    subtreeBtn.hidden = true;
+    clearBtn = make('button', 'choice-btn choice-clear', actions);
     clearBtn.type = 'button';
     clearBtn.textContent = 'Wissen';
-    closeBtn = make('button', 'zp-btn choice-close', actions);
-    closeBtn.type = 'button';
-    closeBtn.textContent = 'Sluiten';
 
     live = make('div', 'visually-hidden', document.body);
     live.id = 'choice-live';
@@ -59,7 +64,12 @@ const ChoicePanel = (function () {
       if (first) first.focus();
     });
 
-    closeBtn.addEventListener('click', function () { close(true); });
+    subtreeBtn.addEventListener('click', function () {
+      if (!open_ || !open_.subtree) return;
+      var info = { treeId: open_.treeId, nodeId: open_.nodeId, tree: open_.subtree.tree, label: open_.label };
+      close(false);
+      handlers.onSubtree(info);
+    });
 
     // Focus blijft binnen het venster zolang het openstaat.
     panel.addEventListener('keydown', function (ev) {
@@ -86,9 +96,9 @@ const ChoicePanel = (function () {
     window.addEventListener('resize', position);
   }
 
-  /* handlers: {onSelect(treeId, nodeId, value, info), onClear(treeId, nodeId, info)} */
+  /* handlers: {onSelect(treeId, nodeId, value, info), onClear(treeId, nodeId, info), onSubtree({treeId, nodeId, tree, label})} */
   function init(h) {
-    handlers = h;
+    handlers = { onSelect: h.onSelect || function () {}, onClear: h.onClear || function () {}, onSubtree: h.onSubtree || function () {} };
     if (!panel) build();
   }
 
@@ -129,15 +139,17 @@ const ChoicePanel = (function () {
     clearBtn.disabled = !has;
   }
 
-  /* spec: {tumorId, treeId, nodeId, label, options: [{value, label}], anchor: SVG-element}
+  /* spec: {tumorId, treeId, nodeId, label, options: [{value, label}], anchor: SVG-element, subtree?: {tree}}
      Alles wat getoond wordt komt uit de meegegeven node; er staat geen medische inhoud in dit bestand. */
   function open(spec) {
     if (!panel) return;
     if (open_) close(false);
-    open_ = { tumorId: spec.tumorId, treeId: spec.treeId, nodeId: spec.nodeId, label: spec.label, options: spec.options, anchor: spec.anchor };
+    open_ = { tumorId: spec.tumorId, treeId: spec.treeId, nodeId: spec.nodeId, label: spec.label, options: spec.options, anchor: spec.anchor, subtree: spec.subtree || null };
     panel.setAttribute('data-tumor', spec.tumorId || '');
     panel.setAttribute('data-tree', spec.treeId || '');
     legend.textContent = spec.label;
+    head.textContent = spec.label;
+    subtreeBtn.hidden = !open_.subtree;
     optionsBox.textContent = '';
     spec.options.forEach(function (o) {
       var label = make('label', 'choice-option', optionsBox);

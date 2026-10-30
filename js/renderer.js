@@ -328,18 +328,18 @@ const Renderer = (function () {
       if (interactive) {
         var optionLabels = {};
         n.options.forEach(function (o) { optionLabels[o.value] = o.label; });
-        var item = {id: n.id, label: n.label, options: n.options};
+        var item = {id: n.id, label: n.label, options: n.options, subtree: subRef ? {tree: subRef.tree} : null};
         g.setAttribute('data-node-label', n.label);
         g.setAttribute('data-option-labels', JSON.stringify(optionLabels));
         g.setAttribute('role', 'button');
         if (subRef) g.setAttribute('data-subtree', subRef.tree);
-        else g.setAttribute('aria-haspopup', 'dialog');
+        g.setAttribute('aria-haspopup', 'dialog');
         g.setAttribute('tabindex', '0');
-        g.setAttribute('aria-label', (subRef ? 'Open hulpbeslisboom voor ' : 'Kies een waarde voor ') + n.label);
+        g.setAttribute('aria-label', 'Kies een waarde voor ' + n.label);
         var activate = function () {
           if (!isClickable(g)) return;
-          if (subRef) onSubtree({nodeId: n.id, tree: subRef.tree, label: n.label});
-          else onInteract(item, g);
+          // Ook bij een hulpbeslisboom eerst het keuzevenster; daarin staat de knop naar de hulpbeslisboom.
+          onInteract(item, g);
         };
         g.addEventListener('click', activate);
         g.addEventListener('keydown', function (ev) {
@@ -562,7 +562,7 @@ const Renderer = (function () {
       }
       if (!g.classList.contains('is-interactive')) return;
       var label = g.getAttribute('data-node-label');
-      var text = (g.hasAttribute('data-subtree') ? 'Open hulpbeslisboom voor ' : 'Kies een waarde voor ') + label;
+      var text = 'Kies een waarde voor ' + label + (g.hasAttribute('data-subtree') ? ' (of bepaal hem met de hulpbeslisboom)' : '');
       if (st === 'selected' || st === 'preselected') {
         var labels = JSON.parse(g.getAttribute('data-option-labels'));
         var value = selections[id];

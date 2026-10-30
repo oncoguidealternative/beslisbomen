@@ -322,7 +322,7 @@
         ChoicePanel.close(true);
         return;
       }
-      ChoicePanel.open({ tumorId: tumorId, treeId: currentTreeId, nodeId: item.id, label: item.label, options: item.options, anchor: anchor });
+      ChoicePanel.open({ tumorId: tumorId, treeId: currentTreeId, nodeId: item.id, label: item.label, options: item.options, anchor: anchor, subtree: item.subtree });
     }
 
     // Berekent de status uit graph + selecties en laat de renderer die toepassen.
@@ -413,7 +413,8 @@
     // Keuzevenster: een keuze gaat uitsluitend via selectOption.
     ChoicePanel.init({
       onSelect: selectOption,
-      onClear: function (treeId, nodeId, info) { clearNodes(treeId, [nodeId], info); }
+      onClear: function (treeId, nodeId, info) { clearNodes(treeId, [nodeId], info); },
+      onSubtree: function (info) { if (info.treeId === currentTreeId) subtrees.enter({ nodeId: info.nodeId, tree: info.tree, label: info.label }); }
     });
 
     // Eén abonnement voor de hele pagina: viewport en selecties worden toegepast zodra de state verandert.

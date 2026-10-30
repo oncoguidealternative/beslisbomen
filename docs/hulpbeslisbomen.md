@@ -1,6 +1,6 @@
 # Hulpbeslisbomen (subtree)
 
-Een keuzenode (`interactive:true`) kan een hulpbeslisboom aanwijzen. De node toont een (+)-icoon; een klik opent de hulpboom één niveau dieper. Een bereikte uitkomst (outcome) van de hulpboom is aanklikbaar en neemt de gekoppelde waarde over in de bovenliggende boom.
+Een keuzenode (`interactive:true`) kan een hulpbeslisboom aanwijzen. De node toont een (+)-icoon. Een klik op de node opent het keuzevenster met de waarden én de knop **Hulpbeslisboom**; die knop opent de hulpboom één niveau dieper. Ook in het paneel met patiëntinformatie staat bij zo'n gegeven de knop **Bepalen met hulpbeslisboom**. Een bereikte uitkomst (outcome) van de hulpboom is aanklikbaar en neemt de gekoppelde waarde over in de bovenliggende boom.
 
 ## Schema
 ```json
