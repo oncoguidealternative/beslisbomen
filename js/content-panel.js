@@ -1,4 +1,4 @@
-/* Rechter informatiepaneel voor JSON-pagina's uit data/pages/. */
+/* Rechter informatiepaneel voor JSON-pagina's uit data/pages/ (open) of voor meegegeven paginadata (showData). */
 const ContentPanel = (function () {
   'use strict';
 
@@ -151,7 +151,7 @@ const ContentPanel = (function () {
 
   function render(data) {
     title.textContent = data.title || 'Informatie';
-    meta.textContent = data.version ? 'Versie: ' + data.version : '';
+    meta.textContent = data.meta || (data.version ? 'Versie: ' + data.version : '');
     body.replaceChildren();
 
     (data.sections || []).forEach(function (section) {
@@ -230,6 +230,18 @@ const ContentPanel = (function () {
     }
   }
 
+  /* Toont kant-en-klare paginadata (zelfde opbouw als data/pages/*.json) zonder iets op te halen.
+     Gebruikt voor inhoud die uit het zorgpad zelf komt, zoals de bronvermelding. */
+  function showData(data, trigger) {
+    if (!initialized) init();
+    if (!panel || !data) return;
+    lastTrigger = trigger || document.activeElement;
+    activeRequest += 1;
+    render(data);
+    show();
+    body.scrollTop = 0;
+  }
+
   function handleDocumentClick(event) {
     const trigger = event.target.closest('[data-content-page]');
     if (!trigger) return;
@@ -260,6 +272,7 @@ const ContentPanel = (function () {
   return {
     init: init,
     open: open,
+    showData: showData,
     close: close
   };
 })();
