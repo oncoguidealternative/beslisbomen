@@ -1,64 +1,6561 @@
 {
-  "tumoren": [
-    {
-      "id": "borderline-ovarium",
-      "titel": "Borderline ovariumtumoren",
-      "afbeelding": "images/Gynaecologie_vierkant.png",
-      "status": "available"
+  "id": "vulva",
+  "titel": "Zorgpad vulvacarcinoom",
+  "bron": {
+    "richtlijn": "Vulvacarcinoom",
+    "organisatie": "NVOG (Nederlandse Vereniging voor Obstetrie en Gynaecologie)",
+    "publicatiedatum": "2021-11-22",
+    "beoordeeldOp": "2021-12-30",
+    "url": "https://richtlijnendatabase.nl/richtlijn/vulvacarcinoom/startpagina_-_vulvacarcinoom.html"
+  },
+  "overview": {
+    "layout": {
+      "unit": 5,
+      "blockWidth": 36,
+      "blockHeight": 19,
+      "margin": 12
     },
-{
-  "id": "cervixcarcinoom",
-  "titel": "Cervixcarcinoom",
-  "afbeelding": "images/Gynaecologie_vierkant.png",
-  "status": "available"
-},
-    {
-  "id": "cervixcytologie",
-  "titel": "Cervixcytologie",
-  "afbeelding": "images/Gynaecologie_vierkant.png",
-  "status": "available"
-},
-    {
-      "id": "cin-ais-vain",
-      "titel": "CIN, AIS, VAIN",
-      "afbeelding": "images/Gynaecologie_vierkant.png",
-      "status": "available"
+    "nodes": [
+      {
+        "id": "start",
+        "type": "title",
+        "gridX": 99,
+        "gridY": 12,
+        "label": "Zorgpad vulvacarcinoom"
+      },
+      {
+        "id": "screening",
+        "gridX": 99,
+        "gridY": 39,
+        "drill": true,
+        "label": "Screening"
+      },
+      {
+        "id": "diagnostiek",
+        "gridX": 99,
+        "gridY": 66,
+        "drill": true,
+        "label": "Diagnostiek"
+      },
+      {
+        "id": "aanvullend",
+        "gridX": 99,
+        "gridY": 93,
+        "drill": true,
+        "label": "Aanvullende diagnostiek"
+      },
+      {
+        "id": "cyt-klein",
+        "gridX": 58,
+        "gridY": 116,
+        "drill": true,
+        "label": "Bepaling indicatie cytologisch punctie bij pcc < 4 cm en liesklieren niet verdacht"
+      },
+      {
+        "id": "cyt-groot",
+        "gridX": 139,
+        "gridY": 116,
+        "drill": true,
+        "label": "Bepaling indicatie cytologische punctie bij pcc >= 4 cm"
+      },
+      {
+        "id": "sn-links",
+        "gridX": 58,
+        "gridY": 143,
+        "drill": true,
+        "label": "Bepaling indicatie Lymfoscintogram/ Sentinel node procedure"
+      },
+      {
+        "id": "sn-rechts",
+        "gridX": 139,
+        "gridY": 143,
+        "drill": true,
+        "label": "Bepaling indicatie Lymfoscintogram/ Sentinel node procedure"
+      },
+      {
+        "id": "primair",
+        "gridX": 99,
+        "gridY": 165,
+        "drill": true,
+        "label": "Primaire behandeling"
+      },
+      {
+        "id": "uni-ling",
+        "gridX": 13,
+        "gridY": 188,
+        "drill": true,
+        "label": "Beleid na unilaterale inguinofemorale lymfadenectomie"
+      },
+      {
+        "id": "na-sn",
+        "gridX": 58,
+        "gridY": 188,
+        "drill": true,
+        "label": "Beleid na sentinel node procedure (postoperatief)"
+      },
+      {
+        "id": "adjuvant",
+        "gridX": 99,
+        "gridY": 210,
+        "drill": true,
+        "label": "Adjuvante behandeling"
+      },
+      {
+        "id": "followup",
+        "gridX": 139,
+        "gridY": 233,
+        "drill": true,
+        "label": "Follow up"
+      },
+      {
+        "id": "recidief",
+        "gridX": 139,
+        "gridY": 260,
+        "drill": true,
+        "label": "Behandeling recidief"
+      }
+    ],
+    "edges": [
+      {
+        "id": "edge-start-screening",
+        "from": "start",
+        "to": "screening",
+        "points": [
+          [
+            585,
+            155
+          ],
+          [
+            585,
+            195
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "id": "edge-screening-diagnostiek",
+        "from": "screening",
+        "to": "diagnostiek",
+        "points": [
+          [
+            585,
+            290
+          ],
+          [
+            585,
+            330
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "id": "edge-diagnostiek-aanvullend",
+        "from": "diagnostiek",
+        "to": "aanvullend",
+        "points": [
+          [
+            585,
+            425
+          ],
+          [
+            585,
+            465
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "id": "edge-aanvullend-cyt-klein",
+        "from": "aanvullend",
+        "to": "cyt-klein",
+        "points": [
+          [
+            495,
+            515
+          ],
+          [
+            380,
+            515
+          ],
+          [
+            380,
+            580
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "id": "edge-aanvullend-cyt-groot",
+        "from": "aanvullend",
+        "to": "cyt-groot",
+        "points": [
+          [
+            675,
+            515
+          ],
+          [
+            785,
+            515
+          ],
+          [
+            785,
+            580
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "id": "edge-aanvullend-primair",
+        "from": "aanvullend",
+        "to": "primair",
+        "points": [
+          [
+            585,
+            560
+          ],
+          [
+            585,
+            825
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "id": "edge-cyt-klein-cyt-groot",
+        "from": "cyt-klein",
+        "to": "cyt-groot",
+        "points": [
+          [
+            470,
+            625
+          ],
+          [
+            695,
+            625
+          ]
+        ]
+      },
+      {
+        "id": "edge-cyt-klein-sn-links",
+        "from": "cyt-klein",
+        "to": "sn-links",
+        "points": [
+          [
+            380,
+            675
+          ],
+          [
+            380,
+            715
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "id": "edge-cyt-groot-sn-rechts",
+        "from": "cyt-groot",
+        "to": "sn-rechts",
+        "points": [
+          [
+            785,
+            675
+          ],
+          [
+            785,
+            715
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "id": "edge-sn-links-sn-rechts",
+        "from": "sn-links",
+        "to": "sn-rechts",
+        "points": [
+          [
+            470,
+            760
+          ],
+          [
+            695,
+            760
+          ]
+        ]
+      },
+      {
+        "id": "edge-primair-uni-ling",
+        "from": "primair",
+        "to": "uni-ling",
+        "points": [
+          [
+            495,
+            870
+          ],
+          [
+            155,
+            870
+          ],
+          [
+            155,
+            940
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "id": "edge-primair-na-sn",
+        "to": "na-sn",
+        "points": [
+          [
+            380,
+            870
+          ],
+          [
+            380,
+            940
+          ]
+        ],
+        "arrow": true,
+        "from": "primair"
+      },
+      {
+        "id": "edge-primair-adjuvant",
+        "from": "primair",
+        "to": "adjuvant",
+        "points": [
+          [
+            585,
+            920
+          ],
+          [
+            585,
+            1050
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "id": "edge-na-sn-adjuvant",
+        "from": "na-sn",
+        "points": [
+          [
+            470,
+            985
+          ],
+          [
+            585,
+            985
+          ]
+        ],
+        "to": "adjuvant"
+      },
+      {
+        "id": "edge-uni-ling-na-sn",
+        "from": "uni-ling",
+        "to": "na-sn",
+        "points": [
+          [
+            245,
+            985
+          ],
+          [
+            290,
+            985
+          ]
+        ]
+      },
+      {
+        "id": "edge-primair-followup",
+        "from": "primair",
+        "to": "followup",
+        "points": [
+          [
+            675,
+            870
+          ],
+          [
+            785,
+            870
+          ],
+          [
+            785,
+            1165
+          ]
+        ],
+        "arrow": true
+      },
+      {
+        "id": "edge-adjuvant-followup",
+        "from": "adjuvant",
+        "points": [
+          [
+            675,
+            1095
+          ],
+          [
+            785,
+            1095
+          ]
+        ],
+        "to": "followup"
+      },
+      {
+        "id": "edge-followup-recidief",
+        "from": "followup",
+        "to": "recidief",
+        "points": [
+          [
+            785,
+            1260
+          ],
+          [
+            785,
+            1300
+          ]
+        ],
+        "arrow": true
+      }
+    ]
+  },
+  "trees": {
+    "screening": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 54,
+        "blockHeight": 28,
+        "margin": 24
+      },
+      "wrap": 17,
+      "nodes": [
+        {
+          "id": "root",
+          "type": "title",
+          "gridX": 38,
+          "gridY": 24,
+          "label": "Screening",
+          "icon": "minus",
+          "to": "",
+          "tone": "",
+          "rx": 40
+        },
+        {
+          "id": "regel-1",
+          "type": "decision",
+          "gridX": 38,
+          "gridY": 64,
+          "label": "Screening niet geïndiceerd"
+        },
+        {
+          "id": "volgende",
+          "type": "reference",
+          "gridX": 38,
+          "gridY": 105,
+          "label": "Diagnostiek",
+          "icon": "down",
+          "to": "diagnostiek"
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-root-regel-1",
+          "from": "root",
+          "to": "regel-1",
+          "points": [
+            [
+              320,
+              260
+            ],
+            [
+              320,
+              300
+            ]
+          ],
+          "arrow": true,
+          "color": "green",
+          "width": 6
+        },
+        {
+          "id": "edge-regel-1-volgende",
+          "from": "regel-1",
+          "to": "volgende",
+          "points": [
+            [
+              320,
+              460
+            ],
+            [
+              320,
+              525
+            ]
+          ],
+          "arrow": true
+        }
+      ]
     },
-    {
-      "id": "endometrium",
-      "titel": "Endometrium carcinoom",
-      "afbeelding": "images/Gynaecologie_vierkant.png",
-      "status": "available"
+    "diagnostiek": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 54,
+        "blockHeight": 28,
+        "margin": 9
+      },
+      "wrap": 17,
+      "nodes": [
+        {
+          "id": "root",
+          "type": "title",
+          "gridX": 15,
+          "gridY": 9,
+          "label": "Diagnostiek",
+          "icon": "minus",
+          "to": "",
+          "tone": "",
+          "rx": 40
+        },
+        {
+          "id": "acties",
+          "type": "decision",
+          "gridX": 15,
+          "gridY": 50,
+          "height": 107,
+          "items": [
+            {
+              "text": "Anamnese\n(comorbiditeit)"
+            },
+            {
+              "text": "Lichamelijk onderzoek\n(Karnofsky of WHO\nperformance status)"
+            },
+            {
+              "text": "Gynaecologisch\nonderzoek"
+            },
+            {
+              "text": "Kleuren foto met meetlat"
+            },
+            {
+              "text": "Incisiebiopsie of\nstansbiopsie\n{i}vermeld invasiediepte\nen histologisch type",
+              "info": ""
+            }
+          ]
+        },
+        {
+          "id": "volgende",
+          "type": "reference",
+          "gridX": 15,
+          "gridY": 184,
+          "label": "Aanvullende diagnostiek",
+          "icon": "down",
+          "to": "aanvullend",
+          "wrap": 30
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-root-acties",
+          "from": "root",
+          "to": "acties",
+          "points": [
+            [
+              210,
+              185
+            ],
+            [
+              210,
+              225
+            ]
+          ],
+          "arrow": true,
+          "color": "green",
+          "width": 6
+        },
+        {
+          "id": "edge-acties-volgende",
+          "from": "acties",
+          "to": "volgende",
+          "points": [
+            [
+              210,
+              785
+            ],
+            [
+              210,
+              920
+            ]
+          ],
+          "arrow": true
+        }
+      ]
     },
-    {
-      "id": "epitheliaal-ovarium",
-      "titel": "Epitheliaal ovariumcarcinoom",
-      "afbeelding": "images/Gynaecologie_vierkant.png",
-      "status": "available"
+    "aanvullend": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 21,
+        "margin": 3
+      },
+      "wrap": 25,
+      "nodes": [
+        {
+          "id": "root",
+          "type": "title",
+          "gridX": 115,
+          "gridY": 3,
+          "tone": "blue",
+          "label": "Aanvullende diagnostiek",
+          "icon": "minus-light",
+          "to": "",
+          "rx": 30
+        },
+        {
+          "id": "tumorgedrag",
+          "type": "dataItem",
+          "gridX": 115,
+          "gridY": 32,
+          "label": "Tumorgedrag",
+          "interactive": true,
+          "options": [
+            {
+              "value": "benigne",
+              "label": "Benigne",
+              "edge": "edge-tumorgedrag-benigne"
+            },
+            {
+              "value": "in-situ",
+              "label": "In situ",
+              "edge": "edge-tumorgedrag-in-situ"
+            },
+            {
+              "value": "maligne",
+              "label": "Maligne",
+              "edge": "edge-tumorgedrag-maligne"
+            }
+          ]
+        },
+        {
+          "id": "histo",
+          "type": "dataItem",
+          "gridX": 216,
+          "gridY": 63,
+          "label": "Histologisch type",
+          "interactive": true,
+          "options": [
+            {
+              "value": "basaalcelcarcinoom",
+              "label": "Basaalcelcarcinoom",
+              "edge": "edge-histo-basaalcelcarcinoom"
+            },
+            {
+              "value": "plaveiselcelcarcinoom",
+              "label": "Plaveiselcelcarcinoom",
+              "edge": "edge-histo-plaveiselcelcarcinoom"
+            },
+            {
+              "value": "melanoom",
+              "label": "Melanoom",
+              "edge": "edge-histo-melanoom"
+            },
+            {
+              "value": "overig",
+              "label": "Overig",
+              "edge": "edge-histo-overig"
+            }
+          ]
+        },
+        {
+          "id": "operabel",
+          "type": "dataItem",
+          "gridX": 267,
+          "gridY": 93,
+          "label": "Operabel",
+          "interactive": true,
+          "options": [
+            {
+              "value": "operabel",
+              "label": "Operabel",
+              "edge": "edge-operabel-operabel"
+            },
+            {
+              "value": "niet-operabel",
+              "label": "Niet operabel",
+              "edge": "edge-operabel-niet-operabel"
+            }
+          ]
+        },
+        {
+          "id": "focaliteit",
+          "type": "dataItem",
+          "gridX": 216,
+          "gridY": 118,
+          "label": "Focaliteit vd tumor",
+          "interactive": true,
+          "options": [
+            {
+              "value": "unifocaal",
+              "label": "Unifocaal",
+              "edge": "edge-focaliteit-unifocaal"
+            },
+            {
+              "value": "multifocaal",
+              "label": "Multifocaal",
+              "edge": "edge-focaliteit-multifocaal"
+            }
+          ]
+        },
+        {
+          "id": "ct",
+          "type": "dataItem",
+          "gridX": 216,
+          "gridY": 154,
+          "label": "cT diameter",
+          "interactive": true,
+          "options": [
+            {
+              "value": "lte-2cm",
+              "label": "<=2 cm",
+              "edge": "edge-ct-lte-2cm"
+            },
+            {
+              "value": "2-4cm",
+              "label": "2-4 cm",
+              "edge": "edge-ct-2-4cm"
+            },
+            {
+              "value": "gte-4cm",
+              "label": ">=4 cm",
+              "edge": "edge-ct-gte-4cm"
+            }
+          ]
+        },
+        {
+          "id": "invasie",
+          "type": "dataItem",
+          "gridX": 166,
+          "gridY": 179,
+          "label": "Invasiediepte",
+          "interactive": true,
+          "options": [
+            {
+              "value": "lte-1mm",
+              "label": "<=1 mm",
+              "edge": "edge-invasie-lte-1mm"
+            },
+            {
+              "value": "gt-1mm",
+              "label": ">1 mm",
+              "edge": "edge-invasie-gt-1mm"
+            }
+          ]
+        },
+        {
+          "id": "lies",
+          "type": "dataItem",
+          "gridX": 216,
+          "gridY": 199,
+          "label": "Lieslieren",
+          "interactive": true,
+          "options": [
+            {
+              "value": "verdacht",
+              "label": "Verdacht",
+              "edge": "edge-lies-verdacht"
+            },
+            {
+              "value": "niet-verdacht",
+              "label": "Niet verdacht",
+              "edge": "edge-lies-niet-verdacht"
+            }
+          ]
+        },
+        {
+          "id": "o-benigne",
+          "type": "recommendation",
+          "gridX": 15,
+          "gridY": 234,
+          "text": "Behandeling afhankelijk\nvan diagnose en\nklachten"
+        },
+        {
+          "id": "o-insitu",
+          "type": "recommendation",
+          "gridX": 65,
+          "gridY": 234,
+          "text": "Zie RL Premaligne\nafwijkingen van de vulva"
+        },
+        {
+          "id": "o-bcc",
+          "type": "recommendation",
+          "gridX": 115,
+          "gridY": 234,
+          "text": "Ruime lokale excisie"
+        },
+        {
+          "id": "o-niet-verdacht",
+          "type": "recommendation",
+          "gridX": 216,
+          "gridY": 234,
+          "height": 42,
+          "text": "Verwijs naar oncologisch\ncentrum\n\n---\n\nEcho liezen\nEN\nX-thorax\n\nOF\n\nCT thorax/abdomen"
+        },
+        {
+          "id": "o-multifocaal",
+          "type": "recommendation",
+          "gridX": 267,
+          "gridY": 234,
+          "text": "Verwijs naar oncologisch\ncentrum\n---\nCT thorax/abomen"
+        },
+        {
+          "id": "o-niet-operabel",
+          "type": "recommendation",
+          "gridX": 317,
+          "gridY": 234,
+          "height": 45,
+          "text": "Verwijs naar oncologisch\ncentrum\n\n---\n\nMRI liezen en bekken\n\nEN\n\nCT thorax/abomen\nOF\nOverweg PET-CT\nthorax/abomen"
+        },
+        {
+          "id": "o-melanoom",
+          "type": "recommendation",
+          "gridX": 368,
+          "gridY": 234,
+          "height": 25,
+          "text": "Verwijs naar oncologisch\ncentrum\n\n---\n\nZie RL melanoom\n(voor de huid)"
+        },
+        {
+          "id": "o-overig",
+          "type": "recommendation",
+          "gridX": 418,
+          "gridY": 234,
+          "height": 25,
+          "text": "Verwijs naar oncologisch\ncentrum\n\n---\n\nIndividualiseer\nbehandeling"
+        },
+        {
+          "id": "l-cyt-klein",
+          "type": "reference",
+          "gridX": 216,
+          "gridY": 290,
+          "label": "Bepaling indicatie cytologisch punctie bij pcc < 4 cm en liesklieren niet verdacht",
+          "icon": "down",
+          "to": "cyt-klein"
+        },
+        {
+          "id": "l-cyt-groot",
+          "type": "reference",
+          "gridX": 267,
+          "gridY": 290,
+          "label": "Bepaling indicatie cytologische punctie bij pcc >= 4 cm",
+          "icon": "down",
+          "to": "cyt-groot"
+        },
+        {
+          "id": "l-primair",
+          "type": "reference",
+          "gridX": 317,
+          "gridY": 290,
+          "label": "Primaire behandeling",
+          "icon": "down",
+          "to": "primair"
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-root-tumorgedrag",
+          "from": "root",
+          "to": "tumorgedrag",
+          "points": [
+            [
+              680,
+              120
+            ],
+            [
+              680,
+              160
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-tumorgedrag-benigne",
+          "from": "tumorgedrag",
+          "to": "o-benigne",
+          "value": "benigne",
+          "label": "Benigne",
+          "points": [
+            [
+              575,
+              210
+            ],
+            [
+              175,
+              210
+            ],
+            [
+              175,
+              1170
+            ]
+          ],
+          "dot": [
+            300,
+            210
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-tumorgedrag-in-situ",
+          "from": "tumorgedrag",
+          "to": "o-insitu",
+          "value": "in-situ",
+          "label": "In situ",
+          "points": [
+            [
+              425,
+              210
+            ],
+            [
+              425,
+              1170
+            ]
+          ],
+          "selectedPoints": [
+            [
+              575,
+              210
+            ],
+            [
+              425,
+              210
+            ],
+            [
+              425,
+              1170
+            ]
+          ],
+          "dot": [
+            425,
+            690
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-tumorgedrag-maligne",
+          "from": "tumorgedrag",
+          "to": "histo",
+          "value": "maligne",
+          "label": "Maligne",
+          "points": [
+            [
+              775,
+              210
+            ],
+            [
+              1185,
+              210
+            ],
+            [
+              1185,
+              315
+            ]
+          ],
+          "dot": [
+            980,
+            210
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-histo-basaalcelcarcinoom",
+          "from": "histo",
+          "to": "o-bcc",
+          "value": "basaalcelcarcinoom",
+          "label": "Basaalcelcarcinoom",
+          "points": [
+            [
+              1080,
+              365
+            ],
+            [
+              680,
+              365
+            ],
+            [
+              680,
+              1170
+            ]
+          ],
+          "dot": [
+            880,
+            365
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-histo-plaveiselcelcarcinoom",
+          "from": "histo",
+          "to": "operabel",
+          "value": "plaveiselcelcarcinoom",
+          "label": "Plaveiselcelcarcinoom",
+          "points": [
+            [
+              1280,
+              365
+            ],
+            [
+              1435,
+              365
+            ],
+            [
+              1435,
+              465
+            ]
+          ],
+          "dot": [
+            1435,
+            415
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-histo-overig",
+          "from": "histo",
+          "to": "o-overig",
+          "value": "overig",
+          "label": "Overig",
+          "points": [
+            [
+              1280,
+              365
+            ],
+            [
+              2190,
+              365
+            ],
+            [
+              2190,
+              1170
+            ]
+          ],
+          "dot": [
+            2065,
+            365
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-histo-melanoom",
+          "from": "histo",
+          "to": "o-melanoom",
+          "value": "melanoom",
+          "label": "Melanoom",
+          "points": [
+            [
+              1940,
+              365
+            ],
+            [
+              1940,
+              1170
+            ]
+          ],
+          "selectedPoints": [
+            [
+              1280,
+              365
+            ],
+            [
+              1940,
+              365
+            ],
+            [
+              1940,
+              1170
+            ]
+          ],
+          "dot": [
+            1940,
+            765
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-operabel-operabel",
+          "from": "operabel",
+          "to": "focaliteit",
+          "value": "operabel",
+          "label": "Operabel",
+          "points": [
+            [
+              1335,
+              515
+            ],
+            [
+              1185,
+              515
+            ],
+            [
+              1185,
+              590
+            ]
+          ],
+          "dot": [
+            1260,
+            515
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-operabel-niet-operabel",
+          "from": "operabel",
+          "to": "o-niet-operabel",
+          "value": "niet-operabel",
+          "label": "Niet operabel",
+          "points": [
+            [
+              1535,
+              515
+            ],
+            [
+              1690,
+              515
+            ],
+            [
+              1690,
+              1170
+            ]
+          ],
+          "dot": [
+            1610,
+            515
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-focaliteit-multifocaal",
+          "from": "focaliteit",
+          "to": "o-multifocaal",
+          "value": "multifocaal",
+          "label": "Multifocaal",
+          "points": [
+            [
+              1280,
+              640
+            ],
+            [
+              1435,
+              640
+            ],
+            [
+              1435,
+              1170
+            ]
+          ],
+          "dot": [
+            1360,
+            640
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-focaliteit-unifocaal",
+          "from": "focaliteit",
+          "to": "ct",
+          "value": "unifocaal",
+          "label": "Unifocaal",
+          "points": [
+            [
+              1185,
+              695
+            ],
+            [
+              1185,
+              770
+            ]
+          ],
+          "dot": [
+            1185,
+            730
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-ct-lte-2cm",
+          "from": "ct",
+          "to": "invasie",
+          "value": "lte-2cm",
+          "label": "<=2 cm",
+          "points": [
+            [
+              1080,
+              820
+            ],
+            [
+              930,
+              820
+            ],
+            [
+              930,
+              895
+            ]
+          ],
+          "dot": [
+            1005,
+            820
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-ct-gte-4cm",
+          "from": "ct",
+          "to": "o-multifocaal",
+          "value": "gte-4cm",
+          "label": ">=4 cm",
+          "points": [
+            [
+              1280,
+              820
+            ],
+            [
+              1435,
+              820
+            ]
+          ],
+          "selectedPoints": [
+            [
+              1280,
+              820
+            ],
+            [
+              1435,
+              820
+            ],
+            [
+              1435,
+              1170
+            ]
+          ],
+          "dot": [
+            1360,
+            820
+          ]
+        },
+        {
+          "id": "edge-ct-2-4cm",
+          "from": "ct",
+          "to": "lies",
+          "value": "2-4cm",
+          "label": "2-4 cm",
+          "points": [
+            [
+              1185,
+              875
+            ],
+            [
+              1185,
+              995
+            ]
+          ],
+          "dot": [
+            1185,
+            905
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-invasie-lte-1mm",
+          "from": "invasie",
+          "to": "o-bcc",
+          "value": "lte-1mm",
+          "label": "<=1 mm",
+          "points": [
+            [
+              830,
+              945
+            ],
+            [
+              680,
+              945
+            ]
+          ],
+          "selectedPoints": [
+            [
+              830,
+              945
+            ],
+            [
+              680,
+              945
+            ],
+            [
+              680,
+              1170
+            ]
+          ],
+          "dot": [
+            755,
+            945
+          ]
+        },
+        {
+          "id": "edge-invasie-gt-1mm",
+          "from": "invasie",
+          "to": "lies",
+          "value": "gt-1mm",
+          "label": ">1 mm",
+          "points": [
+            [
+              1030,
+              945
+            ],
+            [
+              1185,
+              945
+            ]
+          ],
+          "selectedPoints": [
+            [
+              1030,
+              945
+            ],
+            [
+              1185,
+              945
+            ],
+            [
+              1185,
+              995
+            ]
+          ],
+          "dot": [
+            1105,
+            945
+          ]
+        },
+        {
+          "id": "edge-lies-verdacht",
+          "from": "lies",
+          "to": "o-multifocaal",
+          "value": "verdacht",
+          "label": "Verdacht",
+          "points": [
+            [
+              1280,
+              1045
+            ],
+            [
+              1435,
+              1045
+            ]
+          ],
+          "selectedPoints": [
+            [
+              1280,
+              1045
+            ],
+            [
+              1435,
+              1045
+            ],
+            [
+              1435,
+              1170
+            ]
+          ],
+          "dot": [
+            1360,
+            1045
+          ]
+        },
+        {
+          "id": "edge-lies-niet-verdacht",
+          "from": "lies",
+          "to": "o-niet-verdacht",
+          "value": "niet-verdacht",
+          "label": "Niet verdacht",
+          "points": [
+            [
+              1185,
+              1100
+            ],
+            [
+              1185,
+              1170
+            ]
+          ],
+          "dot": [
+            1185,
+            1135
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-o-niet-verdacht-l-cyt-klein",
+          "from": "o-niet-verdacht",
+          "to": "l-cyt-klein",
+          "points": [
+            [
+              1185,
+              1380
+            ],
+            [
+              1185,
+              1450
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-o-multifocaal-l-cyt-groot",
+          "from": "o-multifocaal",
+          "to": "l-cyt-groot",
+          "points": [
+            [
+              1435,
+              1275
+            ],
+            [
+              1435,
+              1450
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-o-niet-operabel-l-primair",
+          "from": "o-niet-operabel",
+          "to": "l-primair",
+          "points": [
+            [
+              1690,
+              1395
+            ],
+            [
+              1690,
+              1450
+            ]
+          ],
+          "arrow": true
+        }
+      ]
     },
-    {
-      "id": "niet-epitheliaal-ovarium",
-      "titel": "Niet epitheliale ovarium maligniteiten",
-      "afbeelding": "images/Gynaecologie_vierkant.png",
-      "status": "available"
+    "primair": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 27,
+        "blockHeight": 14,
+        "margin": 2
+      },
+      "zoom": 1,
+      "nodes": [
+        {
+          "id": "root",
+          "type": "title",
+          "gridX": 309,
+          "gridY": 1,
+          "tone": "blue",
+          "label": "Primaire behandeling",
+          "icon": "minus-light",
+          "to": "",
+          "rx": 22
+        },
+        {
+          "id": "m",
+          "type": "dataItem",
+          "gridX": 309,
+          "gridY": 22,
+          "label": "M",
+          "interactive": true,
+          "options": [
+            {
+              "value": "cm1-pm1",
+              "label": "cM1, pM1",
+              "edge": "edge-m-cm1-pm1"
+            },
+            {
+              "value": "cm0",
+              "label": "cM0",
+              "edge": "edge-m-cm0"
+            }
+          ]
+        },
+        {
+          "id": "cn",
+          "type": "dataItem",
+          "gridX": 309,
+          "gridY": 46,
+          "label": "cN",
+          "icon": "plus-light",
+          "interactive": true,
+          "options": [
+            {
+              "value": "0",
+              "label": "0",
+              "edge": "edge-cn-0"
+            },
+            {
+              "value": "3",
+              "label": "3",
+              "edge": "edge-cn-3"
+            },
+            {
+              "value": "1-2",
+              "label": "1,2",
+              "edge": "edge-cn-1-2"
+            }
+          ],
+          "subtree": {
+            "tree": "sub-cn",
+            "map": {
+              "o-cn0": "0",
+              "o-cn1": "1-2",
+              "o-cn2": "1-2",
+              "o-cn3": "3"
+            }
+          }
+        },
+        {
+          "id": "cyt-gedaan",
+          "type": "dataItem",
+          "gridX": 241,
+          "gridY": 66,
+          "label": "Cytologische punctie gedaan",
+          "interactive": true,
+          "options": [
+            {
+              "value": "nee",
+              "label": "Nee",
+              "edge": "edge-cyt-gedaan-nee"
+            },
+            {
+              "value": "ja",
+              "label": "Ja",
+              "edge": "edge-cyt-gedaan-ja"
+            }
+          ]
+        },
+        {
+          "id": "cyt-uitslag",
+          "type": "dataItem",
+          "gridX": 241,
+          "gridY": 90,
+          "label": "Uitslag cytologische punctie",
+          "interactive": true,
+          "options": [
+            {
+              "value": "negatief",
+              "label": "Negatief",
+              "edge": "edge-cyt-uitslag-negatief"
+            },
+            {
+              "value": "positief",
+              "label": "Positief",
+              "edge": "edge-cyt-uitslag-positief"
+            }
+          ]
+        },
+        {
+          "id": "ct-l",
+          "type": "dataItem",
+          "gridX": 206,
+          "gridY": 110,
+          "label": "cT",
+          "icon": "plus-light",
+          "interactive": true,
+          "options": [
+            {
+              "value": "ct1a",
+              "label": "cT1a",
+              "edge": "edge-ct-l-ct1a"
+            },
+            {
+              "value": "ct1b",
+              "label": "cT1b",
+              "edge": "edge-ct-l-ct1b"
+            },
+            {
+              "value": "ct2",
+              "label": "cT2",
+              "edge": "edge-ct-l-ct2"
+            },
+            {
+              "value": "ct3",
+              "label": "cT3",
+              "edge": "edge-ct-l-ct3"
+            }
+          ],
+          "subtree": {
+            "tree": "sub-ct",
+            "map": {
+              "o-ct1a": "ct1a",
+              "o-ct1b": "ct1b",
+              "o-ct2": "ct2",
+              "o-ct3": "ct3"
+            }
+          }
+        },
+        {
+          "id": "focaliteit",
+          "type": "dataItem",
+          "gridX": 172,
+          "gridY": 134,
+          "label": "Focaliteit vd tumor",
+          "interactive": true,
+          "options": [
+            {
+              "value": "unifocaal",
+              "label": "Unifocaal",
+              "edge": "edge-focaliteit-unifocaal"
+            },
+            {
+              "value": "multifocaal",
+              "label": "Multifocaal",
+              "edge": "edge-focaliteit-multifocaal"
+            }
+          ]
+        },
+        {
+          "id": "diameter",
+          "type": "dataItem",
+          "gridX": 138,
+          "gridY": 155,
+          "label": "Tumor diameter",
+          "interactive": true,
+          "options": [
+            {
+              "value": "lt-4-cm",
+              "label": "<4 cm",
+              "edge": "edge-diameter-lt-4-cm"
+            },
+            {
+              "value": "gte-4-cm",
+              "label": ">=4 cm",
+              "edge": "edge-diameter-gte-4-cm"
+            }
+          ]
+        },
+        {
+          "id": "regio-l",
+          "type": "dataItem",
+          "gridX": 104,
+          "gridY": 175,
+          "label": "Regio tumor",
+          "interactive": true,
+          "options": [
+            {
+              "value": "midline",
+              "label": "Midline",
+              "edge": "edge-regio-l-midline"
+            },
+            {
+              "value": "near-midline-lateraal",
+              "label": "Near midline, Lateraal",
+              "edge": "edge-regio-l-near-midline-lateraal"
+            }
+          ]
+        },
+        {
+          "id": "regio-r",
+          "type": "dataItem",
+          "gridX": 172,
+          "gridY": 175,
+          "label": "Regio tumor",
+          "interactive": true,
+          "options": [
+            {
+              "value": "lateraal",
+              "label": "Lateraal",
+              "edge": "edge-regio-r-lateraal"
+            },
+            {
+              "value": "near-midline-midline",
+              "label": "Near midline, Midline",
+              "edge": "edge-regio-r-near-midline-midline"
+            }
+          ]
+        },
+        {
+          "id": "drain-1",
+          "type": "dataItem",
+          "gridX": 70,
+          "gridY": 199,
+          "label": "Drainage op Lymfoscintogram",
+          "interactive": true,
+          "options": [
+            {
+              "value": "unilateraal",
+              "label": "Unilateraal",
+              "edge": "edge-drain-1-unilateraal"
+            },
+            {
+              "value": "bilateraal",
+              "label": "Bilateraal",
+              "edge": "edge-drain-1-bilateraal"
+            }
+          ]
+        },
+        {
+          "id": "drain-2",
+          "type": "dataItem",
+          "gridX": 104,
+          "gridY": 199,
+          "label": "Drainage op Lymfoscintogram",
+          "interactive": true,
+          "options": [
+            {
+              "value": "bilateraal",
+              "label": "Bilateraal",
+              "edge": "edge-drain-2-bilateraal"
+            },
+            {
+              "value": "unilateraal",
+              "label": "Unilateraal",
+              "edge": "edge-drain-2-unilateraal"
+            }
+          ]
+        },
+        {
+          "id": "ct-r",
+          "type": "dataItem",
+          "gridX": 309,
+          "gridY": 150,
+          "label": "cT",
+          "icon": "plus-light",
+          "interactive": true,
+          "options": [
+            {
+              "value": "ct1-ct2",
+              "label": "cT1 - cT2",
+              "edge": "edge-ct-r-ct1-ct2"
+            },
+            {
+              "value": "ct3",
+              "label": "cT3",
+              "edge": "edge-ct-r-ct3"
+            }
+          ],
+          "subtree": {
+            "tree": "sub-ct",
+            "map": {
+              "o-ct1a": "ct1-ct2",
+              "o-ct1b": "ct1-ct2",
+              "o-ct2": "ct1-ct2",
+              "o-ct3": "ct3"
+            }
+          }
+        },
+        {
+          "id": "loc-meta",
+          "type": "dataItem",
+          "gridX": 411,
+          "gridY": 150,
+          "label": "Localisatie metastasen",
+          "interactive": true,
+          "options": [
+            {
+              "value": "bekkenklieren",
+              "label": "Bekkenklieren",
+              "edge": "edge-loc-meta-bekkenklieren"
+            },
+            {
+              "value": "buiten-het-bekken",
+              "label": "Buiten het bekken",
+              "edge": "edge-loc-meta-buiten-het-bekken"
+            }
+          ]
+        },
+        {
+          "id": "o1",
+          "type": "recommendation",
+          "gridX": 2,
+          "gridY": 223,
+          "text": "Ruime lokale excisie"
+        },
+        {
+          "id": "o2",
+          "type": "recommendation",
+          "gridX": 36,
+          "gridY": 223,
+          "height": 50,
+          "text": "Ruime lokale excisie\n{i}Primaire\nchemoradiotherapie,\nindien wens tot\norgaansparende\nbehadneling\n\nEN\n\nSentinel node (SN)\nprocedure aan drainage\nzijde\n{i}indien SN niet\ngevonden\ninguinofemorale\nlymfadenectomie\n\nEN\n\nInguinofemorale\nlymfadenectomie aan\nandere zijde"
+        },
+        {
+          "id": "o3",
+          "type": "recommendation",
+          "gridX": 70,
+          "gridY": 223,
+          "height": 34,
+          "text": "Ruime lokale excisie\n{i}primair\nchemoradiatie, indien\nwens tot\norgaansparende\nbehandeling\n\nEN\n\nBilateraal sentinel node\nprocedure\n{i}indien SN niet\ngevonden\ninguinofemorale\nlymfadenectomie"
+        },
+        {
+          "id": "o4",
+          "type": "recommendation",
+          "gridX": 104,
+          "gridY": 223,
+          "height": 37,
+          "text": "Ruime lokale excisie\n{i}primair\nchemoradiatie, indien\nwens tot\norgaansparende\nbehandeling\n\nEN\n\nUnilateraal sentinel node\nprocedure aan\ntumorzijde\n{i}indien SN niet\ngevonden\ninguinofemorale\nlymfadenectomie"
+        },
+        {
+          "id": "o5",
+          "type": "recommendation",
+          "gridX": 138,
+          "gridY": 223,
+          "height": 34,
+          "text": "Ruime lokale excisie\n{i}primair\nchemoradiatie, indien\nwens tot\norgaansparende\nbehandeling\n\nEN\n\nBilateraal sentinel node\nprocedure\n{i}indien SN niet\ngevonden\ninguinofemorale\nlymfadenectomie"
+        },
+        {
+          "id": "o6",
+          "type": "recommendation",
+          "gridX": 172,
+          "gridY": 223,
+          "height": 28,
+          "text": "Ruime lokale excisie\n{i}primair\nchemoradiatie, indien\nwens tot\norgaansparende\nbehandeling\n\nEN\n\nBilaterale\ninguinofemorale\nlymfadenectomie"
+        },
+        {
+          "id": "o7",
+          "type": "recommendation",
+          "gridX": 206,
+          "gridY": 223,
+          "height": 28,
+          "text": "Ruime lokale excisie\n{i}primair\nchemoradiatie, indien\nwens tot\norgaansparende\nbehandeling\n\nEN\n\nUnilaterale\ninguinofemorale\nlymfadenectomie"
+        },
+        {
+          "id": "o8",
+          "type": "recommendation",
+          "gridX": 241,
+          "gridY": 223,
+          "height": 26,
+          "text": "Ruime lokale excisie\nEN\nBilaterale\ninguinofemorale\nlymfadenectomie\n\nOF\n\nPrimaire\nchemoradiotherapie\n"
+        },
+        {
+          "id": "o9",
+          "type": "recommendation",
+          "gridX": 275,
+          "gridY": 223,
+          "height": 26,
+          "text": "Individualiseer\nbehandeling\n\n\n\nPrimaire\nchemoradiotherapie\n\nOF\n\nExenteratie"
+        },
+        {
+          "id": "o10",
+          "type": "recommendation",
+          "gridX": 309,
+          "gridY": 223,
+          "height": 28,
+          "text": "Ruime lokale excisie\nEN\nBilaterale\ninguinofemorale\nlymfadenectomie\n\nOF\n\nLiesklierdebulking\nEN\nAdjuvante regionale\nradiotherapie"
+        },
+        {
+          "id": "o11",
+          "type": "recommendation",
+          "gridX": 344,
+          "gridY": 223,
+          "height": 26,
+          "text": "Individualiseer\nbehandeling\n\n\n\nPrimaire\nchemoradiotherapie\n\nOF\n\nExenteratie"
+        },
+        {
+          "id": "o12",
+          "type": "recommendation",
+          "gridX": 378,
+          "gridY": 223,
+          "text": "Primaire chemoradiatie\n\nOF\n\nDebulking"
+        },
+        {
+          "id": "o13",
+          "type": "recommendation",
+          "gridX": 411,
+          "gridY": 223,
+          "height": 50,
+          "text": "Ruime lokale excisie\nEN\nDebulking van pelviene\nlymfeklieren\n\nEN\n\nBilaterale\ninguinofemorale\nlymfadenectomie\nOF\nLiesklierdebulking\n\nEN\n\nAdjuvante regionale\nradiotherapie\n\n—OF—\n\nPrimaire chemoradiatie\n"
+        },
+        {
+          "id": "o14",
+          "type": "recommendation",
+          "gridX": 445,
+          "gridY": 223,
+          "text": "Individualiseer\npalliatieve behandeling"
+        },
+        {
+          "id": "l1",
+          "type": "reference",
+          "gridX": 2,
+          "gridY": 264,
+          "label": "Adjuvante behandeling",
+          "icon": "down",
+          "to": "adjuvant"
+        },
+        {
+          "id": "l2",
+          "type": "reference",
+          "gridX": 36,
+          "gridY": 277,
+          "label": "Beleid na sentinel node procedure (postoperatief)",
+          "icon": "down",
+          "to": "na-sn"
+        },
+        {
+          "id": "l3",
+          "type": "reference",
+          "gridX": 70,
+          "gridY": 264,
+          "label": "Beleid na sentinel node procedure (postoperatief)",
+          "icon": "down",
+          "to": "na-sn"
+        },
+        {
+          "id": "l4",
+          "type": "reference",
+          "gridX": 104,
+          "gridY": 264,
+          "label": "Beleid na sentinel node procedure (postoperatief)",
+          "icon": "down",
+          "to": "na-sn"
+        },
+        {
+          "id": "l5",
+          "type": "reference",
+          "gridX": 138,
+          "gridY": 264,
+          "label": "Beleid na sentinel node procedure (postoperatief)",
+          "icon": "down",
+          "to": "na-sn"
+        },
+        {
+          "id": "l6",
+          "type": "reference",
+          "gridX": 172,
+          "gridY": 264,
+          "label": "Adjuvante behandeling",
+          "icon": "down",
+          "to": "adjuvant"
+        },
+        {
+          "id": "l7",
+          "type": "reference",
+          "gridX": 206,
+          "gridY": 264,
+          "label": "Beleid na unilaterale inguinofemorale lymfadenectomie",
+          "icon": "down",
+          "to": "uni-ling"
+        },
+        {
+          "id": "l8",
+          "type": "reference",
+          "gridX": 241,
+          "gridY": 264,
+          "label": "Adjuvante behandeling",
+          "icon": "down",
+          "to": "adjuvant"
+        },
+        {
+          "id": "l9",
+          "type": "reference",
+          "gridX": 275,
+          "gridY": 264,
+          "label": "Adjuvante behandeling",
+          "icon": "down",
+          "to": "adjuvant"
+        },
+        {
+          "id": "l10",
+          "type": "reference",
+          "gridX": 309,
+          "gridY": 264,
+          "label": "Adjuvante behandeling",
+          "icon": "down",
+          "to": "adjuvant"
+        },
+        {
+          "id": "l11",
+          "type": "reference",
+          "gridX": 344,
+          "gridY": 264,
+          "label": "Adjuvante behandeling",
+          "icon": "down",
+          "to": "adjuvant"
+        },
+        {
+          "id": "l12",
+          "type": "reference",
+          "gridX": 377,
+          "gridY": 264,
+          "label": "Adjuvante behandeling",
+          "icon": "down",
+          "to": "adjuvant"
+        },
+        {
+          "id": "f1",
+          "type": "reference",
+          "gridX": 377,
+          "gridY": 287,
+          "label": "Follow up",
+          "icon": "down",
+          "to": "followup"
+        },
+        {
+          "id": "f2",
+          "type": "reference",
+          "gridX": 411,
+          "gridY": 287,
+          "label": "Follow up",
+          "icon": "down",
+          "to": "followup"
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-root-m",
+          "from": "root",
+          "to": "m",
+          "points": [
+            [
+              1610,
+              75
+            ],
+            [
+              1610,
+              110
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-m-cm1-pm1",
+          "from": "m",
+          "to": "loc-meta",
+          "value": "cm1-pm1",
+          "label": "cM1, pM1",
+          "points": [
+            [
+              1680,
+              140
+            ],
+            [
+              2125,
+              140
+            ],
+            [
+              2125,
+              750
+            ]
+          ],
+          "dot": [
+            1900,
+            140
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-m-cm0",
+          "from": "m",
+          "to": "cn",
+          "value": "cm0",
+          "label": "cM0",
+          "points": [
+            [
+              1610,
+              180
+            ],
+            [
+              1610,
+              230
+            ]
+          ],
+          "dot": [
+            1610,
+            200
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-cn-0",
+          "from": "cn",
+          "to": "cyt-gedaan",
+          "value": "0",
+          "label": "0",
+          "points": [
+            [
+              1545,
+              260
+            ],
+            [
+              1270,
+              260
+            ],
+            [
+              1270,
+              330
+            ]
+          ],
+          "dot": [
+            1405,
+            260
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-cn-3",
+          "from": "cn",
+          "to": "o12",
+          "value": "3",
+          "label": "3",
+          "points": [
+            [
+              1680,
+              260
+            ],
+            [
+              1955,
+              260
+            ],
+            [
+              1955,
+              1115
+            ]
+          ],
+          "dot": [
+            1820,
+            260
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-cn-1-2",
+          "from": "cn",
+          "to": "ct-r",
+          "value": "1-2",
+          "label": "1,2",
+          "points": [
+            [
+              1610,
+              300
+            ],
+            [
+              1610,
+              750
+            ]
+          ],
+          "dot": [
+            1610,
+            390
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-cyt-gedaan-nee",
+          "from": "cyt-gedaan",
+          "to": "ct-l",
+          "value": "nee",
+          "label": "Nee",
+          "points": [
+            [
+              1205,
+              365
+            ],
+            [
+              1100,
+              365
+            ],
+            [
+              1100,
+              550
+            ]
+          ],
+          "dot": [
+            1150,
+            365
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-cyt-gedaan-ja",
+          "from": "cyt-gedaan",
+          "to": "cyt-uitslag",
+          "value": "ja",
+          "label": "Ja",
+          "points": [
+            [
+              1270,
+              400
+            ],
+            [
+              1270,
+              450
+            ]
+          ],
+          "dot": [
+            1270,
+            425
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-cyt-uitslag-negatief",
+          "from": "cyt-uitslag",
+          "to": "ct-l",
+          "value": "negatief",
+          "label": "Negatief",
+          "points": [
+            [
+              1205,
+              485
+            ],
+            [
+              1100,
+              485
+            ]
+          ],
+          "selectedPoints": [
+            [
+              1205,
+              485
+            ],
+            [
+              1100,
+              485
+            ],
+            [
+              1100,
+              550
+            ]
+          ],
+          "dot": [
+            1150,
+            485
+          ]
+        },
+        {
+          "id": "edge-cyt-uitslag-positief",
+          "from": "cyt-uitslag",
+          "to": "ct-r",
+          "value": "positief",
+          "label": "Positief",
+          "points": [
+            [
+              1340,
+              485
+            ],
+            [
+              1610,
+              485
+            ]
+          ],
+          "selectedPoints": [
+            [
+              1340,
+              485
+            ],
+            [
+              1610,
+              485
+            ],
+            [
+              1610,
+              750
+            ]
+          ],
+          "dot": [
+            1475,
+            485
+          ]
+        },
+        {
+          "id": "edge-ct-l-ct1a",
+          "from": "ct-l",
+          "to": "o1",
+          "value": "ct1a",
+          "label": "cT1a",
+          "points": [
+            [
+              1030,
+              585
+            ],
+            [
+              75,
+              585
+            ],
+            [
+              75,
+              1115
+            ]
+          ],
+          "dot": [
+            505,
+            585
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-ct-l-ct1b",
+          "from": "ct-l",
+          "to": "focaliteit",
+          "value": "ct1b",
+          "label": "cT1b",
+          "points": [
+            [
+              930,
+              585
+            ],
+            [
+              930,
+              670
+            ]
+          ],
+          "selectedPoints": [
+            [
+              1030,
+              585
+            ],
+            [
+              930,
+              585
+            ],
+            [
+              930,
+              670
+            ]
+          ],
+          "dot": [
+            930,
+            630
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-ct-l-ct2",
+          "from": "ct-l",
+          "to": "o8",
+          "value": "ct2",
+          "label": "cT2",
+          "points": [
+            [
+              1165,
+              585
+            ],
+            [
+              1270,
+              585
+            ],
+            [
+              1270,
+              1115
+            ]
+          ],
+          "dot": [
+            1270,
+            850
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-ct-l-ct3",
+          "from": "ct-l",
+          "to": "o9",
+          "value": "ct3",
+          "label": "cT3",
+          "points": [
+            [
+              1270,
+              585
+            ],
+            [
+              1440,
+              585
+            ],
+            [
+              1440,
+              1115
+            ]
+          ],
+          "selectedPoints": [
+            [
+              1165,
+              585
+            ],
+            [
+              1270,
+              585
+            ],
+            [
+              1440,
+              585
+            ],
+            [
+              1440,
+              1115
+            ]
+          ],
+          "dot": [
+            1355,
+            585
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-focaliteit-unifocaal",
+          "from": "focaliteit",
+          "to": "diameter",
+          "value": "unifocaal",
+          "label": "Unifocaal",
+          "points": [
+            [
+              860,
+              705
+            ],
+            [
+              760,
+              705
+            ],
+            [
+              760,
+              775
+            ]
+          ],
+          "dot": [
+            810,
+            705
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-focaliteit-multifocaal",
+          "from": "focaliteit",
+          "to": "regio-r",
+          "value": "multifocaal",
+          "label": "Multifocaal",
+          "points": [
+            [
+              930,
+              740
+            ],
+            [
+              930,
+              875
+            ]
+          ],
+          "dot": [
+            930,
+            770
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-diameter-lt-4-cm",
+          "from": "diameter",
+          "to": "regio-l",
+          "value": "lt-4-cm",
+          "label": "<4 cm",
+          "points": [
+            [
+              690,
+              805
+            ],
+            [
+              590,
+              805
+            ],
+            [
+              590,
+              875
+            ]
+          ],
+          "dot": [
+            640,
+            805
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-diameter-gte-4-cm",
+          "from": "diameter",
+          "to": "regio-r",
+          "value": "gte-4-cm",
+          "label": ">=4 cm",
+          "points": [
+            [
+              825,
+              805
+            ],
+            [
+              930,
+              805
+            ]
+          ],
+          "selectedPoints": [
+            [
+              825,
+              805
+            ],
+            [
+              930,
+              805
+            ],
+            [
+              930,
+              875
+            ]
+          ],
+          "dot": [
+            880,
+            805
+          ]
+        },
+        {
+          "id": "edge-regio-l-midline",
+          "from": "regio-l",
+          "to": "drain-1",
+          "value": "midline",
+          "label": "Midline",
+          "points": [
+            [
+              520,
+              910
+            ],
+            [
+              420,
+              910
+            ],
+            [
+              420,
+              995
+            ]
+          ],
+          "dot": [
+            470,
+            910
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-regio-l-near-midline-lateraal",
+          "from": "regio-l",
+          "to": "drain-2",
+          "value": "near-midline-lateraal",
+          "label": "Near midline, Lateraal",
+          "points": [
+            [
+              590,
+              945
+            ],
+            [
+              590,
+              995
+            ]
+          ],
+          "dot": [
+            590,
+            970
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-regio-r-lateraal",
+          "from": "regio-r",
+          "to": "o7",
+          "value": "lateraal",
+          "label": "Lateraal",
+          "points": [
+            [
+              995,
+              910
+            ],
+            [
+              1100,
+              910
+            ],
+            [
+              1100,
+              1115
+            ]
+          ],
+          "dot": [
+            1050,
+            910
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-regio-r-near-midline-midline",
+          "from": "regio-r",
+          "to": "o6",
+          "value": "near-midline-midline",
+          "label": "Near midline, Midline",
+          "points": [
+            [
+              930,
+              945
+            ],
+            [
+              930,
+              1115
+            ]
+          ],
+          "dot": [
+            930,
+            1025
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-drain-1-unilateraal",
+          "from": "drain-1",
+          "to": "o2",
+          "value": "unilateraal",
+          "label": "Unilateraal",
+          "points": [
+            [
+              350,
+              1030
+            ],
+            [
+              250,
+              1030
+            ],
+            [
+              250,
+              1115
+            ]
+          ],
+          "dot": [
+            300,
+            1030
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-drain-1-bilateraal",
+          "from": "drain-1",
+          "to": "o3",
+          "value": "bilateraal",
+          "label": "Bilateraal",
+          "points": [
+            [
+              420,
+              1065
+            ],
+            [
+              420,
+              1115
+            ]
+          ],
+          "dot": [
+            420,
+            1085
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-drain-2-bilateraal",
+          "from": "drain-2",
+          "to": "o5",
+          "value": "bilateraal",
+          "label": "Bilateraal",
+          "points": [
+            [
+              655,
+              1030
+            ],
+            [
+              760,
+              1030
+            ],
+            [
+              760,
+              1115
+            ]
+          ],
+          "dot": [
+            710,
+            1030
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-drain-2-unilateraal",
+          "from": "drain-2",
+          "to": "o4",
+          "value": "unilateraal",
+          "label": "Unilateraal",
+          "points": [
+            [
+              590,
+              1065
+            ],
+            [
+              590,
+              1115
+            ]
+          ],
+          "dot": [
+            590,
+            1085
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-ct-r-ct1-ct2",
+          "from": "ct-r",
+          "to": "o10",
+          "value": "ct1-ct2",
+          "label": "cT1 - cT2",
+          "points": [
+            [
+              1610,
+              820
+            ],
+            [
+              1610,
+              1115
+            ]
+          ],
+          "dot": [
+            1610,
+            965
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-ct-r-ct3",
+          "from": "ct-r",
+          "to": "o11",
+          "value": "ct3",
+          "label": "cT3",
+          "points": [
+            [
+              1680,
+              785
+            ],
+            [
+              1785,
+              785
+            ],
+            [
+              1785,
+              1115
+            ]
+          ],
+          "dot": [
+            1735,
+            785
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-loc-meta-bekkenklieren",
+          "from": "loc-meta",
+          "to": "o13",
+          "value": "bekkenklieren",
+          "label": "Bekkenklieren",
+          "points": [
+            [
+              2125,
+              820
+            ],
+            [
+              2125,
+              1115
+            ]
+          ],
+          "dot": [
+            2125,
+            965
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-loc-meta-buiten-het-bekken",
+          "from": "loc-meta",
+          "to": "o14",
+          "value": "buiten-het-bekken",
+          "label": "Buiten het bekken",
+          "points": [
+            [
+              2190,
+              785
+            ],
+            [
+              2295,
+              785
+            ],
+            [
+              2295,
+              1115
+            ]
+          ],
+          "dot": [
+            2245,
+            785
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-o1-l1",
+          "from": "o1",
+          "to": "l1",
+          "points": [
+            [
+              80,
+              1185
+            ],
+            [
+              80,
+              1320
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-o2-l2",
+          "from": "o2",
+          "to": "l2",
+          "points": [
+            [
+              250,
+              1365
+            ],
+            [
+              250,
+              1385
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-o3-l3",
+          "from": "o3",
+          "to": "l3",
+          "points": [
+            [
+              420,
+              1285
+            ],
+            [
+              420,
+              1320
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-o4-l4",
+          "from": "o4",
+          "to": "l4",
+          "points": [
+            [
+              590,
+              1300
+            ],
+            [
+              590,
+              1320
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-o5-l5",
+          "from": "o5",
+          "to": "l5",
+          "points": [
+            [
+              760,
+              1285
+            ],
+            [
+              760,
+              1320
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-o6-l6",
+          "from": "o6",
+          "to": "l6",
+          "points": [
+            [
+              930,
+              1255
+            ],
+            [
+              930,
+              1320
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-o7-l7",
+          "from": "o7",
+          "to": "l7",
+          "points": [
+            [
+              1100,
+              1255
+            ],
+            [
+              1100,
+              1320
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-o8-l8",
+          "from": "o8",
+          "to": "l8",
+          "points": [
+            [
+              1270,
+              1245
+            ],
+            [
+              1270,
+              1320
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-o9-l9",
+          "from": "o9",
+          "to": "l9",
+          "points": [
+            [
+              1440,
+              1245
+            ],
+            [
+              1440,
+              1320
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-o10-l10",
+          "from": "o10",
+          "to": "l10",
+          "points": [
+            [
+              1610,
+              1255
+            ],
+            [
+              1610,
+              1320
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-o11-l11",
+          "from": "o11",
+          "to": "l11",
+          "points": [
+            [
+              1785,
+              1245
+            ],
+            [
+              1785,
+              1320
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-o12-l12",
+          "from": "o12",
+          "to": "l12",
+          "points": [
+            [
+              1955,
+              1185
+            ],
+            [
+              1955,
+              1320
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-l12-f1",
+          "from": "l12",
+          "to": "f1",
+          "points": [
+            [
+              1955,
+              1390
+            ],
+            [
+              1955,
+              1435
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-o13-f2",
+          "from": "o13",
+          "to": "f2",
+          "points": [
+            [
+              2125,
+              1365
+            ],
+            [
+              2125,
+              1435
+            ]
+          ],
+          "arrow": true
+        }
+      ]
     },
-    {
-      "id": "trofoblast",
-      "titel": "Trofoblasttumoren",
-      "afbeelding": "images/Gynaecologie_vierkant.png",
-      "status": "available"
+    "adjuvant": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 46,
+        "blockHeight": 24,
+        "margin": 5
+      },
+      "nodes": [
+        {
+          "id": "root",
+          "type": "title",
+          "gridX": 68,
+          "gridY": 5,
+          "tone": "blue",
+          "label": "Adjuvante behandeling",
+          "icon": "minus-light",
+          "to": "",
+          "rx": 40
+        },
+        {
+          "id": "snijvlak",
+          "type": "dataItem",
+          "gridX": 68,
+          "gridY": 40,
+          "label": "Snijvlak",
+          "interactive": true,
+          "options": [
+            {
+              "value": "snijvlak-niet-vrij",
+              "label": "Snijvlak niet vrij",
+              "edge": "edge-snijvlak-snijvlak-niet-vrij"
+            },
+            {
+              "value": "snijvlak-vrij",
+              "label": "Snijvlak vrij",
+              "edge": "edge-snijvlak-snijvlak-vrij"
+            }
+          ]
+        },
+        {
+          "id": "pn",
+          "type": "dataItem",
+          "gridX": 68,
+          "gridY": 86,
+          "label": "pN",
+          "icon": "plus-light",
+          "interactive": true,
+          "options": [
+            {
+              "value": "gte-pn1",
+              "label": ">= pN1",
+              "edge": "edge-pn-gte-pn1"
+            },
+            {
+              "value": "pn0",
+              "label": "pN0",
+              "edge": "edge-pn-pn0"
+            }
+          ],
+          "subtree": {
+            "tree": "sub-pn",
+            "map": {
+              "o-pn0": "pn0",
+              "o-pn1a": "gte-pn1",
+              "o-pn1b": "gte-pn1",
+              "o-pn2a": "gte-pn1",
+              "o-pn2b-links": "gte-pn1",
+              "o-pn2b-rechts": "gte-pn1",
+              "o-pn2c": "gte-pn1",
+              "o-pn3": "gte-pn1"
+            }
+          }
+        },
+        {
+          "id": "ingroei",
+          "type": "dataItem",
+          "gridX": 126,
+          "gridY": 121,
+          "label": "Ingroei tumor",
+          "interactive": true,
+          "options": [
+            {
+              "value": "extranodaal",
+              "label": "Extranodaal",
+              "edge": "edge-ingroei-extranodaal"
+            },
+            {
+              "value": "intranodaal",
+              "label": "Intranodaal",
+              "edge": "edge-ingroei-intranodaal"
+            }
+          ]
+        },
+        {
+          "id": "aantal",
+          "type": "dataItem",
+          "gridX": 126,
+          "gridY": 167,
+          "label": "Aantal intranodale metastasen",
+          "interactive": true,
+          "options": [
+            {
+              "value": "gte-2",
+              "label": ">=2",
+              "edge": "edge-aantal-gte-2"
+            },
+            {
+              "value": "lte-1",
+              "label": "<=1",
+              "edge": "edge-aantal-lte-1"
+            }
+          ]
+        },
+        {
+          "id": "cn",
+          "type": "dataItem",
+          "gridX": 126,
+          "gridY": 213,
+          "label": "cN",
+          "icon": "plus-light",
+          "interactive": true,
+          "options": [
+            {
+              "value": "gte-cn1",
+              "label": ">= cN1",
+              "edge": "edge-cn-gte-cn1"
+            },
+            {
+              "value": "cn0",
+              "label": "cN0",
+              "edge": "edge-cn-cn0"
+            }
+          ],
+          "subtree": {
+            "tree": "sub-cn",
+            "map": {
+              "o-cn0": "cn0",
+              "o-cn1": "gte-cn1",
+              "o-cn2": "gte-cn1",
+              "o-cn3": "gte-cn1"
+            }
+          }
+        },
+        {
+          "id": "o-reexcisie",
+          "type": "recommendation",
+          "gridX": 10,
+          "gridY": 248,
+          "height": 33,
+          "text": "Re-excisie\n\nOF\n\nLokale radiotherapie\n(totale dosis 60-70 Gy\nafhankelijk van het\nvolume residue tumor)"
+        },
+        {
+          "id": "o-geen",
+          "type": "recommendation",
+          "gridX": 68,
+          "gridY": 248,
+          "text": "Geen adjuvante\nbehandeling"
+        },
+        {
+          "id": "o-radio",
+          "type": "recommendation",
+          "gridX": 184,
+          "gridY": 248,
+          "height": 25,
+          "text": "Radiotherapie\n\n{i}Bestraal alleen de\naangedane lies mits de\ncontralaterale lies\nadequaat gestadieerd is."
+        },
+        {
+          "id": "f1",
+          "type": "reference",
+          "gridX": 10,
+          "gridY": 288,
+          "label": "Follow up",
+          "icon": "down",
+          "to": "followup"
+        },
+        {
+          "id": "f2",
+          "type": "reference",
+          "gridX": 68,
+          "gridY": 288,
+          "label": "Follow up",
+          "icon": "down",
+          "to": "followup"
+        },
+        {
+          "id": "f3",
+          "type": "reference",
+          "gridX": 184,
+          "gridY": 288,
+          "label": "Follow up",
+          "icon": "down",
+          "to": "followup"
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-root-snijvlak",
+          "from": "root",
+          "to": "snijvlak",
+          "points": [
+            [
+              455,
+              145
+            ],
+            [
+              455,
+              200
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-snijvlak-snijvlak-niet-vrij",
+          "from": "snijvlak",
+          "to": "o-reexcisie",
+          "value": "snijvlak-niet-vrij",
+          "label": "Snijvlak niet vrij",
+          "points": [
+            [
+              340,
+              255
+            ],
+            [
+              165,
+              255
+            ],
+            [
+              165,
+              1240
+            ]
+          ],
+          "dot": [
+            255,
+            255
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-snijvlak-snijvlak-vrij",
+          "from": "snijvlak",
+          "to": "pn",
+          "value": "snijvlak-vrij",
+          "label": "Snijvlak vrij",
+          "points": [
+            [
+              455,
+              320
+            ],
+            [
+              455,
+              430
+            ]
+          ],
+          "dot": [
+            455,
+            370
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-pn-gte-pn1",
+          "from": "pn",
+          "to": "ingroei",
+          "value": "gte-pn1",
+          "label": ">= pN1",
+          "points": [
+            [
+              570,
+              490
+            ],
+            [
+              745,
+              490
+            ],
+            [
+              745,
+              605
+            ]
+          ],
+          "dot": [
+            655,
+            490
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-pn-pn0",
+          "from": "pn",
+          "to": "o-geen",
+          "value": "pn0",
+          "label": "pN0",
+          "points": [
+            [
+              455,
+              550
+            ],
+            [
+              455,
+              1240
+            ]
+          ],
+          "dot": [
+            455,
+            835
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-ingroei-extranodaal",
+          "from": "ingroei",
+          "to": "o-radio",
+          "value": "extranodaal",
+          "label": "Extranodaal",
+          "points": [
+            [
+              860,
+              660
+            ],
+            [
+              1035,
+              660
+            ],
+            [
+              1035,
+              1240
+            ]
+          ],
+          "dot": [
+            945,
+            660
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-ingroei-intranodaal",
+          "from": "ingroei",
+          "to": "aantal",
+          "value": "intranodaal",
+          "label": "Intranodaal",
+          "points": [
+            [
+              745,
+              725
+            ],
+            [
+              745,
+              835
+            ]
+          ],
+          "dot": [
+            745,
+            775
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-aantal-gte-2",
+          "from": "aantal",
+          "to": "o-radio",
+          "value": "gte-2",
+          "label": ">=2",
+          "points": [
+            [
+              860,
+              890
+            ],
+            [
+              1035,
+              890
+            ]
+          ],
+          "selectedPoints": [
+            [
+              860,
+              890
+            ],
+            [
+              1035,
+              890
+            ],
+            [
+              1035,
+              1240
+            ]
+          ],
+          "dot": [
+            945,
+            890
+          ]
+        },
+        {
+          "id": "edge-aantal-lte-1",
+          "from": "aantal",
+          "to": "cn",
+          "value": "lte-1",
+          "label": "<=1",
+          "points": [
+            [
+              745,
+              955
+            ],
+            [
+              745,
+              1065
+            ]
+          ],
+          "dot": [
+            745,
+            1005
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-cn-gte-cn1",
+          "from": "cn",
+          "to": "o-radio",
+          "value": "gte-cn1",
+          "label": ">= cN1",
+          "points": [
+            [
+              860,
+              1125
+            ],
+            [
+              1035,
+              1125
+            ]
+          ],
+          "selectedPoints": [
+            [
+              860,
+              1125
+            ],
+            [
+              1035,
+              1125
+            ],
+            [
+              1035,
+              1240
+            ]
+          ],
+          "dot": [
+            945,
+            1125
+          ]
+        },
+        {
+          "id": "edge-cn-cn0",
+          "from": "cn",
+          "to": "o-geen",
+          "value": "cn0",
+          "label": "cN0",
+          "points": [
+            [
+              630,
+              1125
+            ],
+            [
+              455,
+              1125
+            ]
+          ],
+          "selectedPoints": [
+            [
+              630,
+              1125
+            ],
+            [
+              455,
+              1125
+            ],
+            [
+              455,
+              1240
+            ]
+          ],
+          "dot": [
+            540,
+            1125
+          ]
+        },
+        {
+          "id": "edge-o-reexcisie-f1",
+          "from": "o-reexcisie",
+          "to": "f1",
+          "points": [
+            [
+              165,
+              1405
+            ],
+            [
+              165,
+              1440
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-o-geen-f2",
+          "from": "o-geen",
+          "to": "f2",
+          "points": [
+            [
+              455,
+              1360
+            ],
+            [
+              455,
+              1440
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-o-radio-f3",
+          "from": "o-radio",
+          "to": "f3",
+          "points": [
+            [
+              1035,
+              1365
+            ],
+            [
+              1035,
+              1440
+            ]
+          ],
+          "arrow": true
+        }
+      ]
     },
-    {
-      "id": "vergroot-ovarium",
-      "titel": "Vergroot ovarium",
-      "afbeelding": "images/Gynaecologie_vierkant.png",
-      "status": "available"
+    "followup": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 59,
+        "blockHeight": 31,
+        "margin": 10
+      },
+      "wrap": 17,
+      "nodes": [
+        {
+          "id": "root",
+          "type": "title",
+          "gridX": 17,
+          "gridY": 10,
+          "label": "Follow up",
+          "icon": "minus",
+          "to": "",
+          "tone": "",
+          "rx": 40
+        },
+        {
+          "id": "acties",
+          "type": "decision",
+          "gridX": 17,
+          "gridY": 54,
+          "height": 91,
+          "text": "Anamnese\n\nEN\n\nLichamelijk onderzoek\n\nZie onderbouwing voor\nfollow up schema\nLink voor: {a:Nazorgplan|}\n\n\nFollow up ook\ngedeeltelijk door\nradiotherapeut indien\nradiotherapie onderdeel\nwas van de behandeling\n{i}follow-up in\noncologisch centrum"
+        },
+        {
+          "id": "volgende",
+          "type": "reference",
+          "gridX": 17,
+          "gridY": 170,
+          "label": "Behandeling recidief",
+          "icon": "down",
+          "to": "recidief",
+          "wrap": 30
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-root-acties",
+          "from": "root",
+          "to": "acties",
+          "points": [
+            [
+              235,
+              205
+            ],
+            [
+              235,
+              250
+            ]
+          ],
+          "arrow": true,
+          "color": "green",
+          "width": 6
+        },
+        {
+          "id": "edge-acties-volgende",
+          "from": "acties",
+          "to": "volgende",
+          "points": [
+            [
+              235,
+              725
+            ],
+            [
+              235,
+              850
+            ]
+          ],
+          "arrow": true
+        }
+      ]
     },
-    {
-      "id": "vulva",
-      "titel": "Vulvacarcinoom",
-      "afbeelding": "images/Gynaecologie_vierkant.png",
-      "status": "available"
+    "recidief": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 59,
+        "blockHeight": 31,
+        "margin": 6
+      },
+      "nodes": [
+        {
+          "id": "root",
+          "type": "title",
+          "gridX": 155,
+          "gridY": 6,
+          "tone": "blue",
+          "label": "Behandeling recidief",
+          "icon": "minus-light",
+          "to": "",
+          "rx": 50
+        },
+        {
+          "id": "lokalisatie",
+          "type": "dataItem",
+          "gridX": 155,
+          "gridY": 50,
+          "label": "Lokalisatie recidief",
+          "interactive": true,
+          "options": [
+            {
+              "value": "lokaal",
+              "label": "Lokaal",
+              "edge": "edge-lokalisatie-lokaal"
+            },
+            {
+              "value": "liesrecidief",
+              "label": "Liesrecidief",
+              "edge": "edge-lokalisatie-liesrecidief"
+            },
+            {
+              "value": "afstandsmetastasen",
+              "label": "Afstandsmetastasen",
+              "edge": "edge-lokalisatie-afstandsmetastasen"
+            }
+          ]
+        },
+        {
+          "id": "prim-l",
+          "type": "dataItem",
+          "gridX": 81,
+          "gridY": 95,
+          "label": "Primaire behandeling liezen",
+          "interactive": true,
+          "options": [
+            {
+              "value": "inguinofemorale-lymfadenectomie",
+              "label": "Inguinofemorale lymfadenectomie",
+              "edge": "edge-prim-l-inguinofemorale-lymfadenectomie"
+            },
+            {
+              "value": "sentinel-node-procedure",
+              "label": "Sentinel node procedure",
+              "edge": "edge-prim-l-sentinel-node-procedure"
+            }
+          ]
+        },
+        {
+          "id": "prim-r",
+          "type": "dataItem",
+          "gridX": 228,
+          "gridY": 95,
+          "label": "Primaire behandeling liezen",
+          "interactive": true,
+          "options": [
+            {
+              "value": "inguinofemorale-lymfadenectomie",
+              "label": "Inguinofemorale lymfadenectomie",
+              "edge": "edge-prim-r-inguinofemorale-lymfadenectomie"
+            },
+            {
+              "value": "sentinel-node-procedure",
+              "label": "Sentinel node procedure",
+              "edge": "edge-prim-r-sentinel-node-procedure"
+            }
+          ]
+        },
+        {
+          "id": "o1",
+          "type": "recommendation",
+          "gridX": 7,
+          "gridY": 147,
+          "height": 42,
+          "text": "Ruime lokale excisie\n\nOF\n\n(Chemo)radiatie\n{i}indien contra-indicatie\nchirurgie\n"
+        },
+        {
+          "id": "o2",
+          "type": "recommendation",
+          "gridX": 81,
+          "gridY": 147,
+          "height": 67,
+          "text": "Ruime lokale excisie\nEN\nInguinofemorale\nlymfadenectomie\nOverweeg inclusie in\nstudie V2SLN\n{a:klik hier * V2SLN|}\n\nOF\n\n(Chemo)radiatie\n{i}indien contra-indicatie\nchirurgie"
+        },
+        {
+          "id": "o3",
+          "type": "recommendation",
+          "gridX": 155,
+          "gridY": 147,
+          "height": 62,
+          "text": "Overweeg\nliesklierdebulking\n{i}indien operabel\n\nGEVOLGD DOOR\n(chemo)radiatie\n\nOF\n\n(Chemo)radiatie\n{i}indien contra-indicatie\nchirurgie"
+        },
+        {
+          "id": "o4",
+          "type": "recommendation",
+          "gridX": 228,
+          "gridY": 147,
+          "height": 77,
+          "text": "Inguinofemorale\nlymfadenectomie\nOF\nOverweeg\nliesklierdebulking\n{i}indien operabel\n\nGEVOLGD DOOR\n(chemo)radiatie\n\n---OF---\n\n(Chemo)radiatie\n{i}indien contra-indicatie\nchirurgie"
+        },
+        {
+          "id": "o5",
+          "type": "recommendation",
+          "gridX": 304,
+          "gridY": 147,
+          "text": "Individualiseer\nbehandeling"
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-root-lokalisatie",
+          "from": "root",
+          "to": "lokalisatie",
+          "points": [
+            [
+              925,
+              185
+            ],
+            [
+              925,
+              250
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-lokalisatie-lokaal",
+          "from": "lokalisatie",
+          "to": "prim-l",
+          "value": "lokaal",
+          "label": "Lokaal",
+          "points": [
+            [
+              775,
+              325
+            ],
+            [
+              555,
+              325
+            ],
+            [
+              555,
+              475
+            ]
+          ],
+          "dot": [
+            665,
+            325
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-lokalisatie-liesrecidief",
+          "from": "lokalisatie",
+          "to": "prim-r",
+          "value": "liesrecidief",
+          "label": "Liesrecidief",
+          "points": [
+            [
+              1070,
+              325
+            ],
+            [
+              1290,
+              325
+            ],
+            [
+              1290,
+              475
+            ]
+          ],
+          "dot": [
+            1290,
+            400
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-lokalisatie-afstandsmetastasen",
+          "from": "lokalisatie",
+          "to": "o5",
+          "value": "afstandsmetastasen",
+          "label": "Afstandsmetastasen",
+          "points": [
+            [
+              1070,
+              325
+            ],
+            [
+              1665,
+              325
+            ],
+            [
+              1665,
+              735
+            ]
+          ],
+          "dot": [
+            1480,
+            325
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-prim-l-inguinofemorale-lymfadenectomie",
+          "from": "prim-l",
+          "to": "o1",
+          "value": "inguinofemorale-lymfadenectomie",
+          "label": "Inguinofemorale\nlymfadenectomie",
+          "points": [
+            [
+              405,
+              550
+            ],
+            [
+              180,
+              550
+            ],
+            [
+              180,
+              735
+            ]
+          ],
+          "dot": [
+            295,
+            550
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-prim-l-sentinel-node-procedure",
+          "from": "prim-l",
+          "to": "o2",
+          "value": "sentinel-node-procedure",
+          "label": "Sentinel node procedure",
+          "points": [
+            [
+              555,
+              630
+            ],
+            [
+              555,
+              735
+            ]
+          ],
+          "dot": [
+            555,
+            680
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-prim-r-inguinofemorale-lymfadenectomie",
+          "from": "prim-r",
+          "to": "o3",
+          "value": "inguinofemorale-lymfadenectomie",
+          "label": "Inguinofemorale\nlymfadenectomie",
+          "points": [
+            [
+              1140,
+              550
+            ],
+            [
+              925,
+              550
+            ],
+            [
+              925,
+              735
+            ]
+          ],
+          "dot": [
+            1030,
+            550
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-prim-r-sentinel-node-procedure",
+          "from": "prim-r",
+          "to": "o4",
+          "value": "sentinel-node-procedure",
+          "label": "Sentinel node procedure",
+          "points": [
+            [
+              1290,
+              630
+            ],
+            [
+              1290,
+              735
+            ]
+          ],
+          "dot": [
+            1290,
+            680
+          ],
+          "arrow": true
+        }
+      ]
+    },
+    "uni-ling": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 59,
+        "blockHeight": 31,
+        "margin": 7
+      },
+      "nodes": [
+        {
+          "id": "root",
+          "type": "title",
+          "gridX": 13,
+          "gridY": 7,
+          "tone": "blue",
+          "label": "Beleid na unilaterale inguinofemorale lymfadenectomie",
+          "icon": "minus-light",
+          "to": "",
+          "rx": 50
+        },
+        {
+          "id": "uitslag",
+          "type": "dataItem",
+          "gridX": 13,
+          "gridY": 52,
+          "label": "Uitslag unilaterale inguinofemorale lymfadenectomie",
+          "interactive": true,
+          "options": [
+            {
+              "value": "negatief",
+              "label": "Negatief",
+              "edge": "edge-uitslag-negatief"
+            },
+            {
+              "value": "positief",
+              "label": "Positief",
+              "edge": "edge-uitslag-positief"
+            }
+          ]
+        },
+        {
+          "id": "o-pos",
+          "type": "recommendation",
+          "gridX": 13,
+          "gridY": 111,
+          "text": "Overweeg contralaterale\ninguinofemorale\nlymfadenectomie"
+        },
+        {
+          "id": "o-neg",
+          "type": "recommendation",
+          "gridX": 87,
+          "gridY": 111,
+          "text": "Geen contralaterale\ninguinofemorale\nlymfadenectomie"
+        },
+        {
+          "id": "l1",
+          "type": "reference",
+          "gridX": 13,
+          "gridY": 156,
+          "label": "Adjuvante behandeling",
+          "icon": "down",
+          "to": "adjuvant"
+        },
+        {
+          "id": "l2",
+          "type": "reference",
+          "gridX": 87,
+          "gridY": 156,
+          "label": "Follow up",
+          "icon": "down",
+          "to": "followup"
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-root-uitslag",
+          "from": "root",
+          "to": "uitslag",
+          "points": [
+            [
+              210,
+              190
+            ],
+            [
+              210,
+              260
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-uitslag-negatief",
+          "from": "uitslag",
+          "to": "o-neg",
+          "value": "negatief",
+          "label": "Negatief",
+          "points": [
+            [
+              360,
+              330
+            ],
+            [
+              585,
+              330
+            ],
+            [
+              585,
+              555
+            ]
+          ],
+          "dot": [
+            475,
+            335
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-uitslag-positief",
+          "from": "uitslag",
+          "to": "o-pos",
+          "value": "positief",
+          "label": "Positief",
+          "points": [
+            [
+              210,
+              415
+            ],
+            [
+              210,
+              555
+            ]
+          ],
+          "dot": [
+            215,
+            480
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-o-pos-l1",
+          "from": "o-pos",
+          "to": "l1",
+          "points": [
+            [
+              210,
+              710
+            ],
+            [
+              210,
+              780
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-o-neg-l2",
+          "from": "o-neg",
+          "to": "l2",
+          "points": [
+            [
+              585,
+              710
+            ],
+            [
+              585,
+              780
+            ]
+          ],
+          "arrow": true
+        }
+      ]
+    },
+    "na-sn": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 59,
+        "blockHeight": 31,
+        "margin": 5
+      },
+      "nodes": [
+        {
+          "id": "root",
+          "type": "title",
+          "gridX": 81,
+          "gridY": 5,
+          "tone": "blue",
+          "label": "Beleid na sentinel node procedure (postoperatief)",
+          "icon": "minus-light",
+          "to": "",
+          "rx": 50
+        },
+        {
+          "id": "sn",
+          "type": "dataItem",
+          "gridX": 81,
+          "gridY": 49,
+          "label": "Sentinel node",
+          "interactive": true,
+          "options": [
+            {
+              "value": "negatief",
+              "label": "Negatief",
+              "edge": "edge-sn-negatief"
+            },
+            {
+              "value": "positief",
+              "label": "Positief",
+              "edge": "edge-sn-positief"
+            }
+          ]
+        },
+        {
+          "id": "locatie",
+          "type": "dataItem",
+          "gridX": 81,
+          "gridY": 101,
+          "label": "Locatie positieve SN",
+          "interactive": true,
+          "options": [
+            {
+              "value": "bilateraal",
+              "label": "Bilateraal",
+              "edge": "edge-locatie-bilateraal"
+            },
+            {
+              "value": "unilateraal",
+              "label": "Unilateraal",
+              "edge": "edge-locatie-unilateraal"
+            }
+          ]
+        },
+        {
+          "id": "groot-l",
+          "type": "dataItem",
+          "gridX": 81,
+          "gridY": 153,
+          "label": "Grootte metastasen",
+          "interactive": true,
+          "options": [
+            {
+              "value": "gt-2-mm",
+              "label": ">2 mm",
+              "edge": "edge-groot-l-gt-2-mm"
+            },
+            {
+              "value": "lte-2-mm",
+              "label": "<=2 mm",
+              "edge": "edge-groot-l-lte-2-mm"
+            }
+          ]
+        },
+        {
+          "id": "groot-r",
+          "type": "dataItem",
+          "gridX": 230,
+          "gridY": 153,
+          "label": "Grootte metastasen",
+          "interactive": true,
+          "options": [
+            {
+              "value": "gt-2-mm",
+              "label": ">2 mm",
+              "edge": "edge-groot-r-gt-2-mm"
+            },
+            {
+              "value": "lte-2-mm",
+              "label": "<=2 mm",
+              "edge": "edge-groot-r-lte-2-mm"
+            }
+          ]
+        },
+        {
+          "id": "o1",
+          "type": "recommendation",
+          "gridX": 7,
+          "gridY": 205,
+          "text": "Geen aanvullende\nbehandeling"
+        },
+        {
+          "id": "o2",
+          "type": "recommendation",
+          "gridX": 81,
+          "gridY": 205,
+          "height": 38,
+          "text": "Unilaterale\ninguinofemorale\nlymfadenectomie\n\nOF\n\nRadiotherapie"
+        },
+        {
+          "id": "o3",
+          "type": "recommendation",
+          "gridX": 156,
+          "gridY": 205,
+          "height": 43,
+          "text": "Unilaterale\ninguinofemorale\nlymfadenectomie\n\nOF\n\nInclusie in studie:\nGROINSS-V III"
+        },
+        {
+          "id": "o4",
+          "type": "recommendation",
+          "gridX": 230,
+          "gridY": 205,
+          "height": 38,
+          "text": "Bilaterale\ninguinofemorale\nlymfadenectomie\n\nOF\n\nRadiotherapie"
+        },
+        {
+          "id": "o5",
+          "type": "recommendation",
+          "gridX": 304,
+          "gridY": 205,
+          "height": 43,
+          "text": "Bilaterale\ninguinofemorale\nlymfadenectomie\n\nOF\n\nInclusie in studie:\nGROINSS-V III"
+        },
+        {
+          "id": "l1",
+          "type": "reference",
+          "gridX": 7,
+          "gridY": 272,
+          "label": "Follow up",
+          "icon": "down",
+          "to": "followup"
+        },
+        {
+          "id": "l2",
+          "type": "reference",
+          "gridX": 81,
+          "gridY": 272,
+          "label": "Adjuvante behandeling",
+          "icon": "down",
+          "to": "adjuvant"
+        },
+        {
+          "id": "l3",
+          "type": "reference",
+          "gridX": 156,
+          "gridY": 272,
+          "label": "Adjuvante behandeling",
+          "icon": "down",
+          "to": "adjuvant"
+        },
+        {
+          "id": "l4",
+          "type": "reference",
+          "gridX": 230,
+          "gridY": 272,
+          "label": "Adjuvante behandeling",
+          "icon": "down",
+          "to": "adjuvant"
+        },
+        {
+          "id": "l5",
+          "type": "reference",
+          "gridX": 304,
+          "gridY": 272,
+          "label": "Adjuvante behandeling",
+          "icon": "down",
+          "to": "adjuvant"
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-root-sn",
+          "from": "root",
+          "to": "sn",
+          "points": [
+            [
+              555,
+              180
+            ],
+            [
+              555,
+              245
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-sn-negatief",
+          "from": "sn",
+          "to": "o1",
+          "value": "negatief",
+          "label": "Negatief",
+          "points": [
+            [
+              405,
+              320
+            ],
+            [
+              185,
+              320
+            ],
+            [
+              185,
+              1025
+            ]
+          ],
+          "dot": [
+            295,
+            320
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-sn-positief",
+          "from": "sn",
+          "to": "locatie",
+          "value": "positief",
+          "label": "Positief",
+          "points": [
+            [
+              555,
+              400
+            ],
+            [
+              555,
+              505
+            ]
+          ],
+          "dot": [
+            555,
+            450
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-locatie-bilateraal",
+          "from": "locatie",
+          "to": "groot-r",
+          "value": "bilateraal",
+          "label": "Bilateraal",
+          "points": [
+            [
+              700,
+              580
+            ],
+            [
+              1300,
+              580
+            ],
+            [
+              1300,
+              765
+            ]
+          ],
+          "dot": [
+            1000,
+            580
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-locatie-unilateraal",
+          "from": "locatie",
+          "to": "groot-l",
+          "value": "unilateraal",
+          "label": "Unilateraal",
+          "points": [
+            [
+              555,
+              660
+            ],
+            [
+              555,
+              765
+            ]
+          ],
+          "dot": [
+            555,
+            710
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-groot-l-gt-2-mm",
+          "from": "groot-l",
+          "to": "o3",
+          "value": "gt-2-mm",
+          "label": ">2 mm",
+          "points": [
+            [
+              700,
+              840
+            ],
+            [
+              925,
+              840
+            ],
+            [
+              925,
+              1025
+            ]
+          ],
+          "dot": [
+            815,
+            840
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-groot-l-lte-2-mm",
+          "from": "groot-l",
+          "to": "o2",
+          "value": "lte-2-mm",
+          "label": "<=2 mm",
+          "points": [
+            [
+              555,
+              920
+            ],
+            [
+              555,
+              1025
+            ]
+          ],
+          "dot": [
+            555,
+            970
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-groot-r-gt-2-mm",
+          "from": "groot-r",
+          "to": "o5",
+          "value": "gt-2-mm",
+          "label": ">2 mm",
+          "points": [
+            [
+              1445,
+              840
+            ],
+            [
+              1670,
+              840
+            ],
+            [
+              1670,
+              1025
+            ]
+          ],
+          "dot": [
+            1555,
+            840
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-groot-r-lte-2-mm",
+          "from": "groot-r",
+          "to": "o4",
+          "value": "lte-2-mm",
+          "label": "<=2 mm",
+          "points": [
+            [
+              1300,
+              920
+            ],
+            [
+              1300,
+              1025
+            ]
+          ],
+          "dot": [
+            1300,
+            970
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-o1-l1",
+          "from": "o1",
+          "to": "l1",
+          "points": [
+            [
+              185,
+              1180
+            ],
+            [
+              185,
+              1360
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-o2-l2",
+          "from": "o2",
+          "to": "l2",
+          "points": [
+            [
+              555,
+              1215
+            ],
+            [
+              555,
+              1360
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-o3-l3",
+          "from": "o3",
+          "to": "l3",
+          "points": [
+            [
+              925,
+              1240
+            ],
+            [
+              925,
+              1360
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-o4-l4",
+          "from": "o4",
+          "to": "l4",
+          "points": [
+            [
+              1300,
+              1215
+            ],
+            [
+              1300,
+              1360
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-o5-l5",
+          "from": "o5",
+          "to": "l5",
+          "points": [
+            [
+              1670,
+              1240
+            ],
+            [
+              1670,
+              1360
+            ]
+          ],
+          "arrow": true
+        }
+      ]
+    },
+    "cyt-klein": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 59,
+        "blockHeight": 31,
+        "margin": 6
+      },
+      "nodes": [
+        {
+          "id": "root",
+          "type": "title",
+          "gridX": 14,
+          "gridY": 6,
+          "tone": "blue",
+          "label": "Bepaling indicatie cytologisch punctie bij pcc < 4 cm en liesklieren niet verdacht",
+          "icon": "minus-light",
+          "to": "",
+          "rx": 50
+        },
+        {
+          "id": "cn",
+          "type": "dataItem",
+          "gridX": 14,
+          "gridY": 51,
+          "label": "cN",
+          "icon": "plus-light",
+          "interactive": true,
+          "options": [
+            {
+              "value": "gte-cn1",
+              "label": ">= cN1",
+              "edge": "edge-cn-gte-cn1"
+            },
+            {
+              "value": "cn0",
+              "label": "cN0",
+              "edge": "edge-cn-cn0"
+            }
+          ],
+          "subtree": {
+            "tree": "sub-cn",
+            "map": {
+              "o-cn0": "cn0",
+              "o-cn1": "gte-cn1",
+              "o-cn2": "gte-cn1",
+              "o-cn3": "gte-cn1"
+            }
+          }
+        },
+        {
+          "id": "verdacht",
+          "type": "dataItem",
+          "gridX": 14,
+          "gridY": 103,
+          "label": "Verdachte klieren bij beeldvorming",
+          "interactive": true,
+          "options": [
+            {
+              "value": "ja",
+              "label": "Ja",
+              "edge": "edge-verdacht-ja"
+            },
+            {
+              "value": "nee",
+              "label": "Nee",
+              "edge": "edge-verdacht-nee"
+            }
+          ]
+        },
+        {
+          "id": "o-niet",
+          "type": "recommendation",
+          "gridX": 14,
+          "gridY": 155,
+          "text": "Cytologische punctie\nvan lieslieren niet\ngeïndiceerd"
+        },
+        {
+          "id": "o-wel",
+          "type": "recommendation",
+          "gridX": 88,
+          "gridY": 155,
+          "text": "Overweeg cytologische\npunctie van lieslieren"
+        },
+        {
+          "id": "l1",
+          "type": "reference",
+          "gridX": 14,
+          "gridY": 199,
+          "label": "Bepaling indicatie Lymfoscintogram/ Sentinel node procedure",
+          "icon": "down",
+          "to": "sn-links"
+        },
+        {
+          "id": "l2",
+          "type": "reference",
+          "gridX": 88,
+          "gridY": 199,
+          "label": "Primaire behandeling",
+          "icon": "down",
+          "to": "primair"
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-root-cn",
+          "from": "root",
+          "to": "cn",
+          "points": [
+            [
+              220,
+              185
+            ],
+            [
+              220,
+              255
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-cn-gte-cn1",
+          "from": "cn",
+          "to": "o-wel",
+          "value": "gte-cn1",
+          "label": ">= cN1",
+          "points": [
+            [
+              365,
+              330
+            ],
+            [
+              590,
+              330
+            ],
+            [
+              590,
+              775
+            ]
+          ],
+          "dot": [
+            480,
+            330
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-cn-cn0",
+          "from": "cn",
+          "to": "verdacht",
+          "value": "cn0",
+          "label": "cN0",
+          "points": [
+            [
+              220,
+              410
+            ],
+            [
+              220,
+              515
+            ]
+          ],
+          "dot": [
+            220,
+            460
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-verdacht-ja",
+          "from": "verdacht",
+          "to": "o-wel",
+          "value": "ja",
+          "label": "Ja",
+          "points": [
+            [
+              365,
+              590
+            ],
+            [
+              590,
+              590
+            ]
+          ],
+          "selectedPoints": [
+            [
+              365,
+              590
+            ],
+            [
+              590,
+              590
+            ],
+            [
+              590,
+              775
+            ]
+          ],
+          "dot": [
+            480,
+            590
+          ]
+        },
+        {
+          "id": "edge-verdacht-nee",
+          "from": "verdacht",
+          "to": "o-niet",
+          "value": "nee",
+          "label": "Nee",
+          "points": [
+            [
+              220,
+              670
+            ],
+            [
+              220,
+              775
+            ]
+          ],
+          "dot": [
+            220,
+            720
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-o-niet-l1",
+          "from": "o-niet",
+          "to": "l1",
+          "points": [
+            [
+              220,
+              930
+            ],
+            [
+              220,
+              995
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-o-wel-l2",
+          "from": "o-wel",
+          "to": "l2",
+          "points": [
+            [
+              590,
+              930
+            ],
+            [
+              590,
+              995
+            ]
+          ],
+          "arrow": true
+        }
+      ]
+    },
+    "cyt-groot": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 59,
+        "blockHeight": 31,
+        "margin": 6
+      },
+      "nodes": [
+        {
+          "id": "root",
+          "type": "title",
+          "gridX": 6,
+          "gridY": 6,
+          "tone": "blue",
+          "label": "Bepaling indicatie cytologische punctie bij pcc >= 4 cm",
+          "icon": "minus-light",
+          "to": "",
+          "rx": 50
+        },
+        {
+          "id": "cn",
+          "type": "dataItem",
+          "gridX": 6,
+          "gridY": 50,
+          "label": "cN",
+          "icon": "plus-light",
+          "interactive": true,
+          "options": [
+            {
+              "value": "gte-cn1",
+              "label": ">= cN1",
+              "edge": "edge-cn-gte-cn1"
+            },
+            {
+              "value": "cn0",
+              "label": "cN0",
+              "edge": "edge-cn-cn0"
+            }
+          ],
+          "subtree": {
+            "tree": "sub-cn",
+            "map": {
+              "o-cn0": "cn0",
+              "o-cn1": "gte-cn1",
+              "o-cn2": "gte-cn1",
+              "o-cn3": "gte-cn1"
+            }
+          }
+        },
+        {
+          "id": "verdacht",
+          "type": "dataItem",
+          "gridX": 6,
+          "gridY": 103,
+          "label": "Verdachte klieren bij beeldvorming",
+          "interactive": true,
+          "options": [
+            {
+              "value": "ja",
+              "label": "Ja",
+              "edge": "edge-verdacht-ja"
+            },
+            {
+              "value": "nee",
+              "label": "Nee",
+              "edge": "edge-verdacht-nee"
+            }
+          ]
+        },
+        {
+          "id": "o-niet",
+          "type": "recommendation",
+          "gridX": 6,
+          "gridY": 154,
+          "text": "Cytologische punctie\nvan lieslieren niet\ngeïndiceerd"
+        },
+        {
+          "id": "o-wel",
+          "type": "recommendation",
+          "gridX": 81,
+          "gridY": 154,
+          "text": "Overweeg cytologische\npunctie van lieslieren"
+        },
+        {
+          "id": "l1",
+          "type": "reference",
+          "gridX": 6,
+          "gridY": 199,
+          "label": "Bepaling indicatie Lymfoscintogram/ Sentinel node procedure",
+          "icon": "down",
+          "to": "sn-rechts"
+        },
+        {
+          "id": "l2",
+          "type": "reference",
+          "gridX": 81,
+          "gridY": 199,
+          "label": "Primaire behandeling",
+          "icon": "down",
+          "to": "primair"
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-root-cn",
+          "from": "root",
+          "to": "cn",
+          "points": [
+            [
+              180,
+              185
+            ],
+            [
+              180,
+              250
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-cn-gte-cn1",
+          "from": "cn",
+          "to": "o-wel",
+          "value": "gte-cn1",
+          "label": ">= cN1",
+          "points": [
+            [
+              325,
+              325
+            ],
+            [
+              550,
+              325
+            ],
+            [
+              550,
+              770
+            ]
+          ],
+          "dot": [
+            440,
+            325
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-cn-cn0",
+          "from": "cn",
+          "to": "verdacht",
+          "value": "cn0",
+          "label": "cN0",
+          "points": [
+            [
+              180,
+              405
+            ],
+            [
+              180,
+              515
+            ]
+          ],
+          "dot": [
+            180,
+            455
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-verdacht-ja",
+          "from": "verdacht",
+          "to": "o-wel",
+          "value": "ja",
+          "label": "Ja",
+          "points": [
+            [
+              325,
+              590
+            ],
+            [
+              550,
+              590
+            ]
+          ],
+          "selectedPoints": [
+            [
+              325,
+              590
+            ],
+            [
+              550,
+              590
+            ],
+            [
+              550,
+              770
+            ]
+          ],
+          "dot": [
+            440,
+            590
+          ]
+        },
+        {
+          "id": "edge-verdacht-nee",
+          "from": "verdacht",
+          "to": "o-niet",
+          "value": "nee",
+          "label": "Nee",
+          "points": [
+            [
+              180,
+              670
+            ],
+            [
+              180,
+              770
+            ]
+          ],
+          "dot": [
+            180,
+            715
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-o-niet-l1",
+          "from": "o-niet",
+          "to": "l1",
+          "points": [
+            [
+              180,
+              925
+            ],
+            [
+              180,
+              995
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-o-wel-l2",
+          "from": "o-wel",
+          "to": "l2",
+          "points": [
+            [
+              550,
+              925
+            ],
+            [
+              550,
+              995
+            ]
+          ],
+          "arrow": true
+        }
+      ]
+    },
+    "sn-links": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 59,
+        "blockHeight": 31,
+        "margin": 4
+      },
+      "nodes": [
+        {
+          "id": "root",
+          "type": "title",
+          "gridX": 5,
+          "gridY": 4,
+          "tone": "blue",
+          "label": "Bepaling indicatie Lymfoscintogram/ Sentinel node procedure",
+          "icon": "minus-light",
+          "to": "",
+          "rx": 50
+        },
+        {
+          "id": "uitslag",
+          "type": "dataItem",
+          "gridX": 5,
+          "gridY": 49,
+          "label": "Uitslag punctie liesklier",
+          "wrap": 28,
+          "interactive": true,
+          "options": [
+            {
+              "value": "positief",
+              "label": "Positief",
+              "edge": "edge-uitslag-positief"
+            },
+            {
+              "value": "negatief",
+              "label": "Negatief",
+              "edge": "edge-uitslag-negatief"
+            }
+          ]
+        },
+        {
+          "id": "o-neg",
+          "type": "recommendation",
+          "gridX": 5,
+          "gridY": 101,
+          "text": "SN procedure:\n\nLymfoscintogram\npre-operatief"
+        },
+        {
+          "id": "o-pos",
+          "type": "recommendation",
+          "gridX": 79,
+          "gridY": 101,
+          "text": "Geen SN procedure"
+        },
+        {
+          "id": "l1",
+          "type": "reference",
+          "gridX": 5,
+          "gridY": 145,
+          "label": "Primaire behandeling",
+          "icon": "down",
+          "to": "primair"
+        },
+        {
+          "id": "l2",
+          "type": "reference",
+          "gridX": 79,
+          "gridY": 145,
+          "label": "Primaire behandeling",
+          "icon": "down",
+          "to": "primair"
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-root-uitslag",
+          "from": "root",
+          "to": "uitslag",
+          "points": [
+            [
+              175,
+              175
+            ],
+            [
+              175,
+              245
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-uitslag-positief",
+          "from": "uitslag",
+          "to": "o-pos",
+          "value": "positief",
+          "label": "Positief",
+          "points": [
+            [
+              320,
+              320
+            ],
+            [
+              545,
+              320
+            ],
+            [
+              545,
+              505
+            ]
+          ],
+          "dot": [
+            435,
+            320
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-uitslag-negatief",
+          "from": "uitslag",
+          "to": "o-neg",
+          "value": "negatief",
+          "label": "Negatief",
+          "points": [
+            [
+              175,
+              400
+            ],
+            [
+              175,
+              505
+            ]
+          ],
+          "dot": [
+            175,
+            450
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-o-neg-l1",
+          "from": "o-neg",
+          "to": "l1",
+          "points": [
+            [
+              175,
+              660
+            ],
+            [
+              175,
+              725
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-o-pos-l2",
+          "from": "o-pos",
+          "to": "l2",
+          "points": [
+            [
+              545,
+              660
+            ],
+            [
+              545,
+              725
+            ]
+          ],
+          "arrow": true
+        }
+      ]
+    },
+    "sub-cn": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 46,
+        "blockHeight": 24,
+        "margin": 2
+      },
+      "nodes": [
+        {
+          "id": "root",
+          "type": "title",
+          "gridX": 81,
+          "gridY": 1,
+          "tone": "blue",
+          "label": "cN",
+          "icon": "minus-light",
+          "to": "",
+          "rx": 40
+        },
+        {
+          "id": "papabel",
+          "type": "dataItem",
+          "gridX": 81,
+          "gridY": 35,
+          "label": "Papabel suspecte klieren",
+          "interactive": true,
+          "options": [
+            {
+              "value": "afwezig",
+              "label": "Afwezig",
+              "edge": "edge-papabel-afwezig"
+            },
+            {
+              "value": "aanwezig",
+              "label": "Aanwezig",
+              "edge": "edge-papabel-aanwezig"
+            }
+          ]
+        },
+        {
+          "id": "gefixeerd",
+          "type": "dataItem",
+          "gridX": 81,
+          "gridY": 81,
+          "label": "Gefixeerde klier",
+          "interactive": true,
+          "options": [
+            {
+              "value": "gefixeerd",
+              "label": "Gefixeerd",
+              "edge": "edge-gefixeerd-gefixeerd"
+            },
+            {
+              "value": "niet-gefixeerd",
+              "label": "Niet gefixeerd",
+              "edge": "edge-gefixeerd-niet-gefixeerd"
+            }
+          ]
+        },
+        {
+          "id": "ulcererend",
+          "type": "dataItem",
+          "gridX": 81,
+          "gridY": 127,
+          "label": "Ulcererende klier",
+          "interactive": true,
+          "options": [
+            {
+              "value": "ulcererend",
+              "label": "Ulcererend",
+              "edge": "edge-ulcererend-ulcererend"
+            },
+            {
+              "value": "niet-ulcererend",
+              "label": "Niet ulcererend",
+              "edge": "edge-ulcererend-niet-ulcererend"
+            }
+          ]
+        },
+        {
+          "id": "lateraliteit",
+          "type": "dataItem",
+          "gridX": 81,
+          "gridY": 173,
+          "label": "Lateraliteit",
+          "interactive": true,
+          "options": [
+            {
+              "value": "bilateraal",
+              "label": "Bilateraal",
+              "edge": "edge-lateraliteit-bilateraal"
+            },
+            {
+              "value": "unilateraal",
+              "label": "Unilateraal",
+              "edge": "edge-lateraliteit-unilateraal"
+            }
+          ]
+        },
+        {
+          "id": "o-cn0",
+          "type": "recommendation",
+          "gridX": 24,
+          "gridY": 219,
+          "text": "cN0"
+        },
+        {
+          "id": "o-cn1",
+          "type": "recommendation",
+          "gridX": 81,
+          "gridY": 219,
+          "text": "cN1"
+        },
+        {
+          "id": "o-cn2",
+          "type": "recommendation",
+          "gridX": 139,
+          "gridY": 219,
+          "text": "cN2"
+        },
+        {
+          "id": "o-cn3",
+          "type": "recommendation",
+          "gridX": 197,
+          "gridY": 219,
+          "text": "cN3"
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-root-papabel",
+          "from": "root",
+          "to": "papabel",
+          "points": [
+            [
+              525,
+              125
+            ],
+            [
+              525,
+              175
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-papabel-afwezig",
+          "from": "papabel",
+          "to": "o-cn0",
+          "value": "afwezig",
+          "label": "Afwezig",
+          "points": [
+            [
+              405,
+              230
+            ],
+            [
+              235,
+              230
+            ],
+            [
+              235,
+              1095
+            ]
+          ],
+          "dot": [
+            320,
+            230
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-papabel-aanwezig",
+          "from": "papabel",
+          "to": "gefixeerd",
+          "value": "aanwezig",
+          "label": "Aanwezig",
+          "points": [
+            [
+              525,
+              295
+            ],
+            [
+              525,
+              405
+            ]
+          ],
+          "dot": [
+            525,
+            345
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-gefixeerd-gefixeerd",
+          "from": "gefixeerd",
+          "to": "o-cn3",
+          "value": "gefixeerd",
+          "label": "Gefixeerd",
+          "points": [
+            [
+              635,
+              460
+            ],
+            [
+              1100,
+              460
+            ],
+            [
+              1100,
+              1095
+            ]
+          ],
+          "dot": [
+            870,
+            460
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-gefixeerd-niet-gefixeerd",
+          "from": "gefixeerd",
+          "to": "ulcererend",
+          "value": "niet-gefixeerd",
+          "label": "Niet gefixeerd",
+          "points": [
+            [
+              525,
+              525
+            ],
+            [
+              525,
+              635
+            ]
+          ],
+          "dot": [
+            525,
+            575
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-ulcererend-ulcererend",
+          "from": "ulcererend",
+          "to": "o-cn3",
+          "value": "ulcererend",
+          "label": "Ulcererend",
+          "points": [
+            [
+              635,
+              690
+            ],
+            [
+              1100,
+              690
+            ]
+          ],
+          "selectedPoints": [
+            [
+              635,
+              690
+            ],
+            [
+              1100,
+              690
+            ],
+            [
+              1100,
+              1095
+            ]
+          ],
+          "dot": [
+            870,
+            690
+          ]
+        },
+        {
+          "id": "edge-ulcererend-niet-ulcererend",
+          "from": "ulcererend",
+          "to": "lateraliteit",
+          "value": "niet-ulcererend",
+          "label": "Niet ulcererend",
+          "points": [
+            [
+              525,
+              755
+            ],
+            [
+              525,
+              865
+            ]
+          ],
+          "dot": [
+            525,
+            805
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-lateraliteit-bilateraal",
+          "from": "lateraliteit",
+          "to": "o-cn2",
+          "value": "bilateraal",
+          "label": "Bilateraal",
+          "points": [
+            [
+              635,
+              920
+            ],
+            [
+              810,
+              920
+            ],
+            [
+              810,
+              1095
+            ]
+          ],
+          "dot": [
+            725,
+            920
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-lateraliteit-unilateraal",
+          "from": "lateraliteit",
+          "to": "o-cn1",
+          "value": "unilateraal",
+          "label": "Unilateraal",
+          "points": [
+            [
+              525,
+              985
+            ],
+            [
+              525,
+              1095
+            ]
+          ],
+          "dot": [
+            525,
+            1035
+          ],
+          "arrow": true
+        }
+      ]
+    },
+    "sub-ct": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 46,
+        "blockHeight": 24,
+        "margin": 4
+      },
+      "nodes": [
+        {
+          "id": "root",
+          "type": "title",
+          "gridX": 126,
+          "gridY": 4,
+          "tone": "blue",
+          "label": "cT",
+          "icon": "minus-light",
+          "to": "",
+          "rx": 40
+        },
+        {
+          "id": "uitbreiding",
+          "type": "dataItem",
+          "gridX": 126,
+          "gridY": 40,
+          "label": "Tumor uitbreiding",
+          "interactive": true,
+          "options": [
+            {
+              "value": "in-situ",
+              "label": "Carcinoma in situ, Intraepitheliaal carcinoom",
+              "edge": "edge-uitbreiding-in-situ"
+            },
+            {
+              "value": "beperkt",
+              "label": "Beperkt tot vulva, of perineum",
+              "edge": "edge-uitbreiding-beperkt"
+            },
+            {
+              "value": "onderste-derde",
+              "label": "Onderste derde urethra, Onderste derde vagina, Anus",
+              "edge": "edge-uitbreiding-onderste-derde"
+            },
+            {
+              "value": "bovenste-twee-derde",
+              "label": "Bovenste 2/3 urethra, Bovenste 2/3 vagina, Tunica mucosa vesicae urinariae (betrokkenheid met blaasslijmvlies), Mucosa van rectum, Ingroei in bekkenbot",
+              "edge": "edge-uitbreiding-bovenste-twee-derde"
+            }
+          ]
+        },
+        {
+          "id": "diameter",
+          "type": "dataItem",
+          "gridX": 126,
+          "gridY": 90,
+          "label": "cT diameter",
+          "interactive": true,
+          "options": [
+            {
+              "value": "lte-2",
+              "label": "<=2 cm",
+              "edge": "edge-diameter-lte-2"
+            },
+            {
+              "value": "gt-2",
+              "label": ">2 cm",
+              "edge": "edge-diameter-gt-2"
+            }
+          ]
+        },
+        {
+          "id": "stromaal",
+          "type": "dataItem",
+          "gridX": 69,
+          "gridY": 126,
+          "label": "Stromale invasie",
+          "interactive": true,
+          "options": [
+            {
+              "value": "lte-1",
+              "label": "<=1 mm",
+              "edge": "edge-stromaal-lte-1"
+            },
+            {
+              "value": "gt-1",
+              "label": ">1 mm",
+              "edge": "edge-stromaal-gt-1"
+            }
+          ]
+        },
+        {
+          "id": "o-ctis",
+          "type": "recommendation",
+          "gridX": 11,
+          "gridY": 175,
+          "text": "cTis"
+        },
+        {
+          "id": "o-ct1a",
+          "type": "recommendation",
+          "gridX": 69,
+          "gridY": 175,
+          "text": "cT1a"
+        },
+        {
+          "id": "o-ct1b",
+          "type": "recommendation",
+          "gridX": 126,
+          "gridY": 175,
+          "text": "cT1b"
+        },
+        {
+          "id": "o-ct2",
+          "type": "recommendation",
+          "gridX": 184,
+          "gridY": 175,
+          "text": "cT2"
+        },
+        {
+          "id": "o-ct3",
+          "type": "recommendation",
+          "gridX": 242,
+          "gridY": 175,
+          "text": "cT3"
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-root-uitbreiding",
+          "from": "root",
+          "to": "uitbreiding",
+          "points": [
+            [
+              745,
+              140
+            ],
+            [
+              745,
+              200
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-uitbreiding-in-situ",
+          "from": "uitbreiding",
+          "to": "o-ctis",
+          "value": "in-situ",
+          "label": "Carcinoma in situ,\nIntraepitheliaal carcinoom",
+          "points": [
+            [
+              630,
+              260
+            ],
+            [
+              170,
+              260
+            ],
+            [
+              170,
+              875
+            ]
+          ],
+          "dot": [
+            400,
+            260
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-uitbreiding-beperkt",
+          "from": "uitbreiding",
+          "to": "diameter",
+          "value": "beperkt",
+          "label": "Beperkt tot vulva,\nof perineum",
+          "points": [
+            [
+              745,
+              320
+            ],
+            [
+              745,
+              450
+            ]
+          ],
+          "dot": [
+            745,
+            385
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-uitbreiding-onderste-derde",
+          "from": "uitbreiding",
+          "to": "o-ct2",
+          "value": "onderste-derde",
+          "label": "Onderste derde urethra,\nOnderste derde vagina,\nAnus",
+          "points": [
+            [
+              860,
+              260
+            ],
+            [
+              1035,
+              260
+            ],
+            [
+              1035,
+              875
+            ]
+          ],
+          "dot": [
+            1035,
+            570
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-uitbreiding-bovenste-twee-derde",
+          "from": "uitbreiding",
+          "to": "o-ct3",
+          "value": "bovenste-twee-derde",
+          "label": "Bovenste 2/3 urethra,\nBovenste 2/3 vagina,\nTunica mucosa vesicae urinariae\n(betrokkenheid met blaasslijmvlies),\nMucosa van rectum,\nIngroei in bekkenbot",
+          "points": [
+            [
+              1035,
+              260
+            ],
+            [
+              1325,
+              260
+            ],
+            [
+              1325,
+              875
+            ]
+          ],
+          "selectedPoints": [
+            [
+              860,
+              260
+            ],
+            [
+              1035,
+              260
+            ],
+            [
+              1325,
+              260
+            ],
+            [
+              1325,
+              875
+            ]
+          ],
+          "dot": [
+            1180,
+            260
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-diameter-lte-2",
+          "from": "diameter",
+          "to": "stromaal",
+          "value": "lte-2",
+          "label": "<=2 cm",
+          "points": [
+            [
+              630,
+              510
+            ],
+            [
+              460,
+              510
+            ],
+            [
+              460,
+              630
+            ]
+          ],
+          "dot": [
+            545,
+            510
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-diameter-gt-2",
+          "from": "diameter",
+          "to": "o-ct1b",
+          "value": "gt-2",
+          "label": ">2 cm",
+          "points": [
+            [
+              745,
+              570
+            ],
+            [
+              745,
+              875
+            ]
+          ],
+          "dot": [
+            745,
+            630
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-stromaal-lte-1",
+          "from": "stromaal",
+          "to": "o-ct1a",
+          "value": "lte-1",
+          "label": "<=1 mm",
+          "points": [
+            [
+              460,
+              750
+            ],
+            [
+              460,
+              875
+            ]
+          ],
+          "dot": [
+            460,
+            815
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-stromaal-gt-1",
+          "from": "stromaal",
+          "to": "o-ct1b",
+          "value": "gt-1",
+          "label": ">1 mm",
+          "points": [
+            [
+              575,
+              690
+            ],
+            [
+              745,
+              690
+            ]
+          ],
+          "selectedPoints": [
+            [
+              575,
+              690
+            ],
+            [
+              745,
+              690
+            ],
+            [
+              745,
+              875
+            ]
+          ],
+          "dot": [
+            660,
+            690
+          ]
+        }
+      ]
+    },
+    "sub-pn": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 46,
+        "blockHeight": 24,
+        "margin": 6
+      },
+      "nodes": [
+        {
+          "id": "root",
+          "type": "title",
+          "gridX": 162,
+          "gridY": 11,
+          "tone": "blue",
+          "label": "pN",
+          "icon": "minus-light",
+          "to": "",
+          "rx": 40
+        },
+        {
+          "id": "positief",
+          "type": "dataItem",
+          "gridX": 162,
+          "gridY": 48,
+          "label": "Positieve regionale lymfeklieren",
+          "interactive": true,
+          "options": [
+            {
+              "value": "niet-te-beoordelen",
+              "label": "Niet te beoordelen",
+              "edge": "edge-positief-niet-te-beoordelen"
+            },
+            {
+              "value": "afwezig",
+              "label": "Afwezig",
+              "edge": "edge-positief-afwezig"
+            },
+            {
+              "value": "aanwezig",
+              "label": "Aanwezig",
+              "edge": "edge-positief-aanwezig"
+            }
+          ]
+        },
+        {
+          "id": "kenmerken",
+          "type": "dataItem",
+          "gridX": 318,
+          "gridY": 79,
+          "label": "Kenmerken pN",
+          "interactive": true,
+          "options": [
+            {
+              "value": "geen",
+              "label": "Geen",
+              "edge": "edge-kenmerken-geen"
+            },
+            {
+              "value": "extracapsulair",
+              "label": "Extracapsulaire uitbreiding",
+              "edge": "edge-kenmerken-extracapsulair"
+            },
+            {
+              "value": "ulcererend-gefixeerd",
+              "label": "Ulcererend, gefixeerd",
+              "edge": "edge-kenmerken-ulcererend-gefixeerd"
+            }
+          ]
+        },
+        {
+          "id": "aantal-positief",
+          "type": "dataItem",
+          "gridX": 214,
+          "gridY": 109,
+          "label": "Aantal positieve klieren",
+          "interactive": true,
+          "options": [
+            {
+              "value": "lte-2",
+              "label": "<=2",
+              "edge": "edge-aantal-positief-lte-2"
+            },
+            {
+              "value": "gte-3",
+              "label": ">=3",
+              "edge": "edge-aantal-positief-gte-3"
+            }
+          ]
+        },
+        {
+          "id": "mm5-links",
+          "type": "dataItem",
+          "gridX": 162,
+          "gridY": 139,
+          "label": "Aantal klieren ≥ 5 mm",
+          "interactive": true,
+          "options": [
+            {
+              "value": "0",
+              "label": "0",
+              "edge": "edge-mm5-links-0"
+            },
+            {
+              "value": "1",
+              "label": "1",
+              "edge": "edge-mm5-links-1"
+            },
+            {
+              "value": "2",
+              "label": "2",
+              "edge": "edge-mm5-links-2"
+            }
+          ]
+        },
+        {
+          "id": "mm5-rechts",
+          "type": "dataItem",
+          "gridX": 266,
+          "gridY": 139,
+          "label": "Aantal klieren ≥ 5 mm",
+          "interactive": true,
+          "options": [
+            {
+              "value": "lte-1",
+              "label": "<=1",
+              "edge": "edge-mm5-rechts-lte-1"
+            },
+            {
+              "value": "gte-2",
+              "label": ">=2",
+              "edge": "edge-mm5-rechts-gte-2"
+            }
+          ]
+        },
+        {
+          "id": "o-pnx",
+          "type": "recommendation",
+          "gridX": 6,
+          "gridY": 182,
+          "text": "pNX"
+        },
+        {
+          "id": "o-pn0",
+          "type": "recommendation",
+          "gridX": 58,
+          "gridY": 182,
+          "text": "pN0"
+        },
+        {
+          "id": "o-pn1a",
+          "type": "recommendation",
+          "gridX": 110,
+          "gridY": 182,
+          "text": "pN1a"
+        },
+        {
+          "id": "o-pn1b",
+          "type": "recommendation",
+          "gridX": 162,
+          "gridY": 182,
+          "text": "pN1b"
+        },
+        {
+          "id": "o-pn2b-links",
+          "type": "recommendation",
+          "gridX": 214,
+          "gridY": 182,
+          "text": "pN2b"
+        },
+        {
+          "id": "o-pn2a",
+          "type": "recommendation",
+          "gridX": 266,
+          "gridY": 182,
+          "text": "pN2a"
+        },
+        {
+          "id": "o-pn2b-rechts",
+          "type": "recommendation",
+          "gridX": 318,
+          "gridY": 182,
+          "text": "pN2b"
+        },
+        {
+          "id": "o-pn2c",
+          "type": "recommendation",
+          "gridX": 370,
+          "gridY": 182,
+          "text": "pN2c"
+        },
+        {
+          "id": "o-pn3",
+          "type": "recommendation",
+          "gridX": 422,
+          "gridY": 182,
+          "text": "pN3"
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-root-positief",
+          "from": "root",
+          "to": "positief",
+          "points": [
+            [
+              925,
+              175
+            ],
+            [
+              925,
+              240
+            ]
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-positief-niet-te-beoordelen",
+          "from": "positief",
+          "to": "o-pnx",
+          "value": "niet-te-beoordelen",
+          "label": "Niet te beoordelen",
+          "points": [
+            [
+              810,
+              300
+            ],
+            [
+              145,
+              300
+            ],
+            [
+              145,
+              910
+            ]
+          ],
+          "dot": [
+            275,
+            300
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-positief-afwezig",
+          "from": "positief",
+          "to": "o-pn0",
+          "value": "afwezig",
+          "label": "Afwezig",
+          "points": [
+            [
+              405,
+              300
+            ],
+            [
+              405,
+              910
+            ]
+          ],
+          "selectedPoints": [
+            [
+              810,
+              300
+            ],
+            [
+              405,
+              300
+            ],
+            [
+              405,
+              910
+            ]
+          ],
+          "dot": [
+            405,
+            605
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-positief-aanwezig",
+          "from": "positief",
+          "to": "kenmerken",
+          "value": "aanwezig",
+          "label": "Aanwezig",
+          "points": [
+            [
+              1040,
+              300
+            ],
+            [
+              1705,
+              300
+            ],
+            [
+              1705,
+              395
+            ]
+          ],
+          "dot": [
+            1375,
+            300
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-kenmerken-geen",
+          "from": "kenmerken",
+          "to": "aantal-positief",
+          "value": "geen",
+          "label": "Geen",
+          "points": [
+            [
+              1590,
+              455
+            ],
+            [
+              1185,
+              455
+            ],
+            [
+              1185,
+              545
+            ]
+          ],
+          "dot": [
+            1390,
+            455
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-kenmerken-extracapsulair",
+          "from": "kenmerken",
+          "to": "o-pn2c",
+          "value": "extracapsulair",
+          "label": "Extracapsulaire uitbreiding",
+          "points": [
+            [
+              1820,
+              455
+            ],
+            [
+              1965,
+              455
+            ],
+            [
+              1965,
+              910
+            ]
+          ],
+          "dot": [
+            1965,
+            680
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-kenmerken-ulcererend-gefixeerd",
+          "from": "kenmerken",
+          "to": "o-pn3",
+          "value": "ulcererend-gefixeerd",
+          "label": "Ulcererend,\ngefixeerd",
+          "points": [
+            [
+              1965,
+              455
+            ],
+            [
+              2225,
+              455
+            ],
+            [
+              2225,
+              910
+            ]
+          ],
+          "selectedPoints": [
+            [
+              1820,
+              455
+            ],
+            [
+              1965,
+              455
+            ],
+            [
+              2225,
+              455
+            ],
+            [
+              2225,
+              910
+            ]
+          ],
+          "dot": [
+            2095,
+            455
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-aantal-positief-lte-2",
+          "from": "aantal-positief",
+          "to": "mm5-links",
+          "value": "lte-2",
+          "label": "<=2",
+          "points": [
+            [
+              1070,
+              605
+            ],
+            [
+              925,
+              605
+            ],
+            [
+              925,
+              695
+            ]
+          ],
+          "dot": [
+            1000,
+            605
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-aantal-positief-gte-3",
+          "from": "aantal-positief",
+          "to": "mm5-rechts",
+          "value": "gte-3",
+          "label": ">=3",
+          "points": [
+            [
+              1300,
+              605
+            ],
+            [
+              1445,
+              605
+            ],
+            [
+              1445,
+              695
+            ]
+          ],
+          "dot": [
+            1375,
+            605
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-mm5-links-0",
+          "from": "mm5-links",
+          "to": "o-pn1a",
+          "value": "0",
+          "label": "0",
+          "points": [
+            [
+              810,
+              755
+            ],
+            [
+              665,
+              755
+            ],
+            [
+              665,
+              910
+            ]
+          ],
+          "dot": [
+            740,
+            755
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-mm5-links-1",
+          "from": "mm5-links",
+          "to": "o-pn1b",
+          "value": "1",
+          "label": "1",
+          "points": [
+            [
+              925,
+              815
+            ],
+            [
+              925,
+              910
+            ]
+          ],
+          "dot": [
+            925,
+            865
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-mm5-links-2",
+          "from": "mm5-links",
+          "to": "o-pn2b-links",
+          "value": "2",
+          "label": "2",
+          "points": [
+            [
+              1040,
+              755
+            ],
+            [
+              1185,
+              755
+            ],
+            [
+              1185,
+              910
+            ]
+          ],
+          "dot": [
+            1115,
+            755
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-mm5-rechts-lte-1",
+          "from": "mm5-rechts",
+          "to": "o-pn2a",
+          "value": "lte-1",
+          "label": "<=1",
+          "points": [
+            [
+              1445,
+              815
+            ],
+            [
+              1445,
+              910
+            ]
+          ],
+          "dot": [
+            1445,
+            865
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-mm5-rechts-gte-2",
+          "from": "mm5-rechts",
+          "to": "o-pn2b-rechts",
+          "value": "gte-2",
+          "label": ">=2",
+          "points": [
+            [
+              1560,
+              755
+            ],
+            [
+              1705,
+              755
+            ],
+            [
+              1705,
+              910
+            ]
+          ],
+          "dot": [
+            1635,
+            755
+          ],
+          "arrow": true
+        }
+      ]
+    },
+    "sn-rechts": {
+      "same": "sn-links"
     }
-  ]
+  }
 }
