@@ -2,130 +2,131 @@
   "id": "endometrium",
   "titel": "Zorgpad endometriumcarcinoom 2022",
   "overview": {
-    "viewBox": [
-      1460,
-      2050
-    ],
-    "nodeSize": [
-      230,
-      120
-    ],
+    "layout": {
+      "unit": 5,
+      "blockWidth": 46,
+      "blockHeight": 24,
+      "margin": 5
+    },
     "nodes": [
       {
         "id": "start",
-        "type": "start",
-        "x": 615,
-        "y": 25,
+        "type": "title",
+        "gridX": 123,
+        "gridY": 5,
         "label": "Zorgpad endometriumcarcinoom 2022"
       },
       {
         "id": "initieel",
+        "gridX": 123,
+        "gridY": 36,
         "drill": true,
-        "label": "Initiële diagnostiek 2022",
-        "x": 615,
-        "y": 180
+        "label": "Initiële diagnostiek 2022"
       },
       {
         "id": "aanvullend",
+        "gridX": 123,
+        "gridY": 67,
         "drill": true,
-        "label": "Aanvullende diagnostiek 2022",
-        "x": 615,
-        "y": 335
+        "label": "Aanvullende diagnostiek 2022"
       },
       {
         "id": "stagering",
+        "gridX": 123,
+        "gridY": 98,
         "drill": true,
-        "label": "Stageringsdiagnostiek 2022",
-        "x": 615,
-        "y": 490
+        "label": "Stageringsdiagnostiek 2022"
       },
       {
         "id": "primair",
+        "gridX": 123,
+        "gridY": 129,
         "drill": true,
-        "label": "Primaire behandeling 2022",
-        "x": 615,
-        "y": 645
+        "label": "Primaire behandeling 2022"
       },
       {
         "id": "kinder-primair",
+        "gridX": 48,
+        "gridY": 160,
         "drill": true,
-        "label": "Kinderwens en primaire behandeling 2022",
-        "x": 240,
-        "y": 800
+        "label": "Kinderwens en primaire behandeling 2022"
       },
       {
         "id": "evaluatie-stadiering",
+        "gridX": 198,
+        "gridY": 160,
         "drill": true,
-        "label": "Evaluatie stadiëring 2022",
-        "x": 990,
-        "y": 800
+        "label": "Evaluatie stadiëring 2022"
       },
       {
         "id": "adjuvant-endometrioid",
+        "gridX": 123,
+        "gridY": 191,
         "drill": true,
-        "label": "Adjuvante behandeling endometrioïd 2022",
-        "x": 615,
-        "y": 955
+        "label": "Adjuvante behandeling endometrioïd 2022"
       },
       {
         "id": "adjuvant-serous",
+        "gridX": 198,
+        "gridY": 191,
         "drill": true,
-        "label": "Adjuvante behandeling sereus/clear cell 2022",
-        "x": 990,
-        "y": 955
+        "label": "Adjuvante behandeling sereus/clear cell 2022"
       },
       {
         "id": "kinder-vervolg",
+        "gridX": 48,
+        "gridY": 222,
         "drill": true,
-        "label": "Kinderwens en vervolg behandeling 2022",
-        "x": 240,
-        "y": 1110
+        "label": "Kinderwens en vervolg behandeling 2022"
       },
       {
         "id": "followup",
+        "gridX": 123,
+        "gridY": 253,
         "drill": true,
-        "label": "Follow up 2022",
-        "x": 615,
-        "y": 1265
+        "label": "Follow up 2022"
       },
       {
         "id": "kinder-conceptie",
+        "gridX": 48,
+        "gridY": 284,
         "drill": true,
-        "label": "Kinderwens en conceptiefase 2022",
-        "x": 240,
-        "y": 1420
+        "label": "Kinderwens en conceptiefase 2022"
       },
       {
         "id": "recidiefdiag",
+        "gridX": 123,
+        "gridY": 315,
         "drill": true,
-        "label": "Recidief diagnostiek 2022",
-        "x": 615,
-        "y": 1575
+        "label": "Recidief diagnostiek 2022"
       },
       {
         "id": "kinder-followup",
+        "gridX": 48,
+        "gridY": 346,
         "drill": true,
-        "label": "Kinderwens en follow up tijdens conceptiefase 2022",
-        "x": 240,
-        "y": 1730
+        "label": "Kinderwens en follow up tijdens conceptiefase 2022"
       },
       {
         "id": "recidiefbehandeling",
+        "gridX": 123,
+        "gridY": 377,
         "drill": true,
-        "label": "Recidief behandeling 2022",
-        "x": 615,
-        "y": 1885
+        "label": "Recidief behandeling 2022"
       },
       {
         "id": "kinder-vervolg-followup",
+        "gridX": 48,
+        "gridY": 377,
         "drill": true,
-        "label": "Kinderwens vervolg follow up tijdens conceptiefase 2022",
-        "x": 240,
-        "y": 1885
+        "label": "Kinderwens vervolg follow up tijdens conceptiefase 2022"
       }
     ],
     "edges": [
       {
+        "id": "edge-start-initieel",
+        "from": "start",
+        "to": "initieel",
         "points": [
           [
             730,
@@ -139,6 +140,9 @@
         "arrow": true
       },
       {
+        "id": "edge-initieel-aanvullend",
+        "from": "initieel",
+        "to": "aanvullend",
         "points": [
           [
             730,
@@ -152,6 +156,9 @@
         "arrow": true
       },
       {
+        "id": "edge-aanvullend-stagering",
+        "from": "aanvullend",
+        "to": "stagering",
         "points": [
           [
             730,
@@ -165,6 +172,9 @@
         "arrow": true
       },
       {
+        "id": "edge-stagering-primair",
+        "from": "stagering",
+        "to": "primair",
         "points": [
           [
             730,
@@ -178,6 +188,9 @@
         "arrow": true
       },
       {
+        "id": "edge-primair-kinder-primair",
+        "from": "primair",
+        "to": "kinder-primair",
         "points": [
           [
             615,
@@ -195,6 +208,9 @@
         "arrow": true
       },
       {
+        "id": "edge-primair-evaluatie-stadiering",
+        "from": "primair",
+        "to": "evaluatie-stadiering",
         "points": [
           [
             845,
@@ -212,6 +228,9 @@
         "arrow": true
       },
       {
+        "id": "edge-primair-adjuvant-endometrioid",
+        "from": "primair",
+        "to": "adjuvant-endometrioid",
         "points": [
           [
             730,
@@ -225,6 +244,9 @@
         "arrow": true
       },
       {
+        "id": "edge-evaluatie-stadiering-adjuvant-serous",
+        "from": "evaluatie-stadiering",
+        "to": "adjuvant-serous",
         "points": [
           [
             1105,
@@ -238,6 +260,9 @@
         "arrow": true
       },
       {
+        "id": "edge-kinder-primair-kinder-vervolg",
+        "from": "kinder-primair",
+        "to": "kinder-vervolg",
         "points": [
           [
             355,
@@ -251,6 +276,9 @@
         "arrow": true
       },
       {
+        "id": "edge-adjuvant-endometrioid-followup",
+        "from": "adjuvant-endometrioid",
+        "to": "followup",
         "points": [
           [
             730,
@@ -264,6 +292,9 @@
         "arrow": true
       },
       {
+        "id": "edge-kinder-vervolg-kinder-conceptie",
+        "from": "kinder-vervolg",
+        "to": "kinder-conceptie",
         "points": [
           [
             355,
@@ -277,6 +308,9 @@
         "arrow": true
       },
       {
+        "id": "edge-followup-recidiefdiag",
+        "from": "followup",
+        "to": "recidiefdiag",
         "points": [
           [
             730,
@@ -290,6 +324,9 @@
         "arrow": true
       },
       {
+        "id": "edge-kinder-conceptie-kinder-followup",
+        "from": "kinder-conceptie",
+        "to": "kinder-followup",
         "points": [
           [
             355,
@@ -303,6 +340,9 @@
         "arrow": true
       },
       {
+        "id": "edge-recidiefdiag-recidiefbehandeling",
+        "from": "recidiefdiag",
+        "to": "recidiefbehandeling",
         "points": [
           [
             730,
@@ -316,6 +356,9 @@
         "arrow": true
       },
       {
+        "id": "edge-kinder-followup-kinder-vervolg-followup",
+        "from": "kinder-followup",
+        "to": "kinder-vervolg-followup",
         "points": [
           [
             355,
@@ -332,22 +375,19 @@
   },
   "trees": {
     "initieel": {
-      "viewBox": [
-        600,
-        900
-      ],
-      "nodeSize": [
-        300,
-        150
-      ],
-      "native": true,
+      "layout": {
+        "unit": 5,
+        "blockWidth": 60,
+        "blockHeight": 30,
+        "margin": 5
+      },
       "wrap": 24,
       "nodes": [
         {
           "id": "root",
-          "type": "root",
-          "x": 150,
-          "y": 25,
+          "type": "title",
+          "gridX": 30,
+          "gridY": 5,
           "label": "Initiële diagnostiek 2022",
           "icon": "minus-light",
           "tone": "blue",
@@ -357,16 +397,16 @@
         {
           "id": "acties",
           "type": "decision",
-          "x": 150,
-          "y": 250,
-          "h": 350,
+          "gridX": 30,
+          "gridY": 50,
+          "height": 70,
           "text": "Anamnese\n\nEN\n\nGynaecologisch onderzoek\n{i}incl rectaal toucher\n\nEN\n\nTransvaginale echo"
         },
         {
           "id": "volgende",
-          "type": "link",
-          "x": 150,
-          "y": 700,
+          "type": "reference",
+          "gridX": 30,
+          "gridY": 140,
           "label": "Aanvullende diagnostiek 2022",
           "icon": "down",
           "to": "aanvullend"
@@ -374,6 +414,9 @@
       ],
       "edges": [
         {
+          "id": "edge-root-acties",
+          "from": "root",
+          "to": "acties",
           "points": [
             [
               300,
@@ -389,6 +432,9 @@
           "width": 6
         },
         {
+          "id": "edge-acties-volgende",
+          "from": "acties",
+          "to": "volgende",
           "points": [
             [
               300,
@@ -404,22 +450,19 @@
       ]
     },
     "aanvullend": {
-      "viewBox": [
-        950,
-        1100
-      ],
-      "nodeSize": [
-        300,
-        155
-      ],
-      "native": true,
+      "layout": {
+        "unit": 5,
+        "blockWidth": 60,
+        "blockHeight": 31,
+        "margin": 5
+      },
       "wrap": 24,
       "nodes": [
         {
           "id": "root",
-          "type": "root",
-          "x": 75,
-          "y": 25,
+          "type": "title",
+          "gridX": 15,
+          "gridY": 5,
           "label": "Aanvullende diagnostiek 2022",
           "icon": "minus-light",
           "tone": "blue",
@@ -428,9 +471,9 @@
         },
         {
           "id": "echo",
-          "type": "criterion",
-          "x": 75,
-          "y": 250,
+          "type": "dataItem",
+          "gridX": 15,
+          "gridY": 50,
           "label": "Uitslag echo",
           "interactive": true,
           "options": [
@@ -448,24 +491,24 @@
         },
         {
           "id": "normaal",
-          "type": "outcome",
-          "x": 75,
-          "y": 620,
+          "type": "recommendation",
+          "gridX": 15,
+          "gridY": 124,
           "text": "Wordt niet beschreven in\nde richtlijn"
         },
         {
           "id": "afwijkend",
-          "type": "outcome",
-          "x": 500,
-          "y": 620,
-          "h": 230,
+          "type": "recommendation",
+          "gridX": 100,
+          "gridY": 124,
+          "height": 46,
           "text": "Endometriumsampling\n\nEN\n\nEndocervicale curettage\n{i}indien baarmoeder afwijkend is"
         },
         {
           "id": "volgende",
-          "type": "link",
-          "x": 500,
-          "y": 920,
+          "type": "reference",
+          "gridX": 100,
+          "gridY": 184,
           "label": "Stageringsdiagnostiek 2022",
           "icon": "down",
           "to": "stagering"
@@ -493,52 +536,52 @@
           "from": "echo",
           "to": "normaal",
           "value": "normaal",
+          "label": "Normaal",
           "points": [
             [
               75,
-              328
+              330
             ],
             [
               225,
-              328
+              330
             ],
             [
               225,
               620
             ]
           ],
-          "arrow": true,
-          "label": "Normaal",
           "dot": [
             225,
             500
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-echo-afwijkend",
           "from": "echo",
           "to": "afwijkend",
           "value": "afwijkend",
+          "label": "Afwijkend",
           "points": [
             [
               375,
-              328
+              330
             ],
             [
               650,
-              328
+              330
             ],
             [
               650,
               620
             ]
           ],
-          "arrow": true,
-          "label": "Afwijkend",
           "dot": [
             525,
-            328
-          ]
+            330
+          ],
+          "arrow": true
         },
         {
           "id": "edge-afwijkend-volgende",
@@ -559,22 +602,19 @@
       ]
     },
     "stagering": {
-      "viewBox": [
-        1700,
-        1700
-      ],
-      "nodeSize": [
-        360,
-        190
-      ],
-      "native": true,
+      "layout": {
+        "unit": 5,
+        "blockWidth": 72,
+        "blockHeight": 38,
+        "margin": 5
+      },
       "wrap": 24,
       "nodes": [
         {
           "id": "root",
-          "type": "root",
-          "x": 60,
-          "y": 25,
+          "type": "title",
+          "gridX": 12,
+          "gridY": 5,
           "label": "Stageringsdiagnostiek 2022",
           "icon": "minus-light",
           "tone": "blue",
@@ -583,9 +623,9 @@
         },
         {
           "id": "uitslag",
-          "type": "criterion",
-          "x": 60,
-          "y": 280,
+          "type": "dataItem",
+          "gridX": 12,
+          "gridY": 56,
           "label": "Uitslag endometrium sampling",
           "interactive": true,
           "options": [
@@ -603,9 +643,9 @@
         },
         {
           "id": "graad",
-          "type": "criterion",
-          "x": 470,
-          "y": 540,
+          "type": "dataItem",
+          "gridX": 94,
+          "gridY": 108,
           "label": "Graad",
           "icon": "plus-light",
           "interactive": true,
@@ -624,9 +664,9 @@
         },
         {
           "id": "uitbreiding",
-          "type": "criterion",
-          "x": 470,
-          "y": 860,
+          "type": "dataItem",
+          "gridX": 94,
+          "gridY": 172,
           "label": "Verdenking uitbreiding",
           "interactive": true,
           "options": [
@@ -644,56 +684,56 @@
         },
         {
           "id": "benigne",
-          "type": "outcome",
-          "x": 60,
-          "y": 1250,
+          "type": "recommendation",
+          "gridX": 12,
+          "gridY": 250,
           "text": "Individualiseer behandeling volgens\ndesbetreffende richtlijn"
         },
         {
           "id": "geen",
-          "type": "outcome",
-          "x": 470,
-          "y": 1250,
+          "type": "recommendation",
+          "gridX": 94,
+          "gridY": 250,
           "text": "X-thorax"
         },
         {
           "id": "uitbr",
-          "type": "outcome",
-          "x": 880,
-          "y": 1250,
-          "h": 285,
+          "type": "recommendation",
+          "gridX": 176,
+          "gridY": 250,
+          "height": 57,
           "text": "CA-125\n\nEN\n\nCystoscopie en/of Rectoscopie\n\nEN\n\nCT/MRI"
         },
         {
           "id": "g3",
-          "type": "outcome",
-          "x": 1290,
-          "y": 1250,
+          "type": "recommendation",
+          "gridX": 258,
+          "gridY": 250,
           "text": "CA-125\n\nEN\n\nCT-abdomen"
         },
         {
           "id": "p1",
-          "type": "link",
-          "x": 470,
-          "y": 1510,
+          "type": "reference",
+          "gridX": 94,
+          "gridY": 302,
           "label": "Primaire behandeling 2022",
           "icon": "down",
           "to": "primair"
         },
         {
           "id": "p2",
-          "type": "link",
-          "x": 880,
-          "y": 1510,
+          "type": "reference",
+          "gridX": 176,
+          "gridY": 302,
           "label": "Primaire behandeling 2022",
           "icon": "down",
           "to": "primair"
         },
         {
           "id": "p3",
-          "type": "link",
-          "x": 1290,
-          "y": 1510,
+          "type": "reference",
+          "gridX": 258,
+          "gridY": 302,
           "label": "Primaire behandeling 2022",
           "icon": "down",
           "to": "primair"
@@ -721,6 +761,7 @@
           "from": "uitslag",
           "to": "benigne",
           "value": "benigne",
+          "label": "Benigne",
           "points": [
             [
               60,
@@ -735,18 +776,18 @@
               1250
             ]
           ],
-          "arrow": true,
-          "label": "Benigne",
           "dot": [
             240,
             780
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-uitslag-maligne",
           "from": "uitslag",
           "to": "graad",
           "value": "maligne",
+          "label": "Maligne",
           "points": [
             [
               420,
@@ -761,18 +802,18 @@
               540
             ]
           ],
-          "arrow": true,
-          "label": "Maligne",
           "dot": [
             530,
             375
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-graad-1-2",
           "from": "graad",
           "to": "uitbreiding",
           "value": "1-2",
+          "label": "1,2",
           "points": [
             [
               650,
@@ -783,18 +824,18 @@
               860
             ]
           ],
-          "arrow": true,
-          "label": "1,2",
           "dot": [
             650,
             790
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-graad-3",
           "from": "graad",
           "to": "g3",
           "value": "3",
+          "label": "3",
           "points": [
             [
               830,
@@ -809,18 +850,18 @@
               1250
             ]
           ],
-          "arrow": true,
-          "label": "3",
           "dot": [
             1110,
             635
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-uitbreiding-geen",
           "from": "uitbreiding",
           "to": "geen",
           "value": "geen",
+          "label": "Geen",
           "points": [
             [
               650,
@@ -831,18 +872,18 @@
               1250
             ]
           ],
-          "arrow": true,
-          "label": "Geen",
           "dot": [
             650,
             1140
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-uitbreiding-blaas-en-of-rectum",
           "from": "uitbreiding",
           "to": "uitbr",
           "value": "blaas-en-of-rectum",
+          "label": "Blaas en/of\nRectum",
           "points": [
             [
               830,
@@ -857,12 +898,11 @@
               1250
             ]
           ],
-          "arrow": true,
-          "label": "Blaas en/of\nRectum",
           "dot": [
             945,
             955
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-geen-p1",
@@ -915,23 +955,20 @@
       ]
     },
     "primair": {
-      "viewBox": [
-        2600,
-        1550
-      ],
-      "nodeSize": [
-        220,
-        120
-      ],
-      "native": true,
+      "layout": {
+        "unit": 5,
+        "blockWidth": 44,
+        "blockHeight": 24,
+        "margin": 3
+      },
       "zoom": 0.8,
       "wrap": 22,
       "nodes": [
         {
           "id": "root",
-          "type": "root",
-          "x": 1540,
-          "y": 15,
+          "type": "title",
+          "gridX": 308,
+          "gridY": 3,
           "label": "Primaire behandeling 2022",
           "icon": "minus-light",
           "tone": "blue",
@@ -940,9 +977,9 @@
         },
         {
           "id": "histologie",
-          "type": "criterion",
-          "x": 1540,
-          "y": 170,
+          "type": "dataItem",
+          "gridX": 308,
+          "gridY": 34,
           "label": "Histologie",
           "interactive": true,
           "options": [
@@ -960,9 +997,9 @@
         },
         {
           "id": "stadium-e",
-          "type": "criterion",
-          "x": 980,
-          "y": 345,
+          "type": "dataItem",
+          "gridX": 196,
+          "gridY": 69,
           "label": "Klinisch stadium",
           "icon": "plus-light",
           "interactive": true,
@@ -991,9 +1028,9 @@
         },
         {
           "id": "kinderwens",
-          "type": "criterion",
-          "x": 330,
-          "y": 520,
+          "type": "dataItem",
+          "gridX": 66,
+          "gridY": 104,
           "label": "Kinderwens",
           "interactive": true,
           "options": [
@@ -1011,9 +1048,9 @@
         },
         {
           "id": "graad",
-          "type": "criterion",
-          "x": 110,
-          "y": 700,
+          "type": "dataItem",
+          "gridX": 22,
+          "gridY": 140,
           "label": "Graad",
           "icon": "plus-light",
           "interactive": true,
@@ -1032,9 +1069,9 @@
         },
         {
           "id": "leeftijd",
-          "type": "criterion",
-          "x": 110,
-          "y": 875,
+          "type": "dataItem",
+          "gridX": 22,
+          "gridY": 175,
           "label": "Leeftijd",
           "interactive": true,
           "options": [
@@ -1052,9 +1089,9 @@
         },
         {
           "id": "pr",
-          "type": "criterion",
-          "x": 110,
-          "y": 1050,
+          "type": "dataItem",
+          "gridX": 22,
+          "gridY": 210,
           "label": "Status progesteron receptor",
           "interactive": true,
           "options": [
@@ -1072,9 +1109,9 @@
         },
         {
           "id": "locatie",
-          "type": "criterion",
-          "x": 980,
-          "y": 580,
+          "type": "dataItem",
+          "gridX": 196,
+          "gridY": 116,
           "label": "Locatie tumor",
           "interactive": true,
           "options": [
@@ -1092,9 +1129,9 @@
         },
         {
           "id": "radicaal",
-          "type": "criterion",
-          "x": 980,
-          "y": 780,
+          "type": "dataItem",
+          "gridX": 196,
+          "gridY": 156,
           "label": "Radicale behandeling mogelijk",
           "interactive": true,
           "options": [
@@ -1112,168 +1149,168 @@
         },
         {
           "id": "stadium-s",
-          "type": "criterion",
-          "x": 1960,
-          "y": 345,
+          "type": "dataItem",
+          "gridX": 392,
+          "gridY": 69,
           "label": "Klinisch stadium",
           "icon": "plus-light",
           "interactionNote": "Niet interactief (AMBIGUOUS): optie \"III\": pijl eindigt op de grens van meerdere nodes serousi,serousiii."
         },
         {
           "id": "mri",
-          "type": "outcome",
-          "x": 110,
-          "y": 1200,
+          "type": "recommendation",
+          "gridX": 22,
+          "gridY": 240,
           "text": "MRI\n\nEN\n\nHysteroscopie\n{i}indien nog niet verricht"
         },
         {
           "id": "hyst",
-          "type": "outcome",
-          "x": 380,
-          "y": 1120,
-          "h": 275,
+          "type": "recommendation",
+          "gridX": 76,
+          "gridY": 224,
+          "height": 55,
           "text": "Totale abdominale hysterectomie*\nOF\nTotale laparoscopische hysterectomie*\n\nEN\n\nBSO\n\n* zie onderbouwing"
         },
         {
           "id": "endoi",
-          "type": "outcome",
-          "x": 690,
-          "y": 1080,
-          "h": 300,
+          "type": "recommendation",
+          "gridX": 138,
+          "gridY": 216,
+          "height": 60,
           "text": "Verwijs naar oncologisch centrum\n\nEN\n\nHysterectomie\n{i}streef naar R0, indien nodig (gemodificeerde) radicale hysterectomie"
         },
         {
           "id": "endoiii",
-          "type": "outcome",
-          "x": 980,
-          "y": 1080,
-          "h": 340,
+          "type": "recommendation",
+          "gridX": 196,
+          "gridY": 216,
+          "height": 68,
           "text": "Verwijs naar oncologisch centrum\n\nEN\n\nTotale abdominale hysterectomie\nEN\nBSO*\n\nOF\n\nOverweeg hormoontherapie"
         },
         {
           "id": "rad",
-          "type": "outcome",
-          "x": 1270,
-          "y": 1080,
-          "h": 340,
+          "type": "recommendation",
+          "gridX": 254,
+          "gridY": 216,
+          "height": 68,
           "text": "Primair uitwendige radiotherapie*\n\nEN\n\nInwendige radiotherapie evt gevolgd door hysterectomie*\n\nOF\n\nOverweeg hormoontherapie"
         },
         {
           "id": "iiic",
-          "type": "outcome",
-          "x": 1560,
-          "y": 1080,
-          "h": 350,
+          "type": "recommendation",
+          "gridX": 312,
+          "gridY": 216,
+          "height": 70,
           "text": "Verwijs naar oncologisch centrum\n\nEN\n\nTotale abdominale hysterectomie\nEN\nBSO*\nEN\nOverweeg resectie lymfkliermetastasen*\n\nOF\n\nOverweeg hormoontherapie"
         },
         {
           "id": "hormoon",
-          "type": "outcome",
-          "x": 1850,
-          "y": 1080,
-          "h": 300,
+          "type": "recommendation",
+          "gridX": 370,
+          "gridY": 216,
+          "height": 60,
           "text": "Overweeg laag gedoseerd medroxyprogesteron (200 mg/dag)\n{i}zeker bij PR+ tumoren\n\nOF\n\nOverweeg megestrol-acetaat (160 mg/dag)"
         },
         {
           "id": "stad",
-          "type": "outcome",
-          "x": 2140,
-          "y": 820,
-          "h": 200,
+          "type": "recommendation",
+          "gridX": 428,
+          "gridY": 164,
+          "height": 40,
           "text": "Verwijs naar oncologisch centrum\n\nEN\n\nComplete stadiëring"
         },
         {
           "id": "serousi",
-          "type": "outcome",
-          "x": 2140,
-          "y": 1080,
-          "h": 260,
+          "type": "recommendation",
+          "gridX": 428,
+          "gridY": 216,
+          "height": 52,
           "text": "Verwijs naar oncologisch centrum\n\nEN\n\nHysterectomie\n{i}streef naar R0, indien nodig"
         },
         {
           "id": "serousiii",
-          "type": "outcome",
-          "x": 2360,
-          "y": 1080,
-          "h": 300,
+          "type": "recommendation",
+          "gridX": 472,
+          "gridY": 216,
+          "height": 60,
           "text": "Verwijs naar oncologisch centrum*\n\nEN\n\nDebulking*\n\nOF\n\nOverweeg hormoontherapie"
         },
         {
           "id": "serousiv",
-          "type": "outcome",
-          "x": 2360,
-          "y": 720,
-          "h": 260,
+          "type": "recommendation",
+          "gridX": 472,
+          "gridY": 144,
+          "height": 52,
           "text": "Overweeg laag gedoseerd medroxyprogesteron\n\nOF\n\nOverweeg megestrol-acetaat"
         },
         {
           "id": "lk",
-          "type": "link",
-          "x": 110,
-          "y": 1400,
+          "type": "reference",
+          "gridX": 22,
+          "gridY": 280,
           "label": "Kinderwens en primaire behandeling 2022",
           "icon": "down",
           "to": "kinder-primair"
         },
         {
           "id": "la1",
-          "type": "link",
-          "x": 380,
-          "y": 1400,
+          "type": "reference",
+          "gridX": 76,
+          "gridY": 280,
           "label": "Adjuvante behandeling endometrioïd 2022",
           "icon": "down",
           "to": "adjuvant-endometrioid"
         },
         {
           "id": "la2",
-          "type": "link",
-          "x": 690,
-          "y": 1400,
+          "type": "reference",
+          "gridX": 138,
+          "gridY": 280,
           "label": "Adjuvante behandeling endometrioïd 2022",
           "icon": "down",
           "to": "adjuvant-endometrioid"
         },
         {
           "id": "la3",
-          "type": "link",
-          "x": 980,
-          "y": 1400,
+          "type": "reference",
+          "gridX": 196,
+          "gridY": 280,
           "label": "Adjuvante behandeling endometrioïd 2022",
           "icon": "down",
           "to": "adjuvant-endometrioid"
         },
         {
           "id": "la4",
-          "type": "link",
-          "x": 1270,
-          "y": 1400,
+          "type": "reference",
+          "gridX": 254,
+          "gridY": 280,
           "label": "Adjuvante behandeling endometrioïd 2022",
           "icon": "down",
           "to": "adjuvant-endometrioid"
         },
         {
           "id": "le",
-          "type": "link",
-          "x": 1850,
-          "y": 1400,
+          "type": "reference",
+          "gridX": 370,
+          "gridY": 280,
           "label": "Evaluatie stadiëring 2022",
           "icon": "down",
           "to": "evaluatie-stadiering"
         },
         {
           "id": "ls",
-          "type": "link",
-          "x": 2140,
-          "y": 1400,
+          "type": "reference",
+          "gridX": 428,
+          "gridY": 280,
           "label": "Adjuvante behandeling sereus/clear cell 2022",
           "icon": "down",
           "to": "adjuvant-serous"
         },
         {
           "id": "lh",
-          "type": "link",
-          "x": 2360,
-          "y": 1400,
+          "type": "reference",
+          "gridX": 472,
+          "gridY": 280,
           "label": "Beleid na hormoontherapie",
           "icon": "down",
           "to": "beleid-hormoon"
@@ -1301,6 +1338,7 @@
           "from": "histologie",
           "to": "stadium-e",
           "value": "endometrioid-adenocarcinoom",
+          "label": "Endometrioïd adenocarcinoom",
           "points": [
             [
               1540,
@@ -1315,18 +1353,18 @@
               345
             ]
           ],
-          "arrow": true,
-          "label": "Endometrioïd adenocarcinoom",
           "dot": [
             1320,
             230
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-histologie-clearcell-adenocarcinoom-sereus-adenocarcinoom",
           "from": "histologie",
           "to": "stadium-s",
           "value": "clearcell-adenocarcinoom-sereus-adenocarcinoom",
+          "label": "Clearcell adenocarcinoom, Sereus adenocarcinoom",
           "points": [
             [
               1760,
@@ -1341,18 +1379,18 @@
               345
             ]
           ],
-          "arrow": true,
-          "label": "Clearcell adenocarcinoom, Sereus adenocarcinoom",
           "dot": [
             1915,
             230
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-stadium-e-i",
           "from": "stadium-e",
           "to": "kinderwens",
           "value": "i",
+          "label": "I",
           "points": [
             [
               980,
@@ -1367,18 +1405,18 @@
               520
             ]
           ],
-          "arrow": true,
-          "label": "I",
           "dot": [
             650,
             405
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-kinderwens-aanwezig",
           "from": "kinderwens",
           "to": "graad",
           "value": "aanwezig",
+          "label": "Aanwezig",
           "points": [
             [
               330,
@@ -1393,18 +1431,18 @@
               700
             ]
           ],
-          "arrow": true,
-          "label": "Aanwezig",
           "dot": [
             275,
             640
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-kinderwens-afwezig",
           "from": "kinderwens",
           "to": "hyst",
           "value": "afwezig",
+          "label": "Afwezig",
           "points": [
             [
               440,
@@ -1415,18 +1453,18 @@
               1120
             ]
           ],
-          "arrow": true,
-          "label": "Afwezig",
           "dot": [
             440,
             760
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-graad-1",
           "from": "graad",
           "to": "leeftijd",
           "value": "1",
+          "label": "1",
           "points": [
             [
               220,
@@ -1437,18 +1475,18 @@
               875
             ]
           ],
-          "arrow": true,
-          "label": "1",
           "dot": [
             220,
             845
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-graad-2-3",
           "from": "graad",
           "to": "hyst",
           "value": "2-3",
+          "label": "2,3",
           "points": [
             [
               330,
@@ -1473,7 +1511,6 @@
               1120
             ]
           ],
-          "label": "2,3",
           "dot": [
             385,
             760
@@ -1484,6 +1521,7 @@
           "from": "leeftijd",
           "to": "pr",
           "value": "lte-40-jaar",
+          "label": "<=40 Jaar",
           "points": [
             [
               220,
@@ -1494,18 +1532,18 @@
               1050
             ]
           ],
-          "arrow": true,
-          "label": "<=40 Jaar",
           "dot": [
             220,
             1020
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-leeftijd-gt-40-jaar",
           "from": "leeftijd",
           "to": "hyst",
           "value": "gt-40-jaar",
+          "label": ">40 Jaar",
           "points": [
             [
               330,
@@ -1530,7 +1568,6 @@
               1120
             ]
           ],
-          "label": ">40 Jaar",
           "dot": [
             385,
             935
@@ -1541,6 +1578,7 @@
           "from": "pr",
           "to": "mri",
           "value": "positief",
+          "label": "Positief",
           "points": [
             [
               220,
@@ -1551,18 +1589,18 @@
               1200
             ]
           ],
-          "arrow": true,
-          "label": "Positief",
           "dot": [
             220,
             1185
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-pr-negatief",
           "from": "pr",
           "to": "hyst",
           "value": "negatief",
+          "label": "Negatief",
           "points": [
             [
               330,
@@ -1587,7 +1625,6 @@
               1120
             ]
           ],
-          "label": "Negatief",
           "dot": [
             385,
             1110
@@ -1598,6 +1635,7 @@
           "from": "stadium-e",
           "to": "locatie",
           "value": "iiib",
+          "label": "IIIB",
           "points": [
             [
               1090,
@@ -1608,18 +1646,18 @@
               580
             ]
           ],
-          "arrow": true,
-          "label": "IIIB",
           "dot": [
             1090,
             520
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-locatie-parametrium",
           "from": "locatie",
           "to": "endoi",
           "value": "parametrium",
+          "label": "Parametrium",
           "points": [
             [
               980,
@@ -1634,18 +1672,18 @@
               1080
             ]
           ],
-          "arrow": true,
-          "label": "Parametrium",
           "dot": [
             925,
             640
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-locatie-vagina",
           "from": "locatie",
           "to": "radicaal",
           "value": "vagina",
+          "label": "Vagina",
           "points": [
             [
               1090,
@@ -1656,18 +1694,18 @@
               780
             ]
           ],
-          "arrow": true,
-          "label": "Vagina",
           "dot": [
             1090,
             740
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-radicaal-ja",
           "from": "radicaal",
           "to": "endoi",
           "value": "ja",
+          "label": "Ja",
           "points": [
             [
               980,
@@ -1692,7 +1730,6 @@
               1080
             ]
           ],
-          "label": "Ja",
           "dot": [
             925,
             840
@@ -1703,6 +1740,7 @@
           "from": "radicaal",
           "to": "endoiii",
           "value": "nee",
+          "label": "Nee",
           "points": [
             [
               1090,
@@ -1713,18 +1751,18 @@
               1080
             ]
           ],
-          "arrow": true,
-          "label": "Nee",
           "dot": [
             1090,
             980
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-stadium-e-iiic",
           "from": "stadium-e",
           "to": "iiic",
           "value": "iiic",
+          "label": "IIIC",
           "points": [
             [
               1200,
@@ -1739,18 +1777,18 @@
               1080
             ]
           ],
-          "arrow": true,
-          "label": "IIIC",
           "dot": [
             1380,
             405
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-stadium-e-iv",
           "from": "stadium-e",
           "to": "hormoon",
           "value": "iv",
+          "label": "IV",
           "points": [
             [
               1200,
@@ -1765,14 +1803,14 @@
               1080
             ]
           ],
-          "arrow": true,
-          "label": "IV",
           "dot": [
             1650,
             405
-          ]
+          ],
+          "arrow": true
         },
         {
+          "label": "I",
           "points": [
             [
               1960,
@@ -1787,14 +1825,14 @@
               820
             ]
           ],
-          "arrow": true,
-          "label": "I",
           "dot": [
             2050,
             405
-          ]
+          ],
+          "arrow": true
         },
         {
+          "label": "II",
           "points": [
             [
               2070,
@@ -1805,14 +1843,14 @@
               1080
             ]
           ],
-          "arrow": true,
-          "label": "II",
           "dot": [
             2070,
             730
-          ]
+          ],
+          "arrow": true
         },
         {
+          "label": "III",
           "points": [
             [
               2180,
@@ -1827,14 +1865,14 @@
               1080
             ]
           ],
-          "arrow": true,
-          "label": "III",
           "dot": [
             2270,
             405
-          ]
+          ],
+          "arrow": true
         },
         {
+          "label": "IV",
           "points": [
             [
               2180,
@@ -1849,32 +1887,28 @@
               720
             ]
           ],
-          "arrow": true,
-          "label": "IV",
           "dot": [
             2325,
             405
-          ]
+          ],
+          "arrow": true
         }
       ]
     },
     "adjuvant-endometrioid": {
-      "viewBox": [
-        2200,
-        1150
-      ],
-      "nodeSize": [
-        190,
-        100
-      ],
-      "native": true,
+      "layout": {
+        "unit": 5,
+        "blockWidth": 38,
+        "blockHeight": 20,
+        "margin": 3
+      },
       "zoom": 0.8,
       "nodes": [
         {
           "id": "root",
-          "type": "root",
-          "x": 1010,
-          "y": 15,
+          "type": "title",
+          "gridX": 202,
+          "gridY": 3,
           "label": "Adjuvante behandeling endometrioïd 2022",
           "icon": "minus-light",
           "tone": "blue",
@@ -1883,9 +1917,9 @@
         },
         {
           "id": "figo",
-          "type": "criterion",
-          "x": 1010,
-          "y": 175,
+          "type": "dataItem",
+          "gridX": 202,
+          "gridY": 35,
           "label": "FIGO",
           "icon": "plus-light",
           "interactive": true,
@@ -1914,9 +1948,9 @@
         },
         {
           "id": "gia",
-          "type": "criterion",
-          "x": 600,
-          "y": 335,
+          "type": "dataItem",
+          "gridX": 120,
+          "gridY": 67,
           "label": "Graad",
           "icon": "plus-light",
           "interactive": true,
@@ -1935,9 +1969,9 @@
         },
         {
           "id": "lv1",
-          "type": "criterion",
-          "x": 180,
-          "y": 520,
+          "type": "dataItem",
+          "gridX": 36,
+          "gridY": 104,
           "label": "LVSI",
           "interactive": true,
           "options": [
@@ -1955,9 +1989,9 @@
         },
         {
           "id": "lv2",
-          "type": "criterion",
-          "x": 600,
-          "y": 520,
+          "type": "dataItem",
+          "gridX": 120,
+          "gridY": 104,
           "label": "LVSI",
           "interactive": true,
           "options": [
@@ -1975,9 +2009,9 @@
         },
         {
           "id": "age2",
-          "type": "criterion",
-          "x": 600,
-          "y": 685,
+          "type": "dataItem",
+          "gridX": 120,
+          "gridY": 137,
           "label": "Leeftijd",
           "interactive": true,
           "options": [
@@ -1995,9 +2029,9 @@
         },
         {
           "id": "gib",
-          "type": "criterion",
-          "x": 1010,
-          "y": 335,
+          "type": "dataItem",
+          "gridX": 202,
+          "gridY": 67,
           "label": "Graad",
           "icon": "plus-light",
           "interactive": true,
@@ -2016,9 +2050,9 @@
         },
         {
           "id": "lv3",
-          "type": "criterion",
-          "x": 1010,
-          "y": 520,
+          "type": "dataItem",
+          "gridX": 202,
+          "gridY": 104,
           "label": "LVSI",
           "interactive": true,
           "options": [
@@ -2036,9 +2070,9 @@
         },
         {
           "id": "age3",
-          "type": "criterion",
-          "x": 1010,
-          "y": 685,
+          "type": "dataItem",
+          "gridX": 202,
+          "gridY": 137,
           "label": "Leeftijd",
           "interactive": true,
           "options": [
@@ -2056,161 +2090,161 @@
         },
         {
           "id": "o1",
-          "type": "outcome",
-          "x": 20,
-          "y": 850,
-          "text": "⊘ Geen adjuvante\ntherapie",
-          "h": 100
+          "type": "recommendation",
+          "gridX": 4,
+          "gridY": 170,
+          "height": 20,
+          "text": "⊘ Geen adjuvante\ntherapie"
         },
         {
           "id": "o2",
-          "type": "outcome",
-          "x": 230,
-          "y": 850,
-          "text": "Radiotherapie",
-          "h": 100
+          "type": "recommendation",
+          "gridX": 46,
+          "gridY": 170,
+          "height": 20,
+          "text": "Radiotherapie"
         },
         {
           "id": "o3",
-          "type": "outcome",
-          "x": 440,
-          "y": 850,
-          "text": "⊘ Geen adjuvante\ntherapie",
-          "h": 100
+          "type": "recommendation",
+          "gridX": 88,
+          "gridY": 170,
+          "height": 20,
+          "text": "⊘ Geen adjuvante\ntherapie"
         },
         {
           "id": "o4",
-          "type": "outcome",
-          "x": 650,
-          "y": 850,
-          "text": "Overweeg vaginale\nbrachytherapie",
-          "h": 100
+          "type": "recommendation",
+          "gridX": 130,
+          "gridY": 170,
+          "height": 20,
+          "text": "Overweeg vaginale\nbrachytherapie"
         },
         {
           "id": "o5",
-          "type": "outcome",
-          "x": 860,
-          "y": 850,
-          "text": "Overweeg uitwendige\nradiotherapie",
-          "h": 100
+          "type": "recommendation",
+          "gridX": 172,
+          "gridY": 170,
+          "height": 20,
+          "text": "Overweeg uitwendige\nradiotherapie"
         },
         {
           "id": "o6",
-          "type": "outcome",
-          "x": 1070,
-          "y": 850,
-          "text": "⊘ Geen adjuvante\ntherapie",
-          "h": 100
+          "type": "recommendation",
+          "gridX": 214,
+          "gridY": 170,
+          "height": 20,
+          "text": "⊘ Geen adjuvante\ntherapie"
         },
         {
           "id": "o7",
-          "type": "outcome",
-          "x": 1280,
-          "y": 850,
-          "text": "Overweeg vaginale\nbrachytherapie",
-          "h": 100
+          "type": "recommendation",
+          "gridX": 256,
+          "gridY": 170,
+          "height": 20,
+          "text": "Overweeg vaginale\nbrachytherapie"
         },
         {
           "id": "o8",
-          "type": "outcome",
-          "x": 1490,
-          "y": 850,
-          "text": "Overweeg uitwendige\nradiotherapie",
-          "h": 100
+          "type": "recommendation",
+          "gridX": 298,
+          "gridY": 170,
+          "height": 20,
+          "text": "Overweeg uitwendige\nradiotherapie"
         },
         {
           "id": "o9",
-          "type": "outcome",
-          "x": 1700,
-          "y": 850,
-          "text": "Uitwendige radiotherapie\n\nEN\n\nOverweeg chemotherapie",
-          "h": 130
+          "type": "recommendation",
+          "gridX": 340,
+          "gridY": 170,
+          "height": 26,
+          "text": "Uitwendige radiotherapie\n\nEN\n\nOverweeg chemotherapie"
         },
         {
           "id": "o10",
-          "type": "outcome",
-          "x": 1910,
-          "y": 850,
-          "text": "Individualiseer\nbehandeling",
-          "h": 100
+          "type": "recommendation",
+          "gridX": 382,
+          "gridY": 170,
+          "height": 20,
+          "text": "Individualiseer\nbehandeling"
         },
         {
           "id": "f1",
-          "type": "link",
-          "x": 20,
-          "y": 1030,
+          "type": "reference",
+          "gridX": 4,
+          "gridY": 206,
           "label": "Follow up 2022",
           "icon": "down",
           "to": "followup"
         },
         {
           "id": "f2",
-          "type": "link",
-          "x": 230,
-          "y": 1030,
+          "type": "reference",
+          "gridX": 46,
+          "gridY": 206,
           "label": "Follow up 2022",
           "icon": "down",
           "to": "followup"
         },
         {
           "id": "f3",
-          "type": "link",
-          "x": 440,
-          "y": 1030,
+          "type": "reference",
+          "gridX": 88,
+          "gridY": 206,
           "label": "Follow up 2022",
           "icon": "down",
           "to": "followup"
         },
         {
           "id": "f4",
-          "type": "link",
-          "x": 650,
-          "y": 1030,
+          "type": "reference",
+          "gridX": 130,
+          "gridY": 206,
           "label": "Follow up 2022",
           "icon": "down",
           "to": "followup"
         },
         {
           "id": "f5",
-          "type": "link",
-          "x": 860,
-          "y": 1030,
+          "type": "reference",
+          "gridX": 172,
+          "gridY": 206,
           "label": "Follow up 2022",
           "icon": "down",
           "to": "followup"
         },
         {
           "id": "f6",
-          "type": "link",
-          "x": 1070,
-          "y": 1030,
+          "type": "reference",
+          "gridX": 214,
+          "gridY": 206,
           "label": "Follow up 2022",
           "icon": "down",
           "to": "followup"
         },
         {
           "id": "f7",
-          "type": "link",
-          "x": 1280,
-          "y": 1030,
+          "type": "reference",
+          "gridX": 256,
+          "gridY": 206,
           "label": "Follow up 2022",
           "icon": "down",
           "to": "followup"
         },
         {
           "id": "f8",
-          "type": "link",
-          "x": 1490,
-          "y": 1030,
+          "type": "reference",
+          "gridX": 298,
+          "gridY": 206,
           "label": "Follow up 2022",
           "icon": "down",
           "to": "followup"
         },
         {
           "id": "f9",
-          "type": "link",
-          "x": 1700,
-          "y": 1030,
+          "type": "reference",
+          "gridX": 340,
+          "gridY": 206,
           "label": "Follow up 2022",
           "icon": "down",
           "to": "followup"
@@ -2238,6 +2272,7 @@
           "from": "figo",
           "to": "gia",
           "value": "i-a",
+          "label": "I A",
           "points": [
             [
               1010,
@@ -2252,18 +2287,18 @@
               335
             ]
           ],
-          "arrow": true,
-          "label": "I A",
           "dot": [
             855,
             225
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-figo-i-b",
           "from": "figo",
           "to": "gib",
           "value": "i-b",
+          "label": "I B",
           "points": [
             [
               1105,
@@ -2274,18 +2309,18 @@
               335
             ]
           ],
-          "arrow": true,
-          "label": "I B",
           "dot": [
             1105,
             300
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-figo-ii-iii",
           "from": "figo",
           "to": "o9",
           "value": "ii-iii",
+          "label": "II, III",
           "points": [
             [
               1200,
@@ -2300,18 +2335,18 @@
               850
             ]
           ],
-          "arrow": true,
-          "label": "II, III",
           "dot": [
             1585,
             225
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-figo-iv",
           "from": "figo",
           "to": "o10",
           "value": "iv",
+          "label": "IV",
           "points": [
             [
               1200,
@@ -2326,18 +2361,18 @@
               850
             ]
           ],
-          "arrow": true,
-          "label": "IV",
           "dot": [
             1900,
             225
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-gia-1-2",
           "from": "gia",
           "to": "lv1",
           "value": "1-2",
+          "label": "1,2",
           "points": [
             [
               600,
@@ -2352,18 +2387,18 @@
               520
             ]
           ],
-          "arrow": true,
-          "label": "1,2",
           "dot": [
             435,
             385
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-gia-3",
           "from": "gia",
           "to": "lv2",
           "value": "3",
+          "label": "3",
           "points": [
             [
               695,
@@ -2374,18 +2409,18 @@
               520
             ]
           ],
-          "arrow": true,
-          "label": "3",
           "dot": [
             695,
             460
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-lv1-nee",
           "from": "lv1",
           "to": "o1",
           "value": "nee",
+          "label": "Nee",
           "points": [
             [
               180,
@@ -2400,18 +2435,18 @@
               850
             ]
           ],
-          "arrow": true,
-          "label": "Nee",
           "dot": [
             145,
             570
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-lv1-ja",
           "from": "lv1",
           "to": "o2",
           "value": "ja",
+          "label": "Ja",
           "points": [
             [
               275,
@@ -2426,18 +2461,18 @@
               850
             ]
           ],
-          "arrow": true,
-          "label": "Ja",
           "dot": [
             305,
             620
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-lv2-nee",
           "from": "lv2",
           "to": "age2",
           "value": "nee",
+          "label": "Nee",
           "points": [
             [
               695,
@@ -2448,18 +2483,18 @@
               685
             ]
           ],
-          "arrow": true,
-          "label": "Nee",
           "dot": [
             695,
             650
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-lv2-ja",
           "from": "lv2",
           "to": "o5",
           "value": "ja",
+          "label": "Ja",
           "points": [
             [
               790,
@@ -2474,18 +2509,18 @@
               850
             ]
           ],
-          "arrow": true,
-          "label": "Ja",
           "dot": [
             870,
             570
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-age2-lt-60-jaar",
           "from": "age2",
           "to": "o3",
           "value": "lt-60-jaar",
+          "label": "<60 Jaar",
           "points": [
             [
               600,
@@ -2500,18 +2535,18 @@
               850
             ]
           ],
-          "arrow": true,
-          "label": "<60 Jaar",
           "dot": [
             570,
             735
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-age2-gte-60-jaar",
           "from": "age2",
           "to": "o4",
           "value": "gte-60-jaar",
+          "label": ">=60 Jaar",
           "points": [
             [
               695,
@@ -2526,18 +2561,18 @@
               850
             ]
           ],
-          "arrow": true,
-          "label": ">=60 Jaar",
           "dot": [
             725,
             785
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-gib-1-2",
           "from": "gib",
           "to": "lv3",
           "value": "1-2",
+          "label": "1,2",
           "points": [
             [
               1105,
@@ -2548,18 +2583,18 @@
               520
             ]
           ],
-          "arrow": true,
-          "label": "1,2",
           "dot": [
             1105,
             460
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-gib-3",
           "from": "gib",
           "to": "o8",
           "value": "3",
+          "label": "3",
           "points": [
             [
               1200,
@@ -2574,18 +2609,18 @@
               850
             ]
           ],
-          "arrow": true,
-          "label": "3",
           "dot": [
             1390,
             385
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-lv3-nee",
           "from": "lv3",
           "to": "age3",
           "value": "nee",
+          "label": "Nee",
           "points": [
             [
               1105,
@@ -2596,18 +2631,18 @@
               685
             ]
           ],
-          "arrow": true,
-          "label": "Nee",
           "dot": [
             1105,
             650
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-lv3-ja",
           "from": "lv3",
           "to": "o8",
           "value": "ja",
+          "label": "Ja",
           "points": [
             [
               1200,
@@ -2632,7 +2667,6 @@
               850
             ]
           ],
-          "label": "Ja",
           "dot": [
             1390,
             570
@@ -2643,6 +2677,7 @@
           "from": "age3",
           "to": "o5",
           "value": "lt-60-jaar",
+          "label": "<60 Jaar",
           "points": [
             [
               1010,
@@ -2657,18 +2692,18 @@
               850
             ]
           ],
-          "arrow": true,
-          "label": "<60 Jaar",
           "dot": [
             990,
             735
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-age3-gte-60-jaar",
           "from": "age3",
           "to": "o7",
           "value": "gte-60-jaar",
+          "label": ">=60 Jaar",
           "points": [
             [
               1200,
@@ -2683,32 +2718,28 @@
               850
             ]
           ],
-          "arrow": true,
-          "label": ">=60 Jaar",
           "dot": [
             1290,
             735
-          ]
+          ],
+          "arrow": true
         }
       ]
     },
     "evaluatie-stadiering": {
-      "viewBox": [
-        760,
-        900
-      ],
-      "nodeSize": [
-        270,
-        140
-      ],
-      "native": true,
+      "layout": {
+        "unit": 5,
+        "blockWidth": 54,
+        "blockHeight": 28,
+        "margin": 5
+      },
       "wrap": 22,
       "nodes": [
         {
           "id": "root",
-          "type": "root",
-          "x": 50,
-          "y": 25,
+          "type": "title",
+          "gridX": 10,
+          "gridY": 5,
           "label": "Evaluatie stadiëring 2022",
           "icon": "minus-light",
           "tone": "blue",
@@ -2717,9 +2748,9 @@
         },
         {
           "id": "uitslag",
-          "type": "criterion",
-          "x": 50,
-          "y": 230,
+          "type": "dataItem",
+          "gridX": 10,
+          "gridY": 46,
           "label": "Uitslag stadiëring",
           "interactive": true,
           "options": [
@@ -2737,33 +2768,33 @@
         },
         {
           "id": "compleet",
-          "type": "outcome",
-          "x": 50,
-          "y": 500,
+          "type": "recommendation",
+          "gridX": 10,
+          "gridY": 100,
           "text": "Adjuvante therapie"
         },
         {
           "id": "incompleet",
-          "type": "outcome",
-          "x": 390,
-          "y": 500,
-          "h": 240,
+          "type": "recommendation",
+          "gridX": 78,
+          "gridY": 100,
+          "height": 48,
           "text": "Restadiëren\n{i}indien restadiëring niet kan worden verricht, of niet wenselijk wordt geacht, kan worden overwogen om patiënten aanvullend te behandelen als een FIGO III tumor"
         },
         {
           "id": "l1",
-          "type": "link",
-          "x": 50,
-          "y": 770,
+          "type": "reference",
+          "gridX": 10,
+          "gridY": 154,
           "label": "Adjuvante behandeling sereus/clear cell 2022",
           "icon": "down",
           "to": "adjuvant-serous"
         },
         {
           "id": "l2",
-          "type": "link",
-          "x": 390,
-          "y": 770,
+          "type": "reference",
+          "gridX": 78,
+          "gridY": 154,
           "label": "Adjuvante behandeling sereus/clear cell 2022",
           "icon": "down",
           "to": "adjuvant-serous"
@@ -2791,6 +2822,7 @@
           "from": "uitslag",
           "to": "compleet",
           "value": "compleet",
+          "label": "Compleet",
           "points": [
             [
               185,
@@ -2801,18 +2833,18 @@
               500
             ]
           ],
-          "arrow": true,
-          "label": "Compleet",
           "dot": [
             185,
             430
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-uitslag-incompleet",
           "from": "uitslag",
           "to": "incompleet",
           "value": "incompleet",
+          "label": "Incompleet",
           "points": [
             [
               320,
@@ -2827,12 +2859,11 @@
               500
             ]
           ],
-          "arrow": true,
-          "label": "Incompleet",
           "dot": [
             420,
             300
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-compleet-l1",
@@ -2869,21 +2900,18 @@
       ]
     },
     "adjuvant-serous": {
-      "viewBox": [
-        430,
-        620
-      ],
-      "nodeSize": [
-        260,
-        125
-      ],
-      "native": true,
+      "layout": {
+        "unit": 5,
+        "blockWidth": 52,
+        "blockHeight": 25,
+        "margin": 5
+      },
       "nodes": [
         {
           "id": "root",
-          "type": "root",
-          "x": 55,
-          "y": 25,
+          "type": "title",
+          "gridX": 11,
+          "gridY": 5,
           "label": "Adjuvante behandeling sereus/clear cell 2022",
           "icon": "minus-light",
           "tone": "blue",
@@ -2893,16 +2921,16 @@
         {
           "id": "acties",
           "type": "decision",
-          "x": 55,
-          "y": 230,
-          "h": 190,
+          "gridX": 11,
+          "gridY": 46,
+          "height": 38,
           "text": "Uitwendige radiotherapie\n\nEN\n\nOverweeg chemotherapie"
         },
         {
           "id": "v",
-          "type": "link",
-          "x": 55,
-          "y": 470,
+          "type": "reference",
+          "gridX": 11,
+          "gridY": 94,
           "label": "Follow up 2022",
           "icon": "down",
           "to": "followup"
@@ -2910,6 +2938,9 @@
       ],
       "edges": [
         {
+          "id": "edge-root-acties",
+          "from": "root",
+          "to": "acties",
           "points": [
             [
               185,
@@ -2925,6 +2956,9 @@
           "width": 6
         },
         {
+          "id": "edge-acties-v",
+          "from": "acties",
+          "to": "v",
           "points": [
             [
               185,
@@ -2940,22 +2974,19 @@
       ]
     },
     "followup": {
-      "viewBox": [
-        1200,
-        1250
-      ],
-      "nodeSize": [
-        300,
-        145
-      ],
-      "native": true,
+      "layout": {
+        "unit": 5,
+        "blockWidth": 60,
+        "blockHeight": 29,
+        "margin": 5
+      },
       "wrap": 24,
       "nodes": [
         {
           "id": "root",
-          "type": "root",
-          "x": 450,
-          "y": 25,
+          "type": "title",
+          "gridX": 90,
+          "gridY": 5,
           "label": "Follow up 2022",
           "icon": "minus-light",
           "tone": "blue",
@@ -2964,9 +2995,9 @@
         },
         {
           "id": "jaren",
-          "type": "criterion",
-          "x": 450,
-          "y": 240,
+          "type": "dataItem",
+          "gridX": 90,
+          "gridY": 48,
           "label": "Jaren sinds afloop\nprimaire behandeling",
           "interactive": true,
           "options": [
@@ -2989,51 +3020,51 @@
         },
         {
           "id": "o1",
-          "type": "outcome",
-          "x": 50,
-          "y": 540,
-          "h": 520,
+          "type": "recommendation",
+          "gridX": 10,
+          "gridY": 108,
+          "height": 104,
           "text": "Lichamelijk onderzoek\n\nEN\n\nGynaecologisch onderzoek\n{i}incl recto-vaginaal toucher\n\nEN\n\nVoorlichting\n\nEN\n\nControle na 3-4 maanden\n\n──────\n\n⊘ Routinematig afnemen vaginatopcytologie is niet geïndiceerd"
         },
         {
           "id": "o2",
-          "type": "outcome",
-          "x": 450,
-          "y": 540,
-          "h": 520,
+          "type": "recommendation",
+          "gridX": 90,
+          "gridY": 108,
+          "height": 104,
           "text": "Lichamelijk onderzoek\n\nEN\n\nGynaecologisch onderzoek\n{i}incl recto-vaginaal toucher\n\nEN\n\nVoorlichting\n\nEN\n\nControle na 4-6 maanden\n\n──────\n\n⊘ Routinematig afnemen vaginatopcytologie is niet geïndiceerd"
         },
         {
           "id": "o3",
-          "type": "outcome",
-          "x": 850,
-          "y": 540,
-          "h": 520,
+          "type": "recommendation",
+          "gridX": 170,
+          "gridY": 108,
+          "height": 104,
           "text": "Lichamelijk onderzoek\n\nEN\n\nGynaecologisch onderzoek\n{i}incl recto-vaginaal toucher\n\nEN\n\nVoorlichting\n\nEN\n\nControle elke 12 maanden\n\n──────\n\n⊘ Routinematig afnemen vaginatopcytologie is niet geïndiceerd"
         },
         {
           "id": "l1",
-          "type": "link",
-          "x": 50,
-          "y": 1100,
+          "type": "reference",
+          "gridX": 10,
+          "gridY": 220,
           "label": "Recidief diagnostiek 2022",
           "icon": "down",
           "to": "recidiefdiag"
         },
         {
           "id": "l2",
-          "type": "link",
-          "x": 450,
-          "y": 1100,
+          "type": "reference",
+          "gridX": 90,
+          "gridY": 220,
           "label": "Recidief diagnostiek 2022",
           "icon": "down",
           "to": "recidiefdiag"
         },
         {
           "id": "l3",
-          "type": "link",
-          "x": 850,
-          "y": 1100,
+          "type": "reference",
+          "gridX": 170,
+          "gridY": 220,
           "label": "Recidief diagnostiek 2022",
           "icon": "down",
           "to": "recidiefdiag"
@@ -3061,32 +3092,33 @@
           "from": "jaren",
           "to": "o1",
           "value": "lte-2",
+          "label": "<=2",
           "points": [
             [
               450,
-              312
+              310
             ],
             [
               200,
-              312
+              310
             ],
             [
               200,
               540
             ]
           ],
-          "arrow": true,
-          "label": "<=2",
           "dot": [
             325,
-            312
-          ]
+            310
+          ],
+          "arrow": true
         },
         {
           "id": "edge-jaren-2-3",
           "from": "jaren",
           "to": "o2",
           "value": "2-3",
+          "label": "2-3",
           "points": [
             [
               600,
@@ -3097,38 +3129,37 @@
               540
             ]
           ],
-          "arrow": true,
-          "label": "2-3",
           "dot": [
             600,
             455
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-jaren-3-5",
           "from": "jaren",
           "to": "o3",
           "value": "3-5",
+          "label": "3-5",
           "points": [
             [
               750,
-              312
+              310
             ],
             [
               1000,
-              312
+              310
             ],
             [
               1000,
               540
             ]
           ],
-          "arrow": true,
-          "label": "3-5",
           "dot": [
             875,
-            312
-          ]
+            310
+          ],
+          "arrow": true
         },
         {
           "id": "edge-o1-l1",
@@ -3181,21 +3212,18 @@
       ]
     },
     "recidiefdiag": {
-      "viewBox": [
-        900,
-        1300
-      ],
-      "nodeSize": [
-        300,
-        155
-      ],
-      "native": true,
+      "layout": {
+        "unit": 5,
+        "blockWidth": 60,
+        "blockHeight": 31,
+        "margin": 5
+      },
       "nodes": [
         {
           "id": "root",
-          "type": "root",
-          "x": 50,
-          "y": 25,
+          "type": "title",
+          "gridX": 10,
+          "gridY": 5,
           "label": "Recidief diagnostiek 2022",
           "icon": "minus-light",
           "tone": "blue",
@@ -3204,9 +3232,9 @@
         },
         {
           "id": "type",
-          "type": "criterion",
-          "x": 50,
-          "y": 245,
+          "type": "dataItem",
+          "gridX": 10,
+          "gridY": 49,
           "label": "Type recidief",
           "interactive": true,
           "options": [
@@ -3224,34 +3252,34 @@
         },
         {
           "id": "l",
-          "type": "outcome",
-          "x": 50,
-          "y": 580,
-          "h": 500,
+          "type": "recommendation",
+          "gridX": 10,
+          "gridY": 116,
+          "height": 100,
           "text": "Biopt\n\nEN\n\nCT thorax/abdomen\n\nEN\n\nBloedbeeld,\n{i}lever- en nierfunctie\n\nEN\n\nCA 125\n\nEN\n\nIndien nodig cystoscopie/rectoscopie/botscan"
         },
         {
           "id": "r",
-          "type": "outcome",
-          "x": 480,
-          "y": 580,
-          "h": 430,
+          "type": "recommendation",
+          "gridX": 96,
+          "gridY": 116,
+          "height": 86,
           "text": "CT thorax/abdomen\n\nEN\n\nBloedbeeld,\n{i}lever- en nierfunctie\n\nEN\n\nCA 125\n\nEN\n\nIndien nodig cystoscopie/rectoscopie/botscan"
         },
         {
           "id": "l1",
-          "type": "link",
-          "x": 50,
-          "y": 1140,
+          "type": "reference",
+          "gridX": 10,
+          "gridY": 228,
           "label": "Recidief behandeling 2022",
           "icon": "down",
           "to": "recidiefbehandeling"
         },
         {
           "id": "l2",
-          "type": "link",
-          "x": 480,
-          "y": 1140,
+          "type": "reference",
+          "gridX": 96,
+          "gridY": 228,
           "label": "Recidief behandeling 2022",
           "icon": "down",
           "to": "recidiefbehandeling"
@@ -3279,6 +3307,7 @@
           "from": "type",
           "to": "l",
           "value": "lokaal",
+          "label": "Lokaal",
           "points": [
             [
               200,
@@ -3289,18 +3318,18 @@
               580
             ]
           ],
-          "arrow": true,
-          "label": "Lokaal",
           "dot": [
             200,
             485
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-type-regionaal-afstands",
           "from": "type",
           "to": "r",
           "value": "regionaal-afstands",
+          "label": "Regionaal,\nAfstands",
           "points": [
             [
               350,
@@ -3315,12 +3344,11 @@
               580
             ]
           ],
-          "arrow": true,
-          "label": "Regionaal,\nAfstands",
           "dot": [
             490,
             320
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-l-l1",
@@ -3357,21 +3385,18 @@
       ]
     },
     "beleid-hormoon": {
-      "viewBox": [
-        500,
-        620
-      ],
-      "nodeSize": [
-        300,
-        150
-      ],
-      "native": true,
+      "layout": {
+        "unit": 5,
+        "blockWidth": 60,
+        "blockHeight": 30,
+        "margin": 5
+      },
       "nodes": [
         {
           "id": "root",
-          "type": "root",
-          "x": 70,
-          "y": 25,
+          "type": "title",
+          "gridX": 14,
+          "gridY": 5,
           "label": "Beleid na hormoontherapie",
           "icon": "minus-light",
           "tone": "blue",
@@ -3381,14 +3406,17 @@
         {
           "id": "a",
           "type": "decision",
-          "x": 70,
-          "y": 260,
-          "h": 250,
+          "gridX": 14,
+          "gridY": 52,
+          "height": 50,
           "text": "Overweeg tamoxifen\n{i}met name na eerdere respons op progestativa"
         }
       ],
       "edges": [
         {
+          "id": "edge-root-a",
+          "from": "root",
+          "to": "a",
           "points": [
             [
               220,
@@ -3406,21 +3434,18 @@
       ]
     },
     "kinder-primair": {
-      "viewBox": [
-        850,
-        1250
-      ],
-      "nodeSize": [
-        300,
-        155
-      ],
-      "native": true,
+      "layout": {
+        "unit": 5,
+        "blockWidth": 60,
+        "blockHeight": 31,
+        "margin": 5
+      },
       "nodes": [
         {
           "id": "root",
-          "type": "root",
-          "x": 60,
-          "y": 25,
+          "type": "title",
+          "gridX": 12,
+          "gridY": 5,
           "label": "Kinderwens en primaire behandeling 2022",
           "icon": "minus-light",
           "tone": "blue",
@@ -3429,9 +3454,9 @@
         },
         {
           "id": "stadium",
-          "type": "criterion",
-          "x": 60,
-          "y": 260,
+          "type": "dataItem",
+          "gridX": 12,
+          "gridY": 52,
           "label": "Klinisch stadium",
           "icon": "plus-light",
           "interactive": true,
@@ -3450,24 +3475,24 @@
         },
         {
           "id": "laag",
-          "type": "outcome",
-          "x": 60,
-          "y": 610,
-          "h": 430,
+          "type": "recommendation",
+          "gridX": 12,
+          "gridY": 122,
+          "height": 86,
           "text": "Medroxyprogesteron\n200 mg/dag 3mnd\n\n(na 3mnd)\nGEVOLGD DOOR\n\nHysteroscopie\n\nEN\n\nEndometriumsampling na kuur I\n\nIncludeer in internationale registratiestudie"
         },
         {
           "id": "hoog",
-          "type": "outcome",
-          "x": 480,
-          "y": 610,
+          "type": "recommendation",
+          "gridX": 96,
+          "gridY": 122,
           "text": "Standaard behandeling"
         },
         {
           "id": "v",
-          "type": "link",
-          "x": 60,
-          "y": 1100,
+          "type": "reference",
+          "gridX": 12,
+          "gridY": 220,
           "label": "Kinderwens en vervolg behandeling 2022",
           "icon": "down",
           "to": "kinder-vervolg"
@@ -3495,6 +3520,7 @@
           "from": "stadium",
           "to": "laag",
           "value": "laagstadium",
+          "label": "laagstadium",
           "points": [
             [
               210,
@@ -3505,18 +3531,18 @@
               610
             ]
           ],
-          "arrow": true,
-          "label": "laagstadium",
           "dot": [
             210,
             500
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-stadium-hoogstadium",
           "from": "stadium",
           "to": "hoog",
           "value": "hoogstadium",
+          "label": "hoogstadium",
           "points": [
             [
               360,
@@ -3531,12 +3557,11 @@
               610
             ]
           ],
-          "arrow": true,
-          "label": "hoogstadium",
           "dot": [
             500,
             335
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-laag-v",
@@ -3557,21 +3582,18 @@
       ]
     },
     "kinder-conceptie": {
-      "viewBox": [
-        900,
-        1050
-      ],
-      "nodeSize": [
-        310,
-        155
-      ],
-      "native": true,
+      "layout": {
+        "unit": 5,
+        "blockWidth": 62,
+        "blockHeight": 31,
+        "margin": 5
+      },
       "nodes": [
         {
           "id": "root",
-          "type": "root",
-          "x": 60,
-          "y": 25,
+          "type": "title",
+          "gridX": 12,
+          "gridY": 5,
           "label": "Kinderwens en conceptiefase 2022",
           "icon": "minus-light",
           "tone": "blue",
@@ -3580,9 +3602,9 @@
         },
         {
           "id": "pa",
-          "type": "criterion",
-          "x": 60,
-          "y": 260,
+          "type": "dataItem",
+          "gridX": 12,
+          "gridY": 52,
           "label": "PA uitslag",
           "interactive": true,
           "options": [
@@ -3600,23 +3622,23 @@
         },
         {
           "id": "start",
-          "type": "outcome",
-          "x": 60,
-          "y": 600,
+          "type": "recommendation",
+          "gridX": 12,
+          "gridY": 120,
           "text": "Start conceptie"
         },
         {
           "id": "std",
-          "type": "outcome",
-          "x": 500,
-          "y": 600,
+          "type": "recommendation",
+          "gridX": 100,
+          "gridY": 120,
           "text": "Standaard behandeling\n\nOF\n\nBehandeling recidief"
         },
         {
           "id": "v",
-          "type": "link",
-          "x": 60,
-          "y": 850,
+          "type": "reference",
+          "gridX": 12,
+          "gridY": 170,
           "label": "Kinderwens en follow up tijdens conceptiefase 2022",
           "icon": "down",
           "to": "kinder-followup"
@@ -3644,6 +3666,7 @@
           "from": "pa",
           "to": "start",
           "value": "geen-maligniteit",
+          "label": "Geen maligniteit",
           "points": [
             [
               215,
@@ -3654,18 +3677,18 @@
               600
             ]
           ],
-          "arrow": true,
-          "label": "Geen maligniteit",
           "dot": [
             215,
             510
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-pa-maligniteit",
           "from": "pa",
           "to": "std",
           "value": "maligniteit",
+          "label": "Maligniteit",
           "points": [
             [
               370,
@@ -3680,12 +3703,11 @@
               600
             ]
           ],
-          "arrow": true,
-          "label": "Maligniteit",
           "dot": [
             510,
             335
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-start-v",
@@ -3706,21 +3728,18 @@
       ]
     },
     "kinder-followup": {
-      "viewBox": [
-        1350,
-        1300
-      ],
-      "nodeSize": [
-        320,
-        170
-      ],
-      "native": true,
+      "layout": {
+        "unit": 5,
+        "blockWidth": 64,
+        "blockHeight": 34,
+        "margin": 5
+      },
       "nodes": [
         {
           "id": "root",
-          "type": "root",
-          "x": 55,
-          "y": 25,
+          "type": "title",
+          "gridX": 11,
+          "gridY": 5,
           "label": "Kinderwens en follow up tijdens conceptiefase 2022",
           "icon": "minus-light",
           "tone": "blue",
@@ -3729,9 +3748,9 @@
         },
         {
           "id": "zwanger",
-          "type": "criterion",
-          "x": 55,
-          "y": 285,
+          "type": "dataItem",
+          "gridX": 11,
+          "gridY": 57,
           "label": "Zwanger",
           "interactive": true,
           "options": [
@@ -3749,9 +3768,9 @@
         },
         {
           "id": "wens",
-          "type": "criterion",
-          "x": 520,
-          "y": 610,
+          "type": "dataItem",
+          "gridX": 104,
+          "gridY": 122,
           "label": "Kinderwens",
           "interactive": true,
           "options": [
@@ -3769,25 +3788,25 @@
         },
         {
           "id": "ja",
-          "type": "outcome",
-          "x": 55,
-          "y": 900,
-          "h": 330,
+          "type": "recommendation",
+          "gridX": 11,
+          "gridY": 180,
+          "height": 66,
           "text": "Follow up > 6mnd post partum:\n\nEcho\n\nEN\n\nPipelle\n\nEN\n\nHysteroscopie"
         },
         {
           "id": "aan",
-          "type": "outcome",
-          "x": 520,
-          "y": 900,
-          "h": 330,
+          "type": "recommendation",
+          "gridX": 104,
+          "gridY": 180,
+          "height": 66,
           "text": "Elke 3 mnd:\n\nEcho\n\nEN\n\nPipelle\n\nEN\n\nHysteroscopie"
         },
         {
           "id": "af",
-          "type": "outcome",
-          "x": 950,
-          "y": 900,
+          "type": "recommendation",
+          "gridX": 190,
+          "gridY": 180,
           "text": "Standaard behandeling"
         }
       ],
@@ -3813,6 +3832,7 @@
           "from": "zwanger",
           "to": "ja",
           "value": "ja",
+          "label": "Ja",
           "points": [
             [
               215,
@@ -3823,18 +3843,18 @@
               900
             ]
           ],
-          "arrow": true,
-          "label": "Ja",
           "dot": [
             215,
             670
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-zwanger-nee",
           "from": "zwanger",
           "to": "wens",
           "value": "nee",
+          "label": "Nee",
           "points": [
             [
               375,
@@ -3849,18 +3869,18 @@
               610
             ]
           ],
-          "arrow": true,
-          "label": "Nee",
           "dot": [
             525,
             370
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-wens-aanwezig",
           "from": "wens",
           "to": "aan",
           "value": "aanwezig",
+          "label": "Aanwezig",
           "points": [
             [
               680,
@@ -3871,18 +3891,18 @@
               900
             ]
           ],
-          "arrow": true,
-          "label": "Aanwezig",
           "dot": [
             680,
             835
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-wens-afwezig",
           "from": "wens",
           "to": "af",
           "value": "afwezig",
+          "label": "Afwezig",
           "points": [
             [
               840,
@@ -3897,31 +3917,27 @@
               900
             ]
           ],
-          "arrow": true,
-          "label": "Afwezig",
           "dot": [
             975,
             695
-          ]
+          ],
+          "arrow": true
         }
       ]
     },
     "kinder-vervolg-followup": {
-      "viewBox": [
-        850,
-        1050
-      ],
-      "nodeSize": [
-        310,
-        155
-      ],
-      "native": true,
+      "layout": {
+        "unit": 5,
+        "blockWidth": 62,
+        "blockHeight": 31,
+        "margin": 5
+      },
       "nodes": [
         {
           "id": "root",
-          "type": "root",
-          "x": 55,
-          "y": 25,
+          "type": "title",
+          "gridX": 11,
+          "gridY": 5,
           "label": "Kinderwens vervolg follow up tijdens conceptiefase 2022",
           "icon": "minus-light",
           "tone": "blue",
@@ -3930,9 +3946,9 @@
         },
         {
           "id": "cyt",
-          "type": "criterion",
-          "x": 55,
-          "y": 260,
+          "type": "dataItem",
+          "gridX": 11,
+          "gridY": 52,
           "label": "Uitslag cytologie",
           "interactive": true,
           "options": [
@@ -3950,23 +3966,23 @@
         },
         {
           "id": "neg",
-          "type": "outcome",
-          "x": 55,
-          "y": 610,
+          "type": "recommendation",
+          "gridX": 11,
+          "gridY": 122,
           "text": "Follow up"
         },
         {
           "id": "pos",
-          "type": "outcome",
-          "x": 470,
-          "y": 610,
+          "type": "recommendation",
+          "gridX": 94,
+          "gridY": 122,
           "text": "Standaard behandeling\n\nOF\n\nBehandeling recidief"
         },
         {
           "id": "v",
-          "type": "link",
-          "x": 55,
-          "y": 850,
+          "type": "reference",
+          "gridX": 11,
+          "gridY": 170,
           "label": "Kinderwens vervolg follow up tijdens conceptiefase 2022",
           "icon": "down",
           "to": "kinder-vervolg-followup"
@@ -3994,6 +4010,7 @@
           "from": "cyt",
           "to": "neg",
           "value": "negatief",
+          "label": "Negatief",
           "points": [
             [
               210,
@@ -4004,18 +4021,18 @@
               610
             ]
           ],
-          "arrow": true,
-          "label": "Negatief",
           "dot": [
             210,
             510
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-cyt-positief",
           "from": "cyt",
           "to": "pos",
           "value": "positief",
+          "label": "Positief",
           "points": [
             [
               365,
@@ -4030,12 +4047,11 @@
               610
             ]
           ],
-          "arrow": true,
-          "label": "Positief",
           "dot": [
             495,
             335
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-neg-v",
@@ -4056,21 +4072,18 @@
       ]
     },
     "kinder-vervolg": {
-      "viewBox": [
-        1400,
-        1500
-      ],
-      "nodeSize": [
-        300,
-        155
-      ],
-      "native": true,
+      "layout": {
+        "unit": 5,
+        "blockWidth": 60,
+        "blockHeight": 31,
+        "margin": 5
+      },
       "nodes": [
         {
           "id": "root",
-          "type": "root",
-          "x": 400,
-          "y": 25,
+          "type": "title",
+          "gridX": 80,
+          "gridY": 5,
           "label": "Kinderwens en vervolg behandeling 2022",
           "icon": "minus-light",
           "tone": "blue",
@@ -4079,9 +4092,9 @@
         },
         {
           "id": "pa",
-          "type": "criterion",
-          "x": 400,
-          "y": 245,
+          "type": "dataItem",
+          "gridX": 80,
+          "gridY": 49,
           "label": "PA uitslag",
           "interactive": true,
           "options": [
@@ -4099,9 +4112,9 @@
         },
         {
           "id": "graad",
-          "type": "criterion",
-          "x": 400,
-          "y": 510,
+          "type": "dataItem",
+          "gridX": 80,
+          "gridY": 102,
           "label": "Graad",
           "icon": "plus-light",
           "interactive": true,
@@ -4120,9 +4133,9 @@
         },
         {
           "id": "tijd",
-          "type": "criterion",
-          "x": 400,
-          "y": 770,
+          "type": "dataItem",
+          "gridX": 80,
+          "gridY": 154,
           "label": "Tijd na start behandeling",
           "interactive": true,
           "options": [
@@ -4145,58 +4158,58 @@
         },
         {
           "id": "vroeg",
-          "type": "outcome",
-          "x": 50,
-          "y": 1070,
-          "h": 310,
+          "type": "recommendation",
+          "gridX": 10,
+          "gridY": 214,
+          "height": 62,
           "text": "Medroxyprogesteron 200 mg/dag (elke 3 mnd)\n\nGEVOLGD DOOR\n\nHysteroscopie\n\nEN\n\nEndometriumsampling"
         },
         {
           "id": "midden",
-          "type": "outcome",
-          "x": 400,
-          "y": 1070,
-          "h": 380,
+          "type": "recommendation",
+          "gridX": 80,
+          "gridY": 214,
+          "height": 76,
           "text": "Medroxyprogesteron 200 mg/dag\n\nOF\n\nOverweeg hormoonhoudend IUD\n\nGEVOLGD DOOR\n\nHysteroscopie\n\nEN\n\nEndometriumsampling"
         },
         {
           "id": "std",
-          "type": "outcome",
-          "x": 750,
-          "y": 1070,
+          "type": "recommendation",
+          "gridX": 150,
+          "gridY": 214,
           "text": "Standaard behandeling"
         },
         {
           "id": "geen",
-          "type": "outcome",
-          "x": 1050,
-          "y": 1070,
-          "h": 230,
+          "type": "recommendation",
+          "gridX": 210,
+          "gridY": 214,
+          "height": 46,
           "text": "Medroxyprogesteron 200 mg/dag 3 mnd (consolidatiekuur)\n\nEN\n\nEndometriumsampling"
         },
         {
           "id": "l1",
-          "type": "link",
-          "x": 50,
-          "y": 1360,
+          "type": "reference",
+          "gridX": 10,
+          "gridY": 272,
           "label": "Kinderwens en vervolg behandeling 2022",
           "icon": "down",
           "to": "kinder-vervolg"
         },
         {
           "id": "l2",
-          "type": "link",
-          "x": 400,
-          "y": 1360,
+          "type": "reference",
+          "gridX": 80,
+          "gridY": 272,
           "label": "Kinderwens en vervolg behandeling 2022",
           "icon": "down",
           "to": "kinder-vervolg"
         },
         {
           "id": "l3",
-          "type": "link",
-          "x": 1050,
-          "y": 1360,
+          "type": "reference",
+          "gridX": 210,
+          "gridY": 272,
           "label": "Kinderwens en conceptiefase 2022",
           "icon": "down",
           "to": "kinder-conceptie"
@@ -4224,6 +4237,7 @@
           "from": "pa",
           "to": "graad",
           "value": "maligniteit",
+          "label": "Maligniteit",
           "points": [
             [
               550,
@@ -4234,18 +4248,18 @@
               510
             ]
           ],
-          "arrow": true,
-          "label": "Maligniteit",
           "dot": [
             550,
             455
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-pa-geen-maligniteit",
           "from": "pa",
           "to": "geen",
           "value": "geen-maligniteit",
+          "label": "Geen maligniteit",
           "points": [
             [
               700,
@@ -4260,18 +4274,18 @@
               1070
             ]
           ],
-          "arrow": true,
-          "label": "Geen maligniteit",
           "dot": [
             950,
             320
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-graad-1",
           "from": "graad",
           "to": "tijd",
           "value": "1",
+          "label": "1",
           "points": [
             [
               550,
@@ -4282,18 +4296,18 @@
               770
             ]
           ],
-          "arrow": true,
-          "label": "1",
           "dot": [
             550,
             715
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-graad-gt-1",
           "from": "graad",
           "to": "std",
           "value": "gt-1",
+          "label": ">1",
           "points": [
             [
               700,
@@ -4308,18 +4322,18 @@
               1070
             ]
           ],
-          "arrow": true,
-          "label": ">1",
           "dot": [
             800,
             585
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-tijd-lte-6-mnd",
           "from": "tijd",
           "to": "vroeg",
           "value": "lte-6-mnd",
+          "label": "<=6 mnd",
           "points": [
             [
               400,
@@ -4334,18 +4348,18 @@
               1070
             ]
           ],
-          "arrow": true,
-          "label": "<=6 mnd",
           "dot": [
             300,
             845
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-tijd-6-12-mnd",
           "from": "tijd",
           "to": "midden",
           "value": "6-12-mnd",
+          "label": "6-12 mnd",
           "points": [
             [
               550,
@@ -4356,18 +4370,18 @@
               1070
             ]
           ],
-          "arrow": true,
-          "label": "6-12 mnd",
           "dot": [
             550,
             980
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-tijd-gte-12-mnd",
           "from": "tijd",
           "to": "std",
           "value": "gte-12-mnd",
+          "label": ">=12 mnd",
           "points": [
             [
               700,
@@ -4392,7 +4406,6 @@
               1070
             ]
           ],
-          "label": ">=12 mnd",
           "dot": [
             800,
             845
@@ -4401,22 +4414,19 @@
       ]
     },
     "recidiefbehandeling": {
-      "viewBox": [
-        2400,
-        1150
-      ],
-      "nodeSize": [
-        220,
-        120
-      ],
-      "native": true,
+      "layout": {
+        "unit": 5,
+        "blockWidth": 44,
+        "blockHeight": 24,
+        "margin": 3
+      },
       "zoom": 0.8,
       "nodes": [
         {
           "id": "root",
-          "type": "root",
-          "x": 1180,
-          "y": 15,
+          "type": "title",
+          "gridX": 236,
+          "gridY": 3,
           "label": "Recidief behandeling 2022",
           "icon": "minus-light",
           "tone": "blue",
@@ -4425,9 +4435,9 @@
         },
         {
           "id": "type",
-          "type": "criterion",
-          "x": 1180,
-          "y": 170,
+          "type": "dataItem",
+          "gridX": 236,
+          "gridY": 34,
           "label": "Type recidief",
           "interactive": true,
           "options": [
@@ -4450,9 +4460,9 @@
         },
         {
           "id": "behandeling",
-          "type": "criterion",
-          "x": 650,
-          "y": 310,
+          "type": "dataItem",
+          "gridX": 130,
+          "gridY": 62,
           "label": "Eerdere behandeling",
           "interactive": true,
           "options": [
@@ -4470,9 +4480,9 @@
         },
         {
           "id": "grootte",
-          "type": "criterion",
-          "x": 230,
-          "y": 560,
+          "type": "dataItem",
+          "gridX": 46,
+          "gridY": 112,
           "label": "Grootte recidief",
           "interactive": true,
           "options": [
@@ -4490,9 +4500,9 @@
         },
         {
           "id": "mogelijk",
-          "type": "criterion",
-          "x": 650,
-          "y": 500,
+          "type": "dataItem",
+          "gridX": 130,
+          "gridY": 100,
           "label": "Mogelijke behandeling",
           "interactive": true,
           "options": [
@@ -4510,9 +4520,9 @@
         },
         {
           "id": "pr",
-          "type": "criterion",
-          "x": 650,
-          "y": 700,
+          "type": "dataItem",
+          "gridX": 130,
+          "gridY": 140,
           "label": "Status progesteron receptor",
           "interactive": true,
           "options": [
@@ -4530,9 +4540,9 @@
         },
         {
           "id": "locatie",
-          "type": "criterion",
-          "x": 1180,
-          "y": 500,
+          "type": "dataItem",
+          "gridX": 236,
+          "gridY": 100,
           "label": "Locatie regionaal recidief",
           "interactive": true,
           "options": [
@@ -4550,96 +4560,96 @@
         },
         {
           "id": "ev",
-          "type": "criterion",
-          "x": 1180,
-          "y": 700,
+          "type": "dataItem",
+          "gridX": 236,
+          "gridY": 140,
           "label": "Eerdere behandeling",
           "interactionNote": "Niet interactief (INCOMPLETE): geen uitgaande edges in de data."
         },
         {
           "id": "eb",
-          "type": "criterion",
-          "x": 1660,
-          "y": 700,
+          "type": "dataItem",
+          "gridX": 332,
+          "gridY": 140,
           "label": "Eerdere behandeling",
           "interactionNote": "Niet interactief (INCOMPLETE): niet bereikbaar vanaf de root via gemodelleerde edges (upstream onvolledig of dubbelzinnig, of inkomende edge ontbreekt)."
         },
         {
           "id": "o1",
-          "type": "outcome",
-          "x": 20,
-          "y": 880,
+          "type": "recommendation",
+          "gridX": 4,
+          "gridY": 176,
           "text": "Radiotherapie"
         },
         {
           "id": "o2",
-          "type": "outcome",
-          "x": 260,
-          "y": 880,
+          "type": "recommendation",
+          "gridX": 52,
+          "gridY": 176,
           "text": "Radiotherapie\nOF\nOverweeg debulking\nGEVOLGD DOOR\nRadiotherapie"
         },
         {
           "id": "o3",
-          "type": "outcome",
-          "x": 500,
-          "y": 880,
+          "type": "recommendation",
+          "gridX": 100,
+          "gridY": 176,
           "text": "Verwijs naar oncologisch centrum\nEN\nOverweeg exenteratie"
         },
         {
           "id": "o4",
-          "type": "outcome",
-          "x": 740,
-          "y": 880,
+          "type": "recommendation",
+          "gridX": 148,
+          "gridY": 176,
           "text": "Hormonale therapie"
         },
         {
           "id": "o5",
-          "type": "outcome",
-          "x": 980,
-          "y": 880,
+          "type": "recommendation",
+          "gridX": 196,
+          "gridY": 176,
           "text": "Overweeg systemische chemotherapie"
         },
         {
           "id": "o6",
-          "type": "outcome",
-          "x": 1220,
-          "y": 880,
+          "type": "recommendation",
+          "gridX": 244,
+          "gridY": 176,
           "text": "Chirurgie in oncologisch centrum"
         },
         {
           "id": "o7",
-          "type": "outcome",
-          "x": 1460,
-          "y": 880,
+          "type": "recommendation",
+          "gridX": 292,
+          "gridY": 176,
           "text": "Radiotherapie"
         },
         {
           "id": "o8",
-          "type": "outcome",
-          "x": 1700,
-          "y": 880,
+          "type": "recommendation",
+          "gridX": 340,
+          "gridY": 176,
           "text": "Hormonale therapie"
         },
         {
           "id": "o9",
-          "type": "outcome",
-          "x": 1940,
-          "y": 880,
+          "type": "recommendation",
+          "gridX": 388,
+          "gridY": 176,
           "text": "Radiotherapie"
         },
         {
           "id": "o10",
-          "type": "outcome",
-          "x": 2180,
-          "y": 820,
-          "h": 260,
+          "type": "recommendation",
+          "gridX": 436,
+          "gridY": 164,
+          "height": 52,
           "text": "Overweeg laag gedoseerd medroxyprogesteron\nOF\nOverweeg megestrol-acetaat"
         },
         {
           "id": "beleid",
-          "type": "link",
-          "x": 2180,
-          "y": 1080,
+          "type": "reference",
+          "gridX": 436,
+          "gridY": 216,
           "label": "Beleid na hormoontherapie",
           "icon": "down",
           "to": "beleid-hormoon"
@@ -4667,6 +4677,7 @@
           "from": "type",
           "to": "behandeling",
           "value": "lokaal",
+          "label": "Lokaal",
           "points": [
             [
               1180,
@@ -4681,18 +4692,18 @@
               310
             ]
           ],
-          "arrow": true,
-          "label": "Lokaal",
           "dot": [
             970,
             230
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-type-regionaal",
           "from": "type",
           "to": "locatie",
           "value": "regionaal",
+          "label": "Regionaal",
           "points": [
             [
               1290,
@@ -4703,18 +4714,18 @@
               500
             ]
           ],
-          "arrow": true,
-          "label": "Regionaal",
           "dot": [
             1290,
             385
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-type-afstands",
           "from": "type",
           "to": "o10",
           "value": "afstands",
+          "label": "Afstands",
           "points": [
             [
               1400,
@@ -4729,18 +4740,18 @@
               820
             ]
           ],
-          "arrow": true,
-          "label": "Afstands",
           "dot": [
             1845,
             230
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-behandeling-anders",
           "from": "behandeling",
           "to": "grootte",
           "value": "anders",
+          "label": "Anders",
           "points": [
             [
               650,
@@ -4755,18 +4766,18 @@
               560
             ]
           ],
-          "arrow": true,
-          "label": "Anders",
           "dot": [
             495,
             370
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-behandeling-radiotherapie",
           "from": "behandeling",
           "to": "mogelijk",
           "value": "radiotherapie",
+          "label": "Radiotherapie",
           "points": [
             [
               760,
@@ -4777,18 +4788,18 @@
               500
             ]
           ],
-          "arrow": true,
-          "label": "Radiotherapie",
           "dot": [
             760,
             460
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-grootte-lte-2-cm",
           "from": "grootte",
           "to": "o1",
           "value": "lte-2-cm",
+          "label": "<=2 cm",
           "points": [
             [
               230,
@@ -4803,18 +4814,18 @@
               880
             ]
           ],
-          "arrow": true,
-          "label": "<=2 cm",
           "dot": [
             180,
             620
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-grootte-gt-2-cm",
           "from": "grootte",
           "to": "o2",
           "value": "gt-2-cm",
+          "label": ">2 cm",
           "points": [
             [
               340,
@@ -4829,18 +4840,18 @@
               880
             ]
           ],
-          "arrow": true,
-          "label": ">2 cm",
           "dot": [
             355,
             680
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-mogelijk-radicaal",
           "from": "mogelijk",
           "to": "o3",
           "value": "radicaal",
+          "label": "Radicaal",
           "points": [
             [
               650,
@@ -4855,18 +4866,18 @@
               880
             ]
           ],
-          "arrow": true,
-          "label": "Radicaal",
           "dot": [
             630,
             560
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-mogelijk-niet-radicaal",
           "from": "mogelijk",
           "to": "pr",
           "value": "niet-radicaal",
+          "label": "Niet-radicaal",
           "points": [
             [
               760,
@@ -4877,18 +4888,18 @@
               700
             ]
           ],
-          "arrow": true,
-          "label": "Niet-radicaal",
           "dot": [
             760,
             660
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-pr-positief",
           "from": "pr",
           "to": "o4",
           "value": "positief",
+          "label": "Positief",
           "points": [
             [
               650,
@@ -4903,18 +4914,18 @@
               880
             ]
           ],
-          "arrow": true,
-          "label": "Positief",
           "dot": [
             760,
             760
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-pr-negatief",
           "from": "pr",
           "to": "o5",
           "value": "negatief",
+          "label": "Negatief",
           "points": [
             [
               870,
@@ -4929,18 +4940,18 @@
               880
             ]
           ],
-          "arrow": true,
-          "label": "Negatief",
           "dot": [
             980,
             760
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-locatie-laag-in-vagina",
           "from": "locatie",
           "to": "ev",
           "value": "laag-in-vagina",
+          "label": "Laag in vagina",
           "points": [
             [
               1290,
@@ -4951,18 +4962,18 @@
               700
             ]
           ],
-          "arrow": true,
-          "label": "Laag in vagina",
           "dot": [
             1290,
             660
-          ]
+          ],
+          "arrow": true
         },
         {
           "id": "edge-locatie-bekkenwand-ingroei-blaas-of-rectum",
           "from": "locatie",
           "to": "o7",
           "value": "bekkenwand-ingroei-blaas-of-rectum",
+          "label": "Bekkenwand, ingroei blaas of rectum",
           "points": [
             [
               1400,
@@ -4977,14 +4988,14 @@
               880
             ]
           ],
-          "arrow": true,
-          "label": "Bekkenwand, ingroei blaas of rectum",
           "dot": [
             1485,
             560
-          ]
+          ],
+          "arrow": true
         },
         {
+          "label": "Radiotherapie",
           "points": [
             [
               1660,
@@ -4999,14 +5010,14 @@
               880
             ]
           ],
-          "arrow": true,
-          "label": "Radiotherapie",
           "dot": [
             1735,
             760
-          ]
+          ],
+          "arrow": true
         },
         {
+          "label": "Anders",
           "points": [
             [
               1880,
@@ -5021,12 +5032,11 @@
               880
             ]
           ],
-          "arrow": true,
-          "label": "Anders",
           "dot": [
             1965,
             760
-          ]
+          ],
+          "arrow": true
         }
       ]
     }
