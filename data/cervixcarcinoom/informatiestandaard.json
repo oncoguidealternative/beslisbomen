@@ -14,7 +14,7 @@
     },
     "url": "https://decor.nictiz.nl/ad/#/onco-gyn-new-/datasets/dataset/2.16.840.1.113883.2.4.3.11.31.1.77.18.1.1/2019-01-28T16:24:03/concept/2.16.840.1.113883.2.4.3.11.31.1.77.18.2.444/2021-12-21T16:05:57",
     "opgehaald": "2026-10-30",
-    "toelichting": "De codes komen uit de waardelijsten van de Nictiz-dataset (codesysteem SNOMED CT; sommige codes zijn lokale codes uit de dataset). \"waarde\" is de waarde die het zorgpad gebruikt. \"zorgpadWaarden\" legt vast hoe een samengevoegde zorgpadwaarde zich verhoudt tot de waarden van de informatiestandaard: \"alle\" = alle genoemde waarden tegelijk, \"eenVan\" = één van de genoemde waarden."
+    "toelichting": "De codes komen uit de waardelijsten van de Nictiz-dataset (codesysteem SNOMED CT; sommige codes zijn lokale codes uit de dataset). \"waarde\" is de waarde die het zorgpad gebruikt. \"zorgpadWaarden\" legt vast hoe een samengevoegde zorgpadwaarde zich verhoudt tot de waarden van de informatiestandaard: \"alle\" = alle genoemde waarden tegelijk, \"eenVan\" = één van de genoemde waarden. \"Anders\" heeft code OTH uit HL7 NullFlavor (2.16.840.1.113883.5.1008); ART-DECOR toont dat codesysteem als \"Acknowledgement Condition\"."
   },
   "dataitems": [
     {
@@ -1113,6 +1113,12 @@
           "naam": "Para-aortaal",
           "code": "90769006",
           "codeSystem": "2.16.840.1.113883.6.96"
+        },
+        {
+          "waarde": "anders",
+          "naam": "Anders",
+          "code": "OTH",
+          "codeSystem": "2.16.840.1.113883.5.1008"
         }
       ],
       "zorgpadWaarden": {
@@ -1443,7 +1449,7 @@
           "waarde": "anders",
           "naam": "Anders",
           "code": "OTH",
-          "codeSystem": "2.16.840.1.113883.2.4.3.11.31.1.77.18.11.380"
+          "codeSystem": "2.16.840.1.113883.5.1008"
         }
       ]
     },
