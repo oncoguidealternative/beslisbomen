@@ -11,21 +11,19 @@ https://oncoguidealternative.github.io/beslisbomen/
 Huidige status
 Beschikbaar
 Homepage met overzicht van tumorsoorten
-Zorgpad vulvacarcinoom
-Onderliggende beslisbomen voor vulvacarcinoom
-Navigatie tussen zorgpad en beslisbomen
-Navigatie tussen opeenvolgende beslisbomen
-Zoomfunctie voor grote beslisbomen
-Horizontaal scrollen bij brede beslisbomen
-Toetsenbordbediening van klikbare onderdelen
-Generieke zorgpadpagina voor meerdere tumorsoorten
+Zorgpaden voor tien gynaecologische tumoren (in verschillende stadia van uitwerking)
+Navigatie tussen zorgpad en beslisbomen, en tussen opeenvolgende beslisbomen
+Zoomen en slepen; toetsenbordbediening van klikbare onderdelen
+Interactief kiezen van waarden bij dataknooppunten, in vrije volgorde
+Markeren van het gekozen pad en uitfaden van uitgesloten routes
+Aanbevelingenoverzicht per beslisboom
+Hulpbeslisbomen die een keuze bepalen
+Bronvermelding per zorgpad en beslisboom (klik op de titel)
+Automatische controle van alle inhoud (tools/check.js, ook op GitHub)
 In voorbereiding
-Zorgpad endometriumcarcinoom
-Interactief kiezen van waarden bij dataknooppunten
-Markeren van het gekozen pad
-Uitfaden van uitgesloten routes
+Endometriumcarcinoom opnieuw opbouwen op het raster
+Bronvermelding voor alle zorgpaden
 Paneel met patiëntinformatie
-Synchronisatie tussen beslisboom en patiëntinformatiepaneel
 Technische uitgangspunten
 De applicatie gebruikt uitsluitend:
 
@@ -37,22 +35,44 @@ JSON
 Er worden geen frameworks, externe bibliotheken, buildtools, backend of database gebruikt. De applicatie kan daardoor rechtstreeks via GitHub Pages worden gepubliceerd.
 
 Projectstructuur
-index.html
-zorgpad.html
+index.html                 homepage
+zorgpad.html               zorgpadpagina (overzicht en beslisbomen)
 
 css/
   styles.css
 
 js/
-  app.js
-  renderer.js
-  state.js
+  home.js                  homepage: tumorkaarten
+  app.js                   zorgpadpagina: laden, navigatie, keuzes
+  state.js                 centrale status (keuzes, viewport)
+  graph-state.js           rekenkern: gekozen, bereikt, mogelijk, uitgesloten
+  graph-validator.js       controle van de interactiegegevens
+  layout-engine.js         posities en lijnen op het raster
+  renderer.js              tekenen als SVG
+  viewport.js              zoomen, slepen, passend maken
+  journey.js               begeleiding naar de volgende stap
+  subtrees.js              hulpbeslisbomen
+  choice-panel.js          keuzevenster
+  recommendations-panel.js aanbevelingenoverzicht
+  bron.js                  bronvermelding
+  content-panel.js         informatiepaneel
+  breadcrumb.js            kruimelpad
 
 data/
-  tumoren.json
+  tumoren.json             lijst van tumoren
+  <tumor-id>/zorgpad.json  zorgpad per tumor
+  pages/                   inhoudspagina's (over, FAQ, privacy, voorwaarden)
 
-  vulva/
-    zorgpad.json
+docs/
+  interactive-tree-schema.md   het JSON-formaat van een zorgpad
+  layout-engine.md             posities en lijnen
+  hulpbeslisbomen.md           keuzes via een hulpbeslisboom
 
-  endometrium/
-    zorgpad.json
+tools/
+  check.js                 controle van alle inhoud: node tools/check.js
+
+.github/workflows/check.yml    draait de controle bij elke wijziging op GitHub
+
+Publiceren
+Verhoog bij elke publicatie het versienummer ?v=… in index.html en zorgpad.html (alle regels tegelijk),
+zodat bezoekers de nieuwe versie krijgen in plaats van een oude uit hun browsercache.
