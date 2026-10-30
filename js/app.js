@@ -640,8 +640,17 @@
       if (treeId !== currentTreeId || getSelections(treeId)[nodeId] === value) return;
       cancelJourney();
       setSelection(treeId, nodeId, value);
-      removeInvalidSelections();
+      const removed = removeInvalidSelections();
       ChoicePanel.close(false);
+      const vervallen = removedMessage(removed);
+      // Vrije volgorde: een keuze bij een node die nog niet bereikt is, wordt alvast vastgelegd. Er is dan nog
+      // geen route om te volgen; die loopt automatisch door zodra de eerdere keuzes zijn gemaakt.
+      if (GraphState.compute(currentGraph, getSelections(treeId)).nodes[nodeId] === "preselected") {
+        clearGuidedTarget();
+        ChoicePanel.announce(info.nodeLabel + ": " + info.optionLabel + " alvast geselecteerd." + vervallen);
+        focusWithoutPan(nodeId);
+        return;
+      }
       const target = GraphState.nextTarget(currentGraph, getSelections(treeId), nodeId);
       let message = info.nodeLabel + ": " + info.optionLabel + " geselecteerd.";
       if (target && target.kind === "available") {
@@ -651,8 +660,15 @@
       } else if (target && target.kind === "end") {
         message += " De route loopt verder bij: " + GraphState.describeNode(nodeById(target.id)) + ".";
       }
-      ChoicePanel.announce(message);
+      ChoicePanel.announce(message + vervallen);
       if (target) startJourney(target, nodeId);
+    }
+
+    // Melding voor keuzes die door een nieuwe keuze niet meer mogelijk zijn en dus zijn gewist (leeg als er geen zijn).
+    function removedMessage(removed) {
+      if (!removed || !removed.length) return "";
+      const names = removed.map(function (id) { return GraphState.describeNode(nodeById(id)) || id; });
+      return " Niet meer van toepassing, keuze gewist: " + names.join(", ") + ".";
     }
 
     // Klik of toets op een connector: dezelfde functie als de radioknop in het keuzevenster.
@@ -669,8 +685,8 @@
         cancelJourney();
         clearGuidedTarget();
         clearSelection(treeId, nodeId);
-        removeInvalidSelections();
-        ChoicePanel.announce("Keuze voor " + info.nodeLabel + " gewist.");
+        const removed = removeInvalidSelections();
+        ChoicePanel.announce("Keuze voor " + info.nodeLabel + " gewist." + removedMessage(removed));
       }
     });
 
