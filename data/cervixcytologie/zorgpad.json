@@ -2,28 +2,219 @@
   "id": "cervixcytologie",
   "titel": "Zorgpad richtlijn Cervixcytologie",
   "overview": {
-    "viewBox": [1380, 1324],
-    "nodeSize": [300, 150],
+    "layout": {
+      "unit": 5,
+      "blockWidth": 60,
+      "blockHeight": 30,
+      "margin": 23
+    },
     "wrap": 25,
     "nodes": [
-      {"id": "start", "label": "Zorgpad richtlijn Cervixcytologie", "x": 532, "y": 117},
-      {"id": "initiele-diagnostiek", "drill": true, "label": "Initiële diagnostiek", "x": 532, "y": 312},
-      {"id": "indicatie-bvo", "drill": true, "label": "Indicatie cytologie volgens BVO", "x": 157, "y": 507},
-      {"id": "beleid-cervixcytologie", "drill": true, "label": "Beleid na cervixcytologie", "x": 532, "y": 702},
-      {"id": "beleid-hrhpv-klachten", "drill": true, "label": "Beleid na hrHPV-bepaling bij klachten", "text": "Beleid na hrHPV-\nbepaling bij klachten", "x": 907, "y": 897},
-      {"id": "followup-bvo", "drill": true, "label": "Follow-up 6 maanden na BVO", "x": 157, "y": 1092},
-      {"id": "cin-ais-vain", "drill": true, "label": "Zorgpad richtlijn CIN, AIS, VAIN", "x": 532, "y": 1092},
-      {"id": "followup-klachten", "drill": true, "label": "Follow-up 6 maanden na klachten", "x": 907, "y": 1092}
+      {
+        "id": "start",
+        "gridX": 106,
+        "gridY": 23,
+        "label": "Zorgpad richtlijn Cervixcytologie"
+      },
+      {
+        "id": "initiele-diagnostiek",
+        "gridX": 106,
+        "gridY": 62,
+        "drill": true,
+        "label": "Initiële diagnostiek"
+      },
+      {
+        "id": "indicatie-bvo",
+        "gridX": 31,
+        "gridY": 101,
+        "drill": true,
+        "label": "Indicatie cytologie volgens BVO"
+      },
+      {
+        "id": "beleid-cervixcytologie",
+        "gridX": 106,
+        "gridY": 140,
+        "drill": true,
+        "label": "Beleid na cervixcytologie"
+      },
+      {
+        "id": "beleid-hrhpv-klachten",
+        "gridX": 181,
+        "gridY": 179,
+        "drill": true,
+        "label": "Beleid na hrHPV-bepaling bij klachten",
+        "text": "Beleid na hrHPV-\nbepaling bij klachten"
+      },
+      {
+        "id": "followup-bvo",
+        "gridX": 31,
+        "gridY": 218,
+        "drill": true,
+        "label": "Follow-up 6 maanden na BVO"
+      },
+      {
+        "id": "cin-ais-vain",
+        "gridX": 106,
+        "gridY": 218,
+        "drill": true,
+        "label": "Zorgpad richtlijn CIN, AIS, VAIN"
+      },
+      {
+        "id": "followup-klachten",
+        "gridX": 181,
+        "gridY": 218,
+        "drill": true,
+        "label": "Follow-up 6 maanden na klachten"
+      }
     ],
     "edges": [
-      {"points": [[682, 267], [682, 312]], "arrow": true, "width": 3},
-      {"points": [[532, 387], [307, 387], [307, 507]], "arrow": true, "width": 3},
-      {"points": [[682, 462], [682, 702]], "arrow": true, "width": 3},
-      {"points": [[457, 582], [682, 582]], "width": 3},
-      {"points": [[532, 777], [307, 777], [307, 1092]], "arrow": true, "width": 3},
-      {"points": [[682, 852], [682, 1092]], "arrow": true, "width": 3},
-      {"points": [[832, 777], [1057, 777], [1057, 897]], "arrow": true, "width": 3},
-      {"points": [[1057, 1047], [1057, 1092]], "arrow": true, "width": 3}
+      {
+        "id": "edge-start-initiele-diagnostiek",
+        "from": "start",
+        "to": "initiele-diagnostiek",
+        "points": [
+          [
+            680,
+            265
+          ],
+          [
+            680,
+            310
+          ]
+        ],
+        "arrow": true,
+        "width": 3
+      },
+      {
+        "id": "edge-initiele-diagnostiek-indicatie-bvo",
+        "from": "initiele-diagnostiek",
+        "to": "indicatie-bvo",
+        "points": [
+          [
+            530,
+            385
+          ],
+          [
+            305,
+            385
+          ],
+          [
+            305,
+            505
+          ]
+        ],
+        "arrow": true,
+        "width": 3
+      },
+      {
+        "id": "edge-initiele-diagnostiek-beleid-cervixcytologie",
+        "from": "initiele-diagnostiek",
+        "to": "beleid-cervixcytologie",
+        "points": [
+          [
+            680,
+            460
+          ],
+          [
+            680,
+            700
+          ]
+        ],
+        "arrow": true,
+        "width": 3
+      },
+      {
+        "id": "edge-indicatie-bvo-beleid-cervixcytologie",
+        "from": "indicatie-bvo",
+        "points": [
+          [
+            455,
+            580
+          ],
+          [
+            680,
+            580
+          ]
+        ],
+        "width": 3,
+        "to": "beleid-cervixcytologie"
+      },
+      {
+        "id": "edge-beleid-cervixcytologie-followup-bvo",
+        "from": "beleid-cervixcytologie",
+        "to": "followup-bvo",
+        "points": [
+          [
+            530,
+            775
+          ],
+          [
+            305,
+            775
+          ],
+          [
+            305,
+            1090
+          ]
+        ],
+        "arrow": true,
+        "width": 3
+      },
+      {
+        "id": "edge-beleid-cervixcytologie-cin-ais-vain",
+        "from": "beleid-cervixcytologie",
+        "to": "cin-ais-vain",
+        "points": [
+          [
+            680,
+            850
+          ],
+          [
+            680,
+            1090
+          ]
+        ],
+        "arrow": true,
+        "width": 3
+      },
+      {
+        "id": "edge-beleid-cervixcytologie-beleid-hrhpv-klachten",
+        "from": "beleid-cervixcytologie",
+        "to": "beleid-hrhpv-klachten",
+        "points": [
+          [
+            830,
+            775
+          ],
+          [
+            1055,
+            775
+          ],
+          [
+            1055,
+            895
+          ]
+        ],
+        "arrow": true,
+        "width": 3
+      },
+      {
+        "id": "edge-beleid-hrhpv-klachten-followup-klachten",
+        "from": "beleid-hrhpv-klachten",
+        "to": "followup-klachten",
+        "points": [
+          [
+            1055,
+            1045
+          ],
+          [
+            1055,
+            1090
+          ]
+        ],
+        "arrow": true,
+        "width": 3
+      }
     ]
   },
   "trees": {}
