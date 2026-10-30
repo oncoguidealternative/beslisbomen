@@ -109,7 +109,7 @@ Het overzicht en elke beslisboom zijn een **graph** met dezelfde opbouw (§3).
 
 | Type | Betekenis | Op de website |
 |---|---|---|
-| `title` | Titel van het zorgpad of de beslisboom | Een klik toont de **bronvermelding**. In een beslisboom brengt het min-icoon je terug naar het overzicht. |
+| `title` | Titel van het zorgpad of de beslisboom | Zorgpad: een klik toont de **bronvermelding** (§7). Beslisboom: een klik toont de **onderbouwing** (§7b); het min-icoon brengt je terug naar het overzicht. |
 | `dataItem` | Een gegeven of vraag (bv. "Tumorgedrag") | Met `interactive: true` een keuze, zie §6 |
 | `recommendation` | Een aanbeveling (uitkomst) | Wordt groen als de route ernaartoe is gekozen |
 | `reference` | Verwijzing naar een volgende beslisboom | Klikbaar, met pijl-icoon |
@@ -262,6 +262,35 @@ Een beslisboom kan een eigen `bron` hebben. Die **vult de bron van het zorgpad a
 ```
 
 ---
+
+## 7b. Onderbouwing per beslisboom
+
+Een klik op de titel van een **beslisboom** opent het paneel **Onderbouwing**. (De titel van het **zorgpad** in het overzicht opent "Bron en verantwoording", zie §7, en heeft als enige een ⓘ-icoon.)
+
+Bovenaan dat paneel staat altijd de melding dat de website een hulpmiddel is en de richtlijn leidend is. Het woord "richtlijn" linkt naar de `url` uit de bron.
+
+De onderbouwing zet je in de boom zelf, in het veld `onderbouwing`:
+
+```json
+"trees": {
+  "aanvullend": {
+    "onderbouwing": "Eerste alinea.\n\nTweede alinea, na een lege regel.",
+    "bron": { "module": "Aanvullende diagnostiek", "url": "https://richtlijnendatabase.nl/…" },
+    "layout": { … }, "nodes": [ … ], "edges": [ … ]
+  }
+}
+```
+
+- **Gewone tekst:** een lege regel (`\n\n`) begint een nieuwe alinea.
+- **Uitgebreider:** dezelfde bloktypes als de pagina's in `data/pages` (`paragraph`, `definitionList`, `groupedList`, met links):
+  ```json
+  "onderbouwing": { "blocks": [ { "type": "paragraph", "text": "…", "links": [ { "href": "https://…", "label": "…" } ] } ] }
+  ```
+- **Met kopjes:** `"onderbouwing": { "sections": [ { "title": "Overwegingen", "blocks": [ … ] } ] }`
+- Staat er in de boom een `bron` met `module` en/of `url`, dan verschijnt onderaan een kopje **Bron** met een link naar die module.
+- **Nog geen onderbouwing?** Dan toont het paneel: *"Voor deze beslisboom is nog geen onderbouwing toegevoegd."*, met een link naar de richtlijn (of de module) als die bekend is.
+
+Het controlescript meldt per zorgpad hoeveel beslisbomen nog geen onderbouwing hebben, zodat je kunt zien hoe ver je bent.
 
 ## 8. Controleren
 

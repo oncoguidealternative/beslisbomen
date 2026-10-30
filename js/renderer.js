@@ -351,7 +351,7 @@ const Renderer = (function () {
           if (ev.key === ' ') { ev.preventDefault(); activate(); }
         });
       }
-      // De titel van een beslisboom (root) en van het zorgpad (start) tonen de bronvermelding. Bij een root blijft
+      // De titel van het zorgpad (start) toont de bronvermelding, die van een beslisboom (root) de onderbouwing. Bij een root blijft
       // het min-icoon de weg terug naar het overzicht (zie het icoon hieronder).
       var infoNode = onInfo !== null && (type === 'start' || (type === 'root' && target === ''));
       if (infoNode) {
@@ -360,7 +360,7 @@ const Renderer = (function () {
         g.setAttribute('role', 'button');
         g.setAttribute('tabindex', '0');
         g.setAttribute('aria-haspopup', 'dialog');
-        g.setAttribute('aria-label', 'Bron en verantwoording: ' + (n.label || ''));
+        g.setAttribute('aria-label', (type === 'start' ? 'Bron en verantwoording: ' : 'Onderbouwing: ') + (n.label || ''));
         var openInfo = function () { onInfo({nodeId: n.id, label: n.label, element: g}); };
         g.addEventListener('click', openInfo);
         g.addEventListener('keydown', function (ev) {
@@ -431,7 +431,7 @@ const Renderer = (function () {
         }
       });
 
-      if (infoNode) el('title', {}, g).textContent = 'Bron en verantwoording';
+      if (infoNode) el('title', {}, g).textContent = type === 'start' ? 'Bron en verantwoording' : 'Onderbouwing';
       if (infoNode && type === 'start') {
         // Info-icoon rechtsboven op de hoek van de zorgpadtitel (alleen in het overzicht): laat zien dat die
         // klikbaar is en de bronvermelding toont. De tooltip staat op de hele node.

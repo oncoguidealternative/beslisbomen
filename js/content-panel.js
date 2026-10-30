@@ -8,6 +8,7 @@ const ContentPanel = (function () {
   let meta = null;
   let body = null;
   let closeButton = null;
+  let notice = null;
   let lastTrigger = null;
   let initialized = false;
   let activeRequest = 0;
@@ -31,6 +32,7 @@ const ContentPanel = (function () {
   }
 
   function setLoading() {
+    if (notice) notice.hidden = true;
     title.textContent = 'Laden...';
     meta.textContent = '';
     body.replaceChildren(
@@ -149,9 +151,36 @@ const ContentPanel = (function () {
     }
   }
 
+  /* Vaste melding tussen de kop en de inhoud (bv. de disclaimer bij bron en onderbouwing).
+     data.notice: { before, linkText, href, after }; zonder href wordt linkText gewone tekst. */
+  function renderNotice(data) {
+    if (!notice) {
+      notice = createElement('div', 'content-panel-notice');
+      body.parentNode.insertBefore(notice, body);
+    }
+    const n = data.notice;
+    notice.replaceChildren();
+    notice.hidden = !n;
+    if (!n) return;
+    notice.appendChild(document.createTextNode(n.before || ''));
+    if (n.linkText) {
+      if (n.href && /^https?:\/\//i.test(n.href)) {
+        const a = createElement('a', 'content-link', n.linkText);
+        a.href = n.href;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        notice.appendChild(a);
+      } else {
+        notice.appendChild(document.createTextNode(n.linkText));
+      }
+    }
+    notice.appendChild(document.createTextNode(n.after || ''));
+  }
+
   function render(data) {
     title.textContent = data.title || 'Informatie';
     meta.textContent = data.meta || (data.version ? 'Versie: ' + data.version : '');
+    renderNotice(data);
     body.replaceChildren();
 
     (data.sections || []).forEach(function (section) {

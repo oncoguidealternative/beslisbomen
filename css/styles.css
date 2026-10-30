@@ -988,3 +988,14 @@ body[data-page="zorgpad"] { height: 100vh; height: 100dvh; min-height: 0; }
 /* Gekozen en alvast ingevulde blokken (groen): witte tekst. Links in de tekst houden hun eigen kleur. */
 .zp-stage .node.is-selected text,
 .zp-stage .node.is-preselected text { fill: #FFFFFF; }
+
+/* Vaste melding bovenaan het informatiepaneel (bron en onderbouwing) */
+.content-panel-notice {
+  padding: 12px 28px;
+  border-bottom: 3px solid #246d8b;
+  background: #FFFFFF;
+  color: #173f50;
+  font-size: .9rem;
+  line-height: 1.55;
+}
+.content-panel-notice[hidden] { display: none; }

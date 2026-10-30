@@ -16,6 +16,7 @@
         - verbindingen (edges) met from en to naar nodes die bestaan
         - de layout-engine en de validator van de website zelf (dezelfde code als in de browser)
         - bronvermelding ("bron"): datums als jjjj-mm-dd, url met https
+        - onderbouwing per beslisboom: juiste opbouw; welke bomen er nog geen hebben
      3. de HTML-pagina's: alle gekoppelde scripts en stylesheets bestaan en hebben hetzelfde versienummer (?v=)
      4. inhoudspagina's in data/pages: geldige JSON
 
@@ -164,6 +165,22 @@ function checkZorgpad(tumor, engine) {
   if (zorgpad.bron === undefined) warn(file, 'geen bronvermelding ("bron")');
   checkBron(file, '', zorgpad.bron, engine.Bron);
   Object.keys(trees).forEach(function (id) { if (trees[id]) checkBron(file, id, trees[id].bron, null); });
+
+  // Onderbouwing per beslisboom: tekst, { blocks: [...] } of { sections: [...] }.
+  const zonder = [];
+  Object.keys(trees).forEach(function (id) {
+    const t = trees[id];
+    if (!t || t.same) return;
+    const o = t.onderbouwing;
+    if (o === undefined) { zonder.push(id); return; }
+    const ok = (typeof o === 'string' && o.trim() !== '') ||
+      (o && typeof o === 'object' && (Array.isArray(o.blocks) || Array.isArray(o.sections)));
+    if (!ok) error(file + ' [' + id + ']', '"onderbouwing" moet tekst zijn, of een object met "blocks" of "sections"');
+  });
+  if (zonder.length) {
+    warn(file, zonder.length + ' van ' + Object.keys(trees).filter(function (id) { return trees[id] && !trees[id].same; }).length +
+      ' beslisbomen hebben nog geen onderbouwing: ' + zonder.join(', '));
+  }
 
   // De layout-engine en validator van de website zelf.
   const normalized = engine.LayoutEngine.normalize(zorgpad);
