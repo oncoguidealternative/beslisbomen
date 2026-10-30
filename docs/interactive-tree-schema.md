@@ -214,6 +214,7 @@ Klopt iets niet, dan wordt de boom **wel getekend**, maar blijft die node statis
 Links naast elke beslisboom met keuzes staat een in- en uitklapbaar paneel met alle gegevens die in die boom kunnen worden ingevuld. Het paneel wordt **automatisch** opgebouwd uit de keuzenodes; er is geen extra JSON nodig.
 
 - **Volgorde:** van boven naar beneden zoals de boom loopt (vanaf de titel langs de verbindingen).
+- **Eén gegeven, overal gelijk:** dit geldt niet alleen in het paneel. Ook een keuze in het keuzevenster, via een connector of vanuit een hulpbeslisboom wordt ingevuld in elke node met hetzelfde gegeven die die waarde kent. Kent een andere node de waarde niet (bijvoorbeeld "cT" met een andere indeling), dan wordt de oude waarde daar gewist, zodat er nooit twee tegenstrijdige waarden voor hetzelfde gegeven staan. Wissen geldt ook voor alle nodes van het gegeven.
 - **Eén gegeven, meerdere takken:** komt hetzelfde gegeven in meerdere takken voor (bijvoorbeeld "Eerdere behandeling primaire tumor" onder zowel "Lokaal" als "Regionaal"), dan is dat één regel in het paneel. Een waarde die je daar kiest, wordt ingevuld in elke tak waar die waarde bestaat. Takken die later afvallen, worden vanzelf gewist.
 - **Wanneer is het hetzelfde gegeven?** Standaard bij hetzelfde `label`. Verschillen de labels, of wil je juist twee gegevens met hetzelfde label apart houden, geef de nodes dan een `dataKey`:
 

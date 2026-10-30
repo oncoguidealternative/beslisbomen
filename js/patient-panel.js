@@ -41,10 +41,8 @@ const PatientPanel = (function () {
     try { window.localStorage.setItem(STORAGE_KEY, open ? '1' : '0'); } catch (e) { /* geen opslag: geen probleem */ }
   }
 
-  function keyOf(node) {
-    if (node.dataKey) return 'k:' + String(node.dataKey);
-    return 'l:' + String(node.label || node.id).replace(/\s+/g, ' ').trim().toLowerCase();
-  }
+  // Hetzelfde gegeven: zelfde definitie als in de rest van de site (GraphState.dataKey).
+  function keyOf(node) { return GraphState.dataKey(node); }
 
   let counter = 0;
 

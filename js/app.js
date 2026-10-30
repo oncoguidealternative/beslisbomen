@@ -363,6 +363,14 @@
       const keepFocus = info.source === "panel";
       journey.cancel();
       changed.forEach(function (id) { setSelection(treeId, id, value); });
+      // Nodes met hetzelfde gegeven die deze waarde niet kennen (bv. "cT" met een andere indeling in een andere tak):
+      // hun oude waarde zou tegenstrijdig zijn, dus die wordt gewist.
+      const current = getSelections(treeId);
+      nodeIds.forEach(function (id) {
+        GraphState.sameData(currentGraph, id).forEach(function (other) {
+          if (nodeIds.indexOf(other) < 0 && current[other] !== undefined) clearSelection(treeId, other);
+        });
+      });
       // Nodes van hetzelfde gegeven die door deze keuze afvallen, worden stil gewist (het gegeven zelf staat er nog).
       const removed = removeInvalidSelections().filter(function (id) { return nodeIds.indexOf(id) < 0; });
       ChoicePanel.close(false);
@@ -390,8 +398,10 @@
       if (target) journey.start(target, reached, { keepFocus: keepFocus });
     }
 
+    // Keuze in het keuzevenster of via een connector: geldt voor het hele gegeven, dus ook voor nodes met hetzelfde
+    // gegeven in andere takken van de boom (bv. "Regio tumor" onder twee routes). De gekozen node gaat voor.
     function selectOption(treeId, nodeId, value, info) {
-      selectNodes(treeId, [nodeId], value, info);
+      selectNodes(treeId, GraphState.sameData(currentGraph, nodeId, value), value, info);
     }
 
     // Wist de keuze van één of meer nodes (keuzevenster of paneel) en wat daardoor niet meer geldig is.
@@ -422,7 +432,11 @@
     // Keuzevenster: een keuze gaat uitsluitend via selectOption.
     ChoicePanel.init({
       onSelect: selectOption,
-      onClear: function (treeId, nodeId, info) { clearNodes(treeId, [nodeId], info); },
+      // Wissen geldt ook voor het hele gegeven: anders zou de andere tak de oude waarde houden.
+      onClear: function (treeId, nodeId, info) {
+        const values = getSelections(treeId);
+        clearNodes(treeId, GraphState.sameData(currentGraph, nodeId).filter(function (id) { return values[id] !== undefined; }), info);
+      },
       onSubtree: function (info) { if (info.treeId === currentTreeId) subtrees.enter({ nodeId: info.nodeId, tree: info.tree, label: info.label }); }
     });
 

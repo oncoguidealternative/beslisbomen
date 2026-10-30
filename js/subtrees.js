@@ -106,7 +106,10 @@ const Subtrees = (function () {
       const value = GraphState.subtreeValue(ctx.node, outcome);
       if (value === null) return;
       const option = ctx.node.options.filter(function (o) { return o.value === value; })[0];
-      setSelection(ctx.parentTreeId, ctx.nodeId, value);
+      // Geldt voor het hele gegeven in de bovenliggende boom (ook nodes met hetzelfde gegeven in andere takken).
+      const parentView = Renderer.resolve(zorgpad, ctx.parentTreeId);
+      const parentGraph = parentView.graph ? validatedGraph(parentView.treeId, parentView.graph) : null;
+      GraphState.sameData(parentGraph, ctx.nodeId, value).forEach(function (id) { setSelection(ctx.parentTreeId, id, value); });
       pruneTree(ctx.parentTreeId);
       pendingReturn = { treeId: ctx.parentTreeId, nodeId: ctx.nodeId, nodeLabel: ctx.label, optionLabel: option ? option.label : String(value) };
       navigate(ctx.parentTreeId);

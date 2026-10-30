@@ -219,6 +219,30 @@ const GraphState = (function () {
     return null;
   }
 
+  /* Het gegeven over de patiënt dat een keuzenode vastlegt. Nodes met hetzelfde gegeven (zelfde "dataKey", of
+     anders hetzelfde label) staan vaak in verschillende takken van een boom, bv. "Regio tumor" onder twee
+     verschillende routes. Een keuze geldt dan voor al die nodes. */
+  function dataKey(node) {
+    if (!node) return '';
+    if (node.dataKey) return 'k:' + String(node.dataKey);
+    return 'l:' + String(node.label || node.id).replace(/\s+/g, ' ').trim().toLowerCase();
+  }
+
+  /* Alle keuzenodes in de graph met hetzelfde gegeven als nodeId die de waarde kennen (nodeId zelf altijd eerst).
+     Zonder value: alle keuzenodes met hetzelfde gegeven. */
+  function sameData(graph, nodeId, value) {
+    if (!graph || !Array.isArray(graph.nodes)) return [nodeId];
+    var self = graph.nodes.filter(function (n) { return n.id === nodeId; })[0];
+    if (!isChoice(self)) return [nodeId];
+    var key = dataKey(self);
+    var ids = [nodeId];
+    graph.nodes.forEach(function (n) {
+      if (n.id === nodeId || !isChoice(n) || dataKey(n) !== key) return;
+      if (value === undefined || n.options.some(function (o) { return o.value === value; })) ids.push(n.id);
+    });
+    return ids;
+  }
+
   /* Alle keuzenodes van een boom in een logische invulvolgorde: breedte-eerst vanaf de titel langs de
      verbindingen (dus van boven naar beneden in de boom), daarna eventuele keuzenodes die niet vanaf de titel
      bereikbaar zijn, in de volgorde van de graph. Gebruikt door het paneel met patiëntinformatie. */
@@ -566,6 +590,8 @@ const GraphState = (function () {
     compute: compute,
     nextTarget: nextTarget,
     choiceOrder: choiceOrder,
+    dataKey: dataKey,
+    sameData: sameData,
     describeNode: describeNode,
     describeNodeLines: describeNodeLines,
     recommendations: recommendations,
