@@ -1,0 +1,990 @@
+/* ===== Centrale kleuren en basisinstellingen ===== */
+:root {
+  --color-background: #1F627D;
+  --color-node: #6FA8BB;
+  --color-node-hover: #85B9CA;
+  --color-accent: #45B3E6;
+  --color-success: #5CB85C;
+  --color-success-hover: #6CC46C;
+  --color-text: #FFFFFF;
+  --color-text-muted: #E3F0F5;
+  --color-text-dark: #111111;
+  --color-line: #FFFFFF;
+  --color-link: #1E9BF0;
+  --color-error: #FFE1E1;
+  --color-surface: rgba(255, 255, 255, .1);
+  --color-hover-overlay: rgba(255, 255, 255, .12);
+  --header-footer-height: 56px;
+  --header-footer-bg: #000000;
+  --radius: 16px;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; min-height: 100%; }
+body {
+  min-height: 100vh;
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== Zwarte navigatiebalk met dynamisch kruimelpad ===== */
+.site-header {
+  position: relative;
+  z-index: 100;
+  display: flex;
+  width: 100%;
+  min-height: 44px;          /* even hoog als de footer (.site-footer) */
+  padding: 0;
+  color: #FFFFFF;
+  background: var(--header-footer-bg);
+  border-bottom: 1px solid var(--color-accent);
+  align-items: center;
+}
+
+.site-header .breadcrumb-bar,
+.breadcrumb-bar {
+  display: flex;
+  width: 100%;
+  min-height: 44px;
+  margin: 0;
+  padding: 0 16px;
+  color: #FFFFFF;
+  background: var(--header-footer-bg);
+  align-items: center;
+  gap: 18px;
+}
+
+.breadcrumb-actions {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 9px;
+}
+
+.breadcrumb-icon-button,
+.breadcrumb-home {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 3px solid #FFFFFF;
+  border-radius: 50%;
+  color: #FFFFFF;
+  background: #050505;
+  cursor: pointer;
+  place-items: center;
+  text-decoration: none;
+  transition: color 150ms ease, background-color 150ms ease, transform 150ms ease;
+}
+
+.breadcrumb-icon-button {
+  font: inherit;
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.breadcrumb-home {
+  border: 0;
+  border-radius: 5px;
+}
+
+.breadcrumb-home svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.breadcrumb-icon-button:hover,
+.breadcrumb-home:hover {
+  color: #050505;
+  background: #FFFFFF;
+  transform: translateY(-1px);
+}
+
+.breadcrumb-icon-button:focus-visible,
+.breadcrumb-home:focus-visible,
+.breadcrumb-link:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.breadcrumb-trail,
+.breadcrumb-list {
+  display: flex;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  align-items: center;
+  gap: 12px;
+}
+
+.breadcrumb-list li {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 12px;
+}
+
+.breadcrumb-link {
+  padding: 7px 2px;
+  border: 0;
+  color: #FFFFFF;
+  background: transparent;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.breadcrumb-link:not(.is-current):hover {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+.breadcrumb-link.is-current { cursor: default; }
+.breadcrumb-separator {
+  color: #FFFFFF;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.breadcrumb-current {
+  display: block;
+  min-width: 0;
+  color: #FFFFFF;
+  font-size: 13px;
+  line-height: 1.25;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+/* ===== Zorgpadpagina ===== */
+body[data-page="zorgpad"] { line-height: normal; }
+
+.zp-hidden { display: none !important; }
+
+.zp-main { max-width: 760px; margin: 0 auto; padding: 8px 12px 40px; }
+.zp-main.is-native { max-width: none; }
+
+.zp-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 16px 0 0; }
+
+.zp-btn {
+  background: none;
+  border: 1.5px solid var(--color-line);
+  color: var(--color-text);
+  border-radius: 6px;
+  padding: 8px 14px;
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+.zp-btn:hover { background: var(--color-hover-overlay); }
+.zp-btn:focus-visible { outline: 3px solid var(--color-line); outline-offset: 2px; }
+
+.zp-back { display: none; }
+.zp-main.in-detail .zp-back { display: inline-block; }
+
+.zp-tools { display: none; }
+.zp-main.is-native .zp-tools { display: inline-flex; gap: 8px; margin-left: 8px; }
+.zp-zoom { width: 38px; padding: 8px 0; }
+
+.zp-stage { overflow-x: auto; margin-top: 8px; }
+.zp-stage svg { display: block; height: auto; }
+.zp-main:not(.is-native) .zp-stage svg { width: 100%; }
+
+/* Muisnavigatie (zoom en pan) voor native diagrammen */
+.zp-main.is-native .zp-stage {
+  height: calc(100vh - 130px);
+  height: calc(100dvh - 130px);
+  min-height: 320px;
+  overflow: hidden;
+  overflow: clip;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.zp-main.is-native .zp-stage svg { width: 100%; height: 100%; }
+.zp-main.is-native .zp-stage.is-dragging,
+.zp-main.is-native .zp-stage.is-dragging * { cursor: grabbing; }
+
+.zp-message { padding: 16px 4px; line-height: 1.6; max-width: 70ch; }
+.zp-message .loaded-label { color: var(--color-text-muted); margin: 0 0 .25rem; }
+.zp-message .loaded-title { margin: 0 0 .75rem; font-size: 1.5rem; color: var(--color-text); }
+.zp-message p { margin: 0; }
+
+/* SVG-onderdelen */
+.zp-stage .edge { fill: none; stroke: var(--color-line); stroke-linecap: butt; }
+.zp-stage .edge.green { stroke: var(--color-success); }
+.zp-stage .node rect { fill: var(--color-node); transition: fill .15s; }
+.zp-stage .node.t-root rect,
+.zp-stage .node.t-decision rect { fill: var(--color-success); }
+.zp-stage .node.t-root.tone-blue rect { fill: var(--color-node); }
+.zp-stage .node.go.t-root.tone-blue:hover rect,
+.zp-stage .node.go.t-root.tone-blue:focus rect { fill: var(--color-node-hover); }
+.zp-stage .node.t-criterion rect { fill: #FFFFFF; }
+.zp-stage .node.t-outcome rect { fill: var(--color-accent); }
+.zp-stage .node text { fill: var(--color-text); text-anchor: middle; pointer-events: none; }
+.zp-stage .node.t-criterion text { fill: var(--color-text-dark); }
+.zp-stage .node .lnk { fill: var(--color-link); text-decoration: underline; pointer-events: all; cursor: pointer; }
+.zp-stage .edot { fill: #FFFFFF; }
+.zp-stage .elabel {
+    fill: var(--color-text);
+    text-anchor: middle;
+
+    stroke: #1F627D;
+    stroke-width: 6px;
+    paint-order: stroke;
+}
+.zp-stage .node.go { cursor: pointer; }
+.zp-stage .node.go:hover rect,
+.zp-stage .node.go:focus rect { fill: var(--color-node-hover); }
+.zp-stage .node.go.t-root:hover rect,
+.zp-stage .node.go.t-root:focus rect { fill: var(--color-success-hover); }
+.zp-stage .node:focus { outline: none; }
+.zp-stage .node:focus-visible rect { stroke: #FFFFFF; stroke-width: 3; }
+
+/* Iconen */
+.zp-stage .icon path { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.zp-stage .icon.down circle { fill: var(--color-node); stroke: #FFFFFF; stroke-width: 2.5; }
+.zp-stage .icon.down path { stroke: #FFFFFF; }
+.zp-stage .icon.minus-light circle,
+.zp-stage .icon.plus-light circle { fill: var(--color-node); stroke: #FFFFFF; stroke-width: 2.5; }
+.zp-stage .icon.minus-light path,
+.zp-stage .icon.plus-light path { stroke: #FFFFFF; }
+.zp-stage .icon.minus circle { fill: #FFFFFF; stroke: var(--color-success); stroke-width: 1.5; }
+.zp-stage .icon.minus path { stroke: var(--color-success); stroke-width: 3; }
+.zp-stage .info circle { fill: none; stroke: #FFFFFF; stroke-width: 1.8; }
+.zp-stage .info path { fill: none; stroke: #FFFFFF; stroke-width: 2; stroke-linecap: round; }
+.zp-stage .info .dot { fill: #FFFFFF; stroke: none; }
+
+/* ===== Interactieve route (Sprint 5 en 6) ===== */
+/* Statussen: is-selected, is-preselected, is-available, is-inactive, is-excluded; tijdelijk: is-guided-target */
+
+/* available: eerstvolgende criterium waarop een keuze gemaakt kan worden */
+.zp-stage .node.is-interactive.is-available,
+.zp-stage .node.is-interactive.is-selected { cursor: pointer; }
+.zp-stage .node.is-interactive.is-available rect { stroke: var(--color-accent); stroke-width: 4; }
+.zp-stage .node.is-interactive.is-available:hover rect,
+.zp-stage .node.is-interactive.is-available:focus rect { fill: var(--color-text-muted); }
+.zp-stage .node.is-interactive:focus-visible rect { stroke: var(--color-text-dark); stroke-width: 3; }
+
+/* selected: node op de gekozen route */
+.zp-stage .node.t-criterion.is-selected rect,
+.zp-stage .node.t-criterion.is-selected:hover rect,
+.zp-stage .node.t-criterion.is-selected:focus rect { fill: var(--color-success); stroke: var(--color-line); stroke-width: 2; }
+.zp-stage .node.t-criterion.is-selected:focus-visible rect { stroke: var(--color-text-dark); stroke-width: 3; }
+.zp-stage .node.t-outcome.is-selected rect { fill: var(--color-success); stroke: var(--color-line); stroke-width: 3; }
+.zp-stage .node.t-outcome.is-selected text { fill: #FFFFFF; }
+
+.zp-stage .edge.is-selected { stroke: var(--color-success); stroke-width: 3px; }
+.zp-stage .marker-selected { fill: var(--color-success); }
+.zp-stage .edot.is-selected { fill: var(--color-success); stroke: none; }
+/* Edge-labels (ook "Maligne") krijgen in geen enkele status vet, onderstreping of andere speciale opmaak;
+   de gekozen connector herkent men aan de groene lijn en de groene dot. */
+.zp-stage .elabel,
+.zp-stage .elabel.is-selected {
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: none;
+}
+
+/* Klikbare connectoren: onzichtbaar vlak over dot en label */
+.zp-stage .edge-choice { cursor: pointer; }
+.zp-stage .edge-choice:focus { outline: none; }
+.zp-stage .edge-hit { fill: transparent; stroke: none; pointer-events: all; transition: fill .15s; }
+.zp-stage .edge-choice:hover .edge-hit { fill: rgba(255, 255, 255, .2); }
+.zp-stage .edge-choice:focus-visible .edge-hit { fill: rgba(255, 255, 255, .2); stroke: #FFFFFF; stroke-width: 3; }
+.zp-stage .edge-choice[aria-disabled="true"] { pointer-events: none; cursor: default; }
+
+/* inactive: nog niet bereikt; houdt de normale weergave, maar een keuzenode is al in te vullen (vrije volgorde) */
+.zp-stage .node.is-interactive.is-inactive { cursor: pointer; }
+.zp-stage .node.is-interactive.is-inactive:hover rect,
+.zp-stage .node.is-interactive.is-inactive:focus rect { fill: var(--color-text-muted); }
+
+/* preselected: alvast ingevuld, maar nog niet bereikt. Groen zoals een gekozen node, met een gestippelde rand
+   en een gestippelde connector, zodat zichtbaar is dat de route er nog niet naartoe loopt. */
+.zp-stage .node.is-interactive.is-preselected { cursor: pointer; }
+.zp-stage .node.t-criterion.is-preselected rect,
+.zp-stage .node.t-criterion.is-preselected:hover rect,
+.zp-stage .node.t-criterion.is-preselected:focus rect {
+  fill: var(--color-success); stroke: #FFFFFF; stroke-width: 3; stroke-dasharray: 8 5;
+}
+.zp-stage .node.t-criterion.is-preselected:focus-visible rect { stroke: var(--color-text-dark); }
+.zp-stage .edge.is-preselected { stroke: var(--color-success); stroke-width: 3px; stroke-dasharray: 8 6; }
+.zp-stage .edot.is-preselected { fill: var(--color-success); stroke: none; }
+
+/* excluded: door eerdere keuzes niet meer mogelijk; zichtbaar voor context */
+.zp-stage .node.is-excluded,
+.zp-stage .edge.is-excluded,
+.zp-stage .edot.is-excluded,
+.zp-stage .elabel.is-excluded { opacity: .25; }
+.zp-stage .node.is-excluded { pointer-events: none; cursor: default; }
+.zp-stage .node,
+.zp-stage .edge,
+.zp-stage .edot,
+.zp-stage .elabel { transition: opacity .3s ease; }
+
+/* Tijdelijke highlight van het volgende criterium: andere rand, vulling blijft gelijk, geen pulsatie */
+.zp-stage .node.is-guided-target { filter: drop-shadow(0 0 8px var(--color-line)); }
+.zp-stage .node.is-guided-target rect { stroke: var(--color-line); stroke-width: 6; }
+
+@media (prefers-reduced-motion: reduce) {
+  .zp-stage .node,
+  .zp-stage .edge,
+  .zp-stage .edot,
+  .zp-stage .elabel,
+  .zp-stage .node rect,
+  .zp-stage .edge-hit { transition: none; }
+}
+
+/* Keuzevenster (HTML, boven de SVG) */
+.choice-panel {
+  position: fixed;
+  left: var(--choice-x, 0);
+  top: var(--choice-y, 0);
+  z-index: 1000;
+  width: 260px;
+  max-width: calc(100vw - 16px);
+  background: #FFFFFF;
+  color: var(--color-text-dark);
+  border-radius: 12px;
+  padding: 14px 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.4;
+}
+.choice-panel[hidden] { display: none; }
+.choice-fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+.choice-legend { font-weight: bold; font-size: 1.05rem; padding: 0; margin-bottom: 8px; }
+.choice-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 6px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.choice-option:hover { background: var(--color-text-muted); }
+.choice-option:focus-within { outline: 3px solid var(--color-text-dark); outline-offset: 1px; }
+.choice-option input { width: 18px; height: 18px; margin: 0; accent-color: var(--color-background); }
+.choice-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 12px; }
+.choice-panel .zp-btn { color: var(--color-text-dark); border-color: var(--color-text-dark); }
+.choice-panel .zp-btn:hover:not(:disabled) { background: var(--color-text-muted); }
+.choice-panel .zp-btn:focus-visible { outline: 3px solid var(--color-text-dark); outline-offset: 2px; }
+.choice-panel .zp-btn:disabled { opacity: .45; cursor: not-allowed; }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ===== Footer en generiek contentpaneel ===== */
+.site-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: min(calc(100% - 32px), 1180px);
+  margin: 24px auto 0;
+  padding: 20px 0 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.28);
+  color: #ffffff;
+  line-height: 1.5;
+}
+.footer-link {
+  padding: 4px 2px;
+  border: 0;
+  color: #ffffff;
+  background: transparent;
+  font: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.footer-link:hover { text-decoration-thickness: 2px; }
+.footer-link:focus-visible { outline: 3px solid #ffffff; outline-offset: 4px; border-radius: 3px; }
+.content-panel-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  background: rgba(8, 37, 49, 0.56);
+  opacity: 0;
+  transition: opacity 260ms ease;
+}
+.content-panel-backdrop.is-open { opacity: 1; }
+.content-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 9999;
+  display: flex;
+  width: min(720px, 94vw);
+  height: 100vh;
+  height: 100dvh;
+  color: #173f50;
+  background: #ffffff;
+  box-shadow: -12px 0 38px rgba(0, 0, 0, 0.28);
+  flex-direction: column;
+  transform: translateX(102%);
+  transition: transform 260ms ease;
+}
+.content-panel.is-open { transform: translateX(0); }
+.content-panel-header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 20px 22px;
+  color: #ffffff;
+  background: #246d8b;
+}
+.content-panel-header h2 { margin: 0; font-size: clamp(1.35rem, 2.5vw, 1.85rem); line-height: 1.2; }
+.content-panel-meta { margin: 5px 0 0; color: rgba(255,255,255,.84); font-size: .9rem; }
+.content-panel-close {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: 1px solid rgba(255,255,255,.52);
+  border-radius: 50%;
+  color: #ffffff;
+  background: transparent;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  place-items: center;
+}
+.content-panel-close:hover { background: rgba(255,255,255,.14); }
+.content-panel-close:focus-visible { outline: 3px solid #ffffff; outline-offset: 3px; }
+.content-panel-body {
+  flex: 1;
+  padding: 8px 28px 42px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  line-height: 1.62;
+}
+.content-section { padding: 24px 0 4px; border-bottom: 1px solid #dbe7ec; }
+.content-section:last-child { border-bottom: 0; }
+.content-section h3 { margin: 0 0 16px; color: #246d8b; font-size: 1.25rem; }
+.content-section h4 { margin: 20px 0 8px; color: #173f50; font-size: 1rem; }
+.content-paragraph { margin: 0 0 15px; }
+.content-number { color: #173f50; }
+.content-definition-list { margin: 0 0 16px; }
+.content-definition-list dt { margin-top: 13px; color: #173f50; font-weight: 700; }
+.content-definition-list dd { margin: 4px 0 0; }
+.content-grouped-list ul { margin: 8px 0 18px; padding-left: 22px; }
+.content-links { display: block; margin-top: 8px; }
+.content-link { color: #126f93; overflow-wrap: anywhere; }
+.content-panel-status { margin: 28px 0; }
+body.content-panel-is-open { overflow: hidden; }
+[hidden] { display: none !important; }
+
+/* ===== Definitieve homepage-layout: 9 tegels in 3 x 3 ===== */
+.home-shell {
+  width: min(calc(100% - 40px), 1180px);
+  margin: 0 auto;
+  padding: 40px 0 0;
+    flex: 1;
+}
+.home-header { margin-bottom: 28px; text-align: center; }
+.home-header h1 {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  line-height: 1.1;
+}
+.home-header p {
+  max-width: 760px;
+  margin: 14px auto 0;
+  color: #ffffff;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 1.5;
+}
+.intro-content {
+  max-width: 920px;
+  margin: 0 auto 38px;
+  padding: 20px 24px;
+  border: 1px solid rgba(255,255,255,.28);
+  border-radius: 12px;
+  background: rgba(255,255,255,.10);
+  text-align: center;
+}
+.intro-content h2 { margin: 0 0 8px; color: #ffffff; font-size: 1.45rem; font-weight: 600; }
+.intro-content p { margin: 0; color: #ffffff; font-size: 1rem; line-height: 1.55; }
+.tumor-overview { width: 100%; }
+.tumor-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 150px);
+  justify-content: center;
+  align-items: start;
+  gap: 24px 30px;
+  width: 100%;
+}
+.tumor-card,
+.tumor-card:link,
+.tumor-card:visited,
+.tumor-card:hover,
+.tumor-card:active {
+  display: flex;
+  width: 150px;
+  min-width: 0;
+  color: #ffffff;
+  text-align: center;
+  text-decoration: none;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 180ms ease;
+}
+.tumor-card:hover { transform: translateY(-4px); }
+.tumor-card:focus-visible { outline: 4px solid #ffffff; outline-offset: 6px; border-radius: 4px; }
+.tumor-image {
+  display: block;
+  width: 150px;
+  height: 150px;
+  max-width: none;
+  margin: 0;
+  object-fit: cover;
+  background: var(--color-accent);
+  box-shadow: 0 7px 18px rgba(10,43,56,.16);
+  transition: filter 180ms ease, box-shadow 180ms ease;
+}
+.tumor-card:hover .tumor-image { filter: brightness(1.06); box-shadow: 0 11px 25px rgba(10,43,56,.24); }
+.tumor-title {
+  display: block;
+  width: 150px;
+  min-height: 3.1em;
+  margin: 0;
+  padding: 10px 4px 0;
+  color: #ffffff !important;
+  font-size: 1.08rem;
+  font-weight: 500;
+  line-height: 1.3;
+  text-align: center;
+  text-decoration: none !important;
+  overflow-wrap: anywhere;
+}
+.page-message {
+  max-width: 700px;
+  margin: 28px auto 0;
+  padding: 18px;
+  border: 1px solid rgba(255,255,255,.28);
+  border-radius: 10px;
+  color: #ffffff;
+  background: rgba(255,255,255,.10);
+  text-align: center;
+}
+.home-page .site-footer { margin: 76px auto 0; padding: 20px 0 8px; }
+.home-page { padding-bottom: 8px; }
+
+@media (max-width: 1000px) {
+  .tumor-grid { grid-template-columns: repeat(3, 150px); gap: 30px 34px; }
+}
+@media (max-width: 640px) {
+  .content-panel { width: 100vw; }
+  .content-panel-body { padding-right: 20px; padding-left: 20px; }
+  .site-footer { font-size: .95rem; }
+}
+@media (max-width: 500px) {
+  .home-shell { width: min(calc(100% - 28px), 1180px); padding-top: 30px; }
+  .intro-content { margin-bottom: 30px; padding: 18px; }
+  .tumor-grid { grid-template-columns: 150px; gap: 28px; }
+  .home-page .site-footer { margin-top: 54px; padding-bottom: 6px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .content-panel,
+  .content-panel-backdrop { transition: none; }
+}
+
+/* ===== Correcties en definitieve overrides ===== */
+/* Edge-labels krijgen een halo in exact dezelfde kleur als de SVG-achtergrond. */
+.zp-stage .elabel {
+  fill: var(--color-text);
+  text-anchor: middle;
+  stroke: var(--color-background);
+  stroke-width: 6px;
+  paint-order: stroke;
+  stroke-linejoin: round;
+}
+
+/* De footer is één compacte zwarte balk, zonder grote blauwe ruimte eronder. */
+.site-footer,
+.home-page .site-footer {
+  display: flex;
+  width: 100%;
+  min-height: 44px;
+  height: auto;
+  margin: auto 0 0;
+  padding: 10px 16px;
+  color: #FFFFFF;
+  background: var(--header-footer-bg);
+  border-top: 1px solid rgba(255, 255, 255, .10);
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+body[data-page="zorgpad"] .site-footer { margin-top: 0; }
+.footer-link {
+  padding: 0;
+  border: 0;
+  color: #FFFFFF;
+  background: none;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 400;
+  cursor: pointer;
+  text-decoration: none;
+}
+.footer-link:hover { text-decoration: underline; }
+.footer-link:focus-visible { outline: 2px solid #FFFFFF; outline-offset: 3px; }
+.footer-version {
+    font-size: 12px;
+    font-weight: 400;
+    opacity: 0.55;
+}
+
+@media (max-width: 720px) {
+  .site-header .breadcrumb-bar,
+  .breadcrumb-bar { padding: 9px 12px; gap: 12px; }
+  .breadcrumb-icon-button,
+  .breadcrumb-home { width: 38px; height: 38px; }
+  .breadcrumb-current { max-width: 38vw; }
+}
+
+@media (max-width: 520px) {
+  .site-header .breadcrumb-bar,
+  .breadcrumb-bar { align-items: flex-start; flex-wrap: wrap; }
+  .breadcrumb-trail,
+  .breadcrumb-list { width: 100%; padding-left: 2px; }
+  .breadcrumb-current { max-width: 58vw; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .breadcrumb-icon-button,
+  .breadcrumb-home { transition: none; }
+}
+
+/* Kruimelpad: tweede niveau (beslisboom), wordt door js/breadcrumb.js getoond of verborgen. */
+.breadcrumb-current-item {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 12px;
+}
+.breadcrumb-current-item[hidden] { display: none; }
+
+/* Zorgpadpagina in de flex-kolom van de body: de hoofdruimte vult de breedte (anders krimpt ze door margin: auto)
+   en neemt de resterende hoogte, zodat de footer onderaan staat. */
+.zp-main { width: 100%; flex: 1 0 auto; }
+
+/* Werkvlak van native bomen: schermhoogte min header (64px), footer (45px), marges en padding (56px). */
+.zp-main.is-native .zp-stage {
+  height: calc(100vh - 170px);
+  height: calc(100dvh - 170px);
+}
+
+/* ===== Aanbevelingenoverzicht en route-markering ===== */
+.zp-main { position: relative; }
+/* Het paneel en de knoppen staan altijd rechts in beeld: een werkvlak met aanbevelingen is altijd volle breedte. */
+.zp-main:has(.rec-bar) { max-width: none; }
+
+.rec-bar {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  z-index: 5;
+  display: flex;
+  gap: 8px;
+}
+.rec-bar[hidden] { display: none; }
+.zp-main.in-subtree .rec-bar { top: 72px; }
+.rec-bar .zp-btn { background: var(--color-background); }
+.rec-bar .zp-btn:hover { background: #2F7B9B; }
+
+.rec-panel {
+  position: absolute;
+  top: 64px;
+  right: 20px;
+  bottom: 20px;
+  z-index: 6;
+  width: min(800px, calc(100% - 40px));
+  overflow: auto;
+  background: #FFFFFF;
+  color: var(--color-text-dark);
+  border-radius: 12px;
+  padding: 14px 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
+  line-height: 1.4;
+}
+.rec-panel[hidden] { display: none; }
+.zp-main.in-subtree .rec-panel { top: 120px; }
+.rec-panel-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.rec-panel-title { margin: 0; font-size: 1.15rem; }
+.rec-close { background: none; border: 0; font: inherit; font-size: 1.6rem; line-height: 1; cursor: pointer; color: var(--color-text-dark); padding: 2px 8px; border-radius: 6px; }
+.rec-close:hover { background: var(--color-text-muted); }
+.rec-close:focus-visible, .rec-title:focus-visible, .rec-route:focus-visible { outline: 3px solid var(--color-text-dark); outline-offset: 2px; }
+.rec-hint, .rec-note { margin: 6px 0 10px; font-size: .9rem; color: #444; }
+.rec-note { color: #7a3b00; }
+.rec-list, .rec-routes { list-style: none; margin: 0; padding: 0; }
+.rec-item { border-top: 1px solid #d5e3e9; padding: 10px 0; }
+.rec-item.is-active { background: #FFF8D6; margin: 0 -8px; padding: 10px 8px; border-radius: 6px; }
+.rec-item.is-excluded .rec-title { opacity: .55; }
+.rec-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+.rec-title {
+  background: none; border: 0; padding: 2px 4px; margin: -2px -4px; font: inherit; font-weight: bold;
+  text-align: left; cursor: pointer; color: var(--color-text-dark); border-radius: 4px;
+}
+.rec-title:hover { background: var(--color-text-muted); }
+.rec-title[aria-pressed="true"] { background: #FFD60A; }
+.rec-badge { flex: none; font-size: .78rem; padding: 1px 8px; border-radius: 10px; background: #e1e8eb; color: #333; white-space: nowrap; }
+.rec-badge.is-selected { background: var(--color-success); color: #fff; }
+.rec-badge.is-excluded { background: #eee; color: #666; }
+.rec-details { margin: 4px 0; font-size: .88rem; }
+.rec-details summary { cursor: pointer; color: #1a5c78; }
+.rec-fulltext { white-space: pre-line; margin: 4px 0 0; }
+.rec-routes { margin-top: 6px; }
+.rec-route-item { margin: 0; }
+.rec-or { display: block; margin: 2px 0 2px 6px; font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; color: #666; }
+.rec-route {
+  display: block; width: 100%; text-align: left; background: #f1f6f8; border: 1.5px solid transparent; border-radius: 8px;
+  padding: 6px 10px; font: inherit; font-size: .9rem; color: var(--color-text-dark); cursor: pointer;
+}
+.rec-route:hover { background: #e3eef2; }
+.rec-route[aria-pressed="true"] { border-color: #C9A400; background: #FFF1A8; }
+.rec-route-item.is-reached .rec-route { background: #dff0df; }
+.rec-route-item.is-conflict .rec-route { opacity: .55; }
+.rec-cond { display: block; }
+.rec-mark { display: inline-block; width: 1.2em; font-weight: bold; }
+.rec-cond[data-state="met"] .rec-mark { color: #2d7a2d; }
+.rec-cond[data-state="conflict"] .rec-mark { color: #b02a2a; }
+.rec-cond[data-state="conflict"] .rec-cond-text { text-decoration: line-through; }
+.rec-route-state { display: block; margin-top: 2px; font-size: .78rem; color: #555; }
+
+@media (max-width: 700px) {
+  .rec-panel { top: auto; left: 12px; right: 12px; bottom: 12px; width: auto; max-height: 55%; }
+  .zp-main.in-subtree .rec-panel { top: auto; }
+  .rec-bar { right: 12px; }
+}
+
+/* Gemarkeerde route: gele rand en connectoren */
+.zp-stage .node.is-route rect { stroke: #FFD60A; stroke-width: 6; }
+.zp-stage .edge.is-route { stroke: #FFD60A; stroke-width: 4px; marker-end: url(#ah-route); }
+.zp-stage .edot.is-route { fill: #FFD60A; stroke: var(--color-line); stroke-width: 2; opacity: 1; }
+.zp-stage .elabel.is-route { opacity: 1; }
+.zp-stage .node.is-route,
+.zp-stage .edge.is-route { opacity: 1; }
+.zp-stage .node.is-route { filter: drop-shadow(0 0 6px rgba(255, 214, 10, .8)); }
+
+/* ===== Hulpbeslisbomen ===== */
+.sub-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 8px 0 0;
+  padding: 6px 10px;
+  max-width: min(580px, calc(100% - 48px));
+  background: var(--color-surface);
+  border-radius: 10px;
+}
+.sub-bar[hidden] { display: none; }
+.sub-status { flex: 1 1 200px; font-size: .85rem; line-height: 1.35; }
+.sub-clear:disabled { opacity: .45; cursor: not-allowed; }
+.zp-main.is-native.in-subtree .zp-stage { height: calc(100vh - 190px); height: calc(100dvh - 190px); }
+
+/* Uitkomst van een hulpbeslisboom die over te nemen is */
+.zp-stage .node.is-takeable { cursor: default; }
+.zp-stage .node.is-takeable.is-selected { cursor: pointer; }
+.zp-stage .node.t-outcome.is-takeable.is-selected rect { stroke-dasharray: 8 5; }
+.zp-stage .node.is-takeable.is-selected:hover rect,
+.zp-stage .node.is-takeable.is-selected:focus rect { fill: var(--color-success-hover); }
+
+/* "Geen"-symbool ({x}): doorgestreepte cirkel */
+.zp-stage .info.no path { stroke: #FFFFFF; stroke-width: 1.8; }
+.zp-stage .node.t-criterion .info.no circle,
+.zp-stage .node.t-criterion .info.no path { stroke: var(--color-text-dark); }
+
+.zp-message-link { display: inline-block; margin-top: 14px; color: var(--color-text); text-decoration: underline; }
+.zp-message-link:focus-visible { outline: 3px solid var(--color-line); outline-offset: 3px; }
+
+/* Groepskop in een overzicht (zonder link), bv. "Laaggradige afwijking" bij CIN, AIS, VAIN */
+.zp-stage .node.tone-dark rect { fill: #1F627D; }
+
+/* ===== Bronvermelding: titel van zorgpad of beslisboom ===== */
+.zp-stage .node.has-info { cursor: pointer; }
+.zp-stage .node.has-info:hover:not(:has(.icon-link:hover)) rect,
+.zp-stage .node.has-info:focus-visible rect { filter: brightness(1.12); }
+.zp-stage .node.has-info:focus-visible rect { stroke: #FFFFFF; stroke-width: 3; }
+.zp-stage .node.has-info .icon-link { cursor: pointer; }
+.zp-stage .node.has-info .icon-link:hover circle,
+.zp-stage .node.has-info .icon-link:focus-visible circle { fill: rgba(255, 255, 255, .25); }
+.zp-stage .node.has-info .icon-link:focus { outline: none; }
+
+/* ===== Paneel met patiëntinformatie (links, in- en uitklapbaar) ===== */
+.zp-work { position: relative; display: flex; align-items: stretch; }
+.zp-column { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; }
+.zp-stagewrap { position: relative; flex: 1 1 auto; min-height: 0; display: flex; }
+.zp-stagewrap > .zp-stage { flex: 1 1 auto; min-width: 0; }
+.zp-column > .sub-bar { margin: 8px 12px 0; }
+.zp-main.pp-open { max-width: none; }
+
+.pp {
+  flex: 0 0 300px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  background: #FFFFFF;
+  color: var(--color-text-dark);
+  border-right: 1px solid #c9d9e0;
+  min-height: 0;
+  font-size: .9rem;
+}
+.pp[hidden] { display: none; }
+.pp-head {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  background: var(--color-node); color: #FFFFFF; padding: 8px 8px 8px 16px;
+}
+.pp-titlebox { min-width: 0; }
+.pp-title { margin: 0; font-size: 1.05rem; font-weight: 600; }
+.pp-subtitle { margin: 2px 0 0; font-size: .78rem; opacity: .9; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pp-subtitle:empty { display: none; }
+.pp-collapse {
+  flex: none; display: grid; place-items: center; width: 34px; height: 34px;
+  background: none; border: 0; border-radius: 8px; color: #FFFFFF; cursor: pointer;
+}
+.pp-collapse svg, .pp-tab svg { fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.pp-collapse:hover { background: rgba(255, 255, 255, .2); }
+.pp-collapse:focus-visible { outline: 3px solid #FFFFFF; outline-offset: -3px; }
+
+.pp-list { flex: 1 1 auto; overflow-y: auto; min-height: 0; }
+.pp-empty { padding: 16px; color: #555; }
+
+.pp-row { border-bottom: 1px solid #d5e3e9; }
+.pp-row-head {
+  display: grid; grid-template-columns: 1fr auto 14px; align-items: center; gap: 8px;
+  width: 100%; padding: 12px 12px 12px 14px; background: none; border: 0; border-left: 4px solid transparent;
+  font: inherit; text-align: left; color: inherit; cursor: pointer;
+}
+.pp-row-head:hover { background: #f1f6f8; }
+.pp-row-head:focus-visible { outline: 3px solid var(--color-accent); outline-offset: -3px; }
+.pp-label { line-height: 1.3; }
+.pp-value { font-size: .85rem; text-align: right; max-width: 120px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pp-chevron { width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 6px solid #9db3bd; transition: transform .15s; }
+.pp-row.is-open .pp-chevron { transform: rotate(180deg); }
+.pp-row.is-open .pp-label { font-weight: 600; }
+
+/* Status van een gegeven, gelijk aan de status in de boom */
+.pp-row[data-state="available"] .pp-row-head { border-left-color: var(--color-accent); }
+.pp-row.has-value .pp-row-head { border-left-color: var(--color-success); }
+.pp-row.is-ahead .pp-row-head { border-left-style: dashed; }
+.pp-row.is-ahead .pp-value::after { content: " · alvast"; color: #666; }
+.pp-row[data-state="excluded"]:not(.has-value) .pp-row-head { color: #9aa7ad; cursor: default; }
+.pp-row[data-state="excluded"]:not(.has-value) .pp-row-head:hover { background: none; }
+
+.pp-row-body { padding: 0 12px 12px 18px; }
+.pp-row-body[hidden] { display: none; }
+.pp-options { border: 0; margin: 0; padding: 0; }
+.pp-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.pp-option {
+  display: flex; align-items: center; gap: 10px; padding: 7px 4px; border-bottom: 1px solid #eef3f5; cursor: pointer;
+}
+.pp-option:last-child { border-bottom: 0; }
+.pp-option input { width: 20px; height: 20px; margin: 0; accent-color: var(--color-success); cursor: pointer; }
+.pp-option:hover { background: #f1f6f8; }
+.pp-option.is-disabled { color: #9aa7ad; cursor: default; }
+.pp-option.is-disabled:hover { background: none; }
+.pp-option.is-disabled input { cursor: default; }
+.pp-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+
+.pp-btn {
+  border: 0; border-radius: 4px; padding: 7px 12px; font: inherit; font-size: .85rem;
+  background: var(--color-accent); color: #FFFFFF; cursor: pointer;
+}
+.pp-btn:hover { background: #2fa0d6; }
+.pp-btn:disabled { background: #c4d6de; cursor: default; }
+.pp-btn:focus-visible { outline: 3px solid var(--color-text-dark); outline-offset: 2px; }
+.pp-subtree { background: #FFFFFF; color: #1a5c78; border: 1px solid #9fc4d4; }
+.pp-subtree:hover { background: #f1f6f8; }
+.pp-foot { padding: 12px; border-top: 1px solid #d5e3e9; }
+.pp-foot[hidden] { display: none; }
+.pp-clear-all { width: 100%; padding: 9px 12px; }
+
+/* Tab om het paneel uit te klappen */
+.pp-tab {
+  position: absolute; top: 16px; left: 20px; z-index: 5;   /* op één lijn met de knop Aanbevelingen */
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--color-background);
+}
+.pp-tab:hover { background: #2F7B9B; }
+.pp-tab[hidden] { display: none; }
+.zp-main.in-subtree .pp-tab { top: 12px; }
+
+@media (max-width: 700px) {
+  /* Op een smal scherm legt het paneel zich over het diagram heen. */
+  .pp { position: absolute; top: 0; bottom: 0; left: 0; z-index: 7; width: min(320px, 90vw); box-shadow: 0 10px 30px rgba(0, 0, 0, .35); }
+  .pp-tab { left: 12px; }
+}
+
+/* ===== Zorgpadpagina: het diagram vult de hele ruimte tussen kop en footer =====
+   De pagina is precies één schermhoogte; het werkvlak krijgt alle ruimte die over is (ook als er een balk van
+   een hulpbeslisboom boven staat), zonder lege strook boven de footer en zonder dat de pagina gaat scrollen.
+   Overschrijft de vaste hoogtes (calc(100vh - …)) hierboven. */
+body[data-page="zorgpad"] { height: 100vh; height: 100dvh; min-height: 0; }
+.zp-main.is-native {
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 0;
+}
+.zp-main.is-native > .zp-work { flex: 1 1 auto; min-height: 0; }
+.zp-main.is-native .zp-stage,
+.zp-main.is-native.in-subtree .zp-stage { height: auto; min-height: 0; }
+.zp-main.is-native > .sub-bar { flex: none; }
+
+/* Het werkgebied (paneel en diagram) sluit direct aan op kop, footer en zijranden: geen blauwe rand eromheen. */
+.zp-main.is-native { padding: 0; }
+.zp-main.is-native .zp-stage { margin-top: 0; }
+
+/* Vlak achter een verbindingslabel, in de kleur van de achtergrond (zie renderer.js). */
+.zp-stage .elabel-bg { fill: var(--color-background); stroke: none; pointer-events: none; }
+
+/* Info-icoon op de titel van zorgpad en beslisboom (bronvermelding), in de stijl van de andere iconen. */
+.zp-stage .info-badge circle { fill: var(--color-node); stroke: #FFFFFF; stroke-width: 2.2; }
+.zp-stage .info-badge path { fill: none; stroke: #FFFFFF; stroke-width: 2.4; stroke-linecap: round; }
+.zp-stage .info-badge .dot { fill: #FFFFFF; stroke: none; }
+/* Oplichten bij aanwijzen van de titel, maar niet als het min-icoon (terug naar overzicht) wordt aangewezen. */
+.zp-stage .node.has-info:hover:not(:has(.icon-link:hover)) .info-badge circle:not(.dot),
+.zp-stage .node.has-info:focus-visible .info-badge circle:not(.dot) { fill: var(--color-accent); }
+
+/* Gekozen en alvast ingevulde blokken (groen): witte tekst. Links in de tekst houden hun eigen kleur. */
+.zp-stage .node.is-selected text,
+.zp-stage .node.is-preselected text { fill: #FFFFFF; }
