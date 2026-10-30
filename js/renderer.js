@@ -571,6 +571,19 @@ const Renderer = (function () {
     });
   }
 
+  /* De beginnode van een boom (de titel: type root of start, anders de eerste node) en de breedte van een
+     standaardblok, voor de beginweergave. Geeft { id, box: {x, y, w, h}, blockWidth } of null. */
+  function startBox(graph) {
+    graph = laidOut(graph);
+    if (!graph || !graph.nodes || !graph.nodes.length) return null;
+    var n = graph.nodes.filter(function (x) { return x.type === 'root' || x.type === 'start'; })[0] || graph.nodes[0];
+    return {
+      id: n.id,
+      box: { x: n.x, y: n.y, w: n.w || graph.nodeSize[0], h: n.h || graph.nodeSize[1] },
+      blockWidth: graph.nodeSize[0]
+    };
+  }
+
   /* Afmetingen van een node in SVG-coördinaten (voor het berekenen van de viewportbestemming). */
   function nodeBox(graph, id) {
     graph = laidOut(graph);
@@ -689,6 +702,7 @@ const Renderer = (function () {
     applyViewport: applyViewport,
     applyStatus: applyStatus,
     nodeBox: nodeBox,
+    startBox: startBox,
     setGuidedTarget: setGuidedTarget,
     setRouteHighlight: setRouteHighlight,
     setTakeable: setTakeable,

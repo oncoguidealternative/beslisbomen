@@ -166,7 +166,7 @@
       refs: refs,
       getGraph: getGraph,
       onUserMove: function () {},
-      onReset: ensureFirstAvailableVisible
+      onReset: function () {}
     });
     const journey = Journey.create({ viewport: viewport, getGraph: getGraph });
     const subtrees = Subtrees.create({
@@ -255,17 +255,6 @@
       return result.graph;
     }
 
-    // Zorgt dat de eerste beschikbare keuzenode na het passend maken in beeld staat (bij een grote boom kan de
-    // minimale zoom de bovenkant buiten het werkvlak laten vallen). Zoom blijft ongewijzigd; alleen de pan past aan.
-    function ensureFirstAvailableVisible() {
-      if (!graphIsInteractive() || !refs.stage.clientWidth) return;
-      const status = GraphState.compute(currentGraph, getSelections(currentTreeId));
-      const id = status.available[0];
-      if (!id || viewport.isFullyVisible(id)) return;
-      const c = viewport.centeredPan(id);
-      setPan(c.x, c.y);
-    }
-
     // Leest de URL-hash, werkt de state bij en laat de renderer tekenen.
     function showRoute() {
       const parsed = parseHash();
@@ -292,11 +281,9 @@
       Renderer.setTakeable(subtrees.takeableItems());
       patientPanel.setTree({ treeId: view.treeId, label: view.label, graph: view.treeId ? view.graph : null });
       RP.setTree({ treeId: view.treeId, graph: view.treeId && view.graph && GraphState.isInteractive(view.graph) ? view.graph : null });
-      // Pas na het tekenen: pas dan heeft het werkvlak zijn (native) afmetingen.
-      if (view.graph && view.graph.native) {
-        viewport.fit(view.graph);
-        ensureFirstAvailableVisible();
-      }
+      // Pas na het tekenen: pas dan heeft het werkvlak zijn (native) afmetingen. Elke boom en het overzicht beginnen
+      // op dezelfde manier: vaste afmetingen, titel bovenaan in het midden (zie Viewport.start).
+      if (view.graph && view.graph.native) viewport.start(view.graph);
       refreshGraph();
       subtrees.refreshBar();
       subtrees.applyPendingReturn();

@@ -9,9 +9,9 @@
        refs,              // { main, svg, stage, zoomIn?, zoomOut? }
        getGraph,          // () => de getoonde graph (of null)
        onUserMove,        // () => wordt aangeroepen zodra de gebruiker zelf zoomt of sleept
-       onReset            // () => na dubbelklik op een leeg deel van het diagram (na het passend maken)
+       onReset            // () => na dubbelklik op een leeg deel van het diagram (na het terugzetten naar de beginweergave)
      });
-   Functies: fit, nodeOnScreen, isFullyVisible, centeredPan, needsMove, movePanTo, cancelMove, focusWithoutPan. */
+   Functies: start (beginweergave), fit, nodeOnScreen, isFullyVisible, centeredPan, needsMove, movePanTo, cancelMove, focusWithoutPan. */
 const Viewport = (function () {
   'use strict';
 
@@ -24,6 +24,9 @@ const Viewport = (function () {
   const MOVE_MAX_MS = 700;
   const VISIBLE_MARGIN = 24;
   const CENTER_TOLERANCE = 0.2;
+  // Beginweergave van elke boom en elk overzicht (zie start()):
+  const START_BLOCK_PX = 180;  // breedte van een standaardblok op het scherm, in pixels; groter = verder ingezoomd
+  const START_TOP_PX = 24;     // ruimte tussen de bovenrand van het werkvlak en de titel
 
   function easeInOutCubic(t) {
     return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
@@ -40,7 +43,17 @@ const Viewport = (function () {
     // Tijdens het programmatisch verplaatsen van de focus mag de viewport niet terugpannen.
     let suppressFocusPan = false;
 
-    // ----- Passend maken en posities -----
+    // ----- Beginweergave, passend maken en posities -----
+
+    // Beginweergave: voor elke boom dezelfde afmetingen (een standaardblok is altijd START_BLOCK_PX breed, ongeacht
+    // het raster van die boom) en de titel horizontaal in het midden, bovenaan het werkvlak.
+    function start(graph) {
+      const info = Renderer.startBox(graph);
+      if (!info) { fit(graph); return; }
+      setZoom(START_BLOCK_PX / info.blockWidth);
+      const zoom = getState().viewport.zoom;   // na begrenzing door de state (ZOOM_MIN..ZOOM_MAX)
+      setPan(refs.stage.clientWidth / 2 - (info.box.x + info.box.w / 2) * zoom, START_TOP_PX - info.box.y * zoom);
+    }
 
     // Zet de door de renderer berekende passende zoom en pan in de centrale state.
     function fit(graph) {
@@ -229,14 +242,14 @@ const Viewport = (function () {
       suppressClick = false;
     }, true);
 
-    // Dubbelklik op het diagram: terug naar standaardzoom en beginpositie.
+    // Dubbelklik op een leeg deel van het diagram: terug naar de beginweergave.
     refs.stage.addEventListener("dblclick", function (ev) {
       if (!navigationActive() || ev.target.closest(".node.go, .node.has-info, .node.is-interactive, .node.is-takeable, .edge-choice")) return;
       userMove();
       resetViewport();
       const graph = getGraph();
       if (graph && graph.native) {
-        fit(graph);
+        start(graph);
         onReset();
       }
     });
@@ -261,6 +274,7 @@ const Viewport = (function () {
     });
 
     return {
+      start: start,
       fit: fit,
       nodeOnScreen: nodeOnScreen,
       isFullyVisible: isFullyVisible,
