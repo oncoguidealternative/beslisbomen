@@ -149,6 +149,16 @@
       return;
     }
 
+    // Centrale instelling: elk zorgpad en elke beslisboom (ook hulpbeslisbomen) is te zoomen en te pannen.
+    // Een graph hoeft "native": true dus niet meer te zetten; alleen een expliciete "native": false schakelt het uit.
+    (function enableNavigation(g) {
+      if (!g) return;
+      const all = [g.overview].concat(Object.keys(g.trees || {}).map(function (k) { return g.trees[k]; }));
+      all.forEach(function (gr) {
+        if (gr && typeof gr === "object" && Array.isArray(gr.nodes) && gr.native === undefined) gr.native = true;
+      });
+    })(zorgpad);
+
     // Alias-nodetypes (title, dataItem, recommendation, reference) omzetten naar de bestaande types, zodat
     // renderer, validator en route-engine hetzelfde zien. Zonder aliassen komt hetzelfde object terug.
     if (typeof LayoutEngine !== "undefined") zorgpad = LayoutEngine.normalize(zorgpad);
