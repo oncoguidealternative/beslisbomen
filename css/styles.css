@@ -949,3 +949,21 @@ body[data-page="zorgpad"] .site-footer { margin-top: 0; }
   .pp { position: absolute; top: 0; bottom: 0; left: 0; z-index: 7; width: min(320px, 90vw); box-shadow: 0 10px 30px rgba(0, 0, 0, .35); }
   .pp-tab { left: 12px; }
 }
+
+/* ===== Zorgpadpagina: het diagram vult de hele ruimte tussen kop en footer =====
+   De pagina is precies één schermhoogte; het werkvlak krijgt alle ruimte die over is (ook als er een balk van
+   een hulpbeslisboom boven staat), zonder lege strook boven de footer en zonder dat de pagina gaat scrollen.
+   Overschrijft de vaste hoogtes (calc(100vh - …)) hierboven. */
+body[data-page="zorgpad"] { height: 100vh; height: 100dvh; min-height: 0; }
+.zp-main.is-native {
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 0;
+}
+.zp-main.is-native > .zp-work { flex: 1 1 auto; min-height: 0; }
+.zp-main.is-native .zp-stage,
+.zp-main.is-native.in-subtree .zp-stage { height: auto; min-height: 0; }
+.zp-main.is-native > .sub-bar { flex: none; }
