@@ -1,20 +1,34 @@
+/* Zorgpadpagina (zorgpad.html): laadt het zorgpad, kiest de getoonde boom uit de URL en verbindt de onderdelen.
+
+   Indeling van de code:
+     state.js                 centrale status (keuzes, viewport) – bron van waarheid
+     graph-state.js           rekenkern: wat is gekozen, bereikt, mogelijk of uitgesloten (geen DOM)
+     graph-validator.js       controleert de interactiegegevens van een boom (geen DOM)
+     layout-engine.js         rekent posities en lijnen uit (geen DOM)
+     renderer.js              tekent een boom als SVG en past statussen toe
+     viewport.js              zoomen, slepen, passend maken, vloeiend pannen
+     journey.js               begeleide reis naar de volgende stap na een keuze
+     subtrees.js              hulpbeslisbomen (openen, uitkomst overnemen, balk)
+     choice-panel.js          keuzevenster bij een keuzenode
+     recommendations-panel.js aanbevelingenoverzicht
+     bron.js                  bronvermelding in het informatiepaneel
+     app.js                   dit bestand: laden, navigatie en het selectiepad
+
+   De homepage (index.html) gebruikt js/home.js. */
 (function () {
   "use strict";
 
   const TUMOREN_URL = "./data/tumoren.json";
+  const SAFE_ID = /^[a-z0-9_-]+$/i;
 
-  async function fetchText(url) {
+  async function loadJSON(url) {
     const response = await fetch(url);
     if (!response.ok) {
       const err = new Error("HTTP " + response.status);
       err.status = response.status;
       throw err;
     }
-    return response.text();
-  }
-
-  async function loadJSON(url) {
-    return JSON.parse(await fetchText(url));
+    return JSON.parse(await response.text());
   }
 
   function loadTumoren() {
@@ -23,41 +37,6 @@
     });
   }
 
-  // ---------- Homepage ----------
-  async function initHome() {
-    const container = document.getElementById("tumor-cards");
-    if (!container) return;
-
-    try {
-      const tumoren = await loadTumoren();
-      container.textContent = "";
-
-      tumoren.forEach(function (tumor) {
-        const card = document.createElement("a");
-        card.className = "card";
-        card.href = "zorgpad.html?tumor=" + encodeURIComponent(tumor.id);
-
-        const title = document.createElement("h3");
-        title.textContent = tumor.titel;
-
-        const desc = document.createElement("p");
-        desc.textContent = tumor.beschrijving || "";
-
-        card.appendChild(title);
-        card.appendChild(desc);
-        container.appendChild(card);
-      });
-
-      if (tumoren.length === 0) {
-        container.innerHTML = '<p class="status">Geen zorgpaden beschikbaar.</p>';
-      }
-    } catch (err) {
-      container.innerHTML = '<p class="status error"></p>';
-      container.firstChild.textContent = "Fout bij laden van zorgpaden: " + err.message;
-    }
-  }
-
-  // ---------- Zorgpadpagina ----------
   function isRenderable(zorgpad) {
     const o = zorgpad && zorgpad.overview;
     if (!o || !Array.isArray(o.nodes)) return false;
@@ -65,17 +44,6 @@
     if (typeof LayoutEngine !== "undefined") return true;
     return Array.isArray(o.viewBox) && Array.isArray(o.nodeSize) && Array.isArray(o.edges);
   }
-
-  const ZOOM_STEP = 0.2;
-  const WHEEL_SENSITIVITY = 0.0015;
-  const WHEEL_PINCH_SENSITIVITY = 0.01;
-  const DRAG_THRESHOLD = 4;
-  const FOCUS_MARGIN = 16;
-  const JOURNEY_MIN_MS = 350;
-  const JOURNEY_MAX_MS = 700;
-  const VISIBLE_MARGIN = 24;
-  const CENTER_TOLERANCE = 0.2;
-  const GUIDED_HIGHLIGHT_MS = 1600;
 
   async function initZorgpad() {
     const refs = {
@@ -114,10 +82,11 @@
 
     refs.svg.classList.add("zp-hidden");
 
+    // ---------- Laden ----------
     const tumorId = new URLSearchParams(window.location.search).get("tumor");
 
     // Alleen veilige id's toestaan (voorkomt ongewenste paden)
-    if (!tumorId || !/^[a-z0-9_-]+$/i.test(tumorId)) {
+    if (!tumorId || !SAFE_ID.test(tumorId)) {
       showMessage("Geen (geldige) tumor opgegeven in de URL.", true);
       return;
     }
@@ -151,36 +120,20 @@
 
     // Centrale instelling: elk zorgpad en elke beslisboom (ook hulpbeslisbomen) is te zoomen en te pannen.
     // Een graph hoeft "native": true dus niet meer te zetten; alleen een expliciete "native": false schakelt het uit.
-    (function enableNavigation(g) {
-      if (!g) return;
-      const all = [g.overview].concat(Object.keys(g.trees || {}).map(function (k) { return g.trees[k]; }));
-      all.forEach(function (gr) {
+    [zorgpad.overview].concat(Object.keys(zorgpad.trees || {}).map(function (k) { return zorgpad.trees[k]; }))
+      .forEach(function (gr) {
         if (gr && typeof gr === "object" && Array.isArray(gr.nodes) && gr.native === undefined) gr.native = true;
       });
-    })(zorgpad);
 
     // Alias-nodetypes (title, dataItem, recommendation, reference) omzetten naar de bestaande types, zodat
-    // renderer, validator en route-engine hetzelfde zien. Zonder aliassen komt hetzelfde object terug.
+    // renderer, validator en rekenkern hetzelfde zien.
     if (typeof LayoutEngine !== "undefined") zorgpad = LayoutEngine.normalize(zorgpad);
 
     setTumor(tumorId);
     document.title = zorgpad.titel + " – Gynaecologische zorgpaden";
 
     if (!zorgpad.overview) {
-      // Nog geen renderbaar zorgpad (bv. endometrium in Sprint 3)
-      refs.message.textContent = "";
-      const label = document.createElement("p");
-      label.className = "loaded-label";
-      label.textContent = "Tumor geladen:";
-      const title = document.createElement("h2");
-      title.className = "loaded-title";
-      title.textContent = zorgpad.titel;
-      const note = document.createElement("p");
-      note.textContent = "Het interactieve zorgpad " + zorgpad.titel.toLowerCase() + " wordt later toegevoegd.";
-      refs.message.appendChild(label);
-      refs.message.appendChild(title);
-      refs.message.appendChild(note);
-      refs.message.classList.remove("zp-hidden");
+      showMessage("Het interactieve zorgpad " + zorgpad.titel.toLowerCase() + " wordt later toegevoegd.", false, true);
       return;
     }
 
@@ -191,8 +144,43 @@
 
     Renderer.init({main: refs.main, svg: refs.svg, message: refs.message});
 
-    const SAFE_ID = /^[a-z0-9_-]+$/i;
+    // ---------- Getoonde boom ----------
+    let currentGraph = null;
+    let currentTreeId = null;
+    let currentLabel = "";
 
+    function getGraph() { return currentGraph; }
+    function getTreeId() { return currentTreeId; }
+
+    function nodeById(id) {
+      return currentGraph ? currentGraph.nodes.filter(function (n) { return n.id === id; })[0] : undefined;
+    }
+
+    function graphIsInteractive() {
+      return !!currentGraph && GraphState.isInteractive(currentGraph);
+    }
+
+    // ---------- Onderdelen ----------
+    const viewport = Viewport.create({
+      refs: refs,
+      getGraph: getGraph,
+      onUserMove: function () {},
+      onReset: ensureFirstAvailableVisible
+    });
+    const journey = Journey.create({ viewport: viewport, getGraph: getGraph });
+    const subtrees = Subtrees.create({
+      zorgpad: zorgpad,
+      refs: refs,
+      getGraph: getGraph,
+      getTreeId: getTreeId,
+      validatedGraph: validatedGraph,
+      navigate: navigate,
+      journey: journey,
+      viewport: viewport,
+      onClearAll: function () { journey.cancel(); journey.clearGuidedTarget(); }
+    });
+
+    // ---------- Navigatie ----------
     // target: boom-id ("" = overzicht) binnen dit zorgpad, of { tumor, tree } voor het zorgpad van een andere tumor.
     function navigate(target) {
       if (target && typeof target === "object") {
@@ -217,38 +205,6 @@
         if (i > 0) from = { treeId: value.slice(0, i), nodeId: value.slice(i + 1) };
       }
       return { id: id, from: from };
-    }
-
-    let currentGraph = null;
-    let currentTreeId = null;
-    // Hulpbeslisboom: { parentTreeId, nodeId, node, label } als de getoonde boom vanuit een keuzenode is geopend.
-    let currentContext = null;
-    // Na het overnemen van een uitkomst: { treeId, nodeId } waarvoor na terugkeren de volgende stap wordt getoond.
-    let pendingReturn = null;
-
-    // Zet de door de renderer berekende passende zoom en pan in de centrale state.
-    function applyFit(graph) {
-      const fit = Renderer.fitViewport(graph, refs.stage.clientWidth, refs.stage.clientHeight);
-      setZoom(fit.zoom);
-      setPan(fit.panX, fit.panY);
-    }
-
-    // Zorgt dat de eerste beschikbare keuzenode na het passend maken in beeld staat (bij een grote boom kan de
-    // minimale zoom de bovenkant buiten het werkvlak laten vallen). Zoom blijft ongewijzigd; alleen de pan past aan.
-    function ensureFirstAvailableVisible() {
-      if (!graphIsInteractive() || !refs.stage.clientWidth) return;
-      const status = GraphState.compute(currentGraph, getSelections(currentTreeId));
-      const id = status.available[0];
-      if (!id) return;
-      const r = nodeOnScreen(id);
-      const w = refs.stage.clientWidth;
-      const h = refs.stage.clientHeight;
-      const fullyVisible = r.left >= VISIBLE_MARGIN && r.right <= w - VISIBLE_MARGIN &&
-        r.top >= VISIBLE_MARGIN && r.bottom <= h - VISIBLE_MARGIN;
-      if (!fullyVisible) {
-        const c = centeredPan(id);
-        setPan(c.x, c.y);
-      }
     }
 
     // Kruimelpad: zorgpadtitel uit de JSON; bij een beslisboom ook de titel van die boom.
@@ -278,6 +234,17 @@
       return result.graph;
     }
 
+    // Zorgt dat de eerste beschikbare keuzenode na het passend maken in beeld staat (bij een grote boom kan de
+    // minimale zoom de bovenkant buiten het werkvlak laten vallen). Zoom blijft ongewijzigd; alleen de pan past aan.
+    function ensureFirstAvailableVisible() {
+      if (!graphIsInteractive() || !refs.stage.clientWidth) return;
+      const status = GraphState.compute(currentGraph, getSelections(currentTreeId));
+      const id = status.available[0];
+      if (!id || viewport.isFullyVisible(id)) return;
+      const c = viewport.centeredPan(id);
+      setPan(c.x, c.y);
+    }
+
     // Leest de URL-hash, werkt de state bij en laat de renderer tekenen.
     function showRoute() {
       const parsed = parseHash();
@@ -285,192 +252,51 @@
       view.graph = validatedGraph(view.treeId, view.graph);
       currentGraph = view.graph;
       currentTreeId = view.treeId;
-      currentContext = resolveContext(view, parsed.from);
+      currentLabel = view.label;
+      subtrees.setView(view, parsed.from);
       setTree(view.treeId);
       document.title = view.treeId ? view.label + " – " + zorgpad.titel : zorgpad.titel;
       updateBreadcrumb(view);
-      cancelJourney();
-      clearGuidedTarget();
+      journey.cancel();
+      journey.clearGuidedTarget();
       ChoicePanel.close(false);
-      Renderer.draw(view, { navigate: navigate, interact: interact, select: selectEdge, subtree: enterSubtree, take: takeOutcome });
-      Renderer.setTakeable(takeableItems());
+      Renderer.draw(view, {
+        navigate: navigate,
+        interact: interact,
+        select: selectEdge,
+        subtree: subtrees.enter,
+        take: subtrees.take,
+        info: showBron
+      });
+      Renderer.setTakeable(subtrees.takeableItems());
       RP.setTree({ treeId: view.treeId, graph: view.treeId && view.graph && GraphState.isInteractive(view.graph) ? view.graph : null });
       // Pas na het tekenen: pas dan heeft het werkvlak zijn (native) afmetingen.
       if (view.graph && view.graph.native) {
-        applyFit(view.graph);
+        viewport.fit(view.graph);
         ensureFirstAvailableVisible();
       }
       refreshGraph();
-      refreshSubtreeBar();
-      applyPendingReturn();
+      subtrees.refreshBar();
+      subtrees.applyPendingReturn();
       if (view.treeId) window.scrollTo(0, 0);
     }
 
-    // ----- Hulpbeslisbomen -----
-    // Zoekt de keuzenode (in een andere boom) die deze boom als hulpbeslisboom aanwijst. Eerst de node uit "from",
-    // anders de eerste node die naar deze boom verwijst.
-    function resolveContext(view, from) {
-      if (!view.treeId || !view.subtree) return null;
-      function candidate(treeId, nodeId) {
-        const parent = Renderer.resolve(zorgpad, treeId);
-        if (!parent.treeId || parent.treeId === view.treeId || !parent.graph) return null;
-        const node = parent.graph.nodes.filter(function (n) { return n.id === nodeId; })[0];
-        const ref = GraphState.subtreeOf(node);
-        if (!node || !GraphState.isChoice(node) || !ref || ref.tree !== view.treeId) return null;
-        return { parentTreeId: parent.treeId, nodeId: node.id, node: node, label: GraphState.describeNode(node), parentLabel: parent.label };
-      }
-      if (from) {
-        const found = candidate(from.treeId, from.nodeId);
-        if (found) return found;
-      }
-      const trees = zorgpad.trees || {};
-      const ids = Object.keys(trees);
-      for (let i = 0; i < ids.length; i++) {
-        const t = trees[ids[i]];
-        if (!t || t.same || !Array.isArray(t.nodes)) continue;
-        for (let j = 0; j < t.nodes.length; j++) {
-          const found = candidate(ids[i], t.nodes[j].id);
-          if (found) return found;
-        }
-      }
-      return null;
+    // Klik op de titel van het zorgpad of van een beslisboom: bronvermelding in het informatiepaneel.
+    function showBron(info) {
+      const title = currentTreeId ? currentLabel + " – " + zorgpad.titel : zorgpad.titel;
+      Bron.show(zorgpad, currentTreeId, title, info && info.element);
     }
 
-    // Een klik op een keuzenode met hulpbeslisboom: open die boom, met de herkomst in de hash.
-    function enterSubtree(info) {
-      if (!currentTreeId) return;
-      location.hash = "#/" + info.tree + "?from=" + currentTreeId + ":" + info.nodeId;
-    }
-
-    // Uitkomsten van de getoonde hulpbeslisboom die als waarde van de aanwijzende keuzenode zijn over te nemen.
-    function takeableItems() {
-      if (!currentContext || !currentGraph) return [];
-      return currentGraph.nodes
-        .filter(function (n) { return n.type === "outcome" && GraphState.subtreeValue(currentContext.node, n) !== null; })
-        .map(function (n) { return { id: n.id, label: GraphState.describeNode(n) }; });
-    }
-
-    // Verwijdert keuzes van een andere boom die na een wijziging niet meer geldig zijn.
-    function pruneTree(treeId) {
-      const view = Renderer.resolve(zorgpad, treeId);
-      if (!view.treeId || !view.graph) return;
-      const graph = validatedGraph(view.treeId, view.graph);
-      GraphState.prune(graph, getSelections(treeId)).removed.forEach(function (id) { clearSelection(treeId, id); });
-    }
-
-    // Neemt de bereikte uitkomst over als keuze van de aanwijzende node en keert terug naar de oorspronkelijke boom.
-    function takeOutcome(info) {
-      const ctx = currentContext;
-      if (!ctx || !currentGraph) return;
-      const outcome = nodeById(info.nodeId);
-      const value = GraphState.subtreeValue(ctx.node, outcome);
-      if (value === null) return;
-      const option = ctx.node.options.filter(function (o) { return o.value === value; })[0];
-      setSelection(ctx.parentTreeId, ctx.nodeId, value);
-      pruneTree(ctx.parentTreeId);
-      pendingReturn = { treeId: ctx.parentTreeId, nodeId: ctx.nodeId, nodeLabel: ctx.label, optionLabel: option ? option.label : String(value) };
-      navigate(ctx.parentTreeId);
-    }
-
-    function goUp() {
-      if (currentContext) navigate(currentContext.parentTreeId);
-    }
-
-    // Terug in de oorspronkelijke boom: melding en begeleide reis naar de volgende stap.
-    function applyPendingReturn() {
-      if (!pendingReturn) return;
-      const pr = pendingReturn;
-      pendingReturn = null;
-      if (pr.treeId !== currentTreeId || !graphIsInteractive()) return;
-      const target = GraphState.nextTarget(currentGraph, getSelections(currentTreeId), pr.nodeId);
-      let message = pr.nodeLabel + ": " + pr.optionLabel + " overgenomen uit de hulpbeslisboom.";
-      if (target && target.kind === "available") {
-        message += " Volgende stap: " + GraphState.describeNode(nodeById(target.id)) + ".";
-      } else if (target && target.kind === "outcome") {
-        message += " Uitkomst bereikt: " + GraphState.describeNode(nodeById(target.id)) + ".";
-      }
-      ChoicePanel.announce(message);
-      if (target) startJourney(target, pr.nodeId);
-      else focusWithoutPan(pr.nodeId);
-    }
-
-    // Balk boven het diagram in een hulpbeslisboom: terug, status, keuzes wissen. Alleen weergave; de state staat elders.
-    const subBar = document.createElement("div");
-    subBar.className = "sub-bar";
-    subBar.hidden = true;
-    subBar.setAttribute("role", "group");
-    subBar.setAttribute("aria-label", "Hulpbeslisboom");
-    const subBack = document.createElement("button");
-    subBack.type = "button";
-    subBack.className = "zp-btn sub-back";
-    const subStatus = document.createElement("span");
-    subStatus.className = "sub-status";
-    subStatus.setAttribute("role", "status");
-    subStatus.setAttribute("aria-live", "polite");
-    const subClear = document.createElement("button");
-    subClear.type = "button";
-    subClear.className = "zp-btn sub-clear";
-    subClear.textContent = "Keuzes wissen";
-    subBar.appendChild(subBack);
-    subBar.appendChild(subStatus);
-    subBar.appendChild(subClear);
-    refs.main.insertBefore(subBar, refs.stage);
-    subBack.addEventListener("click", goUp);
-    subClear.addEventListener("click", function () {
-      if (!currentTreeId) return;
-      cancelJourney();
-      clearGuidedTarget();
-      clearAllSelections(currentTreeId);
-      ChoicePanel.announce("Keuzes in de hulpbeslisboom gewist.");
-    });
-
-    function refreshSubtreeBar(status) {
-      if (!currentContext || !currentGraph) {
-        subBar.hidden = true;
-        refs.main.classList.remove("in-subtree");
-        return;
-      }
-      subBar.hidden = false;
-      refs.main.classList.add("in-subtree");
-      subBack.textContent = "← Terug naar " + currentContext.parentLabel;
-      subBack.setAttribute("aria-label", "Terug naar " + currentContext.parentLabel + " zonder uitkomst over te nemen");
-      status = status || GraphState.compute(currentGraph, getSelections(currentTreeId));
-      const reached = currentGraph.nodes.filter(function (n) { return n.type === "outcome" && status.nodes[n.id] === "selected"; });
-      let text = "Beantwoord de vragen om een uitkomst te bereiken.";
-      if (reached.length) {
-        const name = reached.map(function (n) { return GraphState.describeNode(n); }).join(", ");
-        const takeable = reached.filter(function (n) { return GraphState.subtreeValue(currentContext.node, n) !== null; });
-        text = takeable.length
-          ? "Uitkomst bereikt: " + name + ". Klik op de uitkomst om die over te nemen bij " + currentContext.label + "."
-          : "Uitkomst bereikt: " + name + " (niet over te nemen).";
-      }
-      if (subStatus.textContent !== text) subStatus.textContent = text;
-      subClear.disabled = Object.keys(getSelections(currentTreeId)).length === 0;
-    }
-
-    // ----- Aanbevelingenoverzicht -----
-    function refreshRecommendations(status) {
-      RP.refresh(status);
-    }
-
+    // ---------- Aanbevelingenoverzicht ----------
     // Markeert de route (nodes en connectors) in de boom en brengt de aanbeveling in beeld, buiten het paneel.
     function showRecommendation(target) {
       Renderer.setRouteHighlight(target);
       if (!currentGraph || !currentGraph.native || !target.targetId) return;
-      cancelJourney();
-      clearGuidedTarget();
-      const ins = RP.coveredInsets();
-      const w = refs.stage.clientWidth - ins.right;
-      const h = refs.stage.clientHeight - ins.bottom;
-      const r = nodeOnScreen(target.targetId);
-      const fullyVisible = r.left >= VISIBLE_MARGIN && r.right <= w - VISIBLE_MARGIN &&
-        r.top >= VISIBLE_MARGIN && r.bottom <= h - VISIBLE_MARGIN;
-      if (fullyVisible) return;
-      const zoom = getState().viewport.zoom;
-      movePanTo({
-        x: w / 2 - (r.box.x + r.box.w / 2) * zoom,
-        y: h / 2 - (r.box.y + r.box.h / 2) * zoom
-      }, function () {});
+      journey.cancel();
+      journey.clearGuidedTarget();
+      const insets = RP.coveredInsets();
+      if (viewport.isFullyVisible(target.targetId, insets)) return;
+      viewport.movePanTo(viewport.centeredPan(target.targetId, insets));
     }
 
     RP.init({
@@ -480,6 +306,7 @@
       onClear: function () { Renderer.setRouteHighlight(null); }
     });
 
+    // ---------- Keuzes ----------
     // Een interactieve node: open het keuzevenster (of sluit het als het al voor deze node openstaat).
     function interact(item, anchor) {
       if (ChoicePanel.isOpenFor(currentTreeId, item.id)) {
@@ -489,22 +316,17 @@
       ChoicePanel.open({ tumorId: tumorId, treeId: currentTreeId, nodeId: item.id, label: item.label, options: item.options, anchor: anchor });
     }
 
-    // ----- Graph-status -----
-    function graphIsInteractive() {
-      return !!currentGraph && GraphState.isInteractive(currentGraph);
-    }
-
     // Berekent de status uit graph + selecties en laat de renderer die toepassen.
     function refreshGraph() {
       if (!graphIsInteractive()) return;
       const values = getSelections(currentTreeId);
       const status = GraphState.compute(currentGraph, values);
       Renderer.applyStatus(status, values);
-      refreshRecommendations(status);
-      refreshSubtreeBar(status);
+      RP.refresh(status);
+      subtrees.refreshBar(status);
     }
 
-    // Verwijdert keuzes die door een wijziging niet meer geldig of bereikbaar zijn (via de state-functies).
+    // Verwijdert keuzes die door een wijziging niet meer geldig of mogelijk zijn (via de state-functies).
     function removeInvalidSelections() {
       if (!graphIsInteractive()) return [];
       const result = GraphState.prune(currentGraph, getSelections(currentTreeId));
@@ -512,133 +334,18 @@
       return result.removed;
     }
 
-    function nodeById(id) {
-      return currentGraph.nodes.filter(function (n) { return n.id === id; })[0];
-    }
-
-    // ----- Begeleide viewportreis -----
-    // Alleen tijdelijke animatiestatus; de eindpositie staat altijd in de centrale state (setPan).
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    let journey = null;
-    let guidedTimer = null;
-    // Tijdens het programmatisch verplaatsen van de focus na een reis mag de viewport niet terugpannen.
-    let suppressFocusPan = false;
-
-    function focusWithoutPan(nodeId) {
-      suppressFocusPan = true;
-      Renderer.focusNode(nodeId);
-      suppressFocusPan = false;
-    }
-
-    function cancelJourney() {
-      if (journey) {
-        cancelAnimationFrame(journey.raf);
-        journey = null;
-      }
-    }
-
-    function clearGuidedTarget() {
-      clearTimeout(guidedTimer);
-      guidedTimer = null;
-      Renderer.setGuidedTarget(null);
-    }
-
-    function easeInOutCubic(t) {
-      return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-    }
-
-    // Positie van de node in de zichtbare stage (pixels), uit SVG-coördinaten, zoom en pan.
-    function nodeOnScreen(nodeId) {
-      const box = Renderer.nodeBox(currentGraph, nodeId);
-      const v = getState().viewport;
-      const left = v.panX + box.x * v.zoom;
-      const top = v.panY + box.y * v.zoom;
-      return { left: left, top: top, right: left + box.w * v.zoom, bottom: top + box.h * v.zoom, box: box };
-    }
-
-    // Pan waarbij de node in het midden van het zichtbare tree-workspace (de stage) staat; zoom blijft ongewijzigd.
-    function centeredPan(nodeId) {
-      const box = Renderer.nodeBox(currentGraph, nodeId);
-      const zoom = getState().viewport.zoom;
-      return {
-        x: refs.stage.clientWidth / 2 - (box.x + box.w / 2) * zoom,
-        y: refs.stage.clientHeight / 2 - (box.y + box.h / 2) * zoom
-      };
-    }
-
-    // Is een viewportbeweging nodig? Niet als de node volledig zichtbaar is (en bij een criterium ook redelijk centraal).
-    function needsMove(nodeId, kind) {
-      const r = nodeOnScreen(nodeId);
-      const w = refs.stage.clientWidth;
-      const h = refs.stage.clientHeight;
-      const fullyVisible = r.left >= VISIBLE_MARGIN && r.right <= w - VISIBLE_MARGIN &&
-        r.top >= VISIBLE_MARGIN && r.bottom <= h - VISIBLE_MARGIN;
-      if (!fullyVisible) return true;
-      if (kind === "outcome") return false;
-      const dx = (r.left + r.right) / 2 - w / 2;
-      const dy = (r.top + r.bottom) / 2 - h / 2;
-      return Math.abs(dx) > CENTER_TOLERANCE * w || Math.abs(dy) > CENTER_TOLERANCE * h;
-    }
-
-    // Beweegt de viewport (alleen pan) naar de bestemming: vloeiend, of direct bij reduced motion.
-    function movePanTo(end, onDone) {
-      const start = getState().viewport;
-      const distance = Math.hypot(end.x - start.panX, end.y - start.panY);
-      if (reducedMotion.matches || distance < 1) {
-        setPan(end.x, end.y);
-        onDone();
-        return;
-      }
-      const from = { x: start.panX, y: start.panY };
-      const duration = Math.min(JOURNEY_MAX_MS, Math.max(JOURNEY_MIN_MS, distance * 0.5));
-      const t0 = performance.now();
-      const current = { raf: 0 };
-      journey = current;
-      function step(now) {
-        if (journey !== current) return;
-        const t = Math.min(1, (now - t0) / duration);
-        const e = easeInOutCubic(t);
-        setPan(from.x + (end.x - from.x) * e, from.y + (end.y - from.y) * e);
-        if (t < 1) {
-          current.raf = requestAnimationFrame(step);
-        } else {
-          journey = null;
-          setPan(end.x, end.y);
-          onDone();
-        }
-      }
-      current.raf = requestAnimationFrame(step);
-    }
-
-    // Start de reis naar het volgende punt na een nieuwe of gewijzigde keuze.
-    function startJourney(target, sourceNodeId) {
-      cancelJourney();
-      clearGuidedTarget();
-      function finish() {
-        if (target.kind === "available") {
-          Renderer.setGuidedTarget(target.id);
-          guidedTimer = setTimeout(function () { Renderer.setGuidedTarget(null); }, GUIDED_HIGHLIGHT_MS);
-          focusWithoutPan(target.id);
-        } else {
-          // Een outcome is niet interactief: de focus keert terug naar de node waar de keuze is gemaakt,
-          // zonder dat de viewport terugpant van de gecentreerde uitkomst.
-          focusWithoutPan(sourceNodeId);
-        }
-      }
-      // Een outcome of een nog niet interactieve node waar de route stopt ('end') wordt alleen gecentreerd
-      // als die onvoldoende zichtbaar is.
-      if (currentGraph.native && needsMove(target.id, target.kind === "available" ? "available" : "outcome")) {
-        movePanTo(centeredPan(target.id), finish);
-      } else {
-        finish();
-      }
+    // Melding voor keuzes die door een nieuwe keuze niet meer mogelijk zijn en dus zijn gewist (leeg als er geen zijn).
+    function removedMessage(removed) {
+      if (!removed || !removed.length) return "";
+      const names = removed.map(function (id) { return GraphState.describeNode(nodeById(id)) || id; });
+      return " Niet meer van toepassing, keuze gewist: " + names.join(", ") + ".";
     }
 
     // Eén selectiepad voor een keuze, ongeacht de bron (radioknop in het keuzevenster of klik op een connector):
     // centrale state -> opschonen -> melding -> begeleide reis. SVG en venster volgen via subscribe.
     function selectOption(treeId, nodeId, value, info) {
       if (treeId !== currentTreeId || getSelections(treeId)[nodeId] === value) return;
-      cancelJourney();
+      journey.cancel();
       setSelection(treeId, nodeId, value);
       const removed = removeInvalidSelections();
       ChoicePanel.close(false);
@@ -646,9 +353,9 @@
       // Vrije volgorde: een keuze bij een node die nog niet bereikt is, wordt alvast vastgelegd. Er is dan nog
       // geen route om te volgen; die loopt automatisch door zodra de eerdere keuzes zijn gemaakt.
       if (GraphState.compute(currentGraph, getSelections(treeId)).nodes[nodeId] === "preselected") {
-        clearGuidedTarget();
+        journey.clearGuidedTarget();
         ChoicePanel.announce(info.nodeLabel + ": " + info.optionLabel + " alvast geselecteerd." + vervallen);
-        focusWithoutPan(nodeId);
+        viewport.focusWithoutPan(nodeId);
         return;
       }
       const target = GraphState.nextTarget(currentGraph, getSelections(treeId), nodeId);
@@ -661,14 +368,7 @@
         message += " De route loopt verder bij: " + GraphState.describeNode(nodeById(target.id)) + ".";
       }
       ChoicePanel.announce(message + vervallen);
-      if (target) startJourney(target, nodeId);
-    }
-
-    // Melding voor keuzes die door een nieuwe keuze niet meer mogelijk zijn en dus zijn gewist (leeg als er geen zijn).
-    function removedMessage(removed) {
-      if (!removed || !removed.length) return "";
-      const names = removed.map(function (id) { return GraphState.describeNode(nodeById(id)) || id; });
-      return " Niet meer van toepassing, keuze gewist: " + names.join(", ") + ".";
+      if (target) journey.start(target, nodeId);
     }
 
     // Klik of toets op een connector: dezelfde functie als de radioknop in het keuzevenster.
@@ -677,13 +377,13 @@
         { nodeLabel: choice.nodeLabel, optionLabel: choice.optionLabel });
     }
 
-    // Keuzevenster (fallback): een keuze gaat uitsluitend via selectOption.
+    // Keuzevenster: een keuze gaat uitsluitend via selectOption.
     ChoicePanel.init({
       onSelect: selectOption,
       onClear: function (treeId, nodeId, info) {
         if (treeId !== currentTreeId) return;
-        cancelJourney();
-        clearGuidedTarget();
+        journey.cancel();
+        journey.clearGuidedTarget();
         clearSelection(treeId, nodeId);
         const removed = removeInvalidSelections();
         ChoicePanel.announce("Keuze voor " + info.nodeLabel + " gewist." + removedMessage(removed));
@@ -704,129 +404,10 @@
       }
     });
 
-    // ----- Muisnavigatie (alleen voor native diagrammen) -----
-    function navigationActive() {
-      return refs.main.classList.contains("is-native") && !refs.svg.classList.contains("zp-hidden");
-    }
-
-    // Zoomt naar newZoom en houdt het punt (cx, cy) in stage-pixels onder de cursor.
-    function zoomTo(newZoom, cx, cy) {
-      const before = getState().viewport;
-      setZoom(newZoom);
-      const after = getState().viewport;
-      if (after.zoom === before.zoom) return;
-      const ux = (cx - before.panX) / before.zoom;
-      const uy = (cy - before.panY) / before.zoom;
-      setPan(cx - ux * after.zoom, cy - uy * after.zoom);
-    }
-
-    function stageCenter() {
-      const r = refs.stage.getBoundingClientRect();
-      return { x: r.width / 2, y: r.height / 2 };
-    }
-
-    function stepZoom(delta) {
-      cancelJourney();
-      const c = stageCenter();
-      zoomTo(getState().viewport.zoom + delta, c.x, c.y);
-    }
-
-    if (refs.zoomIn) refs.zoomIn.addEventListener("click", function () { stepZoom(ZOOM_STEP); });
-    if (refs.zoomOut) refs.zoomOut.addEventListener("click", function () { stepZoom(-ZOOM_STEP); });
     if (typeof Breadcrumb !== "undefined") {
       Breadcrumb.init({ onCarepathNavigate: function () { navigate(""); } });
     }
     window.addEventListener("hashchange", showRoute);
-
-    // Muiswiel en touchpad: omhoog = inzoomen, omlaag = uitzoomen (pinch op touchpad komt als ctrl+wheel).
-    refs.stage.addEventListener("wheel", function (ev) {
-      if (!navigationActive()) return;
-      ev.preventDefault();
-      cancelJourney();
-      let dy = ev.deltaY;
-      if (ev.deltaMode === 1) dy *= 16;
-      else if (ev.deltaMode === 2) dy *= 100;
-      dy = Math.max(-120, Math.min(120, dy));
-      const factor = Math.exp(-dy * (ev.ctrlKey ? WHEEL_PINCH_SENSITIVITY : WHEEL_SENSITIVITY));
-      const r = refs.stage.getBoundingClientRect();
-      zoomTo(getState().viewport.zoom * factor, ev.clientX - r.left, ev.clientY - r.top);
-    }, { passive: false });
-
-    // Slepen: linkermuisknop (of vinger) ingedrukt houden en bewegen.
-    let drag = null;
-    let suppressClick = false;
-
-    refs.stage.addEventListener("pointerdown", function (ev) {
-      if (!navigationActive() || !ev.isPrimary) return;
-      if (ev.pointerType === "mouse" && ev.button !== 0) return;
-      cancelJourney();
-      const v = getState().viewport;
-      drag = { id: ev.pointerId, x: ev.clientX, y: ev.clientY, panX: v.panX, panY: v.panY, active: false };
-    });
-
-    refs.stage.addEventListener("pointermove", function (ev) {
-      if (!drag || ev.pointerId !== drag.id) return;
-      const dx = ev.clientX - drag.x;
-      const dy = ev.clientY - drag.y;
-      if (!drag.active) {
-        if (Math.hypot(dx, dy) < DRAG_THRESHOLD) return;
-        drag.active = true;
-        suppressClick = true;
-        refs.stage.classList.add("is-dragging");
-        refs.stage.setPointerCapture(ev.pointerId);
-      }
-      setPan(drag.panX + dx, drag.panY + dy);
-    });
-
-    function endDrag(ev) {
-      if (!drag || ev.pointerId !== drag.id) return;
-      if (drag.active) {
-        refs.stage.classList.remove("is-dragging");
-        if (refs.stage.hasPointerCapture(ev.pointerId)) refs.stage.releasePointerCapture(ev.pointerId);
-        setTimeout(function () { suppressClick = false; }, 0);
-      }
-      drag = null;
-    }
-    refs.stage.addEventListener("pointerup", endDrag);
-    refs.stage.addEventListener("pointercancel", endDrag);
-
-    // Een sleepgebaar mag geen node of link activeren.
-    refs.stage.addEventListener("click", function (ev) {
-      if (!suppressClick) return;
-      ev.stopPropagation();
-      ev.preventDefault();
-      suppressClick = false;
-    }, true);
-
-    // Dubbelklik op het diagram: terug naar standaardzoom en beginpositie.
-    refs.stage.addEventListener("dblclick", function (ev) {
-      if (!navigationActive() || ev.target.closest(".node.go, .node.is-interactive, .node.is-takeable, .edge-choice")) return;
-      cancelJourney();
-      resetViewport();
-      if (currentGraph && currentGraph.native) {
-        applyFit(currentGraph);
-        ensureFirstAvailableVisible();
-      }
-    });
-
-    // Toetsenbordfocus: houd de gefocuste node in beeld door te pannen (het diagram scrolt zelf niet).
-    refs.stage.addEventListener("focusin", function (ev) {
-      if (!navigationActive()) return;
-      refs.stage.scrollLeft = 0;
-      refs.stage.scrollTop = 0;
-      if (suppressFocusPan) return;
-      const s = refs.stage.getBoundingClientRect();
-      const t = ev.target.getBoundingClientRect();
-      let dx = 0, dy = 0;
-      if (t.right > s.right - FOCUS_MARGIN) dx = s.right - FOCUS_MARGIN - t.right;
-      if (t.left + dx < s.left + FOCUS_MARGIN) dx = s.left + FOCUS_MARGIN - t.left;
-      if (t.bottom > s.bottom - FOCUS_MARGIN) dy = s.bottom - FOCUS_MARGIN - t.bottom;
-      if (t.top + dy < s.top + FOCUS_MARGIN) dy = s.top + FOCUS_MARGIN - t.top;
-      if (dx || dy) {
-        const v = getState().viewport;
-        setPan(v.panX + dx, v.panY + dy);
-      }
-    });
 
     try {
       showRoute();
@@ -837,14 +418,11 @@
 
   // ---------- Start ----------
   document.addEventListener("DOMContentLoaded", function () {
-    const page = document.body.dataset.page;
-    if (page === "home") initHome();
-    if (page === "zorgpad") {
-      initZorgpad().catch(function (err) {
-        const m = document.getElementById("zp-message");
-        if (m) { m.textContent = ""; const p = document.createElement("p"); p.className = "error"; p.textContent = "Fout bij starten van het zorgpad: " + err.message; m.appendChild(p); }
-        if (window.console) console.error(err);
-      });
-    }
+    if (document.body.dataset.page !== "zorgpad") return;
+    initZorgpad().catch(function (err) {
+      const m = document.getElementById("zp-message");
+      if (m) { m.textContent = ""; const p = document.createElement("p"); p.className = "error"; p.textContent = "Fout bij starten van het zorgpad: " + err.message; m.appendChild(p); }
+      if (window.console) console.error(err);
+    });
   });
 })();
