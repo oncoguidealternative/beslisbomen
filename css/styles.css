@@ -839,7 +839,7 @@ body[data-page="zorgpad"] .site-footer { margin-top: 0; }
 
 /* ===== Bronvermelding: titel van zorgpad of beslisboom ===== */
 .zp-stage .node.has-info { cursor: pointer; }
-.zp-stage .node.has-info:hover rect,
+.zp-stage .node.has-info:hover:not(:has(.icon-link:hover)) rect,
 .zp-stage .node.has-info:focus-visible rect { filter: brightness(1.12); }
 .zp-stage .node.has-info:focus-visible rect { stroke: #FFFFFF; stroke-width: 3; }
 .zp-stage .node.has-info .icon-link { cursor: pointer; }
@@ -976,3 +976,11 @@ body[data-page="zorgpad"] { height: 100vh; height: 100dvh; min-height: 0; }
 
 /* Vlak achter een verbindingslabel, in de kleur van de achtergrond (zie renderer.js). */
 .zp-stage .elabel-bg { fill: var(--color-background); stroke: none; pointer-events: none; }
+
+/* Info-icoon op de titel van zorgpad en beslisboom (bronvermelding), in de stijl van de andere iconen. */
+.zp-stage .info-badge circle { fill: var(--color-node); stroke: #FFFFFF; stroke-width: 2.2; }
+.zp-stage .info-badge path { fill: none; stroke: #FFFFFF; stroke-width: 2.4; stroke-linecap: round; }
+.zp-stage .info-badge .dot { fill: #FFFFFF; stroke: none; }
+/* Oplichten bij aanwijzen van de titel, maar niet als het min-icoon (terug naar overzicht) wordt aangewezen. */
+.zp-stage .node.has-info:hover:not(:has(.icon-link:hover)) .info-badge circle:not(.dot),
+.zp-stage .node.has-info:focus-visible .info-badge circle:not(.dot) { fill: var(--color-accent); }

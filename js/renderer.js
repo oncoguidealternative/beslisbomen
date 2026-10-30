@@ -431,6 +431,16 @@ const Renderer = (function () {
         }
       });
 
+      if (infoNode) el('title', {}, g).textContent = 'Bron en verantwoording';
+      if (infoNode && type === 'start') {
+        // Info-icoon rechtsboven op de hoek van de zorgpadtitel (alleen in het overzicht): laat zien dat die
+        // klikbaar is en de bronvermelding toont. De tooltip staat op de hele node.
+        var badge = el('g', {'class': 'info-badge', 'aria-hidden': 'true',
+          transform: 'translate(' + (w - 6 * s) + ',' + (6 * s) + ') scale(' + s + ')'}, g);
+        el('circle', {r: 11}, badge);
+        el('path', {d: 'M0,-1 V5.5'}, badge);
+        el('circle', {'class': 'dot', cy: -5, r: 1.6}, badge);
+      }
       if (icon) {
         var ic = el('g', {'class': 'icon ' + icon,
           transform: 'translate(' + (w - 2) + ',' + (h / 2) + ') scale(' + s + ')'}, g);
