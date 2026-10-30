@@ -219,6 +219,31 @@ const GraphState = (function () {
     return null;
   }
 
+  /* ===== Meetwaarden =====
+     Een keuzenode kan een meetwaarde zijn: "measure": { "unit": "mm" }. Elke optie is dan een bereik met
+     "gt" (>), "gte" (>=), "lt" (<) en/of "lte" (<=), in dezelfde eenheid. De gebruiker vult een getal in;
+     de optie waarvan het bereik dat getal bevat, wordt de keuze. */
+  function measureOf(node) {
+    if (!isChoice(node) || !node.measure || typeof node.measure !== 'object') return null;
+    return { unit: String(node.measure.unit || '') };
+  }
+
+  function inRange(option, x) {
+    if (typeof x !== 'number' || !isFinite(x) || !option) return false;
+    if (typeof option.gt === 'number' && !(x > option.gt)) return false;
+    if (typeof option.gte === 'number' && !(x >= option.gte)) return false;
+    if (typeof option.lt === 'number' && !(x < option.lt)) return false;
+    if (typeof option.lte === 'number' && !(x <= option.lte)) return false;
+    return ['gt', 'gte', 'lt', 'lte'].some(function (k) { return typeof option[k] === 'number'; });
+  }
+
+  /* De optiewaarde die bij getal x hoort, of null als het getal buiten alle bereiken valt. */
+  function optionForMeasure(node, x) {
+    if (!measureOf(node)) return null;
+    var o = node.options.filter(function (opt) { return inRange(opt, x); })[0];
+    return o ? o.value : null;
+  }
+
   /* Het gegeven over de patiënt dat een keuzenode vastlegt. Nodes met hetzelfde gegeven (zelfde "dataKey", of
      anders hetzelfde label) staan vaak in verschillende takken van een boom, bv. "Regio tumor" onder twee
      verschillende routes. Een keuze geldt dan voor al die nodes. */
@@ -590,6 +615,9 @@ const GraphState = (function () {
     compute: compute,
     nextTarget: nextTarget,
     choiceOrder: choiceOrder,
+    measureOf: measureOf,
+    inRange: inRange,
+    optionForMeasure: optionForMeasure,
     dataKey: dataKey,
     sameData: sameData,
     describeNode: describeNode,

@@ -54,6 +54,7 @@ const PatientPanel = (function () {
       onClearAll: options.onClearAll || function () {},
       onLocate: options.onLocate || function () {},
       onSubtree: options.onSubtree || function () {},
+      onMeasure: options.onMeasure || function () { return false; },
       onResize: options.onResize || function () {}
     };
 
@@ -173,6 +174,8 @@ const PatientPanel = (function () {
           (g.optionNodes[o.value] = g.optionNodes[o.value] || []).push(id);
           if (!g.options.some(function (x) { return x.value === o.value; })) g.options.push({ value: o.value, label: o.label });
         });
+        const m = GraphState.measureOf(node);
+        if (m && !g.measure) g.measure = m;
         const sub = GraphState.subtreeOf(node);
         if (sub && !g.subtree) g.subtree = { nodeId: id, tree: sub.tree, label: node.label };
       });
@@ -220,6 +223,35 @@ const PatientPanel = (function () {
       });
       body.appendChild(fieldset);
 
+      // Meetwaarde: één invoerveld met de eenheid in plaats van rondjes.
+      let measureInput = null, measureMsg = null;
+      if (g.measure) {
+        fieldset.hidden = true;
+        const rowLabel = make('label', 'pp-measure');
+        measureInput = make('input', 'pp-measure-input');
+        measureInput.type = 'text';
+        measureInput.setAttribute('inputmode', 'decimal');
+        measureInput.setAttribute('autocomplete', 'off');
+        measureInput.placeholder = 'Typ hier';
+        measureInput.setAttribute('aria-label', g.label + (g.measure.unit ? ' in ' + g.measure.unit : ''));
+        rowLabel.appendChild(measureInput);
+        rowLabel.appendChild(make('span', 'pp-measure-unit', g.measure.unit || ''));
+        body.insertBefore(rowLabel, fieldset);
+        measureMsg = make('p', 'pp-measure-msg');
+        measureMsg.setAttribute('role', 'status');
+        body.insertBefore(measureMsg, fieldset);
+        measureInput.addEventListener('keydown', function (ev) {
+          if (ev.key !== 'Enter' || !treeId) return;
+          ev.preventDefault();
+          const raw = measureInput.value.trim().replace(',', '.');
+          if (raw === '') return;
+          if (!/^-?\d+(\.\d+)?$/.test(raw)) { measureMsg.textContent = 'Vul een getal in, bijvoorbeeld 32 of 4,5.'; return; }
+          measureMsg.textContent = '';
+          const ok = handlers.onMeasure(treeId, primaryNode(g), Number(raw), { nodeLabel: g.label, source: 'panel' });
+          if (!ok) measureMsg.textContent = 'Deze waarde valt buiten de mogelijkheden van deze beslisboom.';
+        });
+      }
+
       const actions = make('div', 'pp-actions');
       const clear = make('button', 'pp-btn pp-clear', 'Wissen');
       clear.type = 'button';
@@ -247,6 +279,7 @@ const PatientPanel = (function () {
       });
 
       g.el = row; g.button = button; g.value = value; g.body = body; g.radios = radios; g.clear = clear;
+      g.measureInput = measureInput;
       return row;
     }
 
@@ -313,10 +346,12 @@ const PatientPanel = (function () {
     }
 
     // status = GraphState.compute(...), values = { nodeId: waarde } van de getoonde boom.
-    function refresh(status, values) {
+    // measurements: { nodeId: getal } met ingevulde meetwaarden (optioneel).
+    function refresh(status, values, measurements) {
       if (!groups.length) return;
       lastStatus = status;
       lastSelections = values || {};
+      const measured = measurements || {};
       let answeredOpenGroup = false;
       groups.forEach(function (g) {
         let st = 'excluded', rank = -1, val, valNode = null;
@@ -326,7 +361,16 @@ const PatientPanel = (function () {
           if (lastSelections[nid] !== undefined && (valNode === null || s === 'selected')) { val = lastSelections[nid]; valNode = nid; }
         });
         const option = g.options.filter(function (o) { return o.value === val; })[0];
-        const valueText = option ? option.label : '';
+        let valueText = option ? option.label : '';
+        if (g.measure) {
+          // Meetwaarde: toon het ingevulde getal met eenheid.
+          const nid = g.nodeIds.filter(function (id) { return measured[id] !== undefined; })[0];
+          const number = nid !== undefined ? measured[nid] : undefined;
+          if (number !== undefined) valueText = String(number).replace('.', ',') + (g.measure.unit ? ' ' + g.measure.unit : '');
+          if (g.measureInput && document.activeElement !== g.measureInput) {
+            g.measureInput.value = number !== undefined ? String(number).replace('.', ',') : '';
+          }
+        }
         g.value.textContent = valueText;
         g.el.dataset.state = st;
         g.el.classList.toggle('has-value', val !== undefined);

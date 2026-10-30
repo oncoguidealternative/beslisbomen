@@ -1056,3 +1056,27 @@ body[data-page="zorgpad"] { height: 100vh; height: 100dvh; min-height: 0; }
 /* Rondjes houden hun maat, ook naast een lange optietekst. */
 .choice-panel .choice-option input,
 .pp-option input { flex: none; }
+
+/* Keuzevenster bij een meetwaarde: één invoerveld met de eenheid */
+.choice-measure[hidden], .choice-fieldset[hidden] { display: none; }
+.choice-measure { background: #FFFFFF; }
+.choice-measure-row { display: flex; align-items: center; gap: 8px; padding: 9px 14px; cursor: text; }
+.choice-measure-input {
+  flex: 1 1 auto; min-width: 0; border: 0; padding: 2px 0; font: inherit; font-size: .95rem;
+  color: var(--color-text-dark); background: transparent;
+}
+.choice-measure-input:focus { outline: none; }
+.choice-measure-row:focus-within { outline: 3px solid var(--color-accent); outline-offset: -3px; }
+.choice-measure-unit { flex: none; color: #555; font-size: .9rem; }
+.choice-measure-msg { margin: 0; padding: 0 14px 8px; font-size: .82rem; color: #a33; }
+.choice-measure-msg:empty { display: none; }
+
+/* Paneel met patiëntinformatie: invoerveld bij een meetwaarde */
+.pp-options[hidden] { display: none; }
+.pp-measure { display: flex; align-items: center; gap: 8px; padding: 6px 8px; border: 1px solid #c9d9e0; border-radius: 4px; background: #FFFFFF; cursor: text; }
+.pp-measure:focus-within { outline: 3px solid var(--color-accent); outline-offset: 0; }
+.pp-measure-input { flex: 1 1 auto; min-width: 0; border: 0; padding: 2px 0; font: inherit; color: var(--color-text-dark); background: transparent; }
+.pp-measure-input:focus { outline: none; }
+.pp-measure-unit { flex: none; color: #555; }
+.pp-measure-msg { margin: 6px 0 0; font-size: .82rem; color: #a33; }
+.pp-measure-msg:empty { display: none; }

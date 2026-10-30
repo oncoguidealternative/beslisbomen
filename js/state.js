@@ -19,7 +19,11 @@ const state = {
     panY: 0
   },
 
-  selections: {}
+  selections: {},
+
+  // Ingevulde meetwaarden (getallen), naast de gekozen optie in selections:
+  // measurements[tumorId][treeId][nodeId] = getal. Wordt samen met de selectie gewist.
+  measurements: {}
 };
 
 const ZOOM_MIN = 0.3;
@@ -67,6 +71,25 @@ function getState() {
   };
 }
 
+/* Ingevulde meetwaarden van één beslisboom van de huidige tumor: { nodeId: getal } (kopie). */
+function getMeasurements(treeId) {
+  const t = state.measurements[tumorKey()];
+  return t && t[treeId] ? Object.assign({}, t[treeId]) : {};
+}
+
+/* Legt een ingevuld getal vast. De bijbehorende optie zet de aanroeper met setSelection (die meldt de wijziging). */
+function setMeasurement(treeId, nodeId, value) {
+  const tumor = tumorKey();
+  state.measurements[tumor] = state.measurements[tumor] || {};
+  state.measurements[tumor][treeId] = state.measurements[tumor][treeId] || {};
+  state.measurements[tumor][treeId][nodeId] = value;
+}
+
+function forgetMeasurement(treeId, nodeId) {
+  const t = state.measurements[tumorKey()];
+  if (t && t[treeId]) delete t[treeId][nodeId];
+}
+
 /* Selecties van één beslisboom van de huidige tumor: { nodeId: waarde } (kopie). */
 function getSelections(treeId) {
   const ref = treeSelectionsRef(treeId, false);
@@ -97,6 +120,7 @@ function setTumor(id) {
   state.currentTumor = id || null;
   state.currentTree = null;
   state.selections = {};
+  state.measurements = {};
   resetViewportValues();
   notifyState('tumor');
 }
@@ -119,6 +143,7 @@ function setSelection(treeId, nodeId, value) {
 function clearSelection(treeId, nodeId) {
   const ref = treeSelectionsRef(treeId, false);
   if (ref) delete ref[nodeId];
+  forgetMeasurement(treeId, nodeId);
   notifyState('selections', { treeId: treeId });
 }
 
@@ -126,9 +151,11 @@ function clearSelection(treeId, nodeId) {
 function clearAllSelections(treeId) {
   if (treeId === undefined || treeId === null) {
     state.selections[tumorKey()] = {};
+    state.measurements[tumorKey()] = {};
   } else {
     const ref = treeSelectionsRef(treeId, false);
     if (ref) state.selections[tumorKey()][treeId] = {};
+    if (state.measurements[tumorKey()]) delete state.measurements[tumorKey()][treeId];
   }
   notifyState('selections', { treeId: treeId === undefined ? null : treeId });
 }

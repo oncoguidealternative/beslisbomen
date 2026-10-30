@@ -953,14 +953,19 @@
             {
               "value": "lte-5-mm",
               "label": "<=5 mm",
-              "edge": "edge-invasiediepte-bij-biopt-lte-5-mm"
+              "edge": "edge-invasiediepte-bij-biopt-lte-5-mm",
+              "lte": 5
             },
             {
               "value": "gt-5-mm",
               "label": "> 5 mm",
-              "edge": "edge-invasiediepte-bij-biopt-gt-5-mm"
+              "edge": "edge-invasiediepte-bij-biopt-gt-5-mm",
+              "gt": 5
             }
           ],
+          "measure": {
+            "unit": "mm"
+          },
           "gridX": 46,
           "gridY": 125
         },
@@ -1609,14 +1614,19 @@
             {
               "value": "lte-4-cm",
               "label": "<=4 cm",
-              "edge": "edge-diameter-tumor-lte-4-cm"
+              "edge": "edge-diameter-tumor-lte-4-cm",
+              "lte": 40
             },
             {
               "value": "gt-4-cm",
               "label": ">4 cm",
-              "edge": "edge-diameter-tumor-gt-4-cm"
+              "edge": "edge-diameter-tumor-gt-4-cm",
+              "gt": 40
             }
           ],
+          "measure": {
+            "unit": "mm"
+          },
           "gridX": 0,
           "gridY": 110
         },
@@ -2411,19 +2421,26 @@
             {
               "value": "lte-3-mm",
               "label": "<=3 mm",
-              "edge": "edge-invasiediepte-lte-3-mm"
+              "edge": "edge-invasiediepte-lte-3-mm",
+              "lte": 3
             },
             {
               "value": "3-5-mm",
               "label": "3-5 mm",
-              "edge": "edge-invasiediepte-3-5-mm"
+              "edge": "edge-invasiediepte-3-5-mm",
+              "gt": 3,
+              "lte": 5
             },
             {
               "value": "gt-5-mm",
               "label": ">5 mm",
-              "edge": "edge-invasiediepte-gt-5-mm"
+              "edge": "edge-invasiediepte-gt-5-mm",
+              "gt": 5
             }
           ],
+          "measure": {
+            "unit": "mm"
+          },
           "gridX": 45,
           "gridY": 61
         },
@@ -2491,19 +2508,26 @@
             {
               "value": "lte-20-mm",
               "label": "<=20 mm",
-              "edge": "edge-diameter-tumor-lte-20-mm"
+              "edge": "edge-diameter-tumor-lte-20-mm",
+              "lte": 20
             },
             {
               "value": "20-40-mm",
               "label": "20-40 mm",
-              "edge": "edge-diameter-tumor-20-40-mm"
+              "edge": "edge-diameter-tumor-20-40-mm",
+              "gt": 20,
+              "lte": 40
             },
             {
               "value": "gt-40-mm",
               "label": ">40 mm",
-              "edge": "edge-diameter-tumor-gt-40-mm"
+              "edge": "edge-diameter-tumor-gt-40-mm",
+              "gt": 40
             }
           ],
+          "measure": {
+            "unit": "mm"
+          },
           "gridX": 135,
           "gridY": 92
         },
@@ -2516,14 +2540,19 @@
             {
               "value": "lte-4-cm",
               "label": "<=4 cm",
-              "edge": "edge-diameter-tumor-2-lte-4-cm"
+              "edge": "edge-diameter-tumor-2-lte-4-cm",
+              "lte": 40
             },
             {
               "value": "gt-4-cm",
               "label": ">4 cm",
-              "edge": "edge-diameter-tumor-2-gt-4-cm"
+              "edge": "edge-diameter-tumor-2-gt-4-cm",
+              "gt": 40
             }
           ],
+          "measure": {
+            "unit": "mm"
+          },
           "gridX": 225,
           "gridY": 92
         },
@@ -3347,14 +3376,19 @@
             {
               "value": "lte-7-mm",
               "label": "<=7 mm",
-              "edge": "edge-lineaire-extension-lte-7-mm"
+              "edge": "edge-lineaire-extension-lte-7-mm",
+              "lte": 7
             },
             {
               "value": "gt-7-mm",
               "label": ">7 mm",
-              "edge": "edge-lineaire-extension-gt-7-mm"
+              "edge": "edge-lineaire-extension-gt-7-mm",
+              "gt": 7
             }
           ],
+          "measure": {
+            "unit": "mm"
+          },
           "gridX": 90,
           "gridY": 30
         },
@@ -3820,14 +3854,19 @@
             {
               "value": "lte-7-mm",
               "label": "<=7 mm",
-              "edge": "edge-lineaire-extension-lte-7-mm"
+              "edge": "edge-lineaire-extension-lte-7-mm",
+              "lte": 7
             },
             {
               "value": "gt-7-mm",
               "label": ">7 mm",
-              "edge": "edge-lineaire-extension-gt-7-mm"
+              "edge": "edge-lineaire-extension-gt-7-mm",
+              "gt": 7
             }
           ],
+          "measure": {
+            "unit": "mm"
+          },
           "gridX": 90,
           "gridY": 30
         },
@@ -4333,14 +4372,20 @@
             {
               "value": "lte-20-mm",
               "label": "<=20 mm",
-              "edge": "edge-diameter-tumor-lte-20-mm"
+              "edge": "edge-diameter-tumor-lte-20-mm",
+              "lte": 20
             },
             {
               "value": "20-40-mm",
               "label": "20-40 mm",
-              "edge": "edge-diameter-tumor-20-40-mm"
+              "edge": "edge-diameter-tumor-20-40-mm",
+              "gt": 20,
+              "lte": 40
             }
           ],
+          "measure": {
+            "unit": "mm"
+          },
           "gridX": 90,
           "gridY": 55
         },
@@ -5844,14 +5889,19 @@
             {
               "value": "lt-40-mm",
               "label": "<40 mm",
-              "edge": "edge-diameter-tumor-lt-40-mm"
+              "edge": "edge-diameter-tumor-lt-40-mm",
+              "lt": 40
             },
             {
               "value": "gte-40-mm",
               "label": ">=40 mm",
-              "edge": "edge-diameter-tumor-gte-40-mm"
+              "edge": "edge-diameter-tumor-gte-40-mm",
+              "gte": 40
             }
           ],
+          "measure": {
+            "unit": "mm"
+          },
           "gridX": 45,
           "gridY": 105
         },
@@ -7942,14 +7992,19 @@
             {
               "value": "lte-7-mm",
               "label": "<=7 mm",
-              "edge": "edge-lineaire-extension-lte-7-mm"
+              "edge": "edge-lineaire-extension-lte-7-mm",
+              "lte": 7
             },
             {
               "value": "gt-7-mm",
               "label": ">7 mm",
-              "edge": "edge-lineaire-extension-gt-7-mm"
+              "edge": "edge-lineaire-extension-gt-7-mm",
+              "gt": 7
             }
           ],
+          "measure": {
+            "unit": "mm"
+          },
           "gridX": 90,
           "gridY": 60
         },
@@ -7997,19 +8052,26 @@
             {
               "value": "lte-3-mm",
               "label": "<=3 mm",
-              "edge": "edge-invasiediepte-lte-3-mm"
+              "edge": "edge-invasiediepte-lte-3-mm",
+              "lte": 3
             },
             {
               "value": "3-5-mm",
               "label": "3-5 mm",
-              "edge": "edge-invasiediepte-3-5-mm"
+              "edge": "edge-invasiediepte-3-5-mm",
+              "gt": 3,
+              "lte": 5
             },
             {
               "value": "gt-5-mm",
               "label": ">5 mm",
-              "edge": "edge-invasiediepte-gt-5-mm"
+              "edge": "edge-invasiediepte-gt-5-mm",
+              "gt": 5
             }
           ],
+          "measure": {
+            "unit": "mm"
+          },
           "gridX": 45,
           "gridY": 90
         },
@@ -8022,14 +8084,19 @@
             {
               "value": "lte-4-cm",
               "label": "<=4 cm",
-              "edge": "edge-diameter-tumor-lte-4-cm"
+              "edge": "edge-diameter-tumor-lte-4-cm",
+              "lte": 40
             },
             {
               "value": "gt-4-cm",
               "label": ">4 cm",
-              "edge": "edge-diameter-tumor-gt-4-cm"
+              "edge": "edge-diameter-tumor-gt-4-cm",
+              "gt": 40
             }
           ],
+          "measure": {
+            "unit": "mm"
+          },
           "gridX": 135,
           "gridY": 120
         },
@@ -8042,14 +8109,19 @@
             {
               "value": "lte-4-cm",
               "label": "<=4 cm",
-              "edge": "edge-diameter-tumor-2-lte-4-cm"
+              "edge": "edge-diameter-tumor-2-lte-4-cm",
+              "lte": 40
             },
             {
               "value": "gt-4-cm",
               "label": ">4 cm",
-              "edge": "edge-diameter-tumor-2-gt-4-cm"
+              "edge": "edge-diameter-tumor-2-gt-4-cm",
+              "gt": 40
             }
           ],
+          "measure": {
+            "unit": "mm"
+          },
           "gridX": 180,
           "gridY": 120
         },

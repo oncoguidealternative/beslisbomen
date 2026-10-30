@@ -164,6 +164,27 @@ const GraphValidator = (function () {
           add('warning', n.id, tag + ': label "' + o.label + '" wijkt af van het edge-label "' + e.label.replace(/\s+/g, ' ').trim() + '".', o.edge);
         }
       });
+      // Meetwaarde: elke optie een bereik; bereiken mogen elkaar niet overlappen.
+      if (n.measure !== undefined) {
+        var RK = ['gt', 'gte', 'lt', 'lte'];
+        if (!isObject(n.measure) || !nonEmptyString(n.measure.unit)) nodeError(n.id, 'Node "' + n.id + '": "measure" moet een object met "unit" zijn, bv. { "unit": "mm" }.');
+        var bounds = [];
+        n.options.forEach(function (o) {
+          if (!isObject(o)) return;
+          var has = RK.filter(function (k) { return o[k] !== undefined; });
+          if (!has.length) { nodeError(n.id, 'Node "' + n.id + '": option "' + o.value + '" heeft geen bereik (gt, gte, lt of lte).'); return; }
+          if (has.some(function (k) { return typeof o[k] !== 'number'; })) { nodeError(n.id, 'Node "' + n.id + '": option "' + o.value + '": een bereik moet een getal zijn.'); return; }
+          var lo = o.gt !== undefined ? o.gt : (o.gte !== undefined ? o.gte : -Infinity);
+          var hi = o.lt !== undefined ? o.lt : (o.lte !== undefined ? o.lte : Infinity);
+          bounds.push({ v: o.value, lo: lo, hi: hi, loIn: o.gte !== undefined, hiIn: o.lte !== undefined });
+        });
+        bounds.sort(function (a, b) { return a.lo - b.lo; });
+        for (var bi = 1; bi < bounds.length; bi++) {
+          var p = bounds[bi - 1], q = bounds[bi];
+          if (q.lo < p.hi || (q.lo === p.hi && q.loIn && p.hiIn)) nodeError(n.id, 'Node "' + n.id + '": bereiken van "' + p.v + '" en "' + q.v + '" overlappen.');
+          else if (q.lo > p.hi || (q.lo === p.hi && !q.loIn && !p.hiIn)) add('warning', n.id, 'Node "' + n.id + '": tussen "' + p.v + '" en "' + q.v + '" ligt een gat; een getal daar heeft geen optie.');
+        }
+      }
       // meerdere edges voor dezelfde option: andere gemodelleerde edges met dezelfde from+value
       n.options.forEach(function (o) {
         if (!isObject(o) || !nonEmptyString(o.value)) return;

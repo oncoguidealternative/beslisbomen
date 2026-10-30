@@ -194,6 +194,7 @@
       },
       onLocate: function (nodeId) { journey.locate(nodeId); },
       onSubtree: function (info) { subtrees.enter(info); },
+      onMeasure: function (treeId, nodeId, number, info) { return selectMeasurement(treeId, nodeId, number, info); },
       // Het werkvlak wordt smaller of breder: houd het midden van het beeld op dezelfde plek.
       onResize: function (oldWidth, newWidth) {
         const v = getState().viewport;
@@ -322,7 +323,8 @@
         ChoicePanel.close(true);
         return;
       }
-      ChoicePanel.open({ tumorId: tumorId, treeId: currentTreeId, nodeId: item.id, label: item.label, options: item.options, anchor: anchor, subtree: item.subtree });
+      ChoicePanel.open({ tumorId: tumorId, treeId: currentTreeId, nodeId: item.id, label: item.label, options: item.options, anchor: anchor, subtree: item.subtree,
+        measure: GraphState.measureOf(nodeById(item.id)), measurement: getMeasurements(currentTreeId)[item.id] });
     }
 
     // Berekent de status uit graph + selecties en laat de renderer die toepassen.
@@ -332,7 +334,7 @@
       const status = GraphState.compute(currentGraph, values);
       Renderer.applyStatus(status, values);
       RP.refresh(status);
-      patientPanel.refresh(status, values);
+      patientPanel.refresh(status, values, getMeasurements(currentTreeId));
       subtrees.refreshBar(status);
     }
 
@@ -360,7 +362,6 @@
       const before = getSelections(treeId);
       const changed = nodeIds.filter(function (id) { return before[id] !== value; });
       if (!changed.length) return;
-      const keepFocus = info.source === "panel";
       journey.cancel();
       changed.forEach(function (id) { setSelection(treeId, id, value); });
       // Nodes met hetzelfde gegeven die deze waarde niet kennen (bv. "cT" met een andere indeling in een andere tak):
@@ -371,6 +372,55 @@
           if (nodeIds.indexOf(other) < 0 && current[other] !== undefined) clearSelection(treeId, other);
         });
       });
+      afterSelection(treeId, nodeIds, info);
+    }
+
+    // Meetwaarde: de gebruiker vult een getal in (bv. 32 mm). Elke node met hetzelfde gegeven in deze boom krijgt de
+    // optie waarvan het bereik dat getal bevat (bv. "20-40 mm" in de ene tak, "<=4 cm" in de andere). Valt het getal
+    // bij een andere node buiten alle bereiken, dan wordt die leeg gelaten. Geeft false als het getal bij de
+    // gekozen node zelf nergens past.
+    function selectMeasurement(treeId, nodeId, number, info) {
+      if (treeId !== currentTreeId) return false;
+      const node = nodeById(nodeId);
+      const measure = GraphState.measureOf(node);
+      if (!measure) return false;
+      const unitText = measure.unit ? " " + measure.unit : "";
+      if (GraphState.optionForMeasure(node, number) === null) {
+        ChoicePanel.announce(info.nodeLabel + ": " + formatNumber(number) + unitText + " valt buiten de mogelijkheden van deze stap.");
+        return false;
+      }
+      journey.cancel();
+      const group = GraphState.sameData(currentGraph, nodeId).filter(function (id) {
+        const m = GraphState.measureOf(nodeById(id));
+        return m && m.unit === measure.unit;
+      });
+      const set = [];
+      group.forEach(function (id) {
+        const v = GraphState.optionForMeasure(nodeById(id), number);
+        if (v === null) {
+          if (getSelections(treeId)[id] !== undefined) clearSelection(treeId, id);
+          return;
+        }
+        setMeasurement(treeId, id, number);
+        setSelection(treeId, id, v);
+        set.push(id);
+      });
+      const option = node.options.filter(function (o) { return o.value === GraphState.optionForMeasure(node, number); })[0];
+      afterSelection(treeId, set, {
+        nodeLabel: info.nodeLabel,
+        optionLabel: formatNumber(number) + unitText + " (" + (option ? option.label : "") + ")",
+        source: info.source
+      });
+      return true;
+    }
+
+    function formatNumber(n) {
+      return String(n).replace(".", ",");
+    }
+
+    // Na het vastleggen van een keuze: opschonen, melding en begeleide reis naar de volgende stap.
+    function afterSelection(treeId, nodeIds, info) {
+      const keepFocus = info.source === "panel";
       // Nodes van hetzelfde gegeven die door deze keuze afvallen, worden stil gewist (het gegeven zelf staat er nog).
       const removed = removeInvalidSelections().filter(function (id) { return nodeIds.indexOf(id) < 0; });
       ChoicePanel.close(false);
@@ -382,7 +432,7 @@
       if (!reached) {
         journey.clearGuidedTarget();
         ChoicePanel.announce(info.nodeLabel + ": " + info.optionLabel + " alvast geselecteerd." + vervallen);
-        if (!keepFocus) viewport.focusWithoutPan(nodeIds[0]);
+        if (!keepFocus && nodeIds.length) viewport.focusWithoutPan(nodeIds[0]);
         return;
       }
       const target = GraphState.nextTarget(currentGraph, getSelections(treeId), reached);
@@ -417,12 +467,13 @@
     // Klik of toets op een connector: dezelfde functie als de radioknop in het keuzevenster. Hoort de connector
     // bij meerdere waarden ("value": ["1", "2"]), dan opent het keuzevenster van de node om er één te kiezen.
     function selectEdge(choice) {
-      if (choice.values && choice.values.length > 1) {
+      const measured = GraphState.measureOf(nodeById(choice.nodeId));
+      if (measured || (choice.values && choice.values.length > 1)) {
         const node = nodeById(choice.nodeId);
         const anchor = refs.svg.querySelector('.node[data-node-id="' + choice.nodeId + '"]');
         if (!node || !anchor) return;
         const ref = GraphState.subtreeOf(node);
-        interact({ id: node.id, label: node.label, options: node.options, subtree: ref ? { tree: ref.tree } : null }, anchor);
+        interact({ id: node.id, label: node.label, options: node.options, subtree: ref ? { tree: ref.tree } : null, measure: GraphState.measureOf(node) }, anchor);
         return;
       }
       selectOption(currentTreeId, choice.nodeId, choice.value,
@@ -437,7 +488,8 @@
         const values = getSelections(treeId);
         clearNodes(treeId, GraphState.sameData(currentGraph, nodeId).filter(function (id) { return values[id] !== undefined; }), info);
       },
-      onSubtree: function (info) { if (info.treeId === currentTreeId) subtrees.enter({ nodeId: info.nodeId, tree: info.tree, label: info.label }); }
+      onSubtree: function (info) { if (info.treeId === currentTreeId) subtrees.enter({ nodeId: info.nodeId, tree: info.tree, label: info.label }); },
+      onMeasure: function (treeId, nodeId, number, info) { return selectMeasurement(treeId, nodeId, number, info); }
     });
 
     // Eén abonnement voor de hele pagina: viewport en selecties worden toegepast zodra de state verandert.

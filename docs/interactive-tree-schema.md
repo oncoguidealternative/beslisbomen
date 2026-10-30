@@ -209,6 +209,29 @@ Klopt iets niet, dan wordt de boom **wel getekend**, maar blijft die node statis
 - **Statussen** (CSS-klassen in de tekening): `is-selected` (op de gekozen route), `is-preselected` (alvast ingevuld), `is-available` (volgende stap), `is-inactive` (nog niet bereikt), `is-excluded` (niet meer mogelijk, vervaagd).
 - **Aanbevelingen:** de knop "Aanbevelingen (n)" toont per aanbeveling welke combinaties van keuzes ertoe leiden. Dat wordt volledig afgeleid uit de edges; er staat geen medische logica in de code.
 
+### Meetwaarden
+
+Een gegeven dat een **meting** is (diameter, invasiediepte, lineaire extensie) vul je in als getal in plaats van te kiezen uit een lijst. Geef de keuzenode daarvoor `measure` met de eenheid, en elke optie een **bereik**:
+
+```json
+{
+  "id": "diameter-tumor", "type": "dataItem", "label": "Diameter (tumor)", "interactive": true,
+  "measure": { "unit": "mm" },
+  "options": [
+    { "value": "lte-20-mm", "label": "<=20 mm",  "edge": "edge-…", "lte": 20 },
+    { "value": "20-40-mm",  "label": "20-40 mm", "edge": "edge-…", "gt": 20, "lte": 40 },
+    { "value": "gt-40-mm",  "label": ">40 mm",   "edge": "edge-…", "gt": 40 }
+  ]
+}
+```
+
+- Bereiken met `gt` (>), `gte` (>=), `lt` (<) en `lte` (<=), altijd in de eenheid van `measure`. Een label als "<=4 cm" kan dus gewoon blijven staan, met `"lte": 40` bij eenheid mm.
+- Een klik op de node of op een van zijn connectoren opent een invoerveld met de eenheid. Na Enter kiest de site zelf het bereik waarin het getal valt. Een komma als decimaalteken mag (4,5).
+- Nodes met hetzelfde gegeven en dezelfde eenheid in de boom krijgen elk hun **eigen** bereik voor hetzelfde getal: 32 mm wordt "20-40 mm" in de ene tak en "<=4 cm" in de andere.
+- Valt het getal buiten alle bereiken van de gekozen node, dan meldt het venster dat en wordt er niets ingevuld.
+- In het paneel met patiëntinformatie staat bij zo'n gegeven ook een invoerveld; de regel toont het getal met eenheid.
+- De validator controleert dat elke optie een bereik heeft en dat bereiken elkaar niet overlappen, en waarschuwt bij een gat tussen twee bereiken.
+
 ### Paneel met patiëntinformatie
 
 Links naast elke beslisboom met keuzes staat een in- en uitklapbaar paneel met alle gegevens die in die boom kunnen worden ingevuld. Het paneel wordt **automatisch** opgebouwd uit de keuzenodes; er is geen extra JSON nodig.
