@@ -698,6 +698,8 @@ body[data-page="zorgpad"] .site-footer { margin-top: 0; }
 
 /* ===== Aanbevelingenoverzicht en route-markering ===== */
 .zp-main { position: relative; }
+/* Het paneel en de knoppen staan altijd rechts in beeld: een werkvlak met aanbevelingen is altijd volle breedte. */
+.zp-main:has(.rec-bar) { max-width: none; }
 
 .rec-bar {
   position: absolute;
@@ -718,7 +720,7 @@ body[data-page="zorgpad"] .site-footer { margin-top: 0; }
   right: 20px;
   bottom: 20px;
   z-index: 6;
-  width: min(400px, calc(100% - 40px));
+  width: min(800px, calc(100% - 40px));
   overflow: auto;
   background: #FFFFFF;
   color: var(--color-text-dark);
