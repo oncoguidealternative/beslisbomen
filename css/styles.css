@@ -849,13 +849,15 @@ body[data-page="zorgpad"] .site-footer { margin-top: 0; }
 
 /* ===== Paneel met patiëntinformatie (links, in- en uitklapbaar) ===== */
 .zp-work { position: relative; display: flex; align-items: stretch; }
-.zp-work > .zp-stage { flex: 1 1 auto; min-width: 0; }
+.zp-column { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; }
+.zp-stagewrap { position: relative; flex: 1 1 auto; min-height: 0; display: flex; }
+.zp-stagewrap > .zp-stage { flex: 1 1 auto; min-width: 0; }
+.zp-column > .sub-bar { margin: 8px 12px 0; }
 .zp-main.pp-open { max-width: none; }
 
 .pp {
   flex: 0 0 300px;
   width: 300px;
-  margin-top: 8px;           /* gelijk aan de bovenmarge van het werkvlak */
   display: flex;
   flex-direction: column;
   background: #FFFFFF;
@@ -936,13 +938,13 @@ body[data-page="zorgpad"] .site-footer { margin-top: 0; }
 
 /* Tab om het paneel uit te klappen */
 .pp-tab {
-  position: absolute; top: 8px; left: 20px; z-index: 5;   /* op één lijn met de knop Aanbevelingen */
+  position: absolute; top: 16px; left: 20px; z-index: 5;   /* op één lijn met de knop Aanbevelingen */
   display: inline-flex; align-items: center; gap: 6px;
   background: var(--color-background);
 }
 .pp-tab:hover { background: #2F7B9B; }
 .pp-tab[hidden] { display: none; }
-.zp-main.in-subtree .pp-tab { top: 8px; }
+.zp-main.in-subtree .pp-tab { top: 12px; }
 
 @media (max-width: 700px) {
   /* Op een smal scherm legt het paneel zich over het diagram heen. */
@@ -967,3 +969,7 @@ body[data-page="zorgpad"] { height: 100vh; height: 100dvh; min-height: 0; }
 .zp-main.is-native .zp-stage,
 .zp-main.is-native.in-subtree .zp-stage { height: auto; min-height: 0; }
 .zp-main.is-native > .sub-bar { flex: none; }
+
+/* Het werkgebied (paneel en diagram) sluit direct aan op kop, footer en zijranden: geen blauwe rand eromheen. */
+.zp-main.is-native { padding: 0; }
+.zp-main.is-native .zp-stage { margin-top: 0; }

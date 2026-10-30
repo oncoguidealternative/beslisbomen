@@ -112,9 +112,19 @@ const PatientPanel = (function () {
     tab.innerHTML = '<span>Patiëntinformatie</span><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>';
     tab.hidden = true;
 
+    // Opbouw: [paneel | kolom], kolom = [balk van een hulpbeslisboom (indien aanwezig), werkvlak + tab].
+    // Zo staat het paneel altijd direct onder de kop, ook als er een balk boven het diagram staat.
+    const column = make('div', 'zp-column');
+    const stageWrap = make('div', 'zp-stagewrap');
+    const bars = [];
+    let prev = work.previousElementSibling;
+    while (prev && prev.classList.contains('sub-bar')) { bars.unshift(prev); prev = prev.previousElementSibling; }
+    bars.forEach(function (bar) { column.appendChild(bar); });
+    stageWrap.appendChild(refs.stage);
+    stageWrap.appendChild(tab);
+    column.appendChild(stageWrap);
     work.appendChild(panel);
-    work.appendChild(refs.stage);
-    work.appendChild(tab);
+    work.appendChild(column);
 
     // Gebeurtenissen in het paneel mogen het diagram niet laten slepen of zoomen.
     ['pointerdown', 'wheel', 'dblclick'].forEach(function (type) {
