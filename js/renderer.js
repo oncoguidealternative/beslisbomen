@@ -240,7 +240,7 @@ const Renderer = (function () {
     // Pijlpunt voor een gemarkeerde route (aanbevelingenoverzicht); gekozen via CSS (.edge.is-route).
     var mr = el('marker', {id: 'ah-route', viewBox: '0 0 10 10', refX: 10, refY: 5, markerUnits: 'userSpaceOnUse',
       markerWidth: 15 * s, markerHeight: 15 * s, orient: 'auto'}, defs);
-    el('path', {d: 'M0,0 L10,5 L0,10 z', fill: '#FFD60A'}, mr);
+    el('path', {d: 'M0,0 L10,5 L0,10 z', fill: '#FFB76A'}, mr);
 
     graph.edges.forEach(function (e) {
       var d = e.points.map(function (p, i) { return (i ? 'L' : 'M') + p[0] + ',' + p[1]; }).join(' ');

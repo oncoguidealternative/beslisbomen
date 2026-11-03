@@ -761,7 +761,7 @@ body[data-page="zorgpad"] .site-footer { margin-top: 0; }
   text-align: left; cursor: pointer; color: var(--color-text-dark); border-radius: 4px;
 }
 .rec-title:hover { background: var(--color-text-muted); }
-.rec-title[aria-pressed="true"] { background: #FFD60A; }
+.rec-title[aria-pressed="true"] { background: #FFB76A; }
 .rec-badge { flex: none; font-size: .78rem; padding: 1px 8px; border-radius: 10px; background: #e1e8eb; color: #333; white-space: nowrap; }
 .rec-badge.is-selected { background: var(--color-success); color: #fff; }
 .rec-badge.is-excluded { background: #eee; color: #666; }
@@ -776,7 +776,7 @@ body[data-page="zorgpad"] .site-footer { margin-top: 0; }
   padding: 6px 10px; font: inherit; font-size: .9rem; color: var(--color-text-dark); cursor: pointer;
 }
 .rec-route:hover { background: #e3eef2; }
-.rec-route[aria-pressed="true"] { border-color: #C9A400; background: #FFF1A8; }
+.rec-route[aria-pressed="true"] { border-color: #FFB76A; background: #FFE7CC; }
 .rec-route-item.is-reached .rec-route { background: #dff0df; }
 .rec-route-item.is-conflict .rec-route { opacity: .55; }
 .rec-cond { display: block; }
@@ -792,14 +792,13 @@ body[data-page="zorgpad"] .site-footer { margin-top: 0; }
   .rec-bar { right: 12px; }
 }
 
-/* Gemarkeerde route: gele rand en connectoren */
-.zp-stage .node.is-route rect { stroke: #FFD60A; stroke-width: 6; }
-.zp-stage .edge.is-route { stroke: #FFD60A; stroke-width: 4px; marker-end: url(#ah-route); }
-.zp-stage .edot.is-route { fill: #FFD60A; stroke: var(--color-line); stroke-width: 2; opacity: 1; }
+/* Gemarkeerde route: oranje rand en connectoren, even dik als de rand van een gekozen (groen) blok */
+.zp-stage .node.is-route rect { stroke: #FFB76A; stroke-width: 2; }
+.zp-stage .edge.is-route { stroke: #FFB76A; stroke-width: 2px; marker-end: url(#ah-route); }
+.zp-stage .edot.is-route { fill: #FFB76A; stroke: #FFB76A; stroke-width: 2; opacity: 1; }
 .zp-stage .elabel.is-route { opacity: 1; }
 .zp-stage .node.is-route,
 .zp-stage .edge.is-route { opacity: 1; }
-.zp-stage .node.is-route { filter: drop-shadow(0 0 6px rgba(255, 214, 10, .8)); }
 
 /* ===== Hulpbeslisbomen ===== */
 .sub-bar {
