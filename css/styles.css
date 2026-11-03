@@ -319,10 +319,10 @@ body[data-page="zorgpad"] { line-height: normal; }
 .zp-stage .node.t-criterion.is-preselected rect,
 .zp-stage .node.t-criterion.is-preselected:hover rect,
 .zp-stage .node.t-criterion.is-preselected:focus rect {
-  fill: var(--color-success); stroke: #FFFFFF; stroke-width: 3; stroke-dasharray: 8 5;
+  fill: var(--color-success); stroke: #FFFFFF; stroke-width: 1.5; stroke-dasharray: 8 5;
 }
 .zp-stage .node.t-criterion.is-preselected:focus-visible rect { stroke: var(--color-text-dark); }
-.zp-stage .edge.is-preselected { stroke: var(--color-success); stroke-width: 3px; stroke-dasharray: 8 6; }
+.zp-stage .edge.is-preselected { stroke: var(--color-success); stroke-width: 1.5px; stroke-dasharray: 8 6; }
 .zp-stage .edot.is-preselected { fill: var(--color-success); stroke: none; }
 
 /* excluded: door eerdere keuzes niet meer mogelijk; zichtbaar voor context */
@@ -822,7 +822,7 @@ body[data-page="zorgpad"] .site-footer { margin-top: 0; }
 /* Uitkomst van een hulpbeslisboom die over te nemen is */
 .zp-stage .node.is-takeable { cursor: default; }
 .zp-stage .node.is-takeable.is-selected { cursor: pointer; }
-.zp-stage .node.t-outcome.is-takeable.is-selected rect { stroke-dasharray: 8 5; }
+.zp-stage .node.t-outcome.is-takeable.is-selected rect { stroke-width: 1.5; stroke-dasharray: 8 5; }
 .zp-stage .node.is-takeable.is-selected:hover rect,
 .zp-stage .node.is-takeable.is-selected:focus rect { fill: var(--color-success-hover); }
 
