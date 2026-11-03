@@ -19,6 +19,7 @@ const Renderer = (function () {
   var onSubtree = function () {}; // een klik op een node met een hulpbeslisboom (subtree)
   var onInfo = null;              // een klik op de titel van een zorgpad of beslisboom (bronvermelding); null = uit
   var onTake = function () {};    // activeren van een bereikte uitkomst in een hulpbeslisboom
+  var onRecommendation = function () {}; // een klik op een aanbeveling (outcome): toon die in het aanbevelingenoverzicht
 
   function el(name, attrs, parent) {
     var e = document.createElementNS(NS, name);
@@ -676,6 +677,39 @@ const Renderer = (function () {
     });
   }
 
+  /* Maakt aanbevelingen (outcomes) aanklikbaar: een klik toont die aanbeveling in het aanbevelingenoverzicht
+     (handlers.recommendation). items = [{id, label}]; aanroepen na draw() en setTakeable().
+     Blijft af van blokken die al iets anders doen: een link naar een andere boom of de titel. In een hulpbeslisboom
+     houdt een bereikte uitkomst haar eigen actie (waarde overnemen); de andere uitkomsten tonen de aanbeveling. */
+  function setRecommendable(items) {
+    if (!els || !els.svg) return;
+    (items || []).forEach(function (it) {
+      var g = els.svg.querySelector('.node.t-outcome[data-node-id="' + it.id + '"]');
+      if (!g || g.classList.contains('go') || g.hasAttribute('data-focusable') ||
+          g.getAttribute('data-recommendable') === '1') return;
+      g.setAttribute('data-recommendable', '1');
+      g.classList.add('is-recommendable');
+      var takeable = g.getAttribute('data-takeable') === '1';
+      var activate = function () {
+        if (takeable && g.classList.contains('is-selected')) return;   // die klik is voor onTake
+        onRecommendation({nodeId: it.id});
+      };
+      g.addEventListener('click', activate);
+      if (takeable) return;   // toetsenbord en aria-label regelt updateTakeable
+      g.setAttribute('role', 'button');
+      g.setAttribute('tabindex', '0');
+      g.setAttribute('aria-controls', 'rec-panel');
+      g.setAttribute('aria-label', 'Aanbeveling ' + (it.label || it.id) + ': toon in het aanbevelingenoverzicht');
+      g.addEventListener('keydown', function (ev) {
+        if (ev.key === 'Enter') { ev.preventDefault(); activate(); }
+        else if (ev.key === ' ') { ev.preventDefault(); }
+      });
+      g.addEventListener('keyup', function (ev) {
+        if (ev.key === ' ') { ev.preventDefault(); activate(); }
+      });
+    });
+  }
+
   function updateTakeable(g, st) {
     var label = g.getAttribute('data-take-label');
     if (st === 'selected') {
@@ -709,6 +743,7 @@ const Renderer = (function () {
     onSelect = handlers.select || function () {};
     onSubtree = handlers.subtree || function () {};
     onTake = handlers.take || function () {};
+    onRecommendation = handlers.recommendation || function () {};
     onInfo = handlers.info || null;
     els.main.classList.toggle('in-detail', view.treeId !== null);
     if (view.graph) {
@@ -738,6 +773,7 @@ const Renderer = (function () {
     setGuidedTarget: setGuidedTarget,
     setRouteHighlight: setRouteHighlight,
     setTakeable: setTakeable,
+    setRecommendable: setRecommendable,
     focusNode: focusNode
   };
 })();

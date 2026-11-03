@@ -12,8 +12,12 @@
        stage: het werkvlak van het diagram (voor coveredInsets)
        target: { targetId, nodeIds, edgeIds, label }
      setTree({ treeId, graph })   berekent het overzicht voor de getoonde boom (graph null = geen overzicht)
-     refresh(status)              werkt badges en voorwaarden bij; status = GraphState.compute(...)
+     refresh(status)              werkt badges en voorwaarden bij; status = GraphState.compute(...). Is het pad compleet
+                                  en nog maar één aanbeveling over, dan klapt het paneel vanzelf open (zie autoOpen)
      close(returnFocus), isOpen(), clearActive()
+     items()                      [{ id, label }]: de aanbevelingen in het overzicht (outcome-nodes van de boom)
+     showFor(nodeId)              opent het paneel op de aanbeveling van die outcome-node en markeert al haar routes
+                                  (klik op het lichtblauwe blok in de boom); geeft false als die er niet in staat
      coveredInsets()              { right, bottom }: hoeveel van het werkvlak het paneel (open) afdekt */
 const RecommendationsPanel = (function () {
   'use strict';
@@ -23,6 +27,8 @@ const RecommendationsPanel = (function () {
   var items = [];            // [{ rec, el, titleButton, badge, routes: [{ route, el, button, state, conds: [..] }] }]
   var active = null;         // { rec: index, route: index | null }
   var lastStatus = null;
+  var autoShown = null;      // id van de aanbeveling waarvoor het paneel al vanzelf is geopend (eenmaal per keer)
+  var firstRefresh = true;   // de eerste status na het openen van een boom opent het paneel niet vanzelf
   var built = false;
 
   function make(tag, className, text) {
@@ -247,6 +253,8 @@ const RecommendationsPanel = (function () {
     active = null;
     items = [];
     lastStatus = null;
+    autoShown = null;
+    firstRefresh = true;
     listEl.textContent = '';
     noteEl.hidden = true;
     close(false);
@@ -308,6 +316,55 @@ const RecommendationsPanel = (function () {
         });
       });
     });
+    autoOpen(status);
+  }
+
+  /* Het pad is compleet en er is nog maar één aanbeveling over (alle andere zijn uitgesloten en deze is bereikt):
+     dan klapt het paneel vanzelf open op die aanbeveling. Alleen bij de overgang naar die situatie, zodat wie het
+     paneel sluit het niet bij elke volgende status terugkrijgt; en niet bij het openen van een boom waarin het pad
+     al compleet was. De focus blijft waar hij was. */
+  function autoOpen(status) {
+    var remaining = items.filter(function (entry) {
+      return ((status.nodes && status.nodes[entry.rec.id]) || 'normal') !== 'excluded';
+    });
+    var only = remaining.length === 1 && status.nodes[remaining[0].rec.id] === 'selected' ? remaining[0] : null;
+    var initial = firstRefresh;
+    firstRefresh = false;
+    if (!only) { autoShown = null; return; }
+    if (autoShown === only.rec.id) return;
+    autoShown = only.rec.id;
+    if (initial || isOpen()) return;
+    open();
+    var p = panel.getBoundingClientRect(), r = only.el.getBoundingClientRect();
+    if (r.top < p.top || r.bottom > p.bottom) panel.scrollTop += r.top - p.top - 48;
+    announce('Nog één aanbeveling over: ' + only.rec.label + '. Het aanbevelingenoverzicht is geopend.');
+  }
+
+  function itemList() {
+    return items.map(function (entry) { return { id: entry.rec.id, label: entry.rec.label }; });
+  }
+
+  /* Klik op een aanbeveling (outcome-node) in de boom: paneel open, die aanbeveling met al haar routes gemarkeerd
+     en in beeld in het paneel. Staat het paneel al open op precies deze markering, dan haalt de klik haar weg
+     (net als een tweede klik op de titel in het paneel). */
+  function showFor(nodeId) {
+    if (!built) return false;
+    var index = -1;
+    items.forEach(function (entry, i) { if (entry.rec.id === nodeId) index = i; });
+    if (index < 0) return false;
+    if (isOpen() && active && active.rec === index && active.route === null) {
+      clearActive();
+      announce('Markering gewist.');
+      return true;
+    }
+    open();                      // eerst openen: coveredInsets() rekent met het open paneel
+    active = null;               // zodat activate() markeert in plaats van wisselt
+    activate(index, null);
+    var entry = items[index];
+    var p = panel.getBoundingClientRect(), r = entry.el.getBoundingClientRect();
+    if (r.top < p.top || r.bottom > p.bottom) panel.scrollTop += r.top - p.top - 48;
+    entry.titleButton.focus({ preventScroll: true });
+    return true;
   }
 
   /* Hoeveel van het werkvlak het open paneel afdekt, zodat app.js een node in het vrije deel kan centreren. */
@@ -339,6 +396,8 @@ const RecommendationsPanel = (function () {
     close: close,
     isOpen: isOpen,
     clearActive: clearActive,
+    items: itemList,
+    showFor: showFor,
     coveredInsets: coveredInsets
   };
 })();

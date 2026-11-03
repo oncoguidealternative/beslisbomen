@@ -61,7 +61,8 @@
     // Het aanbevelingenpaneel is optioneel: ontbreekt js/recommendations-panel.js (nog) op de server, dan werkt het
     // zorgpad gewoon zonder dat paneel in plaats van te blijven hangen op "Laden…".
     const RP = (typeof RecommendationsPanel !== "undefined" && RecommendationsPanel) || {
-      init: function () {}, setTree: function () {}, refresh: function () {}, coveredInsets: function () { return {right: 0, bottom: 0}; }
+      init: function () {}, setTree: function () {}, refresh: function () {},
+      items: function () { return []; }, showFor: function () { return false; }, coveredInsets: function () { return {right: 0, bottom: 0}; }
     };
 
     function showMessage(text, isError, homeLink) {
@@ -277,11 +278,14 @@
         select: selectEdge,
         subtree: subtrees.enter,
         take: subtrees.take,
-        info: showBron
+        info: showBron,
+        recommendation: function (t) { ChoicePanel.close(false); RP.showFor(t.nodeId); }
       });
       Renderer.setTakeable(subtrees.takeableItems());
       patientPanel.setTree({ treeId: view.treeId, label: view.label, graph: view.treeId ? view.graph : null });
       RP.setTree({ treeId: view.treeId, graph: view.treeId && view.graph && GraphState.isInteractive(view.graph) ? view.graph : null });
+      // Een klik op een aanbeveling (lichtblauw blok) opent hetzelfde paneel op die aanbeveling.
+      if (Renderer.setRecommendable) Renderer.setRecommendable(RP.items());
       // Pas na het tekenen: pas dan heeft het werkvlak zijn (native) afmetingen. Elke boom en het overzicht beginnen
       // op dezelfde manier: vaste afmetingen, titel bovenaan in het midden (zie Viewport.start).
       if (view.graph && view.graph.native) viewport.start(view.graph);

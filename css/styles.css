@@ -825,6 +825,13 @@ body[data-page="zorgpad"] .site-footer { margin-top: 0; }
 .zp-stage .node.is-takeable.is-selected:hover rect,
 .zp-stage .node.is-takeable.is-selected:focus rect { fill: var(--color-success-hover); }
 
+/* Aanbeveling (outcome) die het aanbevelingenoverzicht opent */
+.zp-stage .node.is-recommendable,
+.zp-stage .node.is-takeable.is-recommendable { cursor: pointer; }
+.zp-stage .node.is-recommendable:not(.is-takeable.is-selected):hover rect { filter: brightness(1.1); }
+.zp-stage .node.is-recommendable:focus { outline: none; }
+.zp-stage .node.is-recommendable:focus-visible rect { stroke: #FFFFFF; stroke-width: 3; }
+
 /* "Geen"-symbool ({x}): doorgestreepte cirkel */
 .zp-stage .info.no path { stroke: #FFFFFF; stroke-width: 1.8; }
 .zp-stage .node.t-criterion .info.no circle,

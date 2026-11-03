@@ -16,7 +16,7 @@ Navigatie tussen zorgpad en beslisbomen, en tussen opeenvolgende beslisbomen
 Zoomen en slepen; toetsenbordbediening van klikbare onderdelen
 Interactief kiezen van waarden bij dataknooppunten, in vrije volgorde
 Markeren van het gekozen pad en uitfaden van uitgesloten routes
-Aanbevelingenoverzicht per beslisboom
+Aanbevelingenoverzicht per beslisboom (ook te openen door op een aanbeveling in de boom te klikken; klapt vanzelf open als het pad compleet is en nog maar één aanbeveling over is)
 Hulpbeslisbomen die een keuze bepalen
 Paneel met patiëntinformatie: alle gegevens van een beslisboom invullen vanuit één lijst
 Bronvermelding per zorgpad en beslisboom (klik op de titel)
