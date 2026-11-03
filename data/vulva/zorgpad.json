@@ -750,7 +750,7 @@
           "type": "dataItem",
           "gridX": 216,
           "gridY": 199,
-          "label": "Lieslieren",
+          "label": "Liesklieren",
           "interactive": true,
           "options": [
             {
@@ -4690,14 +4690,14 @@
           "type": "recommendation",
           "gridX": 14,
           "gridY": 155,
-          "text": "Cytologische punctie\nvan lieslieren niet\ngeïndiceerd"
+          "text": "Cytologische punctie\nvan liesklieren niet\ngeïndiceerd"
         },
         {
           "id": "o-wel",
           "type": "recommendation",
           "gridX": 88,
           "gridY": 155,
-          "text": "Overweeg cytologische\npunctie van lieslieren"
+          "text": "Overweeg cytologische\npunctie van liesklieren"
         },
         {
           "id": "l1",
@@ -4948,14 +4948,14 @@
           "type": "recommendation",
           "gridX": 6,
           "gridY": 154,
-          "text": "Cytologische punctie\nvan lieslieren niet\ngeïndiceerd"
+          "text": "Cytologische punctie\nvan liesklieren niet\ngeïndiceerd"
         },
         {
           "id": "o-wel",
           "type": "recommendation",
           "gridX": 81,
           "gridY": 154,
-          "text": "Overweeg cytologische\npunctie van lieslieren"
+          "text": "Overweeg cytologische\npunctie van liesklieren"
         },
         {
           "id": "l1",
