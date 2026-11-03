@@ -328,13 +328,15 @@ body[data-page="zorgpad"] { line-height: normal; }
 /* excluded: door eerdere keuzes niet meer mogelijk; zichtbaar voor context */
 .zp-stage .node.is-excluded,
 .zp-stage .edge.is-excluded,
-.zp-stage .edot.is-excluded,
 .zp-stage .elabel.is-excluded { opacity: .25; }
+/* Het bolletje is niet doorzichtig (anders schemert de connector erdoorheen), maar krijgt precies de kleur die
+   de vervaagde connector heeft: wit voor 25% over de achtergrond. */
+.zp-stage .edot.is-excluded { fill: color-mix(in srgb, var(--color-line) 25%, var(--color-background)); }
 .zp-stage .node.is-excluded { pointer-events: none; cursor: default; }
 .zp-stage .node,
 .zp-stage .edge,
-.zp-stage .edot,
 .zp-stage .elabel { transition: opacity .3s ease; }
+.zp-stage .edot { transition: opacity .3s ease, fill .3s ease; }
 
 /* Tijdelijke highlight van het volgende criterium: andere rand, vulling blijft gelijk, geen pulsatie */
 .zp-stage .node.is-guided-target { filter: drop-shadow(0 0 8px var(--color-line)); }
