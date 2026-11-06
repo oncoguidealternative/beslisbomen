@@ -27,6 +27,7 @@ const RecommendationsPanel = (function () {
   var items = [];            // [{ rec, el, titleButton, badge, routes: [{ route, el, button, state, conds: [..] }] }]
   var active = null;         // { rec: index, route: index | null }
   var lastStatus = null;
+  var lastSelections = null; // keuzes bij de vorige refresh (JSON), om een wijziging te herkennen
   var autoShown = null;      // id van de aanbeveling waarvoor het paneel al vanzelf is geopend (eenmaal per keer)
   var firstRefresh = true;   // de eerste status na het openen van een boom opent het paneel niet vanzelf
   var built = false;
@@ -253,6 +254,7 @@ const RecommendationsPanel = (function () {
     active = null;
     items = [];
     lastStatus = null;
+    lastSelections = null;
     autoShown = null;
     firstRefresh = true;
     listEl.textContent = '';
@@ -293,6 +295,14 @@ const RecommendationsPanel = (function () {
     if (!built || !status) return;
     lastStatus = status;
     var selections = status.selections || {};
+    // Verandert een keuze (in het paneel met patiëntinformatie, het keuzevenster of op een connector), dan
+    // vervalt de oranje markering: anders staan het gekozen pad en een oude markering tegelijk in de boom.
+    var signature = JSON.stringify(selections);
+    if (lastSelections !== null && signature !== lastSelections && active) {
+      clearActive();
+      announce('Markering gewist, omdat de keuzes zijn gewijzigd.');
+    }
+    lastSelections = signature;
     items.forEach(function (entry) {
       var st = (status.nodes && status.nodes[entry.rec.id]) || 'normal';
       var text = BADGES[st] || '';

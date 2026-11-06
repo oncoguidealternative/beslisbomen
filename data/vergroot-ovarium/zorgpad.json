@@ -292,7 +292,7 @@
           "text": "Overleg met derde lijn",
           "gridX": 180,
           "gridY": 310,
-          "height": 20
+          "height": 25
         },
         {
           "id": "klachten-zwanger",
@@ -320,7 +320,7 @@
           "text": "Expectatief beleid tot na zwangerschap",
           "gridX": 0,
           "gridY": 310,
-          "height": 20
+          "height": 25
         },
         {
           "id": "trimester-zwangerschap",
@@ -348,7 +348,7 @@
           "text": "Cystectomie\nOF\nAdnexextirpatie\nEN\nOverweeg laparoscopie\n{i} indien uterus boven de navel reikt overweeg laparotomie",
           "gridX": 135,
           "gridY": 310,
-          "height": 41
+          "height": 46
         },
         {
           "id": "torsie",
@@ -376,7 +376,7 @@
           "text": "Detorsie\nEN\nGeen cystectomie",
           "gridX": 90,
           "gridY": 310,
-          "height": 20
+          "height": 25
         },
         {
           "id": "terughoudendheid-chirurgie",
@@ -384,7 +384,7 @@
           "text": "Terughoudendheid inzake chirurgie\n{i} indien chirurgie noodzakelijk is, plannen in tweede trimester",
           "gridX": 45,
           "gridY": 310,
-          "height": 20
+          "height": 25
         },
         {
           "id": "verdenking-torsie",
@@ -432,7 +432,7 @@
           "text": "Bij voorkeur laparoscopische detorsie\nEN\nGeen standaard cystectomie\nEN\nGeen standaard adnexextirpatie",
           "gridX": 855,
           "gridY": 310,
-          "height": 41
+          "height": 46
         },
         {
           "id": "adnexextirpatie-torsie",
@@ -440,7 +440,7 @@
           "text": "Adnexextirpatie",
           "gridX": 900,
           "gridY": 310,
-          "height": 20
+          "height": 25
         },
         {
           "id": "easy-denominators",
@@ -488,7 +488,7 @@
           "text": "Overleg met oncologisch centrum",
           "gridX": 810,
           "gridY": 310,
-          "height": 20
+          "height": 25
         },
         {
           "id": "morfologie",
@@ -521,7 +521,7 @@
           "text": "Ga naar RL ESHRE",
           "gridX": 450,
           "gridY": 310,
-          "height": 20
+          "height": 25
         },
         {
           "id": "klachten-dermoid",
@@ -551,7 +551,7 @@
           "to": "chirurgie",
           "gridX": 630,
           "gridY": 310,
-          "height": 20
+          "height": 25
         },
         {
           "id": "grootte-dermoid",
@@ -584,7 +584,7 @@
           "text": "Expectatief beleid/Geen behandeling\nEN\nGeen follow up\nEN\nHerevaluatie bij klachten",
           "gridX": 495,
           "gridY": 310,
-          "height": 34
+          "height": 39
         },
         {
           "id": "individualiseer-behandeling-dermoid",
@@ -592,7 +592,7 @@
           "text": "Individualiseer behandeling",
           "gridX": 540,
           "gridY": 310,
-          "height": 20
+          "height": 25
         },
         {
           "id": "adnexextirpatie-of-cystectomie-dermoid",
@@ -600,7 +600,7 @@
           "text": "Unilaterale adnexextirpatie indien normale contralaterale adnex\nOF\nOverweeg cystectomie\n{i} bij (latente) kinderwens",
           "gridX": 585,
           "gridY": 310,
-          "height": 34
+          "height": 39
         },
         {
           "id": "klachten-uniloculair",
@@ -630,7 +630,7 @@
           "to": "chirurgie",
           "gridX": 765,
           "gridY": 310,
-          "height": 20
+          "height": 25
         },
         {
           "id": "grootte-uniloculair",
@@ -683,7 +683,7 @@
           "text": "Expectatief beleid/Geen behandeling\nEN\nGeen follow up\nEN\nHerevaluatie bij klachten",
           "gridX": 675,
           "gridY": 310,
-          "height": 34
+          "height": 39
         },
         {
           "id": "expectatief-follow-up-uniloculair",
@@ -691,7 +691,7 @@
           "text": "Expectatief beleid\nEN\nFollow up",
           "gridX": 720,
           "gridY": 310,
-          "height": 20
+          "height": 25
         },
         {
           "id": "verwijzing-follow-up-expectatief-uniloculair",
@@ -699,7 +699,7 @@
           "label": "Follow up bij expectatief beleid",
           "to": "follow-up-expectatief-beleid",
           "gridX": 720,
-          "gridY": 360
+          "gridY": 365
         },
         {
           "id": "predictiemodel",
@@ -729,7 +729,7 @@
           "to": "chirurgie",
           "gridX": 225,
           "gridY": 310,
-          "height": 44
+          "height": 49
         },
         {
           "id": "type-afwijking",
@@ -767,7 +767,7 @@
           "text": "Ga naar RL Borderline ovariumtumoren\nBespreek de ACCEPT studie\n(zie link)",
           "gridX": 270,
           "gridY": 310,
-          "height": 21
+          "height": 26
         },
         {
           "id": "verwijzing-behandeling-borderline",
@@ -775,7 +775,7 @@
           "label": "Behandeling borderline ovariumtumor",
           "to": "behandeling-borderline-ovariumtumor",
           "gridX": 270,
-          "gridY": 360
+          "gridY": 365
         },
         {
           "id": "ga-naar-rl-niet-epitheliaal",
@@ -783,7 +783,7 @@
           "text": "Ga naar RL Niet-epitheliale maligniteiten van het ovarium\nBespreek de ACCEPT studie\n(zie link)",
           "gridX": 315,
           "gridY": 310,
-          "height": 25
+          "height": 30
         },
         {
           "id": "verwijzing-aanvullende-diagnostiek",
@@ -791,7 +791,7 @@
           "label": "Aanvullende diagnostiek",
           "to": "aanvullende-diagnostiek",
           "gridX": 315,
-          "gridY": 360
+          "gridY": 365
         },
         {
           "id": "ga-naar-rl-epitheliaal",
@@ -799,7 +799,7 @@
           "text": "Ga naar RL Epitheliaal ovariumcarcinoom\nBespreek de ACCEPT studie\n(zie link)",
           "gridX": 360,
           "gridY": 310,
-          "height": 21
+          "height": 26
         },
         {
           "id": "individualiseer-behandeling-metastase",
@@ -807,7 +807,7 @@
           "text": "Individualiseer behandeling",
           "gridX": 405,
           "gridY": 310,
-          "height": 20
+          "height": 25
         }
       ],
       "edges": [
@@ -1632,11 +1632,11 @@
           "points": [
             [
               3700.0,
-              1650
+              1675
             ],
             [
               3700.0,
-              1800
+              1825
             ]
           ],
           "arrow": true
@@ -1796,11 +1796,11 @@
           "points": [
             [
               1450.0,
-              1655
+              1680
             ],
             [
               1450.0,
-              1800
+              1825
             ]
           ],
           "arrow": true
@@ -1812,11 +1812,11 @@
           "points": [
             [
               1675.0,
-              1675
+              1700
             ],
             [
               1675.0,
-              1800
+              1825
             ]
           ],
           "arrow": true
@@ -2665,7 +2665,7 @@
           "text": "Echoscopie na 3,6 en 12 maanden gerekend vanaf baseline\n{i} geen tekenen van groei of morfologische veranderingen",
           "gridX": 0,
           "gridY": 30,
-          "height": 22
+          "height": 28
         },
         {
           "id": "verwijzing-follow-up-benigne-ovariumcyste",
@@ -2673,7 +2673,7 @@
           "label": "Follow up benigne ovariumcyste",
           "to": "follow-up-benigne-ovariumcyste",
           "gridX": 0,
-          "gridY": 60
+          "gridY": 66
         }
       ],
       "edges": [
@@ -2700,11 +2700,11 @@
           "points": [
             [
               100.0,
-              260
+              290
             ],
             [
               100.0,
-              300
+              330
             ]
           ],
           "arrow": true

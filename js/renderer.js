@@ -38,6 +38,44 @@ const Renderer = (function () {
     return lines;
   }
 
+  // Binnenmarge van tekst in een blok (px bij schaal 1): links/rechts en boven (aanbevelingen).
+  var TEXT_PAD = 14, TEXT_PAD_Y = 12;
+
+  /* Regels van een "text"-veld, met twee correcties voor de weergave:
+     - "--- EN ---", "---EN---" (en idem OF) wordt "EN": de streepjes zijn een overblijfsel van de bron.
+     - In een aanbeveling krijgt een regel met een info-icoon ({i}) een witregel ervoor, zodat de toelichting
+       los staat van de aanbeveling erboven. Opeenvolgende {i}-regels blijven bij elkaar. */
+  function textSegments(text, isRecommendation) {
+    var out = [];
+    text.split('\n').forEach(function (seg) {
+      var m = /^\s*-{2,}\s*(EN|OF)\s*-{2,}\s*$/i.exec(seg);
+      if (m) seg = m[1].toUpperCase();
+      if (isRecommendation && seg.indexOf('{i}') === 0 && out.length) {
+        var prev = out[out.length - 1];
+        if (prev !== '' && prev.indexOf('{i}') !== 0) out.push('');
+      }
+      out.push(seg);
+    });
+    return out;
+  }
+
+  /* Breekt tekst af op gemeten breedte (px). firstMax: andere breedte voor de eerste regel (ruimte voor een icoon).
+     Een woord dat op zich te lang is, krijgt een eigen regel. */
+  function wrapMeasured(parent, text, max, firstMax, fs) {
+    var probe = el('text', {'font-size': fs, visibility: 'hidden'}, parent);
+    var measure = function (str) { probe.textContent = str; return probe.getComputedTextLength(); };
+    var words = text.split(/\s+/).filter(Boolean), lines = [], cur = '';
+    words.forEach(function (word) {
+      var limit = lines.length === 0 && firstMax ? firstMax : max;
+      var next = cur ? cur + ' ' + word : word;
+      if (cur && measure(next) > limit) { lines.push(cur); cur = word; }
+      else cur = next;
+    });
+    if (cur) lines.push(cur);
+    parent.removeChild(probe);
+    return lines.length ? lines : [''];
+  }
+
   function setRich(t, str) {
     var re = /\{a:([^|}]*)\|([^}]*)\}/g, last = 0, m, has = false;
     while ((m = re.exec(str))) {
@@ -378,16 +416,18 @@ const Renderer = (function () {
         g.setAttribute('role', 'link');
         g.setAttribute('tabindex', '0');
         g.setAttribute('aria-label', target === '' ? 'Terug naar overzicht' : n.label);
-        g.addEventListener('click', function () { onNavigate(target); });
+        // Een verwijzing naar de volgende beslisboom krijgt een overgang (huidige boom omhoog, nieuwe van onder).
+        var via = {via: type === 'link' ? 'reference' : type};
+        g.addEventListener('click', function () { onNavigate(target, via); });
         g.addEventListener('keydown', function (ev) {
-          if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); onNavigate(target); }
+          if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); onNavigate(target, via); }
         });
       }
       el('rect', {width: w, height: h, rx: n.rx !== undefined ? n.rx :
         (type === 'start' ? 30 * s : type === 'root' ? 40 * s : type === 'criterion' ? 28 * s :
          (type === 'decision' || type === 'outcome') ? 0 : 5 * s)}, g);
 
-      var fs = 12.5 * s, lh = 14.5 * s, lines = [];
+      var fs = 12.5 * s, lh = 14.5 * s, lines = [], pad = TEXT_PAD * s;
       if (n.items) {
         var itemMax = Math.floor((w - 20) / (fs * 0.5));
         n.items.forEach(function (it, i) {
@@ -400,14 +440,18 @@ const Renderer = (function () {
           });
         });
       } else if (n.text !== undefined) {
-        var textMax = Math.floor((w - 20) / (fs * 0.46));
-        n.text.split('\n').forEach(function (seg) {
+        // Afbreken op de werkelijke tekstbreedte (gemeten), met binnenmarge en ruimte voor het icoon,
+        // zodat geen tekst buiten het blok valt.
+        var iconRoom = 20 * s;
+        textSegments(n.text, type === 'outcome').forEach(function (seg) {
           if (seg === '') lines.push({t: ''});
+          else if (/^\s*-{3,}\s*$/.test(seg)) lines.push({t: '', rule: true}); // "---" = scheidingslijn
           else if (seg.indexOf('{a:') >= 0) lines.push({t: seg});
           else {
             // {i} = info-icoon, {x} = "geen"-symbool (doorgestreepte cirkel) aan het begin van een regel
             var marker = seg.indexOf('{i}') === 0 ? 'i' : (seg.indexOf('{x}') === 0 ? 'x' : null);
-            wrap(seg.replace(/^\{[ix]\}/, ''), textMax).forEach(function (l, j) {
+            var body = seg.replace(/^\{[ix]\}\s*/, '');
+            wrapMeasured(g, body, w - 2 * pad, marker ? w - 2 * pad - iconRoom : null, fs).forEach(function (l, j) {
               lines.push({t: l, info: marker && j === 0 ? '' : null, kind: marker});
             });
           }
@@ -416,8 +460,20 @@ const Renderer = (function () {
         wrap(n.label, n.wrap || maxChars).forEach(function (l) { lines.push({t: l}); });
       }
 
+      // Aanbevelingen met tekst staan boven uitgelijnd, zodat vakken naast elkaar op dezelfde hoogte beginnen.
+      // Overige blokken (en tekst die niet in het blok past) blijven verticaal gecentreerd.
+      var textHeight = (lines.length - 1) * lh + fs;
       var y0 = h / 2 - ((lines.length - 1) * lh) / 2 + fs * 0.36;
+      if (type === 'outcome' && n.text !== undefined && textHeight + 2 * TEXT_PAD_Y * s <= h) {
+        y0 = TEXT_PAD_Y * s + fs * 0.86;
+      }
+      if (textHeight > h) g.setAttribute('data-overflow', 'y');
       lines.forEach(function (l, i) {
+        if (l.rule) {
+          var ry = y0 + i * lh - fs * 0.36;
+          el('line', {'class': 'rule', x1: pad * 2, x2: w - pad * 2, y1: ry, y2: ry}, g);
+          return;
+        }
         if (!l.t) return;
         var t = el('text', {x: w / 2, y: y0 + i * lh, 'font-size': fs}, g);
         setRich(t, l.t);

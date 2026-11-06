@@ -237,6 +237,7 @@ body[data-page="zorgpad"] { line-height: normal; }
 .zp-stage .node.t-criterion rect { fill: #FFFFFF; }
 .zp-stage .node.t-outcome rect { fill: var(--color-accent); }
 .zp-stage .node text { fill: var(--color-text); text-anchor: middle; pointer-events: none; }
+.zp-stage .node line.rule { stroke: var(--color-text); stroke-width: 1; opacity: 0.6; pointer-events: none; }
 .zp-stage .node.t-criterion text { fill: var(--color-text-dark); }
 .zp-stage .node .lnk { fill: var(--color-link); text-decoration: underline; pointer-events: all; cursor: pointer; }
 .zp-stage .edot { fill: #FFFFFF; }
@@ -1088,3 +1089,28 @@ body[data-page="zorgpad"] { height: 100vh; height: 100dvh; min-height: 0; }
 .pp-measure-unit { flex: none; color: #555; }
 .pp-measure-msg { margin: 6px 0 0; font-size: .82rem; color: #a33; }
 .pp-measure-msg:empty { display: none; }
+
+/* Keuzevenster: knop naar de hulpbeslisboom, direct onder de kop */
+.choice-subtree-bar { padding: 10px 14px; border-bottom: 1px solid #e3ecf0; background: #f6fafb; }
+.choice-subtree-bar[hidden] { display: none; }
+.choice-subtree {
+  display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%;
+  padding: 7px 12px; border: 1px solid var(--color-node); border-radius: 3px;
+  background: #FFFFFF; color: var(--color-text-dark); font: inherit; font-size: .9rem; font-weight: bold; cursor: pointer;
+}
+.choice-subtree::before {
+  content: "+"; display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px;
+  border-radius: 50%; background: var(--color-node); color: #FFFFFF; font-size: 14px; line-height: 1;
+}
+.choice-subtree:hover { background: #f1f6f8; }
+.choice-subtree:focus-visible { outline: 3px solid var(--color-text-dark); outline-offset: 1px; }
+
+/* Overgang naar een vervolgboom: de huidige boom schuift omhoog weg, de volgende komt van onderen in beeld */
+.zp-stage svg { will-change: auto; }
+.zp-stage.zp-leave svg { animation: zp-leave .26s ease-in forwards; }
+.zp-stage.zp-enter svg { animation: zp-enter .38s ease-out; }
+@keyframes zp-leave { to { transform: translateY(-60%); opacity: 0; } }
+@keyframes zp-enter { from { transform: translateY(60%); opacity: 0; } to { transform: none; opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  .zp-stage.zp-leave svg, .zp-stage.zp-enter svg { animation: none; }
+}

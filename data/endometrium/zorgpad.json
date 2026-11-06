@@ -1,6 +1,14 @@
 {
   "id": "endometrium",
-  "titel": "Zorgpad endometriumcarcinoom 2022",
+  "titel": "Zorgpad endometriumcarcinoom",
+  "bron": {
+    "richtlijn": "Endometriumcarcinoom",
+    "organisatie": "NVOG (Nederlandse Vereniging voor Obstetrie en Gynaecologie)",
+    "publicatiedatum": "2021-11-12",
+    "beoordeeldOp": "2021-11-12",
+    "url": "https://richtlijnendatabase.nl/richtlijn/endometriumcarcinoom/startpagina_-_endometriumcarcinoom.html",
+    "opmerking": "De beslisbomen zijn overgenomen van de beslisbomen endometriumcarcinoom 2022 op Oncoguide."
+  },
   "overview": {
     "layout": {
       "unit": 5,
@@ -14,112 +22,112 @@
         "type": "title",
         "gridX": 123,
         "gridY": 5,
-        "label": "Zorgpad endometriumcarcinoom 2022"
+        "label": "Zorgpad endometriumcarcinoom"
       },
       {
         "id": "initieel",
         "gridX": 123,
         "gridY": 36,
         "drill": true,
-        "label": "Initiële diagnostiek 2022"
+        "label": "Initiële diagnostiek"
       },
       {
         "id": "aanvullend",
         "gridX": 123,
         "gridY": 67,
         "drill": true,
-        "label": "Aanvullende diagnostiek 2022"
+        "label": "Aanvullende diagnostiek"
       },
       {
         "id": "stagering",
         "gridX": 123,
         "gridY": 98,
         "drill": true,
-        "label": "Stageringsdiagnostiek 2022"
+        "label": "Stageringsdiagnostiek"
       },
       {
         "id": "primair",
         "gridX": 123,
         "gridY": 129,
         "drill": true,
-        "label": "Primaire behandeling 2022"
+        "label": "Primaire behandeling"
       },
       {
         "id": "kinder-primair",
         "gridX": 48,
         "gridY": 160,
         "drill": true,
-        "label": "Kinderwens en primaire behandeling 2022"
+        "label": "Kinderwens en primaire behandeling"
       },
       {
         "id": "evaluatie-stadiering",
         "gridX": 198,
         "gridY": 160,
         "drill": true,
-        "label": "Evaluatie stadiëring 2022"
+        "label": "Evaluatie stadiëring"
       },
       {
         "id": "adjuvant-endometrioid",
         "gridX": 123,
         "gridY": 191,
         "drill": true,
-        "label": "Adjuvante behandeling endometrioïd 2022"
+        "label": "Adjuvante behandeling endometrioïd"
       },
       {
         "id": "adjuvant-serous",
         "gridX": 198,
         "gridY": 191,
         "drill": true,
-        "label": "Adjuvante behandeling sereus/clear cell 2022"
+        "label": "Adjuvante behandeling sereus/clear cell"
       },
       {
         "id": "kinder-vervolg",
         "gridX": 48,
         "gridY": 222,
         "drill": true,
-        "label": "Kinderwens en vervolg behandeling 2022"
+        "label": "Kinderwens en vervolg behandeling"
       },
       {
         "id": "followup",
         "gridX": 123,
         "gridY": 253,
         "drill": true,
-        "label": "Follow up 2022"
+        "label": "Follow up"
       },
       {
         "id": "kinder-conceptie",
         "gridX": 48,
         "gridY": 284,
         "drill": true,
-        "label": "Kinderwens en conceptiefase 2022"
+        "label": "Kinderwens en conceptiefase"
       },
       {
         "id": "recidiefdiag",
         "gridX": 123,
         "gridY": 315,
         "drill": true,
-        "label": "Recidief diagnostiek 2022"
+        "label": "Recidief diagnostiek"
       },
       {
         "id": "kinder-followup",
         "gridX": 48,
         "gridY": 346,
         "drill": true,
-        "label": "Kinderwens en follow up tijdens conceptiefase 2022"
+        "label": "Kinderwens en follow up tijdens conceptiefase"
       },
       {
         "id": "recidiefbehandeling",
         "gridX": 123,
         "gridY": 377,
         "drill": true,
-        "label": "Recidief behandeling 2022"
+        "label": "Recidief behandeling"
       },
       {
         "id": "kinder-vervolg-followup",
         "gridX": 48,
         "gridY": 377,
         "drill": true,
-        "label": "Kinderwens vervolg follow up tijdens conceptiefase 2022"
+        "label": "Kinderwens vervolg follow up tijdens conceptiefase"
       }
     ],
     "edges": [
@@ -375,6 +383,10 @@
   },
   "trees": {
     "initieel": {
+      "bron": {
+        "module": "Diagnostiek",
+        "url": "https://richtlijnendatabase.nl/richtlijn/endometriumcarcinoom/diagnostiek.html"
+      },
       "layout": {
         "unit": 5,
         "blockWidth": 60,
@@ -388,7 +400,7 @@
           "type": "title",
           "gridX": 30,
           "gridY": 5,
-          "label": "Initiële diagnostiek 2022",
+          "label": "Initiële diagnostiek",
           "icon": "minus-light",
           "tone": "blue",
           "to": "",
@@ -407,7 +419,7 @@
           "type": "reference",
           "gridX": 30,
           "gridY": 140,
-          "label": "Aanvullende diagnostiek 2022",
+          "label": "Aanvullende diagnostiek",
           "icon": "down",
           "to": "aanvullend"
         }
@@ -450,6 +462,10 @@
       ]
     },
     "aanvullend": {
+      "bron": {
+        "module": "Diagnostiek",
+        "url": "https://richtlijnendatabase.nl/richtlijn/endometriumcarcinoom/diagnostiek.html"
+      },
       "layout": {
         "unit": 5,
         "blockWidth": 60,
@@ -463,7 +479,7 @@
           "type": "title",
           "gridX": 15,
           "gridY": 5,
-          "label": "Aanvullende diagnostiek 2022",
+          "label": "Aanvullende diagnostiek",
           "icon": "minus-light",
           "tone": "blue",
           "to": "",
@@ -509,7 +525,7 @@
           "type": "reference",
           "gridX": 100,
           "gridY": 184,
-          "label": "Stageringsdiagnostiek 2022",
+          "label": "Stageringsdiagnostiek",
           "icon": "down",
           "to": "stagering"
         }
@@ -602,6 +618,10 @@
       ]
     },
     "stagering": {
+      "bron": {
+        "module": "Diagnostiek",
+        "url": "https://richtlijnendatabase.nl/richtlijn/endometriumcarcinoom/diagnostiek.html"
+      },
       "layout": {
         "unit": 5,
         "blockWidth": 72,
@@ -615,7 +635,7 @@
           "type": "title",
           "gridX": 12,
           "gridY": 5,
-          "label": "Stageringsdiagnostiek 2022",
+          "label": "Stageringsdiagnostiek",
           "icon": "minus-light",
           "tone": "blue",
           "to": "",
@@ -701,7 +721,7 @@
           "type": "recommendation",
           "gridX": 176,
           "gridY": 250,
-          "height": 57,
+          "height": 63,
           "text": "CA-125\n\nEN\n\nCystoscopie en/of Rectoscopie\n\nEN\n\nCT/MRI"
         },
         {
@@ -716,27 +736,30 @@
           "type": "reference",
           "gridX": 94,
           "gridY": 302,
-          "label": "Primaire behandeling 2022",
+          "label": "Primaire behandeling",
           "icon": "down",
-          "to": "primair"
+          "to": "primair",
+          "height": 44
         },
         {
           "id": "p2",
           "type": "reference",
           "gridX": 176,
           "gridY": 302,
-          "label": "Primaire behandeling 2022",
+          "label": "Primaire behandeling",
           "icon": "down",
-          "to": "primair"
+          "to": "primair",
+          "height": 44
         },
         {
           "id": "p3",
           "type": "reference",
           "gridX": 258,
           "gridY": 302,
-          "label": "Primaire behandeling 2022",
+          "label": "Primaire behandeling",
           "icon": "down",
-          "to": "primair"
+          "to": "primair",
+          "height": 44
         }
       ],
       "edges": [
@@ -927,7 +950,7 @@
           "points": [
             [
               1060,
-              1535
+              1565
             ],
             [
               1060,
@@ -955,6 +978,10 @@
       ]
     },
     "primair": {
+      "bron": {
+        "module": "Primaire behandeling",
+        "url": "https://richtlijnendatabase.nl/richtlijn/endometriumcarcinoom/behandeling_bij_endometriumcarcinoom/primaire_behandeling_bij_endometriumcarcinoom.html"
+      },
       "layout": {
         "unit": 5,
         "blockWidth": 44,
@@ -969,7 +996,7 @@
           "type": "title",
           "gridX": 308,
           "gridY": 3,
-          "label": "Primaire behandeling 2022",
+          "label": "Primaire behandeling",
           "icon": "minus-light",
           "tone": "blue",
           "to": "",
@@ -1161,14 +1188,15 @@
           "type": "recommendation",
           "gridX": 22,
           "gridY": 240,
-          "text": "MRI\n\nEN\n\nHysteroscopie\n{i}indien nog niet verricht"
+          "text": "MRI\n\nEN\n\nHysteroscopie\n{i}indien nog niet verricht",
+          "height": 30
         },
         {
           "id": "hyst",
           "type": "recommendation",
           "gridX": 76,
           "gridY": 224,
-          "height": 55,
+          "height": 61,
           "text": "Totale abdominale hysterectomie*\nOF\nTotale laparoscopische hysterectomie*\n\nEN\n\nBSO\n\n* zie onderbouwing"
         },
         {
@@ -1176,7 +1204,7 @@
           "type": "recommendation",
           "gridX": 138,
           "gridY": 216,
-          "height": 60,
+          "height": 66,
           "text": "Verwijs naar oncologisch centrum\n\nEN\n\nHysterectomie\n{i}streef naar R0, indien nodig (gemodificeerde) radicale hysterectomie"
         },
         {
@@ -1184,7 +1212,7 @@
           "type": "recommendation",
           "gridX": 196,
           "gridY": 216,
-          "height": 68,
+          "height": 74,
           "text": "Verwijs naar oncologisch centrum\n\nEN\n\nTotale abdominale hysterectomie\nEN\nBSO*\n\nOF\n\nOverweeg hormoontherapie"
         },
         {
@@ -1192,7 +1220,7 @@
           "type": "recommendation",
           "gridX": 254,
           "gridY": 216,
-          "height": 68,
+          "height": 74,
           "text": "Primair uitwendige radiotherapie*\n\nEN\n\nInwendige radiotherapie evt gevolgd door hysterectomie*\n\nOF\n\nOverweeg hormoontherapie"
         },
         {
@@ -1200,7 +1228,7 @@
           "type": "recommendation",
           "gridX": 312,
           "gridY": 216,
-          "height": 70,
+          "height": 76,
           "text": "Verwijs naar oncologisch centrum\n\nEN\n\nTotale abdominale hysterectomie\nEN\nBSO*\nEN\nOverweeg resectie lymfkliermetastasen*\n\nOF\n\nOverweeg hormoontherapie"
         },
         {
@@ -1208,7 +1236,7 @@
           "type": "recommendation",
           "gridX": 370,
           "gridY": 216,
-          "height": 60,
+          "height": 66,
           "text": "Overweeg laag gedoseerd medroxyprogesteron (200 mg/dag)\n{i}zeker bij PR+ tumoren\n\nOF\n\nOverweeg megestrol-acetaat (160 mg/dag)"
         },
         {
@@ -1224,7 +1252,7 @@
           "type": "recommendation",
           "gridX": 428,
           "gridY": 216,
-          "height": 52,
+          "height": 58,
           "text": "Verwijs naar oncologisch centrum\n\nEN\n\nHysterectomie\n{i}streef naar R0, indien nodig"
         },
         {
@@ -1232,7 +1260,7 @@
           "type": "recommendation",
           "gridX": 472,
           "gridY": 216,
-          "height": 60,
+          "height": 66,
           "text": "Verwijs naar oncologisch centrum*\n\nEN\n\nDebulking*\n\nOF\n\nOverweeg hormoontherapie"
         },
         {
@@ -1247,8 +1275,8 @@
           "id": "lk",
           "type": "reference",
           "gridX": 22,
-          "gridY": 280,
-          "label": "Kinderwens en primaire behandeling 2022",
+          "gridY": 286,
+          "label": "Kinderwens en primaire behandeling",
           "icon": "down",
           "to": "kinder-primair"
         },
@@ -1256,8 +1284,8 @@
           "id": "la1",
           "type": "reference",
           "gridX": 76,
-          "gridY": 280,
-          "label": "Adjuvante behandeling endometrioïd 2022",
+          "gridY": 286,
+          "label": "Adjuvante behandeling endometrioïd",
           "icon": "down",
           "to": "adjuvant-endometrioid"
         },
@@ -1265,8 +1293,8 @@
           "id": "la2",
           "type": "reference",
           "gridX": 138,
-          "gridY": 280,
-          "label": "Adjuvante behandeling endometrioïd 2022",
+          "gridY": 286,
+          "label": "Adjuvante behandeling endometrioïd",
           "icon": "down",
           "to": "adjuvant-endometrioid"
         },
@@ -1274,8 +1302,8 @@
           "id": "la3",
           "type": "reference",
           "gridX": 196,
-          "gridY": 280,
-          "label": "Adjuvante behandeling endometrioïd 2022",
+          "gridY": 286,
+          "label": "Adjuvante behandeling endometrioïd",
           "icon": "down",
           "to": "adjuvant-endometrioid"
         },
@@ -1283,8 +1311,8 @@
           "id": "la4",
           "type": "reference",
           "gridX": 254,
-          "gridY": 280,
-          "label": "Adjuvante behandeling endometrioïd 2022",
+          "gridY": 286,
+          "label": "Adjuvante behandeling endometrioïd",
           "icon": "down",
           "to": "adjuvant-endometrioid"
         },
@@ -1292,8 +1320,8 @@
           "id": "le",
           "type": "reference",
           "gridX": 370,
-          "gridY": 280,
-          "label": "Evaluatie stadiëring 2022",
+          "gridY": 286,
+          "label": "Evaluatie stadiëring",
           "icon": "down",
           "to": "evaluatie-stadiering"
         },
@@ -1301,8 +1329,8 @@
           "id": "ls",
           "type": "reference",
           "gridX": 428,
-          "gridY": 280,
-          "label": "Adjuvante behandeling sereus/clear cell 2022",
+          "gridY": 286,
+          "label": "Adjuvante behandeling sereus/clear cell",
           "icon": "down",
           "to": "adjuvant-serous"
         },
@@ -1310,7 +1338,7 @@
           "id": "lh",
           "type": "reference",
           "gridX": 472,
-          "gridY": 280,
+          "gridY": 286,
           "label": "Beleid na hormoontherapie",
           "icon": "down",
           "to": "beleid-hormoon"
@@ -1896,6 +1924,10 @@
       ]
     },
     "adjuvant-endometrioid": {
+      "bron": {
+        "module": "Adjuvante therapie",
+        "url": "https://richtlijnendatabase.nl/richtlijn/endometriumcarcinoom/behandeling_bij_endometriumcarcinoom/primaire_behandeling_bij_endometriumcarcinoom/adjuvante_therapie_bij_endometriumcarcinoom.html"
+      },
       "layout": {
         "unit": 5,
         "blockWidth": 38,
@@ -1909,7 +1941,7 @@
           "type": "title",
           "gridX": 202,
           "gridY": 3,
-          "label": "Adjuvante behandeling endometrioïd 2022",
+          "label": "Adjuvante behandeling endometrioïd",
           "icon": "minus-light",
           "tone": "blue",
           "to": "",
@@ -2173,7 +2205,7 @@
           "type": "reference",
           "gridX": 4,
           "gridY": 206,
-          "label": "Follow up 2022",
+          "label": "Follow up",
           "icon": "down",
           "to": "followup"
         },
@@ -2182,7 +2214,7 @@
           "type": "reference",
           "gridX": 46,
           "gridY": 206,
-          "label": "Follow up 2022",
+          "label": "Follow up",
           "icon": "down",
           "to": "followup"
         },
@@ -2191,7 +2223,7 @@
           "type": "reference",
           "gridX": 88,
           "gridY": 206,
-          "label": "Follow up 2022",
+          "label": "Follow up",
           "icon": "down",
           "to": "followup"
         },
@@ -2200,7 +2232,7 @@
           "type": "reference",
           "gridX": 130,
           "gridY": 206,
-          "label": "Follow up 2022",
+          "label": "Follow up",
           "icon": "down",
           "to": "followup"
         },
@@ -2209,7 +2241,7 @@
           "type": "reference",
           "gridX": 172,
           "gridY": 206,
-          "label": "Follow up 2022",
+          "label": "Follow up",
           "icon": "down",
           "to": "followup"
         },
@@ -2218,7 +2250,7 @@
           "type": "reference",
           "gridX": 214,
           "gridY": 206,
-          "label": "Follow up 2022",
+          "label": "Follow up",
           "icon": "down",
           "to": "followup"
         },
@@ -2227,7 +2259,7 @@
           "type": "reference",
           "gridX": 256,
           "gridY": 206,
-          "label": "Follow up 2022",
+          "label": "Follow up",
           "icon": "down",
           "to": "followup"
         },
@@ -2236,7 +2268,7 @@
           "type": "reference",
           "gridX": 298,
           "gridY": 206,
-          "label": "Follow up 2022",
+          "label": "Follow up",
           "icon": "down",
           "to": "followup"
         },
@@ -2245,7 +2277,7 @@
           "type": "reference",
           "gridX": 340,
           "gridY": 206,
-          "label": "Follow up 2022",
+          "label": "Follow up",
           "icon": "down",
           "to": "followup"
         }
@@ -2740,7 +2772,7 @@
           "type": "title",
           "gridX": 10,
           "gridY": 5,
-          "label": "Evaluatie stadiëring 2022",
+          "label": "Evaluatie stadiëring",
           "icon": "minus-light",
           "tone": "blue",
           "to": "",
@@ -2786,7 +2818,7 @@
           "type": "reference",
           "gridX": 10,
           "gridY": 154,
-          "label": "Adjuvante behandeling sereus/clear cell 2022",
+          "label": "Adjuvante behandeling sereus/clear cell",
           "icon": "down",
           "to": "adjuvant-serous"
         },
@@ -2795,7 +2827,7 @@
           "type": "reference",
           "gridX": 78,
           "gridY": 154,
-          "label": "Adjuvante behandeling sereus/clear cell 2022",
+          "label": "Adjuvante behandeling sereus/clear cell",
           "icon": "down",
           "to": "adjuvant-serous"
         }
@@ -2900,6 +2932,10 @@
       ]
     },
     "adjuvant-serous": {
+      "bron": {
+        "module": "Adjuvante therapie",
+        "url": "https://richtlijnendatabase.nl/richtlijn/endometriumcarcinoom/behandeling_bij_endometriumcarcinoom/primaire_behandeling_bij_endometriumcarcinoom/adjuvante_therapie_bij_endometriumcarcinoom.html"
+      },
       "layout": {
         "unit": 5,
         "blockWidth": 52,
@@ -2912,7 +2948,7 @@
           "type": "title",
           "gridX": 11,
           "gridY": 5,
-          "label": "Adjuvante behandeling sereus/clear cell 2022",
+          "label": "Adjuvante behandeling sereus/clear cell",
           "icon": "minus-light",
           "tone": "blue",
           "to": "",
@@ -2931,7 +2967,7 @@
           "type": "reference",
           "gridX": 11,
           "gridY": 94,
-          "label": "Follow up 2022",
+          "label": "Follow up",
           "icon": "down",
           "to": "followup"
         }
@@ -2974,6 +3010,10 @@
       ]
     },
     "followup": {
+      "bron": {
+        "module": "Follow-up controles",
+        "url": "https://richtlijnendatabase.nl/richtlijn/endometriumcarcinoom/nacontrole_en_nazorg/follow_up_controles.html"
+      },
       "layout": {
         "unit": 5,
         "blockWidth": 60,
@@ -2987,7 +3027,7 @@
           "type": "title",
           "gridX": 90,
           "gridY": 5,
-          "label": "Follow up 2022",
+          "label": "Follow up",
           "icon": "minus-light",
           "tone": "blue",
           "to": "",
@@ -3023,7 +3063,7 @@
           "type": "recommendation",
           "gridX": 10,
           "gridY": 108,
-          "height": 104,
+          "height": 112,
           "text": "Lichamelijk onderzoek\n\nEN\n\nGynaecologisch onderzoek\n{i}incl recto-vaginaal toucher\n\nEN\n\nVoorlichting\n\nEN\n\nControle na 3-4 maanden\n\n──────\n\n⊘ Routinematig afnemen vaginatopcytologie is niet geïndiceerd"
         },
         {
@@ -3031,7 +3071,7 @@
           "type": "recommendation",
           "gridX": 90,
           "gridY": 108,
-          "height": 104,
+          "height": 112,
           "text": "Lichamelijk onderzoek\n\nEN\n\nGynaecologisch onderzoek\n{i}incl recto-vaginaal toucher\n\nEN\n\nVoorlichting\n\nEN\n\nControle na 4-6 maanden\n\n──────\n\n⊘ Routinematig afnemen vaginatopcytologie is niet geïndiceerd"
         },
         {
@@ -3039,15 +3079,15 @@
           "type": "recommendation",
           "gridX": 170,
           "gridY": 108,
-          "height": 104,
+          "height": 112,
           "text": "Lichamelijk onderzoek\n\nEN\n\nGynaecologisch onderzoek\n{i}incl recto-vaginaal toucher\n\nEN\n\nVoorlichting\n\nEN\n\nControle elke 12 maanden\n\n──────\n\n⊘ Routinematig afnemen vaginatopcytologie is niet geïndiceerd"
         },
         {
           "id": "l1",
           "type": "reference",
           "gridX": 10,
-          "gridY": 220,
-          "label": "Recidief diagnostiek 2022",
+          "gridY": 228,
+          "label": "Recidief diagnostiek",
           "icon": "down",
           "to": "recidiefdiag"
         },
@@ -3055,8 +3095,8 @@
           "id": "l2",
           "type": "reference",
           "gridX": 90,
-          "gridY": 220,
-          "label": "Recidief diagnostiek 2022",
+          "gridY": 228,
+          "label": "Recidief diagnostiek",
           "icon": "down",
           "to": "recidiefdiag"
         },
@@ -3064,8 +3104,8 @@
           "id": "l3",
           "type": "reference",
           "gridX": 170,
-          "gridY": 220,
-          "label": "Recidief diagnostiek 2022",
+          "gridY": 228,
+          "label": "Recidief diagnostiek",
           "icon": "down",
           "to": "recidiefdiag"
         }
@@ -3168,11 +3208,11 @@
           "points": [
             [
               200,
-              1060
+              1100
             ],
             [
               200,
-              1100
+              1140
             ]
           ],
           "arrow": true
@@ -3184,11 +3224,11 @@
           "points": [
             [
               600,
-              1060
+              1100
             ],
             [
               600,
-              1100
+              1140
             ]
           ],
           "arrow": true
@@ -3200,11 +3240,11 @@
           "points": [
             [
               1000,
-              1060
+              1100
             ],
             [
               1000,
-              1100
+              1140
             ]
           ],
           "arrow": true
@@ -3224,7 +3264,7 @@
           "type": "title",
           "gridX": 10,
           "gridY": 5,
-          "label": "Recidief diagnostiek 2022",
+          "label": "Recidief diagnostiek",
           "icon": "minus-light",
           "tone": "blue",
           "to": "",
@@ -3255,7 +3295,7 @@
           "type": "recommendation",
           "gridX": 10,
           "gridY": 116,
-          "height": 100,
+          "height": 102,
           "text": "Biopt\n\nEN\n\nCT thorax/abdomen\n\nEN\n\nBloedbeeld,\n{i}lever- en nierfunctie\n\nEN\n\nCA 125\n\nEN\n\nIndien nodig cystoscopie/rectoscopie/botscan"
         },
         {
@@ -3270,8 +3310,8 @@
           "id": "l1",
           "type": "reference",
           "gridX": 10,
-          "gridY": 228,
-          "label": "Recidief behandeling 2022",
+          "gridY": 230,
+          "label": "Recidief behandeling",
           "icon": "down",
           "to": "recidiefbehandeling"
         },
@@ -3279,8 +3319,8 @@
           "id": "l2",
           "type": "reference",
           "gridX": 96,
-          "gridY": 228,
-          "label": "Recidief behandeling 2022",
+          "gridY": 230,
+          "label": "Recidief behandeling",
           "icon": "down",
           "to": "recidiefbehandeling"
         }
@@ -3357,11 +3397,11 @@
           "points": [
             [
               200,
-              1080
+              1090
             ],
             [
               200,
-              1140
+              1150
             ]
           ],
           "arrow": true
@@ -3377,7 +3417,7 @@
             ],
             [
               630,
-              1140
+              1150
             ]
           ],
           "arrow": true
@@ -3385,6 +3425,10 @@
       ]
     },
     "beleid-hormoon": {
+      "bron": {
+        "module": "Laaggradig laag-stadium endometriumcarcinoom en wens tot behoud van fertiliteit",
+        "url": "https://richtlijnendatabase.nl/richtlijn/endometriumcarcinoom/behandeling_bij_endometriumcarcinoom/laaggradig_laag-stadium_endometriumcarcinoom_en_wens_tot_behoud_van_fertiliteit.html"
+      },
       "layout": {
         "unit": 5,
         "blockWidth": 60,
@@ -3434,6 +3478,10 @@
       ]
     },
     "kinder-primair": {
+      "bron": {
+        "module": "Laaggradig laag-stadium endometriumcarcinoom en wens tot behoud van fertiliteit",
+        "url": "https://richtlijnendatabase.nl/richtlijn/endometriumcarcinoom/behandeling_bij_endometriumcarcinoom/laaggradig_laag-stadium_endometriumcarcinoom_en_wens_tot_behoud_van_fertiliteit.html"
+      },
       "layout": {
         "unit": 5,
         "blockWidth": 60,
@@ -3446,7 +3494,7 @@
           "type": "title",
           "gridX": 12,
           "gridY": 5,
-          "label": "Kinderwens en primaire behandeling 2022",
+          "label": "Kinderwens en primaire behandeling",
           "icon": "minus-light",
           "tone": "blue",
           "to": "",
@@ -3493,7 +3541,7 @@
           "type": "reference",
           "gridX": 12,
           "gridY": 220,
-          "label": "Kinderwens en vervolg behandeling 2022",
+          "label": "Kinderwens en vervolg behandeling",
           "icon": "down",
           "to": "kinder-vervolg"
         }
@@ -3582,6 +3630,10 @@
       ]
     },
     "kinder-conceptie": {
+      "bron": {
+        "module": "Laaggradig laag-stadium endometriumcarcinoom en wens tot behoud van fertiliteit",
+        "url": "https://richtlijnendatabase.nl/richtlijn/endometriumcarcinoom/behandeling_bij_endometriumcarcinoom/laaggradig_laag-stadium_endometriumcarcinoom_en_wens_tot_behoud_van_fertiliteit.html"
+      },
       "layout": {
         "unit": 5,
         "blockWidth": 62,
@@ -3594,7 +3646,7 @@
           "type": "title",
           "gridX": 12,
           "gridY": 5,
-          "label": "Kinderwens en conceptiefase 2022",
+          "label": "Kinderwens en conceptiefase",
           "icon": "minus-light",
           "tone": "blue",
           "to": "",
@@ -3639,7 +3691,7 @@
           "type": "reference",
           "gridX": 12,
           "gridY": 170,
-          "label": "Kinderwens en follow up tijdens conceptiefase 2022",
+          "label": "Kinderwens en follow up tijdens conceptiefase",
           "icon": "down",
           "to": "kinder-followup"
         }
@@ -3728,6 +3780,10 @@
       ]
     },
     "kinder-followup": {
+      "bron": {
+        "module": "Laaggradig laag-stadium endometriumcarcinoom en wens tot behoud van fertiliteit",
+        "url": "https://richtlijnendatabase.nl/richtlijn/endometriumcarcinoom/behandeling_bij_endometriumcarcinoom/laaggradig_laag-stadium_endometriumcarcinoom_en_wens_tot_behoud_van_fertiliteit.html"
+      },
       "layout": {
         "unit": 5,
         "blockWidth": 64,
@@ -3740,7 +3796,7 @@
           "type": "title",
           "gridX": 11,
           "gridY": 5,
-          "label": "Kinderwens en follow up tijdens conceptiefase 2022",
+          "label": "Kinderwens en follow up tijdens conceptiefase",
           "icon": "minus-light",
           "tone": "blue",
           "to": "",
@@ -3791,7 +3847,7 @@
           "type": "recommendation",
           "gridX": 11,
           "gridY": 180,
-          "height": 66,
+          "height": 67,
           "text": "Follow up > 6mnd post partum:\n\nEcho\n\nEN\n\nPipelle\n\nEN\n\nHysteroscopie"
         },
         {
@@ -3799,7 +3855,7 @@
           "type": "recommendation",
           "gridX": 104,
           "gridY": 180,
-          "height": 66,
+          "height": 67,
           "text": "Elke 3 mnd:\n\nEcho\n\nEN\n\nPipelle\n\nEN\n\nHysteroscopie"
         },
         {
@@ -3926,6 +3982,10 @@
       ]
     },
     "kinder-vervolg-followup": {
+      "bron": {
+        "module": "Laaggradig laag-stadium endometriumcarcinoom en wens tot behoud van fertiliteit",
+        "url": "https://richtlijnendatabase.nl/richtlijn/endometriumcarcinoom/behandeling_bij_endometriumcarcinoom/laaggradig_laag-stadium_endometriumcarcinoom_en_wens_tot_behoud_van_fertiliteit.html"
+      },
       "layout": {
         "unit": 5,
         "blockWidth": 62,
@@ -3938,7 +3998,7 @@
           "type": "title",
           "gridX": 11,
           "gridY": 5,
-          "label": "Kinderwens vervolg follow up tijdens conceptiefase 2022",
+          "label": "Kinderwens vervolg follow up tijdens conceptiefase",
           "icon": "minus-light",
           "tone": "blue",
           "to": "",
@@ -3983,7 +4043,7 @@
           "type": "reference",
           "gridX": 11,
           "gridY": 170,
-          "label": "Kinderwens vervolg follow up tijdens conceptiefase 2022",
+          "label": "Kinderwens vervolg follow up tijdens conceptiefase",
           "icon": "down",
           "to": "kinder-vervolg-followup"
         }
@@ -4072,6 +4132,10 @@
       ]
     },
     "kinder-vervolg": {
+      "bron": {
+        "module": "Laaggradig laag-stadium endometriumcarcinoom en wens tot behoud van fertiliteit",
+        "url": "https://richtlijnendatabase.nl/richtlijn/endometriumcarcinoom/behandeling_bij_endometriumcarcinoom/laaggradig_laag-stadium_endometriumcarcinoom_en_wens_tot_behoud_van_fertiliteit.html"
+      },
       "layout": {
         "unit": 5,
         "blockWidth": 60,
@@ -4084,7 +4148,7 @@
           "type": "title",
           "gridX": 80,
           "gridY": 5,
-          "label": "Kinderwens en vervolg behandeling 2022",
+          "label": "Kinderwens en vervolg behandeling",
           "icon": "minus-light",
           "tone": "blue",
           "to": "",
@@ -4169,7 +4233,7 @@
           "type": "recommendation",
           "gridX": 80,
           "gridY": 214,
-          "height": 76,
+          "height": 78,
           "text": "Medroxyprogesteron 200 mg/dag\n\nOF\n\nOverweeg hormoonhoudend IUD\n\nGEVOLGD DOOR\n\nHysteroscopie\n\nEN\n\nEndometriumsampling"
         },
         {
@@ -4192,27 +4256,30 @@
           "type": "reference",
           "gridX": 10,
           "gridY": 272,
-          "label": "Kinderwens en vervolg behandeling 2022",
+          "label": "Kinderwens en vervolg behandeling",
           "icon": "down",
-          "to": "kinder-vervolg"
+          "to": "kinder-vervolg",
+          "height": 33
         },
         {
           "id": "l2",
           "type": "reference",
           "gridX": 80,
           "gridY": 272,
-          "label": "Kinderwens en vervolg behandeling 2022",
+          "label": "Kinderwens en vervolg behandeling",
           "icon": "down",
-          "to": "kinder-vervolg"
+          "to": "kinder-vervolg",
+          "height": 33
         },
         {
           "id": "l3",
           "type": "reference",
           "gridX": 210,
           "gridY": 272,
-          "label": "Kinderwens en conceptiefase 2022",
+          "label": "Kinderwens en conceptiefase",
           "icon": "down",
-          "to": "kinder-conceptie"
+          "to": "kinder-conceptie",
+          "height": 33
         }
       ],
       "edges": [
@@ -4414,6 +4481,10 @@
       ]
     },
     "recidiefbehandeling": {
+      "bron": {
+        "module": "Lokaal/locoregionaal recidief",
+        "url": "https://richtlijnendatabase.nl/richtlijn/endometriumcarcinoom/behandeling_bij_endometriumcarcinoom/lokaal_locoregionaal_recidief.html"
+      },
       "layout": {
         "unit": 5,
         "blockWidth": 44,
@@ -4427,7 +4498,7 @@
           "type": "title",
           "gridX": 236,
           "gridY": 3,
-          "label": "Recidief behandeling 2022",
+          "label": "Recidief behandeling",
           "icon": "minus-light",
           "tone": "blue",
           "to": "",

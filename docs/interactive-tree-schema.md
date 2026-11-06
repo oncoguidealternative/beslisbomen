@@ -103,7 +103,14 @@ Het overzicht en elke beslisboom zijn een **graph** met dezelfde opbouw (§3).
 - `{i}` aan het begin van een regel: info-icoon
 - `{x}` aan het begin van een regel: "geen"-symbool (doorgestreepte cirkel)
 - `{a:tekst|url}`: een link
-- Een lege regel scheidt blokken; een regel met alleen `---` werkt als scheiding
+- Een lege regel scheidt blokken; een regel met alleen `---` wordt een dunne scheidingslijn
+- `--- EN ---` of `---EN---` (idem OF) wordt weergegeven als gewoon "EN" (of "OF")
+
+**Weergave van aanbevelingen** (automatisch, geen JSON nodig):
+- Tekst wordt afgebroken op de werkelijke breedte van het blok, met binnenmarge en ruimte voor een icoon.
+- In een aanbeveling krijgt een `{i}`-regel een witregel ervoor, zodat de toelichting los staat van de aanbeveling erboven. Opeenvolgende `{i}`-regels blijven bij elkaar.
+- Tekst in een aanbeveling staat boven uitgelijnd, zodat vakken naast elkaar op dezelfde hoogte beginnen.
+- Past de tekst niet in het blok, dan krijgt het blok in de tekening `data-overflow="y"`; maak het blok dan hoger (`height`) en schuif wat eronder staat mee.
 
 ### Types
 
@@ -247,7 +254,7 @@ Links naast elke beslisboom met keuzes staat een in- en uitklapbaar paneel met a
 ```
 
 - Gegevens die door eerdere keuzes niet meer van toepassing zijn, staan grijs en zijn niet te kiezen. Dat geldt ook voor waarden die alleen in een uitgesloten tak voorkomen.
-- Heeft een gegeven een hulpbeslisboom, dan staat er een knop **Bepalen met hulpbeslisboom**.
+- Heeft een gegeven een hulpbeslisboom, dan staat er een knop **Bepalen met hulpbeslisboom**. In het keuzevenster staat de knop **Open Hulpbeslisboom** bovenaan, direct onder de naam van het gegeven.
 - Of het paneel open of dicht staat, onthoudt de browser van de gebruiker.
 
 ### Hulpbeslisboom

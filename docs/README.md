@@ -18,12 +18,14 @@ Interactief kiezen van waarden bij dataknooppunten, in vrije volgorde
 Markeren van het gekozen pad en uitfaden van uitgesloten routes
 Aanbevelingenoverzicht per beslisboom (ook te openen door op een aanbeveling in de boom te klikken; klapt vanzelf open als het pad compleet is en nog maar één aanbeveling over is)
 Hulpbeslisbomen die een keuze bepalen
+Overgang bij een klik op een vervolgboom: de huidige boom schuift omhoog weg, de volgende komt van onderen
+Nieuwe keuze wist de oranje markering uit het aanbevelingenoverzicht
 Paneel met patiëntinformatie: alle gegevens van een beslisboom invullen vanuit één lijst
 Bronvermelding per zorgpad en beslisboom (klik op de titel)
 Automatische controle van alle inhoud (tools/check.js, ook op GitHub)
 In voorbereiding
 Endometriumcarcinoom opnieuw opbouwen op het raster
-Bronvermelding voor alle zorgpaden
+Bronvermelding voor de overige zorgpaden (cervixcarcinoom, endometriumcarcinoom en vulvacarcinoom hebben er al een)
 Technische uitgangspunten
 De applicatie gebruikt uitsluitend:
 

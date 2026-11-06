@@ -1,6 +1,6 @@
 /* HTML-keuzevenster voor interactieve data-items.
    Beheert alleen de weergave van het venster (openen, positioneren, radioknoppen, sluiten, focus).
-   Heeft de node een hulpbeslisboom, dan staat onderaan ook de knop "Hulpbeslisboom" (handlers.onSubtree).
+   Heeft de node een hulpbeslisboom, dan staat bovenaan (onder de kop) de knop "Open Hulpbeslisboom" (handlers.onSubtree).
    Is de node een meetwaarde (spec.measure), dan toont het venster één invoerveld met de eenheid in plaats van
    opties; Enter legt het getal vast (handlers.onMeasure).
    Sluiten: Escape of klikken buiten het venster.
@@ -33,6 +33,13 @@ const ChoicePanel = (function () {
     // Kop met de naam van het gegeven; de opties staan in een fieldset met die naam als legend (voor schermlezers).
     head = make('div', 'choice-head', panel);
     head.id = 'choice-legend';
+
+    // Heeft het gegeven een hulpbeslisboom, dan staat de knop daarvoor direct onder de kop, boven de opties.
+    var subtreeBar = make('div', 'choice-subtree-bar', panel);
+    subtreeBtn = make('button', 'choice-subtree', subtreeBar);
+    subtreeBtn.type = 'button';
+    subtreeBtn.textContent = 'Open Hulpbeslisboom';
+    subtreeBar.hidden = true;
     var fieldset = make('fieldset', 'choice-fieldset', panel);
     legend = make('legend', 'visually-hidden', fieldset);
     optionsBox = make('div', 'choice-options', fieldset);
@@ -54,10 +61,6 @@ const ChoicePanel = (function () {
     });
 
     var actions = make('div', 'choice-actions', panel);
-    subtreeBtn = make('button', 'choice-btn choice-subtree', actions);
-    subtreeBtn.type = 'button';
-    subtreeBtn.textContent = 'Hulpbeslisboom';
-    subtreeBtn.hidden = true;
     clearBtn = make('button', 'choice-btn choice-clear', actions);
     clearBtn.type = 'button';
     clearBtn.textContent = 'Wissen';
@@ -182,7 +185,7 @@ const ChoicePanel = (function () {
     panel.setAttribute('data-tree', spec.treeId || '');
     legend.textContent = spec.label;
     head.textContent = spec.label;
-    subtreeBtn.hidden = !open_.subtree;
+    subtreeBtn.parentNode.hidden = !open_.subtree;
     // Meetwaarde: invoerveld in plaats van opties.
     measureBox.hidden = !open_.measure;
     optionsBox.parentNode.hidden = !!open_.measure;

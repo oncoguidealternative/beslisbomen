@@ -791,7 +791,7 @@
           "type": "recommendation",
           "gridX": 216,
           "gridY": 234,
-          "height": 42,
+          "height": 45,
           "text": "Verwijs naar oncologisch\ncentrum\n\n---\n\nEcho liezen\nEN\nX-thorax\n\nOF\n\nCT thorax/abdomen"
         },
         {
@@ -806,7 +806,7 @@
           "type": "recommendation",
           "gridX": 317,
           "gridY": 234,
-          "height": 45,
+          "height": 48,
           "text": "Verwijs naar oncologisch\ncentrum\n\n---\n\nMRI liezen en bekken\n\nEN\n\nCT thorax/abomen\nOF\nOverweg PET-CT\nthorax/abomen"
         },
         {
@@ -814,7 +814,7 @@
           "type": "recommendation",
           "gridX": 368,
           "gridY": 234,
-          "height": 25,
+          "height": 28,
           "text": "Verwijs naar oncologisch\ncentrum\n\n---\n\nZie RL melanoom\n(voor de huid)"
         },
         {
@@ -822,14 +822,14 @@
           "type": "recommendation",
           "gridX": 418,
           "gridY": 234,
-          "height": 25,
+          "height": 28,
           "text": "Verwijs naar oncologisch\ncentrum\n\n---\n\nIndividualiseer\nbehandeling"
         },
         {
           "id": "l-cyt-klein",
           "type": "reference",
           "gridX": 216,
-          "gridY": 290,
+          "gridY": 293,
           "label": "Bepaling indicatie cytologisch punctie bij pcc < 4 cm en liesklieren niet verdacht",
           "icon": "down",
           "to": "cyt-klein"
@@ -838,7 +838,7 @@
           "id": "l-cyt-groot",
           "type": "reference",
           "gridX": 267,
-          "gridY": 290,
+          "gridY": 293,
           "label": "Bepaling indicatie cytologische punctie bij pcc >= 4 cm",
           "icon": "down",
           "to": "cyt-groot"
@@ -847,7 +847,7 @@
           "id": "l-primair",
           "type": "reference",
           "gridX": 317,
-          "gridY": 290,
+          "gridY": 293,
           "label": "Primaire behandeling",
           "icon": "down",
           "to": "primair"
@@ -1389,11 +1389,11 @@
           "points": [
             [
               1185,
-              1380
+              1395
             ],
             [
               1185,
-              1450
+              1465
             ]
           ],
           "arrow": true
@@ -1409,7 +1409,7 @@
             ],
             [
               1435,
-              1450
+              1465
             ]
           ],
           "arrow": true
@@ -1421,11 +1421,11 @@
           "points": [
             [
               1690,
-              1395
+              1410
             ],
             [
               1690,
-              1450
+              1465
             ]
           ],
           "arrow": true
@@ -1787,14 +1787,15 @@
           "type": "recommendation",
           "gridX": 2,
           "gridY": 223,
-          "text": "Ruime lokale excisie"
+          "text": "Ruime lokale excisie",
+          "height": 16
         },
         {
           "id": "o2",
           "type": "recommendation",
           "gridX": 36,
           "gridY": 223,
-          "height": 50,
+          "height": 69,
           "text": "Ruime lokale excisie\n{i}Primaire\nchemoradiotherapie,\nindien wens tot\norgaansparende\nbehadneling\n\nEN\n\nSentinel node (SN)\nprocedure aan drainage\nzijde\n{i}indien SN niet\ngevonden\ninguinofemorale\nlymfadenectomie\n\nEN\n\nInguinofemorale\nlymfadenectomie aan\nandere zijde"
         },
         {
@@ -1802,7 +1803,7 @@
           "type": "recommendation",
           "gridX": 70,
           "gridY": 223,
-          "height": 34,
+          "height": 53,
           "text": "Ruime lokale excisie\n{i}primair\nchemoradiatie, indien\nwens tot\norgaansparende\nbehandeling\n\nEN\n\nBilateraal sentinel node\nprocedure\n{i}indien SN niet\ngevonden\ninguinofemorale\nlymfadenectomie"
         },
         {
@@ -1810,7 +1811,7 @@
           "type": "recommendation",
           "gridX": 104,
           "gridY": 223,
-          "height": 37,
+          "height": 56,
           "text": "Ruime lokale excisie\n{i}primair\nchemoradiatie, indien\nwens tot\norgaansparende\nbehandeling\n\nEN\n\nUnilateraal sentinel node\nprocedure aan\ntumorzijde\n{i}indien SN niet\ngevonden\ninguinofemorale\nlymfadenectomie"
         },
         {
@@ -1818,7 +1819,7 @@
           "type": "recommendation",
           "gridX": 138,
           "gridY": 223,
-          "height": 34,
+          "height": 53,
           "text": "Ruime lokale excisie\n{i}primair\nchemoradiatie, indien\nwens tot\norgaansparende\nbehandeling\n\nEN\n\nBilateraal sentinel node\nprocedure\n{i}indien SN niet\ngevonden\ninguinofemorale\nlymfadenectomie"
         },
         {
@@ -1826,7 +1827,7 @@
           "type": "recommendation",
           "gridX": 172,
           "gridY": 223,
-          "height": 28,
+          "height": 39,
           "text": "Ruime lokale excisie\n{i}primair\nchemoradiatie, indien\nwens tot\norgaansparende\nbehandeling\n\nEN\n\nBilaterale\ninguinofemorale\nlymfadenectomie"
         },
         {
@@ -1834,7 +1835,7 @@
           "type": "recommendation",
           "gridX": 206,
           "gridY": 223,
-          "height": 28,
+          "height": 39,
           "text": "Ruime lokale excisie\n{i}primair\nchemoradiatie, indien\nwens tot\norgaansparende\nbehandeling\n\nEN\n\nUnilaterale\ninguinofemorale\nlymfadenectomie"
         },
         {
@@ -1842,7 +1843,7 @@
           "type": "recommendation",
           "gridX": 241,
           "gridY": 223,
-          "height": 26,
+          "height": 31,
           "text": "Ruime lokale excisie\nEN\nBilaterale\ninguinofemorale\nlymfadenectomie\n\nOF\n\nPrimaire\nchemoradiotherapie\n"
         },
         {
@@ -1850,7 +1851,7 @@
           "type": "recommendation",
           "gridX": 275,
           "gridY": 223,
-          "height": 26,
+          "height": 31,
           "text": "Individualiseer\nbehandeling\n\n\n\nPrimaire\nchemoradiotherapie\n\nOF\n\nExenteratie"
         },
         {
@@ -1858,7 +1859,7 @@
           "type": "recommendation",
           "gridX": 309,
           "gridY": 223,
-          "height": 28,
+          "height": 39,
           "text": "Ruime lokale excisie\nEN\nBilaterale\ninguinofemorale\nlymfadenectomie\n\nOF\n\nLiesklierdebulking\nEN\nAdjuvante regionale\nradiotherapie"
         },
         {
@@ -1866,7 +1867,7 @@
           "type": "recommendation",
           "gridX": 344,
           "gridY": 223,
-          "height": 26,
+          "height": 31,
           "text": "Individualiseer\nbehandeling\n\n\n\nPrimaire\nchemoradiotherapie\n\nOF\n\nExenteratie"
         },
         {
@@ -1874,14 +1875,15 @@
           "type": "recommendation",
           "gridX": 378,
           "gridY": 223,
-          "text": "Primaire chemoradiatie\n\nOF\n\nDebulking"
+          "text": "Primaire chemoradiatie\n\nOF\n\nDebulking",
+          "height": 16
         },
         {
           "id": "o13",
           "type": "recommendation",
           "gridX": 411,
           "gridY": 223,
-          "height": 50,
+          "height": 69,
           "text": "Ruime lokale excisie\nEN\nDebulking van pelviene\nlymfeklieren\n\nEN\n\nBilaterale\ninguinofemorale\nlymfadenectomie\nOF\nLiesklierdebulking\n\nEN\n\nAdjuvante regionale\nradiotherapie\n\n—OF—\n\nPrimaire chemoradiatie\n"
         },
         {
@@ -1889,13 +1891,14 @@
           "type": "recommendation",
           "gridX": 445,
           "gridY": 223,
-          "text": "Individualiseer\npalliatieve behandeling"
+          "text": "Individualiseer\npalliatieve behandeling",
+          "height": 16
         },
         {
           "id": "l1",
           "type": "reference",
           "gridX": 2,
-          "gridY": 264,
+          "gridY": 283,
           "label": "Adjuvante behandeling",
           "icon": "down",
           "to": "adjuvant"
@@ -1904,7 +1907,7 @@
           "id": "l2",
           "type": "reference",
           "gridX": 36,
-          "gridY": 277,
+          "gridY": 296,
           "label": "Beleid na sentinel node procedure (postoperatief)",
           "icon": "down",
           "to": "na-sn"
@@ -1913,7 +1916,7 @@
           "id": "l3",
           "type": "reference",
           "gridX": 70,
-          "gridY": 264,
+          "gridY": 283,
           "label": "Beleid na sentinel node procedure (postoperatief)",
           "icon": "down",
           "to": "na-sn"
@@ -1922,7 +1925,7 @@
           "id": "l4",
           "type": "reference",
           "gridX": 104,
-          "gridY": 264,
+          "gridY": 283,
           "label": "Beleid na sentinel node procedure (postoperatief)",
           "icon": "down",
           "to": "na-sn"
@@ -1931,7 +1934,7 @@
           "id": "l5",
           "type": "reference",
           "gridX": 138,
-          "gridY": 264,
+          "gridY": 283,
           "label": "Beleid na sentinel node procedure (postoperatief)",
           "icon": "down",
           "to": "na-sn"
@@ -1940,7 +1943,7 @@
           "id": "l6",
           "type": "reference",
           "gridX": 172,
-          "gridY": 264,
+          "gridY": 283,
           "label": "Adjuvante behandeling",
           "icon": "down",
           "to": "adjuvant"
@@ -1949,7 +1952,7 @@
           "id": "l7",
           "type": "reference",
           "gridX": 206,
-          "gridY": 264,
+          "gridY": 283,
           "label": "Beleid na unilaterale inguinofemorale lymfadenectomie",
           "icon": "down",
           "to": "uni-ling"
@@ -1958,7 +1961,7 @@
           "id": "l8",
           "type": "reference",
           "gridX": 241,
-          "gridY": 264,
+          "gridY": 283,
           "label": "Adjuvante behandeling",
           "icon": "down",
           "to": "adjuvant"
@@ -1967,7 +1970,7 @@
           "id": "l9",
           "type": "reference",
           "gridX": 275,
-          "gridY": 264,
+          "gridY": 283,
           "label": "Adjuvante behandeling",
           "icon": "down",
           "to": "adjuvant"
@@ -1976,7 +1979,7 @@
           "id": "l10",
           "type": "reference",
           "gridX": 309,
-          "gridY": 264,
+          "gridY": 283,
           "label": "Adjuvante behandeling",
           "icon": "down",
           "to": "adjuvant"
@@ -1985,7 +1988,7 @@
           "id": "l11",
           "type": "reference",
           "gridX": 344,
-          "gridY": 264,
+          "gridY": 283,
           "label": "Adjuvante behandeling",
           "icon": "down",
           "to": "adjuvant"
@@ -1994,7 +1997,7 @@
           "id": "l12",
           "type": "reference",
           "gridX": 377,
-          "gridY": 264,
+          "gridY": 283,
           "label": "Adjuvante behandeling",
           "icon": "down",
           "to": "adjuvant"
@@ -2003,7 +2006,7 @@
           "id": "f1",
           "type": "reference",
           "gridX": 377,
-          "gridY": 287,
+          "gridY": 306,
           "label": "Follow up",
           "icon": "down",
           "to": "followup"
@@ -2012,7 +2015,7 @@
           "id": "f2",
           "type": "reference",
           "gridX": 411,
-          "gridY": 287,
+          "gridY": 306,
           "label": "Follow up",
           "icon": "down",
           "to": "followup"
@@ -2826,11 +2829,11 @@
           "points": [
             [
               80,
-              1185
+              1195
             ],
             [
               80,
-              1320
+              1415
             ]
           ],
           "arrow": true
@@ -2842,11 +2845,11 @@
           "points": [
             [
               250,
-              1365
+              1460
             ],
             [
               250,
-              1385
+              1480
             ]
           ],
           "arrow": true
@@ -2858,11 +2861,11 @@
           "points": [
             [
               420,
-              1285
+              1380
             ],
             [
               420,
-              1320
+              1415
             ]
           ],
           "arrow": true
@@ -2874,11 +2877,11 @@
           "points": [
             [
               590,
-              1300
+              1395
             ],
             [
               590,
-              1320
+              1415
             ]
           ],
           "arrow": true
@@ -2890,11 +2893,11 @@
           "points": [
             [
               760,
-              1285
+              1380
             ],
             [
               760,
-              1320
+              1415
             ]
           ],
           "arrow": true
@@ -2906,11 +2909,11 @@
           "points": [
             [
               930,
-              1255
+              1310
             ],
             [
               930,
-              1320
+              1415
             ]
           ],
           "arrow": true
@@ -2922,11 +2925,11 @@
           "points": [
             [
               1100,
-              1255
+              1310
             ],
             [
               1100,
-              1320
+              1415
             ]
           ],
           "arrow": true
@@ -2938,11 +2941,11 @@
           "points": [
             [
               1270,
-              1245
+              1270
             ],
             [
               1270,
-              1320
+              1415
             ]
           ],
           "arrow": true
@@ -2954,11 +2957,11 @@
           "points": [
             [
               1440,
-              1245
+              1270
             ],
             [
               1440,
-              1320
+              1415
             ]
           ],
           "arrow": true
@@ -2970,11 +2973,11 @@
           "points": [
             [
               1610,
-              1255
+              1310
             ],
             [
               1610,
-              1320
+              1415
             ]
           ],
           "arrow": true
@@ -2986,11 +2989,11 @@
           "points": [
             [
               1785,
-              1245
+              1270
             ],
             [
               1785,
-              1320
+              1415
             ]
           ],
           "arrow": true
@@ -3002,11 +3005,11 @@
           "points": [
             [
               1955,
-              1185
+              1195
             ],
             [
               1955,
-              1320
+              1415
             ]
           ],
           "arrow": true
@@ -3018,11 +3021,11 @@
           "points": [
             [
               1955,
-              1390
+              1485
             ],
             [
               1955,
-              1435
+              1530
             ]
           ],
           "arrow": true
@@ -3034,11 +3037,11 @@
           "points": [
             [
               2125,
-              1365
+              1460
             ],
             [
               2125,
-              1435
+              1530
             ]
           ],
           "arrow": true
@@ -3193,7 +3196,7 @@
           "type": "recommendation",
           "gridX": 10,
           "gridY": 248,
-          "height": 33,
+          "height": 36,
           "text": "Re-excisie\n\nOF\n\nLokale radiotherapie\n(totale dosis 60-70 Gy\nafhankelijk van het\nvolume residue tumor)"
         },
         {
@@ -3208,14 +3211,14 @@
           "type": "recommendation",
           "gridX": 184,
           "gridY": 248,
-          "height": 25,
+          "height": 28,
           "text": "Radiotherapie\n\n{i}Bestraal alleen de\naangedane lies mits de\ncontralaterale lies\nadequaat gestadieerd is."
         },
         {
           "id": "f1",
           "type": "reference",
           "gridX": 10,
-          "gridY": 288,
+          "gridY": 291,
           "label": "Follow up",
           "icon": "down",
           "to": "followup"
@@ -3224,7 +3227,7 @@
           "id": "f2",
           "type": "reference",
           "gridX": 68,
-          "gridY": 288,
+          "gridY": 291,
           "label": "Follow up",
           "icon": "down",
           "to": "followup"
@@ -3233,7 +3236,7 @@
           "id": "f3",
           "type": "reference",
           "gridX": 184,
-          "gridY": 288,
+          "gridY": 291,
           "label": "Follow up",
           "icon": "down",
           "to": "followup"
@@ -3534,11 +3537,11 @@
           "points": [
             [
               165,
-              1405
+              1420
             ],
             [
               165,
-              1440
+              1455
             ]
           ],
           "arrow": true
@@ -3554,7 +3557,7 @@
             ],
             [
               455,
-              1440
+              1455
             ]
           ],
           "arrow": true
@@ -3566,11 +3569,11 @@
           "points": [
             [
               1035,
-              1365
+              1380
             ],
             [
               1035,
-              1440
+              1455
             ]
           ],
           "arrow": true
@@ -3742,7 +3745,7 @@
           "type": "recommendation",
           "gridX": 7,
           "gridY": 147,
-          "height": 42,
+          "height": 43,
           "text": "Ruime lokale excisie\n\nOF\n\n(Chemo)radiatie\n{i}indien contra-indicatie\nchirurgie\n"
         },
         {
@@ -3750,7 +3753,7 @@
           "type": "recommendation",
           "gridX": 81,
           "gridY": 147,
-          "height": 67,
+          "height": 78,
           "text": "Ruime lokale excisie\nEN\nInguinofemorale\nlymfadenectomie\nOverweeg inclusie in\nstudie V2SLN\n{a:klik hier * V2SLN|}\n\nOF\n\n(Chemo)radiatie\n{i}indien contra-indicatie\nchirurgie"
         },
         {
@@ -3758,7 +3761,7 @@
           "type": "recommendation",
           "gridX": 155,
           "gridY": 147,
-          "height": 62,
+          "height": 73,
           "text": "Overweeg\nliesklierdebulking\n{i}indien operabel\n\nGEVOLGD DOOR\n(chemo)radiatie\n\nOF\n\n(Chemo)radiatie\n{i}indien contra-indicatie\nchirurgie"
         },
         {
@@ -3766,7 +3769,7 @@
           "type": "recommendation",
           "gridX": 228,
           "gridY": 147,
-          "height": 77,
+          "height": 88,
           "text": "Inguinofemorale\nlymfadenectomie\nOF\nOverweeg\nliesklierdebulking\n{i}indien operabel\n\nGEVOLGD DOOR\n(chemo)radiatie\n\n---OF---\n\n(Chemo)radiatie\n{i}indien contra-indicatie\nchirurgie"
         },
         {

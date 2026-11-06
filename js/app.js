@@ -205,7 +205,26 @@
 
     // ---------- Navigatie ----------
     // target: boom-id ("" = overzicht) binnen dit zorgpad, of { tumor, tree } voor het zorgpad van een andere tumor.
-    function navigate(target) {
+    // Overgang bij een klik op een vervolgboom (zoals op Oncoguide): de huidige boom schuift omhoog weg en de
+    // volgende komt van onderen in beeld. Niet bij terug naar het overzicht, het kruimelpad of andere tumoren, en
+    // niet als de gebruiker minder beweging wil (prefers-reduced-motion).
+    const LEAVE_MS = 260;
+    let enterNext = false;
+    function wantsMotion() {
+      return !(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    }
+
+    function navigate(target, opts) {
+      if (opts && opts.via === "reference" && typeof target === "string" && target && refs.stage && wantsMotion()) {
+        if (refs.stage.classList.contains("zp-leave")) return; // overgang loopt al
+        refs.stage.classList.remove("zp-enter");
+        refs.stage.classList.add("zp-leave");
+        setTimeout(function () {
+          enterNext = true;
+          location.hash = "#/" + target;
+        }, LEAVE_MS);
+        return;
+      }
       if (target && typeof target === "object") {
         if (!SAFE_ID.test(String(target.tumor))) return;
         let url = "zorgpad.html?tumor=" + encodeURIComponent(target.tumor);
@@ -293,6 +312,16 @@
       subtrees.refreshBar();
       subtrees.applyPendingReturn();
       if (view.treeId) window.scrollTo(0, 0);
+      if (refs.stage) {
+        refs.stage.classList.remove("zp-leave");
+        if (!enterNext) refs.stage.classList.remove("zp-enter");
+        if (enterNext) {
+          enterNext = false;
+          refs.stage.classList.remove("zp-enter");
+          void refs.stage.offsetWidth; // animatie opnieuw starten
+          refs.stage.classList.add("zp-enter");
+        }
+      }
     }
 
     // Klik op de titel van het zorgpad of van een beslisboom: bronvermelding in het informatiepaneel.
