@@ -357,6 +357,15 @@ const Renderer = (function () {
       if (choice) drawEdgeChoice(vp, e, choice, s);
     });
 
+    // Hoogste aanbeveling (outcome) per rij (gelijke y): alleen die staat boven uitgelijnd;
+    // lagere aanbevelingen in dezelfde rij krijgen hun tekst verticaal gecentreerd.
+    var rowMaxOutcomeH = {};
+    graph.nodes.forEach(function (n) {
+      if ((n.type || 'step') !== 'outcome') return;
+      var key = Math.round(n.y || 0), nh = n.h || size[1];
+      if (!(rowMaxOutcomeH[key] >= nh)) rowMaxOutcomeH[key] = nh;
+    });
+
     graph.nodes.forEach(function (n) {
       var w = n.w || size[0], h = n.h || size[1];
       // Een node met "tumor" (en eventueel "tree") verwijst naar het zorgpad van een andere tumor.
@@ -460,11 +469,12 @@ const Renderer = (function () {
         wrap(n.label, n.wrap || maxChars).forEach(function (l) { lines.push({t: l}); });
       }
 
-      // Aanbevelingen met tekst staan boven uitgelijnd, zodat vakken naast elkaar op dezelfde hoogte beginnen.
-      // Overige blokken (en tekst die niet in het blok past) blijven verticaal gecentreerd.
+      // De hoogste aanbeveling in een rij staat boven uitgelijnd. Lagere aanbevelingen in die rij, overige
+      // blokken en tekst die niet in het blok past zijn horizontaal én verticaal gecentreerd.
       var textHeight = (lines.length - 1) * lh + fs;
       var y0 = h / 2 - ((lines.length - 1) * lh) / 2 + fs * 0.36;
-      if (type === 'outcome' && n.text !== undefined && textHeight + 2 * TEXT_PAD_Y * s <= h) {
+      var tallestInRow = h >= (rowMaxOutcomeH[Math.round(n.y || 0)] || 0);
+      if (type === 'outcome' && n.text !== undefined && tallestInRow && textHeight + 2 * TEXT_PAD_Y * s <= h) {
         y0 = TEXT_PAD_Y * s + fs * 0.86;
       }
       if (textHeight > h) g.setAttribute('data-overflow', 'y');

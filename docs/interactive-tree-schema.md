@@ -109,7 +109,8 @@ Het overzicht en elke beslisboom zijn een **graph** met dezelfde opbouw (§3).
 **Weergave van aanbevelingen** (automatisch, geen JSON nodig):
 - Tekst wordt afgebroken op de werkelijke breedte van het blok, met binnenmarge en ruimte voor een icoon.
 - In een aanbeveling krijgt een `{i}`-regel een witregel ervoor, zodat de toelichting los staat van de aanbeveling erboven. Opeenvolgende `{i}`-regels blijven bij elkaar.
-- Tekst in een aanbeveling staat boven uitgelijnd, zodat vakken naast elkaar op dezelfde hoogte beginnen.
+- Tekst in de hoogste aanbeveling van een rij staat boven uitgelijnd. Lagere aanbevelingen in dezelfde rij
+  hebben hun tekst horizontaal én verticaal gecentreerd in het vak.
 - Past de tekst niet in het blok, dan krijgt het blok in de tekening `data-overflow="y"`; maak het blok dan hoger (`height`) en schuif wat eronder staat mee.
 
 ### Types
