@@ -10,23 +10,23 @@
   "overview": {
     "layout": {
       "unit": 5,
-      "blockWidth": 44,
-      "blockHeight": 18,
-      "margin": 2
+      "blockWidth": 40,
+      "blockHeight": 20,
+      "margin": 10
     },
     "wrap": 28,
     "nodes": [
       {
         "id": "zorgpad-niet-epitheliaal-ovarium",
         "type": "title",
-        "gridX": 120,
+        "gridX": 68,
         "gridY": 0,
         "label": "Zorgpad niet-epitheliale ovarium maligniteiten"
       },
       {
         "id": "klinisch-vergroot-ovarium",
-        "gridX": 120,
-        "gridY": 40,
+        "gridX": 68,
+        "gridY": 30,
         "label": "Klinisch (verdenking op) vergroot ovarium",
         "tumor": "vergroot-ovarium",
         "tree": "klinisch-vergroot-ovarium",
@@ -34,8 +34,8 @@
       },
       {
         "id": "initieel-beleid-vergroot-ovarium",
-        "gridX": 120,
-        "gridY": 80,
+        "gridX": 68,
+        "gridY": 60,
         "label": "Initieel beleid vergroot ovarium",
         "tumor": "vergroot-ovarium",
         "tree": "initieel-beleid",
@@ -43,114 +43,114 @@
       },
       {
         "id": "aanvullende-diagnostiek",
-        "gridX": 120,
-        "gridY": 120,
+        "gridX": 68,
+        "gridY": 90,
         "label": "Aanvullende diagnostiek niet epitheliale ovarium maligniteiten",
         "drill": true
       },
       {
         "id": "aanvullende-diagnostiek-tumormarkers-ct",
-        "gridX": 120,
-        "gridY": 160,
+        "gridX": 68,
+        "gridY": 120,
         "label": "Aanvullende diagnostiek na tumormarkers en CT",
         "drill": true
       },
       {
         "id": "pathologie-stagering",
-        "gridX": 120,
-        "gridY": 200,
+        "gridX": 68,
+        "gridY": 150,
         "label": "Pathologie en stagering",
         "drill": true
       },
       {
         "id": "beleid-definitieve-histologie",
-        "gridX": 40,
-        "gridY": 240,
+        "gridX": 0,
+        "gridY": 180,
         "label": "Beleid na definitieve histologie",
         "drill": true
       },
       {
         "id": "beleid-vriescoupe",
-        "gridX": 180,
-        "gridY": 240,
+        "gridX": 112,
+        "gridY": 180,
         "label": "Beleid na verkrijgen vriescoupe",
         "drill": true
       },
       {
         "id": "beleid-choriocarcinoom",
-        "gridX": 240,
-        "gridY": 240,
+        "gridX": 158,
+        "gridY": 180,
         "label": "Beleid choriocarcinoom",
         "drill": true
       },
       {
         "id": "adjuvante-behandeling-kiemceltumoren",
-        "gridX": 60,
-        "gridY": 280,
+        "gridX": 22,
+        "gridY": 210,
         "label": "Adjuvante behandeling kiemceltumoren",
         "drill": true
       },
       {
         "id": "adjuvante-behandeling-sexcord",
-        "gridX": 140,
-        "gridY": 280,
+        "gridX": 68,
+        "gridY": 210,
         "label": "Adjuvante behandeling sexcordstromaceltumoren",
         "drill": true
       },
       {
         "id": "follow-up-kiemceltumoren",
-        "gridX": 60,
-        "gridY": 320,
+        "gridX": 22,
+        "gridY": 240,
         "label": "Follow-up kiemceltumoren",
         "drill": true
       },
       {
         "id": "follow-up-sexcord",
-        "gridX": 140,
-        "gridY": 320,
+        "gridX": 68,
+        "gridY": 240,
         "label": "Follow-up sexcord stromaceltumoren",
         "drill": true
       },
       {
         "id": "recidief-diagnostiek-kiemceltumoren",
-        "gridX": 60,
-        "gridY": 360,
+        "gridX": 22,
+        "gridY": 270,
         "label": "Recidief diagnostiek kiemceltumoren",
         "drill": true
       },
       {
         "id": "recidief-diagnostiek-sexcord",
-        "gridX": 140,
-        "gridY": 360,
+        "gridX": 68,
+        "gridY": 270,
         "label": "Recidief diagnostiek sexcordstromaceltumoren",
         "drill": true
       },
       {
         "id": "recidief-behandeling-kiemceltumoren",
-        "gridX": 60,
-        "gridY": 400,
+        "gridX": 22,
+        "gridY": 300,
         "label": "Recidief behandeling kiemceltumoren",
         "drill": true
       },
       {
         "id": "recidief-behandeling-sexcord",
-        "gridX": 140,
-        "gridY": 400,
+        "gridX": 68,
+        "gridY": 300,
         "label": "Recidief behandeling sexcord stromaceltumoren",
         "drill": true
       },
       {
         "id": "follow-up-kiemceltumoren-2",
-        "gridX": 60,
-        "gridY": 440,
+        "gridX": 22,
+        "gridY": 330,
         "label": "Follow-up kiemceltumoren",
         "drill": true,
         "to": "follow-up-kiemceltumoren"
       },
       {
         "id": "follow-up-sexcord-2",
-        "gridX": 140,
-        "gridY": 440,
+        "gridX": 68,
+        "gridY": 330,
         "label": "Follow-up sexcord stromaceltumoren",
         "drill": true,
         "to": "follow-up-sexcord"
@@ -163,12 +163,12 @@
         "to": "klinisch-vergroot-ovarium",
         "points": [
           [
-            710,
-            90
+            440,
+            100
           ],
           [
-            710,
-            200
+            440,
+            150
           ]
         ],
         "arrow": true
@@ -179,12 +179,12 @@
         "to": "initieel-beleid-vergroot-ovarium",
         "points": [
           [
-            710,
-            290
+            440,
+            250
           ],
           [
-            710,
-            400
+            440,
+            300
           ]
         ],
         "arrow": true
@@ -195,12 +195,12 @@
         "to": "aanvullende-diagnostiek",
         "points": [
           [
-            710,
-            490
+            440,
+            400
           ],
           [
-            710,
-            600
+            440,
+            450
           ]
         ],
         "arrow": true
@@ -211,12 +211,12 @@
         "to": "aanvullende-diagnostiek-tumormarkers-ct",
         "points": [
           [
-            710,
-            690
+            440,
+            550
           ],
           [
-            710,
-            800
+            440,
+            600
           ]
         ],
         "arrow": true
@@ -227,12 +227,12 @@
         "to": "pathologie-stagering",
         "points": [
           [
-            710,
-            890
+            440,
+            700
           ],
           [
-            710,
-            1000
+            440,
+            750
           ]
         ],
         "arrow": true
@@ -243,20 +243,20 @@
         "to": "beleid-choriocarcinoom",
         "points": [
           [
-            710,
-            890
+            440,
+            700
           ],
           [
-            710,
-            1045
+            440,
+            800
           ],
           [
-            1310,
-            1045
+            890,
+            800
           ],
           [
-            1310,
-            1200
+            890,
+            900
           ]
         ],
         "arrow": true
@@ -267,20 +267,20 @@
         "to": "beleid-definitieve-histologie",
         "points": [
           [
-            710,
-            1090
+            440,
+            850
           ],
           [
-            710,
-            1145
+            440,
+            875
           ],
           [
-            310,
-            1145
+            100,
+            875
           ],
           [
-            310,
-            1200
+            100,
+            900
           ]
         ],
         "arrow": true
@@ -291,20 +291,20 @@
         "to": "beleid-vriescoupe",
         "points": [
           [
-            710,
-            1090
+            440,
+            850
           ],
           [
-            710,
-            1145
+            440,
+            875
           ],
           [
-            1010,
-            1145
+            660,
+            875
           ],
           [
-            1010,
-            1200
+            660,
+            900
           ]
         ],
         "arrow": true
@@ -315,20 +315,20 @@
         "to": "adjuvante-behandeling-kiemceltumoren",
         "points": [
           [
-            310,
-            1290
+            100,
+            1000
           ],
           [
-            310,
-            1345
+            100,
+            1025
           ],
           [
-            410,
-            1345
+            210,
+            1025
           ],
           [
-            410,
-            1400
+            210,
+            1050
           ]
         ],
         "arrow": true
@@ -339,20 +339,20 @@
         "to": "adjuvante-behandeling-sexcord",
         "points": [
           [
-            310,
-            1290
+            100,
+            1000
           ],
           [
-            310,
-            1345
+            100,
+            1025
           ],
           [
-            810,
-            1345
+            440,
+            1025
           ],
           [
-            810,
-            1400
+            440,
+            1050
           ]
         ],
         "arrow": true
@@ -363,12 +363,12 @@
         "to": "follow-up-kiemceltumoren",
         "points": [
           [
-            410,
-            1490
+            210,
+            1150
           ],
           [
-            410,
-            1600
+            210,
+            1200
           ]
         ],
         "arrow": true
@@ -379,12 +379,12 @@
         "to": "follow-up-sexcord",
         "points": [
           [
-            810,
-            1490
+            440,
+            1150
           ],
           [
-            810,
-            1600
+            440,
+            1200
           ]
         ],
         "arrow": true
@@ -395,12 +395,12 @@
         "to": "recidief-diagnostiek-kiemceltumoren",
         "points": [
           [
-            410,
-            1690
+            210,
+            1300
           ],
           [
-            410,
-            1800
+            210,
+            1350
           ]
         ],
         "arrow": true
@@ -411,12 +411,12 @@
         "to": "recidief-diagnostiek-sexcord",
         "points": [
           [
-            810,
-            1690
+            440,
+            1300
           ],
           [
-            810,
-            1800
+            440,
+            1350
           ]
         ],
         "arrow": true
@@ -427,12 +427,12 @@
         "to": "recidief-behandeling-kiemceltumoren",
         "points": [
           [
-            410,
-            1890
+            210,
+            1450
           ],
           [
-            410,
-            2000
+            210,
+            1500
           ]
         ],
         "arrow": true
@@ -443,12 +443,12 @@
         "to": "recidief-behandeling-sexcord",
         "points": [
           [
-            810,
-            1890
+            440,
+            1450
           ],
           [
-            810,
-            2000
+            440,
+            1500
           ]
         ],
         "arrow": true
@@ -459,12 +459,12 @@
         "to": "follow-up-kiemceltumoren-2",
         "points": [
           [
-            410,
-            2090
+            210,
+            1600
           ],
           [
-            410,
-            2200
+            210,
+            1650
           ]
         ],
         "arrow": true
@@ -475,12 +475,12 @@
         "to": "follow-up-sexcord-2",
         "points": [
           [
-            810,
-            2090
+            440,
+            1600
           ],
           [
-            810,
-            2200
+            440,
+            1650
           ]
         ],
         "arrow": true
@@ -518,7 +518,7 @@
           "to": "recidief-behandeling-sexcord",
           "id": "verwijzing-recidief-behandeling-sexcord-stromaceltumoren",
           "gridX": 0,
-          "gridY": 65
+          "gridY": 63
         }
       ],
       "edges": [
@@ -550,7 +550,7 @@
           "height": 20,
           "id": "aanbeveling-chirurgie",
           "gridX": 50,
-          "gridY": 130
+          "gridY": 135
         },
         {
           "type": "reference",
@@ -558,7 +558,7 @@
           "to": "follow-up-sexcord",
           "id": "verwijzing-follow-up-sexcord-stromaceltumoren",
           "gridX": 150,
-          "gridY": 185
+          "gridY": 184
         },
         {
           "type": "reference",
@@ -566,7 +566,7 @@
           "to": "follow-up-sexcord",
           "id": "verwijzing-follow-up-sexcord-stromaceltumoren-2",
           "gridX": 100,
-          "gridY": 185
+          "gridY": 184
         },
         {
           "type": "reference",
@@ -574,7 +574,7 @@
           "to": "follow-up-sexcord",
           "id": "verwijzing-follow-up-sexcord-stromaceltumoren-3",
           "gridX": 50,
-          "gridY": 185
+          "gridY": 184
         },
         {
           "type": "title",
@@ -589,7 +589,7 @@
           "height": 29,
           "id": "aanbeveling-overweeg-chemotherapie",
           "gridX": 150,
-          "gridY": 130
+          "gridY": 135
         },
         {
           "type": "recommendation",
@@ -597,7 +597,7 @@
           "height": 39,
           "id": "aanbeveling-expectatief-tot-klachten",
           "gridX": 100,
-          "gridY": 130
+          "gridY": 135
         },
         {
           "type": "recommendation",
@@ -605,14 +605,14 @@
           "height": 20,
           "id": "aanbeveling-de-richtlijn-doet-hier-geen-uitspraak-over",
           "gridX": 0,
-          "gridY": 130
+          "gridY": 135
         },
         {
           "type": "dataItem",
           "label": "Symptomatisch recidief",
           "id": "symptomatisch-recidief",
           "gridX": 50,
-          "gridY": 95,
+          "gridY": 100,
           "interactive": true,
           "options": [
             {
@@ -652,7 +652,7 @@
           "label": "Resectabiliteit",
           "id": "resectabiliteit",
           "gridX": 50,
-          "gridY": 60,
+          "gridY": 65,
           "interactive": true,
           "options": [
             {
@@ -805,7 +805,7 @@
           "height": 20,
           "id": "aanbeveling-overweeg-erfelijkheidsonderzoek",
           "gridX": 150,
-          "gridY": 75
+          "gridY": 65
         },
         {
           "type": "recommendation",
@@ -813,7 +813,7 @@
           "height": 20,
           "id": "aanbeveling-ga-naar-desbetreffende-richtlijn",
           "gridX": 0,
-          "gridY": 75
+          "gridY": 65
         },
         {
           "type": "reference",
@@ -821,7 +821,7 @@
           "to": "pathologie-stagering",
           "id": "verwijzing-pathologie-en-stagering",
           "gridX": 100,
-          "gridY": 115
+          "gridY": 98
         },
         {
           "type": "title",
@@ -866,7 +866,7 @@
           "height": 23,
           "id": "aanbeveling-verwijzen-naar-oncologisch-centrum",
           "gridX": 50,
-          "gridY": 75
+          "gridY": 65
         },
         {
           "type": "reference",
@@ -874,7 +874,7 @@
           "to": "pathologie-stagering",
           "id": "verwijzing-pathologie-en-stagering-2",
           "gridX": 50,
-          "gridY": 115
+          "gridY": 98
         },
         {
           "type": "recommendation",
@@ -882,7 +882,7 @@
           "height": 20,
           "id": "aanbeveling-verwijzen-naar-oncologisch-centrum-2",
           "gridX": 100,
-          "gridY": 75
+          "gridY": 65
         },
         {
           "type": "reference",
@@ -890,7 +890,7 @@
           "to": "beleid-choriocarcinoom",
           "id": "verwijzing-beleid-choriocarcinoom",
           "gridX": 150,
-          "gridY": 115
+          "gridY": 98
         }
       ],
       "edges": [
@@ -1113,7 +1113,7 @@
           "to": "adjuvante-behandeling-sexcord",
           "id": "verwijzing-adjuvante-behandeling-sexcordstromaceltumoren",
           "gridX": 250,
-          "gridY": 220
+          "gridY": 216
         },
         {
           "type": "dataItem",
@@ -1230,7 +1230,7 @@
           "to": "follow-up-kiemceltumoren",
           "id": "verwijzing-follow-up-kiemceltumoren",
           "gridX": 200,
-          "gridY": 220
+          "gridY": 216
         },
         {
           "type": "reference",
@@ -1238,7 +1238,7 @@
           "to": "adjuvante-behandeling-sexcord",
           "id": "verwijzing-adjuvante-behandeling-sexcordstromaceltumoren-2",
           "gridX": 300,
-          "gridY": 220
+          "gridY": 216
         },
         {
           "type": "reference",
@@ -1246,7 +1246,7 @@
           "to": "adjuvante-behandeling-kiemceltumoren",
           "id": "verwijzing-adjuvante-behandeling-kiemceltumoren",
           "gridX": 150,
-          "gridY": 220
+          "gridY": 216
         },
         {
           "type": "dataItem",
@@ -1274,7 +1274,7 @@
           "to": "adjuvante-behandeling-kiemceltumoren",
           "id": "verwijzing-adjuvante-behandeling-kiemceltumoren-2",
           "gridX": 100,
-          "gridY": 220
+          "gridY": 216
         },
         {
           "type": "recommendation",
@@ -1326,7 +1326,7 @@
           "to": "follow-up-sexcord",
           "id": "verwijzing-follow-up-sexcord-stromaceltumoren",
           "gridX": 400,
-          "gridY": 220
+          "gridY": 216
         },
         {
           "type": "recommendation",
@@ -1342,7 +1342,7 @@
           "to": "adjuvante-behandeling-sexcord",
           "id": "verwijzing-adjuvante-behandeling-sexcordstromaceltumoren-3",
           "gridX": 350,
-          "gridY": 220
+          "gridY": 216
         }
       ],
       "edges": [
@@ -1529,7 +1529,7 @@
           "height": 20,
           "id": "aanbeveling-geen-aanvullende-therapie-geindiceerd",
           "gridX": 0,
-          "gridY": 95
+          "gridY": 100
         },
         {
           "type": "recommendation",
@@ -1537,7 +1537,7 @@
           "height": 29,
           "id": "aanbeveling-overweeg-hormoontherapie",
           "gridX": 50,
-          "gridY": 95
+          "gridY": 100
         },
         {
           "type": "dataItem",
@@ -1565,7 +1565,7 @@
           "height": 20,
           "id": "aanbeveling-overweeg-hormoontherapie-2",
           "gridX": 100,
-          "gridY": 95
+          "gridY": 100
         },
         {
           "type": "reference",
@@ -1573,7 +1573,7 @@
           "to": "follow-up-sexcord",
           "id": "verwijzing-follow-up-sexcord-stromaceltumoren",
           "gridX": 0,
-          "gridY": 145
+          "gridY": 139
         },
         {
           "type": "reference",
@@ -1581,7 +1581,7 @@
           "to": "follow-up-sexcord",
           "id": "verwijzing-follow-up-sexcord-stromaceltumoren-2",
           "gridX": 50,
-          "gridY": 145
+          "gridY": 139
         },
         {
           "type": "reference",
@@ -1589,14 +1589,14 @@
           "to": "follow-up-sexcord",
           "id": "verwijzing-follow-up-sexcord-stromaceltumoren-3",
           "gridX": 100,
-          "gridY": 145
+          "gridY": 139
         },
         {
           "type": "dataItem",
           "label": "Tumordistributie",
           "id": "tumordistributie",
           "gridX": 50,
-          "gridY": 60,
+          "gridY": 65,
           "interactive": true,
           "options": [
             {
@@ -1701,7 +1701,7 @@
           "to": "recidief-diagnostiek-kiemceltumoren",
           "id": "verwijzing-recidief-diagnostiek-kiemceltumoren",
           "gridX": 0,
-          "gridY": 70
+          "gridY": 76
         }
       ],
       "edges": [
@@ -1827,14 +1827,14 @@
           "height": 20,
           "id": "aanbeveling-geen-adjuvante-behandeling-geindiceerd",
           "gridX": 150,
-          "gridY": 160
+          "gridY": 170
         },
         {
           "type": "dataItem",
           "label": "Stadium",
           "id": "stadium",
           "gridX": 0,
-          "gridY": 60,
+          "gridY": 65,
           "interactive": true,
           "options": [
             {
@@ -1854,7 +1854,7 @@
           "label": "Stadium",
           "id": "stadium-2",
           "gridX": 150,
-          "gridY": 60,
+          "gridY": 65,
           "interactive": true,
           "options": [
             {
@@ -1907,7 +1907,7 @@
           "to": "follow-up-kiemceltumoren",
           "id": "verwijzing-follow-up-kiemceltumoren",
           "gridX": 0,
-          "gridY": 240
+          "gridY": 248
         },
         {
           "type": "reference",
@@ -1915,7 +1915,7 @@
           "to": "follow-up-kiemceltumoren",
           "id": "verwijzing-follow-up-kiemceltumoren-2",
           "gridX": 150,
-          "gridY": 240
+          "gridY": 248
         },
         {
           "type": "reference",
@@ -1923,7 +1923,7 @@
           "to": "follow-up-kiemceltumoren",
           "id": "verwijzing-follow-up-kiemceltumoren-3",
           "gridX": 100,
-          "gridY": 240
+          "gridY": 248
         },
         {
           "type": "recommendation",
@@ -1931,7 +1931,7 @@
           "height": 20,
           "id": "aanbeveling-geen-adjuvante-behandeling-geindiceerd-2",
           "gridX": 0,
-          "gridY": 160
+          "gridY": 170
         },
         {
           "type": "reference",
@@ -1939,7 +1939,7 @@
           "to": "follow-up-kiemceltumoren",
           "id": "verwijzing-follow-up-kiemceltumoren-4",
           "gridX": 50,
-          "gridY": 240
+          "gridY": 248
         },
         {
           "type": "recommendation",
@@ -1947,7 +1947,7 @@
           "height": 36,
           "id": "aanbeveling-3-kuren",
           "gridX": 50,
-          "gridY": 160
+          "gridY": 170
         },
         {
           "type": "recommendation",
@@ -1955,14 +1955,14 @@
           "height": 68,
           "id": "aanbeveling-4-kuren",
           "gridX": 100,
-          "gridY": 160
+          "gridY": 170
         },
         {
           "type": "dataItem",
           "label": "Prognose",
           "id": "prognose",
           "gridX": 50,
-          "gridY": 125,
+          "gridY": 135,
           "interactive": true,
           "options": [
             {
@@ -2003,7 +2003,7 @@
           "label": "Differentiatiegraad",
           "id": "differentiatiegraad",
           "gridX": 150,
-          "gridY": 95,
+          "gridY": 100,
           "interactive": true,
           "options": [
             {
@@ -2028,7 +2028,7 @@
           "label": "Prognose",
           "id": "prognose-2",
           "gridX": 200,
-          "gridY": 125,
+          "gridY": 135,
           "interactive": true,
           "options": [
             {
@@ -2070,7 +2070,7 @@
           "height": 36,
           "id": "aanbeveling-3-kuren-2",
           "gridX": 200,
-          "gridY": 160
+          "gridY": 170
         },
         {
           "type": "recommendation",
@@ -2078,7 +2078,7 @@
           "height": 68,
           "id": "aanbeveling-4-kuren-2",
           "gridX": 250,
-          "gridY": 160
+          "gridY": 170
         },
         {
           "type": "reference",
@@ -2086,7 +2086,7 @@
           "to": "follow-up-kiemceltumoren",
           "id": "verwijzing-follow-up-kiemceltumoren-5",
           "gridX": 200,
-          "gridY": 240
+          "gridY": 248
         },
         {
           "type": "reference",
@@ -2094,7 +2094,7 @@
           "to": "follow-up-kiemceltumoren",
           "id": "verwijzing-follow-up-kiemceltumoren-6",
           "gridX": 250,
-          "gridY": 240
+          "gridY": 248
         }
       ],
       "edges": [
@@ -3009,7 +3009,7 @@
           "to": "adjuvante-behandeling-kiemceltumoren",
           "id": "verwijzing-adjuvante-behandeling-kiemceltumoren",
           "gridX": 100,
-          "gridY": 215
+          "gridY": 213
         },
         {
           "type": "reference",
@@ -3017,7 +3017,7 @@
           "to": "adjuvante-behandeling-kiemceltumoren",
           "id": "verwijzing-adjuvante-behandeling-kiemceltumoren-2",
           "gridX": 150,
-          "gridY": 215
+          "gridY": 213
         },
         {
           "type": "reference",
@@ -3025,7 +3025,7 @@
           "to": "adjuvante-behandeling-sexcord",
           "id": "verwijzing-adjuvante-behandeling-sexcordstromaceltumoren",
           "gridX": 200,
-          "gridY": 215
+          "gridY": 213
         },
         {
           "type": "reference",
@@ -3033,7 +3033,7 @@
           "to": "adjuvante-behandeling-sexcord",
           "id": "verwijzing-adjuvante-behandeling-sexcordstromaceltumoren-2",
           "gridX": 250,
-          "gridY": 215
+          "gridY": 213
         },
         {
           "type": "reference",
@@ -3041,7 +3041,7 @@
           "to": "adjuvante-behandeling-sexcord",
           "id": "verwijzing-adjuvante-behandeling-sexcordstromaceltumoren-3",
           "gridX": 300,
-          "gridY": 215
+          "gridY": 213
         },
         {
           "type": "reference",
@@ -3049,7 +3049,7 @@
           "to": "follow-up-sexcord",
           "id": "verwijzing-follow-up-sexcord-stromaceltumoren",
           "gridX": 350,
-          "gridY": 215
+          "gridY": 213
         }
       ],
       "edges": [

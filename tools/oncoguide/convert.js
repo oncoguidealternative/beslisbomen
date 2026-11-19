@@ -346,6 +346,8 @@ function convert(exp, cfg, register, bestaand, oudOverzicht) {
     trees[keys[t.id]] = tree;
   });
 
+  Object.keys(trees).forEach(function (k) { normalizeRows(trees[k]); });
+
   // Hulpbeslisbomen koppelen: uitkomst van de hulpboom → waarde van het gegeven
   Object.keys(trees).forEach(function (k) {
     trees[k].nodes.forEach(function (n) {
@@ -421,6 +423,50 @@ function convert(exp, cfg, register, bestaand, oudOverzicht) {
   return {overview: overview, trees: trees, warnings: warnings, ownTrees: ownTrees, linked: linked};
 }
 
+/* ---------- raster: vaste verticale afstanden ---------- */
+
+/* Afspraak (zoals in Cervixcarcinoom): blok 40 x 20 hokjes (200 x 100 px), 5 hokjes (25 px) tussen blokken
+   naast elkaar, en onder een blok:
+     titel → 10 hokjes (50 px), gegeven → 15 hokjes (75 px), aanbeveling of verwijzing → 10 hokjes (50 px).
+   Oncoguide gebruikt wisselende afstanden; deze functie legt de rijen van een boom opnieuw op dit raster.
+   Blokken die in Oncoguide op één rij stonden, blijven op één rij. Alleen voor bomen zonder vaste lijnen (points). */
+const GAP_BELOW = {title: 10, dataItem: 15, recommendation: 10, reference: 10};
+function normalizeRows(tree) {
+  if (tree.edges.some(function (e) { return e.points; })) return;
+  const H = function (n) { return n.height || LAYOUT.blockHeight; };
+  const byId = {};
+  tree.nodes.forEach(function (n) { byId[n.id] = n; });
+  const oldY = {};
+  tree.nodes.forEach(function (n) { oldY[n.id] = n.gridY; });
+  const rows = Array.from(new Set(tree.nodes.map(function (n) { return n.gridY; }))).sort(function (a, b) { return a - b; });
+  const newTop = {};
+  let prevOld = null, prevNew = null;
+  rows.forEach(function (y) {
+    const row = tree.nodes.filter(function (n) { return oldY[n.id] === y; });
+    let top = null;
+    row.forEach(function (n) {
+      tree.edges.forEach(function (e) {
+        const p = byId[e.from];
+        if (e.to !== n.id || !p || oldY[p.id] >= y || newTop[oldY[p.id]] === undefined) return;
+        const need = newTop[oldY[p.id]] + H(p) + (GAP_BELOW[p.type] || 10);
+        if (top === null || need > top) top = need;
+      });
+    });
+    // Geen ouder erboven: zelfde afstand tot de vorige rij als in Oncoguide
+    if (top === null) top = prevNew === null ? 0 : prevNew + (y - prevOld);
+    // Nooit over een hoger blok in dezelfde kolom heen
+    tree.nodes.forEach(function (m) {
+      if (oldY[m.id] >= y || newTop[oldY[m.id]] === undefined) return;
+      row.forEach(function (n) {
+        const overlapX = m.gridX < n.gridX + LAYOUT.blockWidth && n.gridX < m.gridX + LAYOUT.blockWidth;
+        if (overlapX) top = Math.max(top, newTop[oldY[m.id]] + H(m) + 5);
+      });
+    });
+    newTop[y] = top; prevOld = y; prevNew = top;
+  });
+  tree.nodes.forEach(function (n) { n.gridY = newTop[oldY[n.id]]; });
+}
+
 /* ---------- hoogtes nameten in de browser (--measure) ---------- */
 
 async function measure(tumor, file, data) {
@@ -462,19 +508,10 @@ async function measure(tumor, file, data) {
     tree.nodes.forEach(function (n) {
       if (need[n.id] === undefined) return;
       const h = Math.max(LAYOUT.blockHeight, Math.ceil(need[n.id] / UNIT));
-      const old = n.height;
       n.height = h;
-      // Wordt een aanbeveling hoger dan er ruimte is, schuif dan alles eronder in die kolom(men) mee omlaag
-      const bottom = n.gridY + h + 4;
-      tree.nodes.forEach(function (m) {
-        if (m === n || m.gridY <= n.gridY) return;
-        const overlapX = m.gridX < n.gridX + LAYOUT.blockWidth && n.gridX < m.gridX + LAYOUT.blockWidth;
-        if (overlapX && m.gridY < bottom && h > old) {
-          const delta = bottom - m.gridY;
-          tree.nodes.forEach(function (q) { if (q.gridY >= m.gridY) q.gridY += delta; });
-        }
-      });
     });
+    // Rijen opnieuw op het raster leggen met de nagemeten hoogtes
+    normalizeRows(tree);
   }
   await browser.close();
   server.close();
@@ -559,4 +596,4 @@ async function main() {
 }
 
 if (require.main === module) main().catch(function (e) { console.error(e); process.exit(1); });
-module.exports = {convert: convert, recText: recText, label: label, slug: slug};
+module.exports = {convert: convert, normalizeRows: normalizeRows, recText: recText, label: label, slug: slug};

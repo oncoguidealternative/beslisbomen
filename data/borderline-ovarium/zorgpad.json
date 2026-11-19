@@ -11,30 +11,30 @@
   "overview": {
     "layout": {
       "unit": 5,
-      "blockWidth": 44,
-      "blockHeight": 18,
-      "margin": 2
+      "blockWidth": 40,
+      "blockHeight": 20,
+      "margin": 10
     },
     "wrap": 28,
     "nodes": [
       {
         "id": "zorgpad-borderline-ovariumtumor",
         "type": "title",
-        "gridX": 100,
+        "gridX": 0,
         "gridY": 0,
         "label": "Zorgpad Borderline Ovariumtumor"
       },
       {
         "id": "screening",
-        "gridX": 100,
-        "gridY": 40,
+        "gridX": 0,
+        "gridY": 30,
         "label": "Screening",
         "drill": true
       },
       {
         "id": "klinisch-vergroot-ovarium",
-        "gridX": 100,
-        "gridY": 80,
+        "gridX": 0,
+        "gridY": 60,
         "label": "Klinisch (verdenking op) vergroot ovarium",
         "tumor": "vergroot-ovarium",
         "tree": "klinisch-vergroot-ovarium",
@@ -42,8 +42,8 @@
       },
       {
         "id": "initieel-beleid-vergroot-ovarium",
-        "gridX": 100,
-        "gridY": 120,
+        "gridX": 0,
+        "gridY": 90,
         "label": "Initieel beleid vergroot ovarium",
         "tumor": "vergroot-ovarium",
         "tree": "initieel-beleid",
@@ -51,58 +51,58 @@
       },
       {
         "id": "behandeling-borderline-ovariumtumor",
-        "gridX": 100,
-        "gridY": 160,
+        "gridX": 0,
+        "gridY": 120,
         "label": "Behandeling borderline ovariumtumor",
         "drill": true
       },
       {
         "id": "aanvullende-diagnostiek-tijdens-operatie",
-        "gridX": 100,
-        "gridY": 200,
+        "gridX": 0,
+        "gridY": 150,
         "label": "Aanvullende diagnostiek tijdens operatie",
         "drill": true
       },
       {
         "id": "postoperatief-beleid",
-        "gridX": 100,
-        "gridY": 240,
+        "gridX": 0,
+        "gridY": 180,
         "label": "Postoperatief beleid",
         "drill": true
       },
       {
         "id": "follow-up-1",
-        "gridX": 100,
-        "gridY": 280,
+        "gridX": 0,
+        "gridY": 210,
         "label": "Follow-up",
         "to": "follow-up",
         "icon": "down"
       },
       {
         "id": "secundaire-behandeling-resttumor",
-        "gridX": 180,
-        "gridY": 280,
+        "gridX": 45,
+        "gridY": 210,
         "label": "Secundaire behandeling resttumor",
         "drill": true
       },
       {
         "id": "diagnostiek-recidief",
-        "gridX": 100,
-        "gridY": 320,
+        "gridX": 0,
+        "gridY": 240,
         "label": "Diagnostiek recidief",
         "drill": true
       },
       {
         "id": "behandeling-recidief",
-        "gridX": 100,
-        "gridY": 360,
+        "gridX": 0,
+        "gridY": 270,
         "label": "Behandeling recidief",
         "drill": true
       },
       {
         "id": "follow-up-2",
-        "gridX": 100,
-        "gridY": 400,
+        "gridX": 0,
+        "gridY": 300,
         "label": "Follow-up",
         "to": "follow-up",
         "icon": "down"
@@ -115,12 +115,12 @@
         "to": "screening",
         "points": [
           [
-            610,
-            90
+            100,
+            100
           ],
           [
-            610,
-            200
+            100,
+            150
           ]
         ],
         "arrow": true
@@ -131,12 +131,12 @@
         "to": "klinisch-vergroot-ovarium",
         "points": [
           [
-            610,
-            290
+            100,
+            250
           ],
           [
-            610,
-            400
+            100,
+            300
           ]
         ],
         "arrow": true
@@ -147,12 +147,12 @@
         "to": "initieel-beleid-vergroot-ovarium",
         "points": [
           [
-            610,
-            490
+            100,
+            400
           ],
           [
-            610,
-            600
+            100,
+            450
           ]
         ],
         "arrow": true
@@ -163,12 +163,12 @@
         "to": "behandeling-borderline-ovariumtumor",
         "points": [
           [
-            610,
-            690
+            100,
+            550
           ],
           [
-            610,
-            800
+            100,
+            600
           ]
         ],
         "arrow": true
@@ -179,12 +179,12 @@
         "to": "aanvullende-diagnostiek-tijdens-operatie",
         "points": [
           [
-            610,
-            890
+            100,
+            700
           ],
           [
-            610,
-            1000
+            100,
+            750
           ]
         ],
         "arrow": true
@@ -195,12 +195,12 @@
         "to": "postoperatief-beleid",
         "points": [
           [
-            610,
-            1090
+            100,
+            850
           ],
           [
-            610,
-            1200
+            100,
+            900
           ]
         ],
         "arrow": true
@@ -211,12 +211,12 @@
         "to": "follow-up-1",
         "points": [
           [
-            610,
-            1290
+            100,
+            1000
           ],
           [
-            610,
-            1400
+            100,
+            1050
           ]
         ],
         "arrow": true
@@ -227,20 +227,20 @@
         "to": "secundaire-behandeling-resttumor",
         "points": [
           [
-            610,
-            1290
+            100,
+            1000
           ],
           [
-            610,
-            1345
+            100,
+            1025
           ],
           [
-            1010,
-            1345
+            325,
+            1025
           ],
           [
-            1010,
-            1400
+            325,
+            1050
           ]
         ],
         "arrow": true
@@ -251,12 +251,12 @@
         "to": "diagnostiek-recidief",
         "points": [
           [
-            610,
-            1490
+            100,
+            1150
           ],
           [
-            610,
-            1600
+            100,
+            1200
           ]
         ],
         "arrow": true
@@ -267,12 +267,12 @@
         "to": "behandeling-recidief",
         "points": [
           [
-            610,
-            1690
+            100,
+            1300
           ],
           [
-            610,
-            1800
+            100,
+            1350
           ]
         ],
         "arrow": true
@@ -283,12 +283,12 @@
         "to": "follow-up-2",
         "points": [
           [
-            610,
-            1890
+            100,
+            1450
           ],
           [
-            610,
-            2000
+            100,
+            1500
           ]
         ],
         "arrow": true
@@ -318,7 +318,7 @@
           "height": 20,
           "id": "aanbeveling-screening-niet-geindiceerd",
           "gridX": 0,
-          "gridY": 35
+          "gridY": 30
         },
         {
           "type": "reference",
@@ -327,7 +327,7 @@
           "tree": "klinisch-vergroot-ovarium",
           "id": "verwijzing-klinisch-verdenking-op-vergroot-ovarium",
           "gridX": 0,
-          "gridY": 65
+          "gridY": 60
         }
       ],
       "edges": [
@@ -395,7 +395,7 @@
           "to": "aanvullende-diagnostiek-tijdens-operatie",
           "id": "verwijzing-aanvullende-diagnostiek-tijdens-operatie",
           "gridX": 315,
-          "gridY": 370
+          "gridY": 325
         },
         {
           "type": "dataItem",
@@ -431,7 +431,7 @@
           "to": "aanvullende-diagnostiek-tijdens-operatie",
           "id": "verwijzing-aanvullende-diagnostiek-tijdens-operatie-2",
           "gridX": 360,
-          "gridY": 370
+          "gridY": 325
         },
         {
           "type": "reference",
@@ -439,7 +439,7 @@
           "to": "aanvullende-diagnostiek-tijdens-operatie",
           "id": "verwijzing-aanvullende-diagnostiek-tijdens-operatie-3",
           "gridX": 270,
-          "gridY": 370
+          "gridY": 325
         },
         {
           "type": "dataItem",
@@ -467,7 +467,7 @@
           "to": "aanvullende-diagnostiek-tijdens-operatie",
           "id": "verwijzing-aanvullende-diagnostiek-tijdens-operatie-4",
           "gridX": 90,
-          "gridY": 370
+          "gridY": 325
         },
         {
           "type": "recommendation",
@@ -483,7 +483,7 @@
           "to": "aanvullende-diagnostiek-tijdens-operatie",
           "id": "verwijzing-aanvullende-diagnostiek-tijdens-operatie-5",
           "gridX": 135,
-          "gridY": 370
+          "gridY": 325
         },
         {
           "type": "recommendation",
@@ -499,7 +499,7 @@
           "to": "aanvullende-diagnostiek-tijdens-operatie",
           "id": "verwijzing-aanvullende-diagnostiek-tijdens-operatie-6",
           "gridX": 0,
-          "gridY": 370
+          "gridY": 325
         },
         {
           "type": "reference",
@@ -507,7 +507,7 @@
           "to": "aanvullende-diagnostiek-tijdens-operatie",
           "id": "verwijzing-aanvullende-diagnostiek-tijdens-operatie-7",
           "gridX": 180,
-          "gridY": 370
+          "gridY": 325
         },
         {
           "type": "recommendation",
@@ -543,7 +543,7 @@
           "to": "aanvullende-diagnostiek-tijdens-operatie",
           "id": "verwijzing-aanvullende-diagnostiek-tijdens-operatie-8",
           "gridX": 45,
-          "gridY": 370
+          "gridY": 325
         },
         {
           "type": "recommendation",
@@ -559,7 +559,7 @@
           "to": "aanvullende-diagnostiek-tijdens-operatie",
           "id": "verwijzing-aanvullende-diagnostiek-tijdens-operatie-9",
           "gridX": 225,
-          "gridY": 370
+          "gridY": 325
         },
         {
           "type": "recommendation",
@@ -662,7 +662,7 @@
           "to": "aanvullende-diagnostiek-tijdens-operatie",
           "id": "verwijzing-aanvullende-diagnostiek-tijdens-operatie-10",
           "gridX": 405,
-          "gridY": 370
+          "gridY": 325
         },
         {
           "type": "dataItem",
@@ -968,7 +968,7 @@
           "height": 29,
           "id": "aanbeveling-zorgvuldige-intraoperatieve-inspectie-van",
           "gridX": 50,
-          "gridY": 110
+          "gridY": 100
         },
         {
           "type": "recommendation",
@@ -976,7 +976,7 @@
           "height": 20,
           "id": "aanbeveling-ga-naar-desbetreffende-richtlijn",
           "gridX": 100,
-          "gridY": 110
+          "gridY": 100
         },
         {
           "type": "recommendation",
@@ -984,7 +984,7 @@
           "height": 20,
           "id": "aanbeveling-geen-aanvullende-inspectie-van-de-appendix",
           "gridX": 0,
-          "gridY": 110
+          "gridY": 100
         },
         {
           "type": "dataItem",
@@ -1019,7 +1019,7 @@
           "to": "postoperatief-beleid",
           "id": "verwijzing-postoperatief-beleid",
           "gridX": 50,
-          "gridY": 145
+          "gridY": 139
         },
         {
           "type": "reference",
@@ -1027,7 +1027,7 @@
           "to": "postoperatief-beleid",
           "id": "verwijzing-postoperatief-beleid-2",
           "gridX": 145,
-          "gridY": 145
+          "gridY": 139
         },
         {
           "type": "reference",
@@ -1035,7 +1035,7 @@
           "to": "postoperatief-beleid",
           "id": "verwijzing-postoperatief-beleid-3",
           "gridX": 0,
-          "gridY": 145
+          "gridY": 139
         }
       ],
       "edges": [
@@ -1158,7 +1158,7 @@
           "height": 20,
           "id": "aanbeveling-verder-beleid-volgens-betreffende-richtlijn",
           "gridX": 0,
-          "gridY": 165
+          "gridY": 170
         },
         {
           "type": "dataItem",
@@ -1186,7 +1186,7 @@
           "height": 20,
           "id": "aanbeveling-debulking",
           "gridX": 225,
-          "gridY": 165
+          "gridY": 170
         },
         {
           "type": "reference",
@@ -1194,7 +1194,7 @@
           "to": "secundaire-behandeling-resttumor",
           "id": "verwijzing-secundaire-behandeling-resttumor",
           "gridX": 225,
-          "gridY": 195
+          "gridY": 200
         },
         {
           "type": "dataItem",
@@ -1227,14 +1227,14 @@
           "height": 20,
           "id": "aanbeveling-geen-follow-up",
           "gridX": 45,
-          "gridY": 165
+          "gridY": 170
         },
         {
           "type": "dataItem",
           "label": "Invasieve implantaties",
           "id": "invasieve-implantaties",
           "gridX": 90,
-          "gridY": 130,
+          "gridY": 135,
           "interactive": true,
           "options": [
             {
@@ -1255,7 +1255,7 @@
           "height": 20,
           "id": "aanbeveling-geen-adjuvante-behandeling-en-stagiering",
           "gridX": 90,
-          "gridY": 165
+          "gridY": 170
         },
         {
           "type": "title",
@@ -1270,7 +1270,7 @@
           "height": 20,
           "id": "aanbeveling-verder-beleid-volgens-richtlijn",
           "gridX": 135,
-          "gridY": 165
+          "gridY": 170
         },
         {
           "type": "recommendation",
@@ -1278,7 +1278,7 @@
           "height": 20,
           "id": "aanbeveling-verder-beleid-volgens-betreffende-richtlijn-2",
           "gridX": 180,
-          "gridY": 165
+          "gridY": 170
         },
         {
           "type": "reference",
@@ -1286,7 +1286,7 @@
           "to": "follow-up",
           "id": "verwijzing-follow-up",
           "gridX": 90,
-          "gridY": 195
+          "gridY": 200
         },
         {
           "type": "dataItem",
@@ -1536,7 +1536,7 @@
           "to": "diagnostiek-recidief",
           "id": "verwijzing-diagnostiek-recidief",
           "gridX": 0,
-          "gridY": 105
+          "gridY": 85
         },
         {
           "type": "title",
@@ -1576,7 +1576,7 @@
           "to": "behandeling-recidief",
           "id": "verwijzing-behandeling-recidief",
           "gridX": 0,
-          "gridY": 70
+          "gridY": 72
         },
         {
           "type": "recommendation",
@@ -1647,7 +1647,7 @@
           "to": "follow-up",
           "id": "verwijzing-follow-up",
           "gridX": 0,
-          "gridY": 140
+          "gridY": 136
         },
         {
           "type": "dataItem",
