@@ -863,7 +863,7 @@
           "to": "beleid-na-behandeling-recidief",
           "id": "verwijzing-beleid-na-behandeling-recidief-2",
           "gridX": 90,
-          "gridY": 247
+          "gridY": 277
         },
         {
           "type": "reference",
@@ -871,7 +871,7 @@
           "to": "beleid-na-behandeling-recidief",
           "id": "verwijzing-beleid-na-behandeling-recidief-3",
           "gridX": 45,
-          "gridY": 247
+          "gridY": 277
         },
         {
           "type": "reference",
@@ -879,7 +879,7 @@
           "to": "follow-up",
           "id": "verwijzing-follow-up",
           "gridX": 135,
-          "gridY": 302
+          "gridY": 307
         },
         {
           "type": "reference",
@@ -887,7 +887,7 @@
           "to": "follow-up",
           "id": "verwijzing-follow-up-2",
           "gridX": 0,
-          "gridY": 247
+          "gridY": 277
         }
       ],
       "edges": [
@@ -3073,7 +3073,7 @@
           "to": "follow-up",
           "id": "verwijzing-follow-up-2",
           "gridX": 90,
-          "gridY": 165
+          "gridY": 184
         }
       ],
       "edges": [
@@ -4972,7 +4972,7 @@
           "to": "beleid-na-stadiering",
           "id": "verwijzing-beleid-na-stadiering-2",
           "gridX": 90,
-          "gridY": 203
+          "gridY": 209
         },
         {
           "type": "reference",
@@ -4988,7 +4988,7 @@
           "to": "beleid-na-stadiering",
           "id": "verwijzing-beleid-na-stadiering-4",
           "gridX": 135,
-          "gridY": 203
+          "gridY": 209
         },
         {
           "type": "reference",
@@ -4996,7 +4996,7 @@
           "to": "beleid-na-primaire-operatie",
           "id": "verwijzing-beleid-na-primaire-operatie",
           "gridX": 180,
-          "gridY": 203
+          "gridY": 209
         }
       ],
       "edges": [
@@ -5273,7 +5273,7 @@
           "to": "vervolg-exploratieve-chirurgie",
           "id": "verwijzing-vervolg-exploratieve-chirurgie-laag-stadium-epitheliaal-ovariumcarcinoom",
           "gridX": 0,
-          "gridY": 174
+          "gridY": 194
         },
         {
           "type": "reference",
@@ -5281,7 +5281,7 @@
           "to": "beleid-na-primaire-operatie",
           "id": "verwijzing-beleid-na-primaire-operatie",
           "gridX": 90,
-          "gridY": 174
+          "gridY": 194
         },
         {
           "type": "reference",
@@ -5289,7 +5289,7 @@
           "to": "beleid-na-primaire-operatie",
           "id": "verwijzing-beleid-na-primaire-operatie-2",
           "gridX": 135,
-          "gridY": 174
+          "gridY": 194
         },
         {
           "type": "reference",
@@ -5321,7 +5321,7 @@
           "to": "beleid-na-chemotherapie",
           "id": "verwijzing-beleid-na-chemotherapie-2",
           "gridX": 225,
-          "gridY": 174
+          "gridY": 194
         },
         {
           "type": "recommendation",
@@ -5365,7 +5365,7 @@
           "to": "vervolg-exploratieve-chirurgie",
           "id": "verwijzing-vervolg-exploratieve-chirurgie-laag-stadium-epitheliaal-ovariumcarcinoom-2",
           "gridX": 45,
-          "gridY": 174
+          "gridY": 194
         }
       ],
       "edges": [
@@ -5554,7 +5554,7 @@
           "to": "primaire-behandeling",
           "id": "verwijzing-primaire-behandeling",
           "gridX": 0,
-          "gridY": 95
+          "gridY": 117
         },
         {
           "type": "reference",

@@ -699,7 +699,7 @@
           "label": "Follow up bij expectatief beleid",
           "to": "follow-up-expectatief-beleid",
           "gridX": 720,
-          "gridY": 340
+          "gridY": 346
         },
         {
           "id": "predictiemodel",
@@ -776,7 +776,7 @@
           "tumor": "borderline-ovarium",
           "tree": "behandeling-borderline-ovariumtumor",
           "gridX": 270,
-          "gridY": 365
+          "gridY": 346
         },
         {
           "id": "ga-naar-rl-niet-epitheliaal",
@@ -1637,7 +1637,7 @@
             ],
             [
               3700,
-              1700
+              1730
             ]
           ],
           "arrow": true
@@ -1801,7 +1801,7 @@
             ],
             [
               1450,
-              1825
+              1730
             ]
           ],
           "arrow": true
@@ -1958,7 +1958,7 @@
           "label": "Follow up na chirurgie",
           "to": "follow-up-na-chirurgie",
           "gridX": 45,
-          "gridY": 185
+          "gridY": 176
         },
         {
           "id": "verwijzing-follow-up-na-chirurgie-adnextirpatie-bespreek-behoud-ovarium",
@@ -1966,7 +1966,7 @@
           "label": "Follow up na chirurgie",
           "to": "follow-up-na-chirurgie",
           "gridX": 90,
-          "gridY": 185
+          "gridY": 176
         },
         {
           "id": "verwijzing-follow-up-na-chirurgie-bilaterale-adnexextirpatie-leeftijd",
@@ -1974,7 +1974,7 @@
           "label": "Follow up na chirurgie",
           "to": "follow-up-na-chirurgie",
           "gridX": 135,
-          "gridY": 185
+          "gridY": 176
         },
         {
           "id": "verwijzing-follow-up-na-chirurgie-bilaterale-adnexextirpatie-erfelijk",
@@ -1982,7 +1982,7 @@
           "label": "Follow up na chirurgie",
           "to": "follow-up-na-chirurgie",
           "gridX": 180,
-          "gridY": 173
+          "gridY": 176
         }
       ],
       "edges": [
@@ -2199,7 +2199,7 @@
             ],
             [
               325,
-              925
+              880
             ]
           ],
           "arrow": true
@@ -2215,7 +2215,7 @@
             ],
             [
               550,
-              925
+              880
             ]
           ],
           "arrow": true
@@ -2231,7 +2231,7 @@
             ],
             [
               775,
-              925
+              880
             ]
           ],
           "arrow": true
@@ -2247,7 +2247,7 @@
             ],
             [
               1000,
-              865
+              880
             ]
           ],
           "arrow": true
@@ -2391,7 +2391,7 @@
           "label": "Follow up na chirurgie",
           "to": "follow-up-na-chirurgie",
           "gridX": 45,
-          "gridY": 210
+          "gridY": 200
         },
         {
           "id": "verwijzing-follow-up-na-chirurgie-klachten",
@@ -2399,7 +2399,7 @@
           "label": "Follow up na chirurgie",
           "to": "follow-up-na-chirurgie",
           "gridX": 135,
-          "gridY": 210
+          "gridY": 200
         }
       ],
       "edges": [
@@ -2622,7 +2622,7 @@
             ],
             [
               325,
-              1050
+              1000
             ]
           ],
           "arrow": true
@@ -2638,7 +2638,7 @@
             ],
             [
               775,
-              1050
+              1000
             ]
           ],
           "arrow": true

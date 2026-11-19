@@ -838,7 +838,7 @@
           "label": "Vervolg initiële diagnostiek tumor",
           "to": "vervolg-initiele-diagnostiek-tumor",
           "gridX": 0,
-          "gridY": 98
+          "gridY": 97
         }
       ],
       "edges": [
@@ -869,7 +869,7 @@
             ],
             [
               100,
-              490
+              485
             ]
           ],
           "arrow": true
@@ -1021,7 +1021,7 @@
           "label": "Stadium bepalen",
           "to": "stadium-bepalen",
           "gridX": 46,
-          "gridY": 193
+          "gridY": 224
         },
         {
           "id": "verwijzing-vervolg-diagnostiek-tumor",
@@ -1029,7 +1029,7 @@
           "label": "Vervolg diagnostiek tumor",
           "to": "vervolg-diagnostiek-tumor",
           "gridX": 91,
-          "gridY": 195
+          "gridY": 224
         },
         {
           "id": "verwijzing-vervolg-diagnostiek-tumor-2",
@@ -1037,7 +1037,7 @@
           "label": "Vervolg diagnostiek tumor",
           "to": "vervolg-diagnostiek-tumor",
           "gridX": 141,
-          "gridY": 228
+          "gridY": 224
         }
       ],
       "edges": [
@@ -1272,7 +1272,7 @@
             ],
             [
               330,
-              965
+              1120
             ]
           ],
           "arrow": true
@@ -1288,7 +1288,7 @@
             ],
             [
               555,
-              975
+              1120
             ]
           ],
           "arrow": true
@@ -1304,7 +1304,7 @@
             ],
             [
               805,
-              1140
+              1120
             ]
           ],
           "arrow": true
@@ -1406,7 +1406,7 @@
           "label": "Vervolg diagnostiek (lymfeklier)metastasen",
           "to": "vervolg-diagnostiek-lymfeklier-metastasen",
           "gridX": 90,
-          "gridY": 95
+          "gridY": 96
         }
       ],
       "edges": [
@@ -1546,7 +1546,7 @@
             ],
             [
               550,
-              475
+              480
             ]
           ],
           "arrow": true
@@ -1678,7 +1678,7 @@
           "label": "Stadium bepalen",
           "to": "stadium-bepalen",
           "gridX": 0,
-          "gridY": 181
+          "gridY": 186
         },
         {
           "id": "verwijzing-stadium-bepalen-2",
@@ -1686,7 +1686,7 @@
           "label": "Stadium bepalen",
           "to": "stadium-bepalen",
           "gridX": 135,
-          "gridY": 191
+          "gridY": 186
         }
       ],
       "edges": [
@@ -1944,7 +1944,7 @@
             ],
             [
               100,
-              905
+              930
             ]
           ],
           "arrow": true
@@ -1960,7 +1960,7 @@
             ],
             [
               775,
-              955
+              930
             ]
           ],
           "arrow": true
@@ -3535,7 +3535,7 @@
           "label": "Follow-up",
           "to": "follow-up",
           "gridX": 0,
-          "gridY": 151
+          "gridY": 190
         },
         {
           "id": "verwijzing-follow-up-2",
@@ -3543,7 +3543,7 @@
           "label": "Follow-up",
           "to": "follow-up",
           "gridX": 90,
-          "gridY": 153
+          "gridY": 190
         },
         {
           "id": "verwijzing-stadium-ib1-ib2",
@@ -3551,7 +3551,7 @@
           "label": "Behandeling stadium IB1 & IB2",
           "to": "stadium-ib1-ib2",
           "gridX": 180,
-          "gridY": 151
+          "gridY": 190
         },
         {
           "id": "verwijzing-follow-up-3",
@@ -3559,7 +3559,7 @@
           "label": "Follow-up",
           "to": "follow-up",
           "gridX": 45,
-          "gridY": 166
+          "gridY": 190
         },
         {
           "id": "verwijzing-follow-up-4",
@@ -3798,7 +3798,7 @@
             ],
             [
               100,
-              755
+              950
             ]
           ],
           "arrow": true
@@ -3814,7 +3814,7 @@
             ],
             [
               325,
-              830
+              950
             ]
           ],
           "arrow": true
@@ -3830,7 +3830,7 @@
             ],
             [
               550,
-              765
+              950
             ]
           ],
           "arrow": true
@@ -3862,7 +3862,7 @@
             ],
             [
               1000,
-              755
+              950
             ]
           ],
           "arrow": true
@@ -4017,7 +4017,7 @@
           "label": "Follow-up",
           "to": "follow-up",
           "gridX": 0,
-          "gridY": 145
+          "gridY": 211
         },
         {
           "id": "verwijzing-stadium-ib1-ib2",
@@ -4025,7 +4025,7 @@
           "label": "Behandeling stadium IB1 & IB2",
           "to": "stadium-ib1-ib2",
           "gridX": 180,
-          "gridY": 145
+          "gridY": 211
         },
         {
           "id": "verwijzing-follow-up-2",
@@ -4033,7 +4033,7 @@
           "label": "Follow-up",
           "to": "follow-up",
           "gridX": 45,
-          "gridY": 166
+          "gridY": 211
         },
         {
           "id": "verwijzing-adjuvante-behandeling",
@@ -4041,7 +4041,7 @@
           "label": "Adjuvante behandeling",
           "to": "adjuvante-behandeling",
           "gridX": 90,
-          "gridY": 164
+          "gridY": 211
         },
         {
           "id": "verwijzing-adjuvante-behandeling-2",
@@ -4280,7 +4280,7 @@
             ],
             [
               100,
-              725
+              1055
             ]
           ],
           "arrow": true
@@ -4296,7 +4296,7 @@
             ],
             [
               325,
-              830
+              1055
             ]
           ],
           "arrow": true
@@ -4312,7 +4312,7 @@
             ],
             [
               550,
-              820
+              1055
             ]
           ],
           "arrow": true
@@ -4344,7 +4344,7 @@
             ],
             [
               1000,
-              725
+              1055
             ]
           ],
           "arrow": true
@@ -4474,7 +4474,7 @@
           "label": "Respons beoordeling (klinisch/radiologisch)",
           "to": "respons-beoordeling",
           "gridX": 0,
-          "gridY": 203
+          "gridY": 205
         },
         {
           "id": "verwijzing-bepaling-vervolg-chirurgie",
@@ -4482,7 +4482,7 @@
           "label": "Bepaling vervolg chirurgie",
           "to": "bepaling-vervolg-chirurgie",
           "gridX": 90,
-          "gridY": 203
+          "gridY": 205
         },
         {
           "id": "verwijzing-stadium-ib1-ib2",
@@ -4490,7 +4490,7 @@
           "label": "Behandeling stadium IB1 & IB2",
           "to": "stadium-ib1-ib2",
           "gridX": 135,
-          "gridY": 184
+          "gridY": 205
         },
         {
           "id": "verwijzing-bepaling-vervolg-chirurgie-2",
@@ -4677,7 +4677,7 @@
             ],
             [
               100,
-              1015
+              1025
             ]
           ],
           "arrow": true
@@ -4709,7 +4709,7 @@
             ],
             [
               550,
-              1015
+              1025
             ]
           ],
           "arrow": true
@@ -4725,7 +4725,7 @@
             ],
             [
               775,
-              920
+              1025
             ]
           ],
           "arrow": true
@@ -4793,7 +4793,7 @@
           "label": "Respons beoordeling (klinisch/radiologisch)",
           "to": "respons-beoordeling",
           "gridX": 0,
-          "gridY": 168
+          "gridY": 167
         },
         {
           "id": "verwijzing-bepaling-vervolg-chirurgie",
@@ -4801,7 +4801,7 @@
           "label": "Bepaling vervolg chirurgie",
           "to": "bepaling-vervolg-chirurgie",
           "gridX": 45,
-          "gridY": 168
+          "gridY": 167
         }
       ],
       "edges": [
@@ -4880,7 +4880,7 @@
             ],
             [
               100,
-              840
+              835
             ]
           ],
           "arrow": true
@@ -4896,7 +4896,7 @@
             ],
             [
               325,
-              840
+              835
             ]
           ],
           "arrow": true
@@ -4964,7 +4964,7 @@
           "label": "Respons beoordeling (klinisch/radiologisch)",
           "to": "respons-beoordeling",
           "gridX": 0,
-          "gridY": 109
+          "gridY": 122
         },
         {
           "id": "verwijzing-respons-beoordeling-2",
@@ -5051,7 +5051,7 @@
             ],
             [
               100,
-              545
+              610
             ]
           ],
           "arrow": true
@@ -5163,7 +5163,7 @@
           "label": "Respons beoordeling (klinisch/radiologisch)",
           "to": "respons-beoordeling",
           "gridX": 0,
-          "gridY": 178
+          "gridY": 180
         },
         {
           "id": "verwijzing-respons-beoordeling-2",
@@ -5171,7 +5171,7 @@
           "label": "Respons beoordeling (klinisch/radiologisch)",
           "to": "respons-beoordeling",
           "gridX": 45,
-          "gridY": 178
+          "gridY": 180
         },
         {
           "id": "verwijzing-respons-beoordeling-3",
@@ -5310,7 +5310,7 @@
             ],
             [
               100,
-              890
+              900
             ]
           ],
           "arrow": true
@@ -5326,7 +5326,7 @@
             ],
             [
               325,
-              890
+              900
             ]
           ],
           "arrow": true
@@ -5766,7 +5766,7 @@
           "label": "Follow-up",
           "to": "follow-up",
           "gridX": 0,
-          "gridY": 109
+          "gridY": 110
         },
         {
           "id": "verwijzing-behandeling-recidief",
@@ -5853,7 +5853,7 @@
             ],
             [
               100,
-              545
+              550
             ]
           ],
           "arrow": true
@@ -6134,7 +6134,7 @@
           "label": "Follow-up",
           "to": "follow-up",
           "gridX": 0,
-          "gridY": 220
+          "gridY": 258
         },
         {
           "id": "verwijzing-follow-up-2",
@@ -6150,7 +6150,7 @@
           "label": "Follow-up",
           "to": "follow-up",
           "gridX": 90,
-          "gridY": 220
+          "gridY": 258
         },
         {
           "id": "verwijzing-follow-up-4",
@@ -6166,7 +6166,7 @@
           "label": "Follow-up",
           "to": "follow-up",
           "gridX": 180,
-          "gridY": 254
+          "gridY": 258
         },
         {
           "id": "verwijzing-follow-up-6",
@@ -6174,7 +6174,7 @@
           "label": "Follow-up",
           "to": "follow-up",
           "gridX": 225,
-          "gridY": 254
+          "gridY": 258
         }
       ],
       "edges": [
@@ -6685,7 +6685,7 @@
             ],
             [
               100,
-              1100
+              1290
             ]
           ],
           "arrow": true
@@ -6717,7 +6717,7 @@
             ],
             [
               550,
-              1100
+              1290
             ]
           ],
           "arrow": true
@@ -6749,7 +6749,7 @@
             ],
             [
               1000,
-              1270
+              1290
             ]
           ],
           "arrow": true
@@ -6765,7 +6765,7 @@
             ],
             [
               1225,
-              1270
+              1290
             ]
           ],
           "arrow": true
@@ -7159,7 +7159,7 @@
           "label": "Adjuvante behandeling",
           "to": "adjuvante-behandeling",
           "gridX": 0,
-          "gridY": 116
+          "gridY": 152
         },
         {
           "id": "verwijzing-adjuvante-behandeling-2",
@@ -7246,7 +7246,7 @@
             ],
             [
               100,
-              580
+              760
             ]
           ],
           "arrow": true
@@ -7330,7 +7330,7 @@
           "label": "Adjuvante behandeling",
           "to": "adjuvante-behandeling",
           "gridX": 0,
-          "gridY": 120
+          "gridY": 168
         },
         {
           "id": "verwijzing-adjuvante-behandeling-2",
@@ -7417,7 +7417,7 @@
             ],
             [
               100,
-              600
+              840
             ]
           ],
           "arrow": true

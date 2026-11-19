@@ -2526,7 +2526,7 @@
           "to": "beleid-na-gtn-chirurgie",
           "id": "verwijzing-beleid-na-gtn-chirurgie",
           "gridX": 45,
-          "gridY": 158
+          "gridY": 163
         },
         {
           "type": "dataItem",
@@ -2562,7 +2562,7 @@
           "to": "beleid-na-gtn-chirurgie",
           "id": "verwijzing-beleid-na-gtn-chirurgie-2",
           "gridX": 0,
-          "gridY": 158
+          "gridY": 163
         }
       ],
       "edges": [

@@ -1898,7 +1898,7 @@
           "id": "l1",
           "type": "reference",
           "gridX": 0,
-          "gridY": 375,
+          "gridY": 440,
           "label": "Adjuvante behandeling",
           "icon": "down",
           "to": "adjuvant"
@@ -1916,7 +1916,7 @@
           "id": "l3",
           "type": "reference",
           "gridX": 101,
-          "gridY": 418,
+          "gridY": 440,
           "label": "Beleid na sentinel node procedure (postoperatief)",
           "icon": "down",
           "to": "na-sn"
@@ -1925,7 +1925,7 @@
           "id": "l4",
           "type": "reference",
           "gridX": 151,
-          "gridY": 421,
+          "gridY": 440,
           "label": "Beleid na sentinel node procedure (postoperatief)",
           "icon": "down",
           "to": "na-sn"
@@ -1934,7 +1934,7 @@
           "id": "l5",
           "type": "reference",
           "gridX": 201,
-          "gridY": 418,
+          "gridY": 440,
           "label": "Beleid na sentinel node procedure (postoperatief)",
           "icon": "down",
           "to": "na-sn"
@@ -1943,7 +1943,7 @@
           "id": "l6",
           "type": "reference",
           "gridX": 252,
-          "gridY": 404,
+          "gridY": 440,
           "label": "Adjuvante behandeling",
           "icon": "down",
           "to": "adjuvant"
@@ -1952,7 +1952,7 @@
           "id": "l7",
           "type": "reference",
           "gridX": 302,
-          "gridY": 404,
+          "gridY": 440,
           "label": "Beleid na unilaterale inguinofemorale lymfadenectomie",
           "icon": "down",
           "to": "uni-ling"
@@ -1961,7 +1961,7 @@
           "id": "l8",
           "type": "reference",
           "gridX": 354,
-          "gridY": 395,
+          "gridY": 440,
           "label": "Adjuvante behandeling",
           "icon": "down",
           "to": "adjuvant"
@@ -1970,7 +1970,7 @@
           "id": "l9",
           "type": "reference",
           "gridX": 404,
-          "gridY": 397,
+          "gridY": 440,
           "label": "Adjuvante behandeling",
           "icon": "down",
           "to": "adjuvant"
@@ -1979,7 +1979,7 @@
           "id": "l10",
           "type": "reference",
           "gridX": 455,
-          "gridY": 401,
+          "gridY": 440,
           "label": "Adjuvante behandeling",
           "icon": "down",
           "to": "adjuvant"
@@ -1988,7 +1988,7 @@
           "id": "l11",
           "type": "reference",
           "gridX": 507,
-          "gridY": 397,
+          "gridY": 440,
           "label": "Adjuvante behandeling",
           "icon": "down",
           "to": "adjuvant"
@@ -1997,7 +1997,7 @@
           "id": "l12",
           "type": "reference",
           "gridX": 556,
-          "gridY": 401,
+          "gridY": 440,
           "label": "Adjuvante behandeling",
           "icon": "down",
           "to": "adjuvant"
@@ -2006,7 +2006,7 @@
           "id": "f1",
           "type": "reference",
           "gridX": 556,
-          "gridY": 431,
+          "gridY": 470,
           "label": "Follow up",
           "icon": "down",
           "to": "followup"
@@ -2015,7 +2015,7 @@
           "id": "f2",
           "type": "reference",
           "gridX": 606,
-          "gridY": 431,
+          "gridY": 440,
           "label": "Follow up",
           "icon": "down",
           "to": "followup"
@@ -2833,7 +2833,7 @@
             ],
             [
               104,
-              1875
+              2200
             ]
           ],
           "arrow": true
@@ -2865,7 +2865,7 @@
             ],
             [
               609,
-              2090
+              2200
             ]
           ],
           "arrow": true
@@ -2881,7 +2881,7 @@
             ],
             [
               859,
-              2105
+              2200
             ]
           ],
           "arrow": true
@@ -2897,7 +2897,7 @@
             ],
             [
               1109,
-              2090
+              2200
             ]
           ],
           "arrow": true
@@ -2913,7 +2913,7 @@
             ],
             [
               1364,
-              2020
+              2200
             ]
           ],
           "arrow": true
@@ -2929,7 +2929,7 @@
             ],
             [
               1614,
-              2020
+              2200
             ]
           ],
           "arrow": true
@@ -2945,7 +2945,7 @@
             ],
             [
               1866,
-              1975
+              2200
             ]
           ],
           "arrow": true
@@ -2961,7 +2961,7 @@
             ],
             [
               2116,
-              1985
+              2200
             ]
           ],
           "arrow": true
@@ -2977,7 +2977,7 @@
             ],
             [
               2371,
-              2005
+              2200
             ]
           ],
           "arrow": true
@@ -2993,7 +2993,7 @@
             ],
             [
               2631,
-              1985
+              2200
             ]
           ],
           "arrow": true
@@ -3009,7 +3009,7 @@
             ],
             [
               2881,
-              2005
+              2200
             ]
           ],
           "arrow": true
@@ -3021,11 +3021,11 @@
           "points": [
             [
               2884,
-              2105
+              2300
             ],
             [
               2884,
-              2155
+              2350
             ]
           ],
           "arrow": true
@@ -3041,7 +3041,7 @@
             ],
             [
               3134,
-              2155
+              2200
             ]
           ],
           "arrow": true

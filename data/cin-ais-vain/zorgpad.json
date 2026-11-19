@@ -1082,7 +1082,7 @@
           "to": "fu-6-onbehandeld-cin2",
           "id": "verwijzing-follow-up-6-maanden-na-diagnose-onbehandelde-cin2",
           "gridX": 300,
-          "gridY": 207
+          "gridY": 233
         },
         {
           "type": "reference",
@@ -1090,7 +1090,7 @@
           "to": "fu-6-behandeld-cin23",
           "id": "verwijzing-follow-up-6-maanden-na-diagnose-behandelde-cin-2-3",
           "gridX": 300,
-          "gridY": 177
+          "gridY": 203
         },
         {
           "type": "reference",
@@ -1098,7 +1098,7 @@
           "to": "fu-6-behandeld-cin23",
           "id": "verwijzing-follow-up-6-maanden-na-diagnose-behandelde-cin-2-3-2",
           "gridX": 50,
-          "gridY": 207
+          "gridY": 203
         },
         {
           "type": "recommendation",
@@ -1121,7 +1121,7 @@
           "to": "fu-6-onbehandeld-cin2",
           "id": "verwijzing-follow-up-6-maanden-na-diagnose-onbehandelde-cin2-2",
           "gridX": 250,
-          "gridY": 207
+          "gridY": 203
         },
         {
           "type": "recommendation",
@@ -1161,7 +1161,7 @@
           "to": "fu-12-laaggradig",
           "id": "verwijzing-follow-up-12-maanden-na-verdenking-diagnose-laaggradige-afwijking",
           "gridX": 200,
-          "gridY": 207
+          "gridY": 203
         },
         {
           "type": "recommendation",
@@ -1177,7 +1177,7 @@
           "to": "beleid-na-histologie",
           "id": "verwijzing-beleid-na-histologie",
           "gridX": 350,
-          "gridY": 207
+          "gridY": 203
         },
         {
           "type": "dataItem",
@@ -1331,7 +1331,7 @@
           "to": "beleid-na-histologie",
           "id": "verwijzing-beleid-na-histologie-2",
           "gridX": 300,
-          "gridY": 237
+          "gridY": 263
         },
         {
           "type": "dataItem",
@@ -1395,7 +1395,7 @@
           "to": "beleid-na-histologie",
           "id": "verwijzing-beleid-na-histologie-3",
           "gridX": 400,
-          "gridY": 207
+          "gridY": 203
         }
       ],
       "edges": [
@@ -2503,7 +2503,7 @@
           "to": "fu-6-behandeld-cin23",
           "id": "verwijzing-follow-up-6-maanden-na-diagnose-behandelde-cin-2-3",
           "gridX": 50,
-          "gridY": 168
+          "gridY": 190
         },
         {
           "type": "recommendation",
@@ -3232,7 +3232,7 @@
           "to": "fu-18-onbehandeld-cin2",
           "id": "verwijzing-follow-up-18-maanden-na-diagnose-onbehandelde-cin2",
           "gridX": 45,
-          "gridY": 164
+          "gridY": 155
         },
         {
           "type": "reference",
@@ -3240,7 +3240,7 @@
           "to": "beleid-na-histologie",
           "id": "verwijzing-beleid-na-histologie",
           "gridX": 45,
-          "gridY": 189
+          "gridY": 185
         },
         {
           "type": "reference",
@@ -3248,7 +3248,7 @@
           "to": "beleid-na-histologie",
           "id": "verwijzing-beleid-na-histologie-2",
           "gridX": 135,
-          "gridY": 139
+          "gridY": 155
         },
         {
           "type": "reference",
@@ -3256,7 +3256,7 @@
           "to": "beleid-na-histologie",
           "id": "verwijzing-beleid-na-histologie-3",
           "gridX": 90,
-          "gridY": 139
+          "gridY": 155
         },
         {
           "type": "recommendation",
@@ -3272,7 +3272,7 @@
           "to": "fu-18-onbehandeld-cin2",
           "id": "verwijzing-follow-up-18-maanden-na-diagnose-onbehandelde-cin2-2",
           "gridX": 90,
-          "gridY": 164
+          "gridY": 185
         }
       ],
       "edges": [
