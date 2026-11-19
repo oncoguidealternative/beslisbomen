@@ -1,6 +1,12 @@
 {
   "id": "trofoblast",
-  "titel": "Zorgpad trofoblasttumoren",
+  "titel": "Zorgpad trofoblastziekten",
+  "bron": {
+    "richtlijn": "Trofoblastziekten",
+    "organisatie": "NVOG (Nederlandse Vereniging voor Obstetrie en Gynaecologie)",
+    "url": "https://richtlijnendatabase.nl/richtlijn/trofoblastziekten/diagnostiek_bij_trofoblastziekten.html",
+    "opmerking": "Omgezet uit Oncoguide (IKNL, project 56, publicatie 26-05-2023)."
+  },
   "overview": {
     "layout": {
       "unit": 5,
@@ -162,7 +168,8 @@
         "gridX": 180,
         "gridY": 520,
         "label": "Uitslag hCG follow up na GTN",
-        "drill": true
+        "drill": true,
+        "to": "uitslag-hcg-follow-up-laag"
       },
       {
         "id": "beleid-na-ema-co",
@@ -599,5 +606,2419 @@
       }
     ]
   },
-  "trees": {}
+  "trees": {
+    "beleid-na-gtn-chirurgie": {
+      "bron": {
+        "url": "https://www.oncoline.nl/trofoblastziekten"
+      },
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "title",
+          "label": "Beleid na GTN chirurgie",
+          "id": "titel",
+          "gridX": 0,
+          "gridY": 0
+        },
+        {
+          "type": "recommendation",
+          "text": "hCG surveillance\n{i} wekelijks",
+          "height": 20,
+          "id": "aanbeveling-hcg-surveillance",
+          "gridX": 0,
+          "gridY": 25
+        },
+        {
+          "type": "reference",
+          "label": "Uitslag hCG surveillance na chirurgie",
+          "to": "uitslag-hcg-na-chirurgie",
+          "id": "verwijzing-uitslag-hcg-surveillance-na-chirurgie",
+          "gridX": 0,
+          "gridY": 55
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-titel-aanbeveling-hcg-surveillance",
+          "from": "titel",
+          "to": "aanbeveling-hcg-surveillance",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-hcg-surveillance-verwijzing-uitslag-hcg-surveillance-na-chirurgie",
+          "from": "aanbeveling-hcg-surveillance",
+          "to": "verwijzing-uitslag-hcg-surveillance-na-chirurgie",
+          "arrow": true
+        }
+      ]
+    },
+    "uitslag-hcg-na-chirurgie": {
+      "bron": {
+        "url": "https://www.oncoline.nl/trofoblastziekten"
+      },
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "title",
+          "label": "Uitslag hCG surveillance na chirurgie",
+          "id": "titel",
+          "gridX": 0,
+          "gridY": 0
+        },
+        {
+          "type": "dataItem",
+          "label": "hCG trend",
+          "id": "hcg-trend",
+          "gridX": 0,
+          "gridY": 25,
+          "interactive": true,
+          "options": [
+            {
+              "value": "plateau",
+              "label": "Plateau",
+              "edge": "edge-hcg-trend-plateau"
+            },
+            {
+              "value": "stijging",
+              "label": "Stijging",
+              "edge": "edge-hcg-trend-plateau"
+            },
+            {
+              "value": "daling",
+              "label": "Daling",
+              "edge": "edge-hcg-trend-daling"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Normalisatie",
+          "id": "normalisatie",
+          "gridX": 0,
+          "gridY": 60,
+          "interactive": true,
+          "options": [
+            {
+              "value": "ja",
+              "label": "Ja",
+              "edge": "edge-normalisatie-ja"
+            },
+            {
+              "value": "nee",
+              "label": "Nee",
+              "edge": "edge-normalisatie-nee"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "hCG follow up\n{i} maandelijks gedurende 18 maanden",
+          "height": 20,
+          "id": "aanbeveling-hcg-follow-up",
+          "gridX": 0,
+          "gridY": 95
+        },
+        {
+          "type": "recommendation",
+          "text": "Overweeg chirurgie metastasen afhankelijk van locatie en aantal\nOF\nEMA/CO\nOF\nEMA/EP\nOF\nTE/TP",
+          "height": 36,
+          "id": "aanbeveling-overweeg-chirurgie-metastasen-afhankelijk",
+          "gridX": 45,
+          "gridY": 95
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-titel-hcg-trend",
+          "from": "titel",
+          "to": "hcg-trend",
+          "arrow": true
+        },
+        {
+          "id": "edge-hcg-trend-daling",
+          "from": "hcg-trend",
+          "to": "normalisatie",
+          "label": "Daling",
+          "value": "daling",
+          "arrow": true
+        },
+        {
+          "id": "edge-normalisatie-ja",
+          "from": "normalisatie",
+          "to": "aanbeveling-hcg-follow-up",
+          "label": "Ja",
+          "value": "ja",
+          "arrow": true
+        },
+        {
+          "id": "edge-normalisatie-nee",
+          "from": "normalisatie",
+          "to": "aanbeveling-overweeg-chirurgie-metastasen-afhankelijk",
+          "label": "Nee",
+          "value": "nee",
+          "arrow": true
+        },
+        {
+          "id": "edge-hcg-trend-plateau",
+          "from": "hcg-trend",
+          "to": "aanbeveling-overweeg-chirurgie-metastasen-afhankelijk",
+          "label": "Plateau, Stijging",
+          "value": [
+            "plateau",
+            "stijging"
+          ],
+          "arrow": true
+        }
+      ]
+    },
+    "uitslag-hcg-follow-up-laag": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "recommendation",
+          "text": "Diagnostiek en behandeling GTN\nVerwijs naar MDO voor behandelopties chirurgie of TE/TP of EMA/EP",
+          "height": 23,
+          "id": "aanbeveling-diagnostiek-en-behandeling-gtn",
+          "gridX": 90,
+          "gridY": 95
+        },
+        {
+          "type": "recommendation",
+          "text": "Einde follow-up na 1 jaar en zwangerschap weer toegestaan",
+          "height": 20,
+          "id": "aanbeveling-einde-follow-up-na-1-jaar-en-zwangerschap",
+          "gridX": 0,
+          "gridY": 95
+        },
+        {
+          "type": "title",
+          "label": "Uitslag hCG follow up na GTN",
+          "id": "titel",
+          "gridX": 0,
+          "gridY": 0
+        },
+        {
+          "type": "dataItem",
+          "label": "hCG consolidatie",
+          "id": "hcg-consolidatie",
+          "gridX": 0,
+          "gridY": 25,
+          "interactive": true,
+          "options": [
+            {
+              "value": "anders",
+              "label": "Anders",
+              "edge": "edge-hcg-consolidatie-anders"
+            },
+            {
+              "value": "blijvend-normaal",
+              "label": "Blijvend normaal",
+              "edge": "edge-hcg-consolidatie-blijvend-normaal"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Type risico",
+          "id": "type-risico",
+          "gridX": 0,
+          "gridY": 60,
+          "interactive": true,
+          "options": [
+            {
+              "value": "laag",
+              "label": "Laag",
+              "edge": "edge-type-risico-laag"
+            },
+            {
+              "value": "hoog",
+              "label": "Hoog",
+              "edge": "edge-type-risico-hoog"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Einde follow up na 18 maanden",
+          "height": 20,
+          "id": "aanbeveling-einde-follow-up-na-18-maanden",
+          "gridX": 45,
+          "gridY": 95
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-titel-hcg-consolidatie",
+          "from": "titel",
+          "to": "hcg-consolidatie",
+          "arrow": true
+        },
+        {
+          "id": "edge-hcg-consolidatie-anders",
+          "from": "hcg-consolidatie",
+          "to": "aanbeveling-diagnostiek-en-behandeling-gtn",
+          "label": "Anders",
+          "value": "anders",
+          "arrow": true
+        },
+        {
+          "id": "edge-hcg-consolidatie-blijvend-normaal",
+          "from": "hcg-consolidatie",
+          "to": "type-risico",
+          "label": "Blijvend normaal",
+          "value": "blijvend-normaal",
+          "arrow": true
+        },
+        {
+          "id": "edge-type-risico-hoog",
+          "from": "type-risico",
+          "to": "aanbeveling-einde-follow-up-na-18-maanden",
+          "label": "Hoog",
+          "value": "hoog",
+          "arrow": true
+        },
+        {
+          "id": "edge-type-risico-laag",
+          "from": "type-risico",
+          "to": "aanbeveling-einde-follow-up-na-1-jaar-en-zwangerschap",
+          "label": "Laag",
+          "value": "laag",
+          "arrow": true
+        }
+      ]
+    },
+    "klinische-verdenking": {
+      "bron": {
+        "url": "https://www.oncoline.nl/trofoblastziekten"
+      },
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "reference",
+          "label": "Primaire behandeling (verdenking) trofoblast ziekte",
+          "to": "primaire-behandeling",
+          "id": "verwijzing-primaire-behandeling-verdenking-trofoblast-ziekte",
+          "gridX": 0,
+          "gridY": 75
+        },
+        {
+          "type": "title",
+          "label": "Klinische verdenking trofoblast ziekte",
+          "id": "titel",
+          "gridX": 0,
+          "gridY": 0
+        },
+        {
+          "type": "recommendation",
+          "text": "Transvaginale echo\nvan de uterus\nEN\nhCG bepalen\n{i} Er dient een hCG bepaling gebruikt te worden die in staat is zowel het intacte hCG-molecuul als de vrije b-keten te meten.",
+          "height": 42,
+          "id": "aanbeveling-transvaginale-echo",
+          "gridX": 0,
+          "gridY": 25
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-aanbeveling-transvaginale-echo-verwijzing-primaire-behandeling-verdenking-trofoblast-ziekte",
+          "from": "aanbeveling-transvaginale-echo",
+          "to": "verwijzing-primaire-behandeling-verdenking-trofoblast-ziekte",
+          "arrow": true
+        },
+        {
+          "id": "edge-titel-aanbeveling-transvaginale-echo",
+          "from": "titel",
+          "to": "aanbeveling-transvaginale-echo",
+          "arrow": true
+        }
+      ]
+    },
+    "primaire-behandeling": {
+      "bron": {
+        "url": "https://www.oncoline.nl/trofoblastziekten"
+      },
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "recommendation",
+          "text": "Vacuüm curretage (Echo geleid)\nEN\nPathologische beoordeling van curretage-weefsel\nOF\nHysterectomie\nEN\nPathologische beoordeling van curettage-weefsel",
+          "height": 39,
+          "id": "aanbeveling-vacuum-curretage-echo-geleid",
+          "gridX": 135,
+          "gridY": 165
+        },
+        {
+          "type": "recommendation",
+          "text": "Vacuüm curretage (Echo geleid)\nEN\nPathologische beoordeling van curretage-weefsel",
+          "height": 23,
+          "id": "aanbeveling-vacuum-curretage-echo-geleid-2",
+          "gridX": 90,
+          "gridY": 165
+        },
+        {
+          "type": "title",
+          "label": "Primaire behandeling (verdenking) trofoblast ziekte",
+          "id": "titel",
+          "gridX": 135,
+          "gridY": 0
+        },
+        {
+          "type": "dataItem",
+          "label": "Verdenking op trofoblastziekten",
+          "id": "verdenking-op-trofoblastziekten",
+          "gridX": 135,
+          "gridY": 25,
+          "interactive": true,
+          "options": [
+            {
+              "value": "hoog",
+              "label": "Hoog",
+              "edge": "edge-verdenking-op-trofoblastziekten-hoog"
+            },
+            {
+              "value": "laag",
+              "label": "Laag",
+              "edge": "edge-verdenking-op-trofoblastziekten-laag"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Verder beleid conform betreffende richtlijn",
+          "height": 20,
+          "id": "aanbeveling-verder-beleid-conform-betreffende-richtlijn",
+          "gridX": 0,
+          "gridY": 165
+        },
+        {
+          "type": "dataItem",
+          "label": "Kinderwens",
+          "id": "kinderwens",
+          "gridX": 135,
+          "gridY": 130,
+          "interactive": true,
+          "options": [
+            {
+              "value": "ja",
+              "label": "Ja",
+              "edge": "edge-kinderwens-ja"
+            },
+            {
+              "value": "nee",
+              "label": "Nee",
+              "edge": "edge-kinderwens-nee"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "CT abdomen",
+          "height": 20,
+          "id": "aanbeveling-ct-abdomen",
+          "gridX": 180,
+          "gridY": 165
+        },
+        {
+          "type": "recommendation",
+          "text": "Verwijs naar oncologisch centrum\nEN\nIndien mogelijk histologie verkrijgen\nCave: bloeding",
+          "height": 26,
+          "id": "aanbeveling-verwijs-naar-oncologisch-centrum",
+          "gridX": 45,
+          "gridY": 165
+        },
+        {
+          "type": "recommendation",
+          "text": "Verwijs naar oncologisch centrum",
+          "height": 20,
+          "id": "aanbeveling-verwijs-naar-oncologisch-centrum-2",
+          "gridX": 225,
+          "gridY": 165
+        },
+        {
+          "type": "reference",
+          "label": "Behandeling PSTT",
+          "to": "behandeling-pstt",
+          "id": "verwijzing-behandeling-pstt",
+          "gridX": 180,
+          "gridY": 220
+        },
+        {
+          "type": "reference",
+          "label": "Surveillance na mola behandeling",
+          "to": "surveillance-na-mola",
+          "id": "verwijzing-surveillance-na-mola-behandeling",
+          "gridX": 135,
+          "gridY": 220
+        },
+        {
+          "type": "reference",
+          "label": "Surveillance na mola behandeling",
+          "to": "surveillance-na-mola",
+          "id": "verwijzing-surveillance-na-mola-behandeling-2",
+          "gridX": 90,
+          "gridY": 220
+        },
+        {
+          "type": "reference",
+          "label": "Surveillance bij non-mola choriocarcinoom",
+          "to": "surveillance-non-mola",
+          "id": "verwijzing-surveillance-bij-non-mola-choriocarcinoom",
+          "gridX": 45,
+          "gridY": 220
+        },
+        {
+          "type": "dataItem",
+          "label": "Type trofoblast ziekte",
+          "id": "type-trofoblast-ziekte",
+          "gridX": 135,
+          "gridY": 60,
+          "interactive": true,
+          "options": [
+            {
+              "value": "non-mola-choriocarcinoom",
+              "label": "Non-mola choriocarcinoom",
+              "edge": "edge-type-trofoblast-ziekte-non-mola-choriocarcinoom"
+            },
+            {
+              "value": "mola",
+              "label": "Mola",
+              "edge": "edge-type-trofoblast-ziekte-mola"
+            },
+            {
+              "value": "pstt",
+              "label": "PSTT",
+              "edge": "edge-type-trofoblast-ziekte-pstt"
+            },
+            {
+              "value": "ett",
+              "label": "ETT",
+              "edge": "edge-type-trofoblast-ziekte-ett"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Leeftijd",
+          "id": "leeftijd",
+          "gridX": 135,
+          "gridY": 95,
+          "measure": {
+            "unit": "jaar"
+          },
+          "interactive": true,
+          "options": [
+            {
+              "value": "lte-40-jaar",
+              "label": "<=40 jaar",
+              "lte": 40,
+              "edge": "edge-leeftijd-lte-40-jaar"
+            },
+            {
+              "value": "gt-40-jaar",
+              "label": ">40 jaar",
+              "gt": 40,
+              "edge": "edge-leeftijd-gt-40-jaar"
+            }
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-titel-verdenking-op-trofoblastziekten",
+          "from": "titel",
+          "to": "verdenking-op-trofoblastziekten",
+          "arrow": true
+        },
+        {
+          "id": "edge-verdenking-op-trofoblastziekten-laag",
+          "from": "verdenking-op-trofoblastziekten",
+          "to": "aanbeveling-verder-beleid-conform-betreffende-richtlijn",
+          "label": "Laag",
+          "value": "laag",
+          "arrow": true
+        },
+        {
+          "id": "edge-kinderwens-ja",
+          "from": "kinderwens",
+          "to": "aanbeveling-vacuum-curretage-echo-geleid-2",
+          "label": "Ja",
+          "value": "ja",
+          "arrow": true
+        },
+        {
+          "id": "edge-kinderwens-nee",
+          "from": "kinderwens",
+          "to": "aanbeveling-vacuum-curretage-echo-geleid",
+          "label": "Nee",
+          "value": "nee",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-ct-abdomen-verwijzing-behandeling-pstt",
+          "from": "aanbeveling-ct-abdomen",
+          "to": "verwijzing-behandeling-pstt",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-vacuum-curretage-echo-geleid-verwijzing-surveillance-na-mola-behandeling",
+          "from": "aanbeveling-vacuum-curretage-echo-geleid",
+          "to": "verwijzing-surveillance-na-mola-behandeling",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-vacuum-curretage-echo-geleid-2-verwijzing-surveillance-na-mola-behandeling-2",
+          "from": "aanbeveling-vacuum-curretage-echo-geleid-2",
+          "to": "verwijzing-surveillance-na-mola-behandeling-2",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-verwijs-naar-oncologisch-centrum-verwijzing-surveillance-bij-non-mola-choriocarcinoom",
+          "from": "aanbeveling-verwijs-naar-oncologisch-centrum",
+          "to": "verwijzing-surveillance-bij-non-mola-choriocarcinoom",
+          "arrow": true
+        },
+        {
+          "id": "edge-verdenking-op-trofoblastziekten-hoog",
+          "from": "verdenking-op-trofoblastziekten",
+          "to": "type-trofoblast-ziekte",
+          "label": "Hoog",
+          "value": "hoog",
+          "arrow": true
+        },
+        {
+          "id": "edge-type-trofoblast-ziekte-non-mola-choriocarcinoom",
+          "from": "type-trofoblast-ziekte",
+          "to": "aanbeveling-verwijs-naar-oncologisch-centrum",
+          "label": "Non-mola choriocarcinoom",
+          "value": "non-mola-choriocarcinoom",
+          "arrow": true
+        },
+        {
+          "id": "edge-type-trofoblast-ziekte-pstt",
+          "from": "type-trofoblast-ziekte",
+          "to": "aanbeveling-ct-abdomen",
+          "label": "PSTT",
+          "value": "pstt",
+          "arrow": true
+        },
+        {
+          "id": "edge-type-trofoblast-ziekte-ett",
+          "from": "type-trofoblast-ziekte",
+          "to": "aanbeveling-verwijs-naar-oncologisch-centrum-2",
+          "label": "ETT",
+          "value": "ett",
+          "arrow": true
+        },
+        {
+          "id": "edge-type-trofoblast-ziekte-mola",
+          "from": "type-trofoblast-ziekte",
+          "to": "leeftijd",
+          "label": "Mola",
+          "value": "mola",
+          "arrow": true
+        },
+        {
+          "id": "edge-leeftijd-gt-40-jaar",
+          "from": "leeftijd",
+          "to": "kinderwens",
+          "label": ">40 jaar",
+          "value": "gt-40-jaar",
+          "arrow": true
+        },
+        {
+          "id": "edge-leeftijd-lte-40-jaar",
+          "from": "leeftijd",
+          "to": "aanbeveling-vacuum-curretage-echo-geleid-2",
+          "label": "<=40 jaar",
+          "value": "lte-40-jaar",
+          "arrow": true
+        }
+      ]
+    },
+    "behandeling-pstt": {
+      "bron": {
+        "url": "https://www.oncoline.nl/trofoblastziekten"
+      },
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "title",
+          "label": "Behandeling PSTT",
+          "id": "titel",
+          "gridX": 0,
+          "gridY": 0
+        },
+        {
+          "type": "dataItem",
+          "label": "FIGO stadium",
+          "id": "figo-stadium",
+          "gridX": 0,
+          "gridY": 25,
+          "interactive": true,
+          "options": [
+            {
+              "value": "1",
+              "label": "1",
+              "edge": "edge-figo-stadium-1"
+            },
+            {
+              "value": "2",
+              "label": "2",
+              "edge": "edge-figo-stadium-2"
+            },
+            {
+              "value": "3",
+              "label": "3",
+              "edge": "edge-figo-stadium-2"
+            },
+            {
+              "value": "4",
+              "label": "4",
+              "edge": "edge-figo-stadium-2"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Hysterectomie in overleg met oncologisch centrum",
+          "height": 20,
+          "id": "aanbeveling-hysterectomie-in-overleg-met-oncologisch",
+          "gridX": 0,
+          "gridY": 60
+        },
+        {
+          "type": "recommendation",
+          "text": "Verwijs naar\noncologisch centrum",
+          "height": 20,
+          "id": "aanbeveling-verwijs-naar",
+          "gridX": 45,
+          "gridY": 60
+        },
+        {
+          "type": "reference",
+          "label": "PSTT hCG surveillance",
+          "to": "pstt-hcg-surveillance",
+          "id": "verwijzing-pstt-hcg-surveillance",
+          "gridX": 0,
+          "gridY": 90
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-titel-figo-stadium",
+          "from": "titel",
+          "to": "figo-stadium",
+          "arrow": true
+        },
+        {
+          "id": "edge-figo-stadium-1",
+          "from": "figo-stadium",
+          "to": "aanbeveling-hysterectomie-in-overleg-met-oncologisch",
+          "label": "1",
+          "value": "1",
+          "arrow": true
+        },
+        {
+          "id": "edge-figo-stadium-2",
+          "from": "figo-stadium",
+          "to": "aanbeveling-verwijs-naar",
+          "label": "2, 3, 4",
+          "value": [
+            "2",
+            "3",
+            "4"
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-hysterectomie-in-overleg-met-oncologisch-verwijzing-pstt-hcg-surveillance",
+          "from": "aanbeveling-hysterectomie-in-overleg-met-oncologisch",
+          "to": "verwijzing-pstt-hcg-surveillance",
+          "arrow": true
+        }
+      ]
+    },
+    "pstt-hcg-surveillance": {
+      "bron": {
+        "url": "https://www.oncoline.nl/trofoblastziekten"
+      },
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "title",
+          "label": "PSTT hCG surveillance",
+          "id": "titel",
+          "gridX": 0,
+          "gridY": 0
+        },
+        {
+          "type": "recommendation",
+          "text": "Bespreken MDO\nEN\nhCG bepalen\n{i} wekelijks",
+          "height": 23,
+          "id": "aanbeveling-bespreken-mdo",
+          "gridX": 0,
+          "gridY": 25
+        },
+        {
+          "type": "reference",
+          "label": "Uitslag hCG surveillance na PSTT",
+          "to": "uitslag-hcg-na-pstt",
+          "id": "verwijzing-uitslag-hcg-surveillance-na-pstt",
+          "gridX": 0,
+          "gridY": 55
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-titel-aanbeveling-bespreken-mdo",
+          "from": "titel",
+          "to": "aanbeveling-bespreken-mdo",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-bespreken-mdo-verwijzing-uitslag-hcg-surveillance-na-pstt",
+          "from": "aanbeveling-bespreken-mdo",
+          "to": "verwijzing-uitslag-hcg-surveillance-na-pstt",
+          "arrow": true
+        }
+      ]
+    },
+    "uitslag-hcg-na-pstt": {
+      "bron": {
+        "url": "https://www.oncoline.nl/trofoblastziekten"
+      },
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "title",
+          "label": "Uitslag hCG surveillance na PSTT",
+          "id": "titel",
+          "gridX": 0,
+          "gridY": 0
+        },
+        {
+          "type": "dataItem",
+          "label": "hCG trend",
+          "id": "hcg-trend",
+          "gridX": 0,
+          "gridY": 25,
+          "interactive": true,
+          "options": [
+            {
+              "value": "dalend",
+              "label": "Dalend",
+              "edge": "edge-hcg-trend-dalend"
+            },
+            {
+              "value": "plateau",
+              "label": "Plateau",
+              "edge": "edge-hcg-trend-plateau"
+            },
+            {
+              "value": "stijgend",
+              "label": "Stijgend",
+              "edge": "edge-hcg-trend-plateau"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Normalisatie",
+          "id": "normalisatie",
+          "gridX": 0,
+          "gridY": 60,
+          "interactive": true,
+          "options": [
+            {
+              "value": "ja",
+              "label": "Ja",
+              "edge": "edge-normalisatie-ja"
+            },
+            {
+              "value": "nee",
+              "label": "Nee",
+              "edge": "edge-normalisatie-nee"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Overleg met oncologisch centrum over duur follow up",
+          "height": 20,
+          "id": "aanbeveling-overleg-met-oncologisch-centrum-over-duur",
+          "gridX": 0,
+          "gridY": 95
+        },
+        {
+          "type": "recommendation",
+          "text": "Verwijs naar oncologisch centrum",
+          "height": 20,
+          "id": "aanbeveling-verwijs-naar-oncologisch-centrum",
+          "gridX": 45,
+          "gridY": 95
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-titel-hcg-trend",
+          "from": "titel",
+          "to": "hcg-trend",
+          "arrow": true
+        },
+        {
+          "id": "edge-hcg-trend-dalend",
+          "from": "hcg-trend",
+          "to": "normalisatie",
+          "label": "Dalend",
+          "value": "dalend",
+          "arrow": true
+        },
+        {
+          "id": "edge-normalisatie-ja",
+          "from": "normalisatie",
+          "to": "aanbeveling-overleg-met-oncologisch-centrum-over-duur",
+          "label": "Ja",
+          "value": "ja",
+          "arrow": true
+        },
+        {
+          "id": "edge-normalisatie-nee",
+          "from": "normalisatie",
+          "to": "aanbeveling-verwijs-naar-oncologisch-centrum",
+          "label": "Nee",
+          "value": "nee",
+          "arrow": true
+        },
+        {
+          "id": "edge-hcg-trend-plateau",
+          "from": "hcg-trend",
+          "to": "aanbeveling-verwijs-naar-oncologisch-centrum",
+          "label": "Plateau, Stijgend",
+          "value": [
+            "plateau",
+            "stijgend"
+          ],
+          "arrow": true
+        }
+      ]
+    },
+    "surveillance-na-mola": {
+      "bron": {
+        "url": "https://www.oncoline.nl/trofoblastziekten"
+      },
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "reference",
+          "label": "Uitslag hCG surveillance na mola behandeling",
+          "to": "uitslag-hcg-na-mola",
+          "id": "verwijzing-uitslag-hcg-surveillance-na-mola-behandeling",
+          "gridX": 0,
+          "gridY": 70
+        },
+        {
+          "type": "title",
+          "label": "Surveillance na mola behandeling",
+          "id": "titel",
+          "gridX": 0,
+          "gridY": 0
+        },
+        {
+          "type": "recommendation",
+          "text": "Bespreken MDO\nEN\nhCG bepalen\n{i} wekelijks\nEN\nDigitaal aanmelden\nmola registratie",
+          "height": 32,
+          "id": "aanbeveling-bespreken-mdo",
+          "gridX": 0,
+          "gridY": 25
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-titel-aanbeveling-bespreken-mdo",
+          "from": "titel",
+          "to": "aanbeveling-bespreken-mdo",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-bespreken-mdo-verwijzing-uitslag-hcg-surveillance-na-mola-behandeling",
+          "from": "aanbeveling-bespreken-mdo",
+          "to": "verwijzing-uitslag-hcg-surveillance-na-mola-behandeling",
+          "arrow": true
+        }
+      ]
+    },
+    "uitslag-hcg-na-mola": {
+      "onderbouwing": "Er is een GTN wanneer bij hCG follow-up na evacuatie van een molazwangerschap sprake is van:\n\neen plateau van het hCG in 4 opeenvolgende wekelijkse metingen gedurende 3 weken, óf als er een stijging van het hCG is in 3 metingen gedurende 2 opeenvolgende weken. bovendien dient 1 van de waarden buiten de P95 van de regressiecurve te vallen.",
+      "bron": {
+        "url": "https://www.oncoline.nl/trofoblastziekten"
+      },
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "dataItem",
+          "label": "Normalisatie hCG",
+          "id": "normalisatie-hcg",
+          "gridX": 0,
+          "gridY": 60,
+          "interactive": true,
+          "options": [
+            {
+              "value": "anders",
+              "label": "Anders",
+              "edge": "edge-normalisatie-hcg-anders"
+            },
+            {
+              "value": "2x-lt-2ug-l",
+              "label": "2x <2ug/l",
+              "edge": "edge-normalisatie-hcg-2x-lt-2ug-l"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Terug naar surveillance",
+          "height": 20,
+          "id": "aanbeveling-terug-naar-surveillance",
+          "gridX": 45,
+          "gridY": 95
+        },
+        {
+          "type": "title",
+          "label": "Uitslag hCG surveillance na mola behandeling",
+          "id": "titel",
+          "gridX": 0,
+          "gridY": 0
+        },
+        {
+          "type": "dataItem",
+          "label": "hCG trend",
+          "id": "hcg-trend",
+          "gridX": 0,
+          "gridY": 25,
+          "interactive": true,
+          "options": [
+            {
+              "value": "stijging",
+              "label": "Stijging",
+              "edge": "edge-hcg-trend-plateau"
+            },
+            {
+              "value": "plateau",
+              "label": "Plateau",
+              "edge": "edge-hcg-trend-plateau"
+            },
+            {
+              "value": "daling",
+              "label": "Daling",
+              "edge": "edge-hcg-trend-daling"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Einde follow up\nEN\nBij volgende zwangerschap:\nvroege echo\n{x} geen indicatie voor placenta-onderzoek of hCG na zwangerschap",
+          "height": 32,
+          "id": "aanbeveling-einde-follow-up",
+          "gridX": 0,
+          "gridY": 95
+        },
+        {
+          "type": "reference",
+          "label": "Surveillance na mola behandeling",
+          "to": "surveillance-na-mola",
+          "id": "verwijzing-surveillance-na-mola-behandeling",
+          "gridX": 45,
+          "gridY": 130
+        },
+        {
+          "type": "recommendation",
+          "text": "X-thorax",
+          "height": 20,
+          "id": "aanbeveling-x-thorax",
+          "gridX": 90,
+          "gridY": 95
+        },
+        {
+          "type": "recommendation",
+          "text": "CT thorax/abdomen\nEN\nOverweeg MRI cerebrum\n{i} obv klachten en bij longmetastasen",
+          "height": 26,
+          "id": "aanbeveling-ct-thorax-abdomen",
+          "gridX": 135,
+          "gridY": 95
+        },
+        {
+          "type": "reference",
+          "label": "Behandeling GTN",
+          "to": "behandeling-gtn",
+          "id": "verwijzing-behandeling-gtn",
+          "gridX": 90,
+          "gridY": 130
+        },
+        {
+          "type": "recommendation",
+          "text": "FIGO2000",
+          "height": 20,
+          "id": "aanbeveling-figo2000",
+          "gridX": 90,
+          "gridY": 60
+        },
+        {
+          "type": "reference",
+          "label": "Behandeling GTN",
+          "to": "behandeling-gtn",
+          "id": "verwijzing-behandeling-gtn-2",
+          "gridX": 135,
+          "gridY": 130
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-normalisatie-hcg-anders",
+          "from": "normalisatie-hcg",
+          "to": "aanbeveling-terug-naar-surveillance",
+          "label": "Anders",
+          "value": "anders",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-x-thorax-verwijzing-behandeling-gtn",
+          "from": "aanbeveling-x-thorax",
+          "to": "verwijzing-behandeling-gtn",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-figo2000-aanbeveling-ct-thorax-abdomen",
+          "from": "aanbeveling-figo2000",
+          "to": "aanbeveling-ct-thorax-abdomen",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-ct-thorax-abdomen-verwijzing-behandeling-gtn-2",
+          "from": "aanbeveling-ct-thorax-abdomen",
+          "to": "verwijzing-behandeling-gtn-2",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-terug-naar-surveillance-verwijzing-surveillance-na-mola-behandeling",
+          "from": "aanbeveling-terug-naar-surveillance",
+          "to": "verwijzing-surveillance-na-mola-behandeling",
+          "arrow": true
+        },
+        {
+          "id": "edge-hcg-trend-daling",
+          "from": "hcg-trend",
+          "to": "normalisatie-hcg",
+          "label": "Daling",
+          "value": "daling",
+          "arrow": true
+        },
+        {
+          "id": "edge-normalisatie-hcg-2x-lt-2ug-l",
+          "from": "normalisatie-hcg",
+          "to": "aanbeveling-einde-follow-up",
+          "label": "2x <2ug/l",
+          "value": "2x-lt-2ug-l",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-figo2000-aanbeveling-x-thorax",
+          "from": "aanbeveling-figo2000",
+          "to": "aanbeveling-x-thorax",
+          "arrow": true
+        },
+        {
+          "id": "edge-titel-hcg-trend",
+          "from": "titel",
+          "to": "hcg-trend",
+          "arrow": true
+        },
+        {
+          "id": "edge-hcg-trend-plateau",
+          "from": "hcg-trend",
+          "to": "aanbeveling-figo2000",
+          "label": "Plateau, Stijging",
+          "value": [
+            "plateau",
+            "stijging"
+          ],
+          "arrow": true
+        }
+      ]
+    },
+    "behandeling-gtn": {
+      "bron": {
+        "url": "https://www.oncoline.nl/trofoblastziekten"
+      },
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "recommendation",
+          "text": "Verwijzing naar oncologisch centrum\nEN\nEMA/CO\nEN\nhCG monitoring\n{i} voor iedere kuur",
+          "height": 32,
+          "id": "aanbeveling-verwijzing-naar-oncologisch-centrum",
+          "gridX": 45,
+          "gridY": 120
+        },
+        {
+          "type": "reference",
+          "label": "Evaluatie bij EMA/CO chemotherapie",
+          "to": "evaluatie-ema-co",
+          "id": "verwijzing-evaluatie-bij-ema-co-chemotherapie",
+          "gridX": 45,
+          "gridY": 215
+        },
+        {
+          "type": "recommendation",
+          "text": "Chemotherapie\nMethotrexaat twee wekelijkse kuren alternerend met Folinezuur PO 0,1 mg/kg, dag 2, 4, 6, 8\nEN\nhCG monitoren\n{i} Voor iedere kuur\nincl lever- en nierfunctie\nOF\nOverweeg tweede curettage\nEN\nhCG monitoren\n{i} Wekelijks\nOF\nHysterectomie\n(>40, geen kinderwens)\nEN\nhCG monitoren\n{i} Wekelijks",
+          "height": 88,
+          "id": "aanbeveling-chemotherapie",
+          "gridX": 0,
+          "gridY": 120
+        },
+        {
+          "type": "reference",
+          "label": "Evaluatie laag risico na primaire behandeling GTN",
+          "to": "evaluatie-laag-risico",
+          "id": "verwijzing-evaluatie-laag-risico-na-primaire-behandeling-gtn",
+          "gridX": 0,
+          "gridY": 215
+        },
+        {
+          "type": "dataItem",
+          "label": "Lokalisatie metastasen",
+          "id": "lokalisatie-metastasen",
+          "gridX": 90,
+          "gridY": 85,
+          "interactive": true,
+          "options": [
+            {
+              "value": "long",
+              "label": "Long",
+              "edge": "edge-lokalisatie-metastasen-aanbeveling-verwijzing-naar-oncologisch-centrum"
+            },
+            {
+              "value": "milt",
+              "label": "Milt",
+              "edge": "edge-lokalisatie-metastasen-aanbeveling-verwijzing-naar-oncologisch-centrum"
+            },
+            {
+              "value": "nier",
+              "label": "Nier",
+              "edge": "edge-lokalisatie-metastasen-aanbeveling-verwijzing-naar-oncologisch-centrum"
+            },
+            {
+              "value": "gastro-intestinaal",
+              "label": "Gastro-intestinaal",
+              "edge": "edge-lokalisatie-metastasen-aanbeveling-verwijzing-naar-oncologisch-centrum"
+            },
+            {
+              "value": "lever",
+              "label": "Lever",
+              "edge": "edge-lokalisatie-metastasen-lever"
+            },
+            {
+              "value": "hersenen",
+              "label": "Hersenen",
+              "edge": "edge-lokalisatie-metastasen-lever"
+            },
+            {
+              "value": "overig",
+              "label": "Overig",
+              "edge": "edge-lokalisatie-metastasen-aanbeveling-verwijzing-naar-oncologisch-centrum"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Metastasen",
+          "id": "metastasen",
+          "gridX": 90,
+          "gridY": 50,
+          "interactive": true,
+          "options": [
+            {
+              "value": "ja",
+              "label": "Ja",
+              "edge": "edge-metastasen-ja"
+            },
+            {
+              "value": "nee",
+              "label": "Nee",
+              "edge": "edge-metastasen-nee"
+            }
+          ]
+        },
+        {
+          "type": "reference",
+          "label": "Evaluatie bij EMA/CO chemotherapie",
+          "to": "evaluatie-ema-co",
+          "id": "verwijzing-evaluatie-bij-ema-co-chemotherapie-2",
+          "gridX": 90,
+          "gridY": 215
+        },
+        {
+          "type": "title",
+          "label": "Behandeling GTN",
+          "id": "titel",
+          "gridX": 0,
+          "gridY": 0
+        },
+        {
+          "type": "recommendation",
+          "text": "FIGO2000",
+          "height": 20,
+          "id": "aanbeveling-figo2000",
+          "gridX": 0,
+          "gridY": 30
+        },
+        {
+          "type": "recommendation",
+          "text": "Verwijzing naar oncologisch centrum\nEN\nOverweeg inductie chemotherapie (EP)\nGEVOLGD DOOR\nEMA/CO\nEN\nhCG monitoring\n{i} voor iedere kuur",
+          "height": 42,
+          "id": "aanbeveling-verwijzing-naar-oncologisch-centrum-2",
+          "gridX": 90,
+          "gridY": 120
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-aanbeveling-verwijzing-naar-oncologisch-centrum-2-verwijzing-evaluatie-bij-ema-co-chemotherapie-2",
+          "from": "aanbeveling-verwijzing-naar-oncologisch-centrum-2",
+          "to": "verwijzing-evaluatie-bij-ema-co-chemotherapie-2",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-figo2000-aanbeveling-chemotherapie",
+          "from": "aanbeveling-figo2000",
+          "to": "aanbeveling-chemotherapie",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-figo2000-metastasen",
+          "from": "aanbeveling-figo2000",
+          "to": "metastasen",
+          "arrow": true
+        },
+        {
+          "id": "edge-titel-aanbeveling-figo2000",
+          "from": "titel",
+          "to": "aanbeveling-figo2000",
+          "arrow": true
+        },
+        {
+          "id": "edge-metastasen-ja",
+          "from": "metastasen",
+          "to": "lokalisatie-metastasen",
+          "label": "Ja",
+          "value": "ja",
+          "arrow": true
+        },
+        {
+          "id": "edge-metastasen-nee",
+          "from": "metastasen",
+          "to": "aanbeveling-verwijzing-naar-oncologisch-centrum",
+          "label": "Nee",
+          "value": "nee",
+          "arrow": true
+        },
+        {
+          "id": "edge-lokalisatie-metastasen-lever",
+          "from": "lokalisatie-metastasen",
+          "to": "aanbeveling-verwijzing-naar-oncologisch-centrum-2",
+          "label": "Lever, Hersenen",
+          "value": [
+            "lever",
+            "hersenen"
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-lokalisatie-metastasen-aanbeveling-verwijzing-naar-oncologisch-centrum",
+          "from": "lokalisatie-metastasen",
+          "to": "aanbeveling-verwijzing-naar-oncologisch-centrum",
+          "label": "Long, Milt, Nier, Gastro-intestinaal, Overig",
+          "value": [
+            "long",
+            "milt",
+            "nier",
+            "gastro-intestinaal",
+            "overig"
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-verwijzing-naar-oncologisch-centrum-verwijzing-evaluatie-bij-ema-co-chemotherapie",
+          "from": "aanbeveling-verwijzing-naar-oncologisch-centrum",
+          "to": "verwijzing-evaluatie-bij-ema-co-chemotherapie",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-chemotherapie-verwijzing-evaluatie-laag-risico-na-primaire-behandeling-gtn",
+          "from": "aanbeveling-chemotherapie",
+          "to": "verwijzing-evaluatie-laag-risico-na-primaire-behandeling-gtn",
+          "arrow": true
+        }
+      ]
+    },
+    "evaluatie-ema-co": {
+      "bron": {
+        "url": "https://www.oncoline.nl/trofoblastziekten"
+      },
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "recommendation",
+          "text": "2-3 consolidatiekuren",
+          "height": 20,
+          "id": "aanbeveling-2-3-consolidatiekuren",
+          "gridX": 0,
+          "gridY": 95
+        },
+        {
+          "type": "reference",
+          "label": "hCG follow up hoog risico",
+          "to": "hcg-follow-up-hoog-risico",
+          "id": "verwijzing-hcg-follow-up-hoog-risico",
+          "gridX": 0,
+          "gridY": 135
+        },
+        {
+          "type": "recommendation",
+          "text": "Overweeg transvaginale echo uterus\nEN\nOverweeg CT abdomen/thorax\nEN\nOverweeg MRI cerebrum\n{i} op indicatie",
+          "height": 36,
+          "id": "aanbeveling-overweeg-transvaginale-echo-uterus",
+          "gridX": 45,
+          "gridY": 95
+        },
+        {
+          "type": "reference",
+          "label": "Beleid na EMA/CO chemotherapie",
+          "to": "beleid-na-ema-co",
+          "id": "verwijzing-beleid-na-ema-co-chemotherapie",
+          "gridX": 45,
+          "gridY": 135
+        },
+        {
+          "type": "dataItem",
+          "label": "hCG trend",
+          "id": "hcg-trend",
+          "gridX": 0,
+          "gridY": 25,
+          "interactive": true,
+          "options": [
+            {
+              "value": "stijging",
+              "label": "Stijging",
+              "edge": "edge-hcg-trend-stijging"
+            },
+            {
+              "value": "plateau",
+              "label": "Plateau",
+              "edge": "edge-hcg-trend-stijging"
+            },
+            {
+              "value": "daling",
+              "label": "Daling",
+              "edge": "edge-hcg-trend-daling"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Normalisatie hCG",
+          "id": "normalisatie-hcg",
+          "gridX": 0,
+          "gridY": 60,
+          "interactive": true,
+          "options": [
+            {
+              "value": "ja",
+              "label": "Ja",
+              "edge": "edge-normalisatie-hcg-ja"
+            },
+            {
+              "value": "nee",
+              "label": "Nee",
+              "edge": "edge-normalisatie-hcg-nee"
+            }
+          ]
+        },
+        {
+          "type": "title",
+          "label": "Evaluatie bij EMA/CO chemotherapie",
+          "id": "titel",
+          "gridX": 0,
+          "gridY": 0
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-aanbeveling-2-3-consolidatiekuren-verwijzing-hcg-follow-up-hoog-risico",
+          "from": "aanbeveling-2-3-consolidatiekuren",
+          "to": "verwijzing-hcg-follow-up-hoog-risico",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-overweeg-transvaginale-echo-uterus-verwijzing-beleid-na-ema-co-chemotherapie",
+          "from": "aanbeveling-overweeg-transvaginale-echo-uterus",
+          "to": "verwijzing-beleid-na-ema-co-chemotherapie",
+          "arrow": true
+        },
+        {
+          "id": "edge-hcg-trend-stijging",
+          "from": "hcg-trend",
+          "to": "aanbeveling-overweeg-transvaginale-echo-uterus",
+          "label": "Stijging, Plateau",
+          "value": [
+            "plateau",
+            "stijging"
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-hcg-trend-daling",
+          "from": "hcg-trend",
+          "to": "normalisatie-hcg",
+          "label": "Daling",
+          "value": "daling",
+          "arrow": true
+        },
+        {
+          "id": "edge-normalisatie-hcg-nee",
+          "from": "normalisatie-hcg",
+          "to": "aanbeveling-overweeg-transvaginale-echo-uterus",
+          "label": "Nee",
+          "value": "nee",
+          "arrow": true
+        },
+        {
+          "id": "edge-normalisatie-hcg-ja",
+          "from": "normalisatie-hcg",
+          "to": "aanbeveling-2-3-consolidatiekuren",
+          "label": "Ja",
+          "value": "ja",
+          "arrow": true
+        },
+        {
+          "id": "edge-titel-hcg-trend",
+          "from": "titel",
+          "to": "hcg-trend",
+          "arrow": true
+        }
+      ]
+    },
+    "hcg-follow-up-hoog-risico": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "title",
+          "label": "hCG follow up hoog risico",
+          "id": "titel",
+          "gridX": 0,
+          "gridY": 0
+        },
+        {
+          "type": "recommendation",
+          "text": "hCG bepalen\n{i} maandelijks",
+          "height": 20,
+          "id": "aanbeveling-hcg-bepalen",
+          "gridX": 0,
+          "gridY": 25
+        },
+        {
+          "type": "reference",
+          "label": "Uitslag hCG follow up na GTN",
+          "to": "uitslag-hcg-follow-up-laag",
+          "id": "verwijzing-uitslag-hcg-follow-up-na-gtn",
+          "gridX": 0,
+          "gridY": 55
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-titel-aanbeveling-hcg-bepalen",
+          "from": "titel",
+          "to": "aanbeveling-hcg-bepalen",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-hcg-bepalen-verwijzing-uitslag-hcg-follow-up-na-gtn",
+          "from": "aanbeveling-hcg-bepalen",
+          "to": "verwijzing-uitslag-hcg-follow-up-na-gtn",
+          "arrow": true
+        }
+      ]
+    },
+    "beleid-na-ema-co": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "title",
+          "label": "Beleid na EMA/CO chemotherapie",
+          "id": "titel",
+          "gridX": 0,
+          "gridY": 0
+        },
+        {
+          "type": "recommendation",
+          "text": "Chirurgie\nOF\nEMA/CP\nOF\nTE/TP",
+          "height": 23,
+          "id": "aanbeveling-chirurgie",
+          "gridX": 0,
+          "gridY": 25
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-titel-aanbeveling-chirurgie",
+          "from": "titel",
+          "to": "aanbeveling-chirurgie",
+          "arrow": true
+        }
+      ]
+    },
+    "evaluatie-laag-risico": {
+      "bron": {
+        "url": "https://www.oncoline.nl/trofoblastziekten"
+      },
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "reference",
+          "label": "hCG follow up laag risico",
+          "to": "hcg-follow-up-laag-risico",
+          "id": "verwijzing-hcg-follow-up-laag-risico",
+          "gridX": 0,
+          "gridY": 141
+        },
+        {
+          "type": "reference",
+          "label": "Beleid na primaire behandeling GTN",
+          "to": "beleid-na-primaire-behandeling-gtn",
+          "id": "verwijzing-beleid-na-primaire-behandeling-gtn",
+          "gridX": 45,
+          "gridY": 141
+        },
+        {
+          "type": "title",
+          "label": "Evaluatie laag risico na primaire behandeling GTN",
+          "id": "titel",
+          "gridX": 0,
+          "gridY": 0
+        },
+        {
+          "type": "dataItem",
+          "label": "Normalisatie hCG",
+          "id": "normalisatie-hcg",
+          "gridX": 0,
+          "gridY": 60,
+          "interactive": true,
+          "options": [
+            {
+              "value": "ja",
+              "label": "Ja",
+              "edge": "edge-normalisatie-hcg-ja"
+            },
+            {
+              "value": "nee",
+              "label": "Nee",
+              "edge": "edge-normalisatie-hcg-nee"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Verwijs naar oncologisch centrum\nEN\nTransvaginale\necho uterus\nEN\nCT abdomen/thorax\nEN\nMRI cerebrum\n{i} op indicatie",
+          "height": 42,
+          "id": "aanbeveling-verwijs-naar-oncologisch-centrum",
+          "gridX": 45,
+          "gridY": 95
+        },
+        {
+          "type": "recommendation",
+          "text": "2 consolidatiekuren",
+          "height": 20,
+          "id": "aanbeveling-2-consolidatiekuren",
+          "gridX": 0,
+          "gridY": 95
+        },
+        {
+          "type": "dataItem",
+          "label": "hCG trend",
+          "id": "hcg-trend",
+          "gridX": 0,
+          "gridY": 25,
+          "interactive": true,
+          "options": [
+            {
+              "value": "stijging",
+              "label": "Stijging",
+              "edge": "edge-hcg-trend-stijging"
+            },
+            {
+              "value": "plateau",
+              "label": "Plateau",
+              "edge": "edge-hcg-trend-stijging"
+            },
+            {
+              "value": "daling",
+              "label": "Daling",
+              "edge": "edge-hcg-trend-daling"
+            }
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-hcg-trend-stijging",
+          "from": "hcg-trend",
+          "to": "aanbeveling-verwijs-naar-oncologisch-centrum",
+          "label": "Stijging, Plateau",
+          "value": [
+            "stijging",
+            "plateau"
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-2-consolidatiekuren-verwijzing-hcg-follow-up-laag-risico",
+          "from": "aanbeveling-2-consolidatiekuren",
+          "to": "verwijzing-hcg-follow-up-laag-risico",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-verwijs-naar-oncologisch-centrum-verwijzing-beleid-na-primaire-behandeling-gtn",
+          "from": "aanbeveling-verwijs-naar-oncologisch-centrum",
+          "to": "verwijzing-beleid-na-primaire-behandeling-gtn",
+          "arrow": true
+        },
+        {
+          "id": "edge-titel-hcg-trend",
+          "from": "titel",
+          "to": "hcg-trend",
+          "arrow": true
+        },
+        {
+          "id": "edge-hcg-trend-daling",
+          "from": "hcg-trend",
+          "to": "normalisatie-hcg",
+          "label": "Daling",
+          "value": "daling",
+          "arrow": true
+        },
+        {
+          "id": "edge-normalisatie-hcg-nee",
+          "from": "normalisatie-hcg",
+          "to": "aanbeveling-verwijs-naar-oncologisch-centrum",
+          "label": "Nee",
+          "value": "nee",
+          "arrow": true
+        },
+        {
+          "id": "edge-normalisatie-hcg-ja",
+          "from": "normalisatie-hcg",
+          "to": "aanbeveling-2-consolidatiekuren",
+          "label": "Ja",
+          "value": "ja",
+          "arrow": true
+        }
+      ]
+    },
+    "hcg-follow-up-laag-risico": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "title",
+          "label": "hCG follow up laag risico",
+          "id": "titel",
+          "gridX": 0,
+          "gridY": 0
+        },
+        {
+          "type": "recommendation",
+          "text": "hCG bepalen\n{i} maandelijks",
+          "height": 20,
+          "id": "aanbeveling-hcg-bepalen",
+          "gridX": 0,
+          "gridY": 25
+        },
+        {
+          "type": "reference",
+          "label": "Uitslag hCG follow up na GTN",
+          "to": "uitslag-hcg-follow-up-laag",
+          "id": "verwijzing-uitslag-hcg-follow-up-na-gtn",
+          "gridX": 0,
+          "gridY": 55
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-titel-aanbeveling-hcg-bepalen",
+          "from": "titel",
+          "to": "aanbeveling-hcg-bepalen",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-hcg-bepalen-verwijzing-uitslag-hcg-follow-up-na-gtn",
+          "from": "aanbeveling-hcg-bepalen",
+          "to": "verwijzing-uitslag-hcg-follow-up-na-gtn",
+          "arrow": true
+        }
+      ]
+    },
+    "beleid-na-primaire-behandeling-gtn": {
+      "bron": {
+        "url": "https://www.oncoline.nl/trofoblastziekten"
+      },
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "reference",
+          "label": "Evaluatie bij dactinomycine chemotherapie",
+          "to": "evaluatie-dactinomycine",
+          "id": "verwijzing-evaluatie-bij-dactinomycine-chemotherapie",
+          "gridX": 0,
+          "gridY": 125
+        },
+        {
+          "type": "recommendation",
+          "text": "Dactinomycine\nOF\nOverweeg hysterectomie",
+          "height": 20,
+          "id": "aanbeveling-dactinomycine",
+          "gridX": 0,
+          "gridY": 95
+        },
+        {
+          "type": "recommendation",
+          "text": "EMA/CO\nEN\nhCG monitoren\nOF\nChirurgie",
+          "height": 23,
+          "id": "aanbeveling-ema-co",
+          "gridX": 45,
+          "gridY": 95
+        },
+        {
+          "type": "title",
+          "label": "Beleid na primaire behandeling GTN",
+          "id": "titel",
+          "gridX": 0,
+          "gridY": 0
+        },
+        {
+          "type": "reference",
+          "label": "Evaluatie bij EMA/CO chemotherapie",
+          "to": "evaluatie-ema-co",
+          "id": "verwijzing-evaluatie-bij-ema-co-chemotherapie",
+          "gridX": 45,
+          "gridY": 125
+        },
+        {
+          "type": "dataItem",
+          "label": "hCG concentratie",
+          "id": "hcg-concentratie",
+          "gridX": 0,
+          "gridY": 60,
+          "measure": {
+            "unit": "IE/L"
+          },
+          "interactive": true,
+          "options": [
+            {
+              "value": "lte-1000-u-l",
+              "label": "<=1000 U/l",
+              "lte": 1000,
+              "edge": "edge-hcg-concentratie-lte-1000-u-l"
+            },
+            {
+              "value": "gt-1000-u-l",
+              "label": ">1000 U/l",
+              "gt": 1000,
+              "edge": "edge-hcg-concentratie-gt-1000-u-l"
+            }
+          ]
+        },
+        {
+          "type": "reference",
+          "label": "Beleid na GTN chirurgie",
+          "to": "beleid-na-gtn-chirurgie",
+          "id": "verwijzing-beleid-na-gtn-chirurgie",
+          "gridX": 45,
+          "gridY": 150
+        },
+        {
+          "type": "dataItem",
+          "label": "Metastasen",
+          "id": "metastasen",
+          "gridX": 0,
+          "gridY": 25,
+          "interactive": true,
+          "options": [
+            {
+              "value": "ja",
+              "label": "Ja",
+              "edge": "edge-metastasen-ja"
+            },
+            {
+              "value": "nee",
+              "label": "Nee",
+              "edge": "edge-metastasen-nee"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Overweeg chirurgie metastasen afhankelijk van locatie en aantal\nOF\nEMA/CO",
+          "height": 23,
+          "id": "aanbeveling-overweeg-chirurgie-metastasen-afhankelijk",
+          "gridX": 90,
+          "gridY": 95
+        },
+        {
+          "type": "reference",
+          "label": "Beleid na GTN chirurgie",
+          "to": "beleid-na-gtn-chirurgie",
+          "id": "verwijzing-beleid-na-gtn-chirurgie-2",
+          "gridX": 0,
+          "gridY": 150
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-aanbeveling-ema-co-verwijzing-evaluatie-bij-ema-co-chemotherapie",
+          "from": "aanbeveling-ema-co",
+          "to": "verwijzing-evaluatie-bij-ema-co-chemotherapie",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-dactinomycine-verwijzing-evaluatie-bij-dactinomycine-chemotherapie",
+          "from": "aanbeveling-dactinomycine",
+          "to": "verwijzing-evaluatie-bij-dactinomycine-chemotherapie",
+          "arrow": true
+        },
+        {
+          "id": "edge-hcg-concentratie-lte-1000-u-l",
+          "from": "hcg-concentratie",
+          "to": "aanbeveling-dactinomycine",
+          "label": "<=1000 U/l",
+          "value": "lte-1000-u-l",
+          "arrow": true
+        },
+        {
+          "id": "edge-hcg-concentratie-gt-1000-u-l",
+          "from": "hcg-concentratie",
+          "to": "aanbeveling-ema-co",
+          "label": ">1000 U/l",
+          "value": "gt-1000-u-l",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-ema-co-verwijzing-beleid-na-gtn-chirurgie",
+          "from": "aanbeveling-ema-co",
+          "to": "verwijzing-beleid-na-gtn-chirurgie",
+          "arrow": true
+        },
+        {
+          "id": "edge-titel-metastasen",
+          "from": "titel",
+          "to": "metastasen",
+          "arrow": true
+        },
+        {
+          "id": "edge-metastasen-nee",
+          "from": "metastasen",
+          "to": "hcg-concentratie",
+          "label": "Nee",
+          "value": "nee",
+          "arrow": true
+        },
+        {
+          "id": "edge-metastasen-ja",
+          "from": "metastasen",
+          "to": "aanbeveling-overweeg-chirurgie-metastasen-afhankelijk",
+          "label": "Ja",
+          "value": "ja",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-dactinomycine-verwijzing-beleid-na-gtn-chirurgie-2",
+          "from": "aanbeveling-dactinomycine",
+          "to": "verwijzing-beleid-na-gtn-chirurgie-2",
+          "arrow": true
+        }
+      ]
+    },
+    "evaluatie-dactinomycine": {
+      "bron": {
+        "url": "https://www.oncoline.nl/trofoblastziekten"
+      },
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "title",
+          "label": "Evaluatie bij dactinomycine chemotherapie",
+          "id": "titel",
+          "gridX": 0,
+          "gridY": 0
+        },
+        {
+          "type": "recommendation",
+          "text": "Overweeg transvaginale echo uterus\nEN\nOverweeg CT abdomen/thorax\nEN\nOverweeg MRI cerebrum\n{i} op indicatie",
+          "height": 36,
+          "id": "aanbeveling-overweeg-transvaginale-echo-uterus",
+          "gridX": 45,
+          "gridY": 95
+        },
+        {
+          "type": "reference",
+          "label": "Beleid na methotrexaat en dactinomycine chemotherapie",
+          "to": "beleid-methotrexaat-dactinomycine",
+          "id": "verwijzing-beleid-na-methotrexaat-en-dactinomycine-chemotherapie",
+          "gridX": 45,
+          "gridY": 135
+        },
+        {
+          "type": "recommendation",
+          "text": "2 consolidatiekuren",
+          "height": 20,
+          "id": "aanbeveling-2-consolidatiekuren",
+          "gridX": 0,
+          "gridY": 95
+        },
+        {
+          "type": "reference",
+          "label": "hCG follow up laag risico",
+          "to": "hcg-follow-up-laag-risico",
+          "id": "verwijzing-hcg-follow-up-laag-risico",
+          "gridX": 0,
+          "gridY": 130
+        },
+        {
+          "type": "dataItem",
+          "label": "hCG trend",
+          "id": "hcg-trend",
+          "gridX": 0,
+          "gridY": 25,
+          "interactive": true,
+          "options": [
+            {
+              "value": "stijging",
+              "label": "Stijging",
+              "edge": "edge-hcg-trend-stijging"
+            },
+            {
+              "value": "plateau",
+              "label": "Plateau",
+              "edge": "edge-hcg-trend-stijging"
+            },
+            {
+              "value": "daling",
+              "label": "Daling",
+              "edge": "edge-hcg-trend-daling"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Normalisatie hCG",
+          "id": "normalisatie-hcg",
+          "gridX": 0,
+          "gridY": 60,
+          "interactive": true,
+          "options": [
+            {
+              "value": "ja",
+              "label": "Ja",
+              "edge": "edge-normalisatie-hcg-ja"
+            },
+            {
+              "value": "nee",
+              "label": "Nee",
+              "edge": "edge-normalisatie-hcg-nee"
+            }
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-normalisatie-hcg-nee",
+          "from": "normalisatie-hcg",
+          "to": "aanbeveling-overweeg-transvaginale-echo-uterus",
+          "label": "Nee",
+          "value": "nee",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-overweeg-transvaginale-echo-uterus-verwijzing-beleid-na-methotrexaat-en-dactinomycine-chemotherapie",
+          "from": "aanbeveling-overweeg-transvaginale-echo-uterus",
+          "to": "verwijzing-beleid-na-methotrexaat-en-dactinomycine-chemotherapie",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-2-consolidatiekuren-verwijzing-hcg-follow-up-laag-risico",
+          "from": "aanbeveling-2-consolidatiekuren",
+          "to": "verwijzing-hcg-follow-up-laag-risico",
+          "arrow": true
+        },
+        {
+          "id": "edge-hcg-trend-stijging",
+          "from": "hcg-trend",
+          "to": "aanbeveling-overweeg-transvaginale-echo-uterus",
+          "label": "Stijging, Plateau",
+          "value": [
+            "plateau",
+            "stijging"
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-titel-hcg-trend",
+          "from": "titel",
+          "to": "hcg-trend",
+          "arrow": true
+        },
+        {
+          "id": "edge-hcg-trend-daling",
+          "from": "hcg-trend",
+          "to": "normalisatie-hcg",
+          "label": "Daling",
+          "value": "daling",
+          "arrow": true
+        },
+        {
+          "id": "edge-normalisatie-hcg-ja",
+          "from": "normalisatie-hcg",
+          "to": "aanbeveling-2-consolidatiekuren",
+          "label": "Ja",
+          "value": "ja",
+          "arrow": true
+        }
+      ]
+    },
+    "beleid-methotrexaat-dactinomycine": {
+      "bron": {
+        "url": "https://www.oncoline.nl/trofoblastziekten"
+      },
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "title",
+          "label": "Beleid na methotrexaat en dactinomycine chemotherapie",
+          "id": "titel",
+          "gridX": 0,
+          "gridY": 0
+        },
+        {
+          "type": "recommendation",
+          "text": "EMA/CO",
+          "height": 20,
+          "id": "aanbeveling-ema-co",
+          "gridX": 0,
+          "gridY": 25
+        },
+        {
+          "type": "reference",
+          "label": "Evaluatie bij EMA/CO chemotherapie",
+          "to": "evaluatie-ema-co",
+          "id": "verwijzing-evaluatie-bij-ema-co-chemotherapie",
+          "gridX": 0,
+          "gridY": 55
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-titel-aanbeveling-ema-co",
+          "from": "titel",
+          "to": "aanbeveling-ema-co",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-ema-co-verwijzing-evaluatie-bij-ema-co-chemotherapie",
+          "from": "aanbeveling-ema-co",
+          "to": "verwijzing-evaluatie-bij-ema-co-chemotherapie",
+          "arrow": true
+        }
+      ]
+    },
+    "surveillance-non-mola": {
+      "bron": {
+        "url": "https://www.oncoline.nl/trofoblastziekten"
+      },
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "title",
+          "label": "Surveillance bij non-mola choriocarcinoom",
+          "id": "titel",
+          "gridX": 0,
+          "gridY": 0
+        },
+        {
+          "type": "recommendation",
+          "text": "hCG bepalen\n{i} wekelijks",
+          "height": 20,
+          "id": "aanbeveling-hcg-bepalen",
+          "gridX": 0,
+          "gridY": 25
+        },
+        {
+          "type": "reference",
+          "label": "Uitslag hCG surveillance na non-mola choriocarcinoom",
+          "to": "uitslag-hcg-non-mola",
+          "id": "verwijzing-uitslag-hcg-surveillance-na-non-mola-choriocarcinoom",
+          "gridX": 0,
+          "gridY": 55
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-titel-aanbeveling-hcg-bepalen",
+          "from": "titel",
+          "to": "aanbeveling-hcg-bepalen",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-hcg-bepalen-verwijzing-uitslag-hcg-surveillance-na-non-mola-choriocarcinoom",
+          "from": "aanbeveling-hcg-bepalen",
+          "to": "verwijzing-uitslag-hcg-surveillance-na-non-mola-choriocarcinoom",
+          "arrow": true
+        }
+      ]
+    },
+    "uitslag-hcg-non-mola": {
+      "bron": {
+        "url": "https://www.oncoline.nl/trofoblastziekten"
+      },
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "title",
+          "label": "Uitslag hCG surveillance na non-mola choriocarcinoom",
+          "id": "titel",
+          "gridX": 0,
+          "gridY": 0
+        },
+        {
+          "type": "dataItem",
+          "label": "hCG trend",
+          "id": "hcg-trend",
+          "gridX": 0,
+          "gridY": 25,
+          "interactive": true,
+          "options": [
+            {
+              "value": "stijging",
+              "label": "Stijging",
+              "edge": "edge-hcg-trend-stijging"
+            },
+            {
+              "value": "plateau",
+              "label": "Plateau",
+              "edge": "edge-hcg-trend-stijging"
+            },
+            {
+              "value": "daling",
+              "label": "Daling",
+              "edge": "edge-hcg-trend-daling"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Normalisatie hCG",
+          "id": "normalisatie-hcg",
+          "gridX": 0,
+          "gridY": 60,
+          "interactive": true,
+          "options": [
+            {
+              "value": "ja",
+              "label": "Ja",
+              "edge": "edge-normalisatie-hcg-ja"
+            },
+            {
+              "value": "nee",
+              "label": "Nee",
+              "edge": "edge-normalisatie-hcg-nee"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "hCG Follow up\n{i} maandelijks gedurende 18 maanden",
+          "height": 20,
+          "id": "aanbeveling-hcg-follow-up",
+          "gridX": 0,
+          "gridY": 95
+        },
+        {
+          "type": "recommendation",
+          "text": "CT Thorax / Abdomen",
+          "height": 20,
+          "id": "aanbeveling-ct-thorax-abdomen",
+          "gridX": 45,
+          "gridY": 95
+        },
+        {
+          "type": "reference",
+          "label": "Behandeling GTN",
+          "to": "behandeling-gtn",
+          "id": "verwijzing-behandeling-gtn",
+          "gridX": 45,
+          "gridY": 125
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-titel-hcg-trend",
+          "from": "titel",
+          "to": "hcg-trend",
+          "arrow": true
+        },
+        {
+          "id": "edge-hcg-trend-daling",
+          "from": "hcg-trend",
+          "to": "normalisatie-hcg",
+          "label": "Daling",
+          "value": "daling",
+          "arrow": true
+        },
+        {
+          "id": "edge-normalisatie-hcg-ja",
+          "from": "normalisatie-hcg",
+          "to": "aanbeveling-hcg-follow-up",
+          "label": "Ja",
+          "value": "ja",
+          "arrow": true
+        },
+        {
+          "id": "edge-hcg-trend-stijging",
+          "from": "hcg-trend",
+          "to": "aanbeveling-ct-thorax-abdomen",
+          "label": "Stijging, plateau",
+          "value": [
+            "stijging",
+            "plateau"
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-normalisatie-hcg-nee",
+          "from": "normalisatie-hcg",
+          "to": "aanbeveling-ct-thorax-abdomen",
+          "label": "Nee",
+          "value": "nee",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-ct-thorax-abdomen-verwijzing-behandeling-gtn",
+          "from": "aanbeveling-ct-thorax-abdomen",
+          "to": "verwijzing-behandeling-gtn",
+          "arrow": true
+        }
+      ]
+    }
+  }
 }

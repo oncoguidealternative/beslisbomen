@@ -1,6 +1,12 @@
 {
   "id": "epitheliaal-ovarium",
   "titel": "Zorgpad epitheliaal ovariumcarcinoom",
+  "bron": {
+    "richtlijn": "Epitheliaal ovariumcarcinoom",
+    "organisatie": "NVOG (Nederlandse Vereniging voor Obstetrie en Gynaecologie)",
+    "url": "https://richtlijnendatabase.nl/richtlijn/ovariumcarcinoom/epitheliaal_ovariumcarcinoom_-_startpagina.html",
+    "opmerking": "Omgezet uit Oncoguide (IKNL, project 83, publicatie 11-01-2022)."
+  },
   "overview": {
     "layout": {
       "unit": 5,
@@ -22,14 +28,18 @@
         "gridX": 100,
         "gridY": 40,
         "label": "Klinisch (verdenking op) vergroot ovarium",
-        "drill": true
+        "tumor": "vergroot-ovarium",
+        "tree": "klinisch-vergroot-ovarium",
+        "icon": "down"
       },
       {
         "id": "initieel-beleid-vergroot-ovarium",
         "gridX": 100,
         "gridY": 80,
         "label": "Initieel beleid (verdenking op) vergroot ovarium",
-        "drill": true
+        "tumor": "vergroot-ovarium",
+        "tree": "initieel-beleid",
+        "icon": "down"
       },
       {
         "id": "diagnose-epitheliaal-ovarium",
@@ -463,5 +473,5181 @@
       }
     ]
   },
-  "trees": {}
+  "trees": {
+    "aanvullend-onderzoek-follow-up": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "title",
+          "label": "Aanvullend onderzoek follow up",
+          "id": "titel",
+          "gridX": 90,
+          "gridY": 0
+        },
+        {
+          "type": "dataItem",
+          "label": "Klinisch beeld",
+          "id": "klinisch-beeld",
+          "gridX": 90,
+          "gridY": 30,
+          "interactive": true,
+          "options": [
+            {
+              "value": "geen-verdenking",
+              "label": "Geen verdenking",
+              "edge": "edge-klinisch-beeld-geen-verdenking"
+            },
+            {
+              "value": "klinische-verdenking",
+              "label": "Klinische verdenking",
+              "edge": "edge-klinisch-beeld-klinische-verdenking"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Jaren sinds afloop primaire behandeling",
+          "id": "jaren-sinds-afloop-primaire-behandeling",
+          "gridX": 45,
+          "gridY": 60,
+          "measure": {
+            "unit": "jaren"
+          },
+          "interactive": true,
+          "options": [
+            {
+              "value": "lte-2-jaar",
+              "label": "<=2 jaar",
+              "lte": 2,
+              "edge": "edge-jaren-sinds-afloop-primaire-behandeling-lte-2-jaar"
+            },
+            {
+              "value": "2-3-jaar",
+              "label": "2-3 jaar",
+              "gt": 2,
+              "lt": 4,
+              "edge": "edge-jaren-sinds-afloop-primaire-behandeling-2-3-jaar"
+            },
+            {
+              "value": "4-5-jaar",
+              "label": "4-5 jaar",
+              "gte": 4,
+              "lte": 5,
+              "edge": "edge-jaren-sinds-afloop-primaire-behandeling-4-5-jaar"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Geen aanvullernd onderzoek\nControle na 4 maanden, bepaal frequentie in overleg",
+          "height": 23,
+          "id": "aanbeveling-geen-aanvullernd-onderzoek",
+          "gridX": 45,
+          "gridY": 95
+        },
+        {
+          "type": "recommendation",
+          "text": "Geen aanvullend onderzoek\nControle na 3 maanden, bepaal frequentie in overleg",
+          "height": 23,
+          "id": "aanbeveling-geen-aanvullend-onderzoek",
+          "gridX": 0,
+          "gridY": 95
+        },
+        {
+          "type": "recommendation",
+          "text": "Geen aanvullend onderzoek\nControle na 6 maanden, bepaal frequentie in overleg",
+          "height": 23,
+          "id": "aanbeveling-geen-aanvullend-onderzoek-2",
+          "gridX": 90,
+          "gridY": 95
+        },
+        {
+          "type": "recommendation",
+          "text": "Beeldvormend onderzoek\nEN\nCA-125\n{i} Indien nog niet verricht",
+          "height": 23,
+          "id": "aanbeveling-beeldvormend-onderzoek",
+          "gridX": 135,
+          "gridY": 95
+        },
+        {
+          "type": "reference",
+          "label": "Behandeling recidief",
+          "to": "behandeling-recidief",
+          "id": "verwijzing-behandeling-recidief",
+          "gridX": 135,
+          "gridY": 130
+        },
+        {
+          "type": "reference",
+          "label": "Follow up",
+          "to": "follow-up",
+          "id": "verwijzing-follow-up",
+          "gridX": 90,
+          "gridY": 130
+        },
+        {
+          "type": "reference",
+          "label": "Follow up",
+          "to": "follow-up",
+          "id": "verwijzing-follow-up-2",
+          "gridX": 45,
+          "gridY": 130
+        },
+        {
+          "type": "reference",
+          "label": "Follow up",
+          "to": "follow-up",
+          "id": "verwijzing-follow-up-3",
+          "gridX": 0,
+          "gridY": 130
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-aanbeveling-geen-aanvullend-onderzoek-2-verwijzing-follow-up",
+          "from": "aanbeveling-geen-aanvullend-onderzoek-2",
+          "to": "verwijzing-follow-up",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-geen-aanvullernd-onderzoek-verwijzing-follow-up-2",
+          "from": "aanbeveling-geen-aanvullernd-onderzoek",
+          "to": "verwijzing-follow-up-2",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-geen-aanvullend-onderzoek-verwijzing-follow-up-3",
+          "from": "aanbeveling-geen-aanvullend-onderzoek",
+          "to": "verwijzing-follow-up-3",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-beeldvormend-onderzoek-verwijzing-behandeling-recidief",
+          "from": "aanbeveling-beeldvormend-onderzoek",
+          "to": "verwijzing-behandeling-recidief",
+          "arrow": true
+        },
+        {
+          "id": "edge-jaren-sinds-afloop-primaire-behandeling-4-5-jaar",
+          "from": "jaren-sinds-afloop-primaire-behandeling",
+          "to": "aanbeveling-geen-aanvullend-onderzoek-2",
+          "label": "4-5 jaar",
+          "value": "4-5-jaar",
+          "arrow": true
+        },
+        {
+          "id": "edge-jaren-sinds-afloop-primaire-behandeling-2-3-jaar",
+          "from": "jaren-sinds-afloop-primaire-behandeling",
+          "to": "aanbeveling-geen-aanvullernd-onderzoek",
+          "label": "2-3 jaar",
+          "value": "2-3-jaar",
+          "arrow": true
+        },
+        {
+          "id": "edge-jaren-sinds-afloop-primaire-behandeling-lte-2-jaar",
+          "from": "jaren-sinds-afloop-primaire-behandeling",
+          "to": "aanbeveling-geen-aanvullend-onderzoek",
+          "label": "<=2 jaar",
+          "value": "lte-2-jaar",
+          "arrow": true
+        },
+        {
+          "id": "edge-klinisch-beeld-geen-verdenking",
+          "from": "klinisch-beeld",
+          "to": "jaren-sinds-afloop-primaire-behandeling",
+          "label": "Geen verdenking",
+          "value": "geen-verdenking",
+          "arrow": true
+        },
+        {
+          "id": "edge-klinisch-beeld-klinische-verdenking",
+          "from": "klinisch-beeld",
+          "to": "aanbeveling-beeldvormend-onderzoek",
+          "label": "Klinische verdenking",
+          "value": "klinische-verdenking",
+          "arrow": true
+        },
+        {
+          "id": "edge-titel-klinisch-beeld",
+          "from": "titel",
+          "to": "klinisch-beeld",
+          "arrow": true
+        }
+      ]
+    },
+    "behandeling-recidief": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "dataItem",
+          "label": "Therapievrij interval",
+          "id": "therapievrij-interval",
+          "gridX": 45,
+          "gridY": 60,
+          "measure": {
+            "unit": "maanden"
+          },
+          "interactive": true,
+          "options": [
+            {
+              "value": "lt-6-maanden",
+              "label": "<6 maanden",
+              "lt": 6,
+              "edge": "edge-therapievrij-interval-lt-6-maanden"
+            },
+            {
+              "value": "gte-6-maanden",
+              "label": ">=6 maanden",
+              "gte": 6,
+              "edge": "edge-therapievrij-interval-gte-6-maanden"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Remissie na initiële therapie",
+          "id": "remissie-na-initiele-therapie",
+          "gridX": 90,
+          "gridY": 85,
+          "interactive": true,
+          "options": [
+            {
+              "value": "geen",
+              "label": "Geen",
+              "edge": "edge-remissie-na-initiele-therapie-geen"
+            },
+            {
+              "value": "incompleet",
+              "label": "Incompleet",
+              "edge": "edge-remissie-na-initiele-therapie-geen"
+            },
+            {
+              "value": "compleet",
+              "label": "Compleet",
+              "edge": "edge-remissie-na-initiele-therapie-compleet"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Inschatting secundaire debulking",
+          "id": "inschatting-secundaire-debulking",
+          "gridX": 135,
+          "gridY": 120,
+          "interactive": true,
+          "options": [
+            {
+              "value": "optimaal",
+              "label": "Optimaal",
+              "edge": "edge-inschatting-secundaire-debulking-optimaal"
+            },
+            {
+              "value": "complete",
+              "label": "Complete",
+              "edge": "edge-inschatting-secundaire-debulking-optimaal"
+            },
+            {
+              "value": "incompleet",
+              "label": "Incompleet",
+              "edge": "edge-inschatting-secundaire-debulking-incompleet"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Performance status (ECOG)",
+          "id": "performance-status-ecog",
+          "gridX": 135,
+          "gridY": 155,
+          "measure": {
+            "unit": "score"
+          },
+          "interactive": true,
+          "options": [
+            {
+              "value": "0",
+              "label": "0",
+              "gte": 0,
+              "lte": 0,
+              "edge": "edge-performance-status-ecog-0"
+            },
+            {
+              "value": "1-5",
+              "label": "1-5",
+              "gte": 1,
+              "lt": 5,
+              "edge": "edge-performance-status-ecog-1-5"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Herhaalde behandeling met combinatie taxol en platinum\nOF\nOverweeg te informeren over de mogelijkheid van secundaire debulking\n{i} afwezigheid (<500 ml) ascites, compleetheid bij primaire cytoreductieve chirurgie, geen contra-indicaties voor chirurgie en geen niet-reseceerbare laesies op pre-operatieve beeldvorming",
+          "height": 62,
+          "id": "aanbeveling-herhaalde-behandeling-met-combinatie-taxol",
+          "gridX": 135,
+          "gridY": 190
+        },
+        {
+          "type": "recommendation",
+          "text": "Herhaalde behandeling met combinatie taxol en platinum\nOF\nOverweeg palliatieve behandeling",
+          "height": 26,
+          "id": "aanbeveling-herhaalde-behandeling-met-combinatie-taxol-2",
+          "gridX": 90,
+          "gridY": 190
+        },
+        {
+          "type": "recommendation",
+          "text": "Overweeg palliatieve Chemotherapie\n{i} Chemotherapie bijvoorbeeld Liposomaal, Gemcitabine, oraal etoposide of wekelijks\nplatinum-combinatietherapie",
+          "height": 32,
+          "id": "aanbeveling-overweeg-palliatieve-chemotherapie",
+          "gridX": 45,
+          "gridY": 190
+        },
+        {
+          "type": "dataItem",
+          "label": "Uitslag beeldvorming",
+          "id": "uitslag-beeldvorming",
+          "gridX": 0,
+          "gridY": 30,
+          "interactive": true,
+          "options": [
+            {
+              "value": "recidief",
+              "label": "Recidief",
+              "edge": "edge-uitslag-beeldvorming-recidief"
+            },
+            {
+              "value": "geen-recidief",
+              "label": "Geen recidief",
+              "edge": "edge-uitslag-beeldvorming-geen-recidief"
+            }
+          ]
+        },
+        {
+          "type": "title",
+          "label": "Behandeling recidief",
+          "id": "titel",
+          "gridX": 0,
+          "gridY": 0
+        },
+        {
+          "type": "recommendation",
+          "text": "Follow up",
+          "height": 20,
+          "id": "aanbeveling-follow-up",
+          "gridX": 0,
+          "gridY": 190
+        },
+        {
+          "type": "reference",
+          "label": "Beleid na behandeling recidief",
+          "to": "beleid-na-behandeling-recidief",
+          "id": "verwijzing-beleid-na-behandeling-recidief",
+          "gridX": 135,
+          "gridY": 265
+        },
+        {
+          "type": "reference",
+          "label": "Beleid na behandeling recidief",
+          "to": "beleid-na-behandeling-recidief",
+          "id": "verwijzing-beleid-na-behandeling-recidief-2",
+          "gridX": 90,
+          "gridY": 230
+        },
+        {
+          "type": "reference",
+          "label": "Beleid na behandeling recidief",
+          "to": "beleid-na-behandeling-recidief",
+          "id": "verwijzing-beleid-na-behandeling-recidief-3",
+          "gridX": 45,
+          "gridY": 230
+        },
+        {
+          "type": "reference",
+          "label": "Follow up",
+          "to": "follow-up",
+          "id": "verwijzing-follow-up",
+          "gridX": 135,
+          "gridY": 290
+        },
+        {
+          "type": "reference",
+          "label": "Follow up",
+          "to": "follow-up",
+          "id": "verwijzing-follow-up-2",
+          "gridX": 0,
+          "gridY": 230
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-aanbeveling-herhaalde-behandeling-met-combinatie-taxol-2-verwijzing-beleid-na-behandeling-recidief-2",
+          "from": "aanbeveling-herhaalde-behandeling-met-combinatie-taxol-2",
+          "to": "verwijzing-beleid-na-behandeling-recidief-2",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-overweeg-palliatieve-chemotherapie-verwijzing-beleid-na-behandeling-recidief-3",
+          "from": "aanbeveling-overweeg-palliatieve-chemotherapie",
+          "to": "verwijzing-beleid-na-behandeling-recidief-3",
+          "arrow": true
+        },
+        {
+          "id": "edge-performance-status-ecog-1-5",
+          "from": "performance-status-ecog",
+          "to": "aanbeveling-herhaalde-behandeling-met-combinatie-taxol-2",
+          "label": "1-5",
+          "value": "1-5",
+          "arrow": true
+        },
+        {
+          "id": "edge-performance-status-ecog-0",
+          "from": "performance-status-ecog",
+          "to": "aanbeveling-herhaalde-behandeling-met-combinatie-taxol",
+          "label": "0",
+          "value": "0",
+          "arrow": true
+        },
+        {
+          "id": "edge-inschatting-secundaire-debulking-incompleet",
+          "from": "inschatting-secundaire-debulking",
+          "to": "aanbeveling-herhaalde-behandeling-met-combinatie-taxol-2",
+          "label": "Incompleet",
+          "value": "incompleet",
+          "arrow": true
+        },
+        {
+          "id": "edge-inschatting-secundaire-debulking-optimaal",
+          "from": "inschatting-secundaire-debulking",
+          "to": "performance-status-ecog",
+          "label": "Optimaal, Compleet",
+          "value": [
+            "complete",
+            "optimaal"
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-remissie-na-initiele-therapie-compleet",
+          "from": "remissie-na-initiele-therapie",
+          "to": "inschatting-secundaire-debulking",
+          "label": "Compleet",
+          "value": "compleet",
+          "arrow": true
+        },
+        {
+          "id": "edge-therapievrij-interval-gte-6-maanden",
+          "from": "therapievrij-interval",
+          "to": "remissie-na-initiele-therapie",
+          "label": ">=6 maanden",
+          "value": "gte-6-maanden",
+          "arrow": true
+        },
+        {
+          "id": "edge-therapievrij-interval-lt-6-maanden",
+          "from": "therapievrij-interval",
+          "to": "aanbeveling-overweeg-palliatieve-chemotherapie",
+          "label": "<6 maanden",
+          "value": "lt-6-maanden",
+          "arrow": true
+        },
+        {
+          "id": "edge-titel-uitslag-beeldvorming",
+          "from": "titel",
+          "to": "uitslag-beeldvorming",
+          "arrow": true
+        },
+        {
+          "id": "edge-uitslag-beeldvorming-recidief",
+          "from": "uitslag-beeldvorming",
+          "to": "therapievrij-interval",
+          "label": "Recidief",
+          "value": "recidief",
+          "arrow": true
+        },
+        {
+          "id": "edge-uitslag-beeldvorming-geen-recidief",
+          "from": "uitslag-beeldvorming",
+          "to": "aanbeveling-follow-up",
+          "label": "Geen recidief",
+          "value": "geen-recidief",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-herhaalde-behandeling-met-combinatie-taxol-verwijzing-beleid-na-behandeling-recidief",
+          "from": "aanbeveling-herhaalde-behandeling-met-combinatie-taxol",
+          "to": "verwijzing-beleid-na-behandeling-recidief",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-herhaalde-behandeling-met-combinatie-taxol-verwijzing-follow-up",
+          "from": "aanbeveling-herhaalde-behandeling-met-combinatie-taxol",
+          "to": "verwijzing-follow-up",
+          "arrow": true
+        },
+        {
+          "id": "edge-remissie-na-initiele-therapie-geen",
+          "from": "remissie-na-initiele-therapie",
+          "to": "aanbeveling-herhaalde-behandeling-met-combinatie-taxol-2",
+          "label": "Geen, Incompleet",
+          "value": [
+            "incompleet",
+            "geen"
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-follow-up-verwijzing-follow-up-2",
+          "from": "aanbeveling-follow-up",
+          "to": "verwijzing-follow-up-2",
+          "arrow": true
+        }
+      ]
+    },
+    "beleid-na-behandeling-recidief": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "title",
+          "label": "Beleid na behandeling recidief",
+          "id": "titel",
+          "gridX": 0,
+          "gridY": 0
+        },
+        {
+          "type": "dataItem",
+          "label": "Respons initiële chemotherapie bij recidief",
+          "id": "respons-initiele-chemotherapie-bij-recidief",
+          "gridX": 0,
+          "gridY": 30,
+          "interactive": true,
+          "options": [
+            {
+              "value": "stabiele-ziekte",
+              "label": "Stabiele ziekte",
+              "edge": "edge-respons-initiele-chemotherapie-bij-recidief-stabiele-ziekte"
+            },
+            {
+              "value": "progressie",
+              "label": "Progressie",
+              "edge": "edge-respons-initiele-chemotherapie-bij-recidief-stabiele-ziekte"
+            },
+            {
+              "value": "complete-remissie",
+              "label": "Complete remissie",
+              "edge": "edge-respons-initiele-chemotherapie-bij-recidief-compleet"
+            },
+            {
+              "value": "partiele-remissie",
+              "label": "Partiele remissie",
+              "edge": "edge-respons-initiele-chemotherapie-bij-recidief-compleet"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Aantal kuren platiumbevattende chemotherapie",
+          "id": "aantal-kuren-platiumbevattende-chemotherapie",
+          "gridX": 45,
+          "gridY": 65,
+          "measure": {
+            "unit": "kuren"
+          },
+          "interactive": true,
+          "options": [
+            {
+              "value": "lte-4",
+              "label": "<=4",
+              "lte": 4,
+              "edge": "edge-aantal-kuren-platiumbevattende-chemotherapie-lte-4"
+            },
+            {
+              "value": "gt-4",
+              "label": ">4",
+              "gt": 4,
+              "edge": "edge-aantal-kuren-platiumbevattende-chemotherapie-gt-4"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Histologie tumor",
+          "id": "histologie-tumor",
+          "gridX": 45,
+          "gridY": 100,
+          "interactive": true,
+          "options": [
+            {
+              "value": "hooggradig-sereus",
+              "label": "Hooggradig sereus",
+              "edge": "edge-histologie-tumor-aanbeveling-onderhoudsbehandeling-met-parp-remmers"
+            },
+            {
+              "value": "hooggradig-endometrioid",
+              "label": "Hooggradig endometrioid",
+              "edge": "edge-histologie-tumor-aanbeveling-onderhoudsbehandeling-met-parp-remmers"
+            },
+            {
+              "value": "overig",
+              "label": "Overig",
+              "edge": "edge-histologie-tumor-overig"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Onderhoudsbehandeling met PARP- remmers",
+          "height": 20,
+          "id": "aanbeveling-onderhoudsbehandeling-met-parp-remmers",
+          "gridX": 45,
+          "gridY": 145
+        },
+        {
+          "type": "recommendation",
+          "text": "Palliatieve behandeling",
+          "height": 20,
+          "id": "aanbeveling-palliatieve-behandeling",
+          "gridX": 0,
+          "gridY": 145
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-respons-initiele-chemotherapie-bij-recidief-stabiele-ziekte",
+          "from": "respons-initiele-chemotherapie-bij-recidief",
+          "to": "aanbeveling-palliatieve-behandeling",
+          "label": "Stabiele ziekte, Progressie",
+          "value": [
+            "stabiele-ziekte",
+            "progressie"
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-respons-initiele-chemotherapie-bij-recidief-compleet",
+          "from": "respons-initiele-chemotherapie-bij-recidief",
+          "to": "aantal-kuren-platiumbevattende-chemotherapie",
+          "label": "Compleet, Partieel",
+          "value": [
+            "complete-remissie",
+            "partiele-remissie"
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-aantal-kuren-platiumbevattende-chemotherapie-gt-4",
+          "from": "aantal-kuren-platiumbevattende-chemotherapie",
+          "to": "histologie-tumor",
+          "label": ">4",
+          "value": "gt-4",
+          "arrow": true
+        },
+        {
+          "id": "edge-titel-respons-initiele-chemotherapie-bij-recidief",
+          "from": "titel",
+          "to": "respons-initiele-chemotherapie-bij-recidief",
+          "arrow": true
+        },
+        {
+          "id": "edge-histologie-tumor-aanbeveling-onderhoudsbehandeling-met-parp-remmers",
+          "from": "histologie-tumor",
+          "to": "aanbeveling-onderhoudsbehandeling-met-parp-remmers",
+          "label": "Hooggradig sereus, Hooggradig endometrioid",
+          "value": [
+            "hooggradig-sereus",
+            "hooggradig-endometrioid"
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-histologie-tumor-overig",
+          "from": "histologie-tumor",
+          "to": "aanbeveling-palliatieve-behandeling",
+          "label": "Overig",
+          "value": "overig",
+          "arrow": true
+        },
+        {
+          "id": "edge-aantal-kuren-platiumbevattende-chemotherapie-lte-4",
+          "from": "aantal-kuren-platiumbevattende-chemotherapie",
+          "to": "aanbeveling-palliatieve-behandeling",
+          "label": "<=4",
+          "value": "lte-4",
+          "arrow": true
+        }
+      ]
+    },
+    "follow-up": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "dataItem",
+          "label": "Klachten",
+          "id": "klachten",
+          "gridX": 0,
+          "gridY": 30,
+          "interactive": true,
+          "options": [
+            {
+              "value": "symptomatisch",
+              "label": "Symptomatisch",
+              "edge": "edge-klachten-symptomatisch"
+            },
+            {
+              "value": "asymptomatisch",
+              "label": "Asymptomatisch",
+              "edge": "edge-klachten-asymptomatisch"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Anamnese\nEN\nLichamelijk onderzoek\nEN\nGynaecologisch onderzoek",
+          "height": 23,
+          "id": "aanbeveling-anamnese",
+          "gridX": 0,
+          "gridY": 65
+        },
+        {
+          "type": "recommendation",
+          "text": "Anamnese\nEN\nLichamelijk onderzoek\nEN\nGynaecologisch onderzoek\nEN\nCA 125",
+          "height": 29,
+          "id": "aanbeveling-anamnese-2",
+          "gridX": 45,
+          "gridY": 65
+        },
+        {
+          "type": "reference",
+          "label": "Aanvullend onderzoek follow up",
+          "to": "aanvullend-onderzoek-follow-up",
+          "id": "verwijzing-aanvullend-onderzoek-follow-up",
+          "gridX": 0,
+          "gridY": 125
+        },
+        {
+          "type": "reference",
+          "label": "Aanvullend onderzoek follow up",
+          "to": "aanvullend-onderzoek-follow-up",
+          "id": "verwijzing-aanvullend-onderzoek-follow-up-2",
+          "gridX": 45,
+          "gridY": 125
+        },
+        {
+          "type": "title",
+          "label": "Follow up",
+          "id": "titel",
+          "gridX": 0,
+          "gridY": 0
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-aanbeveling-anamnese-verwijzing-aanvullend-onderzoek-follow-up",
+          "from": "aanbeveling-anamnese",
+          "to": "verwijzing-aanvullend-onderzoek-follow-up",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-anamnese-2-verwijzing-aanvullend-onderzoek-follow-up-2",
+          "from": "aanbeveling-anamnese-2",
+          "to": "verwijzing-aanvullend-onderzoek-follow-up-2",
+          "arrow": true
+        },
+        {
+          "id": "edge-klachten-symptomatisch",
+          "from": "klachten",
+          "to": "aanbeveling-anamnese-2",
+          "label": "Symptomatisch",
+          "value": "symptomatisch",
+          "arrow": true
+        },
+        {
+          "id": "edge-klachten-asymptomatisch",
+          "from": "klachten",
+          "to": "aanbeveling-anamnese",
+          "label": "Asymptomatisch",
+          "value": "asymptomatisch",
+          "arrow": true
+        },
+        {
+          "id": "edge-titel-klachten",
+          "from": "titel",
+          "to": "klachten",
+          "arrow": true
+        }
+      ]
+    },
+    "beleid-na-stadiering": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "title",
+          "label": "Beleid na stadiering",
+          "id": "titel",
+          "gridX": 45,
+          "gridY": 0
+        },
+        {
+          "type": "dataItem",
+          "label": "Stadiering",
+          "id": "stadiering",
+          "gridX": 45,
+          "gridY": 30,
+          "interactive": true,
+          "options": [
+            {
+              "value": "compleet",
+              "label": "Compleet",
+              "edge": "edge-stadiering-compleet"
+            },
+            {
+              "value": "onverwacht-incompleet",
+              "label": "(onverwacht) Incompleet",
+              "edge": "edge-stadiering-onverwacht-incompleet"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Restadiering",
+          "id": "restadiering",
+          "gridX": 90,
+          "gridY": 60,
+          "interactive": true,
+          "options": [
+            {
+              "value": "niet-mogelijk",
+              "label": "Niet mogelijk",
+              "edge": "edge-restadiering-niet-mogelijk"
+            },
+            {
+              "value": "complete-stadiering-mogelijk",
+              "label": "Complete stadiering mogelijk",
+              "edge": "edge-restadiering-complete-stadiering-mogelijk"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "FIGO",
+          "id": "figo",
+          "gridX": 0,
+          "gridY": 60,
+          "interactive": true,
+          "options": [
+            {
+              "value": "lte-iia",
+              "label": "<=IIA",
+              "edge": "edge-figo-lte-iia"
+            },
+            {
+              "value": "gte-iib",
+              "label": ">= IIB",
+              "edge": "edge-figo-gte-iib"
+            }
+          ],
+          "subtree": {
+            "tree": "figo",
+            "map": {
+              "aanbeveling-ia": "lte-iia",
+              "aanbeveling-ib": "lte-iia",
+              "aanbeveling-ic": "lte-iia",
+              "aanbeveling-iia": "lte-iia",
+              "aanbeveling-iib": "gte-iib",
+              "aanbeveling-iiia2": "gte-iib",
+              "aanbeveling-iiib": "gte-iib",
+              "aanbeveling-iiic": "gte-iib",
+              "aanbeveling-iiia1": "gte-iib",
+              "aanbeveling-iiia2-2": "gte-iib",
+              "aanbeveling-iiib-2": "gte-iib",
+              "aanbeveling-iiic-2": "gte-iib",
+              "aanbeveling-iva": "gte-iib",
+              "aanbeveling-ivb": "gte-iib",
+              "aanbeveling-stadium-is-niet-te-bepalen": "lte-iia"
+            }
+          }
+        },
+        {
+          "type": "recommendation",
+          "text": "Restageringsoperatie",
+          "height": 20,
+          "id": "aanbeveling-restageringsoperatie",
+          "gridX": 90,
+          "gridY": 95
+        },
+        {
+          "type": "recommendation",
+          "text": "Adjuvante chemotherapie:\n6 kuren Paclitaxel en Carboplatine",
+          "height": 20,
+          "id": "aanbeveling-6-kuren-paclitaxel-en-carboplatine",
+          "gridX": 45,
+          "gridY": 95
+        },
+        {
+          "type": "recommendation",
+          "text": "Expectatief beleid\nOF\nAdjuvante chemotherapie:\n6 kuren Paclitaxel en Carboplatine",
+          "height": 23,
+          "id": "aanbeveling-expectatief-beleid",
+          "gridX": 0,
+          "gridY": 95
+        },
+        {
+          "type": "recommendation",
+          "text": "Adjuvante chemotherapie:\n6 kuren Paclitaxel en Carboplatine",
+          "height": 20,
+          "id": "aanbeveling-6-kuren-paclitaxel-en-carboplatine-2",
+          "gridX": 135,
+          "gridY": 95
+        },
+        {
+          "type": "reference",
+          "label": "Follow up",
+          "to": "follow-up",
+          "id": "verwijzing-follow-up",
+          "gridX": 0,
+          "gridY": 130
+        },
+        {
+          "type": "reference",
+          "label": "Follow up",
+          "to": "follow-up",
+          "id": "verwijzing-follow-up-2",
+          "gridX": 45,
+          "gridY": 130
+        },
+        {
+          "type": "reference",
+          "label": "Follow up",
+          "to": "follow-up",
+          "id": "verwijzing-follow-up-3",
+          "gridX": 135,
+          "gridY": 130
+        },
+        {
+          "type": "reference",
+          "label": "Beleid na stadiering",
+          "to": "beleid-na-stadiering",
+          "id": "verwijzing-beleid-na-stadiering",
+          "gridX": 90,
+          "gridY": 130
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-figo-lte-iia",
+          "from": "figo",
+          "to": "aanbeveling-expectatief-beleid",
+          "label": "<=IIA",
+          "value": "lte-iia",
+          "arrow": true
+        },
+        {
+          "id": "edge-figo-gte-iib",
+          "from": "figo",
+          "to": "aanbeveling-6-kuren-paclitaxel-en-carboplatine",
+          "label": ">= IIB",
+          "value": "gte-iib",
+          "arrow": true
+        },
+        {
+          "id": "edge-restadiering-complete-stadiering-mogelijk",
+          "from": "restadiering",
+          "to": "aanbeveling-restageringsoperatie",
+          "label": "Complete stadiering mogelijk",
+          "value": "complete-stadiering-mogelijk",
+          "arrow": true
+        },
+        {
+          "id": "edge-restadiering-niet-mogelijk",
+          "from": "restadiering",
+          "to": "aanbeveling-6-kuren-paclitaxel-en-carboplatine-2",
+          "label": "Niet mogelijk",
+          "value": "niet-mogelijk",
+          "arrow": true
+        },
+        {
+          "id": "edge-stadiering-onverwacht-incompleet",
+          "from": "stadiering",
+          "to": "restadiering",
+          "label": "(onverwacht) Incompleet",
+          "value": "onverwacht-incompleet",
+          "arrow": true
+        },
+        {
+          "id": "edge-stadiering-compleet",
+          "from": "stadiering",
+          "to": "figo",
+          "label": "Compleet",
+          "value": "compleet",
+          "arrow": true
+        },
+        {
+          "id": "edge-titel-stadiering",
+          "from": "titel",
+          "to": "stadiering",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-expectatief-beleid-verwijzing-follow-up",
+          "from": "aanbeveling-expectatief-beleid",
+          "to": "verwijzing-follow-up",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-6-kuren-paclitaxel-en-carboplatine-verwijzing-follow-up-2",
+          "from": "aanbeveling-6-kuren-paclitaxel-en-carboplatine",
+          "to": "verwijzing-follow-up-2",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-restageringsoperatie-verwijzing-beleid-na-stadiering",
+          "from": "aanbeveling-restageringsoperatie",
+          "to": "verwijzing-beleid-na-stadiering",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-6-kuren-paclitaxel-en-carboplatine-2-verwijzing-follow-up-3",
+          "from": "aanbeveling-6-kuren-paclitaxel-en-carboplatine-2",
+          "to": "verwijzing-follow-up-3",
+          "arrow": true
+        }
+      ]
+    },
+    "figo": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "recommendation",
+          "text": "IA",
+          "height": 20,
+          "id": "aanbeveling-ia",
+          "gridX": 0,
+          "gridY": 125
+        },
+        {
+          "type": "title",
+          "label": "FIGO",
+          "id": "titel",
+          "gridX": 495,
+          "gridY": 0
+        },
+        {
+          "type": "recommendation",
+          "text": "IB",
+          "height": 20,
+          "id": "aanbeveling-ib",
+          "gridX": 45,
+          "gridY": 125
+        },
+        {
+          "type": "recommendation",
+          "text": "IC",
+          "height": 20,
+          "id": "aanbeveling-ic",
+          "gridX": 90,
+          "gridY": 125
+        },
+        {
+          "type": "recommendation",
+          "text": "IIA",
+          "height": 20,
+          "id": "aanbeveling-iia",
+          "gridX": 135,
+          "gridY": 125
+        },
+        {
+          "type": "recommendation",
+          "text": "IIB",
+          "height": 20,
+          "id": "aanbeveling-iib",
+          "gridX": 180,
+          "gridY": 125
+        },
+        {
+          "type": "recommendation",
+          "text": "IIIA2",
+          "height": 20,
+          "id": "aanbeveling-iiia2",
+          "gridX": 225,
+          "gridY": 125
+        },
+        {
+          "type": "recommendation",
+          "text": "IIIB",
+          "height": 20,
+          "id": "aanbeveling-iiib",
+          "gridX": 270,
+          "gridY": 125
+        },
+        {
+          "type": "recommendation",
+          "text": "IIIC",
+          "height": 20,
+          "id": "aanbeveling-iiic",
+          "gridX": 315,
+          "gridY": 125
+        },
+        {
+          "type": "recommendation",
+          "text": "IIIA1",
+          "height": 20,
+          "id": "aanbeveling-iiia1",
+          "gridX": 405,
+          "gridY": 125
+        },
+        {
+          "type": "recommendation",
+          "text": "IIIA2",
+          "height": 20,
+          "id": "aanbeveling-iiia2-2",
+          "gridX": 450,
+          "gridY": 125
+        },
+        {
+          "type": "recommendation",
+          "text": "IIIB",
+          "height": 20,
+          "id": "aanbeveling-iiib-2",
+          "gridX": 495,
+          "gridY": 125
+        },
+        {
+          "type": "recommendation",
+          "text": "IIIC",
+          "height": 20,
+          "id": "aanbeveling-iiic-2",
+          "gridX": 540,
+          "gridY": 125
+        },
+        {
+          "type": "recommendation",
+          "text": "IVA",
+          "height": 20,
+          "id": "aanbeveling-iva",
+          "gridX": 585,
+          "gridY": 125
+        },
+        {
+          "type": "recommendation",
+          "text": "IVB",
+          "height": 20,
+          "id": "aanbeveling-ivb",
+          "gridX": 630,
+          "gridY": 125
+        },
+        {
+          "type": "dataItem",
+          "label": "pT",
+          "id": "pt",
+          "gridX": 450,
+          "gridY": 90,
+          "interactive": true,
+          "options": [
+            {
+              "value": "ptx",
+              "label": "PTx",
+              "edge": "edge-pt-ptx"
+            },
+            {
+              "value": "pt0",
+              "label": "PT0",
+              "edge": "edge-pt-ptx"
+            },
+            {
+              "value": "pt1-pt2",
+              "label": "PT1-pT2",
+              "edge": "edge-pt-pt1-pt2"
+            },
+            {
+              "value": "pt3a",
+              "label": "PT3a",
+              "edge": "edge-pt-pt3a"
+            },
+            {
+              "value": "pt3b",
+              "label": "PT3b",
+              "edge": "edge-pt-pt3b"
+            },
+            {
+              "value": "pt3c",
+              "label": "PT3c",
+              "edge": "edge-pt-pt3c"
+            }
+          ],
+          "subtree": {
+            "tree": "pt",
+            "map": {
+              "aanbeveling-ptx": "ptx",
+              "aanbeveling-pt2a": "pt1-pt2",
+              "aanbeveling-pt0": "pt0",
+              "aanbeveling-pt1a": "pt1-pt2",
+              "aanbeveling-pt1b": "pt1-pt2",
+              "aanbeveling-pt1c1": "pt1-pt2",
+              "aanbeveling-pt1c3": "pt1-pt2",
+              "aanbeveling-pt2b": "pt1-pt2",
+              "aanbeveling-pt3a": "pt3a",
+              "aanbeveling-pt3b": "pt3b",
+              "aanbeveling-pt3c": "pt3c",
+              "aanbeveling-pt1c2": "pt1-pt2",
+              "aanbeveling-er-kan-geen-stadium-worden-vastgesteld": "ptx"
+            }
+          }
+        },
+        {
+          "type": "dataItem",
+          "label": "pT",
+          "id": "pt-2",
+          "gridX": 225,
+          "gridY": 90,
+          "interactive": true,
+          "options": [
+            {
+              "value": "ptx",
+              "label": "PTx",
+              "edge": "edge-pt-2-ptx"
+            },
+            {
+              "value": "pt0",
+              "label": "PT0",
+              "edge": "edge-pt-2-ptx"
+            },
+            {
+              "value": "pt1a",
+              "label": "PT1a",
+              "edge": "edge-pt-2-pt1a"
+            },
+            {
+              "value": "pt1b",
+              "label": "PT1b",
+              "edge": "edge-pt-2-pt1b"
+            },
+            {
+              "value": "pt1c",
+              "label": "PT1c",
+              "edge": "edge-pt-2-pt1c"
+            },
+            {
+              "value": "pt2a",
+              "label": "PT2a",
+              "edge": "edge-pt-2-pt2a"
+            },
+            {
+              "value": "pt2b",
+              "label": "PT2b",
+              "edge": "edge-pt-2-pt2b"
+            },
+            {
+              "value": "pt3a",
+              "label": "PT3a",
+              "edge": "edge-pt-2-pt3a"
+            },
+            {
+              "value": "pt3b",
+              "label": "PT3b",
+              "edge": "edge-pt-2-pt3b"
+            },
+            {
+              "value": "pt3c",
+              "label": "PT3c",
+              "edge": "edge-pt-2-pt3c"
+            }
+          ],
+          "subtree": {
+            "tree": "pt",
+            "map": {
+              "aanbeveling-ptx": "ptx",
+              "aanbeveling-pt2a": "pt2a",
+              "aanbeveling-pt0": "pt0",
+              "aanbeveling-pt1a": "pt1a",
+              "aanbeveling-pt1b": "pt1b",
+              "aanbeveling-pt1c1": "pt1c",
+              "aanbeveling-pt1c3": "pt1c",
+              "aanbeveling-pt2b": "pt2b",
+              "aanbeveling-pt3a": "pt3a",
+              "aanbeveling-pt3b": "pt3b",
+              "aanbeveling-pt3c": "pt3c",
+              "aanbeveling-pt1c2": "pt1c",
+              "aanbeveling-er-kan-geen-stadium-worden-vastgesteld": "ptx"
+            }
+          }
+        },
+        {
+          "type": "dataItem",
+          "label": "pN",
+          "id": "pn",
+          "gridX": 360,
+          "gridY": 60,
+          "interactive": true,
+          "options": [
+            {
+              "value": "pnx",
+              "label": "PNX",
+              "edge": "edge-pn-pnx"
+            },
+            {
+              "value": "pn0",
+              "label": "PN0",
+              "edge": "edge-pn-pn0"
+            },
+            {
+              "value": "pn1",
+              "label": "PN1",
+              "edge": "edge-pn-pn1"
+            }
+          ],
+          "subtree": {
+            "tree": "pn",
+            "map": {
+              "aanbeveling-pn1a": "pn1",
+              "aanbeveling-pn1b": "pn1",
+              "aanbeveling-pn0": "pn0",
+              "aanbeveling-pnx": "pnx"
+            }
+          }
+        },
+        {
+          "type": "dataItem",
+          "label": "cM",
+          "id": "cm",
+          "gridX": 495,
+          "gridY": 30,
+          "interactive": true,
+          "options": [
+            {
+              "value": "m0",
+              "label": "M0",
+              "edge": "edge-cm-m0"
+            },
+            {
+              "value": "cm1a",
+              "label": "CM1a",
+              "edge": "edge-cm-cm1a"
+            },
+            {
+              "value": "cm1b",
+              "label": "CM1b",
+              "edge": "edge-cm-cm1b"
+            }
+          ],
+          "subtree": {
+            "tree": "cm",
+            "map": {
+              "aanbeveling-cm1a": "cm1a",
+              "aanbeveling-cm1b": "cm1b",
+              "aanbeveling-m0": "m0"
+            }
+          }
+        },
+        {
+          "type": "recommendation",
+          "text": "Stadium is niet te bepalen",
+          "height": 20,
+          "id": "aanbeveling-stadium-is-niet-te-bepalen",
+          "gridX": 360,
+          "gridY": 125
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-pt-2-ptx",
+          "from": "pt-2",
+          "to": "aanbeveling-stadium-is-niet-te-bepalen",
+          "label": "PTx, pT0",
+          "value": [
+            "pt0",
+            "ptx"
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-cm-cm1a",
+          "from": "cm",
+          "to": "aanbeveling-iva",
+          "label": "CM1a",
+          "value": "cm1a",
+          "arrow": true
+        },
+        {
+          "id": "edge-pt-2-pt1a",
+          "from": "pt-2",
+          "to": "aanbeveling-ia",
+          "label": "PT1a",
+          "value": "pt1a",
+          "arrow": true
+        },
+        {
+          "id": "edge-pt-2-pt3c",
+          "from": "pt-2",
+          "to": "aanbeveling-iiic",
+          "label": "PT3c",
+          "value": "pt3c",
+          "arrow": true
+        },
+        {
+          "id": "edge-pt-2-pt1c",
+          "from": "pt-2",
+          "to": "aanbeveling-ic",
+          "label": "PT1c",
+          "value": "pt1c",
+          "arrow": true
+        },
+        {
+          "id": "edge-pt-pt3b",
+          "from": "pt",
+          "to": "aanbeveling-iiib-2",
+          "label": "PT3b",
+          "value": "pt3b",
+          "arrow": true
+        },
+        {
+          "id": "edge-pt-2-pt1b",
+          "from": "pt-2",
+          "to": "aanbeveling-ib",
+          "label": "PT1b",
+          "value": "pt1b",
+          "arrow": true
+        },
+        {
+          "id": "edge-pt-2-pt2b",
+          "from": "pt-2",
+          "to": "aanbeveling-iib",
+          "label": "PT2b",
+          "value": "pt2b",
+          "arrow": true
+        },
+        {
+          "id": "edge-pn-pnx",
+          "from": "pn",
+          "to": "aanbeveling-stadium-is-niet-te-bepalen",
+          "label": "PNX",
+          "value": "pnx",
+          "arrow": true
+        },
+        {
+          "id": "edge-pt-2-pt3b",
+          "from": "pt-2",
+          "to": "aanbeveling-iiib",
+          "label": "PT3b",
+          "value": "pt3b",
+          "arrow": true
+        },
+        {
+          "id": "edge-pt-ptx",
+          "from": "pt",
+          "to": "aanbeveling-stadium-is-niet-te-bepalen",
+          "label": "PTx, pT0",
+          "value": [
+            "ptx",
+            "pt0"
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-pt-2-pt2a",
+          "from": "pt-2",
+          "to": "aanbeveling-iia",
+          "label": "PT2a",
+          "value": "pt2a",
+          "arrow": true
+        },
+        {
+          "id": "edge-cm-cm1b",
+          "from": "cm",
+          "to": "aanbeveling-ivb",
+          "label": "CM1b",
+          "value": "cm1b",
+          "arrow": true
+        },
+        {
+          "id": "edge-pt-pt1-pt2",
+          "from": "pt",
+          "to": "aanbeveling-iiia1",
+          "label": "PT1-pT2",
+          "value": "pt1-pt2",
+          "arrow": true
+        },
+        {
+          "id": "edge-cm-m0",
+          "from": "cm",
+          "to": "pn",
+          "label": "M0",
+          "value": "m0",
+          "arrow": true
+        },
+        {
+          "id": "edge-pn-pn0",
+          "from": "pn",
+          "to": "pt-2",
+          "label": "PN0",
+          "value": "pn0",
+          "arrow": true
+        },
+        {
+          "id": "edge-pt-pt3a",
+          "from": "pt",
+          "to": "aanbeveling-iiia2-2",
+          "label": "PT3a",
+          "value": "pt3a",
+          "arrow": true
+        },
+        {
+          "id": "edge-pt-2-pt3a",
+          "from": "pt-2",
+          "to": "aanbeveling-iiia2",
+          "label": "PT3a",
+          "value": "pt3a",
+          "arrow": true
+        },
+        {
+          "id": "edge-pt-pt3c",
+          "from": "pt",
+          "to": "aanbeveling-iiic-2",
+          "label": "PT3c",
+          "value": "pt3c",
+          "arrow": true
+        },
+        {
+          "id": "edge-pn-pn1",
+          "from": "pn",
+          "to": "pt",
+          "label": "PN1",
+          "value": "pn1",
+          "arrow": true
+        },
+        {
+          "id": "edge-titel-cm",
+          "from": "titel",
+          "to": "cm",
+          "arrow": true
+        }
+      ]
+    },
+    "pt": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "recommendation",
+          "text": "pTx",
+          "height": 20,
+          "id": "aanbeveling-ptx",
+          "gridX": 0,
+          "gridY": 245
+        },
+        {
+          "type": "dataItem",
+          "label": "Diameter (tumor) cT",
+          "id": "diameter-tumor-ct",
+          "gridX": 495,
+          "gridY": 130,
+          "measure": {
+            "unit": "mm"
+          },
+          "interactive": true,
+          "options": [
+            {
+              "value": "lte-2-mm",
+              "label": "<=2 mm",
+              "lte": 2,
+              "edge": "edge-diameter-tumor-ct-lte-2-mm"
+            },
+            {
+              "value": "gt-2-mm",
+              "label": ">2 mm",
+              "gt": 2,
+              "edge": "edge-diameter-tumor-ct-gt-2-mm"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Histologische peritoneale uitbreiding",
+          "id": "histologische-peritoneale-uitbreiding",
+          "gridX": 405,
+          "gridY": 90,
+          "interactive": true,
+          "options": [
+            {
+              "value": "microscopisch",
+              "label": "Microscopisch",
+              "edge": "edge-histologische-peritoneale-uitbreiding-microscopisch"
+            },
+            {
+              "value": "macroscopisch",
+              "label": "Macroscopisch",
+              "edge": "edge-histologische-peritoneale-uitbreiding-macroscopisch"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Uitbreiding ziekte",
+          "id": "uitbreiding-ziekte",
+          "gridX": 315,
+          "gridY": 60,
+          "interactive": true,
+          "options": [
+            {
+              "value": "buiten-bekken",
+              "label": "Buiten bekken",
+              "edge": "edge-uitbreiding-ziekte-buiten-bekken"
+            },
+            {
+              "value": "andere-bekkenweefsels-inclusief-de-darm-in-het-bekken",
+              "label": "Andere bekkenweefsels inclusief de darm in het bekken",
+              "edge": "edge-uitbreiding-ziekte-andere-bekkenweefsels-inclusief-de-darm-in-het-bekken"
+            },
+            {
+              "value": "implantaten-op-uterus-en-of-beide-tuba-uterina-en-of-ovaria",
+              "label": "(Implantaten) op uterus en of (beide) tuba uterina en/of ovaria",
+              "edge": "edge-uitbreiding-ziekte-implantaten-op-uterus-en-of-beide-tuba-uterina-en-of-ovaria"
+            },
+            {
+              "value": "geen",
+              "label": "Geen",
+              "edge": "edge-uitbreiding-ziekte-geen"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Cellen in ascites",
+          "id": "cellen-in-ascites",
+          "gridX": 270,
+          "gridY": 90,
+          "interactive": true,
+          "options": [
+            {
+              "value": "benigne",
+              "label": "Benigne",
+              "edge": "edge-cellen-in-ascites-benigne"
+            },
+            {
+              "value": "maligne",
+              "label": "Maligne",
+              "edge": "edge-cellen-in-ascites-maligne"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "pT2a",
+          "height": 20,
+          "id": "aanbeveling-pt2a",
+          "gridX": 315,
+          "gridY": 245
+        },
+        {
+          "type": "recommendation",
+          "text": "pT0",
+          "height": 20,
+          "id": "aanbeveling-pt0",
+          "gridX": 45,
+          "gridY": 245
+        },
+        {
+          "type": "recommendation",
+          "text": "pT1a",
+          "height": 20,
+          "id": "aanbeveling-pt1a",
+          "gridX": 90,
+          "gridY": 245
+        },
+        {
+          "type": "recommendation",
+          "text": "pT1b",
+          "height": 20,
+          "id": "aanbeveling-pt1b",
+          "gridX": 135,
+          "gridY": 245
+        },
+        {
+          "type": "dataItem",
+          "label": "pN",
+          "id": "pn",
+          "gridX": 495,
+          "gridY": 180,
+          "interactive": true,
+          "options": [
+            {
+              "value": "pnx",
+              "label": "PNX",
+              "edge": "edge-pn-pnx"
+            },
+            {
+              "value": "pn0",
+              "label": "PN0",
+              "edge": "edge-pn-pn0"
+            },
+            {
+              "value": "pn1",
+              "label": "PN1",
+              "edge": "edge-pn-pn1"
+            }
+          ],
+          "subtree": {
+            "tree": "pn",
+            "map": {
+              "aanbeveling-pn1a": "pn1",
+              "aanbeveling-pn1b": "pn1",
+              "aanbeveling-pn0": "pn0",
+              "aanbeveling-pnx": "pnx"
+            }
+          }
+        },
+        {
+          "type": "recommendation",
+          "text": "pT1c1",
+          "height": 20,
+          "id": "aanbeveling-pt1c1",
+          "gridX": 180,
+          "gridY": 245
+        },
+        {
+          "type": "recommendation",
+          "text": "pT1c3",
+          "height": 20,
+          "id": "aanbeveling-pt1c3",
+          "gridX": 270,
+          "gridY": 245
+        },
+        {
+          "type": "recommendation",
+          "text": "pT2b",
+          "height": 20,
+          "id": "aanbeveling-pt2b",
+          "gridX": 360,
+          "gridY": 245
+        },
+        {
+          "type": "dataItem",
+          "label": "Kapsel",
+          "id": "kapsel",
+          "gridX": 225,
+          "gridY": 120,
+          "interactive": true,
+          "options": [
+            {
+              "value": "gescheurd",
+              "label": "Gescheurd",
+              "edge": "edge-kapsel-gescheurd"
+            },
+            {
+              "value": "intact",
+              "label": "Intact",
+              "edge": "edge-kapsel-intact"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "pT3a",
+          "height": 20,
+          "id": "aanbeveling-pt3a",
+          "gridX": 405,
+          "gridY": 245
+        },
+        {
+          "type": "recommendation",
+          "text": "pT3b",
+          "height": 20,
+          "id": "aanbeveling-pt3b",
+          "gridX": 495,
+          "gridY": 245
+        },
+        {
+          "type": "recommendation",
+          "text": "pT3c",
+          "height": 20,
+          "id": "aanbeveling-pt3c",
+          "gridX": 540,
+          "gridY": 245
+        },
+        {
+          "type": "dataItem",
+          "label": "Aantal Ovaria",
+          "id": "aantal-ovaria",
+          "gridX": 90,
+          "gridY": 210,
+          "measure": {
+            "unit": "aantal"
+          },
+          "interactive": true,
+          "options": [
+            {
+              "value": "1",
+              "label": "1",
+              "gte": 1,
+              "lte": 1,
+              "edge": "edge-aantal-ovaria-1"
+            },
+            {
+              "value": "2",
+              "label": "2",
+              "gte": 2,
+              "lte": 2,
+              "edge": "edge-aantal-ovaria-2"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Chirurgische lekkage",
+          "id": "chirurgische-lekkage",
+          "gridX": 135,
+          "gridY": 180,
+          "interactive": true,
+          "options": [
+            {
+              "value": "afwezig",
+              "label": "Afwezig",
+              "edge": "edge-chirurgische-lekkage-afwezig"
+            },
+            {
+              "value": "aanwezig",
+              "label": "Aanwezig",
+              "edge": "edge-chirurgische-lekkage-aanwezig"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Tumorcellen op ovarium oppervlak",
+          "id": "tumorcellen-op-ovarium-oppervlak",
+          "gridX": 180,
+          "gridY": 150,
+          "interactive": true,
+          "options": [
+            {
+              "value": "afwezig",
+              "label": "Afwezig",
+              "edge": "edge-tumorcellen-op-ovarium-oppervlak-afwezig"
+            },
+            {
+              "value": "aanwezig",
+              "label": "Aanwezig",
+              "edge": "edge-tumorcellen-op-ovarium-oppervlak-aanwezig"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "pT1c2",
+          "height": 20,
+          "id": "aanbeveling-pt1c2",
+          "gridX": 225,
+          "gridY": 245
+        },
+        {
+          "type": "title",
+          "label": "pT",
+          "id": "titel",
+          "gridX": 180,
+          "gridY": 0
+        },
+        {
+          "type": "dataItem",
+          "label": "Primaire tumor",
+          "id": "primaire-tumor",
+          "gridX": 180,
+          "gridY": 30,
+          "interactive": true,
+          "options": [
+            {
+              "value": "niet-beoordeelbaar",
+              "label": "Niet beoordeelbaar",
+              "edge": "edge-primaire-tumor-niet-beoordeelbaar"
+            },
+            {
+              "value": "geen-bewijs-primaire-tumor",
+              "label": "Geen bewijs primaire tumor",
+              "edge": "edge-primaire-tumor-geen-bewijs-primaire-tumor"
+            },
+            {
+              "value": "aanwezig",
+              "label": "Aanwezig",
+              "edge": "edge-primaire-tumor-aanwezig"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Er kan geen stadium worden vastgesteld",
+          "height": 20,
+          "id": "aanbeveling-er-kan-geen-stadium-worden-vastgesteld",
+          "gridX": 450,
+          "gridY": 245
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-uitbreiding-ziekte-geen",
+          "from": "uitbreiding-ziekte",
+          "to": "cellen-in-ascites",
+          "label": "Geen",
+          "value": "geen",
+          "arrow": true
+        },
+        {
+          "id": "edge-diameter-tumor-ct-gt-2-mm",
+          "from": "diameter-tumor-ct",
+          "to": "aanbeveling-pt3c",
+          "label": ">2 mm",
+          "value": "gt-2-mm",
+          "arrow": true
+        },
+        {
+          "id": "edge-kapsel-gescheurd",
+          "from": "kapsel",
+          "to": "aanbeveling-pt1c2",
+          "label": "Gescheurd",
+          "value": "gescheurd",
+          "arrow": true
+        },
+        {
+          "id": "edge-cellen-in-ascites-maligne",
+          "from": "cellen-in-ascites",
+          "to": "aanbeveling-pt1c3",
+          "label": "Maligne",
+          "value": "maligne",
+          "arrow": true
+        },
+        {
+          "id": "edge-cellen-in-ascites-benigne",
+          "from": "cellen-in-ascites",
+          "to": "kapsel",
+          "label": "Benigne",
+          "value": "benigne",
+          "arrow": true
+        },
+        {
+          "id": "edge-pn-pnx",
+          "from": "pn",
+          "to": "aanbeveling-er-kan-geen-stadium-worden-vastgesteld",
+          "label": "PNX",
+          "value": "pnx",
+          "arrow": true
+        },
+        {
+          "id": "edge-tumorcellen-op-ovarium-oppervlak-afwezig",
+          "from": "tumorcellen-op-ovarium-oppervlak",
+          "to": "chirurgische-lekkage",
+          "label": "Afwezig",
+          "value": "afwezig",
+          "arrow": true
+        },
+        {
+          "id": "edge-primaire-tumor-geen-bewijs-primaire-tumor",
+          "from": "primaire-tumor",
+          "to": "aanbeveling-pt0",
+          "label": "Geen bewijs primaire tumor",
+          "value": "geen-bewijs-primaire-tumor",
+          "arrow": true
+        },
+        {
+          "id": "edge-uitbreiding-ziekte-buiten-bekken",
+          "from": "uitbreiding-ziekte",
+          "to": "histologische-peritoneale-uitbreiding",
+          "label": "Buiten bekken",
+          "value": "buiten-bekken",
+          "arrow": true
+        },
+        {
+          "id": "edge-histologische-peritoneale-uitbreiding-macroscopisch",
+          "from": "histologische-peritoneale-uitbreiding",
+          "to": "diameter-tumor-ct",
+          "label": "Macroscopisch",
+          "value": "macroscopisch",
+          "arrow": true
+        },
+        {
+          "id": "edge-histologische-peritoneale-uitbreiding-microscopisch",
+          "from": "histologische-peritoneale-uitbreiding",
+          "to": "aanbeveling-pt3a",
+          "label": "Microscopisch",
+          "value": "microscopisch",
+          "arrow": true
+        },
+        {
+          "id": "edge-tumorcellen-op-ovarium-oppervlak-aanwezig",
+          "from": "tumorcellen-op-ovarium-oppervlak",
+          "to": "aanbeveling-pt1c2",
+          "label": "Aanwezig",
+          "value": "aanwezig",
+          "arrow": true
+        },
+        {
+          "id": "edge-diameter-tumor-ct-lte-2-mm",
+          "from": "diameter-tumor-ct",
+          "to": "pn",
+          "label": "<=2 mm",
+          "value": "lte-2-mm",
+          "arrow": true
+        },
+        {
+          "id": "edge-pn-pn1",
+          "from": "pn",
+          "to": "aanbeveling-pt3c",
+          "label": "PN1",
+          "value": "pn1",
+          "arrow": true
+        },
+        {
+          "id": "edge-pn-pn0",
+          "from": "pn",
+          "to": "aanbeveling-pt3b",
+          "label": "PN0",
+          "value": "pn0",
+          "arrow": true
+        },
+        {
+          "id": "edge-primaire-tumor-aanwezig",
+          "from": "primaire-tumor",
+          "to": "uitbreiding-ziekte",
+          "label": "Aanwezig",
+          "value": "aanwezig",
+          "arrow": true
+        },
+        {
+          "id": "edge-uitbreiding-ziekte-implantaten-op-uterus-en-of-beide-tuba-uterina-en-of-ovaria",
+          "from": "uitbreiding-ziekte",
+          "to": "aanbeveling-pt2a",
+          "label": "(Implantaten) op uterus en of (beide) tuba uterina en/of ovaria",
+          "value": "implantaten-op-uterus-en-of-beide-tuba-uterina-en-of-ovaria",
+          "arrow": true
+        },
+        {
+          "id": "edge-primaire-tumor-niet-beoordeelbaar",
+          "from": "primaire-tumor",
+          "to": "aanbeveling-ptx",
+          "label": "Niet beoordeelbaar",
+          "value": "niet-beoordeelbaar",
+          "arrow": true
+        },
+        {
+          "id": "edge-kapsel-intact",
+          "from": "kapsel",
+          "to": "tumorcellen-op-ovarium-oppervlak",
+          "label": "Intact",
+          "value": "intact",
+          "arrow": true
+        },
+        {
+          "id": "edge-chirurgische-lekkage-afwezig",
+          "from": "chirurgische-lekkage",
+          "to": "aantal-ovaria",
+          "label": "Afwezig",
+          "value": "afwezig",
+          "arrow": true
+        },
+        {
+          "id": "edge-chirurgische-lekkage-aanwezig",
+          "from": "chirurgische-lekkage",
+          "to": "aanbeveling-pt1c1",
+          "label": "Aanwezig",
+          "value": "aanwezig",
+          "arrow": true
+        },
+        {
+          "id": "edge-aantal-ovaria-2",
+          "from": "aantal-ovaria",
+          "to": "aanbeveling-pt1b",
+          "label": "2",
+          "value": "2",
+          "arrow": true
+        },
+        {
+          "id": "edge-aantal-ovaria-1",
+          "from": "aantal-ovaria",
+          "to": "aanbeveling-pt1a",
+          "label": "1",
+          "value": "1",
+          "arrow": true
+        },
+        {
+          "id": "edge-uitbreiding-ziekte-andere-bekkenweefsels-inclusief-de-darm-in-het-bekken",
+          "from": "uitbreiding-ziekte",
+          "to": "aanbeveling-pt2b",
+          "label": "Andere bekkenweefsels inclusief de darm in het bekken",
+          "value": "andere-bekkenweefsels-inclusief-de-darm-in-het-bekken",
+          "arrow": true
+        },
+        {
+          "id": "edge-titel-primaire-tumor",
+          "from": "titel",
+          "to": "primaire-tumor",
+          "arrow": true
+        }
+      ]
+    },
+    "pn": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "title",
+          "label": "pN",
+          "id": "titel",
+          "gridX": 45,
+          "gridY": 0
+        },
+        {
+          "type": "dataItem",
+          "label": "Regionale lymfeklieren",
+          "id": "regionale-lymfeklieren",
+          "gridX": 45,
+          "gridY": 30,
+          "interactive": true,
+          "options": [
+            {
+              "value": "niet-beoordeelbaar",
+              "label": "Niet beoordeelbaar",
+              "edge": "edge-regionale-lymfeklieren-niet-beoordeelbaar"
+            },
+            {
+              "value": "benigne",
+              "label": "Benigne",
+              "edge": "edge-regionale-lymfeklieren-benigne"
+            },
+            {
+              "value": "maligne",
+              "label": "Maligne",
+              "edge": "edge-regionale-lymfeklieren-maligne"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Diameter (grootste dimensie) pN",
+          "id": "diameter-grootste-dimensie-pn",
+          "gridX": 90,
+          "gridY": 60,
+          "measure": {
+            "unit": "mm"
+          },
+          "interactive": true,
+          "options": [
+            {
+              "value": "lte-10-mm",
+              "label": "<=10 mm",
+              "lte": 10,
+              "edge": "edge-diameter-grootste-dimensie-pn-lte-10-mm"
+            },
+            {
+              "value": "gt-10-mm",
+              "label": ">10 mm",
+              "gt": 10,
+              "edge": "edge-diameter-grootste-dimensie-pn-gt-10-mm"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "pN1a",
+          "height": 20,
+          "id": "aanbeveling-pn1a",
+          "gridX": 90,
+          "gridY": 95
+        },
+        {
+          "type": "recommendation",
+          "text": "pN1b",
+          "height": 20,
+          "id": "aanbeveling-pn1b",
+          "gridX": 135,
+          "gridY": 95
+        },
+        {
+          "type": "recommendation",
+          "text": "pN0",
+          "height": 20,
+          "id": "aanbeveling-pn0",
+          "gridX": 45,
+          "gridY": 95
+        },
+        {
+          "type": "recommendation",
+          "text": "pNX",
+          "height": 20,
+          "id": "aanbeveling-pnx",
+          "gridX": 0,
+          "gridY": 95
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-titel-regionale-lymfeklieren",
+          "from": "titel",
+          "to": "regionale-lymfeklieren",
+          "arrow": true
+        },
+        {
+          "id": "edge-diameter-grootste-dimensie-pn-gt-10-mm",
+          "from": "diameter-grootste-dimensie-pn",
+          "to": "aanbeveling-pn1b",
+          "label": ">10 mm",
+          "value": "gt-10-mm",
+          "arrow": true
+        },
+        {
+          "id": "edge-diameter-grootste-dimensie-pn-lte-10-mm",
+          "from": "diameter-grootste-dimensie-pn",
+          "to": "aanbeveling-pn1a",
+          "label": "<=10 mm",
+          "value": "lte-10-mm",
+          "arrow": true
+        },
+        {
+          "id": "edge-regionale-lymfeklieren-maligne",
+          "from": "regionale-lymfeklieren",
+          "to": "diameter-grootste-dimensie-pn",
+          "label": "Maligne",
+          "value": "maligne",
+          "arrow": true
+        },
+        {
+          "id": "edge-regionale-lymfeklieren-benigne",
+          "from": "regionale-lymfeklieren",
+          "to": "aanbeveling-pn0",
+          "label": "Benigne",
+          "value": "benigne",
+          "arrow": true
+        },
+        {
+          "id": "edge-regionale-lymfeklieren-niet-beoordeelbaar",
+          "from": "regionale-lymfeklieren",
+          "to": "aanbeveling-pnx",
+          "label": "Niet beoordeelbaar",
+          "value": "niet-beoordeelbaar",
+          "arrow": true
+        }
+      ]
+    },
+    "cm": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "title",
+          "label": "cM",
+          "id": "titel",
+          "gridX": 45,
+          "gridY": 0
+        },
+        {
+          "type": "dataItem",
+          "label": "M",
+          "id": "m",
+          "gridX": 45,
+          "gridY": 30,
+          "measure": {
+            "unit": "getal"
+          },
+          "interactive": true,
+          "options": [
+            {
+              "value": "0",
+              "label": "0",
+              "gte": 0,
+              "lte": 0,
+              "edge": "edge-m-0"
+            },
+            {
+              "value": "1",
+              "label": "1",
+              "gte": 1,
+              "lte": 1,
+              "edge": "edge-m-1"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Pleurale effusie",
+          "id": "pleurale-effusie",
+          "gridX": 0,
+          "gridY": 55,
+          "interactive": true,
+          "options": [
+            {
+              "value": "afwezig",
+              "label": "Afwezig",
+              "edge": "edge-pleurale-effusie-afwezig"
+            },
+            {
+              "value": "aanwezig",
+              "label": "Aanwezig",
+              "edge": "edge-pleurale-effusie-aanwezig"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Cytologie pleurale effusie",
+          "id": "cytologie-pleurale-effusie",
+          "gridX": 45,
+          "gridY": 85,
+          "interactive": true,
+          "options": [
+            {
+              "value": "negatief",
+              "label": "Negatief",
+              "edge": "edge-cytologie-pleurale-effusie-negatief"
+            },
+            {
+              "value": "positief",
+              "label": "Positief",
+              "edge": "edge-cytologie-pleurale-effusie-positief"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "cM1a",
+          "height": 20,
+          "id": "aanbeveling-cm1a",
+          "gridX": 45,
+          "gridY": 120
+        },
+        {
+          "type": "recommendation",
+          "text": "cM1b",
+          "height": 20,
+          "id": "aanbeveling-cm1b",
+          "gridX": 90,
+          "gridY": 120
+        },
+        {
+          "type": "recommendation",
+          "text": "M0",
+          "height": 20,
+          "id": "aanbeveling-m0",
+          "gridX": 0,
+          "gridY": 120
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-cytologie-pleurale-effusie-negatief",
+          "from": "cytologie-pleurale-effusie",
+          "to": "aanbeveling-m0",
+          "label": "Negatief",
+          "value": "negatief",
+          "arrow": true
+        },
+        {
+          "id": "edge-pleurale-effusie-afwezig",
+          "from": "pleurale-effusie",
+          "to": "aanbeveling-m0",
+          "label": "Afwezig",
+          "value": "afwezig",
+          "arrow": true
+        },
+        {
+          "id": "edge-pleurale-effusie-aanwezig",
+          "from": "pleurale-effusie",
+          "to": "cytologie-pleurale-effusie",
+          "label": "Aanwezig",
+          "value": "aanwezig",
+          "arrow": true
+        },
+        {
+          "id": "edge-m-1",
+          "from": "m",
+          "to": "aanbeveling-cm1b",
+          "label": "1",
+          "value": "1",
+          "arrow": true
+        },
+        {
+          "id": "edge-m-0",
+          "from": "m",
+          "to": "pleurale-effusie",
+          "label": "0",
+          "value": "0",
+          "arrow": true
+        },
+        {
+          "id": "edge-titel-m",
+          "from": "titel",
+          "to": "m",
+          "arrow": true
+        },
+        {
+          "id": "edge-cytologie-pleurale-effusie-positief",
+          "from": "cytologie-pleurale-effusie",
+          "to": "aanbeveling-cm1a",
+          "label": "Positief",
+          "value": "positief",
+          "arrow": true
+        }
+      ]
+    },
+    "beleid-na-chemotherapie": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "dataItem",
+          "label": "Respons chemotherapie",
+          "id": "respons-chemotherapie",
+          "gridX": 90,
+          "gridY": 30,
+          "interactive": true,
+          "options": [
+            {
+              "value": "ja-respons",
+              "label": "Ja, respons",
+              "edge": "edge-respons-chemotherapie-respons"
+            },
+            {
+              "value": "stabiele-ziekte",
+              "label": "Stabiele ziekte",
+              "edge": "edge-respons-chemotherapie-respons"
+            },
+            {
+              "value": "progressie",
+              "label": "Progressie",
+              "edge": "edge-respons-chemotherapie-progressie"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Klinisch stadium",
+          "id": "klinisch-stadium",
+          "gridX": 45,
+          "gridY": 60,
+          "interactive": true,
+          "options": [
+            {
+              "value": "iii",
+              "label": "III",
+              "edge": "edge-klinisch-stadium-iii"
+            },
+            {
+              "value": "iv",
+              "label": "IV",
+              "edge": "edge-klinisch-stadium-iv"
+            }
+          ],
+          "subtree": {
+            "tree": "klinisch-stadium",
+            "map": {
+              "aanbeveling-ivb": "iv",
+              "aanbeveling-iva": "iv",
+              "aanbeveling-iiic": "iii",
+              "aanbeveling-iiib": "iii",
+              "aanbeveling-iiia2": "iii",
+              "aanbeveling-iiia1": "iii",
+              "aanbeveling-iiic-2": "iii",
+              "aanbeveling-iiib-2": "iii",
+              "aanbeveling-iiia2-2": "iii"
+            }
+          }
+        },
+        {
+          "type": "dataItem",
+          "label": "WHO performance status",
+          "id": "who-performance-status",
+          "gridX": 0,
+          "gridY": 90,
+          "measure": {
+            "unit": "score"
+          },
+          "interactive": true,
+          "options": [
+            {
+              "value": "0-2",
+              "label": "0-2",
+              "gt": 0,
+              "lte": 2,
+              "edge": "edge-who-performance-status-0-2"
+            },
+            {
+              "value": "3-4",
+              "label": "3-4",
+              "gte": 3,
+              "lte": 4,
+              "edge": "edge-who-performance-status-3-4"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Intervaldebulking\nEN\nHIPEC\n{i} indien complete of optimale debulking, geen IP\nEN\nAdjuvante chemotherapie:\n3 kuren",
+          "height": 39,
+          "id": "aanbeveling-intervaldebulking",
+          "gridX": 0,
+          "gridY": 125
+        },
+        {
+          "type": "recommendation",
+          "text": "Continueer\n(adjuvante) chemotherapie",
+          "height": 20,
+          "id": "aanbeveling-continueer",
+          "gridX": 45,
+          "gridY": 125
+        },
+        {
+          "type": "recommendation",
+          "text": "Intervaldebulking\nEN\nAdjuvante chemotherapie:\n3 kuren",
+          "height": 20,
+          "id": "aanbeveling-intervaldebulking-2",
+          "gridX": 90,
+          "gridY": 125
+        },
+        {
+          "type": "recommendation",
+          "text": "Overweeg stoppen chemotherapie\nEN\nIndividualiseer behandeling",
+          "height": 23,
+          "id": "aanbeveling-overweeg-stoppen-chemotherapie",
+          "gridX": 135,
+          "gridY": 125
+        },
+        {
+          "type": "reference",
+          "label": "Follow up",
+          "to": "follow-up",
+          "id": "verwijzing-follow-up",
+          "gridX": 0,
+          "gridY": 180
+        },
+        {
+          "type": "title",
+          "label": "Beleid na chemotherapie",
+          "id": "titel",
+          "gridX": 90,
+          "gridY": 0
+        },
+        {
+          "type": "reference",
+          "label": "Follow up",
+          "to": "follow-up",
+          "id": "verwijzing-follow-up-2",
+          "gridX": 90,
+          "gridY": 160
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-respons-chemotherapie-progressie",
+          "from": "respons-chemotherapie",
+          "to": "aanbeveling-overweeg-stoppen-chemotherapie",
+          "label": "Progressie",
+          "value": "progressie",
+          "arrow": true
+        },
+        {
+          "id": "edge-respons-chemotherapie-respons",
+          "from": "respons-chemotherapie",
+          "to": "klinisch-stadium",
+          "label": "Respons, Stabiele ziekte",
+          "value": [
+            "ja-respons",
+            "stabiele-ziekte"
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-klinisch-stadium-iv",
+          "from": "klinisch-stadium",
+          "to": "aanbeveling-intervaldebulking-2",
+          "label": "IV",
+          "value": "iv",
+          "arrow": true
+        },
+        {
+          "id": "edge-klinisch-stadium-iii",
+          "from": "klinisch-stadium",
+          "to": "who-performance-status",
+          "label": "III",
+          "value": "iii",
+          "arrow": true
+        },
+        {
+          "id": "edge-who-performance-status-3-4",
+          "from": "who-performance-status",
+          "to": "aanbeveling-continueer",
+          "label": "3-4",
+          "value": "3-4",
+          "arrow": true
+        },
+        {
+          "id": "edge-titel-respons-chemotherapie",
+          "from": "titel",
+          "to": "respons-chemotherapie",
+          "arrow": true
+        },
+        {
+          "id": "edge-who-performance-status-0-2",
+          "from": "who-performance-status",
+          "to": "aanbeveling-intervaldebulking",
+          "label": "0-2",
+          "value": "0-2",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-intervaldebulking-2-verwijzing-follow-up-2",
+          "from": "aanbeveling-intervaldebulking-2",
+          "to": "verwijzing-follow-up-2",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-intervaldebulking-verwijzing-follow-up",
+          "from": "aanbeveling-intervaldebulking",
+          "to": "verwijzing-follow-up",
+          "arrow": true
+        }
+      ]
+    },
+    "klinisch-stadium": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "recommendation",
+          "text": "IA",
+          "height": 20,
+          "id": "aanbeveling-ia",
+          "gridX": 0,
+          "gridY": 125
+        },
+        {
+          "type": "title",
+          "label": "Klinisch stadium",
+          "id": "titel",
+          "gridX": 495,
+          "gridY": 0
+        },
+        {
+          "type": "dataItem",
+          "label": "cT",
+          "id": "ct",
+          "gridX": 225,
+          "gridY": 90,
+          "interactive": true,
+          "options": [
+            {
+              "value": "ctx",
+              "label": "CTx",
+              "edge": "edge-ct-ctx"
+            },
+            {
+              "value": "ct0",
+              "label": "CT0",
+              "edge": "edge-ct-ctx"
+            },
+            {
+              "value": "ct1a",
+              "label": "CT1a",
+              "edge": "edge-ct-ct1a"
+            },
+            {
+              "value": "ct1b",
+              "label": "CT1b",
+              "edge": "edge-ct-ct1b"
+            },
+            {
+              "value": "ct1",
+              "label": "CT1",
+              "edge": "edge-ct-ct1"
+            },
+            {
+              "value": "ct2a",
+              "label": "CT2a",
+              "edge": "edge-ct-ct2a"
+            },
+            {
+              "value": "ct2b",
+              "label": "CT2b",
+              "edge": "edge-ct-ct2b"
+            },
+            {
+              "value": "ct3a",
+              "label": "CT3a",
+              "edge": "edge-ct-ct3a"
+            },
+            {
+              "value": "ct3b",
+              "label": "CT3b",
+              "edge": "edge-ct-ct3b"
+            },
+            {
+              "value": "ct3c",
+              "label": "CT3c",
+              "edge": "edge-ct-ct3c"
+            }
+          ],
+          "subtree": {
+            "tree": "ct",
+            "map": {
+              "aanbeveling-ctx": "ctx",
+              "aanbeveling-ct1c2": "ct1",
+              "aanbeveling-ct3c": "ct3c",
+              "aanbeveling-ct3b": "ct3b",
+              "aanbeveling-ct3a": "ct3a",
+              "aanbeveling-ct2b": "ct2b",
+              "aanbeveling-ct1c3": "ct1",
+              "aanbeveling-ct1c1": "ct1",
+              "aanbeveling-ct1b": "ct1b",
+              "aanbeveling-ct1a": "ct1a",
+              "aanbeveling-ct0": "ct0",
+              "aanbeveling-ct2a": "ct2a",
+              "aanbeveling-staat-niet-in-de-richtlijn": "ctx"
+            }
+          }
+        },
+        {
+          "type": "dataItem",
+          "label": "cT",
+          "id": "ct-2",
+          "gridX": 450,
+          "gridY": 90,
+          "interactive": true,
+          "options": [
+            {
+              "value": "ctx",
+              "label": "CTx",
+              "edge": "edge-ct-2-ctx"
+            },
+            {
+              "value": "ct0",
+              "label": "CT0",
+              "edge": "edge-ct-2-ctx"
+            },
+            {
+              "value": "ct1-ct2",
+              "label": "CT1- cT2",
+              "edge": "edge-ct-2-ct1-ct2"
+            },
+            {
+              "value": "ct3a",
+              "label": "CT3a",
+              "edge": "edge-ct-2-ct3a"
+            },
+            {
+              "value": "ct3b",
+              "label": "CT3b",
+              "edge": "edge-ct-2-ct3b"
+            },
+            {
+              "value": "ct3c",
+              "label": "CT3c",
+              "edge": "edge-ct-2-ct3c"
+            }
+          ],
+          "subtree": {
+            "tree": "ct",
+            "map": {
+              "aanbeveling-ctx": "ctx",
+              "aanbeveling-ct1c2": "ct1-ct2",
+              "aanbeveling-ct3c": "ct3c",
+              "aanbeveling-ct3b": "ct3b",
+              "aanbeveling-ct3a": "ct3a",
+              "aanbeveling-ct2b": "ct1-ct2",
+              "aanbeveling-ct1c3": "ct1-ct2",
+              "aanbeveling-ct1c1": "ct1-ct2",
+              "aanbeveling-ct1b": "ct1-ct2",
+              "aanbeveling-ct1a": "ct1-ct2",
+              "aanbeveling-ct0": "ct0",
+              "aanbeveling-ct2a": "ct1-ct2",
+              "aanbeveling-staat-niet-in-de-richtlijn": "ctx"
+            }
+          }
+        },
+        {
+          "type": "recommendation",
+          "text": "IVB",
+          "height": 20,
+          "id": "aanbeveling-ivb",
+          "gridX": 630,
+          "gridY": 125
+        },
+        {
+          "type": "recommendation",
+          "text": "IVA",
+          "height": 20,
+          "id": "aanbeveling-iva",
+          "gridX": 585,
+          "gridY": 125
+        },
+        {
+          "type": "recommendation",
+          "text": "IIIC",
+          "height": 20,
+          "id": "aanbeveling-iiic",
+          "gridX": 540,
+          "gridY": 125
+        },
+        {
+          "type": "recommendation",
+          "text": "IIIB",
+          "height": 20,
+          "id": "aanbeveling-iiib",
+          "gridX": 495,
+          "gridY": 125
+        },
+        {
+          "type": "recommendation",
+          "text": "IIIA2",
+          "height": 20,
+          "id": "aanbeveling-iiia2",
+          "gridX": 450,
+          "gridY": 125
+        },
+        {
+          "type": "recommendation",
+          "text": "IIIA1",
+          "height": 20,
+          "id": "aanbeveling-iiia1",
+          "gridX": 405,
+          "gridY": 125
+        },
+        {
+          "type": "recommendation",
+          "text": "IIIC",
+          "height": 20,
+          "id": "aanbeveling-iiic-2",
+          "gridX": 315,
+          "gridY": 125
+        },
+        {
+          "type": "recommendation",
+          "text": "IIIB",
+          "height": 20,
+          "id": "aanbeveling-iiib-2",
+          "gridX": 270,
+          "gridY": 125
+        },
+        {
+          "type": "recommendation",
+          "text": "IIIA2",
+          "height": 20,
+          "id": "aanbeveling-iiia2-2",
+          "gridX": 225,
+          "gridY": 125
+        },
+        {
+          "type": "recommendation",
+          "text": "IIB",
+          "height": 20,
+          "id": "aanbeveling-iib",
+          "gridX": 180,
+          "gridY": 125
+        },
+        {
+          "type": "recommendation",
+          "text": "IIA",
+          "height": 20,
+          "id": "aanbeveling-iia",
+          "gridX": 135,
+          "gridY": 125
+        },
+        {
+          "type": "recommendation",
+          "text": "IC",
+          "height": 20,
+          "id": "aanbeveling-ic",
+          "gridX": 90,
+          "gridY": 125
+        },
+        {
+          "type": "recommendation",
+          "text": "IB",
+          "height": 20,
+          "id": "aanbeveling-ib",
+          "gridX": 45,
+          "gridY": 125
+        },
+        {
+          "type": "dataItem",
+          "label": "cN",
+          "id": "cn",
+          "gridX": 360,
+          "gridY": 60,
+          "interactive": true,
+          "options": [
+            {
+              "value": "cnx",
+              "label": "CNX",
+              "edge": "edge-cn-cnx"
+            },
+            {
+              "value": "cn0",
+              "label": "CN0",
+              "edge": "edge-cn-cn0"
+            },
+            {
+              "value": "cn1",
+              "label": "CN1",
+              "edge": "edge-cn-cn1"
+            }
+          ],
+          "subtree": {
+            "tree": "cn",
+            "map": {
+              "aanbeveling-cn1a": "cn1",
+              "aanbeveling-cn1b": "cn1",
+              "aanbeveling-cn0": "cn0",
+              "aanbeveling-cnx": "cnx"
+            }
+          }
+        },
+        {
+          "type": "dataItem",
+          "label": "cM",
+          "id": "cm",
+          "gridX": 495,
+          "gridY": 30,
+          "interactive": true,
+          "options": [
+            {
+              "value": "m0",
+              "label": "M0",
+              "edge": "edge-cm-m0"
+            },
+            {
+              "value": "cm1a",
+              "label": "CM1a",
+              "edge": "edge-cm-cm1a"
+            },
+            {
+              "value": "cm1b",
+              "label": "CM1b",
+              "edge": "edge-cm-cm1b"
+            }
+          ],
+          "subtree": {
+            "tree": "cm",
+            "map": {
+              "aanbeveling-cm1a": "cm1a",
+              "aanbeveling-cm1b": "cm1b",
+              "aanbeveling-m0": "m0"
+            }
+          }
+        },
+        {
+          "type": "recommendation",
+          "text": "Stadium is niet te bepalen",
+          "height": 20,
+          "id": "aanbeveling-stadium-is-niet-te-bepalen",
+          "gridX": 360,
+          "gridY": 125
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-ct-2-ct3b",
+          "from": "ct-2",
+          "to": "aanbeveling-iiib",
+          "label": "CT3b",
+          "value": "ct3b",
+          "arrow": true
+        },
+        {
+          "id": "edge-ct-ct3a",
+          "from": "ct",
+          "to": "aanbeveling-iiia2-2",
+          "label": "CT3a",
+          "value": "ct3a",
+          "arrow": true
+        },
+        {
+          "id": "edge-ct-ct1b",
+          "from": "ct",
+          "to": "aanbeveling-ib",
+          "label": "CT1b",
+          "value": "ct1b",
+          "arrow": true
+        },
+        {
+          "id": "edge-ct-ct2a",
+          "from": "ct",
+          "to": "aanbeveling-iia",
+          "label": "CT2a",
+          "value": "ct2a",
+          "arrow": true
+        },
+        {
+          "id": "edge-ct-ct3b",
+          "from": "ct",
+          "to": "aanbeveling-iiib-2",
+          "label": "CT3b",
+          "value": "ct3b",
+          "arrow": true
+        },
+        {
+          "id": "edge-ct-2-ct1-ct2",
+          "from": "ct-2",
+          "to": "aanbeveling-iiia1",
+          "label": "CT1- cT2",
+          "value": "ct1-ct2",
+          "arrow": true
+        },
+        {
+          "id": "edge-ct-ct2b",
+          "from": "ct",
+          "to": "aanbeveling-iib",
+          "label": "CT2b",
+          "value": "ct2b",
+          "arrow": true
+        },
+        {
+          "id": "edge-cm-m0",
+          "from": "cm",
+          "to": "cn",
+          "label": "M0",
+          "value": "m0",
+          "arrow": true
+        },
+        {
+          "id": "edge-ct-2-ct3c",
+          "from": "ct-2",
+          "to": "aanbeveling-iiic",
+          "label": "CT3c",
+          "value": "ct3c",
+          "arrow": true
+        },
+        {
+          "id": "edge-cn-cn1",
+          "from": "cn",
+          "to": "ct-2",
+          "label": "CN1",
+          "value": "cn1",
+          "arrow": true
+        },
+        {
+          "id": "edge-ct-2-ct3a",
+          "from": "ct-2",
+          "to": "aanbeveling-iiia2",
+          "label": "CT3a",
+          "value": "ct3a",
+          "arrow": true
+        },
+        {
+          "id": "edge-cm-cm1a",
+          "from": "cm",
+          "to": "aanbeveling-iva",
+          "label": "CM1a",
+          "value": "cm1a",
+          "arrow": true
+        },
+        {
+          "id": "edge-ct-ct1",
+          "from": "ct",
+          "to": "aanbeveling-ic",
+          "label": "CT1",
+          "value": "ct1",
+          "arrow": true
+        },
+        {
+          "id": "edge-cm-cm1b",
+          "from": "cm",
+          "to": "aanbeveling-ivb",
+          "label": "CM1b",
+          "value": "cm1b",
+          "arrow": true
+        },
+        {
+          "id": "edge-ct-ct3c",
+          "from": "ct",
+          "to": "aanbeveling-iiic-2",
+          "label": "CT3c",
+          "value": "ct3c",
+          "arrow": true
+        },
+        {
+          "id": "edge-titel-cm",
+          "from": "titel",
+          "to": "cm",
+          "arrow": true
+        },
+        {
+          "id": "edge-ct-ct1a",
+          "from": "ct",
+          "to": "aanbeveling-ia",
+          "label": "CT1a",
+          "value": "ct1a",
+          "arrow": true
+        },
+        {
+          "id": "edge-cn-cn0",
+          "from": "cn",
+          "to": "ct",
+          "label": "CN0",
+          "value": "cn0",
+          "arrow": true
+        },
+        {
+          "id": "edge-ct-2-ctx",
+          "from": "ct-2",
+          "to": "aanbeveling-stadium-is-niet-te-bepalen",
+          "label": "CTx, cT0",
+          "value": [
+            "ct0",
+            "ctx"
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-cn-cnx",
+          "from": "cn",
+          "to": "aanbeveling-stadium-is-niet-te-bepalen",
+          "label": "CNX",
+          "value": "cnx",
+          "arrow": true
+        },
+        {
+          "id": "edge-ct-ctx",
+          "from": "ct",
+          "to": "aanbeveling-stadium-is-niet-te-bepalen",
+          "label": "CTx, cT0",
+          "value": [
+            "ctx",
+            "ct0"
+          ],
+          "arrow": true
+        }
+      ]
+    },
+    "ct": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "recommendation",
+          "text": "cTx",
+          "height": 20,
+          "id": "aanbeveling-ctx",
+          "gridX": 0,
+          "gridY": 245
+        },
+        {
+          "type": "recommendation",
+          "text": "cT1c2",
+          "height": 20,
+          "id": "aanbeveling-ct1c2",
+          "gridX": 225,
+          "gridY": 245
+        },
+        {
+          "type": "dataItem",
+          "label": "Tumorcellen op ovarium oppervlak",
+          "id": "tumorcellen-op-ovarium-oppervlak",
+          "gridX": 180,
+          "gridY": 150,
+          "interactive": true,
+          "options": [
+            {
+              "value": "afwezig",
+              "label": "Afwezig",
+              "edge": "edge-tumorcellen-op-ovarium-oppervlak-afwezig"
+            },
+            {
+              "value": "aanwezig",
+              "label": "Aanwezig",
+              "edge": "edge-tumorcellen-op-ovarium-oppervlak-aanwezig"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Chirurgische lekkage",
+          "id": "chirurgische-lekkage",
+          "gridX": 135,
+          "gridY": 180,
+          "interactive": true,
+          "options": [
+            {
+              "value": "afwezig",
+              "label": "Afwezig",
+              "edge": "edge-chirurgische-lekkage-afwezig"
+            },
+            {
+              "value": "aanwezig",
+              "label": "Aanwezig",
+              "edge": "edge-chirurgische-lekkage-aanwezig"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Aantal Ovaria",
+          "id": "aantal-ovaria",
+          "gridX": 90,
+          "gridY": 210,
+          "measure": {
+            "unit": "aantal"
+          },
+          "interactive": true,
+          "options": [
+            {
+              "value": "1",
+              "label": "1",
+              "gte": 1,
+              "lte": 1,
+              "edge": "edge-aantal-ovaria-1"
+            },
+            {
+              "value": "2",
+              "label": "2",
+              "gte": 2,
+              "lte": 2,
+              "edge": "edge-aantal-ovaria-2"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "cT3c",
+          "height": 20,
+          "id": "aanbeveling-ct3c",
+          "gridX": 540,
+          "gridY": 245
+        },
+        {
+          "type": "recommendation",
+          "text": "cT3b",
+          "height": 20,
+          "id": "aanbeveling-ct3b",
+          "gridX": 495,
+          "gridY": 245
+        },
+        {
+          "type": "recommendation",
+          "text": "cT3a",
+          "height": 20,
+          "id": "aanbeveling-ct3a",
+          "gridX": 405,
+          "gridY": 245
+        },
+        {
+          "type": "dataItem",
+          "label": "Kapsel",
+          "id": "kapsel",
+          "gridX": 225,
+          "gridY": 120,
+          "interactive": true,
+          "options": [
+            {
+              "value": "gescheurd",
+              "label": "Gescheurd",
+              "edge": "edge-kapsel-gescheurd"
+            },
+            {
+              "value": "intact",
+              "label": "Intact",
+              "edge": "edge-kapsel-intact"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "cT2b",
+          "height": 20,
+          "id": "aanbeveling-ct2b",
+          "gridX": 360,
+          "gridY": 245
+        },
+        {
+          "type": "recommendation",
+          "text": "cT1c3",
+          "height": 20,
+          "id": "aanbeveling-ct1c3",
+          "gridX": 270,
+          "gridY": 245
+        },
+        {
+          "type": "recommendation",
+          "text": "cT1c1",
+          "height": 20,
+          "id": "aanbeveling-ct1c1",
+          "gridX": 180,
+          "gridY": 245
+        },
+        {
+          "type": "dataItem",
+          "label": "cN",
+          "id": "cn",
+          "gridX": 495,
+          "gridY": 180,
+          "interactive": true,
+          "options": [
+            {
+              "value": "cnx",
+              "label": "CNX",
+              "edge": "edge-cn-cnx"
+            },
+            {
+              "value": "cn0",
+              "label": "CN0",
+              "edge": "edge-cn-cn0"
+            },
+            {
+              "value": "cn1",
+              "label": "CN1",
+              "edge": "edge-cn-cn1"
+            }
+          ],
+          "subtree": {
+            "tree": "cn",
+            "map": {
+              "aanbeveling-cn1a": "cn1",
+              "aanbeveling-cn1b": "cn1",
+              "aanbeveling-cn0": "cn0",
+              "aanbeveling-cnx": "cnx"
+            }
+          }
+        },
+        {
+          "type": "recommendation",
+          "text": "cT1b",
+          "height": 20,
+          "id": "aanbeveling-ct1b",
+          "gridX": 135,
+          "gridY": 245
+        },
+        {
+          "type": "recommendation",
+          "text": "cT1a",
+          "height": 20,
+          "id": "aanbeveling-ct1a",
+          "gridX": 90,
+          "gridY": 245
+        },
+        {
+          "type": "recommendation",
+          "text": "cT0",
+          "height": 20,
+          "id": "aanbeveling-ct0",
+          "gridX": 45,
+          "gridY": 245
+        },
+        {
+          "type": "recommendation",
+          "text": "cT2a",
+          "height": 20,
+          "id": "aanbeveling-ct2a",
+          "gridX": 315,
+          "gridY": 245
+        },
+        {
+          "type": "title",
+          "label": "cT",
+          "id": "titel",
+          "gridX": 180,
+          "gridY": 0
+        },
+        {
+          "type": "dataItem",
+          "label": "Cellen in ascites",
+          "id": "cellen-in-ascites",
+          "gridX": 270,
+          "gridY": 90,
+          "interactive": true,
+          "options": [
+            {
+              "value": "benigne",
+              "label": "Benigne",
+              "edge": "edge-cellen-in-ascites-benigne"
+            },
+            {
+              "value": "maligne",
+              "label": "Maligne",
+              "edge": "edge-cellen-in-ascites-maligne"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Uitbreiding ziekte",
+          "id": "uitbreiding-ziekte",
+          "gridX": 315,
+          "gridY": 60,
+          "interactive": true,
+          "options": [
+            {
+              "value": "buiten-bekken",
+              "label": "Buiten bekken",
+              "edge": "edge-uitbreiding-ziekte-buiten-bekken"
+            },
+            {
+              "value": "andere-bekkenweefsels-inclusief-de-darm-in-het-bekken",
+              "label": "Andere bekkenweefsels inclusief de darm in het bekken",
+              "edge": "edge-uitbreiding-ziekte-andere-bekkenweefsels-inclusief-de-darm-in-het-bekken"
+            },
+            {
+              "value": "implantaten-op-uterus-en-of-beide-tuba-uterina-en-of-ovaria",
+              "label": "(Implantaten) op uterus en of (beide) tuba uterina en/of ovaria",
+              "edge": "edge-uitbreiding-ziekte-implantaten-op-uterus-en-of-beide-tuba-uterina-en-of-ovaria"
+            },
+            {
+              "value": "geen",
+              "label": "Geen",
+              "edge": "edge-uitbreiding-ziekte-geen"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Histologische peritoneale uitbreiding",
+          "id": "histologische-peritoneale-uitbreiding",
+          "gridX": 405,
+          "gridY": 90,
+          "interactive": true,
+          "options": [
+            {
+              "value": "microscopisch",
+              "label": "Microscopisch",
+              "edge": "edge-histologische-peritoneale-uitbreiding-microscopisch"
+            },
+            {
+              "value": "macroscopisch",
+              "label": "Macroscopisch",
+              "edge": "edge-histologische-peritoneale-uitbreiding-macroscopisch"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Diameter (tumor) cT",
+          "id": "diameter-tumor-ct",
+          "gridX": 495,
+          "gridY": 130,
+          "measure": {
+            "unit": "mm"
+          },
+          "interactive": true,
+          "options": [
+            {
+              "value": "lte-2-mm",
+              "label": "<=2 mm",
+              "lte": 2,
+              "edge": "edge-diameter-tumor-ct-lte-2-mm"
+            },
+            {
+              "value": "gt-2-mm",
+              "label": ">2 mm",
+              "gt": 2,
+              "edge": "edge-diameter-tumor-ct-gt-2-mm"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Primaire tumor",
+          "id": "primaire-tumor",
+          "gridX": 180,
+          "gridY": 30,
+          "interactive": true,
+          "options": [
+            {
+              "value": "niet-beoordeelbaar",
+              "label": "Niet beoordeelbaar",
+              "edge": "edge-primaire-tumor-niet-beoordeelbaar"
+            },
+            {
+              "value": "geen-bewijs-primaire-tumor",
+              "label": "Geen bewijs primaire tumor",
+              "edge": "edge-primaire-tumor-geen-bewijs-primaire-tumor"
+            },
+            {
+              "value": "aanwezig",
+              "label": "Aanwezig",
+              "edge": "edge-primaire-tumor-aanwezig"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Staat niet in de richtlijn",
+          "height": 20,
+          "id": "aanbeveling-staat-niet-in-de-richtlijn",
+          "gridX": 450,
+          "gridY": 245
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-diameter-tumor-ct-lte-2-mm",
+          "from": "diameter-tumor-ct",
+          "to": "cn",
+          "label": "<=2 mm",
+          "value": "lte-2-mm",
+          "arrow": true
+        },
+        {
+          "id": "edge-titel-primaire-tumor",
+          "from": "titel",
+          "to": "primaire-tumor",
+          "arrow": true
+        },
+        {
+          "id": "edge-aantal-ovaria-2",
+          "from": "aantal-ovaria",
+          "to": "aanbeveling-ct1b",
+          "label": "2",
+          "value": "2",
+          "arrow": true
+        },
+        {
+          "id": "edge-diameter-tumor-ct-gt-2-mm",
+          "from": "diameter-tumor-ct",
+          "to": "aanbeveling-ct3c",
+          "label": ">2 mm",
+          "value": "gt-2-mm",
+          "arrow": true
+        },
+        {
+          "id": "edge-uitbreiding-ziekte-buiten-bekken",
+          "from": "uitbreiding-ziekte",
+          "to": "histologische-peritoneale-uitbreiding",
+          "label": "Buiten bekken",
+          "value": "buiten-bekken",
+          "arrow": true
+        },
+        {
+          "id": "edge-histologische-peritoneale-uitbreiding-macroscopisch",
+          "from": "histologische-peritoneale-uitbreiding",
+          "to": "diameter-tumor-ct",
+          "label": "Macroscopisch",
+          "value": "macroscopisch",
+          "arrow": true
+        },
+        {
+          "id": "edge-cn-cn0",
+          "from": "cn",
+          "to": "aanbeveling-ct3b",
+          "label": "CN0",
+          "value": "cn0",
+          "arrow": true
+        },
+        {
+          "id": "edge-primaire-tumor-geen-bewijs-primaire-tumor",
+          "from": "primaire-tumor",
+          "to": "aanbeveling-ct0",
+          "label": "Geen bewijs primaire tumor",
+          "value": "geen-bewijs-primaire-tumor",
+          "arrow": true
+        },
+        {
+          "id": "edge-kapsel-intact",
+          "from": "kapsel",
+          "to": "tumorcellen-op-ovarium-oppervlak",
+          "label": "Intact",
+          "value": "intact",
+          "arrow": true
+        },
+        {
+          "id": "edge-aantal-ovaria-1",
+          "from": "aantal-ovaria",
+          "to": "aanbeveling-ct1a",
+          "label": "1",
+          "value": "1",
+          "arrow": true
+        },
+        {
+          "id": "edge-cn-cn1",
+          "from": "cn",
+          "to": "aanbeveling-ct3c",
+          "label": "CN1",
+          "value": "cn1",
+          "arrow": true
+        },
+        {
+          "id": "edge-primaire-tumor-niet-beoordeelbaar",
+          "from": "primaire-tumor",
+          "to": "aanbeveling-ctx",
+          "label": "Niet beoordeelbaar",
+          "value": "niet-beoordeelbaar",
+          "arrow": true
+        },
+        {
+          "id": "edge-chirurgische-lekkage-aanwezig",
+          "from": "chirurgische-lekkage",
+          "to": "aanbeveling-ct1c1",
+          "label": "Aanwezig",
+          "value": "aanwezig",
+          "arrow": true
+        },
+        {
+          "id": "edge-uitbreiding-ziekte-implantaten-op-uterus-en-of-beide-tuba-uterina-en-of-ovaria",
+          "from": "uitbreiding-ziekte",
+          "to": "aanbeveling-ct2a",
+          "label": "(Implantaten) op uterus en of (beide) tuba uterina en/of ovaria",
+          "value": "implantaten-op-uterus-en-of-beide-tuba-uterina-en-of-ovaria",
+          "arrow": true
+        },
+        {
+          "id": "edge-tumorcellen-op-ovarium-oppervlak-aanwezig",
+          "from": "tumorcellen-op-ovarium-oppervlak",
+          "to": "aanbeveling-ct1c2",
+          "label": "Aanwezig",
+          "value": "aanwezig",
+          "arrow": true
+        },
+        {
+          "id": "edge-chirurgische-lekkage-afwezig",
+          "from": "chirurgische-lekkage",
+          "to": "aantal-ovaria",
+          "label": "Afwezig",
+          "value": "afwezig",
+          "arrow": true
+        },
+        {
+          "id": "edge-kapsel-gescheurd",
+          "from": "kapsel",
+          "to": "aanbeveling-ct1c2",
+          "label": "Gescheurd",
+          "value": "gescheurd",
+          "arrow": true
+        },
+        {
+          "id": "edge-histologische-peritoneale-uitbreiding-microscopisch",
+          "from": "histologische-peritoneale-uitbreiding",
+          "to": "aanbeveling-ct3a",
+          "label": "Microscopisch",
+          "value": "microscopisch",
+          "arrow": true
+        },
+        {
+          "id": "edge-uitbreiding-ziekte-geen",
+          "from": "uitbreiding-ziekte",
+          "to": "cellen-in-ascites",
+          "label": "Geen",
+          "value": "geen",
+          "arrow": true
+        },
+        {
+          "id": "edge-cellen-in-ascites-benigne",
+          "from": "cellen-in-ascites",
+          "to": "kapsel",
+          "label": "Benigne",
+          "value": "benigne",
+          "arrow": true
+        },
+        {
+          "id": "edge-cellen-in-ascites-maligne",
+          "from": "cellen-in-ascites",
+          "to": "aanbeveling-ct1c3",
+          "label": "Maligne",
+          "value": "maligne",
+          "arrow": true
+        },
+        {
+          "id": "edge-uitbreiding-ziekte-andere-bekkenweefsels-inclusief-de-darm-in-het-bekken",
+          "from": "uitbreiding-ziekte",
+          "to": "aanbeveling-ct2b",
+          "label": "Andere bekkenweefsels inclusief de darm in het bekken",
+          "value": "andere-bekkenweefsels-inclusief-de-darm-in-het-bekken",
+          "arrow": true
+        },
+        {
+          "id": "edge-primaire-tumor-aanwezig",
+          "from": "primaire-tumor",
+          "to": "uitbreiding-ziekte",
+          "label": "Aanwezig",
+          "value": "aanwezig",
+          "arrow": true
+        },
+        {
+          "id": "edge-tumorcellen-op-ovarium-oppervlak-afwezig",
+          "from": "tumorcellen-op-ovarium-oppervlak",
+          "to": "chirurgische-lekkage",
+          "label": "Afwezig",
+          "value": "afwezig",
+          "arrow": true
+        },
+        {
+          "id": "edge-cn-cnx",
+          "from": "cn",
+          "to": "aanbeveling-staat-niet-in-de-richtlijn",
+          "label": "CNX",
+          "value": "cnx",
+          "arrow": true
+        }
+      ]
+    },
+    "cn": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "title",
+          "label": "cN",
+          "id": "titel",
+          "gridX": 45,
+          "gridY": 0
+        },
+        {
+          "type": "dataItem",
+          "label": "Regionale lymfeklieren",
+          "id": "regionale-lymfeklieren",
+          "gridX": 45,
+          "gridY": 30,
+          "interactive": true,
+          "options": [
+            {
+              "value": "niet-beoordeelbaar",
+              "label": "Niet beoordeelbaar",
+              "edge": "edge-regionale-lymfeklieren-niet-beoordeelbaar"
+            },
+            {
+              "value": "benigne",
+              "label": "Benigne",
+              "edge": "edge-regionale-lymfeklieren-benigne"
+            },
+            {
+              "value": "maligne",
+              "label": "Maligne",
+              "edge": "edge-regionale-lymfeklieren-maligne"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Diameter (grootste dimensie) cN",
+          "id": "diameter-grootste-dimensie-cn",
+          "gridX": 90,
+          "gridY": 60,
+          "measure": {
+            "unit": "mm"
+          },
+          "interactive": true,
+          "options": [
+            {
+              "value": "lte-10-mm",
+              "label": "<=10 mm",
+              "lte": 10,
+              "edge": "edge-diameter-grootste-dimensie-cn-lte-10-mm"
+            },
+            {
+              "value": "gt-10-mm",
+              "label": ">10 mm",
+              "gt": 10,
+              "edge": "edge-diameter-grootste-dimensie-cn-gt-10-mm"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "cN1a",
+          "height": 20,
+          "id": "aanbeveling-cn1a",
+          "gridX": 90,
+          "gridY": 95
+        },
+        {
+          "type": "recommendation",
+          "text": "cN1b",
+          "height": 20,
+          "id": "aanbeveling-cn1b",
+          "gridX": 135,
+          "gridY": 95
+        },
+        {
+          "type": "recommendation",
+          "text": "cN0",
+          "height": 20,
+          "id": "aanbeveling-cn0",
+          "gridX": 45,
+          "gridY": 95
+        },
+        {
+          "type": "recommendation",
+          "text": "cNX",
+          "height": 20,
+          "id": "aanbeveling-cnx",
+          "gridX": 0,
+          "gridY": 95
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-titel-regionale-lymfeklieren",
+          "from": "titel",
+          "to": "regionale-lymfeklieren",
+          "arrow": true
+        },
+        {
+          "id": "edge-regionale-lymfeklieren-niet-beoordeelbaar",
+          "from": "regionale-lymfeklieren",
+          "to": "aanbeveling-cnx",
+          "label": "Niet beoordeelbaar",
+          "value": "niet-beoordeelbaar",
+          "arrow": true
+        },
+        {
+          "id": "edge-regionale-lymfeklieren-benigne",
+          "from": "regionale-lymfeklieren",
+          "to": "aanbeveling-cn0",
+          "label": "Benigne",
+          "value": "benigne",
+          "arrow": true
+        },
+        {
+          "id": "edge-regionale-lymfeklieren-maligne",
+          "from": "regionale-lymfeklieren",
+          "to": "diameter-grootste-dimensie-cn",
+          "label": "Maligne",
+          "value": "maligne",
+          "arrow": true
+        },
+        {
+          "id": "edge-diameter-grootste-dimensie-cn-lte-10-mm",
+          "from": "diameter-grootste-dimensie-cn",
+          "to": "aanbeveling-cn1a",
+          "label": "<=10 mm",
+          "value": "lte-10-mm",
+          "arrow": true
+        },
+        {
+          "id": "edge-diameter-grootste-dimensie-cn-gt-10-mm",
+          "from": "diameter-grootste-dimensie-cn",
+          "to": "aanbeveling-cn1b",
+          "label": ">10 mm",
+          "value": "gt-10-mm",
+          "arrow": true
+        }
+      ]
+    },
+    "beleid-na-primaire-operatie": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "recommendation",
+          "text": "Adjuvante chemotherapie",
+          "height": 20,
+          "id": "aanbeveling-adjuvante-chemotherapie",
+          "gridX": 135,
+          "gridY": 135
+        },
+        {
+          "type": "recommendation",
+          "text": "Adjuvante chemotherapie\nEN\nIntraperitoneale chemotherapie",
+          "height": 20,
+          "id": "aanbeveling-adjuvante-chemotherapie-2",
+          "gridX": 90,
+          "gridY": 135
+        },
+        {
+          "type": "dataItem",
+          "label": "Primaire behandeling",
+          "id": "primaire-behandeling",
+          "gridX": 45,
+          "gridY": 90,
+          "interactive": true,
+          "options": [
+            {
+              "value": "recto-sigmoid-resectie",
+              "label": "Recto-sigmoid resectie",
+              "edge": "edge-primaire-behandeling-aanbeveling-adjuvante-chemotherapie-3"
+            },
+            {
+              "value": "hemi-colectomie-links",
+              "label": "Hemi-colectomie links",
+              "edge": "edge-primaire-behandeling-aanbeveling-adjuvante-chemotherapie-3"
+            },
+            {
+              "value": "anders",
+              "label": "Anders",
+              "edge": "edge-primaire-behandeling-anders"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Resultaat debulking",
+          "id": "resultaat-debulking",
+          "gridX": 135,
+          "gridY": 65,
+          "interactive": true,
+          "options": [
+            {
+              "value": "optimaal",
+              "label": "Optimaal",
+              "edge": "edge-resultaat-debulking-optimaal"
+            },
+            {
+              "value": "complete",
+              "label": "Complete",
+              "edge": "edge-resultaat-debulking-optimaal"
+            },
+            {
+              "value": "incompleet",
+              "label": "Incompleet",
+              "edge": "edge-resultaat-debulking-incompleet"
+            },
+            {
+              "value": "peroperatief-niet-uitvoerbaar",
+              "label": "Peroperatief niet uitvoerbaar",
+              "edge": "edge-resultaat-debulking-peroperatief-niet-uitvoerbaar"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "FIGO",
+          "id": "figo",
+          "gridX": 135,
+          "gridY": 30,
+          "interactive": true,
+          "options": [
+            {
+              "value": "i",
+              "label": "I",
+              "edge": "edge-figo-i"
+            },
+            {
+              "value": "ia",
+              "label": "IA",
+              "edge": "edge-figo-i"
+            },
+            {
+              "value": "ib",
+              "label": "IB",
+              "edge": "edge-figo-i"
+            },
+            {
+              "value": "ic",
+              "label": "IC",
+              "edge": "edge-figo-i"
+            },
+            {
+              "value": "ic1",
+              "label": "IC1",
+              "edge": "edge-figo-i"
+            },
+            {
+              "value": "ic2",
+              "label": "IC2",
+              "edge": "edge-figo-i"
+            },
+            {
+              "value": "ic3",
+              "label": "IC3",
+              "edge": "edge-figo-i"
+            },
+            {
+              "value": "ii",
+              "label": "II",
+              "edge": "edge-figo-i"
+            },
+            {
+              "value": "iia",
+              "label": "IIA",
+              "edge": "edge-figo-i"
+            },
+            {
+              "value": "iib",
+              "label": "IIB",
+              "edge": "edge-figo-i"
+            },
+            {
+              "value": "iii",
+              "label": "III",
+              "edge": "edge-figo-iii"
+            },
+            {
+              "value": "iv",
+              "label": "IV",
+              "edge": "edge-figo-iv"
+            }
+          ],
+          "subtree": {
+            "tree": "figo",
+            "map": {
+              "aanbeveling-ia": "ia",
+              "aanbeveling-ib": "ib",
+              "aanbeveling-ic": "ic",
+              "aanbeveling-iia": "iia",
+              "aanbeveling-iib": "iib",
+              "aanbeveling-iiia2": "iii",
+              "aanbeveling-iiib": "iii",
+              "aanbeveling-iiic": "iii",
+              "aanbeveling-iiia1": "iii",
+              "aanbeveling-iiia2-2": "iii",
+              "aanbeveling-iiib-2": "iii",
+              "aanbeveling-iiic-2": "iii",
+              "aanbeveling-iva": "iv",
+              "aanbeveling-ivb": "iv",
+              "aanbeveling-stadium-is-niet-te-bepalen": "i"
+            }
+          }
+        },
+        {
+          "type": "title",
+          "label": "Beleid na primaire operatie",
+          "id": "titel",
+          "gridX": 135,
+          "gridY": 0
+        },
+        {
+          "type": "recommendation",
+          "text": "Adjuvante chemotherapie\nEN\nOverweeg intraperitoneale chemotherapie",
+          "height": 20,
+          "id": "aanbeveling-adjuvante-chemotherapie-3",
+          "gridX": 45,
+          "gridY": 135
+        },
+        {
+          "type": "recommendation",
+          "text": "Adjuvante chemotherapie",
+          "height": 20,
+          "id": "aanbeveling-adjuvante-chemotherapie-4",
+          "gridX": 0,
+          "gridY": 135
+        },
+        {
+          "type": "recommendation",
+          "text": "Neoadjuvante chemotherapie\n{i} bepaal beleid na chemotherapie na 2de kuur",
+          "height": 26,
+          "id": "aanbeveling-neoadjuvante-chemotherapie",
+          "gridX": 180,
+          "gridY": 135
+        },
+        {
+          "type": "recommendation",
+          "text": "Adjuvante chemotherapie",
+          "height": 20,
+          "id": "aanbeveling-adjuvante-chemotherapie-5",
+          "gridX": 225,
+          "gridY": 135
+        },
+        {
+          "type": "reference",
+          "label": "Follow up",
+          "to": "follow-up",
+          "id": "verwijzing-follow-up",
+          "gridX": 225,
+          "gridY": 170
+        },
+        {
+          "type": "reference",
+          "label": "Beleid na chemotherapie",
+          "to": "beleid-na-chemotherapie",
+          "id": "verwijzing-beleid-na-chemotherapie",
+          "gridX": 180,
+          "gridY": 170
+        },
+        {
+          "type": "reference",
+          "label": "Follow up",
+          "to": "follow-up",
+          "id": "verwijzing-follow-up-2",
+          "gridX": 135,
+          "gridY": 170
+        },
+        {
+          "type": "reference",
+          "label": "Follow up",
+          "to": "follow-up",
+          "id": "verwijzing-follow-up-3",
+          "gridX": 90,
+          "gridY": 170
+        },
+        {
+          "type": "reference",
+          "label": "Follow up",
+          "to": "follow-up",
+          "id": "verwijzing-follow-up-4",
+          "gridX": 45,
+          "gridY": 170
+        },
+        {
+          "type": "reference",
+          "label": "Follow up",
+          "to": "follow-up",
+          "id": "verwijzing-follow-up-5",
+          "gridX": 0,
+          "gridY": 170
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-resultaat-debulking-optimaal",
+          "from": "resultaat-debulking",
+          "to": "primaire-behandeling",
+          "label": "Optimaal, Compleet",
+          "value": [
+            "complete",
+            "optimaal"
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-figo-i",
+          "from": "figo",
+          "to": "aanbeveling-adjuvante-chemotherapie-4",
+          "label": "I, II",
+          "value": [
+            "ia",
+            "iia",
+            "iib",
+            "ii",
+            "ic3",
+            "ic2",
+            "ic1",
+            "ic",
+            "i",
+            "ib"
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-figo-iv",
+          "from": "figo",
+          "to": "aanbeveling-adjuvante-chemotherapie-5",
+          "label": "IV",
+          "value": "iv",
+          "arrow": true
+        },
+        {
+          "id": "edge-resultaat-debulking-peroperatief-niet-uitvoerbaar",
+          "from": "resultaat-debulking",
+          "to": "aanbeveling-neoadjuvante-chemotherapie",
+          "label": "Peroperatief niet uitvoerbaar",
+          "value": "peroperatief-niet-uitvoerbaar",
+          "arrow": true
+        },
+        {
+          "id": "edge-resultaat-debulking-incompleet",
+          "from": "resultaat-debulking",
+          "to": "aanbeveling-adjuvante-chemotherapie",
+          "label": "Incompleet",
+          "value": "incompleet",
+          "arrow": true
+        },
+        {
+          "id": "edge-figo-iii",
+          "from": "figo",
+          "to": "resultaat-debulking",
+          "label": "III",
+          "value": "iii",
+          "arrow": true
+        },
+        {
+          "id": "edge-titel-figo",
+          "from": "titel",
+          "to": "figo",
+          "arrow": true
+        },
+        {
+          "id": "edge-primaire-behandeling-aanbeveling-adjuvante-chemotherapie-3",
+          "from": "primaire-behandeling",
+          "to": "aanbeveling-adjuvante-chemotherapie-3",
+          "label": "Recto-sigmoid resectie, Hemi-colectomie links",
+          "value": [
+            "recto-sigmoid-resectie",
+            "hemi-colectomie-links"
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-primaire-behandeling-anders",
+          "from": "primaire-behandeling",
+          "to": "aanbeveling-adjuvante-chemotherapie-2",
+          "label": "Anders",
+          "value": "anders",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-adjuvante-chemotherapie-4-verwijzing-follow-up-5",
+          "from": "aanbeveling-adjuvante-chemotherapie-4",
+          "to": "verwijzing-follow-up-5",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-adjuvante-chemotherapie-3-verwijzing-follow-up-4",
+          "from": "aanbeveling-adjuvante-chemotherapie-3",
+          "to": "verwijzing-follow-up-4",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-adjuvante-chemotherapie-2-verwijzing-follow-up-3",
+          "from": "aanbeveling-adjuvante-chemotherapie-2",
+          "to": "verwijzing-follow-up-3",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-adjuvante-chemotherapie-verwijzing-follow-up-2",
+          "from": "aanbeveling-adjuvante-chemotherapie",
+          "to": "verwijzing-follow-up-2",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-neoadjuvante-chemotherapie-verwijzing-beleid-na-chemotherapie",
+          "from": "aanbeveling-neoadjuvante-chemotherapie",
+          "to": "verwijzing-beleid-na-chemotherapie",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-adjuvante-chemotherapie-5-verwijzing-follow-up",
+          "from": "aanbeveling-adjuvante-chemotherapie-5",
+          "to": "verwijzing-follow-up",
+          "arrow": true
+        }
+      ]
+    },
+    "vervolg-exploratieve-chirurgie": {
+      "onderbouwing": "Richtlijnen voor de stadiëringsoperatie. Zie richtlijnendatabase Richtlijn Epitheliaal Ovariumcarcinoom:\n\nMediane onder- en bovenbuiklaparotomie. Afname van ascites voor cytologisch onderzoek. Bij afwezigheid van ascites dient de buik te worden gespoeld met fysiologisch zout en de spoelvloeistof te worden ingestuurd voor cytologisch onderzoek. Inspectie en palpatie van alle sereuze oppervlakten in de buikholte. Uterus en adnex extirpatie (zie vriescoupe diagnostiek). Infracolische omentectomie. Stadiëringsbiopten van:alle plaatsen waarmee de ovariumtumor adhesief of vergroeid is. alle macroscopisch verdachte plaatsen en adhaesies. biopsieën van het peritoneum van:het cavum Douglasi. het blaasperitoneum. het peritoneum van de bekkenwanden. de paracolische goten links en rechts. de rechter diafragmakoepel Lymfkliersampling dient te bestaan uit resectie van minimaal 10 klieren en wel van de volgende klierregio's: Paraaortale en paracavale lymfklieren (onder de vena renalis en boven de uitmonding van de arteria mesenterica inferior), en beiderzijds lymfklieren rond de communis, interne en externe iliacale vaten en uit de fossa obturatoria. Er zijn geen aanwijzingen dat een radicale lymfadenectomie een betere overleving geeft dan een adequate lymfkliersampling.",
+      "bron": {
+        "url": "https://richtlijnendatabase.nl/richtlijn/ovariumcarcinoom/behandeling_laag_stadium_i_t_m_iia/chirurgie_laagstadium.html"
+      },
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "reference",
+          "label": "Beleid na stadiering",
+          "to": "beleid-na-stadiering",
+          "id": "verwijzing-beleid-na-stadiering",
+          "gridX": 45,
+          "gridY": 205
+        },
+        {
+          "type": "dataItem",
+          "label": "FIGO",
+          "id": "figo",
+          "gridX": 135,
+          "gridY": 30,
+          "interactive": true,
+          "options": [
+            {
+              "value": "i",
+              "label": "I",
+              "edge": "edge-figo-i"
+            },
+            {
+              "value": "iia",
+              "label": "IIA",
+              "edge": "edge-figo-iia"
+            },
+            {
+              "value": "gte-iib",
+              "label": ">=IIB",
+              "edge": "edge-figo-gte-iib"
+            }
+          ],
+          "subtree": {
+            "tree": "figo",
+            "map": {
+              "aanbeveling-ia": "i",
+              "aanbeveling-ib": "i",
+              "aanbeveling-ic": "i",
+              "aanbeveling-iia": "iia",
+              "aanbeveling-iib": "gte-iib",
+              "aanbeveling-iiia2": "gte-iib",
+              "aanbeveling-iiib": "gte-iib",
+              "aanbeveling-iiic": "gte-iib",
+              "aanbeveling-iiia1": "gte-iib",
+              "aanbeveling-iiia2-2": "gte-iib",
+              "aanbeveling-iiib-2": "gte-iib",
+              "aanbeveling-iiic-2": "gte-iib",
+              "aanbeveling-iva": "gte-iib",
+              "aanbeveling-ivb": "gte-iib",
+              "aanbeveling-stadium-is-niet-te-bepalen": "i"
+            }
+          }
+        },
+        {
+          "type": "dataItem",
+          "label": "Kinderwens",
+          "id": "kinderwens",
+          "gridX": 45,
+          "gridY": 65,
+          "interactive": true,
+          "options": [
+            {
+              "value": "kinderwens",
+              "label": "Kinderwens",
+              "edge": "edge-kinderwens-kinderwens"
+            },
+            {
+              "value": "geen-kinderwens",
+              "label": "Geen kinderwens",
+              "edge": "edge-kinderwens-geen-kinderwens"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Morfologie",
+          "id": "morfologie",
+          "gridX": 135,
+          "gridY": 90,
+          "interactive": true,
+          "options": [
+            {
+              "value": "andere-epitheliale-morfologie",
+              "label": "Andere epitheliale morfologie",
+              "edge": "edge-morfologie-andere-epitheliale-morfologie"
+            },
+            {
+              "value": "mucineus",
+              "label": "Mucineus",
+              "edge": "edge-morfologie-mucineus"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Morfologie",
+          "id": "morfologie-2",
+          "gridX": 0,
+          "gridY": 95,
+          "interactive": true,
+          "options": [
+            {
+              "value": "andere-epitheliale-morfologie",
+              "label": "Andere epitheliale morfologie",
+              "edge": "edge-morfologie-2-andere-epitheliale-morfologie"
+            },
+            {
+              "value": "mucineus",
+              "label": "Mucineus",
+              "edge": "edge-morfologie-2-mucineus"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Tumorkenmerk",
+          "id": "tumorkenmerk",
+          "gridX": 45,
+          "gridY": 125,
+          "interactive": true,
+          "options": [
+            {
+              "value": "expansief",
+              "label": "Expansief",
+              "edge": "edge-tumorkenmerk-expansief"
+            },
+            {
+              "value": "infiltratief",
+              "label": "Infiltratief",
+              "edge": "edge-tumorkenmerk-infiltratief"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Tumorkenmerk",
+          "id": "tumorkenmerk-2",
+          "gridX": 135,
+          "gridY": 125,
+          "interactive": true,
+          "options": [
+            {
+              "value": "expansief",
+              "label": "Expansief",
+              "edge": "edge-tumorkenmerk-2-expansief"
+            },
+            {
+              "value": "infiltratief",
+              "label": "Infiltratief",
+              "edge": "edge-tumorkenmerk-2-infiltratief"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Stadiëringsoperatie\nzonder lymfkliersampling\n{i} zie onderbouwing voor details stadiëringsoperatie",
+          "height": 23,
+          "id": "aanbeveling-stadieringsoperatie",
+          "gridX": 135,
+          "gridY": 160
+        },
+        {
+          "type": "recommendation",
+          "text": "Primaire debulking",
+          "height": 20,
+          "id": "aanbeveling-primaire-debulking",
+          "gridX": 180,
+          "gridY": 160
+        },
+        {
+          "type": "recommendation",
+          "text": "Stadiëringsoperatie met lymfekliersampling\n{i} zie onderbouwing voor details stadiëringsoperatie",
+          "height": 23,
+          "id": "aanbeveling-stadieringsoperatie-met-lymfekliersampling",
+          "gridX": 90,
+          "gridY": 160
+        },
+        {
+          "type": "recommendation",
+          "text": "Stadiëringsoperatie\nzonder lymfkliersampling\nStreef naar behoud uterus en niet-aangedane adnex\n{i} zie onderbouwing voor details stadiëringsoperatie",
+          "height": 29,
+          "id": "aanbeveling-stadieringsoperatie-2",
+          "gridX": 45,
+          "gridY": 160
+        },
+        {
+          "type": "recommendation",
+          "text": "Stadiëringsoperatie\nmet lymfkliersampling\nStreef naar behoud uterus en niet-aangedane adnex\n{i} zie onderbouwing voor details stadiëringsoperatie",
+          "height": 29,
+          "id": "aanbeveling-stadieringsoperatie-3",
+          "gridX": 0,
+          "gridY": 160
+        },
+        {
+          "type": "title",
+          "label": "Vervolg exploratieve chirurgie laag stadium epitheliaal ovariumcarcinoom",
+          "id": "titel",
+          "gridX": 135,
+          "gridY": 0
+        },
+        {
+          "type": "reference",
+          "label": "Beleid na stadiering",
+          "to": "beleid-na-stadiering",
+          "id": "verwijzing-beleid-na-stadiering-2",
+          "gridX": 90,
+          "gridY": 195
+        },
+        {
+          "type": "reference",
+          "label": "Beleid na stadiering",
+          "to": "beleid-na-stadiering",
+          "id": "verwijzing-beleid-na-stadiering-3",
+          "gridX": 0,
+          "gridY": 205
+        },
+        {
+          "type": "reference",
+          "label": "Beleid na stadiering",
+          "to": "beleid-na-stadiering",
+          "id": "verwijzing-beleid-na-stadiering-4",
+          "gridX": 135,
+          "gridY": 195
+        },
+        {
+          "type": "reference",
+          "label": "Beleid na primaire operatie",
+          "to": "beleid-na-primaire-operatie",
+          "id": "verwijzing-beleid-na-primaire-operatie",
+          "gridX": 180,
+          "gridY": 195
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-tumorkenmerk-expansief",
+          "from": "tumorkenmerk",
+          "to": "aanbeveling-stadieringsoperatie-2",
+          "label": "Expansief",
+          "value": "expansief",
+          "arrow": true
+        },
+        {
+          "id": "edge-figo-i",
+          "from": "figo",
+          "to": "kinderwens",
+          "label": "I",
+          "value": "i",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-primaire-debulking-verwijzing-beleid-na-primaire-operatie",
+          "from": "aanbeveling-primaire-debulking",
+          "to": "verwijzing-beleid-na-primaire-operatie",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-stadieringsoperatie-verwijzing-beleid-na-stadiering-4",
+          "from": "aanbeveling-stadieringsoperatie",
+          "to": "verwijzing-beleid-na-stadiering-4",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-stadieringsoperatie-met-lymfekliersampling-verwijzing-beleid-na-stadiering-2",
+          "from": "aanbeveling-stadieringsoperatie-met-lymfekliersampling",
+          "to": "verwijzing-beleid-na-stadiering-2",
+          "arrow": true
+        },
+        {
+          "id": "edge-titel-figo",
+          "from": "titel",
+          "to": "figo",
+          "arrow": true
+        },
+        {
+          "id": "edge-figo-iia",
+          "from": "figo",
+          "to": "morfologie",
+          "label": "IIA",
+          "value": "iia",
+          "arrow": true
+        },
+        {
+          "id": "edge-kinderwens-geen-kinderwens",
+          "from": "kinderwens",
+          "to": "morfologie",
+          "label": "Geen kinderwens",
+          "value": "geen-kinderwens",
+          "arrow": true
+        },
+        {
+          "id": "edge-tumorkenmerk-infiltratief",
+          "from": "tumorkenmerk",
+          "to": "aanbeveling-stadieringsoperatie-3",
+          "label": "Infiltratief",
+          "value": "infiltratief",
+          "arrow": true
+        },
+        {
+          "id": "edge-figo-gte-iib",
+          "from": "figo",
+          "to": "aanbeveling-primaire-debulking",
+          "label": ">=IIB",
+          "value": "gte-iib",
+          "arrow": true
+        },
+        {
+          "id": "edge-tumorkenmerk-2-expansief",
+          "from": "tumorkenmerk-2",
+          "to": "aanbeveling-stadieringsoperatie",
+          "label": "Expansief",
+          "value": "expansief",
+          "arrow": true
+        },
+        {
+          "id": "edge-tumorkenmerk-2-infiltratief",
+          "from": "tumorkenmerk-2",
+          "to": "aanbeveling-stadieringsoperatie-met-lymfekliersampling",
+          "label": "Infiltratief",
+          "value": "infiltratief",
+          "arrow": true
+        },
+        {
+          "id": "edge-morfologie-andere-epitheliale-morfologie",
+          "from": "morfologie",
+          "to": "aanbeveling-stadieringsoperatie-met-lymfekliersampling",
+          "label": "Andere epitheliale morfologie",
+          "value": "andere-epitheliale-morfologie",
+          "arrow": true
+        },
+        {
+          "id": "edge-kinderwens-kinderwens",
+          "from": "kinderwens",
+          "to": "morfologie-2",
+          "label": "Kinderwens",
+          "value": "kinderwens",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-stadieringsoperatie-2-verwijzing-beleid-na-stadiering",
+          "from": "aanbeveling-stadieringsoperatie-2",
+          "to": "verwijzing-beleid-na-stadiering",
+          "arrow": true
+        },
+        {
+          "id": "edge-morfologie-2-mucineus",
+          "from": "morfologie-2",
+          "to": "tumorkenmerk",
+          "label": "Mucineus",
+          "value": "mucineus",
+          "arrow": true
+        },
+        {
+          "id": "edge-morfologie-2-andere-epitheliale-morfologie",
+          "from": "morfologie-2",
+          "to": "aanbeveling-stadieringsoperatie-3",
+          "label": "Andere epitheliale morfologie",
+          "value": "andere-epitheliale-morfologie",
+          "arrow": true
+        },
+        {
+          "id": "edge-morfologie-mucineus",
+          "from": "morfologie",
+          "to": "tumorkenmerk-2",
+          "label": "Mucineus",
+          "value": "mucineus",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-stadieringsoperatie-3-verwijzing-beleid-na-stadiering-3",
+          "from": "aanbeveling-stadieringsoperatie-3",
+          "to": "verwijzing-beleid-na-stadiering-3",
+          "arrow": true
+        }
+      ]
+    },
+    "primaire-behandeling": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "title",
+          "label": "Primaire behandeling",
+          "id": "titel",
+          "gridX": 135,
+          "gridY": 0
+        },
+        {
+          "type": "dataItem",
+          "label": "Uitgebreidheid ziekte",
+          "id": "uitgebreidheid-ziekte",
+          "gridX": 135,
+          "gridY": 30,
+          "interactive": true,
+          "options": [
+            {
+              "value": "evident-buiten-ovarium",
+              "label": "(Evident) buiten ovarium",
+              "edge": "edge-uitgebreidheid-ziekte-evident-buiten-ovarium"
+            },
+            {
+              "value": "beperkt-tot-ovarium",
+              "label": "Beperkt tot ovarium",
+              "edge": "edge-uitgebreidheid-ziekte-beperkt-tot-ovarium"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Resectabel obv beeldvorming",
+          "id": "resectabel-obv-beeldvorming",
+          "gridX": 180,
+          "gridY": 55,
+          "interactive": true,
+          "options": [
+            {
+              "value": "resectabel",
+              "label": "Resectabel",
+              "edge": "edge-resectabel-obv-beeldvorming-resectabel"
+            },
+            {
+              "value": "onduidelijk",
+              "label": "Onduidelijk",
+              "edge": "edge-resectabel-obv-beeldvorming-onduidelijk"
+            },
+            {
+              "value": "niet-resectabel",
+              "label": "Niet resectabel",
+              "edge": "edge-resectabel-obv-beeldvorming-niet-resectabel"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Klinisch stadium",
+          "id": "klinisch-stadium",
+          "gridX": 135,
+          "gridY": 85,
+          "interactive": true,
+          "options": [
+            {
+              "value": "iib",
+              "label": "IIB",
+              "edge": "edge-klinisch-stadium-iib"
+            },
+            {
+              "value": "iii",
+              "label": "III",
+              "edge": "edge-klinisch-stadium-iii"
+            }
+          ],
+          "subtree": {
+            "tree": "klinisch-stadium",
+            "map": {
+              "aanbeveling-iiic": "iii",
+              "aanbeveling-iiib": "iii",
+              "aanbeveling-iiia2": "iii",
+              "aanbeveling-iiia1": "iii",
+              "aanbeveling-iiic-2": "iii",
+              "aanbeveling-iiib-2": "iii",
+              "aanbeveling-iiia2-2": "iii",
+              "aanbeveling-iib": "iib"
+            }
+          }
+        },
+        {
+          "type": "recommendation",
+          "text": "Primaire debulking\nOF\nOverweeg een diagnostische laparoscopie",
+          "height": 20,
+          "id": "aanbeveling-primaire-debulking",
+          "gridX": 135,
+          "gridY": 120
+        },
+        {
+          "type": "recommendation",
+          "text": "Overweeg diagnostische laparoscopie\nOF\nOverweeg primaire debulking\nOF\nOverweeg chemotherapie:\n3 kuren (driewekelijks paclitaxel/carboplatin)\n{i} bepaal beleid na chemotherapie na 2de kuur",
+          "height": 49,
+          "id": "aanbeveling-overweeg-diagnostische-laparoscopie",
+          "gridX": 180,
+          "gridY": 120
+        },
+        {
+          "type": "recommendation",
+          "text": "Chemotherapie:\n3 kuren (driewekelijks paclitaxel/carboplatin)\n{i} bepaal beleid na chemotherapie na 2de kuur",
+          "height": 29,
+          "id": "aanbeveling-3-kuren-driewekelijks-paclitaxel-carboplatin",
+          "gridX": 225,
+          "gridY": 120
+        },
+        {
+          "type": "recommendation",
+          "text": "Primaire debulking",
+          "height": 20,
+          "id": "aanbeveling-primaire-debulking-2",
+          "gridX": 90,
+          "gridY": 120
+        },
+        {
+          "type": "reference",
+          "label": "Vervolg exploratieve chirurgie laag stadium epitheliaal ovariumcarcinoom",
+          "to": "vervolg-exploratieve-chirurgie",
+          "id": "verwijzing-vervolg-exploratieve-chirurgie-laag-stadium-epitheliaal-ovariumcarcinoom",
+          "gridX": 0,
+          "gridY": 153
+        },
+        {
+          "type": "reference",
+          "label": "Beleid na primaire operatie",
+          "to": "beleid-na-primaire-operatie",
+          "id": "verwijzing-beleid-na-primaire-operatie",
+          "gridX": 90,
+          "gridY": 153
+        },
+        {
+          "type": "reference",
+          "label": "Beleid na primaire operatie",
+          "to": "beleid-na-primaire-operatie",
+          "id": "verwijzing-beleid-na-primaire-operatie-2",
+          "gridX": 135,
+          "gridY": 153
+        },
+        {
+          "type": "reference",
+          "label": "Primaire behandeling",
+          "to": "primaire-behandeling",
+          "id": "verwijzing-primaire-behandeling",
+          "gridX": 180,
+          "gridY": 193
+        },
+        {
+          "type": "reference",
+          "label": "Beleid na primaire operatie",
+          "to": "beleid-na-primaire-operatie",
+          "id": "verwijzing-beleid-na-primaire-operatie-3",
+          "gridX": 180,
+          "gridY": 218
+        },
+        {
+          "type": "reference",
+          "label": "Beleid na chemotherapie",
+          "to": "beleid-na-chemotherapie",
+          "id": "verwijzing-beleid-na-chemotherapie",
+          "gridX": 180,
+          "gridY": 243
+        },
+        {
+          "type": "reference",
+          "label": "Beleid na chemotherapie",
+          "to": "beleid-na-chemotherapie",
+          "id": "verwijzing-beleid-na-chemotherapie-2",
+          "gridX": 225,
+          "gridY": 153
+        },
+        {
+          "type": "recommendation",
+          "text": "Exploratieve chirurgie\nEN\nOverweeg vriescoupe",
+          "height": 20,
+          "id": "aanbeveling-exploratieve-chirurgie",
+          "gridX": 0,
+          "gridY": 120
+        },
+        {
+          "type": "dataItem",
+          "label": "Kinderwens",
+          "id": "kinderwens",
+          "gridX": 45,
+          "gridY": 85,
+          "interactive": true,
+          "options": [
+            {
+              "value": "aanwezig",
+              "label": "Aanwezig",
+              "edge": "edge-kinderwens-aanwezig"
+            },
+            {
+              "value": "afwezig",
+              "label": "Afwezig",
+              "edge": "edge-kinderwens-afwezig"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Exploratieve chirurgie\nEN\nBepaal definitieve pathologische diagnose\n{x} Geen vriescoupe",
+          "height": 23,
+          "id": "aanbeveling-exploratieve-chirurgie-2",
+          "gridX": 45,
+          "gridY": 120
+        },
+        {
+          "type": "reference",
+          "label": "Vervolg exploratieve chirurgie laag stadium epitheliaal ovariumcarcinoom",
+          "to": "vervolg-exploratieve-chirurgie",
+          "id": "verwijzing-vervolg-exploratieve-chirurgie-laag-stadium-epitheliaal-ovariumcarcinoom-2",
+          "gridX": 45,
+          "gridY": 150
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-aanbeveling-exploratieve-chirurgie-2-verwijzing-vervolg-exploratieve-chirurgie-laag-stadium-epitheliaal-ovariumcarcinoom-2",
+          "from": "aanbeveling-exploratieve-chirurgie-2",
+          "to": "verwijzing-vervolg-exploratieve-chirurgie-laag-stadium-epitheliaal-ovariumcarcinoom-2",
+          "arrow": true
+        },
+        {
+          "id": "edge-kinderwens-aanwezig",
+          "from": "kinderwens",
+          "to": "aanbeveling-exploratieve-chirurgie-2",
+          "label": "Aanwezig",
+          "value": "aanwezig",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-exploratieve-chirurgie-verwijzing-vervolg-exploratieve-chirurgie-laag-stadium-epitheliaal-ovariumcarcinoom",
+          "from": "aanbeveling-exploratieve-chirurgie",
+          "to": "verwijzing-vervolg-exploratieve-chirurgie-laag-stadium-epitheliaal-ovariumcarcinoom",
+          "arrow": true
+        },
+        {
+          "id": "edge-kinderwens-afwezig",
+          "from": "kinderwens",
+          "to": "aanbeveling-exploratieve-chirurgie",
+          "label": "Afwezig",
+          "value": "afwezig",
+          "arrow": true
+        },
+        {
+          "id": "edge-uitgebreidheid-ziekte-beperkt-tot-ovarium",
+          "from": "uitgebreidheid-ziekte",
+          "to": "kinderwens",
+          "label": "Beperkt tot ovarium",
+          "value": "beperkt-tot-ovarium",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-primaire-debulking-2-verwijzing-beleid-na-primaire-operatie",
+          "from": "aanbeveling-primaire-debulking-2",
+          "to": "verwijzing-beleid-na-primaire-operatie",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-primaire-debulking-verwijzing-beleid-na-primaire-operatie-2",
+          "from": "aanbeveling-primaire-debulking",
+          "to": "verwijzing-beleid-na-primaire-operatie-2",
+          "arrow": true
+        },
+        {
+          "id": "edge-verwijzing-beleid-na-primaire-operatie-3-verwijzing-beleid-na-chemotherapie",
+          "from": "verwijzing-beleid-na-primaire-operatie-3",
+          "to": "verwijzing-beleid-na-chemotherapie",
+          "arrow": true
+        },
+        {
+          "id": "edge-verwijzing-primaire-behandeling-verwijzing-beleid-na-primaire-operatie-3",
+          "from": "verwijzing-primaire-behandeling",
+          "to": "verwijzing-beleid-na-primaire-operatie-3",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-overweeg-diagnostische-laparoscopie-verwijzing-primaire-behandeling",
+          "from": "aanbeveling-overweeg-diagnostische-laparoscopie",
+          "to": "verwijzing-primaire-behandeling",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-3-kuren-driewekelijks-paclitaxel-carboplatin-verwijzing-beleid-na-chemotherapie-2",
+          "from": "aanbeveling-3-kuren-driewekelijks-paclitaxel-carboplatin",
+          "to": "verwijzing-beleid-na-chemotherapie-2",
+          "arrow": true
+        },
+        {
+          "id": "edge-titel-uitgebreidheid-ziekte",
+          "from": "titel",
+          "to": "uitgebreidheid-ziekte",
+          "arrow": true
+        },
+        {
+          "id": "edge-uitgebreidheid-ziekte-evident-buiten-ovarium",
+          "from": "uitgebreidheid-ziekte",
+          "to": "resectabel-obv-beeldvorming",
+          "label": "(Evident) buiten ovarium",
+          "value": "evident-buiten-ovarium",
+          "arrow": true
+        },
+        {
+          "id": "edge-resectabel-obv-beeldvorming-niet-resectabel",
+          "from": "resectabel-obv-beeldvorming",
+          "to": "aanbeveling-3-kuren-driewekelijks-paclitaxel-carboplatin",
+          "label": "Niet resectabel",
+          "value": "niet-resectabel",
+          "arrow": true
+        },
+        {
+          "id": "edge-resectabel-obv-beeldvorming-onduidelijk",
+          "from": "resectabel-obv-beeldvorming",
+          "to": "aanbeveling-overweeg-diagnostische-laparoscopie",
+          "label": "Onduidelijk",
+          "value": "onduidelijk",
+          "arrow": true
+        },
+        {
+          "id": "edge-resectabel-obv-beeldvorming-resectabel",
+          "from": "resectabel-obv-beeldvorming",
+          "to": "klinisch-stadium",
+          "label": "Resectabel",
+          "value": "resectabel",
+          "arrow": true
+        },
+        {
+          "id": "edge-klinisch-stadium-iii",
+          "from": "klinisch-stadium",
+          "to": "aanbeveling-primaire-debulking",
+          "label": "III",
+          "value": "iii",
+          "arrow": true
+        },
+        {
+          "id": "edge-klinisch-stadium-iib",
+          "from": "klinisch-stadium",
+          "to": "aanbeveling-primaire-debulking-2",
+          "label": "IIB",
+          "value": "iib",
+          "arrow": true
+        }
+      ]
+    },
+    "vervolg-aanvullende-diagnostiek": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "dataItem",
+          "label": "Uitgebreidheid ziekte",
+          "id": "uitgebreidheid-ziekte",
+          "gridX": 0,
+          "gridY": 30,
+          "interactive": true,
+          "options": [
+            {
+              "value": "buiten-ovarium",
+              "label": "Buiten ovarium",
+              "edge": "edge-uitgebreidheid-ziekte-buiten-ovarium"
+            },
+            {
+              "value": "beperkt-tot-ovarium",
+              "label": "Beperkt tot ovarium",
+              "edge": "edge-uitgebreidheid-ziekte-beperkt-tot-ovarium"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Verwijs naar oncologisch centrum",
+          "height": 20,
+          "id": "aanbeveling-verwijs-naar-oncologisch-centrum",
+          "gridX": 0,
+          "gridY": 65
+        },
+        {
+          "type": "recommendation",
+          "text": "Histologisch biopt\n{i} zonodig ascitespunctie\nEN\nBepaal klinisch stadium obv CT-thorax/abdomen\nEN\nVerwijs naar oncologisch centrum\n{i} indien operatie",
+          "height": 42,
+          "id": "aanbeveling-histologisch-biopt",
+          "gridX": 45,
+          "gridY": 65
+        },
+        {
+          "type": "title",
+          "label": "Vervolg aanvullende diagnostiek",
+          "id": "titel",
+          "gridX": 0,
+          "gridY": 0
+        },
+        {
+          "type": "reference",
+          "label": "Primaire behandeling",
+          "to": "primaire-behandeling",
+          "id": "verwijzing-primaire-behandeling",
+          "gridX": 0,
+          "gridY": 95
+        },
+        {
+          "type": "reference",
+          "label": "Primaire behandeling",
+          "to": "primaire-behandeling",
+          "id": "verwijzing-primaire-behandeling-2",
+          "gridX": 45,
+          "gridY": 130
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-titel-uitgebreidheid-ziekte",
+          "from": "titel",
+          "to": "uitgebreidheid-ziekte",
+          "arrow": true
+        },
+        {
+          "id": "edge-uitgebreidheid-ziekte-beperkt-tot-ovarium",
+          "from": "uitgebreidheid-ziekte",
+          "to": "aanbeveling-verwijs-naar-oncologisch-centrum",
+          "label": "Beperkt tot ovarium",
+          "value": "beperkt-tot-ovarium",
+          "arrow": true
+        },
+        {
+          "id": "edge-uitgebreidheid-ziekte-buiten-ovarium",
+          "from": "uitgebreidheid-ziekte",
+          "to": "aanbeveling-histologisch-biopt",
+          "label": "Buiten ovarium",
+          "value": "buiten-ovarium",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-verwijs-naar-oncologisch-centrum-verwijzing-primaire-behandeling",
+          "from": "aanbeveling-verwijs-naar-oncologisch-centrum",
+          "to": "verwijzing-primaire-behandeling",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-histologisch-biopt-verwijzing-primaire-behandeling-2",
+          "from": "aanbeveling-histologisch-biopt",
+          "to": "verwijzing-primaire-behandeling-2",
+          "arrow": true
+        }
+      ]
+    },
+    "aanvullende-diagnostiek": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "recommendation",
+          "text": "CT-thorax / abdomen",
+          "height": 20,
+          "id": "aanbeveling-ct-thorax-abdomen",
+          "gridX": 0,
+          "gridY": 30
+        },
+        {
+          "type": "title",
+          "label": "Aanvullende diagnostiek epitheliaal ovariumcarcinoom",
+          "id": "titel",
+          "gridX": 0,
+          "gridY": 0
+        },
+        {
+          "type": "reference",
+          "label": "Vervolg aanvullende diagnostiek",
+          "to": "vervolg-aanvullende-diagnostiek",
+          "id": "verwijzing-vervolg-aanvullende-diagnostiek",
+          "gridX": 0,
+          "gridY": 60
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-titel-aanbeveling-ct-thorax-abdomen",
+          "from": "titel",
+          "to": "aanbeveling-ct-thorax-abdomen",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-ct-thorax-abdomen-verwijzing-vervolg-aanvullende-diagnostiek",
+          "from": "aanbeveling-ct-thorax-abdomen",
+          "to": "verwijzing-vervolg-aanvullende-diagnostiek",
+          "arrow": true
+        }
+      ]
+    }
+  }
 }

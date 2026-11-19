@@ -1,0 +1,36 @@
+{
+  "tumor": "epitheliaal-ovarium",
+  "export": "../exports/oncoguide-83.json",
+  "menu": 11169,
+  "titel": "Zorgpad epitheliaal ovariumcarcinoom",
+  "bron": {
+    "richtlijn": "Epitheliaal ovariumcarcinoom",
+    "organisatie": "NVOG (Nederlandse Vereniging voor Obstetrie en Gynaecologie)",
+    "url": "https://richtlijnendatabase.nl/richtlijn/ovariumcarcinoom/epitheliaal_ovariumcarcinoom_-_startpagina.html"
+  },
+  "extern": {
+    "11166": {
+      "tumor": "vergroot-ovarium",
+      "tree": "klinisch-vergroot-ovarium"
+    },
+    "11167": {
+      "tumor": "vergroot-ovarium",
+      "tree": "initieel-beleid"
+    }
+  },
+  "behoudOverzicht": true,
+  "vervang": [
+    [
+      "cyctectomie",
+      "cystectomie"
+    ],
+    [
+      "bordeline",
+      "borderline"
+    ],
+    [
+      "menopausaal",
+      "menopauzaal"
+    ]
+  ]
+}

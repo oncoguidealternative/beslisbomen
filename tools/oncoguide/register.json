@@ -1,4 +1,49 @@
 {
+  "236": {
+    "tumor": "cin-ais-vain",
+    "tree": "beleid-tijdens-colposcopie",
+    "naam": "Beleid tijdens colposcopie"
+  },
+  "238": {
+    "tumor": "cin-ais-vain",
+    "tree": "fu-12-laaggradig",
+    "naam": "Follow up - 12 maanden na verdenking/diagnose laaggradige afwijking"
+  },
+  "239": {
+    "tumor": "cin-ais-vain",
+    "tree": "fu-24-laaggradig",
+    "naam": "Follow up - 24 maanden na verdenking/diagnose laaggradige afwijking"
+  },
+  "240": {
+    "tumor": "cin-ais-vain",
+    "tree": "fu-6-behandeld-cin23",
+    "naam": "Follow up - 6 maanden na diagnose behandelde CIN 2/3"
+  },
+  "241": {
+    "tumor": "cin-ais-vain",
+    "tree": "fu-12-behandeld-cin23",
+    "naam": "Follow up - 12 maanden na diagnose behandelde CIN 2/3"
+  },
+  "242": {
+    "tumor": "cin-ais-vain",
+    "tree": "fu-24-behandeld-cin23",
+    "naam": "Follow up - 24 maanden na diagnose behandelde CIN 2/3"
+  },
+  "243": {
+    "tumor": "cin-ais-vain",
+    "tree": "fu-30-behandeld-cin23",
+    "naam": "Follow up - 30 maanden na diagnose behandelde CIN 2/3"
+  },
+  "244": {
+    "tumor": "cin-ais-vain",
+    "tree": "beleid-histologie-primair-behandeld-cin23",
+    "naam": "Beleid na histologie na primair behandelde CIN 2/3"
+  },
+  "245": {
+    "tumor": "cin-ais-vain",
+    "tree": "beleid-histologie-primair-onbehandeld-laaggradig",
+    "naam": "Beleid na histologie na primair onbehandelde laaggradige afwijking"
+  },
   "10481": {
     "tumor": "borderline-ovarium",
     "tree": "screening",
@@ -39,10 +84,205 @@
     "tree": "secundaire-behandeling-resttumor",
     "naam": "Secundaire behandeling resttumor"
   },
+  "10622": {
+    "tumor": "trofoblast",
+    "tree": "klinische-verdenking",
+    "naam": "Klinische verdenking trofoblast ziekte"
+  },
+  "10623": {
+    "tumor": "trofoblast",
+    "tree": "primaire-behandeling",
+    "naam": "Primaire behandeling (verdenking) trofoblast ziekte"
+  },
+  "10624": {
+    "tumor": "trofoblast",
+    "tree": "surveillance-na-mola",
+    "naam": "Surveillance na mola behandeling"
+  },
+  "10625": {
+    "tumor": "trofoblast",
+    "tree": "uitslag-hcg-na-mola",
+    "naam": "Uitslag hCG surveillance na mola behandeling"
+  },
+  "10627": {
+    "tumor": "trofoblast",
+    "tree": "behandeling-gtn",
+    "naam": "Behandeling GTN"
+  },
+  "10636": {
+    "tumor": "trofoblast",
+    "tree": "evaluatie-laag-risico",
+    "naam": "Evaluatie laag risico na primaire behandeling GTN"
+  },
+  "10637": {
+    "tumor": "trofoblast",
+    "tree": "beleid-na-primaire-behandeling-gtn",
+    "naam": "Beleid na primaire behandeling GTN"
+  },
+  "10638": {
+    "tumor": "trofoblast",
+    "tree": "evaluatie-dactinomycine",
+    "naam": "Evaluatie bij dactinomycine chemotherapie"
+  },
+  "10639": {
+    "tumor": "trofoblast",
+    "tree": "beleid-methotrexaat-dactinomycine",
+    "naam": "Beleid na methotrexaat en dactinomycine chemotherapie"
+  },
+  "10640": {
+    "tumor": "trofoblast",
+    "tree": "evaluatie-ema-co",
+    "naam": "Evaluatie bij EMA/CO chemotherapie"
+  },
+  "10641": {
+    "tumor": "trofoblast",
+    "tree": "beleid-na-ema-co",
+    "naam": "Beleid na EMA/CO chemotherapie"
+  },
+  "10642": {
+    "tumor": "trofoblast",
+    "tree": "hcg-follow-up-hoog-risico",
+    "naam": "hCG follow up hoog risico"
+  },
+  "10643": {
+    "tumor": "trofoblast",
+    "tree": "hcg-follow-up-laag-risico",
+    "naam": "hCG follow up laag risico"
+  },
+  "10645": {
+    "tumor": "trofoblast",
+    "tree": "uitslag-hcg-follow-up-laag",
+    "naam": "Uitslag hCG follow up na GTN"
+  },
+  "10671": {
+    "tumor": "trofoblast",
+    "tree": "behandeling-pstt",
+    "naam": "Behandeling PSTT"
+  },
+  "10672": {
+    "tumor": "trofoblast",
+    "tree": "pstt-hcg-surveillance",
+    "naam": "PSTT hCG surveillance"
+  },
+  "10673": {
+    "tumor": "trofoblast",
+    "tree": "uitslag-hcg-na-pstt",
+    "naam": "Uitslag hCG surveillance na PSTT"
+  },
+  "10711": {
+    "tumor": "trofoblast",
+    "tree": "beleid-na-gtn-chirurgie",
+    "naam": "Beleid na GTN chirurgie"
+  },
+  "10727": {
+    "tumor": "trofoblast",
+    "tree": "surveillance-non-mola",
+    "naam": "Surveillance bij non-mola choriocarcinoom"
+  },
+  "10728": {
+    "tumor": "trofoblast",
+    "tree": "uitslag-hcg-na-chirurgie",
+    "naam": "Uitslag hCG surveillance na chirurgie"
+  },
+  "10731": {
+    "tumor": "trofoblast",
+    "tree": "uitslag-hcg-non-mola",
+    "naam": "Uitslag hCG surveillance na non-mola choriocarcinoom"
+  },
+  "10788": {
+    "tumor": "niet-epitheliaal-ovarium",
+    "tree": "aanvullende-diagnostiek",
+    "naam": "Aanvullende diagnostiek"
+  },
+  "10789": {
+    "tumor": "niet-epitheliaal-ovarium",
+    "tree": "aanvullende-diagnostiek-tumormarkers-ct",
+    "naam": "Aanvullende diagnostiek na tumormarkers en CT"
+  },
+  "10790": {
+    "tumor": "niet-epitheliaal-ovarium",
+    "tree": "pathologie-stagering",
+    "naam": "Pathologie en stagering"
+  },
+  "10791": {
+    "tumor": "niet-epitheliaal-ovarium",
+    "tree": "beleid-definitieve-histologie",
+    "naam": "Beleid na definitieve histologie"
+  },
+  "10792": {
+    "tumor": "niet-epitheliaal-ovarium",
+    "tree": "adjuvante-behandeling-kiemceltumoren",
+    "naam": "Adjuvante behandeling kiemceltumoren"
+  },
+  "10793": {
+    "tumor": "niet-epitheliaal-ovarium",
+    "tree": "follow-up-kiemceltumoren",
+    "naam": "Follow-up kiemceltumoren"
+  },
+  "10794": {
+    "tumor": "niet-epitheliaal-ovarium",
+    "tree": "follow-up-sexcord",
+    "naam": "Follow-up sexcord stromaceltumoren"
+  },
+  "10795": {
+    "tumor": "niet-epitheliaal-ovarium",
+    "tree": "recidief-diagnostiek-kiemceltumoren",
+    "naam": "Recidief diagnostiek kiemceltumoren"
+  },
+  "10864": {
+    "tumor": "niet-epitheliaal-ovarium",
+    "tree": "recidief-behandeling-kiemceltumoren",
+    "naam": "Recidief behandeling kiemceltumoren"
+  },
+  "10865": {
+    "tumor": "niet-epitheliaal-ovarium",
+    "tree": "recidief-behandeling-sexcord",
+    "naam": "Recidief behandeling sexcord stromaceltumoren"
+  },
+  "10923": {
+    "tumor": "niet-epitheliaal-ovarium",
+    "tree": "recidief-diagnostiek-sexcord",
+    "naam": "Recidief diagnostiek sexcordstromalceltumoren"
+  },
+  "10924": {
+    "tumor": "niet-epitheliaal-ovarium",
+    "tree": "adjuvante-behandeling-sexcord",
+    "naam": "Adjuvante behandeling sexcordstromaceltumoren"
+  },
+  "10979": {
+    "tumor": "niet-epitheliaal-ovarium",
+    "tree": "beleid-vriescoupe",
+    "naam": "Beleid na verkrijgen vriescoupe"
+  },
+  "10981": {
+    "tumor": "niet-epitheliaal-ovarium",
+    "tree": "prognose",
+    "naam": "Prognose"
+  },
   "10988": {
     "tumor": "borderline-ovarium",
     "tree": "morfologie",
     "naam": "Morfologie"
+  },
+  "10990": {
+    "tumor": "vergroot-ovarium",
+    "tree": "chirurgie",
+    "naam": "Chirurgie"
+  },
+  "10991": {
+    "tumor": "vergroot-ovarium",
+    "tree": "follow-up-na-chirurgie",
+    "naam": "Follow up na chirurgie"
+  },
+  "10993": {
+    "tumor": "vergroot-ovarium",
+    "tree": "follow-up-expectatief-beleid",
+    "naam": "Follow up bij expectatief beleid"
+  },
+  "10998": {
+    "tumor": "niet-epitheliaal-ovarium",
+    "tree": "beleid-choriocarcinoom",
+    "naam": "Beleid choriocarcinoom"
   },
   "11078": {
     "tumor": "vergroot-ovarium",
@@ -53,5 +293,130 @@
     "tumor": "vergroot-ovarium",
     "tree": "klinisch-vergroot-ovarium",
     "naam": "Klinisch (verdenking op) vergroot ovarium"
+  },
+  "11137": {
+    "tumor": "cin-ais-vain",
+    "tree": "beleid-biopt-12-onbehandeld-cin2",
+    "naam": "Beleid na biopt na 12 maanden onbehandelde CIN2"
+  },
+  "11138": {
+    "tumor": "cin-ais-vain",
+    "tree": "beleid-na-histologie",
+    "naam": "Beleid na histologie"
+  },
+  "11139": {
+    "tumor": "cin-ais-vain",
+    "tree": "beleid-biopten-24-onbehandeld-cin2",
+    "naam": "Beleid na biopten (bij follow up 24 mnd na diagnose onbehandelde CIN2)"
+  },
+  "11140": {
+    "tumor": "cin-ais-vain",
+    "tree": "fu-24-onbehandeld-cin2",
+    "naam": "Follow up - 24 maanden na diagnose onbehandelde CIN2"
+  },
+  "11141": {
+    "tumor": "cin-ais-vain",
+    "tree": "fu-18-onbehandeld-cin2",
+    "naam": "Follow up – 18 maanden na diagnose onbehandelde CIN2"
+  },
+  "11142": {
+    "tumor": "cin-ais-vain",
+    "tree": "fu-12-onbehandeld-cin2",
+    "naam": "Follow up - 12 maanden na diagnose onbehandelde CIN2"
+  },
+  "11144": {
+    "tumor": "cin-ais-vain",
+    "tree": "fu-6-onbehandeld-cin2",
+    "naam": "Follow up - 6 maanden na diagnose onbehandelde CIN2"
+  },
+  "11147": {
+    "tumor": "epitheliaal-ovarium",
+    "tree": "behandeling-recidief",
+    "naam": "Behandeling recidief"
+  },
+  "11148": {
+    "tumor": "epitheliaal-ovarium",
+    "tree": "cn",
+    "naam": "cN"
+  },
+  "11149": {
+    "tumor": "epitheliaal-ovarium",
+    "tree": "beleid-na-behandeling-recidief",
+    "naam": "Beleid na behandeling recidief"
+  },
+  "11150": {
+    "tumor": "epitheliaal-ovarium",
+    "tree": "ct",
+    "naam": "cT"
+  },
+  "11151": {
+    "tumor": "epitheliaal-ovarium",
+    "tree": "klinisch-stadium",
+    "naam": "Klinisch stadium"
+  },
+  "11152": {
+    "tumor": "epitheliaal-ovarium",
+    "tree": "cm",
+    "naam": "cM"
+  },
+  "11153": {
+    "tumor": "epitheliaal-ovarium",
+    "tree": "pt",
+    "naam": "pT"
+  },
+  "11154": {
+    "tumor": "epitheliaal-ovarium",
+    "tree": "pn",
+    "naam": "pN"
+  },
+  "11155": {
+    "tumor": "epitheliaal-ovarium",
+    "tree": "figo",
+    "naam": "FIGO"
+  },
+  "11157": {
+    "tumor": "epitheliaal-ovarium",
+    "tree": "follow-up",
+    "naam": "Follow up"
+  },
+  "11158": {
+    "tumor": "epitheliaal-ovarium",
+    "tree": "aanvullend-onderzoek-follow-up",
+    "naam": "Aanvullend onderzoek follow up"
+  },
+  "11159": {
+    "tumor": "epitheliaal-ovarium",
+    "tree": "beleid-na-stadiering",
+    "naam": "Beleid na stadiering"
+  },
+  "11160": {
+    "tumor": "epitheliaal-ovarium",
+    "tree": "beleid-na-chemotherapie",
+    "naam": "Beleid na chemotherapie"
+  },
+  "11161": {
+    "tumor": "epitheliaal-ovarium",
+    "tree": "beleid-na-primaire-operatie",
+    "naam": "Beleid na primaire operatie"
+  },
+  "11162": {
+    "tumor": "epitheliaal-ovarium",
+    "tree": "vervolg-exploratieve-chirurgie",
+    "naam": "Vervolg exploratieve chirurgie laag stadium epitheliaal ovariumcarcinoom"
+  },
+  "11163": {
+    "tumor": "epitheliaal-ovarium",
+    "tree": "primaire-behandeling",
+    "naam": "Primaire behandeling"
+  },
+  "11164": {
+    "tumor": "epitheliaal-ovarium",
+    "tree": "vervolg-aanvullende-diagnostiek",
+    "naam": "Vervolg aanvullende diagnostiek"
+  },
+  "11165": {
+    "tumor": "epitheliaal-ovarium",
+    "tree": "aanvullende-diagnostiek",
+    "naam": "Aanvullende diagnostiek epitheliaal ovariumcarcinoom"
   }
 }

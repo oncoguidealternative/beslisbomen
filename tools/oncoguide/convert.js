@@ -61,6 +61,24 @@ function label(html, cfg) {
   return fixText(htmlLines(html).filter(Boolean).join(' '), cfg);
 }
 
+// Eenheid van een meting. Oncoguide laat die bij gehele getallen soms leeg; dan uit de configuratie
+// ("eenheden": {"<naam van het gegeven>": "jaar"}) of een redelijke standaard.
+function unitFor(item, cfg) {
+  const name = label(item.name || '', cfg);
+  if (cfg.eenheden && cfg.eenheden[name]) return cfg.eenheden[name];
+  if (item.unit && String(item.unit).trim()) return String(item.unit).trim();
+  if (/leeftijd/i.test(name)) return 'jaar';
+  if (/kuren/i.test(name)) return 'kuren';
+  if (/ovaria|ovarium/i.test(name)) return 'aantal';
+  if (/performance|ecog|who/i.test(name)) return 'score';
+  return 'getal';
+}
+
+// Waarde van een keuze: "<=IIA" wordt "lte-iia", ">= IIB" wordt "gte-iib"
+function valueSlug(s) {
+  return slug(String(s).replace(/<=/g, ' lte ').replace(/>=/g, ' gte ').replace(/</g, ' lt ').replace(/>/g, ' gt '));
+}
+
 function capital(s) { return s ? s.charAt(0).toUpperCase() + s.slice(1) : s; }
 
 function slug(s) {
@@ -95,7 +113,10 @@ function onderbouwing(html, cfg) {
       return p.replace(/\s*Disclaimer\s*:.*$/i, '').replace(/\s*Richtlijntekst is te vinden op\s*:?.*$/i, '').trim();
     })
     .filter(Boolean);
-  return {text: paras.join('\n\n'), url: links.filter(function (u) { return /^https:\/\//.test(u); })[0] || null};
+  // oncoline.nl bestaat niet meer: een link naar de richtlijnendatabase gaat voor
+  const good = links.filter(function (u) { return /^https:\/\//.test(u); })
+    .sort(function (a, b) { return /oncoline\.nl/.test(a) - /oncoline\.nl/.test(b); });
+  return {text: paras.join('\n\n'), url: good[0] || null};
 }
 
 // Geschatte hoogte van een aanbeveling (hokjes); --measure meet het daarna precies na
@@ -109,7 +130,7 @@ function estimateHeight(text) {
 
 /* register: Oncoguide-boomnummer → {tumor, tree, naam}; zie tools/oncoguide/register.json.
    bestaand: [{tumor, tree, titel}] van de bomen die al op de website staan (voor suggesties op naam). */
-function convert(exp, cfg, register, bestaand) {
+function convert(exp, cfg, register, bestaand, oudOverzicht) {
   const warnings = [];
   register = register || {};
   bestaand = bestaand || [];
@@ -118,7 +139,30 @@ function convert(exp, cfg, register, bestaand) {
 
   // Sleutels van de bomen: uit de configuratie, anders uit de naam
   const keys = {}, usedKeys = new Set();
-  const menu = exp.trees.find(function (t) { return t.isMenuTree || t.type === 21; });
+  // Menuboom (overzicht): uit de configuratie ("menu": nummer), anders de eerste menuboom in de export
+  const menu = cfg.menu ? exp.trees.find(function (t) { return t.id === cfg.menu; })
+    : exp.trees.find(function (t) { return t.isMenuTree || t.type === 21; });
+  if (cfg.menu && !menu) throw new Error('Menuboom ' + cfg.menu + ' staat niet in de export');
+  // Alleen bomen die vanuit het menu bereikbaar zijn (via verwijzingen en hulpbeslisbomen). Zo blijven
+  // testversies en anderstalige kopieën in hetzelfde Oncoguide-project buiten beschouwing.
+  const reach = new Set();
+  if (menu) {
+    const byId = {}, bySub = {};
+    exp.trees.forEach(function (t) { byId[t.id] = t; if (t.dataItemID) bySub[t.dataItemID] = t; });
+    const todo = [menu];
+    while (todo.length) {
+      const t = todo.pop();
+      if (reach.has(t.id)) continue;
+      reach.add(t.id);
+      t.nodes.forEach(function (n) {
+        if (n.referenceId && byId[n.referenceId]) todo.push(byId[n.referenceId]);
+        if (n.dataItem && bySub[n.dataItem]) todo.push(bySub[n.dataItem]);
+      });
+    }
+    const skipped = exp.trees.filter(function (t) { return !reach.has(t.id); });
+    if (skipped.length) warnings.push('niet bereikbaar vanuit het menu, overgeslagen: ' +
+      skipped.map(function (t) { return t.id + ' ' + label(t.name, cfg); }).join('; '));
+  }
   // Bomen die al bij een andere tumor staan (register) of in de configuratie onder "extern":
   // daar wordt naar verwezen, ze worden hier niet nog eens omgezet.
   const extern = {};
@@ -127,10 +171,33 @@ function convert(exp, cfg, register, bestaand) {
     if (r.tumor !== cfg.tumor) extern[id] = {tumor: r.tumor, tree: r.tree};
   });
   Object.assign(extern, cfg.extern || {});
-  const own = exp.trees.filter(function (t) { return t === menu || !extern[t.id]; });
+  const own = exp.trees.filter(function (t) { return (t === menu || !extern[t.id]) && (!menu || reach.has(t.id)); });
+
+  // Bestaand overzicht behouden: koppel elke stap aan de Oncoguide-boom met (bijna) dezelfde naam,
+  // en geef die boom het id van de stap, zodat het overzicht blijft werken.
+  const preferred = {}, overviewPatch = [];
+  if (oudOverzicht && menu) {
+    const words = function (str) { return new Set(slug(str).split('-').filter(function (w) { return w.length > 1; })); };
+    const refs = menu.nodes.filter(function (n) { return n.type === 5 && n.referenceId; })
+      .map(function (n) { return {ref: n.referenceId, label: label(n.name, cfg)}; });
+    oudOverzicht.nodes.forEach(function (o) {
+      if (!(o.drill || o.to !== undefined) || o.tumor) return;
+      let best = null, bestScore = 0;
+      refs.forEach(function (r) {
+        if (slug(r.label) === slug(o.label || '')) { best = r; bestScore = 1; return; }
+        const a = words(r.label), b = words(o.label || '');
+        let same = 0; a.forEach(function (w) { if (b.has(w)) same++; });
+        const score = same / Math.max(a.size, b.size, 1);
+        if (score > bestScore && bestScore < 1) { best = r; bestScore = score; }
+      });
+      if (!best || bestScore < 0.5) { warnings.push('overzicht: stap "' + o.label + '" niet gevonden in het Oncoguide-menu'); return; }
+      if (!extern[best.ref] && !preferred[best.ref]) preferred[best.ref] = o.to || o.id;
+      overviewPatch.push({id: o.id, ref: best.ref});
+    });
+  }
   own.forEach(function (t) {
     if (t === menu) return;
-    keys[t.id] = unique((cfg.bomen && cfg.bomen[t.id]) || slug(label(t.name, cfg)), usedKeys);
+    keys[t.id] = unique((cfg.bomen && cfg.bomen[t.id]) || preferred[t.id] || slug(label(t.name, cfg)), usedKeys);
   });
   const subtreeOf = {};  // dataItem-id → boomsleutel
   exp.trees.forEach(function (t) { if (t.dataItemID && keys[t.id]) subtreeOf[t.dataItemID] = keys[t.id]; });
@@ -181,7 +248,7 @@ function convert(exp, cfg, register, bestaand) {
         if (/verwijdering tumordeposities/.test(text) && !/^Chirurgische/.test(lines[0] || '')) id += '-en-deposities';
         Object.assign(n, {type: 'recommendation', text: text, height: estimateHeight(text)});
         if (o.type === 8 && o.referenceId) Object.assign(n, target(o.referenceId, where), {icon: 'plus-light'});
-        if (o.ranges && o.ranges.length) n._outcome = Number(o.ranges[0].min);
+        if (o.ranges && o.ranges.length) n._outcome = o.ranges.map(function (r) { return Number(r.min); });
       }
       n.id = unique(id, used);
       n.gridX = (pos(o.left) - x0) / UNIT;
@@ -206,7 +273,7 @@ function convert(exp, cfg, register, bestaand) {
           const r = c.ranges[0], opt = {value: slug(name.replace(/<=/g, 'lte ').replace(/>=/g, 'gte ').replace(/</g, 'lt ').replace(/>/g, 'gt ')), label: name};
           if (r.min !== '-Infinity' && r.min !== null) opt[r.minInclusive ? 'gte' : 'gt'] = Number(r.min);
           if (r.max !== 'Infinity' && r.max !== null) opt[r.maxInclusive ? 'lte' : 'lt'] = Number(r.max);
-          from.measure = {unit: item.unit || ''};
+          from.measure = {unit: unitFor(item, cfg)};
           from._opts.push(opt);
           e.value = opt.value;
         } else {
@@ -219,14 +286,15 @@ function convert(exp, cfg, register, bestaand) {
           }
           const vals = [];
           vids.forEach(function (v) {
-            const val = slug(names[v]);
-            if (vals.indexOf(val) < 0) {
-              vals.push(val);
-              if (!from._opts.some(function (o) { return o.value === val; })) {
-                const idx = (item.values.find(function (x) { return x.id === v; }) || {index: 99}).index;
-                from._opts.push({value: val, label: names[v], _i: idx});
-              }
+            const val = valueSlug(names[v]);
+            if (vals.indexOf(val) < 0) vals.push(val);
+            let opt = from._opts.find(function (o) { return o.value === val; });
+            if (!opt) {
+              const idx = (item.values.find(function (x) { return x.id === v; }) || {index: 99}).index;
+              opt = {value: val, label: names[v], _i: idx, _ids: []};
+              from._opts.push(opt);
             }
+            if (opt._ids && opt._ids.indexOf(v) < 0) opt._ids.push(v);
           });
           e.value = vals.length === 1 ? vals[0] : vals;
         }
@@ -252,7 +320,9 @@ function convert(exp, cfg, register, bestaand) {
             const low = function (o) { return o.gt !== undefined ? o.gt : o.gte !== undefined ? o.gte : -Infinity; };
             n._opts.sort(function (a, b) { return low(a) - low(b); });
           }
-          n.options = n._opts.map(function (o) { delete o._i; return o; });
+          n._valueIds = {};
+          n._opts.forEach(function (o) { (o._ids || []).forEach(function (id) { n._valueIds[id] = o.value; }); });
+          n.options = n._opts.map(function (o) { delete o._i; delete o._ids; return o; });
           if (subtreeOf[n._di]) n._subtree = subtreeOf[n._di];
         }
         n._diKeep = n._di;
@@ -283,13 +353,21 @@ function convert(exp, cfg, register, bestaand) {
         const sub = trees[n._subtree], item = di[n._diKeep], map = {};
         sub.nodes.forEach(function (o) {
           if (o._outcome === undefined) return;
-          const v = item && item.values.find(function (x) { return x.id === o._outcome; });
-          const val = v && slug(label(v.name, cfg));
-          if (val && n.options.some(function (opt) { return opt.value === val; })) map[o.id] = val;
+          // De uitkomst hoort bij de keuze waarvan de lijn deze waarde bevat (ook als Oncoguide waarden
+          // groepeert, zoals "<=IIA"); anders bij de keuze met dezelfde naam.
+          let val = null;
+          o._outcome.forEach(function (id) { if (!val && n._valueIds[id]) val = n._valueIds[id]; });
+          if (!val) {
+            const v = item && item.values.find(function (x) { return o._outcome.indexOf(x.id) >= 0; });
+            const sv = v && valueSlug(label(v.name, cfg));
+            if (sv && n.options.some(function (opt) { return opt.value === sv; })) val = sv;
+          }
+          if (val) map[o.id] = val;
+          else warnings.push(k + ': uitkomst "' + (o.text || o.id) + '" van hulpbeslisboom ' + n._subtree + ' hoort bij geen enkele keuze van "' + n.label + '"');
         });
         n.subtree = {tree: n._subtree, map: map};
       }
-      delete n._subtree; delete n._diKeep;
+      delete n._subtree; delete n._diKeep; delete n._valueIds;
     });
   });
   Object.keys(trees).forEach(function (k) {
@@ -298,10 +376,10 @@ function convert(exp, cfg, register, bestaand) {
   });
 
   let overview = null;
-  if (menu) {
+  if (menu && !oudOverzicht) {
     const g = graph(menu, true);
     overview = {layout: Object.assign({}, LAYOUT), nodes: g.nodes, edges: g.edges};
-  } else warnings.push('geen menuboom (overzicht) gevonden in de export');
+  } else if (!menu) warnings.push('geen menuboom (overzicht) gevonden in de export');
   // Suggestie: een boom die inhoudelijk grotendeels gelijk is aan een boom die al bij een andere tumor staat
   // (zelfde naam én minstens 60% dezelfde blokteksten). Niet automatisch: dat beslis je in de configuratie.
   const words = function (nodes) {
@@ -327,6 +405,19 @@ function convert(exp, cfg, register, bestaand) {
   own.forEach(function (t) { if (t !== menu) ownTrees[t.id] = {tree: keys[t.id], naam: label(t.name, cfg)}; });
   const linked = Object.keys(extern).filter(function (id) { return exp.trees.some(function (t) { return String(t.id) === id; }); })
     .map(function (id) { return extern[id]; });
+  // Het bestaande overzicht laten wijzen naar de omgezette bomen (of naar de andere tumor)
+  if (oudOverzicht) {
+    overview = JSON.parse(JSON.stringify(oudOverzicht));
+    overviewPatch.forEach(function (p) {
+      const n = overview.nodes.find(function (x) { return x.id === p.id; });
+      if (extern[p.ref]) {
+        delete n.drill; delete n.to;
+        Object.assign(n, extern[p.ref]); n.icon = n.icon || 'down';
+      } else if (keys[p.ref] !== n.id) {
+        n.to = keys[p.ref];
+      } else delete n.to;
+    });
+  }
   return {overview: overview, trees: trees, warnings: warnings, ownTrees: ownTrees, linked: linked};
 }
 
@@ -412,7 +503,9 @@ async function main() {
         .map(function (n) { return slug(n.text || n.label || ''); }).filter(Boolean))});
     });
   });
-  const res = convert(exp, cfg, register, bestaand);
+  const file0 = path.join(ROOT, 'data', cfg.tumor, 'zorgpad.json');
+  const old0 = fs.existsSync(file0) ? JSON.parse(fs.readFileSync(file0, 'utf8')) : {};
+  const res = convert(exp, cfg, register, bestaand, cfg.behoudOverzicht ? old0.overview : null);
 
   const file = path.join(ROOT, 'data', cfg.tumor, 'zorgpad.json');
   const old = fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, 'utf8')) : {};
@@ -420,7 +513,7 @@ async function main() {
     id: cfg.tumor,
     titel: cfg.titel || old.titel || label(exp.source.name || cfg.tumor, cfg),
     bron: Object.assign({}, old.bron || {}, cfg.bron || {}),
-    overview: cfg.behoudOverzicht && old.overview ? old.overview : (res.overview || old.overview),
+    overview: res.overview || old.overview,
     trees: res.trees
   };
   if (!out.bron.opmerking && exp.source) {
