@@ -71,10 +71,12 @@ docs/
   interactive-tree-schema.md   het JSON-formaat van een zorgpad
   layout-engine.md             posities en lijnen
   hulpbeslisbomen.md           keuzes via een hulpbeslisboom
+  oncoguide-import.md          een zorgpad overnemen uit Oncoguide
 
 tools/
   check.js                 controle van alle inhoud: node tools/check.js
   check-tekst.js           controle in een echte browser of alle tekst in de blokken past: node tools/check-tekst.js
+  oncoguide/               een zorgpad overnemen uit Oncoguide (zie docs/oncoguide-import.md)
 
 .github/workflows/check.yml    draait de controle bij elke wijziging op GitHub
 
