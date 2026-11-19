@@ -67,11 +67,11 @@
         "to": "klinisch-vergroot-ovarium",
         "points": [
           [
-            100.0,
+            100,
             100
           ],
           [
-            100.0,
+            100,
             150
           ]
         ],
@@ -83,11 +83,11 @@
         "to": "initieel-beleid",
         "points": [
           [
-            100.0,
+            100,
             250
           ],
           [
-            100.0,
+            100,
             300
           ]
         ],
@@ -99,11 +99,11 @@
         "to": "follow-up-na-chirurgie",
         "points": [
           [
-            100.0,
+            100,
             400
           ],
           [
-            100.0,
+            100,
             450
           ]
         ],
@@ -116,14 +116,14 @@
         "points": [
           [
             200,
-            350.0
+            350
           ],
           [
-            325.0,
-            350.0
+            325,
+            350
           ],
           [
-            325.0,
+            325,
             450
           ]
         ],
@@ -135,11 +135,11 @@
         "to": "follow-up-benigne-ovariumcyste",
         "points": [
           [
-            325.0,
+            325,
             550
           ],
           [
-            325.0,
+            325,
             600
           ]
         ],
@@ -151,11 +151,11 @@
         "to": "follow-up-na-chirurgie-2",
         "points": [
           [
-            325.0,
+            325,
             700
           ],
           [
-            325.0,
+            325,
             750
           ]
         ],
@@ -185,7 +185,7 @@
           "text": "Anamnese\nEN\nGynaecologisch onderzoek\nEN\nTransvaginale/Abdominale echo\n{i} Overweeg adnex-model\nEN\nOverweeg CA125\nEN\nOverweeg bepaling overige tumormarkers",
           "gridX": 0,
           "gridY": 30,
-          "height": 73
+          "height": 52
         },
         {
           "id": "verwijzing-initieel-beleid",
@@ -193,7 +193,7 @@
           "label": "Initieel beleid (verdenking op) vergroot ovarium",
           "to": "initieel-beleid",
           "gridX": 0,
-          "gridY": 115
+          "gridY": 92
         }
       ],
       "edges": [
@@ -203,11 +203,11 @@
           "to": "aanbeveling-onderzoek",
           "points": [
             [
-              100.0,
+              100,
               100
             ],
             [
-              100.0,
+              100,
               150
             ]
           ],
@@ -219,12 +219,12 @@
           "to": "verwijzing-initieel-beleid",
           "points": [
             [
-              100.0,
-              515
+              100,
+              410
             ],
             [
-              100.0,
-              575
+              100,
+              460
             ]
           ],
           "arrow": true
@@ -292,7 +292,7 @@
           "text": "Overleg met derde lijn",
           "gridX": 180,
           "gridY": 310,
-          "height": 25
+          "height": 20
         },
         {
           "id": "klachten-zwanger",
@@ -320,7 +320,7 @@
           "text": "Expectatief beleid tot na zwangerschap",
           "gridX": 0,
           "gridY": 310,
-          "height": 25
+          "height": 20
         },
         {
           "id": "trimester-zwangerschap",
@@ -348,7 +348,7 @@
           "text": "Cystectomie\nOF\nAdnexextirpatie\nEN\nOverweeg laparoscopie\n{i} indien uterus boven de navel reikt overweeg laparotomie",
           "gridX": 135,
           "gridY": 310,
-          "height": 46
+          "height": 36
         },
         {
           "id": "torsie",
@@ -376,7 +376,7 @@
           "text": "Detorsie\nEN\nGeen cystectomie",
           "gridX": 90,
           "gridY": 310,
-          "height": 25
+          "height": 20
         },
         {
           "id": "terughoudendheid-chirurgie",
@@ -432,7 +432,7 @@
           "text": "Bij voorkeur laparoscopische detorsie\nEN\nGeen standaard cystectomie\nEN\nGeen standaard adnexextirpatie",
           "gridX": 855,
           "gridY": 310,
-          "height": 46
+          "height": 32
         },
         {
           "id": "adnexextirpatie-torsie",
@@ -440,7 +440,7 @@
           "text": "Adnexextirpatie",
           "gridX": 900,
           "gridY": 310,
-          "height": 25
+          "height": 20
         },
         {
           "id": "easy-denominators",
@@ -488,7 +488,7 @@
           "text": "Overleg met oncologisch centrum",
           "gridX": 810,
           "gridY": 310,
-          "height": 25
+          "height": 20
         },
         {
           "id": "morfologie",
@@ -521,7 +521,7 @@
           "text": "Ga naar RL ESHRE",
           "gridX": 450,
           "gridY": 310,
-          "height": 25
+          "height": 20
         },
         {
           "id": "klachten-dermoid",
@@ -551,7 +551,7 @@
           "to": "chirurgie",
           "gridX": 630,
           "gridY": 310,
-          "height": 25
+          "height": 20
         },
         {
           "id": "grootte-dermoid",
@@ -584,7 +584,7 @@
           "text": "Expectatief beleid/Geen behandeling\nEN\nGeen follow up\nEN\nHerevaluatie bij klachten",
           "gridX": 495,
           "gridY": 310,
-          "height": 39
+          "height": 26
         },
         {
           "id": "individualiseer-behandeling-dermoid",
@@ -592,7 +592,7 @@
           "text": "Individualiseer behandeling",
           "gridX": 540,
           "gridY": 310,
-          "height": 25
+          "height": 20
         },
         {
           "id": "adnexextirpatie-of-cystectomie-dermoid",
@@ -600,7 +600,7 @@
           "text": "Unilaterale adnexextirpatie indien normale contralaterale adnex\nOF\nOverweeg cystectomie\n{i} bij (latente) kinderwens",
           "gridX": 585,
           "gridY": 310,
-          "height": 39
+          "height": 29
         },
         {
           "id": "klachten-uniloculair",
@@ -630,7 +630,7 @@
           "to": "chirurgie",
           "gridX": 765,
           "gridY": 310,
-          "height": 25
+          "height": 20
         },
         {
           "id": "grootte-uniloculair",
@@ -683,7 +683,7 @@
           "text": "Expectatief beleid/Geen behandeling\nEN\nGeen follow up\nEN\nHerevaluatie bij klachten",
           "gridX": 675,
           "gridY": 310,
-          "height": 39
+          "height": 26
         },
         {
           "id": "expectatief-follow-up-uniloculair",
@@ -691,7 +691,7 @@
           "text": "Expectatief beleid\nEN\nFollow up",
           "gridX": 720,
           "gridY": 310,
-          "height": 25
+          "height": 20
         },
         {
           "id": "verwijzing-follow-up-expectatief-uniloculair",
@@ -699,7 +699,7 @@
           "label": "Follow up bij expectatief beleid",
           "to": "follow-up-expectatief-beleid",
           "gridX": 720,
-          "gridY": 365
+          "gridY": 340
         },
         {
           "id": "predictiemodel",
@@ -729,7 +729,7 @@
           "to": "chirurgie",
           "gridX": 225,
           "gridY": 310,
-          "height": 49
+          "height": 42
         },
         {
           "id": "type-afwijking",
@@ -784,7 +784,7 @@
           "text": "Ga naar RL Niet-epitheliale maligniteiten van het ovarium\nBespreek de ACCEPT studie\n(zie link)",
           "gridX": 315,
           "gridY": 310,
-          "height": 30
+          "height": 26
         },
         {
           "id": "verwijzing-aanvullende-diagnostiek",
@@ -792,7 +792,7 @@
           "label": "Aanvullende diagnostiek",
           "to": "aanvullende-diagnostiek",
           "gridX": 315,
-          "gridY": 365
+          "gridY": 346
         },
         {
           "id": "ga-naar-rl-epitheliaal",
@@ -808,7 +808,7 @@
           "text": "Individualiseer behandeling",
           "gridX": 405,
           "gridY": 310,
-          "height": 25
+          "height": 20
         }
       ],
       "edges": [
@@ -818,11 +818,11 @@
           "to": "zwanger",
           "points": [
             [
-              2800.0,
+              2800,
               100
             ],
             [
-              2800.0,
+              2800,
               150
             ]
           ],
@@ -837,20 +837,20 @@
           "points": [
             [
               2700,
-              200.0
+              200
             ],
             [
-              1000.0,
-              200.0
+              1000,
+              200
             ],
             [
-              1000.0,
+              1000,
               670
             ]
           ],
           "dot": [
-            1850.0,
-            200.0
+            1850,
+            200
           ],
           "arrow": true
         },
@@ -862,16 +862,16 @@
           "label": "Nee",
           "points": [
             [
-              2800.0,
+              2800,
               250
             ],
             [
-              2800.0,
+              2800,
               325
             ]
           ],
           "dot": [
-            2800.0,
+            2800,
             287.5
           ],
           "arrow": true
@@ -885,20 +885,20 @@
           "points": [
             [
               900,
-              720.0
+              720
             ],
             [
-              100.0,
-              720.0
+              100,
+              720
             ],
             [
-              100.0,
+              100,
               845
             ]
           ],
           "dot": [
-            500.0,
-            720.0
+            500,
+            720
           ],
           "arrow": true
         },
@@ -910,17 +910,17 @@
           "label": "ja",
           "points": [
             [
-              1000.0,
+              1000,
               770
             ],
             [
-              1000.0,
+              1000,
               1550
             ]
           ],
           "dot": [
-            1000.0,
-            1160.0
+            1000,
+            1160
           ],
           "arrow": true
         },
@@ -933,20 +933,20 @@
           "points": [
             [
               200,
-              895.0
+              895
             ],
             [
-              325.0,
-              895.0
+              325,
+              895
             ],
             [
-              325.0,
+              325,
               1020
             ]
           ],
           "dot": [
             262.5,
-            895.0
+            895
           ],
           "arrow": true
         },
@@ -958,16 +958,16 @@
           "label": "Nee",
           "points": [
             [
-              100.0,
+              100,
               945
             ],
             [
-              100.0,
+              100,
               1550
             ]
           ],
           "dot": [
-            100.0,
+            100,
             1247.5
           ],
           "arrow": true
@@ -980,17 +980,17 @@
           "label": "1",
           "points": [
             [
-              320.0,
+              320,
               1120
             ],
             [
-              320.0,
+              320,
               1200
             ]
           ],
           "dot": [
-            320.0,
-            1160.0
+            320,
+            1160
           ],
           "arrow": true
         },
@@ -1003,20 +1003,20 @@
           "points": [
             [
               425,
-              1070.0
+              1070
             ],
             [
-              775.0,
-              1070.0
+              775,
+              1070
             ],
             [
-              775.0,
+              775,
               1550
             ]
           ],
           "dot": [
-            600.0,
-            1070.0
+            600,
+            1070
           ],
           "arrow": true
         },
@@ -1029,20 +1029,20 @@
           "points": [
             [
               420,
-              1250.0
+              1250
             ],
             [
-              550.0,
-              1250.0
+              550,
+              1250
             ],
             [
-              550.0,
+              550,
               1550
             ]
           ],
           "dot": [
-            485.0,
-            1250.0
+            485,
+            1250
           ],
           "arrow": true
         },
@@ -1054,17 +1054,17 @@
           "label": "Nee",
           "points": [
             [
-              325.0,
+              325,
               1300
             ],
             [
-              325.0,
+              325,
               1550
             ]
           ],
           "dot": [
-            325.0,
-            1425.0
+            325,
+            1425
           ],
           "arrow": true
         },
@@ -1076,16 +1076,16 @@
           "label": "Nee",
           "points": [
             [
-              2800.0,
+              2800,
               425
             ],
             [
-              2800.0,
+              2800,
               500
             ]
           ],
           "dot": [
-            2800.0,
+            2800,
             462.5
           ],
           "arrow": true
@@ -1099,20 +1099,20 @@
           "points": [
             [
               2900,
-              375.0
+              375
             ],
             [
-              4375.0,
-              375.0
+              4375,
+              375
             ],
             [
-              4375.0,
+              4375,
               1375
             ]
           ],
           "dot": [
             3637.5,
-            375.0
+            375
           ],
           "arrow": true
         },
@@ -1124,16 +1124,16 @@
           "label": "Premenopauzaal",
           "points": [
             [
-              4375.0,
+              4375,
               1475
             ],
             [
-              4375.0,
+              4375,
               1550
             ]
           ],
           "dot": [
-            4375.0,
+            4375,
             1512.5
           ],
           "arrow": true
@@ -1147,20 +1147,20 @@
           "points": [
             [
               4475,
-              1425.0
+              1425
             ],
             [
-              4600.0,
-              1425.0
+              4600,
+              1425
             ],
             [
-              4600.0,
+              4600,
               1550
             ]
           ],
           "dot": [
             4537.5,
-            1425.0
+            1425
           ],
           "arrow": true
         },
@@ -1172,16 +1172,16 @@
           "label": "Aanwezig",
           "points": [
             [
-              2800.0,
+              2800,
               600
             ],
             [
-              2800.0,
+              2800,
               675
             ]
           ],
           "dot": [
-            2800.0,
+            2800,
             637.5
           ],
           "arrow": true
@@ -1195,20 +1195,20 @@
           "points": [
             [
               2700,
-              550.0
+              550
             ],
             [
-              1220.0,
-              550.0
+              1220,
+              550
             ],
             [
-              1220.0,
+              1220,
               1025
             ]
           ],
           "dot": [
-            1960.0,
-            550.0
+            1960,
+            550
           ],
           "arrow": true
         },
@@ -1220,16 +1220,16 @@
           "label": "Benigne",
           "points": [
             [
-              2800.0,
+              2800,
               775
             ],
             [
-              2800.0,
+              2800,
               850
             ]
           ],
           "dot": [
-            2800.0,
+            2800,
             812.5
           ],
           "arrow": true
@@ -1243,20 +1243,20 @@
           "points": [
             [
               2900,
-              725.0
+              725
             ],
             [
-              4150.0,
-              725.0
+              4150,
+              725
             ],
             [
-              4150.0,
+              4150,
               1550
             ]
           ],
           "dot": [
-            3525.0,
-            725.0
+            3525,
+            725
           ],
           "arrow": true
         },
@@ -1269,20 +1269,20 @@
           "points": [
             [
               2700,
-              900.0
+              900
             ],
             [
-              2350.0,
-              900.0
+              2350,
+              900
             ],
             [
-              2350.0,
+              2350,
               1550
             ]
           ],
           "dot": [
-            2525.0,
-            900.0
+            2525,
+            900
           ],
           "arrow": true
         },
@@ -1294,16 +1294,16 @@
           "label": "Dermoid cyste",
           "points": [
             [
-              2800.0,
+              2800,
               950
             ],
             [
-              2800.0,
+              2800,
               1025
             ]
           ],
           "dot": [
-            2800.0,
+            2800,
             987.5
           ],
           "arrow": true
@@ -1317,20 +1317,20 @@
           "points": [
             [
               2900,
-              900.0
+              900
             ],
             [
-              3700.0,
-              900.0
+              3700,
+              900
             ],
             [
-              3700.0,
+              3700,
               1025
             ]
           ],
           "dot": [
-            3300.0,
-            900.0
+            3300,
+            900
           ],
           "arrow": true
         },
@@ -1343,20 +1343,20 @@
           "points": [
             [
               2900,
-              1075.0
+              1075
             ],
             [
-              3250.0,
-              1075.0
+              3250,
+              1075
             ],
             [
-              3250.0,
+              3250,
               1550
             ]
           ],
           "dot": [
-            3075.0,
-            1075.0
+            3075,
+            1075
           ],
           "arrow": true
         },
@@ -1368,16 +1368,16 @@
           "label": "Nee",
           "points": [
             [
-              2800.0,
+              2800,
               1125
             ],
             [
-              2800.0,
+              2800,
               1200
             ]
           ],
           "dot": [
-            2800.0,
+            2800,
             1162.5
           ],
           "arrow": true
@@ -1391,20 +1391,20 @@
           "points": [
             [
               2700,
-              1250.0
+              1250
             ],
             [
-              2575.0,
-              1250.0
+              2575,
+              1250
             ],
             [
-              2575.0,
+              2575,
               1550
             ]
           ],
           "dot": [
             2637.5,
-            1250.0
+            1250
           ],
           "arrow": true
         },
@@ -1416,17 +1416,17 @@
           "label": "5-10 cm",
           "points": [
             [
-              2800.0,
+              2800,
               1300
             ],
             [
-              2800.0,
+              2800,
               1550
             ]
           ],
           "dot": [
-            2800.0,
-            1425.0
+            2800,
+            1425
           ],
           "arrow": true
         },
@@ -1439,20 +1439,20 @@
           "points": [
             [
               2900,
-              1250.0
+              1250
             ],
             [
-              3025.0,
-              1250.0
+              3025,
+              1250
             ],
             [
-              3025.0,
+              3025,
               1550
             ]
           ],
           "dot": [
             2962.5,
-            1250.0
+            1250
           ],
           "arrow": true
         },
@@ -1465,20 +1465,20 @@
           "points": [
             [
               3800,
-              1075.0
+              1075
             ],
             [
-              3925.0,
-              1075.0
+              3925,
+              1075
             ],
             [
-              3925.0,
+              3925,
               1550
             ]
           ],
           "dot": [
             3862.5,
-            1075.0
+            1075
           ],
           "arrow": true
         },
@@ -1490,16 +1490,16 @@
           "label": "Nee",
           "points": [
             [
-              3700.0,
+              3700,
               1125
             ],
             [
-              3700.0,
+              3700,
               1200
             ]
           ],
           "dot": [
-            3700.0,
+            3700,
             1162.5
           ],
           "arrow": true
@@ -1513,20 +1513,20 @@
           "points": [
             [
               3600,
-              1250.0
+              1250
             ],
             [
-              3475.0,
-              1250.0
+              3475,
+              1250
             ],
             [
-              3475.0,
+              3475,
               1550
             ]
           ],
           "dot": [
             3537.5,
-            1250.0
+            1250
           ],
           "arrow": true
         },
@@ -1538,16 +1538,16 @@
           "label": "5-10 cm",
           "points": [
             [
-              3700.0,
+              3700,
               1300
             ],
             [
-              3700.0,
+              3700,
               1375
             ]
           ],
           "dot": [
-            3700.0,
+            3700,
             1337.5
           ],
           "arrow": true
@@ -1561,20 +1561,20 @@
           "points": [
             [
               3800,
-              1250.0
+              1250
             ],
             [
-              3925.0,
-              1250.0
+              3925,
+              1250
             ],
             [
-              3925.0,
+              3925,
               1550
             ]
           ],
           "dot": [
             3862.5,
-            1250.0
+            1250
           ],
           "arrow": true
         },
@@ -1587,20 +1587,20 @@
           "points": [
             [
               3600,
-              1425.0
+              1425
             ],
             [
-              3475.0,
-              1425.0
+              3475,
+              1425
             ],
             [
-              3475.0,
+              3475,
               1550
             ]
           ],
           "dot": [
             3537.5,
-            1425.0
+            1425
           ],
           "arrow": true
         },
@@ -1612,16 +1612,16 @@
           "label": "Postmenopauzaal",
           "points": [
             [
-              3700.0,
+              3700,
               1475
             ],
             [
-              3700.0,
+              3700,
               1550
             ]
           ],
           "dot": [
-            3700.0,
+            3700,
             1512.5
           ],
           "arrow": true
@@ -1632,12 +1632,12 @@
           "to": "verwijzing-follow-up-expectatief-uniloculair",
           "points": [
             [
-              3700.0,
-              1675
+              3700,
+              1650
             ],
             [
-              3700.0,
-              1825
+              3700,
+              1700
             ]
           ],
           "arrow": true
@@ -1651,20 +1651,20 @@
           "points": [
             [
               1320,
-              1075.0
+              1075
             ],
             [
-              1445.0,
-              1075.0
+              1445,
+              1075
             ],
             [
-              1445.0,
+              1445,
               1200
             ]
           ],
           "dot": [
             1382.5,
-            1075.0
+            1075
           ],
           "arrow": true
         },
@@ -1676,16 +1676,16 @@
           "label": "<=40 %\nkans op maligniteit",
           "points": [
             [
-              1225.0,
+              1225,
               1125
             ],
             [
-              1225.0,
+              1225,
               1550
             ]
           ],
           "dot": [
-            1225.0,
+            1225,
             1337.5
           ],
           "arrow": true
@@ -1698,17 +1698,17 @@
           "label": "Verdenking\nborderline tumor",
           "points": [
             [
-              1450.0,
+              1450,
               1300
             ],
             [
-              1450.0,
+              1450,
               1550
             ]
           ],
           "dot": [
-            1450.0,
-            1425.0
+            1450,
+            1425
           ],
           "arrow": true
         },
@@ -1721,19 +1721,19 @@
           "points": [
             [
               1545,
-              1250.0
+              1250
             ],
             [
-              1675.0,
-              1250.0
+              1675,
+              1250
             ],
             [
-              1675.0,
+              1675,
               1550
             ]
           ],
           "dot": [
-            1675.0,
+            1675,
             1397.5
           ],
           "arrow": true
@@ -1747,19 +1747,19 @@
           "points": [
             [
               1545,
-              1250.0
+              1250
             ],
             [
-              1900.0,
-              1250.0
+              1900,
+              1250
             ],
             [
-              1900.0,
+              1900,
               1550
             ]
           ],
           "dot": [
-            1900.0,
+            1900,
             1397.5
           ],
           "arrow": true
@@ -1773,20 +1773,20 @@
           "points": [
             [
               1545,
-              1250.0
+              1250
             ],
             [
-              2125.0,
-              1250.0
+              2125,
+              1250
             ],
             [
-              2125.0,
+              2125,
               1550
             ]
           ],
           "dot": [
-            2010.0,
-            1250.0
+            2010,
+            1250
           ],
           "arrow": true
         },
@@ -1796,11 +1796,11 @@
           "to": "verwijzing-behandeling-borderline",
           "points": [
             [
-              1450.0,
+              1450,
               1680
             ],
             [
-              1450.0,
+              1450,
               1825
             ]
           ],
@@ -1812,12 +1812,12 @@
           "to": "verwijzing-aanvullende-diagnostiek",
           "points": [
             [
-              1675.0,
-              1700
+              1675,
+              1680
             ],
             [
-              1675.0,
-              1825
+              1675,
+              1730
             ]
           ],
           "arrow": true
@@ -1865,7 +1865,7 @@
           "text": "Adnextirpatie\nOF\nCystectomie\nEN\nOverweeg behoud contralaterale adnex",
           "gridX": 0,
           "gridY": 140,
-          "height": 34
+          "height": 26
         },
         {
           "id": "familiaire-belasting",
@@ -1893,7 +1893,7 @@
           "text": "Overweeg bilaterale adnexextirpatie\nEN\nZie RL Erfelijke en familiaire ovariumtumoren",
           "gridX": 180,
           "gridY": 140,
-          "height": 28
+          "height": 23
         },
         {
           "id": "leeftijd",
@@ -1950,7 +1950,7 @@
           "label": "Follow up na chirurgie",
           "to": "follow-up-na-chirurgie",
           "gridX": 0,
-          "gridY": 185
+          "gridY": 176
         },
         {
           "id": "verwijzing-follow-up-na-chirurgie-adnextirpatie-behoud-adnex",
@@ -1982,7 +1982,7 @@
           "label": "Follow up na chirurgie",
           "to": "follow-up-na-chirurgie",
           "gridX": 180,
-          "gridY": 185
+          "gridY": 173
         }
       ],
       "edges": [
@@ -1992,11 +1992,11 @@
           "to": "menopauzale-status",
           "points": [
             [
-              100.0,
+              100,
               100
             ],
             [
-              100.0,
+              100,
               150
             ]
           ],
@@ -2011,20 +2011,20 @@
           "points": [
             [
               200,
-              200.0
+              200
             ],
             [
-              550.0,
-              200.0
+              550,
+              200
             ],
             [
-              550.0,
+              550,
               325
             ]
           ],
           "dot": [
-            375.0,
-            200.0
+            375,
+            200
           ],
           "arrow": true
         },
@@ -2036,17 +2036,17 @@
           "label": "Premenopauzaal",
           "points": [
             [
-              100.0,
+              100,
               250
             ],
             [
-              100.0,
+              100,
               700
             ]
           ],
           "dot": [
-            100.0,
-            475.0
+            100,
+            475
           ],
           "arrow": true
         },
@@ -2059,20 +2059,20 @@
           "points": [
             [
               650,
-              375.0
+              375
             ],
             [
-              1000.0,
-              375.0
+              1000,
+              375
             ],
             [
-              1000.0,
+              1000,
               700
             ]
           ],
           "dot": [
-            825.0,
-            375.0
+            825,
+            375
           ],
           "arrow": true
         },
@@ -2084,16 +2084,16 @@
           "label": "Nee",
           "points": [
             [
-              550.0,
+              550,
               425
             ],
             [
-              550.0,
+              550,
               500
             ]
           ],
           "dot": [
-            550.0,
+            550,
             462.5
           ],
           "arrow": true
@@ -2107,20 +2107,20 @@
           "points": [
             [
               450,
-              550.0
+              550
             ],
             [
-              325.0,
-              550.0
+              325,
+              550
             ],
             [
-              325.0,
+              325,
               700
             ]
           ],
           "dot": [
             387.5,
-            550.0
+            550
           ],
           "arrow": true
         },
@@ -2132,17 +2132,17 @@
           "label": "51-65 jaar",
           "points": [
             [
-              550.0,
+              550,
               600
             ],
             [
-              550.0,
+              550,
               700
             ]
           ],
           "dot": [
-            550.0,
-            650.0
+            550,
+            650
           ],
           "arrow": true
         },
@@ -2155,20 +2155,20 @@
           "points": [
             [
               650,
-              550.0
+              550
             ],
             [
-              775.0,
-              550.0
+              775,
+              550
             ],
             [
-              775.0,
+              775,
               700
             ]
           ],
           "dot": [
             712.5,
-            550.0
+            550
           ],
           "arrow": true
         },
@@ -2178,12 +2178,12 @@
           "to": "verwijzing-follow-up-na-chirurgie-adnextirpatie-of-cystectomie",
           "points": [
             [
-              100.0,
-              870
+              100,
+              830
             ],
             [
-              100.0,
-              925
+              100,
+              880
             ]
           ],
           "arrow": true
@@ -2194,11 +2194,11 @@
           "to": "verwijzing-follow-up-na-chirurgie-adnextirpatie-behoud-adnex",
           "points": [
             [
-              325.0,
+              325,
               805
             ],
             [
-              325.0,
+              325,
               925
             ]
           ],
@@ -2210,11 +2210,11 @@
           "to": "verwijzing-follow-up-na-chirurgie-adnextirpatie-bespreek-behoud-ovarium",
           "points": [
             [
-              550.0,
+              550,
               825
             ],
             [
-              550.0,
+              550,
               925
             ]
           ],
@@ -2226,11 +2226,11 @@
           "to": "verwijzing-follow-up-na-chirurgie-bilaterale-adnexextirpatie-leeftijd",
           "points": [
             [
-              775.0,
+              775,
               800
             ],
             [
-              775.0,
+              775,
               925
             ]
           ],
@@ -2242,12 +2242,12 @@
           "to": "verwijzing-follow-up-na-chirurgie-bilaterale-adnexextirpatie-erfelijk",
           "points": [
             [
-              1000.0,
-              840
+              1000,
+              815
             ],
             [
-              1000.0,
-              925
+              1000,
+              865
             ]
           ],
           "arrow": true
@@ -2363,7 +2363,7 @@
           "text": "Verwijs naar oncologisch centrum\nEN\nChirurgie door oncologisch gynaecoloog",
           "gridX": 90,
           "gridY": 170,
-          "height": 28
+          "height": 23
         },
         {
           "id": "chirurgie-algemeen-ziekenhuis-predictie",
@@ -2409,11 +2409,11 @@
           "to": "klachten",
           "points": [
             [
-              100.0,
+              100,
               100
             ],
             [
-              100.0,
+              100,
               150
             ]
           ],
@@ -2428,20 +2428,20 @@
           "points": [
             [
               200,
-              200.0
+              200
             ],
             [
-              775.0,
-              200.0
+              775,
+              200
             ],
             [
-              775.0,
+              775,
               850
             ]
           ],
           "dot": [
             487.5,
-            200.0
+            200
           ],
           "arrow": true
         },
@@ -2453,16 +2453,16 @@
           "label": "Nee",
           "points": [
             [
-              100.0,
+              100,
               250
             ],
             [
-              100.0,
+              100,
               325
             ]
           ],
           "dot": [
-            100.0,
+            100,
             287.5
           ],
           "arrow": true
@@ -2476,20 +2476,20 @@
           "points": [
             [
               200,
-              375.0
+              375
             ],
             [
-              775.0,
-              375.0
+              775,
+              375
             ],
             [
-              775.0,
+              775,
               850
             ]
           ],
           "dot": [
             487.5,
-            375.0
+            375
           ],
           "arrow": true
         },
@@ -2501,16 +2501,16 @@
           "label": "Nee",
           "points": [
             [
-              100.0,
+              100,
               425
             ],
             [
-              100.0,
+              100,
               500
             ]
           ],
           "dot": [
-            100.0,
+            100,
             462.5
           ],
           "arrow": true
@@ -2524,20 +2524,20 @@
           "points": [
             [
               200,
-              550.0
+              550
             ],
             [
-              325.0,
-              550.0
+              325,
+              550
             ],
             [
-              325.0,
+              325,
               675
             ]
           ],
           "dot": [
             262.5,
-            550.0
+            550
           ],
           "arrow": true
         },
@@ -2549,17 +2549,17 @@
           "label": "Nee",
           "points": [
             [
-              100.0,
+              100,
               600
             ],
             [
-              100.0,
+              100,
               850
             ]
           ],
           "dot": [
-            100.0,
-            725.0
+            100,
+            725
           ],
           "arrow": true
         },
@@ -2572,20 +2572,20 @@
           "points": [
             [
               425,
-              725.0
+              725
             ],
             [
-              550.0,
-              725.0
+              550,
+              725
             ],
             [
-              550.0,
+              550,
               850
             ]
           ],
           "dot": [
             487.5,
-            725.0
+            725
           ],
           "arrow": true
         },
@@ -2597,16 +2597,16 @@
           "label": "<40%\nkans op maligniteit",
           "points": [
             [
-              325.0,
+              325,
               775
             ],
             [
-              325.0,
+              325,
               850
             ]
           ],
           "dot": [
-            325.0,
+            325,
             812.5
           ],
           "arrow": true
@@ -2617,11 +2617,11 @@
           "to": "verwijzing-follow-up-na-chirurgie-predictie",
           "points": [
             [
-              325.0,
+              325,
               950
             ],
             [
-              325.0,
+              325,
               1050
             ]
           ],
@@ -2633,11 +2633,11 @@
           "to": "verwijzing-follow-up-na-chirurgie-klachten",
           "points": [
             [
-              775.0,
+              775,
               950
             ],
             [
-              775.0,
+              775,
               1050
             ]
           ],
@@ -2684,11 +2684,11 @@
           "to": "echoscopie-controle",
           "points": [
             [
-              100.0,
+              100,
               100
             ],
             [
-              100.0,
+              100,
               150
             ]
           ],
@@ -2700,11 +2700,11 @@
           "to": "verwijzing-follow-up-benigne-ovariumcyste",
           "points": [
             [
-              100.0,
+              100,
               290
             ],
             [
-              100.0,
+              100,
               340
             ]
           ],
@@ -2766,7 +2766,7 @@
           "text": "Follow up\nOF\nStop follow up indien beiderzijds adnextirpatie\nOF\nIndividualiseer follow up\n{i} bij aanwezigheid implants",
           "gridX": 45,
           "gridY": 65,
-          "height": 41
+          "height": 36
         },
         {
           "id": "verwijs-oncologisch-centrum-stagering",
@@ -2784,11 +2784,11 @@
           "to": "uitslag-pathologie",
           "points": [
             [
-              325.0,
+              325,
               100
             ],
             [
-              325.0,
+              325,
               150
             ]
           ],
@@ -2803,20 +2803,20 @@
           "points": [
             [
               225,
-              200.0
+              200
             ],
             [
-              100.0,
-              200.0
+              100,
+              200
             ],
             [
-              100.0,
+              100,
               325
             ]
           ],
           "dot": [
             162.5,
-            200.0
+            200
           ],
           "arrow": true
         },
@@ -2828,16 +2828,16 @@
           "label": "Borderline",
           "points": [
             [
-              325.0,
+              325,
               250
             ],
             [
-              325.0,
+              325,
               325
             ]
           ],
           "dot": [
-            325.0,
+            325,
             287.5
           ],
           "arrow": true
@@ -2851,20 +2851,20 @@
           "points": [
             [
               425,
-              200.0
+              200
             ],
             [
-              550.0,
-              200.0
+              550,
+              200
             ],
             [
-              550.0,
+              550,
               325
             ]
           ],
           "dot": [
             487.5,
-            200.0
+            200
           ],
           "arrow": true
         }

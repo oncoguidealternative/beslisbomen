@@ -34,3 +34,5 @@ jobs:
         run: npm install --no-save playwright && npx playwright install --with-deps chromium
       - name: Controleren of alle tekst in de blokken past
         run: node tools/check-tekst.js
+      - name: Controleren of aanbevelingen niet te veel witruimte hebben
+        run: node tools/check-witruimte.js

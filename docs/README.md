@@ -78,6 +78,7 @@ tools/
   check.js                 controle van alle inhoud: node tools/check.js
   check-tekst.js           controle in een echte browser of alle tekst in de blokken past: node tools/check-tekst.js
   check-raster.js          controle of alle blokken en afstanden het standaardraster volgen: node tools/check-raster.js
+  check-witruimte.js       aanbevelingen met te veel witruimte vinden en passend maken: node tools/check-witruimte.js [--fix]
   oncoguide/               een zorgpad overnemen uit Oncoguide (zie docs/oncoguide-import.md)
 
 .github/workflows/check.yml    draait de controle bij elke wijziging op GitHub
