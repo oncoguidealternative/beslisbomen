@@ -44,7 +44,8 @@ Alle zorgpaden en beslisbomen gebruiken hetzelfde raster, zodat ze er op de webs
 | Overzicht: tussen stappen | 10 hokjes (50 px); rijen dus om de 30 hokjes |
 | Beslisboom: onder een gegeven | 15 hokjes (75 px) |
 | Beslisboom: onder een aanbeveling of verwijzing | 10 hokjes (50 px) |
-`node tools/check-raster.js` controleert dit (ook op GitHub). Voorbeeld: `data/cervixcarcinoom/zorgpad.json`.
+| Verwijzingen naar een vervolgboom | onder een rij aanbevelingen op één lijn (zelfde bovenkant), 50 px onder de laagste aanbeveling. Staan er twee in dezelfde kolom onder elkaar, dan staat de bovenste op de lijn. |
+`node tools/check-raster.js` controleert dit (ook op GitHub); `node tools/check-raster.js --fix` zet verwijzingen op één lijn. Voorbeeld: `data/cervixcarcinoom/zorgpad.json`.
 Groene tekstblokken (`decision`) mogen net als aanbevelingen hoger zijn.
 3. Nodetypes
 Layout-rol	Type in de JSON	Wordt in de renderer

@@ -465,6 +465,7 @@ function normalizeRows(tree) {
     newTop[y] = top; prevOld = y; prevNew = top;
   });
   tree.nodes.forEach(function (n) { n.gridY = newTop[oldY[n.id]]; });
+  require('../raster.js').alignReferences(tree);
 }
 
 /* ---------- hoogtes nameten in de browser (--measure) ---------- */

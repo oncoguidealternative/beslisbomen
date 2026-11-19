@@ -19,6 +19,7 @@ const fs = require('fs');
 const path = require('path');
 const http = require('http');
 const {normalizeRows} = require('./oncoguide/convert.js');
+const {alignReferences} = require('./raster.js');
 
 const ROOT = path.resolve(__dirname, '..');
 const TOLERANCE = 20;   // px die er mag over zijn
@@ -113,6 +114,7 @@ async function main() {
       });
       const standard = tree.layout && tree.layout.unit === 5 && tree.layout.blockWidth === 40 && tree.layout.blockHeight === 20;
       if (!hasPoints && standard) normalizeRows(tree);
+      if (standard) alignReferences(tree);
       fixed += shrunk.length;
       changed = true;
     }

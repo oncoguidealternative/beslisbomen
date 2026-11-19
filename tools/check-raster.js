@@ -2,6 +2,7 @@
 /* Controleert of de zorgpaden en beslisbomen het afgesproken raster volgen (zonder browser).
 
    Gebruik: node tools/check-raster.js [tumor ...]
+            node tools/check-raster.js --fix [tumor ...]   zet verwijzingen onder aanbevelingen op één lijn
 
    Afspraak (zie docs/layout-engine.md, "Het standaardraster"):
      - layout: unit 5, blok 40 x 20 hokjes = 200 x 100 px
@@ -11,6 +12,8 @@
      - in het overzicht 50 px tussen de stappen
      - in een beslisboom onder een gegeven 75 px, onder een aanbeveling of verwijzing 50 px (alleen gemeld
        als het minder is, want lijnen naar een andere kolom mogen verder doorlopen)
+     - verwijzingen naar een vervolgboom onder een rij aanbevelingen staan op één lijn (zelfde bovenkant),
+       50 px onder de laagste aanbeveling
    Meldt per weergave wat afwijkt. Zorgpaden die (nog) een eigen raster hebben, worden apart genoemd.
    Mislukt (exitcode 1) als er afwijkingen zijn in zorgpaden op het standaardraster. */
 'use strict';
@@ -24,6 +27,8 @@ const ctx = {console: {warn: function () {}, log: function () {}}, WeakMap: Weak
 vm.createContext(ctx);
 vm.runInContext(fs.readFileSync(path.join(ROOT, 'js/layout-engine.js'), 'utf8') + ';this.LE = LayoutEngine;', ctx);
 const LE = ctx.LE;
+const {referenceGroups, alignReferences} = require('./raster.js');
+const FIX = process.argv.includes('--fix');
 
 const W = 200, H = 100, HGAP = 25, TITLE_GAP = 50, STEP_GAP = 50;
 const MIN_BELOW = {item: 75, other: 50};
@@ -82,10 +87,15 @@ function check(g, isOverview) {
       if (sameColumn && gap < min) out.push(a.id + ' → ' + b.id + ': ' + gap + ' px eronder (minstens ' + min + ')');
     }
   });
+  // verwijzingen onder een rij aanbevelingen op één lijn
+  referenceGroups(g).forEach(function (grp) {
+    if (grp.wrong.length) out.push('verwijzingen onder de aanbevelingen op rij ' + grp.row + ' staan niet op één lijn: ' +
+      grp.wrong.map(function (x) { return x.node.id; }).join(', ') + ' (bovenkant moet ' + grp.top + ' zijn)');
+  });
   return out;
 }
 
-const only = process.argv.slice(2);
+const only = process.argv.slice(2).filter(function (a) { return !a.startsWith('--'); });
 const tumoren = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/tumoren.json'), 'utf8')).tumoren
   .map(function (t) { return t.id; })
   .filter(function (id) { return !only.length || only.includes(id); });
@@ -98,12 +108,15 @@ tumoren.forEach(function (id) {
   const z = JSON.parse(fs.readFileSync(f, 'utf8'));
   const views = [['overzicht', z.overview, true]].concat(Object.keys(z.trees || {}).map(function (k) { return [k, z.trees[k], false]; }));
   const anders = [];
+  let changed = false;
   views.forEach(function (v) {
     if (!v[1] || !Array.isArray(v[1].nodes) || !v[1].nodes.length) return;
     if (!onStandard(v[1])) { anders.push(v[0]); return; }
+    if (FIX && alignReferences(v[1])) changed = true;
     checked++;
     check(v[1], v[2]).forEach(function (m) { problems++; console.log(id + ' / ' + v[0] + ' / ' + m); });
   });
+  if (changed) fs.writeFileSync(f, JSON.stringify(z, null, 2) + '\n');
   if (anders.length) eigen.push(id + ' (' + anders.length + ' van ' + views.length + ' weergaven)');
 });
 console.log('\n' + checked + ' weergaven op het standaardraster gecontroleerd, ' + problems + ' afwijking(en).');
