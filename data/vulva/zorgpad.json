@@ -11,106 +11,106 @@
   "overview": {
     "layout": {
       "unit": 5,
-      "blockWidth": 36,
-      "blockHeight": 19,
-      "margin": 12
+      "blockWidth": 40,
+      "blockHeight": 20,
+      "margin": 10
     },
     "nodes": [
       {
         "id": "start",
         "type": "title",
-        "gridX": 99,
-        "gridY": 12,
+        "gridX": 96,
+        "gridY": 0,
         "label": "Zorgpad vulvacarcinoom"
       },
       {
         "id": "screening",
-        "gridX": 99,
-        "gridY": 39,
+        "gridX": 96,
+        "gridY": 30,
         "drill": true,
         "label": "Screening"
       },
       {
         "id": "diagnostiek",
-        "gridX": 99,
-        "gridY": 66,
+        "gridX": 96,
+        "gridY": 60,
         "drill": true,
         "label": "Diagnostiek"
       },
       {
         "id": "aanvullend",
-        "gridX": 99,
-        "gridY": 93,
+        "gridX": 96,
+        "gridY": 90,
         "drill": true,
         "label": "Aanvullende diagnostiek"
       },
       {
         "id": "cyt-klein",
-        "gridX": 58,
-        "gridY": 116,
+        "gridX": 50,
+        "gridY": 120,
         "drill": true,
         "label": "Bepaling indicatie cytologisch punctie bij pcc < 4 cm en liesklieren niet verdacht"
       },
       {
         "id": "cyt-groot",
-        "gridX": 139,
-        "gridY": 116,
+        "gridX": 141,
+        "gridY": 120,
         "drill": true,
         "label": "Bepaling indicatie cytologische punctie bij pcc >= 4 cm"
       },
       {
         "id": "sn-links",
-        "gridX": 58,
-        "gridY": 143,
+        "gridX": 50,
+        "gridY": 150,
         "drill": true,
         "label": "Bepaling indicatie Lymfoscintogram/ Sentinel node procedure"
       },
       {
         "id": "sn-rechts",
-        "gridX": 139,
-        "gridY": 143,
+        "gridX": 141,
+        "gridY": 150,
         "drill": true,
         "label": "Bepaling indicatie Lymfoscintogram/ Sentinel node procedure"
       },
       {
         "id": "primair",
-        "gridX": 99,
-        "gridY": 165,
+        "gridX": 96,
+        "gridY": 120,
         "drill": true,
         "label": "Primaire behandeling"
       },
       {
         "id": "uni-ling",
-        "gridX": 13,
-        "gridY": 188,
+        "gridX": 0,
+        "gridY": 175,
         "drill": true,
         "label": "Beleid na unilaterale inguinofemorale lymfadenectomie"
       },
       {
         "id": "na-sn",
-        "gridX": 58,
-        "gridY": 188,
+        "gridX": 50,
+        "gridY": 175,
         "drill": true,
         "label": "Beleid na sentinel node procedure (postoperatief)"
       },
       {
         "id": "adjuvant",
-        "gridX": 99,
-        "gridY": 210,
+        "gridX": 96,
+        "gridY": 205,
         "drill": true,
         "label": "Adjuvante behandeling"
       },
       {
         "id": "followup",
-        "gridX": 139,
-        "gridY": 233,
+        "gridX": 141,
+        "gridY": 235,
         "drill": true,
         "label": "Follow up"
       },
       {
         "id": "recidief",
-        "gridX": 139,
-        "gridY": 260,
+        "gridX": 141,
+        "gridY": 265,
         "drill": true,
         "label": "Behandeling recidief"
       }
@@ -122,12 +122,12 @@
         "to": "screening",
         "points": [
           [
-            585,
-            155
+            580,
+            100
           ],
           [
-            585,
-            195
+            580,
+            150
           ]
         ],
         "arrow": true
@@ -138,12 +138,12 @@
         "to": "diagnostiek",
         "points": [
           [
-            585,
-            290
+            580,
+            250
           ],
           [
-            585,
-            330
+            580,
+            300
           ]
         ],
         "arrow": true
@@ -154,12 +154,12 @@
         "to": "aanvullend",
         "points": [
           [
-            585,
-            425
+            580,
+            400
           ],
           [
-            585,
-            465
+            580,
+            450
           ]
         ],
         "arrow": true
@@ -170,16 +170,16 @@
         "to": "cyt-klein",
         "points": [
           [
-            495,
-            515
+            480,
+            503
           ],
           [
-            380,
-            515
+            350,
+            503
           ],
           [
-            380,
-            580
+            350,
+            600
           ]
         ],
         "arrow": true
@@ -190,16 +190,16 @@
         "to": "cyt-groot",
         "points": [
           [
-            675,
-            515
+            680,
+            503
           ],
           [
-            785,
-            515
+            805,
+            503
           ],
           [
-            785,
-            580
+            805,
+            600
           ]
         ],
         "arrow": true
@@ -210,12 +210,12 @@
         "to": "primair",
         "points": [
           [
-            585,
-            560
+            580,
+            550
           ],
           [
-            585,
-            825
+            580,
+            600
           ]
         ],
         "arrow": true
@@ -226,12 +226,12 @@
         "to": "cyt-groot",
         "points": [
           [
-            470,
-            625
+            450,
+            647
           ],
           [
-            695,
-            625
+            705,
+            647
           ]
         ]
       },
@@ -241,12 +241,12 @@
         "to": "sn-links",
         "points": [
           [
-            380,
-            675
+            350,
+            700
           ],
           [
-            380,
-            715
+            350,
+            750
           ]
         ],
         "arrow": true
@@ -257,12 +257,12 @@
         "to": "sn-rechts",
         "points": [
           [
-            785,
-            675
+            805,
+            700
           ],
           [
-            785,
-            715
+            805,
+            750
           ]
         ],
         "arrow": true
@@ -273,12 +273,12 @@
         "to": "sn-rechts",
         "points": [
           [
-            470,
-            760
+            450,
+            797
           ],
           [
-            695,
-            760
+            705,
+            797
           ]
         ]
       },
@@ -288,16 +288,16 @@
         "to": "uni-ling",
         "points": [
           [
-            495,
-            870
+            480,
+            647
           ],
           [
-            155,
-            870
+            100,
+            647
           ],
           [
-            155,
-            940
+            100,
+            875
           ]
         ],
         "arrow": true
@@ -307,12 +307,12 @@
         "to": "na-sn",
         "points": [
           [
-            380,
-            870
+            350,
+            647
           ],
           [
-            380,
-            940
+            350,
+            875
           ]
         ],
         "arrow": true,
@@ -324,12 +324,12 @@
         "to": "adjuvant",
         "points": [
           [
-            585,
-            920
+            580,
+            700
           ],
           [
-            585,
-            1050
+            580,
+            1025
           ]
         ],
         "arrow": true
@@ -339,12 +339,12 @@
         "from": "na-sn",
         "points": [
           [
-            470,
-            985
+            450,
+            922
           ],
           [
-            585,
-            985
+            580,
+            922
           ]
         ],
         "to": "adjuvant"
@@ -355,12 +355,12 @@
         "to": "na-sn",
         "points": [
           [
-            245,
-            985
+            200,
+            922
           ],
           [
-            290,
-            985
+            250,
+            922
           ]
         ]
       },
@@ -370,16 +370,16 @@
         "to": "followup",
         "points": [
           [
-            675,
-            870
+            680,
+            647
           ],
           [
-            785,
-            870
+            805,
+            647
           ],
           [
-            785,
-            1165
+            805,
+            1175
           ]
         ],
         "arrow": true
@@ -389,12 +389,12 @@
         "from": "adjuvant",
         "points": [
           [
-            675,
-            1095
+            680,
+            1072
           ],
           [
-            785,
-            1095
+            805,
+            1072
           ]
         ],
         "to": "followup"
@@ -405,12 +405,12 @@
         "to": "recidief",
         "points": [
           [
-            785,
-            1260
+            805,
+            1275
           ],
           [
-            785,
-            1300
+            805,
+            1325
           ]
         ],
         "arrow": true
@@ -421,17 +421,17 @@
     "screening": {
       "layout": {
         "unit": 5,
-        "blockWidth": 54,
-        "blockHeight": 28,
-        "margin": 24
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
       },
       "wrap": 17,
       "nodes": [
         {
           "id": "root",
           "type": "title",
-          "gridX": 38,
-          "gridY": 24,
+          "gridX": 0,
+          "gridY": 0,
           "label": "Screening",
           "icon": "minus",
           "to": "",
@@ -441,15 +441,15 @@
         {
           "id": "regel-1",
           "type": "decision",
-          "gridX": 38,
-          "gridY": 64,
+          "gridX": 0,
+          "gridY": 30,
           "label": "Screening niet geïndiceerd"
         },
         {
           "id": "volgende",
           "type": "reference",
-          "gridX": 38,
-          "gridY": 105,
+          "gridX": 0,
+          "gridY": 65,
           "label": "Diagnostiek",
           "icon": "down",
           "to": "diagnostiek"
@@ -462,12 +462,12 @@
           "to": "regel-1",
           "points": [
             [
-              320,
-              260
+              96,
+              100
             ],
             [
-              320,
-              300
+              96,
+              133
             ]
           ],
           "arrow": true,
@@ -480,12 +480,12 @@
           "to": "volgende",
           "points": [
             [
-              320,
-              460
+              96,
+              250
             ],
             [
-              320,
-              525
+              96,
+              325
             ]
           ],
           "arrow": true
@@ -495,17 +495,17 @@
     "diagnostiek": {
       "layout": {
         "unit": 5,
-        "blockWidth": 54,
-        "blockHeight": 28,
-        "margin": 9
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
       },
       "wrap": 17,
       "nodes": [
         {
           "id": "root",
           "type": "title",
-          "gridX": 15,
-          "gridY": 9,
+          "gridX": 0,
+          "gridY": 0,
           "label": "Diagnostiek",
           "icon": "minus",
           "to": "",
@@ -515,9 +515,9 @@
         {
           "id": "acties",
           "type": "decision",
-          "gridX": 15,
-          "gridY": 50,
-          "height": 107,
+          "gridX": 0,
+          "gridY": 30,
+          "height": 80,
           "items": [
             {
               "text": "Anamnese\n(comorbiditeit)"
@@ -540,8 +540,8 @@
         {
           "id": "volgende",
           "type": "reference",
-          "gridX": 15,
-          "gridY": 184,
+          "gridX": 0,
+          "gridY": 125,
           "label": "Aanvullende diagnostiek",
           "icon": "down",
           "to": "aanvullend",
@@ -555,12 +555,12 @@
           "to": "acties",
           "points": [
             [
-              210,
-              185
+              100,
+              100
             ],
             [
-              210,
-              225
+              100,
+              131
             ]
           ],
           "arrow": true,
@@ -573,12 +573,12 @@
           "to": "volgende",
           "points": [
             [
-              210,
-              785
+              100,
+              550
             ],
             [
-              210,
-              920
+              100,
+              625
             ]
           ],
           "arrow": true
@@ -589,16 +589,16 @@
       "layout": {
         "unit": 5,
         "blockWidth": 40,
-        "blockHeight": 21,
-        "margin": 3
+        "blockHeight": 20,
+        "margin": 10
       },
       "wrap": 25,
       "nodes": [
         {
           "id": "root",
           "type": "title",
-          "gridX": 115,
-          "gridY": 3,
+          "gridX": 100,
+          "gridY": 0,
           "tone": "blue",
           "label": "Aanvullende diagnostiek",
           "icon": "minus-light",
@@ -608,8 +608,8 @@
         {
           "id": "tumorgedrag",
           "type": "dataItem",
-          "gridX": 115,
-          "gridY": 32,
+          "gridX": 100,
+          "gridY": 30,
           "label": "Tumorgedrag",
           "interactive": true,
           "options": [
@@ -633,8 +633,8 @@
         {
           "id": "histo",
           "type": "dataItem",
-          "gridX": 216,
-          "gridY": 63,
+          "gridX": 201,
+          "gridY": 65,
           "label": "Histologisch type",
           "interactive": true,
           "options": [
@@ -663,8 +663,8 @@
         {
           "id": "operabel",
           "type": "dataItem",
-          "gridX": 267,
-          "gridY": 93,
+          "gridX": 252,
+          "gridY": 100,
           "label": "Operabel",
           "interactive": true,
           "options": [
@@ -683,8 +683,8 @@
         {
           "id": "focaliteit",
           "type": "dataItem",
-          "gridX": 216,
-          "gridY": 118,
+          "gridX": 201,
+          "gridY": 135,
           "label": "Focaliteit vd tumor",
           "interactive": true,
           "options": [
@@ -703,8 +703,8 @@
         {
           "id": "ct",
           "type": "dataItem",
-          "gridX": 216,
-          "gridY": 154,
+          "gridX": 201,
+          "gridY": 170,
           "label": "cT diameter",
           "interactive": true,
           "options": [
@@ -728,8 +728,8 @@
         {
           "id": "invasie",
           "type": "dataItem",
-          "gridX": 166,
-          "gridY": 179,
+          "gridX": 151,
+          "gridY": 205,
           "label": "Invasiediepte",
           "interactive": true,
           "options": [
@@ -748,8 +748,8 @@
         {
           "id": "lies",
           "type": "dataItem",
-          "gridX": 216,
-          "gridY": 199,
+          "gridX": 201,
+          "gridY": 240,
           "label": "Liesklieren",
           "interactive": true,
           "options": [
@@ -768,68 +768,68 @@
         {
           "id": "o-benigne",
           "type": "recommendation",
-          "gridX": 15,
-          "gridY": 234,
+          "gridX": 0,
+          "gridY": 275,
           "text": "Behandeling afhankelijk\nvan diagnose en\nklachten"
         },
         {
           "id": "o-insitu",
           "type": "recommendation",
-          "gridX": 65,
-          "gridY": 234,
+          "gridX": 50,
+          "gridY": 275,
           "text": "Zie RL Premaligne\nafwijkingen van de vulva"
         },
         {
           "id": "o-bcc",
           "type": "recommendation",
-          "gridX": 115,
-          "gridY": 234,
+          "gridX": 100,
+          "gridY": 275,
           "text": "Ruime lokale excisie"
         },
         {
           "id": "o-niet-verdacht",
           "type": "recommendation",
-          "gridX": 216,
-          "gridY": 234,
+          "gridX": 201,
+          "gridY": 275,
           "height": 45,
           "text": "Verwijs naar oncologisch\ncentrum\n\n---\n\nEcho liezen\nEN\nX-thorax\n\nOF\n\nCT thorax/abdomen"
         },
         {
           "id": "o-multifocaal",
           "type": "recommendation",
-          "gridX": 267,
-          "gridY": 234,
+          "gridX": 252,
+          "gridY": 275,
           "text": "Verwijs naar oncologisch\ncentrum\n---\nCT thorax/abomen"
         },
         {
           "id": "o-niet-operabel",
           "type": "recommendation",
-          "gridX": 317,
-          "gridY": 234,
+          "gridX": 302,
+          "gridY": 275,
           "height": 48,
           "text": "Verwijs naar oncologisch\ncentrum\n\n---\n\nMRI liezen en bekken\n\nEN\n\nCT thorax/abomen\nOF\nOverweg PET-CT\nthorax/abomen"
         },
         {
           "id": "o-melanoom",
           "type": "recommendation",
-          "gridX": 368,
-          "gridY": 234,
+          "gridX": 353,
+          "gridY": 275,
           "height": 28,
           "text": "Verwijs naar oncologisch\ncentrum\n\n---\n\nZie RL melanoom\n(voor de huid)"
         },
         {
           "id": "o-overig",
           "type": "recommendation",
-          "gridX": 418,
-          "gridY": 234,
+          "gridX": 403,
+          "gridY": 275,
           "height": 28,
           "text": "Verwijs naar oncologisch\ncentrum\n\n---\n\nIndividualiseer\nbehandeling"
         },
         {
           "id": "l-cyt-klein",
           "type": "reference",
-          "gridX": 216,
-          "gridY": 293,
+          "gridX": 201,
+          "gridY": 333,
           "label": "Bepaling indicatie cytologisch punctie bij pcc < 4 cm en liesklieren niet verdacht",
           "icon": "down",
           "to": "cyt-klein"
@@ -837,8 +837,8 @@
         {
           "id": "l-cyt-groot",
           "type": "reference",
-          "gridX": 267,
-          "gridY": 293,
+          "gridX": 252,
+          "gridY": 333,
           "label": "Bepaling indicatie cytologische punctie bij pcc >= 4 cm",
           "icon": "down",
           "to": "cyt-groot"
@@ -846,8 +846,8 @@
         {
           "id": "l-primair",
           "type": "reference",
-          "gridX": 317,
-          "gridY": 293,
+          "gridX": 302,
+          "gridY": 333,
           "label": "Primaire behandeling",
           "icon": "down",
           "to": "primair"
@@ -860,12 +860,12 @@
           "to": "tumorgedrag",
           "points": [
             [
-              680,
-              120
+              605,
+              100
             ],
             [
-              680,
-              160
+              605,
+              150
             ]
           ],
           "arrow": true
@@ -878,21 +878,21 @@
           "label": "Benigne",
           "points": [
             [
-              575,
-              210
+              500,
+              198
             ],
             [
-              175,
-              210
+              100,
+              198
             ],
             [
-              175,
-              1170
+              100,
+              1375
             ]
           ],
           "dot": [
-            300,
-            210
+            225,
+            198
           ],
           "arrow": true
         },
@@ -904,31 +904,31 @@
           "label": "In situ",
           "points": [
             [
-              425,
-              210
+              350,
+              198
             ],
             [
-              425,
-              1170
+              350,
+              1375
             ]
           ],
           "selectedPoints": [
             [
-              575,
-              210
+              500,
+              198
             ],
             [
-              425,
-              210
+              350,
+              198
             ],
             [
-              425,
-              1170
+              350,
+              1375
             ]
           ],
           "dot": [
-            425,
-            690
+            350,
+            778
           ],
           "arrow": true
         },
@@ -940,21 +940,21 @@
           "label": "Maligne",
           "points": [
             [
-              775,
-              210
+              700,
+              198
             ],
             [
-              1185,
-              210
+              1110,
+              198
             ],
             [
-              1185,
-              315
+              1110,
+              325
             ]
           ],
           "dot": [
-            980,
-            210
+            905,
+            198
           ],
           "arrow": true
         },
@@ -966,21 +966,21 @@
           "label": "Basaalcelcarcinoom",
           "points": [
             [
-              1080,
-              365
+              1005,
+              373
             ],
             [
-              680,
-              365
+              605,
+              373
             ],
             [
-              680,
-              1170
+              605,
+              1375
             ]
           ],
           "dot": [
-            880,
-            365
+            805,
+            373
           ],
           "arrow": true
         },
@@ -992,21 +992,21 @@
           "label": "Plaveiselcelcarcinoom",
           "points": [
             [
-              1280,
-              365
+              1205,
+              373
             ],
             [
-              1435,
-              365
+              1360,
+              373
             ],
             [
-              1435,
-              465
+              1360,
+              500
             ]
           ],
           "dot": [
-            1435,
-            415
+            1360,
+            420
           ],
           "arrow": true
         },
@@ -1018,21 +1018,21 @@
           "label": "Overig",
           "points": [
             [
-              1280,
-              365
+              1205,
+              373
             ],
             [
-              2190,
-              365
+              2115,
+              373
             ],
             [
-              2190,
-              1170
+              2115,
+              1375
             ]
           ],
           "dot": [
-            2065,
-            365
+            1990,
+            373
           ],
           "arrow": true
         },
@@ -1044,31 +1044,31 @@
           "label": "Melanoom",
           "points": [
             [
-              1940,
-              365
+              1865,
+              373
             ],
             [
-              1940,
-              1170
+              1865,
+              1375
             ]
           ],
           "selectedPoints": [
             [
-              1280,
-              365
+              1205,
+              373
             ],
             [
-              1940,
-              365
+              1865,
+              373
             ],
             [
-              1940,
-              1170
+              1865,
+              1375
             ]
           ],
           "dot": [
-            1940,
-            765
+            1865,
+            862
           ],
           "arrow": true
         },
@@ -1080,21 +1080,21 @@
           "label": "Operabel",
           "points": [
             [
-              1335,
-              515
+              1260,
+              548
             ],
             [
-              1185,
-              515
+              1110,
+              548
             ],
             [
-              1185,
-              590
+              1110,
+              675
             ]
           ],
           "dot": [
-            1260,
-            515
+            1185,
+            548
           ],
           "arrow": true
         },
@@ -1106,21 +1106,21 @@
           "label": "Niet operabel",
           "points": [
             [
-              1535,
-              515
+              1460,
+              548
             ],
             [
-              1690,
-              515
+              1615,
+              548
             ],
             [
-              1690,
-              1170
+              1615,
+              1375
             ]
           ],
           "dot": [
-            1610,
-            515
+            1535,
+            548
           ],
           "arrow": true
         },
@@ -1132,21 +1132,21 @@
           "label": "Multifocaal",
           "points": [
             [
-              1280,
-              640
+              1205,
+              723
             ],
             [
-              1435,
-              640
+              1360,
+              723
             ],
             [
-              1435,
-              1170
+              1360,
+              1375
             ]
           ],
           "dot": [
-            1360,
-            640
+            1285,
+            723
           ],
           "arrow": true
         },
@@ -1158,17 +1158,17 @@
           "label": "Unifocaal",
           "points": [
             [
-              1185,
-              695
+              1110,
+              775
             ],
             [
-              1185,
-              770
+              1110,
+              850
             ]
           ],
           "dot": [
-            1185,
-            730
+            1110,
+            810
           ],
           "arrow": true
         },
@@ -1180,21 +1180,21 @@
           "label": "<=2 cm",
           "points": [
             [
-              1080,
-              820
+              1005,
+              898
             ],
             [
-              930,
-              820
+              855,
+              898
             ],
             [
-              930,
-              895
+              855,
+              1025
             ]
           ],
           "dot": [
-            1005,
-            820
+            930,
+            898
           ],
           "arrow": true
         },
@@ -1206,31 +1206,31 @@
           "label": ">=4 cm",
           "points": [
             [
-              1280,
-              820
+              1205,
+              898
             ],
             [
-              1435,
-              820
+              1360,
+              898
             ]
           ],
           "selectedPoints": [
             [
-              1280,
-              820
+              1205,
+              898
             ],
             [
-              1435,
-              820
+              1360,
+              898
             ],
             [
-              1435,
-              1170
+              1360,
+              1375
             ]
           ],
           "dot": [
-            1360,
-            820
+            1285,
+            898
           ]
         },
         {
@@ -1241,17 +1241,17 @@
           "label": "2-4 cm",
           "points": [
             [
-              1185,
-              875
+              1110,
+              950
             ],
             [
-              1185,
-              995
+              1110,
+              1200
             ]
           ],
           "dot": [
-            1185,
-            905
+            1110,
+            1012
           ],
           "arrow": true
         },
@@ -1263,31 +1263,31 @@
           "label": "<=1 mm",
           "points": [
             [
-              830,
-              945
+              755,
+              1073
             ],
             [
-              680,
-              945
+              605,
+              1073
             ]
           ],
           "selectedPoints": [
             [
-              830,
-              945
+              755,
+              1073
             ],
             [
-              680,
-              945
+              605,
+              1073
             ],
             [
-              680,
-              1170
+              605,
+              1375
             ]
           ],
           "dot": [
-            755,
-            945
+            680,
+            1073
           ]
         },
         {
@@ -1298,31 +1298,31 @@
           "label": ">1 mm",
           "points": [
             [
-              1030,
-              945
+              955,
+              1073
             ],
             [
-              1185,
-              945
+              1110,
+              1073
             ]
           ],
           "selectedPoints": [
             [
-              1030,
-              945
+              955,
+              1073
             ],
             [
-              1185,
-              945
+              1110,
+              1073
             ],
             [
-              1185,
-              995
+              1110,
+              1120
             ]
           ],
           "dot": [
-            1105,
-            945
+            1030,
+            1073
           ]
         },
         {
@@ -1333,31 +1333,31 @@
           "label": "Verdacht",
           "points": [
             [
-              1280,
-              1045
+              1205,
+              1248
             ],
             [
-              1435,
-              1045
+              1360,
+              1248
             ]
           ],
           "selectedPoints": [
             [
-              1280,
-              1045
+              1205,
+              1248
             ],
             [
-              1435,
-              1045
+              1360,
+              1248
             ],
             [
-              1435,
-              1170
+              1360,
+              1375
             ]
           ],
           "dot": [
-            1360,
-            1045
+            1285,
+            1248
           ]
         },
         {
@@ -1368,17 +1368,17 @@
           "label": "Niet verdacht",
           "points": [
             [
-              1185,
-              1100
+              1110,
+              1300
             ],
             [
-              1185,
-              1170
+              1110,
+              1375
             ]
           ],
           "dot": [
-            1185,
-            1135
+            1110,
+            1338
           ],
           "arrow": true
         },
@@ -1388,12 +1388,12 @@
           "to": "l-cyt-klein",
           "points": [
             [
-              1185,
-              1395
+              1110,
+              1600
             ],
             [
-              1185,
-              1465
+              1110,
+              1665
             ]
           ],
           "arrow": true
@@ -1404,12 +1404,12 @@
           "to": "l-cyt-groot",
           "points": [
             [
-              1435,
-              1275
+              1360,
+              1475
             ],
             [
-              1435,
-              1465
+              1360,
+              1665
             ]
           ],
           "arrow": true
@@ -1420,12 +1420,12 @@
           "to": "l-primair",
           "points": [
             [
-              1690,
-              1410
+              1615,
+              1615
             ],
             [
-              1690,
-              1465
+              1615,
+              1665
             ]
           ],
           "arrow": true
@@ -1435,17 +1435,17 @@
     "primair": {
       "layout": {
         "unit": 5,
-        "blockWidth": 27,
-        "blockHeight": 14,
-        "margin": 2
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
       },
       "zoom": 1,
       "nodes": [
         {
           "id": "root",
           "type": "title",
-          "gridX": 309,
-          "gridY": 1,
+          "gridX": 455,
+          "gridY": 0,
           "tone": "blue",
           "label": "Primaire behandeling",
           "icon": "minus-light",
@@ -1455,8 +1455,8 @@
         {
           "id": "m",
           "type": "dataItem",
-          "gridX": 309,
-          "gridY": 22,
+          "gridX": 455,
+          "gridY": 30,
           "label": "M",
           "interactive": true,
           "options": [
@@ -1480,8 +1480,8 @@
         {
           "id": "cn",
           "type": "dataItem",
-          "gridX": 309,
-          "gridY": 46,
+          "gridX": 455,
+          "gridY": 65,
           "label": "cN",
           "icon": "plus-light",
           "interactive": true,
@@ -1520,8 +1520,8 @@
         {
           "id": "cyt-gedaan",
           "type": "dataItem",
-          "gridX": 241,
-          "gridY": 66,
+          "gridX": 354,
+          "gridY": 100,
           "label": "Cytologische punctie gedaan",
           "interactive": true,
           "options": [
@@ -1540,8 +1540,8 @@
         {
           "id": "cyt-uitslag",
           "type": "dataItem",
-          "gridX": 241,
-          "gridY": 90,
+          "gridX": 354,
+          "gridY": 135,
           "label": "Uitslag cytologische punctie",
           "interactive": true,
           "options": [
@@ -1560,8 +1560,8 @@
         {
           "id": "ct-l",
           "type": "dataItem",
-          "gridX": 206,
-          "gridY": 110,
+          "gridX": 302,
+          "gridY": 170,
           "label": "cT",
           "icon": "plus-light",
           "interactive": true,
@@ -1600,8 +1600,8 @@
         {
           "id": "focaliteit",
           "type": "dataItem",
-          "gridX": 172,
-          "gridY": 134,
+          "gridX": 252,
+          "gridY": 205,
           "label": "Focaliteit vd tumor",
           "interactive": true,
           "options": [
@@ -1620,8 +1620,8 @@
         {
           "id": "diameter",
           "type": "dataItem",
-          "gridX": 138,
-          "gridY": 155,
+          "gridX": 201,
+          "gridY": 240,
           "label": "Tumor diameter",
           "interactive": true,
           "options": [
@@ -1640,8 +1640,8 @@
         {
           "id": "regio-l",
           "type": "dataItem",
-          "gridX": 104,
-          "gridY": 175,
+          "gridX": 151,
+          "gridY": 275,
           "label": "Regio tumor",
           "interactive": true,
           "options": [
@@ -1665,8 +1665,8 @@
         {
           "id": "regio-r",
           "type": "dataItem",
-          "gridX": 172,
-          "gridY": 175,
+          "gridX": 252,
+          "gridY": 275,
           "label": "Regio tumor",
           "interactive": true,
           "options": [
@@ -1690,8 +1690,8 @@
         {
           "id": "drain-1",
           "type": "dataItem",
-          "gridX": 70,
-          "gridY": 199,
+          "gridX": 101,
+          "gridY": 310,
           "label": "Drainage op Lymfoscintogram",
           "interactive": true,
           "options": [
@@ -1710,8 +1710,8 @@
         {
           "id": "drain-2",
           "type": "dataItem",
-          "gridX": 104,
-          "gridY": 199,
+          "gridX": 151,
+          "gridY": 310,
           "label": "Drainage op Lymfoscintogram",
           "interactive": true,
           "options": [
@@ -1730,8 +1730,8 @@
         {
           "id": "ct-r",
           "type": "dataItem",
-          "gridX": 309,
-          "gridY": 150,
+          "gridX": 455,
+          "gridY": 170,
           "label": "cT",
           "icon": "plus-light",
           "interactive": true,
@@ -1765,8 +1765,8 @@
         {
           "id": "loc-meta",
           "type": "dataItem",
-          "gridX": 411,
-          "gridY": 150,
+          "gridX": 606,
+          "gridY": 170,
           "label": "Localisatie metastasen",
           "interactive": true,
           "options": [
@@ -1785,120 +1785,120 @@
         {
           "id": "o1",
           "type": "recommendation",
-          "gridX": 2,
-          "gridY": 223,
+          "gridX": 0,
+          "gridY": 345,
           "text": "Ruime lokale excisie",
-          "height": 14
+          "height": 20
         },
         {
           "id": "o2",
           "type": "recommendation",
-          "gridX": 36,
-          "gridY": 223,
-          "height": 57,
+          "gridX": 50,
+          "gridY": 345,
+          "height": 85,
           "text": "Ruime lokale excisie\n{i}Primaire\nchemoradiotherapie,\nindien wens tot\norgaansparende\nbehadneling\n\nEN\n\nSentinel node (SN)\nprocedure aan drainage\nzijde\n{i}indien SN niet\ngevonden\ninguinofemorale\nlymfadenectomie\n\nEN\n\nInguinofemorale\nlymfadenectomie aan\nandere zijde"
         },
         {
           "id": "o3",
           "type": "recommendation",
-          "gridX": 70,
-          "gridY": 223,
-          "height": 42,
+          "gridX": 101,
+          "gridY": 345,
+          "height": 63,
           "text": "Ruime lokale excisie\n{i}primair\nchemoradiatie, indien\nwens tot\norgaansparende\nbehandeling\n\nEN\n\nBilateraal sentinel node\nprocedure\n{i}indien SN niet\ngevonden\ninguinofemorale\nlymfadenectomie"
         },
         {
           "id": "o4",
           "type": "recommendation",
-          "gridX": 104,
-          "gridY": 223,
-          "height": 44,
+          "gridX": 151,
+          "gridY": 345,
+          "height": 66,
           "text": "Ruime lokale excisie\n{i}primair\nchemoradiatie, indien\nwens tot\norgaansparende\nbehandeling\n\nEN\n\nUnilateraal sentinel node\nprocedure aan\ntumorzijde\n{i}indien SN niet\ngevonden\ninguinofemorale\nlymfadenectomie"
         },
         {
           "id": "o5",
           "type": "recommendation",
-          "gridX": 138,
-          "gridY": 223,
-          "height": 42,
+          "gridX": 201,
+          "gridY": 345,
+          "height": 63,
           "text": "Ruime lokale excisie\n{i}primair\nchemoradiatie, indien\nwens tot\norgaansparende\nbehandeling\n\nEN\n\nBilateraal sentinel node\nprocedure\n{i}indien SN niet\ngevonden\ninguinofemorale\nlymfadenectomie"
         },
         {
           "id": "o6",
           "type": "recommendation",
-          "gridX": 172,
-          "gridY": 223,
-          "height": 33,
+          "gridX": 252,
+          "gridY": 345,
+          "height": 49,
           "text": "Ruime lokale excisie\n{i}primair\nchemoradiatie, indien\nwens tot\norgaansparende\nbehandeling\n\nEN\n\nBilaterale\ninguinofemorale\nlymfadenectomie"
         },
         {
           "id": "o7",
           "type": "recommendation",
-          "gridX": 206,
-          "gridY": 223,
-          "height": 33,
+          "gridX": 302,
+          "gridY": 345,
+          "height": 49,
           "text": "Ruime lokale excisie\n{i}primair\nchemoradiatie, indien\nwens tot\norgaansparende\nbehandeling\n\nEN\n\nUnilaterale\ninguinofemorale\nlymfadenectomie"
         },
         {
           "id": "o8",
           "type": "recommendation",
-          "gridX": 241,
-          "gridY": 223,
-          "height": 27,
+          "gridX": 354,
+          "gridY": 345,
+          "height": 40,
           "text": "Ruime lokale excisie\nEN\nBilaterale\ninguinofemorale\nlymfadenectomie\n\nOF\n\nPrimaire\nchemoradiotherapie\n"
         },
         {
           "id": "o9",
           "type": "recommendation",
-          "gridX": 275,
-          "gridY": 223,
-          "height": 31,
+          "gridX": 404,
+          "gridY": 345,
+          "height": 42,
           "text": "Individualiseer\nbehandeling\n\n\n\nPrimaire\nchemoradiotherapie\n\nOF\n\nExenteratie"
         },
         {
           "id": "o10",
           "type": "recommendation",
-          "gridX": 309,
-          "gridY": 223,
-          "height": 31,
+          "gridX": 455,
+          "gridY": 345,
+          "height": 46,
           "text": "Ruime lokale excisie\nEN\nBilaterale\ninguinofemorale\nlymfadenectomie\n\nOF\n\nLiesklierdebulking\nEN\nAdjuvante regionale\nradiotherapie"
         },
         {
           "id": "o11",
           "type": "recommendation",
-          "gridX": 344,
-          "gridY": 223,
-          "height": 31,
+          "gridX": 507,
+          "gridY": 345,
+          "height": 42,
           "text": "Individualiseer\nbehandeling\n\n\n\nPrimaire\nchemoradiotherapie\n\nOF\n\nExenteratie"
         },
         {
           "id": "o12",
           "type": "recommendation",
-          "gridX": 378,
-          "gridY": 223,
+          "gridX": 557,
+          "gridY": 345,
           "text": "Primaire chemoradiatie\n\nOF\n\nDebulking",
-          "height": 16
+          "height": 24
         },
         {
           "id": "o13",
           "type": "recommendation",
-          "gridX": 411,
-          "gridY": 223,
-          "height": 51,
+          "gridX": 606,
+          "gridY": 345,
+          "height": 76,
           "text": "Ruime lokale excisie\nEN\nDebulking van pelviene\nlymfeklieren\n\nEN\n\nBilaterale\ninguinofemorale\nlymfadenectomie\nOF\nLiesklierdebulking\n\nEN\n\nAdjuvante regionale\nradiotherapie\n\n—OF—\n\nPrimaire chemoradiatie\n"
         },
         {
           "id": "o14",
           "type": "recommendation",
-          "gridX": 445,
-          "gridY": 223,
+          "gridX": 656,
+          "gridY": 345,
           "text": "Individualiseer\npalliatieve behandeling",
-          "height": 14
+          "height": 20
         },
         {
           "id": "l1",
           "type": "reference",
-          "gridX": 2,
-          "gridY": 247,
+          "gridX": 0,
+          "gridY": 375,
           "label": "Adjuvante behandeling",
           "icon": "down",
           "to": "adjuvant"
@@ -1906,8 +1906,8 @@
         {
           "id": "l2",
           "type": "reference",
-          "gridX": 36,
-          "gridY": 290,
+          "gridX": 50,
+          "gridY": 440,
           "label": "Beleid na sentinel node procedure (postoperatief)",
           "icon": "down",
           "to": "na-sn"
@@ -1915,8 +1915,8 @@
         {
           "id": "l3",
           "type": "reference",
-          "gridX": 70,
-          "gridY": 275,
+          "gridX": 101,
+          "gridY": 418,
           "label": "Beleid na sentinel node procedure (postoperatief)",
           "icon": "down",
           "to": "na-sn"
@@ -1924,8 +1924,8 @@
         {
           "id": "l4",
           "type": "reference",
-          "gridX": 104,
-          "gridY": 277,
+          "gridX": 151,
+          "gridY": 421,
           "label": "Beleid na sentinel node procedure (postoperatief)",
           "icon": "down",
           "to": "na-sn"
@@ -1933,8 +1933,8 @@
         {
           "id": "l5",
           "type": "reference",
-          "gridX": 138,
-          "gridY": 275,
+          "gridX": 201,
+          "gridY": 418,
           "label": "Beleid na sentinel node procedure (postoperatief)",
           "icon": "down",
           "to": "na-sn"
@@ -1942,8 +1942,8 @@
         {
           "id": "l6",
           "type": "reference",
-          "gridX": 172,
-          "gridY": 266,
+          "gridX": 252,
+          "gridY": 404,
           "label": "Adjuvante behandeling",
           "icon": "down",
           "to": "adjuvant"
@@ -1951,8 +1951,8 @@
         {
           "id": "l7",
           "type": "reference",
-          "gridX": 206,
-          "gridY": 266,
+          "gridX": 302,
+          "gridY": 404,
           "label": "Beleid na unilaterale inguinofemorale lymfadenectomie",
           "icon": "down",
           "to": "uni-ling"
@@ -1960,8 +1960,8 @@
         {
           "id": "l8",
           "type": "reference",
-          "gridX": 241,
-          "gridY": 260,
+          "gridX": 354,
+          "gridY": 395,
           "label": "Adjuvante behandeling",
           "icon": "down",
           "to": "adjuvant"
@@ -1969,8 +1969,8 @@
         {
           "id": "l9",
           "type": "reference",
-          "gridX": 275,
-          "gridY": 283,
+          "gridX": 404,
+          "gridY": 397,
           "label": "Adjuvante behandeling",
           "icon": "down",
           "to": "adjuvant"
@@ -1978,8 +1978,8 @@
         {
           "id": "l10",
           "type": "reference",
-          "gridX": 309,
-          "gridY": 264,
+          "gridX": 455,
+          "gridY": 401,
           "label": "Adjuvante behandeling",
           "icon": "down",
           "to": "adjuvant"
@@ -1987,8 +1987,8 @@
         {
           "id": "l11",
           "type": "reference",
-          "gridX": 344,
-          "gridY": 283,
+          "gridX": 507,
+          "gridY": 397,
           "label": "Adjuvante behandeling",
           "icon": "down",
           "to": "adjuvant"
@@ -1996,8 +1996,8 @@
         {
           "id": "l12",
           "type": "reference",
-          "gridX": 377,
-          "gridY": 283,
+          "gridX": 556,
+          "gridY": 401,
           "label": "Adjuvante behandeling",
           "icon": "down",
           "to": "adjuvant"
@@ -2005,8 +2005,8 @@
         {
           "id": "f1",
           "type": "reference",
-          "gridX": 377,
-          "gridY": 306,
+          "gridX": 556,
+          "gridY": 431,
           "label": "Follow up",
           "icon": "down",
           "to": "followup"
@@ -2014,8 +2014,8 @@
         {
           "id": "f2",
           "type": "reference",
-          "gridX": 411,
-          "gridY": 284,
+          "gridX": 606,
+          "gridY": 431,
           "label": "Follow up",
           "icon": "down",
           "to": "followup"
@@ -2028,12 +2028,12 @@
           "to": "m",
           "points": [
             [
-              1610,
-              75
+              2371,
+              100
             ],
             [
-              1610,
-              110
+              2371,
+              150
             ]
           ],
           "arrow": true
@@ -2049,21 +2049,21 @@
           "label": "cM1, pM1",
           "points": [
             [
-              1680,
-              140
+              2475,
+              193
             ],
             [
-              2125,
-              140
+              3134,
+              193
             ],
             [
-              2125,
-              750
+              3134,
+              850
             ]
           ],
           "dot": [
-            1900,
-            140
+            2801,
+            193
           ],
           "arrow": true
         },
@@ -2075,17 +2075,17 @@
           "label": "cM0",
           "points": [
             [
-              1610,
-              180
+              2371,
+              250
             ],
             [
-              1610,
-              230
+              2371,
+              325
             ]
           ],
           "dot": [
-            1610,
-            200
+            2371,
+            280
           ],
           "arrow": true
         },
@@ -2097,21 +2097,21 @@
           "label": "0",
           "points": [
             [
-              1545,
-              260
+              2275,
+              368
             ],
             [
-              1270,
-              260
+              1866,
+              368
             ],
             [
-              1270,
-              330
+              1866,
+              500
             ]
           ],
           "dot": [
-            1405,
-            260
+            2067,
+            368
           ],
           "arrow": true
         },
@@ -2123,21 +2123,21 @@
           "label": "3",
           "points": [
             [
-              1680,
-              260
+              2475,
+              368
             ],
             [
-              1955,
-              260
+              2881,
+              368
             ],
             [
-              1955,
-              1115
+              2881,
+              1725
             ]
           ],
           "dot": [
-            1820,
-            260
+            2682,
+            368
           ],
           "arrow": true
         },
@@ -2152,17 +2152,17 @@
           "label": "1,2",
           "points": [
             [
-              1610,
-              300
+              2371,
+              425
             ],
             [
-              1610,
-              750
+              2371,
+              850
             ]
           ],
           "dot": [
-            1610,
-            390
+            2371,
+            510
           ],
           "arrow": true
         },
@@ -2174,21 +2174,21 @@
           "label": "Nee",
           "points": [
             [
-              1205,
-              365
-            ],
-            [
-              1100,
-              365
-            ],
-            [
-              1100,
+              1770,
               550
+            ],
+            [
+              1614,
+              550
+            ],
+            [
+              1614,
+              850
             ]
           ],
           "dot": [
-            1150,
-            365
+            1688,
+            550
           ],
           "arrow": true
         },
@@ -2200,17 +2200,17 @@
           "label": "Ja",
           "points": [
             [
-              1270,
-              400
+              1866,
+              600
             ],
             [
-              1270,
-              450
+              1866,
+              675
             ]
           ],
           "dot": [
-            1270,
-            425
+            1866,
+            638
           ],
           "arrow": true
         },
@@ -2222,31 +2222,31 @@
           "label": "Negatief",
           "points": [
             [
-              1205,
-              485
+              1770,
+              725
             ],
             [
-              1100,
-              485
+              1614,
+              725
             ]
           ],
           "selectedPoints": [
             [
-              1205,
-              485
+              1770,
+              725
             ],
             [
-              1100,
-              485
+              1614,
+              725
             ],
             [
-              1100,
-              550
+              1614,
+              850
             ]
           ],
           "dot": [
-            1150,
-            485
+            1688,
+            725
           ]
         },
         {
@@ -2257,31 +2257,31 @@
           "label": "Positief",
           "points": [
             [
-              1340,
-              485
+              1970,
+              725
             ],
             [
-              1610,
-              485
+              2371,
+              725
             ]
           ],
           "selectedPoints": [
             [
-              1340,
-              485
+              1970,
+              725
             ],
             [
-              1610,
-              485
+              2371,
+              725
             ],
             [
-              1610,
-              750
+              2371,
+              850
             ]
           ],
           "dot": [
-            1475,
-            485
+            2171,
+            725
           ]
         },
         {
@@ -2292,21 +2292,21 @@
           "label": "cT1a",
           "points": [
             [
-              1030,
-              585
+              1510,
+              900
             ],
             [
-              75,
-              585
+              96,
+              900
             ],
             [
-              75,
-              1115
+              96,
+              1725
             ]
           ],
           "dot": [
-            505,
-            585
+            733,
+            900
           ],
           "arrow": true
         },
@@ -2318,31 +2318,31 @@
           "label": "cT1b",
           "points": [
             [
-              930,
-              585
+              1364,
+              900
             ],
             [
-              930,
-              670
+              1364,
+              1025
             ]
           ],
           "selectedPoints": [
             [
-              1030,
-              585
+              1510,
+              900
             ],
             [
-              930,
-              585
+              1364,
+              900
             ],
             [
-              930,
-              670
+              1364,
+              1025
             ]
           ],
           "dot": [
-            930,
-            630
+            1364,
+            965
           ],
           "arrow": true
         },
@@ -2354,21 +2354,21 @@
           "label": "cT2",
           "points": [
             [
-              1165,
-              585
+              1710,
+              900
             ],
             [
-              1270,
-              585
+              1866,
+              900
             ],
             [
-              1270,
-              1115
+              1866,
+              1725
             ]
           ],
           "dot": [
-            1270,
-            850
+            1866,
+            1310
           ],
           "arrow": true
         },
@@ -2380,39 +2380,39 @@
           "label": "cT3",
           "points": [
             [
-              1270,
-              585
+              1865,
+              900
             ],
             [
-              1440,
-              585
+              2116,
+              900
             ],
             [
-              1440,
-              1115
+              2116,
+              1725
             ]
           ],
           "selectedPoints": [
             [
-              1165,
-              585
+              1710,
+              900
             ],
             [
-              1270,
-              585
+              1865,
+              900
             ],
             [
-              1440,
-              585
+              2116,
+              900
             ],
             [
-              1440,
-              1115
+              2116,
+              1725
             ]
           ],
           "dot": [
-            1355,
-            585
+            1990,
+            900
           ],
           "arrow": true
         },
@@ -2424,21 +2424,21 @@
           "label": "Unifocaal",
           "points": [
             [
-              860,
-              705
+              1260,
+              1075
             ],
             [
-              760,
-              705
+              1109,
+              1075
             ],
             [
-              760,
-              775
+              1109,
+              1200
             ]
           ],
           "dot": [
-            810,
-            705
+            1183,
+            1075
           ],
           "arrow": true
         },
@@ -2450,17 +2450,17 @@
           "label": "Multifocaal",
           "points": [
             [
-              930,
-              740
+              1364,
+              1125
             ],
             [
-              930,
-              875
+              1364,
+              1375
             ]
           ],
           "dot": [
-            930,
-            770
+            1364,
+            1181
           ],
           "arrow": true
         },
@@ -2472,21 +2472,21 @@
           "label": "<4 cm",
           "points": [
             [
-              690,
-              805
+              1005,
+              1243
             ],
             [
-              590,
-              805
+              859,
+              1243
             ],
             [
-              590,
-              875
+              859,
+              1375
             ]
           ],
           "dot": [
-            640,
-            805
+            933,
+            1243
           ],
           "arrow": true
         },
@@ -2498,31 +2498,31 @@
           "label": ">=4 cm",
           "points": [
             [
-              825,
-              805
+              1205,
+              1243
             ],
             [
-              930,
-              805
+              1364,
+              1243
             ]
           ],
           "selectedPoints": [
             [
-              825,
-              805
+              1205,
+              1243
             ],
             [
-              930,
-              805
+              1364,
+              1243
             ],
             [
-              930,
-              875
+              1364,
+              1375
             ]
           ],
           "dot": [
-            880,
-            805
+            1290,
+            1243
           ]
         },
         {
@@ -2533,21 +2533,21 @@
           "label": "Midline",
           "points": [
             [
-              520,
-              910
+              755,
+              1425
             ],
             [
-              420,
-              910
+              609,
+              1425
             ],
             [
-              420,
-              995
+              609,
+              1550
             ]
           ],
           "dot": [
-            470,
-            910
+            683,
+            1425
           ],
           "arrow": true
         },
@@ -2562,17 +2562,17 @@
           "label": "Near midline, Lateraal",
           "points": [
             [
-              590,
-              945
+              859,
+              1475
             ],
             [
-              590,
-              995
+              859,
+              1550
             ]
           ],
           "dot": [
-            590,
-            970
+            859,
+            1512
           ],
           "arrow": true
         },
@@ -2584,21 +2584,21 @@
           "label": "Lateraal",
           "points": [
             [
-              995,
-              910
+              1460,
+              1425
             ],
             [
-              1100,
-              910
+              1614,
+              1425
             ],
             [
-              1100,
-              1115
+              1614,
+              1725
             ]
           ],
           "dot": [
-            1050,
-            910
+            1540,
+            1425
           ],
           "arrow": true
         },
@@ -2613,17 +2613,17 @@
           "label": "Near midline, Midline",
           "points": [
             [
-              930,
-              945
+              1364,
+              1475
             ],
             [
-              930,
-              1115
+              1364,
+              1725
             ]
           ],
           "dot": [
-            930,
-            1025
+            1364,
+            1593
           ],
           "arrow": true
         },
@@ -2635,21 +2635,21 @@
           "label": "Unilateraal",
           "points": [
             [
-              350,
-              1030
+              505,
+              1600
             ],
             [
-              250,
-              1030
+              354,
+              1600
             ],
             [
-              250,
-              1115
+              354,
+              1725
             ]
           ],
           "dot": [
-            300,
-            1030
+            428,
+            1600
           ],
           "arrow": true
         },
@@ -2661,17 +2661,17 @@
           "label": "Bilateraal",
           "points": [
             [
-              420,
-              1065
+              609,
+              1650
             ],
             [
-              420,
-              1115
+              609,
+              1725
             ]
           ],
           "dot": [
-            420,
-            1085
+            609,
+            1680
           ],
           "arrow": true
         },
@@ -2683,21 +2683,21 @@
           "label": "Bilateraal",
           "points": [
             [
-              655,
-              1030
+              955,
+              1600
             ],
             [
-              760,
-              1030
+              1109,
+              1600
             ],
             [
-              760,
-              1115
+              1109,
+              1725
             ]
           ],
           "dot": [
-            710,
-            1030
+            1035,
+            1600
           ],
           "arrow": true
         },
@@ -2709,17 +2709,17 @@
           "label": "Unilateraal",
           "points": [
             [
-              590,
-              1065
+              859,
+              1650
             ],
             [
-              590,
-              1115
+              859,
+              1725
             ]
           ],
           "dot": [
-            590,
-            1085
+            859,
+            1680
           ],
           "arrow": true
         },
@@ -2734,17 +2734,17 @@
           "label": "cT1 - cT2",
           "points": [
             [
-              1610,
-              820
+              2371,
+              950
             ],
             [
-              1610,
-              1115
+              2371,
+              1725
             ]
           ],
           "dot": [
-            1610,
-            965
+            2371,
+            1331
           ],
           "arrow": true
         },
@@ -2756,21 +2756,21 @@
           "label": "cT3",
           "points": [
             [
-              1680,
-              785
+              2475,
+              900
             ],
             [
-              1785,
-              785
+              2631,
+              900
             ],
             [
-              1785,
-              1115
+              2631,
+              1725
             ]
           ],
           "dot": [
-            1735,
-            785
+            2557,
+            900
           ],
           "arrow": true
         },
@@ -2782,17 +2782,17 @@
           "label": "Bekkenklieren",
           "points": [
             [
-              2125,
-              820
+              3134,
+              950
             ],
             [
-              2125,
-              1115
+              3134,
+              1725
             ]
           ],
           "dot": [
-            2125,
-            965
+            3134,
+            1331
           ],
           "arrow": true
         },
@@ -2804,21 +2804,21 @@
           "label": "Buiten het bekken",
           "points": [
             [
-              2190,
-              785
+              3230,
+              900
             ],
             [
-              2295,
-              785
+              3384,
+              900
             ],
             [
-              2295,
-              1115
+              3384,
+              1725
             ]
           ],
           "dot": [
-            2245,
-            785
+            3310,
+            900
           ],
           "arrow": true
         },
@@ -2828,12 +2828,12 @@
           "to": "l1",
           "points": [
             [
-              80,
-              1185
+              104,
+              1825
             ],
             [
-              80,
-              1235
+              104,
+              1875
             ]
           ],
           "arrow": true
@@ -2844,12 +2844,12 @@
           "to": "l2",
           "points": [
             [
-              250,
-              1400
+              354,
+              2150
             ],
             [
-              250,
-              1450
+              354,
+              2200
             ]
           ],
           "arrow": true
@@ -2860,12 +2860,12 @@
           "to": "l3",
           "points": [
             [
-              420,
-              1325
+              609,
+              2040
             ],
             [
-              420,
-              1375
+              609,
+              2090
             ]
           ],
           "arrow": true
@@ -2876,12 +2876,12 @@
           "to": "l4",
           "points": [
             [
-              590,
-              1335
+              859,
+              2055
             ],
             [
-              590,
-              1385
+              859,
+              2105
             ]
           ],
           "arrow": true
@@ -2892,12 +2892,12 @@
           "to": "l5",
           "points": [
             [
-              760,
-              1325
+              1109,
+              2040
             ],
             [
-              760,
-              1375
+              1109,
+              2090
             ]
           ],
           "arrow": true
@@ -2908,12 +2908,12 @@
           "to": "l6",
           "points": [
             [
-              930,
-              1280
+              1364,
+              1970
             ],
             [
-              930,
-              1330
+              1364,
+              2020
             ]
           ],
           "arrow": true
@@ -2924,12 +2924,12 @@
           "to": "l7",
           "points": [
             [
-              1100,
-              1280
+              1614,
+              1970
             ],
             [
-              1100,
-              1330
+              1614,
+              2020
             ]
           ],
           "arrow": true
@@ -2940,12 +2940,12 @@
           "to": "l8",
           "points": [
             [
-              1270,
-              1250
+              1866,
+              1925
             ],
             [
-              1270,
-              1300
+              1866,
+              1975
             ]
           ],
           "arrow": true
@@ -2956,12 +2956,12 @@
           "to": "l9",
           "points": [
             [
-              1440,
-              1270
+              2116,
+              1935
             ],
             [
-              1440,
-              1415
+              2116,
+              1985
             ]
           ],
           "arrow": true
@@ -2972,12 +2972,12 @@
           "to": "l10",
           "points": [
             [
-              1610,
-              1270
+              2371,
+              1955
             ],
             [
-              1610,
-              1320
+              2371,
+              2005
             ]
           ],
           "arrow": true
@@ -2988,12 +2988,12 @@
           "to": "l11",
           "points": [
             [
-              1785,
-              1270
+              2631,
+              1935
             ],
             [
-              1785,
-              1415
+              2631,
+              1985
             ]
           ],
           "arrow": true
@@ -3004,12 +3004,12 @@
           "to": "l12",
           "points": [
             [
-              1955,
-              1195
+              2881,
+              1845
             ],
             [
-              1955,
-              1415
+              2881,
+              2005
             ]
           ],
           "arrow": true
@@ -3020,12 +3020,12 @@
           "to": "f1",
           "points": [
             [
-              1955,
-              1485
+              2884,
+              2105
             ],
             [
-              1955,
-              1530
+              2884,
+              2155
             ]
           ],
           "arrow": true
@@ -3036,12 +3036,12 @@
           "to": "f2",
           "points": [
             [
-              2125,
-              1370
+              3134,
+              2105
             ],
             [
-              2125,
-              1420
+              3134,
+              2155
             ]
           ],
           "arrow": true
@@ -3051,16 +3051,16 @@
     "adjuvant": {
       "layout": {
         "unit": 5,
-        "blockWidth": 46,
-        "blockHeight": 24,
-        "margin": 5
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
       },
       "nodes": [
         {
           "id": "root",
           "type": "title",
-          "gridX": 68,
-          "gridY": 5,
+          "gridX": 50,
+          "gridY": 0,
           "tone": "blue",
           "label": "Adjuvante behandeling",
           "icon": "minus-light",
@@ -3070,8 +3070,8 @@
         {
           "id": "snijvlak",
           "type": "dataItem",
-          "gridX": 68,
-          "gridY": 40,
+          "gridX": 50,
+          "gridY": 30,
           "label": "Snijvlak",
           "interactive": true,
           "options": [
@@ -3090,8 +3090,8 @@
         {
           "id": "pn",
           "type": "dataItem",
-          "gridX": 68,
-          "gridY": 86,
+          "gridX": 50,
+          "gridY": 65,
           "label": "pN",
           "icon": "plus-light",
           "interactive": true,
@@ -3124,8 +3124,8 @@
         {
           "id": "ingroei",
           "type": "dataItem",
-          "gridX": 126,
-          "gridY": 121,
+          "gridX": 101,
+          "gridY": 100,
           "label": "Ingroei tumor",
           "interactive": true,
           "options": [
@@ -3144,8 +3144,8 @@
         {
           "id": "aantal",
           "type": "dataItem",
-          "gridX": 126,
-          "gridY": 167,
+          "gridX": 101,
+          "gridY": 135,
           "label": "Aantal intranodale metastasen",
           "interactive": true,
           "options": [
@@ -3164,8 +3164,8 @@
         {
           "id": "cn",
           "type": "dataItem",
-          "gridX": 126,
-          "gridY": 213,
+          "gridX": 101,
+          "gridY": 170,
           "label": "cN",
           "icon": "plus-light",
           "interactive": true,
@@ -3194,31 +3194,31 @@
         {
           "id": "o-reexcisie",
           "type": "recommendation",
-          "gridX": 10,
-          "gridY": 248,
-          "height": 36,
+          "gridX": 0,
+          "gridY": 205,
+          "height": 32,
           "text": "Re-excisie\n\nOF\n\nLokale radiotherapie\n(totale dosis 60-70 Gy\nafhankelijk van het\nvolume residue tumor)"
         },
         {
           "id": "o-geen",
           "type": "recommendation",
-          "gridX": 68,
-          "gridY": 248,
+          "gridX": 50,
+          "gridY": 205,
           "text": "Geen adjuvante\nbehandeling"
         },
         {
           "id": "o-radio",
           "type": "recommendation",
-          "gridX": 184,
-          "gridY": 248,
-          "height": 28,
+          "gridX": 151,
+          "gridY": 205,
+          "height": 25,
           "text": "Radiotherapie\n\n{i}Bestraal alleen de\naangedane lies mits de\ncontralaterale lies\nadequaat gestadieerd is."
         },
         {
           "id": "f1",
           "type": "reference",
-          "gridX": 10,
-          "gridY": 291,
+          "gridX": 0,
+          "gridY": 247,
           "label": "Follow up",
           "icon": "down",
           "to": "followup"
@@ -3226,8 +3226,8 @@
         {
           "id": "f2",
           "type": "reference",
-          "gridX": 68,
-          "gridY": 291,
+          "gridX": 50,
+          "gridY": 247,
           "label": "Follow up",
           "icon": "down",
           "to": "followup"
@@ -3235,8 +3235,8 @@
         {
           "id": "f3",
           "type": "reference",
-          "gridX": 184,
-          "gridY": 291,
+          "gridX": 151,
+          "gridY": 247,
           "label": "Follow up",
           "icon": "down",
           "to": "followup"
@@ -3249,12 +3249,12 @@
           "to": "snijvlak",
           "points": [
             [
-              455,
-              145
+              350,
+              100
             ],
             [
-              455,
-              200
+              350,
+              150
             ]
           ],
           "arrow": true
@@ -3267,21 +3267,21 @@
           "label": "Snijvlak niet vrij",
           "points": [
             [
-              340,
-              255
+              250,
+              196
             ],
             [
-              165,
-              255
+              100,
+              196
             ],
             [
-              165,
-              1240
+              100,
+              1025
             ]
           ],
           "dot": [
-            255,
-            255
+            178,
+            196
           ],
           "arrow": true
         },
@@ -3293,17 +3293,17 @@
           "label": "Snijvlak vrij",
           "points": [
             [
-              455,
-              320
+              350,
+              250
             ],
             [
-              455,
-              430
+              350,
+              325
             ]
           ],
           "dot": [
-            455,
-            370
+            350,
+            284
           ],
           "arrow": true
         },
@@ -3315,21 +3315,21 @@
           "label": ">= pN1",
           "points": [
             [
-              570,
-              490
+              450,
+              375
             ],
             [
-              745,
-              490
+              605,
+              375
             ],
             [
-              745,
-              605
+              605,
+              500
             ]
           ],
           "dot": [
-            655,
-            490
+            527,
+            375
           ],
           "arrow": true
         },
@@ -3341,17 +3341,17 @@
           "label": "pN0",
           "points": [
             [
-              455,
-              550
+              350,
+              425
             ],
             [
-              455,
-              1240
+              350,
+              1025
             ]
           ],
           "dot": [
-            455,
-            835
+            350,
+            673
           ],
           "arrow": true
         },
@@ -3363,21 +3363,21 @@
           "label": "Extranodaal",
           "points": [
             [
-              860,
-              660
+              705,
+              546
             ],
             [
-              1035,
-              660
+              855,
+              546
             ],
             [
-              1035,
-              1240
+              855,
+              1025
             ]
           ],
           "dot": [
-            945,
-            660
+            777,
+            546
           ],
           "arrow": true
         },
@@ -3389,17 +3389,17 @@
           "label": "Intranodaal",
           "points": [
             [
-              745,
-              725
+              605,
+              600
             ],
             [
-              745,
-              835
+              605,
+              675
             ]
           ],
           "dot": [
-            745,
-            775
+            605,
+            634
           ],
           "arrow": true
         },
@@ -3411,31 +3411,31 @@
           "label": ">=2",
           "points": [
             [
-              860,
-              890
+              705,
+              721
             ],
             [
-              1035,
-              890
+              855,
+              721
             ]
           ],
           "selectedPoints": [
             [
-              860,
-              890
+              705,
+              721
             ],
             [
-              1035,
-              890
+              855,
+              721
             ],
             [
-              1035,
-              1240
+              855,
+              1025
             ]
           ],
           "dot": [
-            945,
-            890
+            777,
+            721
           ]
         },
         {
@@ -3446,17 +3446,17 @@
           "label": "<=1",
           "points": [
             [
-              745,
-              955
+              605,
+              775
             ],
             [
-              745,
-              1065
+              605,
+              850
             ]
           ],
           "dot": [
-            745,
-            1005
+            605,
+            809
           ],
           "arrow": true
         },
@@ -3468,31 +3468,31 @@
           "label": ">= cN1",
           "points": [
             [
-              860,
-              1125
+              705,
+              900
             ],
             [
-              1035,
-              1125
+              855,
+              900
             ]
           ],
           "selectedPoints": [
             [
-              860,
-              1125
+              705,
+              900
             ],
             [
-              1035,
-              1125
+              855,
+              900
             ],
             [
-              1035,
-              1240
+              855,
+              1025
             ]
           ],
           "dot": [
-            945,
-            1125
+            777,
+            900
           ]
         },
         {
@@ -3503,31 +3503,31 @@
           "label": "cN0",
           "points": [
             [
-              630,
-              1125
+              505,
+              900
             ],
             [
-              455,
-              1125
+              350,
+              900
             ]
           ],
           "selectedPoints": [
             [
-              630,
-              1125
+              505,
+              900
             ],
             [
-              455,
-              1125
+              350,
+              900
             ],
             [
-              455,
-              1240
+              350,
+              1025
             ]
           ],
           "dot": [
-            540,
-            1125
+            424,
+            900
           ]
         },
         {
@@ -3536,12 +3536,12 @@
           "to": "f1",
           "points": [
             [
-              165,
-              1420
+              100,
+              1185
             ],
             [
-              165,
-              1455
+              100,
+              1235
             ]
           ],
           "arrow": true
@@ -3552,12 +3552,12 @@
           "to": "f2",
           "points": [
             [
-              455,
-              1360
+              350,
+              1125
             ],
             [
-              455,
-              1455
+              350,
+              1235
             ]
           ],
           "arrow": true
@@ -3568,12 +3568,12 @@
           "to": "f3",
           "points": [
             [
-              1035,
-              1380
+              855,
+              1150
             ],
             [
-              1035,
-              1455
+              855,
+              1235
             ]
           ],
           "arrow": true
@@ -3583,8 +3583,8 @@
     "followup": {
       "layout": {
         "unit": 5,
-        "blockWidth": 59,
-        "blockHeight": 31,
+        "blockWidth": 40,
+        "blockHeight": 20,
         "margin": 10
       },
       "wrap": 17,
@@ -3592,8 +3592,8 @@
         {
           "id": "root",
           "type": "title",
-          "gridX": 17,
-          "gridY": 10,
+          "gridX": 0,
+          "gridY": 0,
           "label": "Follow up",
           "icon": "minus",
           "to": "",
@@ -3603,16 +3603,16 @@
         {
           "id": "acties",
           "type": "decision",
-          "gridX": 17,
-          "gridY": 54,
-          "height": 91,
+          "gridX": 0,
+          "gridY": 30,
+          "height": 62,
           "text": "Anamnese\n\nEN\n\nLichamelijk onderzoek\n\nZie onderbouwing voor\nfollow up schema\nLink voor: {a:Nazorgplan|}\n\n\nFollow up ook\ngedeeltelijk door\nradiotherapeut indien\nradiotherapie onderdeel\nwas van de behandeling\n{i}follow-up in\noncologisch centrum"
         },
         {
           "id": "volgende",
           "type": "reference",
-          "gridX": 17,
-          "gridY": 170,
+          "gridX": 0,
+          "gridY": 107,
           "label": "Behandeling recidief",
           "icon": "down",
           "to": "recidief",
@@ -3626,12 +3626,12 @@
           "to": "acties",
           "points": [
             [
-              235,
-              205
+              102,
+              100
             ],
             [
-              235,
-              250
+              102,
+              135
             ]
           ],
           "arrow": true,
@@ -3644,12 +3644,12 @@
           "to": "volgende",
           "points": [
             [
-              235,
-              725
+              102,
+              460
             ],
             [
-              235,
-              850
+              102,
+              535
             ]
           ],
           "arrow": true
@@ -3659,16 +3659,16 @@
     "recidief": {
       "layout": {
         "unit": 5,
-        "blockWidth": 59,
-        "blockHeight": 31,
-        "margin": 6
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
       },
       "nodes": [
         {
           "id": "root",
           "type": "title",
-          "gridX": 155,
-          "gridY": 6,
+          "gridX": 100,
+          "gridY": 0,
           "tone": "blue",
           "label": "Behandeling recidief",
           "icon": "minus-light",
@@ -3678,8 +3678,8 @@
         {
           "id": "lokalisatie",
           "type": "dataItem",
-          "gridX": 155,
-          "gridY": 50,
+          "gridX": 100,
+          "gridY": 30,
           "label": "Lokalisatie recidief",
           "interactive": true,
           "options": [
@@ -3703,8 +3703,8 @@
         {
           "id": "prim-l",
           "type": "dataItem",
-          "gridX": 81,
-          "gridY": 95,
+          "gridX": 50,
+          "gridY": 65,
           "label": "Primaire behandeling liezen",
           "interactive": true,
           "options": [
@@ -3723,8 +3723,8 @@
         {
           "id": "prim-r",
           "type": "dataItem",
-          "gridX": 228,
-          "gridY": 95,
+          "gridX": 150,
+          "gridY": 65,
           "label": "Primaire behandeling liezen",
           "interactive": true,
           "options": [
@@ -3743,40 +3743,40 @@
         {
           "id": "o1",
           "type": "recommendation",
-          "gridX": 7,
-          "gridY": 147,
-          "height": 43,
+          "gridX": 0,
+          "gridY": 100,
+          "height": 30,
           "text": "Ruime lokale excisie\n\nOF\n\n(Chemo)radiatie\n{i}indien contra-indicatie\nchirurgie\n"
         },
         {
           "id": "o2",
           "type": "recommendation",
-          "gridX": 81,
-          "gridY": 147,
-          "height": 78,
+          "gridX": 50,
+          "gridY": 100,
+          "height": 53,
           "text": "Ruime lokale excisie\nEN\nInguinofemorale\nlymfadenectomie\nOverweeg inclusie in\nstudie V2SLN\n{a:klik hier * V2SLN|}\n\nOF\n\n(Chemo)radiatie\n{i}indien contra-indicatie\nchirurgie"
         },
         {
           "id": "o3",
           "type": "recommendation",
-          "gridX": 155,
-          "gridY": 147,
-          "height": 73,
+          "gridX": 100,
+          "gridY": 100,
+          "height": 50,
           "text": "Overweeg\nliesklierdebulking\n{i}indien operabel\n\nGEVOLGD DOOR\n(chemo)radiatie\n\nOF\n\n(Chemo)radiatie\n{i}indien contra-indicatie\nchirurgie"
         },
         {
           "id": "o4",
           "type": "recommendation",
-          "gridX": 228,
-          "gridY": 147,
-          "height": 88,
+          "gridX": 150,
+          "gridY": 100,
+          "height": 60,
           "text": "Inguinofemorale\nlymfadenectomie\nOF\nOverweeg\nliesklierdebulking\n{i}indien operabel\n\nGEVOLGD DOOR\n(chemo)radiatie\n\n---OF---\n\n(Chemo)radiatie\n{i}indien contra-indicatie\nchirurgie"
         },
         {
           "id": "o5",
           "type": "recommendation",
-          "gridX": 304,
-          "gridY": 147,
+          "gridX": 201,
+          "gridY": 100,
           "text": "Individualiseer\nbehandeling"
         }
       ],
@@ -3787,12 +3787,12 @@
           "to": "lokalisatie",
           "points": [
             [
-              925,
-              185
+              602,
+              100
             ],
             [
-              925,
-              250
+              602,
+              150
             ]
           ],
           "arrow": true
@@ -3805,21 +3805,21 @@
           "label": "Lokaal",
           "points": [
             [
-              775,
-              325
+              500,
+              198
             ],
             [
-              555,
-              325
+              352,
+              198
             ],
             [
-              555,
-              475
+              352,
+              325
             ]
           ],
           "dot": [
-            665,
-            325
+            426,
+            198
           ],
           "arrow": true
         },
@@ -3831,21 +3831,21 @@
           "label": "Liesrecidief",
           "points": [
             [
-              1070,
-              325
+              700,
+              198
             ],
             [
-              1290,
-              325
+              852,
+              198
             ],
             [
-              1290,
-              475
+              852,
+              325
             ]
           ],
           "dot": [
-            1290,
-            400
+            852,
+            247
           ],
           "arrow": true
         },
@@ -3857,21 +3857,21 @@
           "label": "Afstandsmetastasen",
           "points": [
             [
-              1070,
-              325
+              700,
+              198
             ],
             [
-              1665,
-              325
+              1103,
+              198
             ],
             [
-              1665,
-              735
+              1103,
+              500
             ]
           ],
           "dot": [
-            1480,
-            325
+            978,
+            198
           ],
           "arrow": true
         },
@@ -3883,21 +3883,21 @@
           "label": "Inguinofemorale\nlymfadenectomie",
           "points": [
             [
-              405,
-              550
+              250,
+              373
             ],
             [
-              180,
-              550
+              98,
+              373
             ],
             [
-              180,
-              735
+              98,
+              500
             ]
           ],
           "dot": [
-            295,
-            550
+            176,
+            373
           ],
           "arrow": true
         },
@@ -3909,17 +3909,17 @@
           "label": "Sentinel node procedure",
           "points": [
             [
-              555,
-              630
+              352,
+              425
             ],
             [
-              555,
-              735
+              352,
+              500
             ]
           ],
           "dot": [
-            555,
-            680
+            352,
+            461
           ],
           "arrow": true
         },
@@ -3931,21 +3931,21 @@
           "label": "Inguinofemorale\nlymfadenectomie",
           "points": [
             [
-              1140,
-              550
+              750,
+              373
             ],
             [
-              925,
-              550
+              602,
+              373
             ],
             [
-              925,
-              735
+              602,
+              500
             ]
           ],
           "dot": [
-            1030,
-            550
+            673,
+            373
           ],
           "arrow": true
         },
@@ -3957,17 +3957,17 @@
           "label": "Sentinel node procedure",
           "points": [
             [
-              1290,
-              630
+              852,
+              425
             ],
             [
-              1290,
-              735
+              852,
+              500
             ]
           ],
           "dot": [
-            1290,
-            680
+            852,
+            461
           ],
           "arrow": true
         }
@@ -3976,16 +3976,16 @@
     "uni-ling": {
       "layout": {
         "unit": 5,
-        "blockWidth": 59,
-        "blockHeight": 31,
-        "margin": 7
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
       },
       "nodes": [
         {
           "id": "root",
           "type": "title",
-          "gridX": 13,
-          "gridY": 7,
+          "gridX": 0,
+          "gridY": 0,
           "tone": "blue",
           "label": "Beleid na unilaterale inguinofemorale lymfadenectomie",
           "icon": "minus-light",
@@ -3995,8 +3995,8 @@
         {
           "id": "uitslag",
           "type": "dataItem",
-          "gridX": 13,
-          "gridY": 52,
+          "gridX": 0,
+          "gridY": 30,
           "label": "Uitslag unilaterale inguinofemorale lymfadenectomie",
           "interactive": true,
           "options": [
@@ -4015,22 +4015,22 @@
         {
           "id": "o-pos",
           "type": "recommendation",
-          "gridX": 13,
-          "gridY": 111,
+          "gridX": 0,
+          "gridY": 65,
           "text": "Overweeg contralaterale\ninguinofemorale\nlymfadenectomie"
         },
         {
           "id": "o-neg",
           "type": "recommendation",
-          "gridX": 87,
-          "gridY": 111,
+          "gridX": 50,
+          "gridY": 65,
           "text": "Geen contralaterale\ninguinofemorale\nlymfadenectomie"
         },
         {
           "id": "l1",
           "type": "reference",
-          "gridX": 13,
-          "gridY": 156,
+          "gridX": 0,
+          "gridY": 95,
           "label": "Adjuvante behandeling",
           "icon": "down",
           "to": "adjuvant"
@@ -4038,8 +4038,8 @@
         {
           "id": "l2",
           "type": "reference",
-          "gridX": 87,
-          "gridY": 156,
+          "gridX": 50,
+          "gridY": 95,
           "label": "Follow up",
           "icon": "down",
           "to": "followup"
@@ -4052,12 +4052,12 @@
           "to": "uitslag",
           "points": [
             [
-              210,
-              190
+              98,
+              100
             ],
             [
-              210,
-              260
+              98,
+              150
             ]
           ],
           "arrow": true
@@ -4070,21 +4070,21 @@
           "label": "Negatief",
           "points": [
             [
-              360,
-              330
+              200,
+              195
             ],
             [
-              585,
-              330
+              352,
+              195
             ],
             [
-              585,
-              555
+              352,
+              325
             ]
           ],
           "dot": [
-            475,
-            335
+            277,
+            198
           ],
           "arrow": true
         },
@@ -4096,17 +4096,17 @@
           "label": "Positief",
           "points": [
             [
-              210,
-              415
+              98,
+              250
             ],
             [
-              210,
-              555
+              98,
+              325
             ]
           ],
           "dot": [
-            215,
-            480
+            102,
+            285
           ],
           "arrow": true
         },
@@ -4116,12 +4116,12 @@
           "to": "l1",
           "points": [
             [
-              210,
-              710
+              98,
+              425
             ],
             [
-              210,
-              780
+              98,
+              475
             ]
           ],
           "arrow": true
@@ -4132,12 +4132,12 @@
           "to": "l2",
           "points": [
             [
-              585,
-              710
+              352,
+              425
             ],
             [
-              585,
-              780
+              352,
+              475
             ]
           ],
           "arrow": true
@@ -4147,16 +4147,16 @@
     "na-sn": {
       "layout": {
         "unit": 5,
-        "blockWidth": 59,
-        "blockHeight": 31,
-        "margin": 5
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
       },
       "nodes": [
         {
           "id": "root",
           "type": "title",
-          "gridX": 81,
-          "gridY": 5,
+          "gridX": 50,
+          "gridY": 0,
           "tone": "blue",
           "label": "Beleid na sentinel node procedure (postoperatief)",
           "icon": "minus-light",
@@ -4166,8 +4166,8 @@
         {
           "id": "sn",
           "type": "dataItem",
-          "gridX": 81,
-          "gridY": 49,
+          "gridX": 50,
+          "gridY": 30,
           "label": "Sentinel node",
           "interactive": true,
           "options": [
@@ -4186,8 +4186,8 @@
         {
           "id": "locatie",
           "type": "dataItem",
-          "gridX": 81,
-          "gridY": 101,
+          "gridX": 50,
+          "gridY": 65,
           "label": "Locatie positieve SN",
           "interactive": true,
           "options": [
@@ -4206,8 +4206,8 @@
         {
           "id": "groot-l",
           "type": "dataItem",
-          "gridX": 81,
-          "gridY": 153,
+          "gridX": 50,
+          "gridY": 100,
           "label": "Grootte metastasen",
           "interactive": true,
           "options": [
@@ -4226,8 +4226,8 @@
         {
           "id": "groot-r",
           "type": "dataItem",
-          "gridX": 230,
-          "gridY": 153,
+          "gridX": 151,
+          "gridY": 100,
           "label": "Grootte metastasen",
           "interactive": true,
           "options": [
@@ -4246,47 +4246,47 @@
         {
           "id": "o1",
           "type": "recommendation",
-          "gridX": 7,
-          "gridY": 205,
+          "gridX": 0,
+          "gridY": 135,
           "text": "Geen aanvullende\nbehandeling"
         },
         {
           "id": "o2",
           "type": "recommendation",
-          "gridX": 81,
-          "gridY": 205,
-          "height": 38,
+          "gridX": 50,
+          "gridY": 135,
+          "height": 26,
           "text": "Unilaterale\ninguinofemorale\nlymfadenectomie\n\nOF\n\nRadiotherapie"
         },
         {
           "id": "o3",
           "type": "recommendation",
-          "gridX": 156,
-          "gridY": 205,
-          "height": 43,
+          "gridX": 101,
+          "gridY": 135,
+          "height": 30,
           "text": "Unilaterale\ninguinofemorale\nlymfadenectomie\n\nOF\n\nInclusie in studie:\nGROINSS-V III"
         },
         {
           "id": "o4",
           "type": "recommendation",
-          "gridX": 230,
-          "gridY": 205,
-          "height": 38,
+          "gridX": 151,
+          "gridY": 135,
+          "height": 26,
           "text": "Bilaterale\ninguinofemorale\nlymfadenectomie\n\nOF\n\nRadiotherapie"
         },
         {
           "id": "o5",
           "type": "recommendation",
-          "gridX": 304,
-          "gridY": 205,
-          "height": 43,
+          "gridX": 201,
+          "gridY": 135,
+          "height": 30,
           "text": "Bilaterale\ninguinofemorale\nlymfadenectomie\n\nOF\n\nInclusie in studie:\nGROINSS-V III"
         },
         {
           "id": "l1",
           "type": "reference",
-          "gridX": 7,
-          "gridY": 272,
+          "gridX": 0,
+          "gridY": 175,
           "label": "Follow up",
           "icon": "down",
           "to": "followup"
@@ -4294,8 +4294,8 @@
         {
           "id": "l2",
           "type": "reference",
-          "gridX": 81,
-          "gridY": 272,
+          "gridX": 50,
+          "gridY": 175,
           "label": "Adjuvante behandeling",
           "icon": "down",
           "to": "adjuvant"
@@ -4303,8 +4303,8 @@
         {
           "id": "l3",
           "type": "reference",
-          "gridX": 156,
-          "gridY": 272,
+          "gridX": 101,
+          "gridY": 175,
           "label": "Adjuvante behandeling",
           "icon": "down",
           "to": "adjuvant"
@@ -4312,8 +4312,8 @@
         {
           "id": "l4",
           "type": "reference",
-          "gridX": 230,
-          "gridY": 272,
+          "gridX": 151,
+          "gridY": 175,
           "label": "Adjuvante behandeling",
           "icon": "down",
           "to": "adjuvant"
@@ -4321,8 +4321,8 @@
         {
           "id": "l5",
           "type": "reference",
-          "gridX": 304,
-          "gridY": 272,
+          "gridX": 201,
+          "gridY": 175,
           "label": "Adjuvante behandeling",
           "icon": "down",
           "to": "adjuvant"
@@ -4335,12 +4335,12 @@
           "to": "sn",
           "points": [
             [
-              555,
-              180
+              352,
+              100
             ],
             [
-              555,
-              245
+              352,
+              150
             ]
           ],
           "arrow": true
@@ -4353,21 +4353,21 @@
           "label": "Negatief",
           "points": [
             [
-              405,
-              320
+              250,
+              198
             ],
             [
-              185,
-              320
+              102,
+              198
             ],
             [
-              185,
-              1025
+              102,
+              675
             ]
           ],
           "dot": [
-            295,
-            320
+            176,
+            198
           ],
           "arrow": true
         },
@@ -4379,17 +4379,17 @@
           "label": "Positief",
           "points": [
             [
-              555,
-              400
+              352,
+              250
             ],
             [
-              555,
-              505
+              352,
+              325
             ]
           ],
           "dot": [
-            555,
-            450
+            352,
+            286
           ],
           "arrow": true
         },
@@ -4401,21 +4401,21 @@
           "label": "Bilateraal",
           "points": [
             [
-              700,
-              580
+              450,
+              373
             ],
             [
-              1300,
-              580
+              857,
+              373
             ],
             [
-              1300,
-              765
+              857,
+              500
             ]
           ],
           "dot": [
-            1000,
-            580
+            653,
+            373
           ],
           "arrow": true
         },
@@ -4427,17 +4427,17 @@
           "label": "Unilateraal",
           "points": [
             [
-              555,
-              660
+              352,
+              425
             ],
             [
-              555,
-              765
+              352,
+              500
             ]
           ],
           "dot": [
-            555,
-            710
+            352,
+            461
           ],
           "arrow": true
         },
@@ -4449,21 +4449,21 @@
           "label": ">2 mm",
           "points": [
             [
-              700,
-              840
+              450,
+              548
             ],
             [
-              925,
-              840
+              603,
+              548
             ],
             [
-              925,
-              1025
+              603,
+              675
             ]
           ],
           "dot": [
-            815,
-            840
+            529,
+            548
           ],
           "arrow": true
         },
@@ -4475,17 +4475,17 @@
           "label": "<=2 mm",
           "points": [
             [
-              555,
-              920
+              352,
+              600
             ],
             [
-              555,
-              1025
+              352,
+              675
             ]
           ],
           "dot": [
-            555,
-            970
+            352,
+            636
           ],
           "arrow": true
         },
@@ -4497,21 +4497,21 @@
           "label": ">2 mm",
           "points": [
             [
-              1445,
-              840
+              955,
+              548
             ],
             [
-              1670,
-              840
+              1107,
+              548
             ],
             [
-              1670,
-              1025
+              1107,
+              675
             ]
           ],
           "dot": [
-            1555,
-            840
+            1029,
+            548
           ],
           "arrow": true
         },
@@ -4523,17 +4523,17 @@
           "label": "<=2 mm",
           "points": [
             [
-              1300,
-              920
+              857,
+              600
             ],
             [
-              1300,
-              1025
+              857,
+              675
             ]
           ],
           "dot": [
-            1300,
-            970
+            857,
+            636
           ],
           "arrow": true
         },
@@ -4543,12 +4543,12 @@
           "to": "l1",
           "points": [
             [
-              185,
-              1180
+              102,
+              775
             ],
             [
-              185,
-              1360
+              102,
+              875
             ]
           ],
           "arrow": true
@@ -4559,12 +4559,12 @@
           "to": "l2",
           "points": [
             [
-              555,
-              1215
+              352,
+              805
             ],
             [
-              555,
-              1360
+              352,
+              875
             ]
           ],
           "arrow": true
@@ -4575,12 +4575,12 @@
           "to": "l3",
           "points": [
             [
-              925,
-              1240
+              603,
+              825
             ],
             [
-              925,
-              1360
+              603,
+              875
             ]
           ],
           "arrow": true
@@ -4591,12 +4591,12 @@
           "to": "l4",
           "points": [
             [
-              1300,
-              1215
+              857,
+              805
             ],
             [
-              1300,
-              1360
+              857,
+              875
             ]
           ],
           "arrow": true
@@ -4607,12 +4607,12 @@
           "to": "l5",
           "points": [
             [
-              1670,
-              1240
+              1107,
+              825
             ],
             [
-              1670,
-              1360
+              1107,
+              875
             ]
           ],
           "arrow": true
@@ -4622,16 +4622,16 @@
     "cyt-klein": {
       "layout": {
         "unit": 5,
-        "blockWidth": 59,
-        "blockHeight": 31,
-        "margin": 6
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
       },
       "nodes": [
         {
           "id": "root",
           "type": "title",
-          "gridX": 14,
-          "gridY": 6,
+          "gridX": 0,
+          "gridY": 0,
           "tone": "blue",
           "label": "Bepaling indicatie cytologisch punctie bij pcc < 4 cm en liesklieren niet verdacht",
           "icon": "minus-light",
@@ -4641,8 +4641,8 @@
         {
           "id": "cn",
           "type": "dataItem",
-          "gridX": 14,
-          "gridY": 51,
+          "gridX": 0,
+          "gridY": 30,
           "label": "cN",
           "icon": "plus-light",
           "interactive": true,
@@ -4671,8 +4671,8 @@
         {
           "id": "verdacht",
           "type": "dataItem",
-          "gridX": 14,
-          "gridY": 103,
+          "gridX": 0,
+          "gridY": 65,
           "label": "Verdachte klieren bij beeldvorming",
           "interactive": true,
           "options": [
@@ -4691,22 +4691,22 @@
         {
           "id": "o-niet",
           "type": "recommendation",
-          "gridX": 14,
-          "gridY": 155,
+          "gridX": 0,
+          "gridY": 100,
           "text": "Cytologische punctie\nvan liesklieren niet\ngeïndiceerd"
         },
         {
           "id": "o-wel",
           "type": "recommendation",
-          "gridX": 88,
-          "gridY": 155,
+          "gridX": 50,
+          "gridY": 100,
           "text": "Overweeg cytologische\npunctie van liesklieren"
         },
         {
           "id": "l1",
           "type": "reference",
-          "gridX": 14,
-          "gridY": 199,
+          "gridX": 0,
+          "gridY": 130,
           "label": "Bepaling indicatie Lymfoscintogram/ Sentinel node procedure",
           "icon": "down",
           "to": "sn-links"
@@ -4714,8 +4714,8 @@
         {
           "id": "l2",
           "type": "reference",
-          "gridX": 88,
-          "gridY": 199,
+          "gridX": 50,
+          "gridY": 130,
           "label": "Primaire behandeling",
           "icon": "down",
           "to": "primair"
@@ -4728,12 +4728,12 @@
           "to": "cn",
           "points": [
             [
-              220,
-              185
+              102,
+              100
             ],
             [
-              220,
-              255
+              102,
+              150
             ]
           ],
           "arrow": true
@@ -4746,21 +4746,21 @@
           "label": ">= cN1",
           "points": [
             [
-              365,
-              330
+              200,
+              198
             ],
             [
-              590,
-              330
+              352,
+              198
             ],
             [
-              590,
-              775
+              352,
+              500
             ]
           ],
           "dot": [
-            480,
-            330
+            277,
+            198
           ],
           "arrow": true
         },
@@ -4772,17 +4772,17 @@
           "label": "cN0",
           "points": [
             [
-              220,
-              410
+              102,
+              250
             ],
             [
-              220,
-              515
+              102,
+              325
             ]
           ],
           "dot": [
-            220,
-            460
+            102,
+            286
           ],
           "arrow": true
         },
@@ -4794,31 +4794,31 @@
           "label": "Ja",
           "points": [
             [
-              365,
-              590
+              200,
+              373
             ],
             [
-              590,
-              590
+              352,
+              373
             ]
           ],
           "selectedPoints": [
             [
-              365,
-              590
+              200,
+              373
             ],
             [
-              590,
-              590
+              352,
+              373
             ],
             [
-              590,
-              775
+              352,
+              500
             ]
           ],
           "dot": [
-            480,
-            590
+            277,
+            373
           ]
         },
         {
@@ -4829,17 +4829,17 @@
           "label": "Nee",
           "points": [
             [
-              220,
-              670
+              102,
+              425
             ],
             [
-              220,
-              775
+              102,
+              500
             ]
           ],
           "dot": [
-            220,
-            720
+            102,
+            461
           ],
           "arrow": true
         },
@@ -4849,12 +4849,12 @@
           "to": "l1",
           "points": [
             [
-              220,
-              930
+              102,
+              600
             ],
             [
-              220,
-              995
+              102,
+              650
             ]
           ],
           "arrow": true
@@ -4865,12 +4865,12 @@
           "to": "l2",
           "points": [
             [
-              590,
-              930
+              352,
+              600
             ],
             [
-              590,
-              995
+              352,
+              650
             ]
           ],
           "arrow": true
@@ -4880,16 +4880,16 @@
     "cyt-groot": {
       "layout": {
         "unit": 5,
-        "blockWidth": 59,
-        "blockHeight": 31,
-        "margin": 6
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
       },
       "nodes": [
         {
           "id": "root",
           "type": "title",
-          "gridX": 6,
-          "gridY": 6,
+          "gridX": 0,
+          "gridY": 0,
           "tone": "blue",
           "label": "Bepaling indicatie cytologische punctie bij pcc >= 4 cm",
           "icon": "minus-light",
@@ -4899,8 +4899,8 @@
         {
           "id": "cn",
           "type": "dataItem",
-          "gridX": 6,
-          "gridY": 50,
+          "gridX": 0,
+          "gridY": 30,
           "label": "cN",
           "icon": "plus-light",
           "interactive": true,
@@ -4929,8 +4929,8 @@
         {
           "id": "verdacht",
           "type": "dataItem",
-          "gridX": 6,
-          "gridY": 103,
+          "gridX": 0,
+          "gridY": 65,
           "label": "Verdachte klieren bij beeldvorming",
           "interactive": true,
           "options": [
@@ -4949,22 +4949,22 @@
         {
           "id": "o-niet",
           "type": "recommendation",
-          "gridX": 6,
-          "gridY": 154,
+          "gridX": 0,
+          "gridY": 100,
           "text": "Cytologische punctie\nvan liesklieren niet\ngeïndiceerd"
         },
         {
           "id": "o-wel",
           "type": "recommendation",
-          "gridX": 81,
-          "gridY": 154,
+          "gridX": 51,
+          "gridY": 100,
           "text": "Overweeg cytologische\npunctie van liesklieren"
         },
         {
           "id": "l1",
           "type": "reference",
-          "gridX": 6,
-          "gridY": 199,
+          "gridX": 0,
+          "gridY": 130,
           "label": "Bepaling indicatie Lymfoscintogram/ Sentinel node procedure",
           "icon": "down",
           "to": "sn-rechts"
@@ -4972,8 +4972,8 @@
         {
           "id": "l2",
           "type": "reference",
-          "gridX": 81,
-          "gridY": 199,
+          "gridX": 51,
+          "gridY": 130,
           "label": "Primaire behandeling",
           "icon": "down",
           "to": "primair"
@@ -4986,12 +4986,12 @@
           "to": "cn",
           "points": [
             [
-              180,
-              185
+              102,
+              100
             ],
             [
-              180,
-              250
+              102,
+              150
             ]
           ],
           "arrow": true
@@ -5004,21 +5004,21 @@
           "label": ">= cN1",
           "points": [
             [
-              325,
-              325
+              200,
+              198
             ],
             [
-              550,
-              325
+              353,
+              198
             ],
             [
-              550,
-              770
+              353,
+              500
             ]
           ],
           "dot": [
-            440,
-            325
+            279,
+            198
           ],
           "arrow": true
         },
@@ -5030,17 +5030,17 @@
           "label": "cN0",
           "points": [
             [
-              180,
-              405
+              102,
+              250
             ],
             [
-              180,
-              515
+              102,
+              325
             ]
           ],
           "dot": [
-            180,
-            455
+            102,
+            284
           ],
           "arrow": true
         },
@@ -5052,31 +5052,31 @@
           "label": "Ja",
           "points": [
             [
-              325,
-              590
+              200,
+              373
             ],
             [
-              550,
-              590
+              353,
+              373
             ]
           ],
           "selectedPoints": [
             [
-              325,
-              590
+              200,
+              373
             ],
             [
-              550,
-              590
+              353,
+              373
             ],
             [
-              550,
-              770
+              353,
+              500
             ]
           ],
           "dot": [
-            440,
-            590
+            279,
+            373
           ]
         },
         {
@@ -5087,17 +5087,17 @@
           "label": "Nee",
           "points": [
             [
-              180,
-              670
+              102,
+              425
             ],
             [
-              180,
-              770
+              102,
+              500
             ]
           ],
           "dot": [
-            180,
-            715
+            102,
+            459
           ],
           "arrow": true
         },
@@ -5107,12 +5107,12 @@
           "to": "l1",
           "points": [
             [
-              180,
-              925
+              102,
+              600
             ],
             [
-              180,
-              995
+              102,
+              650
             ]
           ],
           "arrow": true
@@ -5123,12 +5123,12 @@
           "to": "l2",
           "points": [
             [
-              550,
-              925
+              353,
+              600
             ],
             [
-              550,
-              995
+              353,
+              650
             ]
           ],
           "arrow": true
@@ -5138,16 +5138,16 @@
     "sn-links": {
       "layout": {
         "unit": 5,
-        "blockWidth": 59,
-        "blockHeight": 31,
-        "margin": 4
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
       },
       "nodes": [
         {
           "id": "root",
           "type": "title",
-          "gridX": 5,
-          "gridY": 4,
+          "gridX": 0,
+          "gridY": 0,
           "tone": "blue",
           "label": "Bepaling indicatie Lymfoscintogram/ Sentinel node procedure",
           "icon": "minus-light",
@@ -5157,8 +5157,8 @@
         {
           "id": "uitslag",
           "type": "dataItem",
-          "gridX": 5,
-          "gridY": 49,
+          "gridX": 0,
+          "gridY": 30,
           "label": "Uitslag punctie liesklier",
           "wrap": 28,
           "interactive": true,
@@ -5178,22 +5178,22 @@
         {
           "id": "o-neg",
           "type": "recommendation",
-          "gridX": 5,
-          "gridY": 101,
+          "gridX": 0,
+          "gridY": 65,
           "text": "SN procedure:\n\nLymfoscintogram\npre-operatief"
         },
         {
           "id": "o-pos",
           "type": "recommendation",
-          "gridX": 79,
-          "gridY": 101,
+          "gridX": 50,
+          "gridY": 65,
           "text": "Geen SN procedure"
         },
         {
           "id": "l1",
           "type": "reference",
-          "gridX": 5,
-          "gridY": 145,
+          "gridX": 0,
+          "gridY": 95,
           "label": "Primaire behandeling",
           "icon": "down",
           "to": "primair"
@@ -5201,8 +5201,8 @@
         {
           "id": "l2",
           "type": "reference",
-          "gridX": 79,
-          "gridY": 145,
+          "gridX": 50,
+          "gridY": 95,
           "label": "Primaire behandeling",
           "icon": "down",
           "to": "primair"
@@ -5215,12 +5215,12 @@
           "to": "uitslag",
           "points": [
             [
-              175,
-              175
+              102,
+              100
             ],
             [
-              175,
-              245
+              102,
+              150
             ]
           ],
           "arrow": true
@@ -5233,21 +5233,21 @@
           "label": "Positief",
           "points": [
             [
-              320,
-              320
+              200,
+              198
             ],
             [
-              545,
-              320
+              352,
+              198
             ],
             [
-              545,
-              505
+              352,
+              325
             ]
           ],
           "dot": [
-            435,
-            320
+            277,
+            198
           ],
           "arrow": true
         },
@@ -5259,17 +5259,17 @@
           "label": "Negatief",
           "points": [
             [
-              175,
-              400
+              102,
+              250
             ],
             [
-              175,
-              505
+              102,
+              325
             ]
           ],
           "dot": [
-            175,
-            450
+            102,
+            286
           ],
           "arrow": true
         },
@@ -5279,12 +5279,12 @@
           "to": "l1",
           "points": [
             [
-              175,
-              660
+              102,
+              425
             ],
             [
-              175,
-              725
+              102,
+              475
             ]
           ],
           "arrow": true
@@ -5295,12 +5295,12 @@
           "to": "l2",
           "points": [
             [
-              545,
-              660
+              352,
+              425
             ],
             [
-              545,
-              725
+              352,
+              475
             ]
           ],
           "arrow": true
@@ -5310,16 +5310,16 @@
     "sub-cn": {
       "layout": {
         "unit": 5,
-        "blockWidth": 46,
-        "blockHeight": 24,
-        "margin": 2
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
       },
       "nodes": [
         {
           "id": "root",
           "type": "title",
-          "gridX": 81,
-          "gridY": 1,
+          "gridX": 50,
+          "gridY": 0,
           "tone": "blue",
           "label": "cN",
           "icon": "minus-light",
@@ -5329,8 +5329,8 @@
         {
           "id": "papabel",
           "type": "dataItem",
-          "gridX": 81,
-          "gridY": 35,
+          "gridX": 50,
+          "gridY": 30,
           "label": "Papabel suspecte klieren",
           "interactive": true,
           "options": [
@@ -5349,8 +5349,8 @@
         {
           "id": "gefixeerd",
           "type": "dataItem",
-          "gridX": 81,
-          "gridY": 81,
+          "gridX": 50,
+          "gridY": 65,
           "label": "Gefixeerde klier",
           "interactive": true,
           "options": [
@@ -5369,8 +5369,8 @@
         {
           "id": "ulcererend",
           "type": "dataItem",
-          "gridX": 81,
-          "gridY": 127,
+          "gridX": 50,
+          "gridY": 100,
           "label": "Ulcererende klier",
           "interactive": true,
           "options": [
@@ -5389,8 +5389,8 @@
         {
           "id": "lateraliteit",
           "type": "dataItem",
-          "gridX": 81,
-          "gridY": 173,
+          "gridX": 50,
+          "gridY": 135,
           "label": "Lateraliteit",
           "interactive": true,
           "options": [
@@ -5409,29 +5409,29 @@
         {
           "id": "o-cn0",
           "type": "recommendation",
-          "gridX": 24,
-          "gridY": 219,
+          "gridX": 0,
+          "gridY": 170,
           "text": "cN0"
         },
         {
           "id": "o-cn1",
           "type": "recommendation",
-          "gridX": 81,
-          "gridY": 219,
+          "gridX": 50,
+          "gridY": 170,
           "text": "cN1"
         },
         {
           "id": "o-cn2",
           "type": "recommendation",
-          "gridX": 139,
-          "gridY": 219,
+          "gridX": 100,
+          "gridY": 170,
           "text": "cN2"
         },
         {
           "id": "o-cn3",
           "type": "recommendation",
-          "gridX": 197,
-          "gridY": 219,
+          "gridX": 150,
+          "gridY": 170,
           "text": "cN3"
         }
       ],
@@ -5442,12 +5442,12 @@
           "to": "papabel",
           "points": [
             [
-              525,
-              125
+              354,
+              100
             ],
             [
-              525,
-              175
+              354,
+              150
             ]
           ],
           "arrow": true
@@ -5460,21 +5460,21 @@
           "label": "Afwezig",
           "points": [
             [
-              405,
-              230
+              250,
+              196
             ],
             [
-              235,
-              230
+              100,
+              196
             ],
             [
-              235,
-              1095
+              100,
+              850
             ]
           ],
           "dot": [
-            320,
-            230
+            174,
+            196
           ],
           "arrow": true
         },
@@ -5486,17 +5486,17 @@
           "label": "Aanwezig",
           "points": [
             [
-              525,
-              295
+              354,
+              250
             ],
             [
-              525,
-              405
+              354,
+              325
             ]
           ],
           "dot": [
-            525,
-            345
+            354,
+            284
           ],
           "arrow": true
         },
@@ -5508,21 +5508,21 @@
           "label": "Gefixeerd",
           "points": [
             [
-              635,
-              460
+              450,
+              371
             ],
             [
-              1100,
-              460
+              850,
+              371
             ],
             [
-              1100,
-              1095
+              850,
+              850
             ]
           ],
           "dot": [
-            870,
-            460
+            651,
+            371
           ],
           "arrow": true
         },
@@ -5534,17 +5534,17 @@
           "label": "Niet gefixeerd",
           "points": [
             [
-              525,
-              525
+              354,
+              425
             ],
             [
-              525,
-              635
+              354,
+              500
             ]
           ],
           "dot": [
-            525,
-            575
+            354,
+            459
           ],
           "arrow": true
         },
@@ -5556,31 +5556,31 @@
           "label": "Ulcererend",
           "points": [
             [
-              635,
-              690
+              450,
+              546
             ],
             [
-              1100,
-              690
+              850,
+              546
             ]
           ],
           "selectedPoints": [
             [
-              635,
-              690
+              450,
+              546
             ],
             [
-              1100,
-              690
+              850,
+              546
             ],
             [
-              1100,
-              1095
+              850,
+              850
             ]
           ],
           "dot": [
-            870,
-            690
+            651,
+            546
           ]
         },
         {
@@ -5591,17 +5591,17 @@
           "label": "Niet ulcererend",
           "points": [
             [
-              525,
-              755
+              354,
+              600
             ],
             [
-              525,
-              865
+              354,
+              675
             ]
           ],
           "dot": [
-            525,
-            805
+            354,
+            634
           ],
           "arrow": true
         },
@@ -5613,21 +5613,21 @@
           "label": "Bilateraal",
           "points": [
             [
-              635,
-              920
+              450,
+              721
             ],
             [
-              810,
-              920
+              600,
+              721
             ],
             [
-              810,
-              1095
+              600,
+              850
             ]
           ],
           "dot": [
-            725,
-            920
+            526,
+            721
           ],
           "arrow": true
         },
@@ -5639,17 +5639,17 @@
           "label": "Unilateraal",
           "points": [
             [
-              525,
-              985
+              354,
+              775
             ],
             [
-              525,
-              1095
+              354,
+              850
             ]
           ],
           "dot": [
-            525,
-            1035
+            354,
+            809
           ],
           "arrow": true
         }
@@ -5658,16 +5658,16 @@
     "sub-ct": {
       "layout": {
         "unit": 5,
-        "blockWidth": 46,
-        "blockHeight": 24,
-        "margin": 4
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
       },
       "nodes": [
         {
           "id": "root",
           "type": "title",
-          "gridX": 126,
-          "gridY": 4,
+          "gridX": 100,
+          "gridY": 0,
           "tone": "blue",
           "label": "cT",
           "icon": "minus-light",
@@ -5677,8 +5677,8 @@
         {
           "id": "uitbreiding",
           "type": "dataItem",
-          "gridX": 126,
-          "gridY": 40,
+          "gridX": 100,
+          "gridY": 30,
           "label": "Tumor uitbreiding",
           "interactive": true,
           "options": [
@@ -5747,8 +5747,8 @@
         {
           "id": "diameter",
           "type": "dataItem",
-          "gridX": 126,
-          "gridY": 90,
+          "gridX": 100,
+          "gridY": 65,
           "label": "cT diameter",
           "interactive": true,
           "options": [
@@ -5767,8 +5767,8 @@
         {
           "id": "stromaal",
           "type": "dataItem",
-          "gridX": 69,
-          "gridY": 126,
+          "gridX": 50,
+          "gridY": 100,
           "label": "Stromale invasie",
           "interactive": true,
           "options": [
@@ -5787,36 +5787,36 @@
         {
           "id": "o-ctis",
           "type": "recommendation",
-          "gridX": 11,
-          "gridY": 175,
+          "gridX": 0,
+          "gridY": 135,
           "text": "cTis"
         },
         {
           "id": "o-ct1a",
           "type": "recommendation",
-          "gridX": 69,
-          "gridY": 175,
+          "gridX": 50,
+          "gridY": 135,
           "text": "cT1a"
         },
         {
           "id": "o-ct1b",
           "type": "recommendation",
-          "gridX": 126,
-          "gridY": 175,
+          "gridX": 100,
+          "gridY": 135,
           "text": "cT1b"
         },
         {
           "id": "o-ct2",
           "type": "recommendation",
-          "gridX": 184,
-          "gridY": 175,
+          "gridX": 150,
+          "gridY": 135,
           "text": "cT2"
         },
         {
           "id": "o-ct3",
           "type": "recommendation",
-          "gridX": 242,
-          "gridY": 175,
+          "gridX": 201,
+          "gridY": 135,
           "text": "cT3"
         }
       ],
@@ -5827,12 +5827,12 @@
           "to": "uitbreiding",
           "points": [
             [
-              745,
-              140
+              600,
+              100
             ],
             [
-              745,
-              200
+              600,
+              150
             ]
           ],
           "arrow": true
@@ -5848,21 +5848,21 @@
           "label": "Carcinoma in situ,\nIntraepitheliaal carcinoom",
           "points": [
             [
-              630,
-              260
+              500,
+              200
             ],
             [
-              170,
-              260
+              100,
+              200
             ],
             [
-              170,
-              875
+              100,
+              675
             ]
           ],
           "dot": [
-            400,
-            260
+            300,
+            200
           ],
           "arrow": true
         },
@@ -5877,17 +5877,17 @@
           "label": "Beperkt tot vulva,\nof perineum",
           "points": [
             [
-              745,
-              320
+              600,
+              250
             ],
             [
-              745,
-              450
+              600,
+              325
             ]
           ],
           "dot": [
-            745,
-            385
+            600,
+            288
           ],
           "arrow": true
         },
@@ -5903,21 +5903,21 @@
           "label": "Onderste derde urethra,\nOnderste derde vagina,\nAnus",
           "points": [
             [
-              860,
-              260
+              700,
+              200
             ],
             [
-              1035,
-              260
+              850,
+              200
             ],
             [
-              1035,
-              875
+              850,
+              675
             ]
           ],
           "dot": [
-            1035,
-            570
+            850,
+            441
           ],
           "arrow": true
         },
@@ -5935,39 +5935,39 @@
           "label": "Bovenste 2/3 urethra,\nBovenste 2/3 vagina,\nTunica mucosa vesicae urinariae\n(betrokkenheid met blaasslijmvlies),\nMucosa van rectum,\nIngroei in bekkenbot",
           "points": [
             [
-              1035,
-              260
+              852,
+              200
             ],
             [
-              1325,
-              260
+              1105,
+              200
             ],
             [
-              1325,
-              875
+              1105,
+              675
             ]
           ],
           "selectedPoints": [
             [
-              860,
-              260
+              700,
+              200
             ],
             [
-              1035,
-              260
+              852,
+              200
             ],
             [
-              1325,
-              260
+              1105,
+              200
             ],
             [
-              1325,
-              875
+              1105,
+              675
             ]
           ],
           "dot": [
-            1180,
-            260
+            979,
+            200
           ],
           "arrow": true
         },
@@ -5979,21 +5979,21 @@
           "label": "<=2 cm",
           "points": [
             [
-              630,
-              510
+              500,
+              375
             ],
             [
-              460,
-              510
+              350,
+              375
             ],
             [
-              460,
-              630
+              350,
+              500
             ]
           ],
           "dot": [
-            545,
-            510
+            424,
+            375
           ],
           "arrow": true
         },
@@ -6005,17 +6005,17 @@
           "label": ">2 cm",
           "points": [
             [
-              745,
-              570
+              600,
+              425
             ],
             [
-              745,
-              875
+              600,
+              675
             ]
           ],
           "dot": [
-            745,
-            630
+            600,
+            474
           ],
           "arrow": true
         },
@@ -6027,17 +6027,17 @@
           "label": "<=1 mm",
           "points": [
             [
-              460,
-              750
+              350,
+              600
             ],
             [
-              460,
-              875
+              350,
+              675
             ]
           ],
           "dot": [
-            460,
-            815
+            350,
+            639
           ],
           "arrow": true
         },
@@ -6049,31 +6049,31 @@
           "label": ">1 mm",
           "points": [
             [
-              575,
-              690
+              450,
+              550
             ],
             [
-              745,
-              690
+              600,
+              550
             ]
           ],
           "selectedPoints": [
             [
-              575,
-              690
+              450,
+              550
             ],
             [
-              745,
-              690
+              600,
+              550
             ],
             [
-              745,
-              875
+              600,
+              675
             ]
           ],
           "dot": [
-            660,
-            690
+            526,
+            550
           ]
         }
       ]
@@ -6081,16 +6081,16 @@
     "sub-pn": {
       "layout": {
         "unit": 5,
-        "blockWidth": 46,
-        "blockHeight": 24,
-        "margin": 6
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
       },
       "nodes": [
         {
           "id": "root",
           "type": "title",
-          "gridX": 162,
-          "gridY": 11,
+          "gridX": 139,
+          "gridY": 0,
           "tone": "blue",
           "label": "pN",
           "icon": "minus-light",
@@ -6100,8 +6100,8 @@
         {
           "id": "positief",
           "type": "dataItem",
-          "gridX": 162,
-          "gridY": 48,
+          "gridX": 139,
+          "gridY": 30,
           "label": "Positieve regionale lymfeklieren",
           "interactive": true,
           "options": [
@@ -6125,8 +6125,8 @@
         {
           "id": "kenmerken",
           "type": "dataItem",
-          "gridX": 318,
-          "gridY": 79,
+          "gridX": 278,
+          "gridY": 65,
           "label": "Kenmerken pN",
           "interactive": true,
           "options": [
@@ -6155,8 +6155,8 @@
         {
           "id": "aantal-positief",
           "type": "dataItem",
-          "gridX": 214,
-          "gridY": 109,
+          "gridX": 185,
+          "gridY": 100,
           "label": "Aantal positieve klieren",
           "interactive": true,
           "options": [
@@ -6175,8 +6175,8 @@
         {
           "id": "mm5-links",
           "type": "dataItem",
-          "gridX": 162,
-          "gridY": 139,
+          "gridX": 139,
+          "gridY": 135,
           "label": "Aantal klieren ≥ 5 mm",
           "interactive": true,
           "options": [
@@ -6200,8 +6200,8 @@
         {
           "id": "mm5-rechts",
           "type": "dataItem",
-          "gridX": 266,
-          "gridY": 139,
+          "gridX": 231,
+          "gridY": 135,
           "label": "Aantal klieren ≥ 5 mm",
           "interactive": true,
           "options": [
@@ -6220,64 +6220,64 @@
         {
           "id": "o-pnx",
           "type": "recommendation",
-          "gridX": 6,
-          "gridY": 182,
+          "gridX": 0,
+          "gridY": 170,
           "text": "pNX"
         },
         {
           "id": "o-pn0",
           "type": "recommendation",
-          "gridX": 58,
-          "gridY": 182,
+          "gridX": 47,
+          "gridY": 170,
           "text": "pN0"
         },
         {
           "id": "o-pn1a",
           "type": "recommendation",
-          "gridX": 110,
-          "gridY": 182,
+          "gridX": 93,
+          "gridY": 170,
           "text": "pN1a"
         },
         {
           "id": "o-pn1b",
           "type": "recommendation",
-          "gridX": 162,
-          "gridY": 182,
+          "gridX": 139,
+          "gridY": 170,
           "text": "pN1b"
         },
         {
           "id": "o-pn2b-links",
           "type": "recommendation",
-          "gridX": 214,
-          "gridY": 182,
+          "gridX": 185,
+          "gridY": 170,
           "text": "pN2b"
         },
         {
           "id": "o-pn2a",
           "type": "recommendation",
-          "gridX": 266,
-          "gridY": 182,
+          "gridX": 231,
+          "gridY": 170,
           "text": "pN2a"
         },
         {
           "id": "o-pn2b-rechts",
           "type": "recommendation",
-          "gridX": 318,
-          "gridY": 182,
+          "gridX": 278,
+          "gridY": 170,
           "text": "pN2b"
         },
         {
           "id": "o-pn2c",
           "type": "recommendation",
-          "gridX": 370,
-          "gridY": 182,
+          "gridX": 324,
+          "gridY": 170,
           "text": "pN2c"
         },
         {
           "id": "o-pn3",
           "type": "recommendation",
-          "gridX": 422,
-          "gridY": 182,
+          "gridX": 370,
+          "gridY": 170,
           "text": "pN3"
         }
       ],
@@ -6288,12 +6288,12 @@
           "to": "positief",
           "points": [
             [
-              925,
-              175
+              795,
+              100
             ],
             [
-              925,
-              240
+              795,
+              150
             ]
           ],
           "arrow": true
@@ -6306,21 +6306,21 @@
           "label": "Niet te beoordelen",
           "points": [
             [
-              810,
-              300
+              695,
+              200
             ],
             [
-              145,
-              300
+              100,
+              200
             ],
             [
-              145,
-              910
+              100,
+              850
             ]
           ],
           "dot": [
-            275,
-            300
+            214,
+            200
           ],
           "arrow": true
         },
@@ -6332,31 +6332,31 @@
           "label": "Afwezig",
           "points": [
             [
-              405,
-              300
+              335,
+              200
             ],
             [
-              405,
-              910
+              335,
+              850
             ]
           ],
           "selectedPoints": [
             [
-              810,
-              300
+              695,
+              200
             ],
             [
-              405,
-              300
+              335,
+              200
             ],
             [
-              405,
-              910
+              335,
+              850
             ]
           ],
           "dot": [
-            405,
-            605
+            335,
+            517
           ],
           "arrow": true
         },
@@ -6368,21 +6368,21 @@
           "label": "Aanwezig",
           "points": [
             [
-              1040,
-              300
+              895,
+              200
             ],
             [
-              1705,
-              300
+              1490,
+              200
             ],
             [
-              1705,
-              395
+              1490,
+              325
             ]
           ],
           "dot": [
-            1375,
-            300
+            1196,
+            200
           ],
           "arrow": true
         },
@@ -6394,21 +6394,21 @@
           "label": "Geen",
           "points": [
             [
-              1590,
-              455
+              1390,
+              375
             ],
             [
-              1185,
-              455
+              1025,
+              375
             ],
             [
-              1185,
-              545
+              1025,
+              500
             ]
           ],
           "dot": [
-            1390,
-            455
+            1207,
+            375
           ],
           "arrow": true
         },
@@ -6420,21 +6420,21 @@
           "label": "Extracapsulaire uitbreiding",
           "points": [
             [
-              1820,
-              455
+              1590,
+              375
             ],
             [
-              1965,
-              455
+              1720,
+              375
             ],
             [
-              1965,
-              910
+              1720,
+              850
             ]
           ],
           "dot": [
-            1965,
-            680
+            1720,
+            603
           ],
           "arrow": true
         },
@@ -6449,39 +6449,39 @@
           "label": "Ulcererend,\ngefixeerd",
           "points": [
             [
-              1965,
-              455
+              1720,
+              375
             ],
             [
-              2225,
-              455
+              1950,
+              375
             ],
             [
-              2225,
-              910
+              1950,
+              850
             ]
           ],
           "selectedPoints": [
             [
-              1820,
-              455
+              1590,
+              375
             ],
             [
-              1965,
-              455
+              1720,
+              375
             ],
             [
-              2225,
-              455
+              1950,
+              375
             ],
             [
-              2225,
-              910
+              1950,
+              850
             ]
           ],
           "dot": [
-            2095,
-            455
+            1837,
+            375
           ],
           "arrow": true
         },
@@ -6493,21 +6493,21 @@
           "label": "<=2",
           "points": [
             [
-              1070,
-              605
+              925,
+              550
             ],
             [
-              925,
-              605
+              795,
+              550
             ],
             [
-              925,
-              695
+              795,
+              675
             ]
           ],
           "dot": [
-            1000,
-            605
+            860,
+            550
           ],
           "arrow": true
         },
@@ -6519,21 +6519,21 @@
           "label": ">=3",
           "points": [
             [
-              1300,
-              605
+              1125,
+              550
             ],
             [
-              1445,
-              605
+              1255,
+              550
             ],
             [
-              1445,
-              695
+              1255,
+              675
             ]
           ],
           "dot": [
-            1375,
-            605
+            1194,
+            550
           ],
           "arrow": true
         },
@@ -6545,21 +6545,21 @@
           "label": "0",
           "points": [
             [
-              810,
-              755
+              695,
+              725
             ],
             [
-              665,
-              755
+              565,
+              725
             ],
             [
-              665,
-              910
+              565,
+              850
             ]
           ],
           "dot": [
-            740,
-            755
+            630,
+            725
           ],
           "arrow": true
         },
@@ -6571,17 +6571,17 @@
           "label": "1",
           "points": [
             [
-              925,
-              815
+              795,
+              775
             ],
             [
-              925,
-              910
+              795,
+              850
             ]
           ],
           "dot": [
-            925,
-            865
+            795,
+            814
           ],
           "arrow": true
         },
@@ -6593,21 +6593,21 @@
           "label": "2",
           "points": [
             [
-              1040,
-              755
+              895,
+              725
             ],
             [
-              1185,
-              755
+              1025,
+              725
             ],
             [
-              1185,
-              910
+              1025,
+              850
             ]
           ],
           "dot": [
-            1115,
-            755
+            964,
+            725
           ],
           "arrow": true
         },
@@ -6619,17 +6619,17 @@
           "label": "<=1",
           "points": [
             [
-              1445,
-              815
+              1255,
+              775
             ],
             [
-              1445,
-              910
+              1255,
+              850
             ]
           ],
           "dot": [
-            1445,
-            865
+            1255,
+            814
           ],
           "arrow": true
         },
@@ -6641,21 +6641,21 @@
           "label": ">=2",
           "points": [
             [
-              1560,
-              755
+              1355,
+              725
             ],
             [
-              1705,
-              755
+              1490,
+              725
             ],
             [
-              1705,
-              910
+              1490,
+              850
             ]
           ],
           "dot": [
-            1635,
-            755
+            1429,
+            725
           ],
           "arrow": true
         }
