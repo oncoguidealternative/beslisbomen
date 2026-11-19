@@ -1,0 +1,36 @@
+{
+  "tumor": "niet-epitheliaal-ovarium",
+  "export": "../exports/oncoguide-68.json",
+  "menu": 10866,
+  "titel": "Zorgpad niet epitheliale ovarium maligniteiten",
+  "bron": {
+    "richtlijn": "Niet epitheliale maligniteiten van het ovarium",
+    "organisatie": "NVOG (Nederlandse Vereniging voor Obstetrie en Gynaecologie)",
+    "url": "https://richtlijnendatabase.nl/richtlijn/niet_epitheliale_maligniteiten_ovarium/algemeen.html"
+  },
+  "extern": {
+    "11081": {
+      "tumor": "vergroot-ovarium",
+      "tree": "klinisch-vergroot-ovarium"
+    },
+    "11082": {
+      "tumor": "vergroot-ovarium",
+      "tree": "initieel-beleid"
+    }
+  },
+  "behoudOverzicht": true,
+  "vervang": [
+    [
+      "cyctectomie",
+      "cystectomie"
+    ],
+    [
+      "bordeline",
+      "borderline"
+    ],
+    [
+      "menopausaal",
+      "menopauzaal"
+    ]
+  ]
+}

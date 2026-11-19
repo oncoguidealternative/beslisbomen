@@ -1,6 +1,12 @@
 {
   "id": "cin-ais-vain",
-  "titel": "CIN, AIS, VAIN",
+  "titel": "Zorgpad CIN, AIS, VAIN",
+  "bron": {
+    "richtlijn": "CIN, AIS en VAIN",
+    "organisatie": "NVOG (Nederlandse Vereniging voor Obstetrie en Gynaecologie)",
+    "url": "https://richtlijnendatabase.nl/richtlijn/cin_ais_en_vain/startpagina_-_cin_ais_en_vain.html",
+    "opmerking": "Omgezet uit Oncoguide (IKNL, project 28, publicatie 24-09-2021)."
+  },
   "overview": {
     "layout": {
       "unit": 5,
@@ -113,7 +119,8 @@
         "drill": true,
         "label": "Follow up - 24 maanden na diagnose behandelde CIN 2/3",
         "gridX": 150,
-        "gridY": 160
+        "gridY": 160,
+        "to": "fu-24-behandeld-cin23"
       },
       {
         "id": "beleid-biopt-12-onbehandeld-cin2",
@@ -163,7 +170,8 @@
         "drill": true,
         "label": "Beleid na histologie",
         "gridX": 255,
-        "gridY": 235
+        "gridY": 235,
+        "to": "beleid-na-histologie"
       }
     ],
     "edges": [
@@ -642,5 +650,3315 @@
       }
     ]
   },
-  "trees": {}
+  "trees": {
+    "beleid-tijdens-colposcopie": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "reference",
+          "label": "Beleid na histologie",
+          "to": "beleid-na-histologie",
+          "id": "verwijzing-beleid-na-histologie",
+          "gridX": 0,
+          "gridY": 200
+        },
+        {
+          "type": "dataItem",
+          "label": "PAP-score",
+          "id": "pap-score",
+          "gridX": 150,
+          "gridY": 90,
+          "interactive": true,
+          "options": [
+            {
+              "value": "lte-pap-3a1",
+              "label": "<= PAP 3a1",
+              "edge": "edge-pap-score-lte-pap-3a1"
+            },
+            {
+              "value": "gte-pap-3a2",
+              "label": ">= PAP 3a2",
+              "edge": "edge-pap-score-gte-pap-3a2"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Neem minimaal twee willekeurige biopten af EN Overweeg vaginascopie\n{i} Overweeg LETZ bij vervulde kinderwens",
+          "height": 26,
+          "id": "aanbeveling-neem-minimaal-twee-willekeurige-biopten-af",
+          "gridX": 100,
+          "gridY": 130
+        },
+        {
+          "type": "reference",
+          "label": "Beleid na histologie",
+          "to": "beleid-na-histologie",
+          "id": "verwijzing-beleid-na-histologie-2",
+          "gridX": 100,
+          "gridY": 200
+        },
+        {
+          "type": "recommendation",
+          "text": "Neem twee gerichte biopten af\n{i} Overweeg LETZ bij vervulde kinderwens",
+          "height": 23,
+          "id": "aanbeveling-neem-twee-gerichte-biopten-af",
+          "gridX": 150,
+          "gridY": 130
+        },
+        {
+          "type": "reference",
+          "label": "Beleid na histologie",
+          "to": "beleid-na-histologie",
+          "id": "verwijzing-beleid-na-histologie-3",
+          "gridX": 150,
+          "gridY": 200
+        },
+        {
+          "type": "recommendation",
+          "text": "Neem twee gerichte biopten af\nOF\nLETZ\n{i} Bij fertiele vrouwen met kinderwens bij voorkeur eerst biopt afnemen",
+          "height": 32,
+          "id": "aanbeveling-neem-twee-gerichte-biopten-af-2",
+          "gridX": 200,
+          "gridY": 130
+        },
+        {
+          "type": "reference",
+          "label": "Beleid na histologie",
+          "to": "beleid-na-histologie",
+          "id": "verwijzing-beleid-na-histologie-4",
+          "gridX": 200,
+          "gridY": 200
+        },
+        {
+          "type": "recommendation",
+          "text": "Endocervicale curretage\nOF\nLETZ\nOF\nExconisatie van de cervix op indicatie\n{i} In geval van een negatieve transformatiezone kan een endocervicale curettage worden verricht.",
+          "height": 45,
+          "id": "aanbeveling-endocervicale-curretage",
+          "gridX": 250,
+          "gridY": 130
+        },
+        {
+          "type": "reference",
+          "label": "Beleid na histologie",
+          "to": "beleid-na-histologie",
+          "id": "verwijzing-beleid-na-histologie-5",
+          "gridX": 250,
+          "gridY": 200
+        },
+        {
+          "type": "recommendation",
+          "text": "Neem twee gerichte biopten af\n{i} Overweeg LETZ bij vervulde kinderwens",
+          "height": 23,
+          "id": "aanbeveling-neem-twee-gerichte-biopten-af-3",
+          "gridX": 300,
+          "gridY": 130
+        },
+        {
+          "type": "reference",
+          "label": "Beleid na histologie",
+          "to": "beleid-na-histologie",
+          "id": "verwijzing-beleid-na-histologie-6",
+          "gridX": 300,
+          "gridY": 200
+        },
+        {
+          "type": "reference",
+          "label": "Beleid na histologie",
+          "to": "beleid-na-histologie",
+          "id": "verwijzing-beleid-na-histologie-7",
+          "gridX": 350,
+          "gridY": 200
+        },
+        {
+          "type": "dataItem",
+          "label": "Transformatiezone goed a vue",
+          "id": "transformatiezone-goed-a-vue",
+          "gridX": 150,
+          "gridY": 30,
+          "interactive": true,
+          "options": [
+            {
+              "value": "ja",
+              "label": "Ja",
+              "edge": "edge-transformatiezone-goed-a-vue-ja"
+            },
+            {
+              "value": "nee",
+              "label": "Nee",
+              "edge": "edge-transformatiezone-goed-a-vue-nee"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Colposcopische afwijkingen",
+          "id": "colposcopische-afwijkingen",
+          "gridX": 250,
+          "gridY": 60,
+          "interactive": true,
+          "options": [
+            {
+              "value": "geen-laaggradig",
+              "label": "Geen; Laaggradig",
+              "edge": "edge-colposcopische-afwijkingen-geen-laaggradig"
+            },
+            {
+              "value": "hooggradig",
+              "label": "Hooggradig",
+              "edge": "edge-colposcopische-afwijkingen-hooggradig"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "PAP-score",
+          "id": "pap-score-2",
+          "gridX": 50,
+          "gridY": 90,
+          "interactive": true,
+          "options": [
+            {
+              "value": "lte-pap-3a1",
+              "label": "<= PAP 3a1",
+              "edge": "edge-pap-score-2-lte-pap-3a1"
+            },
+            {
+              "value": "gte-pap-3a2",
+              "label": ">= PAP 3a2",
+              "edge": "edge-pap-score-2-gte-pap-3a2"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Biopsie niet strikt noodzakelijk",
+          "height": 20,
+          "id": "aanbeveling-biopsie-niet-strikt-noodzakelijk",
+          "gridX": 50,
+          "gridY": 130
+        },
+        {
+          "type": "reference",
+          "label": "Follow up - 12 maanden na verdenking/diagnose laaggradige afwijking",
+          "to": "fu-12-laaggradig",
+          "id": "verwijzing-follow-up-12-maanden-na-verdenking-diagnose-laaggradige-afwijking",
+          "gridX": 50,
+          "gridY": 200
+        },
+        {
+          "type": "dataItem",
+          "label": "PAP-score",
+          "id": "pap-score-3",
+          "gridX": 300,
+          "gridY": 90,
+          "interactive": true,
+          "options": [
+            {
+              "value": "lte-pap-3a1",
+              "label": "<= PAP 3a1",
+              "edge": "edge-pap-score-3-lte-pap-3a1"
+            },
+            {
+              "value": "gte-pap-3a2",
+              "label": ">= PAP 3a2",
+              "edge": "edge-pap-score-3-gte-pap-3a2"
+            }
+          ]
+        },
+        {
+          "type": "title",
+          "label": "Beleid tijdens colposcopie",
+          "id": "titel",
+          "gridX": 150,
+          "gridY": 0
+        },
+        {
+          "type": "dataItem",
+          "label": "Colposcopische afwijkingen",
+          "id": "colposcopische-afwijkingen-2",
+          "gridX": 100,
+          "gridY": 60,
+          "interactive": true,
+          "options": [
+            {
+              "value": "geen-laaggradig",
+              "label": "Geen; Laaggradig",
+              "edge": "edge-colposcopische-afwijkingen-2-geen-laaggradig"
+            },
+            {
+              "value": "hooggradig",
+              "label": "Hooggradig",
+              "edge": "edge-colposcopische-afwijkingen-2-hooggradig"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Neem twee gerichte biopten af\nOF\nLETZ",
+          "height": 20,
+          "id": "aanbeveling-neem-twee-gerichte-biopten-af-4",
+          "gridX": 350,
+          "gridY": 130
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-pap-score-gte-pap-3a2",
+          "from": "pap-score",
+          "to": "aanbeveling-neem-twee-gerichte-biopten-af-2",
+          "label": ">= PAP 3a2",
+          "value": "gte-pap-3a2",
+          "arrow": true
+        },
+        {
+          "id": "edge-pap-score-3-gte-pap-3a2",
+          "from": "pap-score-3",
+          "to": "aanbeveling-neem-twee-gerichte-biopten-af-4",
+          "label": ">= PAP 3a2",
+          "value": "gte-pap-3a2",
+          "arrow": true
+        },
+        {
+          "id": "edge-pap-score-3-lte-pap-3a1",
+          "from": "pap-score-3",
+          "to": "aanbeveling-neem-twee-gerichte-biopten-af-3",
+          "label": "<= PAP 3a1",
+          "value": "lte-pap-3a1",
+          "arrow": true
+        },
+        {
+          "id": "edge-colposcopische-afwijkingen-hooggradig",
+          "from": "colposcopische-afwijkingen",
+          "to": "pap-score-3",
+          "label": "Hooggradig",
+          "value": "hooggradig",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-biopsie-niet-strikt-noodzakelijk-verwijzing-follow-up-12-maanden-na-verdenking-diagnose-laaggradige-afwijking",
+          "from": "aanbeveling-biopsie-niet-strikt-noodzakelijk",
+          "to": "verwijzing-follow-up-12-maanden-na-verdenking-diagnose-laaggradige-afwijking",
+          "arrow": true
+        },
+        {
+          "id": "edge-pap-score-2-lte-pap-3a1",
+          "from": "pap-score-2",
+          "to": "aanbeveling-biopsie-niet-strikt-noodzakelijk",
+          "label": "<= PAP 3a1",
+          "value": "lte-pap-3a1",
+          "arrow": true
+        },
+        {
+          "id": "edge-pap-score-2-gte-pap-3a2",
+          "from": "pap-score-2",
+          "to": "aanbeveling-neem-minimaal-twee-willekeurige-biopten-af",
+          "label": ">= PAP 3a2",
+          "value": "gte-pap-3a2",
+          "arrow": true
+        },
+        {
+          "id": "edge-colposcopische-afwijkingen-2-geen-laaggradig",
+          "from": "colposcopische-afwijkingen-2",
+          "to": "pap-score-2",
+          "label": "Geen; Laaggradig",
+          "value": "geen-laaggradig",
+          "arrow": true
+        },
+        {
+          "id": "edge-colposcopische-afwijkingen-2-hooggradig",
+          "from": "colposcopische-afwijkingen-2",
+          "to": "pap-score",
+          "label": "Hooggradig",
+          "value": "hooggradig",
+          "arrow": true
+        },
+        {
+          "id": "edge-titel-transformatiezone-goed-a-vue",
+          "from": "titel",
+          "to": "transformatiezone-goed-a-vue",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-neem-minimaal-twee-willekeurige-biopten-af-verwijzing-beleid-na-histologie-2",
+          "from": "aanbeveling-neem-minimaal-twee-willekeurige-biopten-af",
+          "to": "verwijzing-beleid-na-histologie-2",
+          "arrow": true
+        },
+        {
+          "id": "edge-transformatiezone-goed-a-vue-nee",
+          "from": "transformatiezone-goed-a-vue",
+          "to": "colposcopische-afwijkingen",
+          "label": "Nee",
+          "value": "nee",
+          "arrow": true
+        },
+        {
+          "id": "edge-transformatiezone-goed-a-vue-ja",
+          "from": "transformatiezone-goed-a-vue",
+          "to": "colposcopische-afwijkingen-2",
+          "label": "Ja",
+          "value": "ja",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-neem-twee-gerichte-biopten-af-4-verwijzing-beleid-na-histologie-7",
+          "from": "aanbeveling-neem-twee-gerichte-biopten-af-4",
+          "to": "verwijzing-beleid-na-histologie-7",
+          "arrow": true
+        },
+        {
+          "id": "edge-pap-score-lte-pap-3a1",
+          "from": "pap-score",
+          "to": "aanbeveling-neem-twee-gerichte-biopten-af",
+          "label": "<= PAP 3a1",
+          "value": "lte-pap-3a1",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-neem-twee-gerichte-biopten-af-verwijzing-beleid-na-histologie-3",
+          "from": "aanbeveling-neem-twee-gerichte-biopten-af",
+          "to": "verwijzing-beleid-na-histologie-3",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-neem-twee-gerichte-biopten-af-3-verwijzing-beleid-na-histologie-6",
+          "from": "aanbeveling-neem-twee-gerichte-biopten-af-3",
+          "to": "verwijzing-beleid-na-histologie-6",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-endocervicale-curretage-verwijzing-beleid-na-histologie-5",
+          "from": "aanbeveling-endocervicale-curretage",
+          "to": "verwijzing-beleid-na-histologie-5",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-biopsie-niet-strikt-noodzakelijk-verwijzing-beleid-na-histologie",
+          "from": "aanbeveling-biopsie-niet-strikt-noodzakelijk",
+          "to": "verwijzing-beleid-na-histologie",
+          "arrow": true
+        },
+        {
+          "id": "edge-colposcopische-afwijkingen-geen-laaggradig",
+          "from": "colposcopische-afwijkingen",
+          "to": "aanbeveling-endocervicale-curretage",
+          "label": "Geen; Laaggradig",
+          "value": "geen-laaggradig",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-neem-twee-gerichte-biopten-af-2-verwijzing-beleid-na-histologie-4",
+          "from": "aanbeveling-neem-twee-gerichte-biopten-af-2",
+          "to": "verwijzing-beleid-na-histologie-4",
+          "arrow": true
+        }
+      ]
+    },
+    "beleid-na-histologie": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "recommendation",
+          "text": "Follow up met\nhrHPV\nEN\ncervixcytologie\n{i} 6 maanden na behandeling",
+          "height": 29,
+          "id": "aanbeveling-follow-up-met",
+          "gridX": 50,
+          "gridY": 150
+        },
+        {
+          "type": "reference",
+          "label": "Follow up - 6 maanden na diagnose onbehandelde CIN2",
+          "to": "fu-6-onbehandeld-cin2",
+          "id": "verwijzing-follow-up-6-maanden-na-diagnose-onbehandelde-cin2",
+          "gridX": 300,
+          "gridY": 220
+        },
+        {
+          "type": "reference",
+          "label": "Follow up - 6 maanden na diagnose behandelde CIN 2/3",
+          "to": "fu-6-behandeld-cin23",
+          "id": "verwijzing-follow-up-6-maanden-na-diagnose-behandelde-cin-2-3",
+          "gridX": 300,
+          "gridY": 195
+        },
+        {
+          "type": "reference",
+          "label": "Follow up - 6 maanden na diagnose behandelde CIN 2/3",
+          "to": "fu-6-behandeld-cin23",
+          "id": "verwijzing-follow-up-6-maanden-na-diagnose-behandelde-cin-2-3-2",
+          "gridX": 50,
+          "gridY": 220
+        },
+        {
+          "type": "recommendation",
+          "text": "LETZ\nOF\nExconisatie van de cervix op indicatie",
+          "height": 20,
+          "id": "aanbeveling-letz",
+          "gridX": 400,
+          "gridY": 150
+        },
+        {
+          "type": "title",
+          "label": "Beleid na histologie",
+          "id": "titel",
+          "gridX": 250,
+          "gridY": 0
+        },
+        {
+          "type": "reference",
+          "label": "Follow up - 6 maanden na diagnose onbehandelde CIN2",
+          "to": "fu-6-onbehandeld-cin2",
+          "id": "verwijzing-follow-up-6-maanden-na-diagnose-onbehandelde-cin2-2",
+          "gridX": 250,
+          "gridY": 220
+        },
+        {
+          "type": "recommendation",
+          "text": "Volgend uitstrijkje volgens BVO\n{i} Bij discrepantie met klinisch beeld: individualiseer de behandeling én overleg met patholoog",
+          "height": 32,
+          "id": "aanbeveling-volgend-uitstrijkje-volgens-bvo",
+          "gridX": 0,
+          "gridY": 150
+        },
+        {
+          "type": "recommendation",
+          "text": "Zie richtlijn cervixcarcinoom",
+          "height": 20,
+          "id": "aanbeveling-zie-richtlijn-cervixcarcinoom",
+          "gridX": 450,
+          "gridY": 150
+        },
+        {
+          "type": "recommendation",
+          "text": "Zie richtlijn cervixcarcinoom",
+          "height": 20,
+          "id": "aanbeveling-zie-richtlijn-cervixcarcinoom-2",
+          "gridX": 150,
+          "gridY": 150
+        },
+        {
+          "type": "recommendation",
+          "text": "Behandeling niet geïndiceerd\n{i} Bij discrepantie met het klinisch beeld: individualiseer de behandeling én overleg met patholoog\n{i} Bij recidiverende, laaggradige afwijkingen in niet-fertiele levensfase kan men samen met patiënte besluiten tot behandeling om de tijd tussen controles te vergroten of controles te kunnen staken.",
+          "height": 58,
+          "id": "aanbeveling-behandeling-niet-geindiceerd",
+          "gridX": 200,
+          "gridY": 150
+        },
+        {
+          "type": "reference",
+          "label": "Follow up - 12 maanden na verdenking/diagnose laaggradige afwijking",
+          "to": "fu-12-laaggradig",
+          "id": "verwijzing-follow-up-12-maanden-na-verdenking-diagnose-laaggradige-afwijking",
+          "gridX": 200,
+          "gridY": 220
+        },
+        {
+          "type": "recommendation",
+          "text": "Expectatief beleid\n{i} vrouw is bereid om voor follow-up te komen\nFollow up 6 mnd met hrpv en cytologie",
+          "height": 26,
+          "id": "aanbeveling-expectatief-beleid",
+          "gridX": 250,
+          "gridY": 150
+        },
+        {
+          "type": "reference",
+          "label": "Beleid na histologie",
+          "to": "beleid-na-histologie",
+          "id": "verwijzing-beleid-na-histologie",
+          "gridX": 350,
+          "gridY": 220
+        },
+        {
+          "type": "dataItem",
+          "label": "Uitslag histologie cervix",
+          "id": "uitslag-histologie-cervix",
+          "gridX": 100,
+          "gridY": 110,
+          "interactive": true,
+          "options": [
+            {
+              "value": "geen-afwijkingen-cin-1",
+              "label": "Geen afwijkingen; CIN 1",
+              "edge": "edge-uitslag-histologie-cervix-geen-afwijkingen-cin-1"
+            },
+            {
+              "value": "cin-2-cin-3",
+              "label": "CIN 2-CIN 3",
+              "edge": "edge-uitslag-histologie-cervix-cin-2-cin-3"
+            },
+            {
+              "value": "ais",
+              "label": "AIS",
+              "edge": "edge-uitslag-histologie-cervix-ais"
+            },
+            {
+              "value": "micro-invasief-carcinoom",
+              "label": "(Micro-) invasief carcinoom",
+              "edge": "edge-uitslag-histologie-cervix-micro-invasief-carcinoom"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Individualiseer de follow up",
+          "height": 20,
+          "id": "aanbeveling-individualiseer-de-follow-up",
+          "gridX": 500,
+          "gridY": 150
+        },
+        {
+          "type": "dataItem",
+          "label": "Aard van het materiaal",
+          "id": "aard-van-het-materiaal",
+          "gridX": 250,
+          "gridY": 30,
+          "interactive": true,
+          "options": [
+            {
+              "value": "exconisatie-weefsel",
+              "label": "Exconisatie-weefsel",
+              "edge": "edge-aard-van-het-materiaal-uitslag-histologie-cervix"
+            },
+            {
+              "value": "letz-weefsel",
+              "label": "LETZ-weefsel",
+              "edge": "edge-aard-van-het-materiaal-uitslag-histologie-cervix"
+            },
+            {
+              "value": "cervixbiopt",
+              "label": "Cervixbiopt",
+              "edge": "edge-aard-van-het-materiaal-cervixbiopt"
+            },
+            {
+              "value": "vaginabiopt",
+              "label": "Vaginabiopt",
+              "edge": "edge-aard-van-het-materiaal-vaginabiopt"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Leeftijd",
+          "id": "leeftijd",
+          "gridX": 250,
+          "gridY": 110,
+          "measure": {
+            "unit": "jaar"
+          },
+          "interactive": true,
+          "options": [
+            {
+              "value": "lte-30",
+              "label": "<=30",
+              "gt": 0,
+              "lte": 30,
+              "edge": "edge-leeftijd-lte-30"
+            },
+            {
+              "value": "gt-30",
+              "label": ">30",
+              "gt": 30,
+              "lt": 120,
+              "edge": "edge-leeftijd-gt-30"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Excisie\nOF\nLaser\nOF\nImiquimod\n{i} Individualiseer de follow up, bij voorkeur bij expert gynaecoloog",
+          "height": 36,
+          "id": "aanbeveling-excisie",
+          "gridX": 550,
+          "gridY": 150
+        },
+        {
+          "type": "dataItem",
+          "label": "Uitslag histologie cervix",
+          "id": "uitslag-histologie-cervix-2",
+          "gridX": 250,
+          "gridY": 70,
+          "interactive": true,
+          "options": [
+            {
+              "value": "geen-afwijkingen-cin-1",
+              "label": "Geen afwijkingen; CIN 1",
+              "edge": "edge-uitslag-histologie-cervix-2-geen-afwijkingen-cin-1"
+            },
+            {
+              "value": "cin-2",
+              "label": "CIN 2",
+              "edge": "edge-uitslag-histologie-cervix-2-cin-2"
+            },
+            {
+              "value": "cin-3",
+              "label": "CIN 3",
+              "edge": "edge-uitslag-histologie-cervix-2-cin-3"
+            },
+            {
+              "value": "ais",
+              "label": "AIS",
+              "edge": "edge-uitslag-histologie-cervix-2-ais"
+            },
+            {
+              "value": "micro-invasief-carcinoom",
+              "label": "(Micro-) invasief carcinoom",
+              "edge": "edge-uitslag-histologie-cervix-2-micro-invasief-carcinoom"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Vaginale imiquimod-behandeling\nOF\nLETZ\nOF\nExconisatie van de cervix op indicatie",
+          "height": 29,
+          "id": "aanbeveling-vaginale-imiquimod-behandeling",
+          "gridX": 350,
+          "gridY": 150
+        },
+        {
+          "type": "reference",
+          "label": "Beleid na histologie",
+          "to": "beleid-na-histologie",
+          "id": "verwijzing-beleid-na-histologie-2",
+          "gridX": 300,
+          "gridY": 245
+        },
+        {
+          "type": "dataItem",
+          "label": "Kinderwens",
+          "id": "kinderwens",
+          "gridX": 350,
+          "gridY": 110,
+          "interactive": true,
+          "options": [
+            {
+              "value": "ja",
+              "label": "Ja",
+              "edge": "edge-kinderwens-ja"
+            },
+            {
+              "value": "nee",
+              "label": "Nee",
+              "edge": "edge-kinderwens-nee"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Individualiseer;\noverleg met patholoog en eventueel met expert gynaecoloog",
+          "height": 20,
+          "id": "aanbeveling-individualiseer",
+          "gridX": 100,
+          "gridY": 150
+        },
+        {
+          "type": "recommendation",
+          "text": "Individualiseer behandeling mbv shared decision making.\n{i} Overweeg LETZ met 6-maandelijkse follow up tot regressie met een maximum van 2 jaar",
+          "height": 32,
+          "id": "aanbeveling-individualiseer-behandeling-mbv-shared",
+          "gridX": 300,
+          "gridY": 150
+        },
+        {
+          "type": "dataItem",
+          "label": "Uitslag histologie vaginawand",
+          "id": "uitslag-histologie-vaginawand",
+          "gridX": 500,
+          "gridY": 110,
+          "interactive": true,
+          "options": [
+            {
+              "value": "geen-afwijkingen",
+              "label": "Geen afwijkingen",
+              "edge": "edge-uitslag-histologie-vaginawand-geen-afwijkingen"
+            },
+            {
+              "value": "vain",
+              "label": "VAIN",
+              "edge": "edge-uitslag-histologie-vaginawand-vain"
+            }
+          ]
+        },
+        {
+          "type": "reference",
+          "label": "Beleid na histologie",
+          "to": "beleid-na-histologie",
+          "id": "verwijzing-beleid-na-histologie-3",
+          "gridX": 400,
+          "gridY": 220
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-aanbeveling-follow-up-met-verwijzing-follow-up-6-maanden-na-diagnose-behandelde-cin-2-3-2",
+          "from": "aanbeveling-follow-up-met",
+          "to": "verwijzing-follow-up-6-maanden-na-diagnose-behandelde-cin-2-3-2",
+          "arrow": true
+        },
+        {
+          "id": "edge-uitslag-histologie-cervix-2-micro-invasief-carcinoom",
+          "from": "uitslag-histologie-cervix-2",
+          "to": "aanbeveling-zie-richtlijn-cervixcarcinoom",
+          "label": "(Micro-) invasief carcinoom",
+          "value": "micro-invasief-carcinoom",
+          "arrow": true
+        },
+        {
+          "id": "edge-uitslag-histologie-cervix-micro-invasief-carcinoom",
+          "from": "uitslag-histologie-cervix",
+          "to": "aanbeveling-zie-richtlijn-cervixcarcinoom-2",
+          "label": "(Micro-) invasief carcinoom",
+          "value": "micro-invasief-carcinoom",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-vaginale-imiquimod-behandeling-verwijzing-beleid-na-histologie",
+          "from": "aanbeveling-vaginale-imiquimod-behandeling",
+          "to": "verwijzing-beleid-na-histologie",
+          "arrow": true
+        },
+        {
+          "id": "edge-uitslag-histologie-cervix-2-geen-afwijkingen-cin-1",
+          "from": "uitslag-histologie-cervix-2",
+          "to": "aanbeveling-behandeling-niet-geindiceerd",
+          "label": "Geen afwijkingen; CIN 1",
+          "value": "geen-afwijkingen-cin-1",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-behandeling-niet-geindiceerd-verwijzing-follow-up-12-maanden-na-verdenking-diagnose-laaggradige-afwijking",
+          "from": "aanbeveling-behandeling-niet-geindiceerd",
+          "to": "verwijzing-follow-up-12-maanden-na-verdenking-diagnose-laaggradige-afwijking",
+          "arrow": true
+        },
+        {
+          "id": "edge-aard-van-het-materiaal-vaginabiopt",
+          "from": "aard-van-het-materiaal",
+          "to": "uitslag-histologie-vaginawand",
+          "label": "Vaginabiopt",
+          "value": "vaginabiopt",
+          "arrow": true
+        },
+        {
+          "id": "edge-uitslag-histologie-vaginawand-geen-afwijkingen",
+          "from": "uitslag-histologie-vaginawand",
+          "to": "aanbeveling-individualiseer-de-follow-up",
+          "label": "Geen afwijkingen",
+          "value": "geen-afwijkingen",
+          "arrow": true
+        },
+        {
+          "id": "edge-uitslag-histologie-vaginawand-vain",
+          "from": "uitslag-histologie-vaginawand",
+          "to": "aanbeveling-excisie",
+          "label": "VAIN",
+          "value": "vain",
+          "arrow": true
+        },
+        {
+          "id": "edge-aard-van-het-materiaal-uitslag-histologie-cervix",
+          "from": "aard-van-het-materiaal",
+          "to": "uitslag-histologie-cervix",
+          "label": "Exconisatie-weefsel, LETZ-weefsel",
+          "value": [
+            "exconisatie-weefsel",
+            "letz-weefsel"
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-leeftijd-gt-30",
+          "from": "leeftijd",
+          "to": "aanbeveling-individualiseer-behandeling-mbv-shared",
+          "label": ">30",
+          "value": "gt-30",
+          "arrow": true
+        },
+        {
+          "id": "edge-uitslag-histologie-cervix-cin-2-cin-3",
+          "from": "uitslag-histologie-cervix",
+          "to": "aanbeveling-follow-up-met",
+          "label": "CIN 2-CIN 3",
+          "value": "cin-2-cin-3",
+          "arrow": true
+        },
+        {
+          "id": "edge-titel-aard-van-het-materiaal",
+          "from": "titel",
+          "to": "aard-van-het-materiaal",
+          "arrow": true
+        },
+        {
+          "id": "edge-aard-van-het-materiaal-cervixbiopt",
+          "from": "aard-van-het-materiaal",
+          "to": "uitslag-histologie-cervix-2",
+          "label": "Cervixbiopt",
+          "value": "cervixbiopt",
+          "arrow": true
+        },
+        {
+          "id": "edge-verwijzing-follow-up-6-maanden-na-diagnose-behandelde-cin-2-3-verwijzing-follow-up-6-maanden-na-diagnose-onbehandelde-cin2",
+          "from": "verwijzing-follow-up-6-maanden-na-diagnose-behandelde-cin-2-3",
+          "to": "verwijzing-follow-up-6-maanden-na-diagnose-onbehandelde-cin2",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-expectatief-beleid-verwijzing-follow-up-6-maanden-na-diagnose-onbehandelde-cin2-2",
+          "from": "aanbeveling-expectatief-beleid",
+          "to": "verwijzing-follow-up-6-maanden-na-diagnose-onbehandelde-cin2-2",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-individualiseer-behandeling-mbv-shared-verwijzing-follow-up-6-maanden-na-diagnose-behandelde-cin-2-3",
+          "from": "aanbeveling-individualiseer-behandeling-mbv-shared",
+          "to": "verwijzing-follow-up-6-maanden-na-diagnose-behandelde-cin-2-3",
+          "arrow": true
+        },
+        {
+          "id": "edge-kinderwens-nee",
+          "from": "kinderwens",
+          "to": "aanbeveling-letz",
+          "label": "Nee",
+          "value": "nee",
+          "arrow": true
+        },
+        {
+          "id": "edge-kinderwens-ja",
+          "from": "kinderwens",
+          "to": "aanbeveling-vaginale-imiquimod-behandeling",
+          "label": "Ja",
+          "value": "ja",
+          "arrow": true
+        },
+        {
+          "id": "edge-uitslag-histologie-cervix-2-ais",
+          "from": "uitslag-histologie-cervix-2",
+          "to": "aanbeveling-letz",
+          "label": "AIS",
+          "value": "ais",
+          "arrow": true
+        },
+        {
+          "id": "edge-uitslag-histologie-cervix-2-cin-3",
+          "from": "uitslag-histologie-cervix-2",
+          "to": "kinderwens",
+          "label": "CIN 3",
+          "value": "cin-3",
+          "arrow": true
+        },
+        {
+          "id": "edge-leeftijd-lte-30",
+          "from": "leeftijd",
+          "to": "aanbeveling-expectatief-beleid",
+          "label": "<=30",
+          "value": "lte-30",
+          "arrow": true
+        },
+        {
+          "id": "edge-uitslag-histologie-cervix-geen-afwijkingen-cin-1",
+          "from": "uitslag-histologie-cervix",
+          "to": "aanbeveling-volgend-uitstrijkje-volgens-bvo",
+          "label": "Geen afwijkingen; CIN 1",
+          "value": "geen-afwijkingen-cin-1",
+          "arrow": true
+        },
+        {
+          "id": "edge-uitslag-histologie-cervix-2-cin-2",
+          "from": "uitslag-histologie-cervix-2",
+          "to": "leeftijd",
+          "label": "CIN 2",
+          "value": "cin-2",
+          "arrow": true
+        },
+        {
+          "id": "edge-verwijzing-follow-up-6-maanden-na-diagnose-onbehandelde-cin2-verwijzing-beleid-na-histologie-2",
+          "from": "verwijzing-follow-up-6-maanden-na-diagnose-onbehandelde-cin2",
+          "to": "verwijzing-beleid-na-histologie-2",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-letz-verwijzing-beleid-na-histologie-3",
+          "from": "aanbeveling-letz",
+          "to": "verwijzing-beleid-na-histologie-3",
+          "arrow": true
+        },
+        {
+          "id": "edge-uitslag-histologie-cervix-ais",
+          "from": "uitslag-histologie-cervix",
+          "to": "aanbeveling-individualiseer",
+          "label": "AIS",
+          "value": "ais",
+          "arrow": true
+        }
+      ]
+    },
+    "fu-6-onbehandeld-cin2": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "title",
+          "label": "Follow up - 6 maanden na diagnose onbehandelde CIN2",
+          "id": "titel",
+          "gridX": 45,
+          "gridY": 0
+        },
+        {
+          "type": "dataItem",
+          "label": "hrHPV-status",
+          "id": "hrhpv-status",
+          "gridX": 0,
+          "gridY": 60,
+          "interactive": true,
+          "options": [
+            {
+              "value": "positief",
+              "label": "Positief",
+              "edge": "edge-hrhpv-status-positief"
+            },
+            {
+              "value": "negatief",
+              "label": "Negatief",
+              "edge": "edge-hrhpv-status-negatief"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "PAP-score",
+          "id": "pap-score",
+          "gridX": 45,
+          "gridY": 30,
+          "interactive": true,
+          "options": [
+            {
+              "value": "pap-1",
+              "label": "PAP 1",
+              "edge": "edge-pap-score-pap-1"
+            },
+            {
+              "value": "pap-2-pap-3a1",
+              "label": "PAP 2-PAP 3a1",
+              "edge": "edge-pap-score-pap-2-pap-3a1"
+            },
+            {
+              "value": "pap-3b-pap-5",
+              "label": "PAP 3b-PAP 5",
+              "edge": "edge-pap-score-pap-3b-pap-5"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Follow up met\nhrHPV EN cervixcytologie\n{i} na 18 maanden",
+          "height": 20,
+          "id": "aanbeveling-follow-up-met",
+          "gridX": 0,
+          "gridY": 95
+        },
+        {
+          "type": "recommendation",
+          "text": "Follow up met\nhrHPV EN cervixcytologie\n{i} na 6 maanden",
+          "height": 20,
+          "id": "aanbeveling-follow-up-met-2",
+          "gridX": 45,
+          "gridY": 95
+        },
+        {
+          "type": "recommendation",
+          "text": "Colposcopische beoordeling met LETZ",
+          "height": 20,
+          "id": "aanbeveling-colposcopische-beoordeling-met-letz",
+          "gridX": 90,
+          "gridY": 95
+        },
+        {
+          "type": "reference",
+          "label": "Follow up - 24 maanden na diagnose behandelde CIN 2/3",
+          "to": "fu-24-behandeld-cin23",
+          "id": "verwijzing-follow-up-24-maanden-na-diagnose-behandelde-cin-2-3",
+          "gridX": 0,
+          "gridY": 125
+        },
+        {
+          "type": "reference",
+          "label": "Follow up - 12 maanden na diagnose onbehandelde CIN2",
+          "to": "fu-12-onbehandeld-cin2",
+          "id": "verwijzing-follow-up-12-maanden-na-diagnose-onbehandelde-cin2",
+          "gridX": 45,
+          "gridY": 125
+        },
+        {
+          "type": "reference",
+          "label": "Beleid na histologie",
+          "to": "beleid-na-histologie",
+          "id": "verwijzing-beleid-na-histologie",
+          "gridX": 90,
+          "gridY": 125
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-pap-score-pap-3b-pap-5",
+          "from": "pap-score",
+          "to": "aanbeveling-colposcopische-beoordeling-met-letz",
+          "label": "PAP 3b-PAP 5",
+          "value": "pap-3b-pap-5",
+          "arrow": true
+        },
+        {
+          "id": "edge-pap-score-pap-2-pap-3a1",
+          "from": "pap-score",
+          "to": "aanbeveling-follow-up-met-2",
+          "label": "PAP 2-PAP 3a1",
+          "value": "pap-2-pap-3a1",
+          "arrow": true
+        },
+        {
+          "id": "edge-pap-score-pap-1",
+          "from": "pap-score",
+          "to": "hrhpv-status",
+          "label": "PAP 1",
+          "value": "pap-1",
+          "arrow": true
+        },
+        {
+          "id": "edge-hrhpv-status-negatief",
+          "from": "hrhpv-status",
+          "to": "aanbeveling-follow-up-met",
+          "label": "Negatief",
+          "value": "negatief",
+          "arrow": true
+        },
+        {
+          "id": "edge-hrhpv-status-positief",
+          "from": "hrhpv-status",
+          "to": "aanbeveling-follow-up-met-2",
+          "label": "Positief",
+          "value": "positief",
+          "arrow": true
+        },
+        {
+          "id": "edge-titel-pap-score",
+          "from": "titel",
+          "to": "pap-score",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-follow-up-met-verwijzing-follow-up-24-maanden-na-diagnose-behandelde-cin-2-3",
+          "from": "aanbeveling-follow-up-met",
+          "to": "verwijzing-follow-up-24-maanden-na-diagnose-behandelde-cin-2-3",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-follow-up-met-2-verwijzing-follow-up-12-maanden-na-diagnose-onbehandelde-cin2",
+          "from": "aanbeveling-follow-up-met-2",
+          "to": "verwijzing-follow-up-12-maanden-na-diagnose-onbehandelde-cin2",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-colposcopische-beoordeling-met-letz-verwijzing-beleid-na-histologie",
+          "from": "aanbeveling-colposcopische-beoordeling-met-letz",
+          "to": "verwijzing-beleid-na-histologie",
+          "arrow": true
+        }
+      ]
+    },
+    "fu-24-behandeld-cin23": {
+      "bron": {
+        "url": "https://www.oncoline.nl/cin-ais-en-vain"
+      },
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "recommendation",
+          "text": "Volgend uitstrijkje volgens BVO",
+          "height": 20,
+          "id": "aanbeveling-volgend-uitstrijkje-volgens-bvo",
+          "gridX": 0,
+          "gridY": 110
+        },
+        {
+          "type": "title",
+          "label": "Follow up - 24 maanden na diagnose behandelde CIN 2/3",
+          "id": "titel",
+          "gridX": 50,
+          "gridY": 0
+        },
+        {
+          "type": "recommendation",
+          "text": "Follow up na 6 maanden met cervixcytologie",
+          "height": 20,
+          "id": "aanbeveling-follow-up-na-6-maanden-met-cervixcytologie",
+          "gridX": 50,
+          "gridY": 110
+        },
+        {
+          "type": "dataItem",
+          "label": "hrHPV-status",
+          "id": "hrhpv-status",
+          "gridX": 0,
+          "gridY": 70,
+          "interactive": true,
+          "options": [
+            {
+              "value": "positief",
+              "label": "Positief",
+              "edge": "edge-hrhpv-status-positief"
+            },
+            {
+              "value": "negatief",
+              "label": "Negatief",
+              "edge": "edge-hrhpv-status-negatief"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "PAP-score",
+          "id": "pap-score",
+          "gridX": 50,
+          "gridY": 30,
+          "interactive": true,
+          "options": [
+            {
+              "value": "pap-1",
+              "label": "PAP 1",
+              "edge": "edge-pap-score-pap-1"
+            },
+            {
+              "value": "pap-2-3a1",
+              "label": "PAP 2-3a1",
+              "edge": "edge-pap-score-pap-2-3a1"
+            },
+            {
+              "value": "gte-pap-3a2",
+              "label": ">= PAP 3a2",
+              "edge": "edge-pap-score-gte-pap-3a2"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Colposcopie met afnemen biopt(en)\nOF\nLETZ\n{i} Bij recidiverende CIN-laesies zoveel mogelijk weefselsparende therapie toepassen",
+          "height": 36,
+          "id": "aanbeveling-colposcopie-met-afnemen-biopt-en",
+          "gridX": 100,
+          "gridY": 110
+        },
+        {
+          "type": "reference",
+          "label": "Follow up - 30 maanden na diagnose behandelde CIN 2/3",
+          "to": "fu-30-behandeld-cin23",
+          "id": "verwijzing-follow-up-30-maanden-na-diagnose-behandelde-cin-2-3",
+          "gridX": 50,
+          "gridY": 160
+        },
+        {
+          "type": "reference",
+          "label": "Beleid na histologie na primair onbehandelde laaggradige afwijking",
+          "to": "beleid-histologie-primair-onbehandeld-laaggradig",
+          "id": "verwijzing-beleid-na-histologie-na-primair-onbehandelde-laaggradige-afwijking",
+          "gridX": 100,
+          "gridY": 160
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-pap-score-gte-pap-3a2",
+          "from": "pap-score",
+          "to": "aanbeveling-colposcopie-met-afnemen-biopt-en",
+          "label": ">= PAP 3a2",
+          "value": "gte-pap-3a2",
+          "arrow": true
+        },
+        {
+          "id": "edge-pap-score-pap-1",
+          "from": "pap-score",
+          "to": "hrhpv-status",
+          "label": "PAP 1",
+          "value": "pap-1",
+          "arrow": true
+        },
+        {
+          "id": "edge-hrhpv-status-positief",
+          "from": "hrhpv-status",
+          "to": "aanbeveling-follow-up-na-6-maanden-met-cervixcytologie",
+          "label": "Positief",
+          "value": "positief",
+          "arrow": true
+        },
+        {
+          "id": "edge-pap-score-pap-2-3a1",
+          "from": "pap-score",
+          "to": "aanbeveling-follow-up-na-6-maanden-met-cervixcytologie",
+          "label": "PAP 2-3a1",
+          "value": "pap-2-3a1",
+          "arrow": true
+        },
+        {
+          "id": "edge-titel-pap-score",
+          "from": "titel",
+          "to": "pap-score",
+          "arrow": true
+        },
+        {
+          "id": "edge-hrhpv-status-negatief",
+          "from": "hrhpv-status",
+          "to": "aanbeveling-volgend-uitstrijkje-volgens-bvo",
+          "label": "Negatief",
+          "value": "negatief",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-colposcopie-met-afnemen-biopt-en-verwijzing-beleid-na-histologie-na-primair-onbehandelde-laaggradige-afwijking",
+          "from": "aanbeveling-colposcopie-met-afnemen-biopt-en",
+          "to": "verwijzing-beleid-na-histologie-na-primair-onbehandelde-laaggradige-afwijking",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-follow-up-na-6-maanden-met-cervixcytologie-verwijzing-follow-up-30-maanden-na-diagnose-behandelde-cin-2-3",
+          "from": "aanbeveling-follow-up-na-6-maanden-met-cervixcytologie",
+          "to": "verwijzing-follow-up-30-maanden-na-diagnose-behandelde-cin-2-3",
+          "arrow": true
+        }
+      ]
+    },
+    "fu-30-behandeld-cin23": {
+      "bron": {
+        "url": "https://www.oncoline.nl/cin-ais-en-vain"
+      },
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "title",
+          "label": "Follow up - 30 maanden na diagnose behandelde CIN 2/3",
+          "id": "titel",
+          "gridX": 0,
+          "gridY": 0
+        },
+        {
+          "type": "dataItem",
+          "label": "PAP-score",
+          "id": "pap-score",
+          "gridX": 0,
+          "gridY": 30,
+          "interactive": true,
+          "options": [
+            {
+              "value": "pap-1",
+              "label": "PAP 1",
+              "edge": "edge-pap-score-pap-1"
+            },
+            {
+              "value": "gte-pap-2",
+              "label": ">= PAP 2",
+              "edge": "edge-pap-score-gte-pap-2"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Volgend uitstrijkje volgens BVO",
+          "height": 20,
+          "id": "aanbeveling-volgend-uitstrijkje-volgens-bvo",
+          "gridX": 0,
+          "gridY": 70
+        },
+        {
+          "type": "recommendation",
+          "text": "Colposcopie\n{i} Handelen naar bevinden",
+          "height": 20,
+          "id": "aanbeveling-colposcopie",
+          "gridX": 50,
+          "gridY": 70
+        },
+        {
+          "type": "reference",
+          "label": "Beleid na histologie na primair behandelde CIN 2/3",
+          "to": "beleid-histologie-primair-behandeld-cin23",
+          "id": "verwijzing-beleid-na-histologie-na-primair-behandelde-cin-2-3",
+          "gridX": 50,
+          "gridY": 100
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-titel-pap-score",
+          "from": "titel",
+          "to": "pap-score",
+          "arrow": true
+        },
+        {
+          "id": "edge-pap-score-pap-1",
+          "from": "pap-score",
+          "to": "aanbeveling-volgend-uitstrijkje-volgens-bvo",
+          "label": "PAP 1",
+          "value": "pap-1",
+          "arrow": true
+        },
+        {
+          "id": "edge-pap-score-gte-pap-2",
+          "from": "pap-score",
+          "to": "aanbeveling-colposcopie",
+          "label": ">= PAP 2",
+          "value": "gte-pap-2",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-colposcopie-verwijzing-beleid-na-histologie-na-primair-behandelde-cin-2-3",
+          "from": "aanbeveling-colposcopie",
+          "to": "verwijzing-beleid-na-histologie-na-primair-behandelde-cin-2-3",
+          "arrow": true
+        }
+      ]
+    },
+    "beleid-histologie-primair-behandeld-cin23": {
+      "bron": {
+        "url": "https://www.oncoline.nl/cin-ais-en-vain"
+      },
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "title",
+          "label": "Beleid na histologie na primair behandelde CIN 2/3",
+          "id": "titel",
+          "gridX": 50,
+          "gridY": 0
+        },
+        {
+          "type": "recommendation",
+          "text": "Follow up met hrHPV EN Cervixcytologie\n{i} Bespreek immuunsuppresieve factoren en overweeg HPV-vaccinatie",
+          "height": 29,
+          "id": "aanbeveling-follow-up-met-hrhpv-en-cervixcytologie",
+          "gridX": 50,
+          "gridY": 70
+        },
+        {
+          "type": "dataItem",
+          "label": "Uitslag histologie cervix",
+          "id": "uitslag-histologie-cervix",
+          "gridX": 50,
+          "gridY": 30,
+          "interactive": true,
+          "options": [
+            {
+              "value": "geen-afwijkingen-cin-1",
+              "label": "Geen afwijkingen; CIN 1",
+              "edge": "edge-uitslag-histologie-cervix-geen-afwijkingen-cin-1"
+            },
+            {
+              "value": "cin-2-3",
+              "label": "CIN 2-3",
+              "edge": "edge-uitslag-histologie-cervix-cin-2-3"
+            },
+            {
+              "value": "gte-ais",
+              "label": ">= AIS",
+              "edge": "edge-uitslag-histologie-cervix-gte-ais"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Individualiseren",
+          "height": 20,
+          "id": "aanbeveling-individualiseren",
+          "gridX": 0,
+          "gridY": 70
+        },
+        {
+          "type": "recommendation",
+          "text": "Individualiseer; overleg met patholoog en eventueel met een expert gynaecoloog",
+          "height": 20,
+          "id": "aanbeveling-individualiseer-overleg-met-patholoog-en",
+          "gridX": 100,
+          "gridY": 70
+        },
+        {
+          "type": "reference",
+          "label": "Follow up - 6 maanden na diagnose behandelde CIN 2/3",
+          "to": "fu-6-behandeld-cin23",
+          "id": "verwijzing-follow-up-6-maanden-na-diagnose-behandelde-cin-2-3",
+          "gridX": 50,
+          "gridY": 105
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-titel-uitslag-histologie-cervix",
+          "from": "titel",
+          "to": "uitslag-histologie-cervix",
+          "arrow": true
+        },
+        {
+          "id": "edge-uitslag-histologie-cervix-geen-afwijkingen-cin-1",
+          "from": "uitslag-histologie-cervix",
+          "to": "aanbeveling-individualiseren",
+          "label": "Geen afwijkingen; CIN 1",
+          "value": "geen-afwijkingen-cin-1",
+          "arrow": true
+        },
+        {
+          "id": "edge-uitslag-histologie-cervix-cin-2-3",
+          "from": "uitslag-histologie-cervix",
+          "to": "aanbeveling-follow-up-met-hrhpv-en-cervixcytologie",
+          "label": "CIN 2-3",
+          "value": "cin-2-3",
+          "arrow": true
+        },
+        {
+          "id": "edge-uitslag-histologie-cervix-gte-ais",
+          "from": "uitslag-histologie-cervix",
+          "to": "aanbeveling-individualiseer-overleg-met-patholoog-en",
+          "label": ">= AIS",
+          "value": "gte-ais",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-follow-up-met-hrhpv-en-cervixcytologie-verwijzing-follow-up-6-maanden-na-diagnose-behandelde-cin-2-3",
+          "from": "aanbeveling-follow-up-met-hrhpv-en-cervixcytologie",
+          "to": "verwijzing-follow-up-6-maanden-na-diagnose-behandelde-cin-2-3",
+          "arrow": true
+        }
+      ]
+    },
+    "fu-6-behandeld-cin23": {
+      "bron": {
+        "url": "https://www.oncoline.nl/cin-ais-en-vain"
+      },
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "dataItem",
+          "label": "hrHPV-status",
+          "id": "hrhpv-status",
+          "gridX": 0,
+          "gridY": 60,
+          "interactive": true,
+          "options": [
+            {
+              "value": "positief",
+              "label": "Positief",
+              "edge": "edge-hrhpv-status-positief"
+            },
+            {
+              "value": "negatief",
+              "label": "Negatief",
+              "edge": "edge-hrhpv-status-negatief"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Follow up na 18 maanden met hrHPV EN Cervixcytologie",
+          "height": 20,
+          "id": "aanbeveling-follow-up-na-18-maanden-met-hrhpv-en",
+          "gridX": 0,
+          "gridY": 100
+        },
+        {
+          "type": "recommendation",
+          "text": "Follow up na 6 maanden met cervixcytologie",
+          "height": 20,
+          "id": "aanbeveling-follow-up-na-6-maanden-met-cervixcytologie",
+          "gridX": 50,
+          "gridY": 100
+        },
+        {
+          "type": "recommendation",
+          "text": "Colposcopie\n{i} Bij recidiverende CIN-laesies zoveel mogelijk weefselsparende therapie toepassen",
+          "height": 26,
+          "id": "aanbeveling-colposcopie",
+          "gridX": 100,
+          "gridY": 100
+        },
+        {
+          "type": "title",
+          "label": "Follow up - 6 maanden na diagnose behandelde CIN 2/3",
+          "id": "titel",
+          "gridX": 50,
+          "gridY": 0
+        },
+        {
+          "type": "dataItem",
+          "label": "PAP-score",
+          "id": "pap-score",
+          "gridX": 50,
+          "gridY": 30,
+          "interactive": true,
+          "options": [
+            {
+              "value": "lte-pap-3a1",
+              "label": "<= PAP 3a1",
+              "edge": "edge-pap-score-lte-pap-3a1"
+            },
+            {
+              "value": "gte-pap-3a2",
+              "label": ">= PAP 3a2",
+              "edge": "edge-pap-score-gte-pap-3a2"
+            }
+          ]
+        },
+        {
+          "type": "reference",
+          "label": "Follow up - 24 maanden na diagnose behandelde CIN 2/3",
+          "to": "fu-24-behandeld-cin23",
+          "id": "verwijzing-follow-up-24-maanden-na-diagnose-behandelde-cin-2-3",
+          "gridX": 0,
+          "gridY": 130
+        },
+        {
+          "type": "reference",
+          "label": "Follow up - 12 maanden na diagnose behandelde CIN 2/3",
+          "to": "fu-12-behandeld-cin23",
+          "id": "verwijzing-follow-up-12-maanden-na-diagnose-behandelde-cin-2-3",
+          "gridX": 50,
+          "gridY": 130
+        },
+        {
+          "type": "reference",
+          "label": "Beleid na histologie na primair behandelde CIN 2/3",
+          "to": "beleid-histologie-primair-behandeld-cin23",
+          "id": "verwijzing-beleid-na-histologie-na-primair-behandelde-cin-2-3",
+          "gridX": 100,
+          "gridY": 130
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-titel-pap-score",
+          "from": "titel",
+          "to": "pap-score",
+          "arrow": true
+        },
+        {
+          "id": "edge-hrhpv-status-negatief",
+          "from": "hrhpv-status",
+          "to": "aanbeveling-follow-up-na-18-maanden-met-hrhpv-en",
+          "label": "Negatief",
+          "value": "negatief",
+          "arrow": true
+        },
+        {
+          "id": "edge-hrhpv-status-positief",
+          "from": "hrhpv-status",
+          "to": "aanbeveling-follow-up-na-6-maanden-met-cervixcytologie",
+          "label": "Positief",
+          "value": "positief",
+          "arrow": true
+        },
+        {
+          "id": "edge-pap-score-gte-pap-3a2",
+          "from": "pap-score",
+          "to": "aanbeveling-colposcopie",
+          "label": ">= PAP 3a2",
+          "value": "gte-pap-3a2",
+          "arrow": true
+        },
+        {
+          "id": "edge-pap-score-lte-pap-3a1",
+          "from": "pap-score",
+          "to": "hrhpv-status",
+          "label": "<= PAP 3a1",
+          "value": "lte-pap-3a1",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-colposcopie-verwijzing-beleid-na-histologie-na-primair-behandelde-cin-2-3",
+          "from": "aanbeveling-colposcopie",
+          "to": "verwijzing-beleid-na-histologie-na-primair-behandelde-cin-2-3",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-follow-up-na-6-maanden-met-cervixcytologie-verwijzing-follow-up-12-maanden-na-diagnose-behandelde-cin-2-3",
+          "from": "aanbeveling-follow-up-na-6-maanden-met-cervixcytologie",
+          "to": "verwijzing-follow-up-12-maanden-na-diagnose-behandelde-cin-2-3",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-follow-up-na-18-maanden-met-hrhpv-en-verwijzing-follow-up-24-maanden-na-diagnose-behandelde-cin-2-3",
+          "from": "aanbeveling-follow-up-na-18-maanden-met-hrhpv-en",
+          "to": "verwijzing-follow-up-24-maanden-na-diagnose-behandelde-cin-2-3",
+          "arrow": true
+        }
+      ]
+    },
+    "fu-12-behandeld-cin23": {
+      "bron": {
+        "url": "https://www.oncoline.nl/cin-ais-en-vain"
+      },
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "title",
+          "label": "Follow up - 12 maanden na diagnose behandelde CIN 2/3",
+          "id": "titel",
+          "gridX": 0,
+          "gridY": 0
+        },
+        {
+          "type": "dataItem",
+          "label": "PAP-score",
+          "id": "pap-score",
+          "gridX": 0,
+          "gridY": 30,
+          "interactive": true,
+          "options": [
+            {
+              "value": "lte-pap-2",
+              "label": "<= PAP 2",
+              "edge": "edge-pap-score-lte-pap-2"
+            },
+            {
+              "value": "gte-pap-3a1",
+              "label": ">= PAP 3a1",
+              "edge": "edge-pap-score-gte-pap-3a1"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Colposcopie\n{i} Bij recidiverende CIN-laesies zoveel mogelijk weefselsparende therapie toepassen",
+          "height": 26,
+          "id": "aanbeveling-colposcopie",
+          "gridX": 50,
+          "gridY": 70
+        },
+        {
+          "type": "recommendation",
+          "text": "Follow up na 18 maanden met hrHPV EN Cervixcytologie",
+          "height": 20,
+          "id": "aanbeveling-follow-up-na-18-maanden-met-hrhpv-en",
+          "gridX": 0,
+          "gridY": 70
+        },
+        {
+          "type": "reference",
+          "label": "Follow up - 24 maanden na diagnose behandelde CIN 2/3",
+          "to": "fu-24-behandeld-cin23",
+          "id": "verwijzing-follow-up-24-maanden-na-diagnose-behandelde-cin-2-3",
+          "gridX": 0,
+          "gridY": 100
+        },
+        {
+          "type": "reference",
+          "label": "Beleid na histologie na primair behandelde CIN 2/3",
+          "to": "beleid-histologie-primair-behandeld-cin23",
+          "id": "verwijzing-beleid-na-histologie-na-primair-behandelde-cin-2-3",
+          "gridX": 50,
+          "gridY": 100
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-titel-pap-score",
+          "from": "titel",
+          "to": "pap-score",
+          "arrow": true
+        },
+        {
+          "id": "edge-pap-score-lte-pap-2",
+          "from": "pap-score",
+          "to": "aanbeveling-follow-up-na-18-maanden-met-hrhpv-en",
+          "label": "<= PAP 2",
+          "value": "lte-pap-2",
+          "arrow": true
+        },
+        {
+          "id": "edge-pap-score-gte-pap-3a1",
+          "from": "pap-score",
+          "to": "aanbeveling-colposcopie",
+          "label": ">= PAP 3a1",
+          "value": "gte-pap-3a1",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-colposcopie-verwijzing-beleid-na-histologie-na-primair-behandelde-cin-2-3",
+          "from": "aanbeveling-colposcopie",
+          "to": "verwijzing-beleid-na-histologie-na-primair-behandelde-cin-2-3",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-follow-up-na-18-maanden-met-hrhpv-en-verwijzing-follow-up-24-maanden-na-diagnose-behandelde-cin-2-3",
+          "from": "aanbeveling-follow-up-na-18-maanden-met-hrhpv-en",
+          "to": "verwijzing-follow-up-24-maanden-na-diagnose-behandelde-cin-2-3",
+          "arrow": true
+        }
+      ]
+    },
+    "beleid-histologie-primair-onbehandeld-laaggradig": {
+      "bron": {
+        "url": "https://www.oncoline.nl/cin-ais-en-vain"
+      },
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "recommendation",
+          "text": "LETZ\nOF\nExconisatie op indicatie\nEN\nFollow up met hrHPV EN Cervixcytologie na 6 maanden\n{i} Bij een diepe endocervicale laesie of AIS verdient een exconisatie de voorkeur",
+          "height": 45,
+          "id": "aanbeveling-letz",
+          "gridX": 310,
+          "gridY": 150
+        },
+        {
+          "type": "dataItem",
+          "label": "Kinderwens",
+          "id": "kinderwens",
+          "gridX": 280,
+          "gridY": 110,
+          "interactive": true,
+          "options": [
+            {
+              "value": "ja",
+              "label": "Ja",
+              "edge": "edge-kinderwens-ja"
+            },
+            {
+              "value": "nee",
+              "label": "Nee",
+              "edge": "edge-kinderwens-nee"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Handelen naar bevinden",
+          "height": 20,
+          "id": "aanbeveling-handelen-naar-bevinden",
+          "gridX": 405,
+          "gridY": 150
+        },
+        {
+          "type": "recommendation",
+          "text": "Zie richtlijn cervixcarcinoom",
+          "height": 20,
+          "id": "aanbeveling-zie-richtlijn-cervixcarcinoom",
+          "gridX": 360,
+          "gridY": 150
+        },
+        {
+          "type": "recommendation",
+          "text": "Individualiseer; overleg met patholoog en eventueel met expert gynaecoloog",
+          "height": 20,
+          "id": "aanbeveling-individualiseer-overleg-met-patholoog-en",
+          "gridX": 100,
+          "gridY": 150
+        },
+        {
+          "type": "recommendation",
+          "text": "Volgend uitstrijkje volgens BVO",
+          "height": 20,
+          "id": "aanbeveling-volgend-uitstrijkje-volgens-bvo",
+          "gridX": 0,
+          "gridY": 150
+        },
+        {
+          "type": "reference",
+          "label": "Follow up - 6 maanden na diagnose behandelde CIN 2/3",
+          "to": "fu-6-behandeld-cin23",
+          "id": "verwijzing-follow-up-6-maanden-na-diagnose-behandelde-cin-2-3",
+          "gridX": 50,
+          "gridY": 185
+        },
+        {
+          "type": "recommendation",
+          "text": "Follow up met hrHPV EN cervixcytologie\n{i} 6 maanden na behandeling",
+          "height": 23,
+          "id": "aanbeveling-follow-up-met-hrhpv-en-cervixcytologie",
+          "gridX": 50,
+          "gridY": 150
+        },
+        {
+          "type": "dataItem",
+          "label": "Aard van het materiaal",
+          "id": "aard-van-het-materiaal",
+          "gridX": 250,
+          "gridY": 30,
+          "interactive": true,
+          "options": [
+            {
+              "value": "letz-weefsel",
+              "label": "LETZ-weefsel",
+              "edge": "edge-aard-van-het-materiaal-letz-weefsel"
+            },
+            {
+              "value": "cervixbiopt",
+              "label": "Cervixbiopt",
+              "edge": "edge-aard-van-het-materiaal-cervixbiopt"
+            },
+            {
+              "value": "vaginabiopt",
+              "label": "Vaginabiopt",
+              "edge": "edge-aard-van-het-materiaal-vaginabiopt"
+            }
+          ]
+        },
+        {
+          "type": "title",
+          "label": "Beleid na histologie na primair onbehandelde laaggradige afwijking",
+          "id": "titel",
+          "gridX": 250,
+          "gridY": 0
+        },
+        {
+          "type": "recommendation",
+          "text": "Volgend uitstrijkje volgens BVO",
+          "height": 20,
+          "id": "aanbeveling-volgend-uitstrijkje-volgens-bvo-2",
+          "gridX": 200,
+          "gridY": 150
+        },
+        {
+          "type": "recommendation",
+          "text": "Individualiseer behandeling",
+          "height": 20,
+          "id": "aanbeveling-individualiseer-behandeling",
+          "gridX": 250,
+          "gridY": 150
+        },
+        {
+          "type": "dataItem",
+          "label": "Uitslag histologie cervix",
+          "id": "uitslag-histologie-cervix",
+          "gridX": 250,
+          "gridY": 70,
+          "interactive": true,
+          "options": [
+            {
+              "value": "geen-afwijkingen",
+              "label": "Geen afwijkingen",
+              "edge": "edge-uitslag-histologie-cervix-geen-afwijkingen"
+            },
+            {
+              "value": "cin-1",
+              "label": "CIN 1",
+              "edge": "edge-uitslag-histologie-cervix-cin-1"
+            },
+            {
+              "value": "cin-2",
+              "label": "CIN 2",
+              "edge": "edge-uitslag-histologie-cervix-cin-2"
+            },
+            {
+              "value": "cin-3-ais",
+              "label": "CIN 3; AIS",
+              "edge": "edge-uitslag-histologie-cervix-cin-3-ais"
+            },
+            {
+              "value": "micro-invasief-carcinoom",
+              "label": "(Micro-) invasief carcinoom",
+              "edge": "edge-uitslag-histologie-cervix-micro-invasief-carcinoom"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Zie richtlijn cervixcarcinoom",
+          "height": 20,
+          "id": "aanbeveling-zie-richtlijn-cervixcarcinoom-2",
+          "gridX": 150,
+          "gridY": 150
+        },
+        {
+          "type": "dataItem",
+          "label": "Uitslag histologie cervix",
+          "id": "uitslag-histologie-cervix-2",
+          "gridX": 100,
+          "gridY": 110,
+          "interactive": true,
+          "options": [
+            {
+              "value": "geen-afwijkingen-cin-1",
+              "label": "Geen afwijkingen; CIN 1",
+              "edge": "edge-uitslag-histologie-cervix-2-geen-afwijkingen-cin-1"
+            },
+            {
+              "value": "cin-2-cin-3",
+              "label": "CIN 2-CIN 3",
+              "edge": "edge-uitslag-histologie-cervix-2-cin-2-cin-3"
+            },
+            {
+              "value": "ais",
+              "label": "AIS",
+              "edge": "edge-uitslag-histologie-cervix-2-ais"
+            },
+            {
+              "value": "micro-invasief-carcinoom",
+              "label": "(Micro-) invasief carcinoom",
+              "edge": "edge-uitslag-histologie-cervix-2-micro-invasief-carcinoom"
+            }
+          ]
+        },
+        {
+          "type": "reference",
+          "label": "Follow up - 6 maanden na diagnose behandelde CIN 2/3",
+          "to": "fu-6-behandeld-cin23",
+          "id": "verwijzing-follow-up-6-maanden-na-diagnose-behandelde-cin-2-3-2",
+          "gridX": 310,
+          "gridY": 210
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-aanbeveling-letz-verwijzing-follow-up-6-maanden-na-diagnose-behandelde-cin-2-3-2",
+          "from": "aanbeveling-letz",
+          "to": "verwijzing-follow-up-6-maanden-na-diagnose-behandelde-cin-2-3-2",
+          "arrow": true
+        },
+        {
+          "id": "edge-uitslag-histologie-cervix-cin-3-ais",
+          "from": "uitslag-histologie-cervix",
+          "to": "aanbeveling-letz",
+          "label": "CIN 3; AIS",
+          "value": "cin-3-ais",
+          "arrow": true
+        },
+        {
+          "id": "edge-kinderwens-nee",
+          "from": "kinderwens",
+          "to": "aanbeveling-letz",
+          "label": "Nee",
+          "value": "nee",
+          "arrow": true
+        },
+        {
+          "id": "edge-kinderwens-ja",
+          "from": "kinderwens",
+          "to": "aanbeveling-individualiseer-behandeling",
+          "label": "Ja",
+          "value": "ja",
+          "arrow": true
+        },
+        {
+          "id": "edge-uitslag-histologie-cervix-cin-2",
+          "from": "uitslag-histologie-cervix",
+          "to": "kinderwens",
+          "label": "CIN 2",
+          "value": "cin-2",
+          "arrow": true
+        },
+        {
+          "id": "edge-aard-van-het-materiaal-vaginabiopt",
+          "from": "aard-van-het-materiaal",
+          "to": "aanbeveling-handelen-naar-bevinden",
+          "label": "Vaginabiopt",
+          "value": "vaginabiopt",
+          "arrow": true
+        },
+        {
+          "id": "edge-uitslag-histologie-cervix-micro-invasief-carcinoom",
+          "from": "uitslag-histologie-cervix",
+          "to": "aanbeveling-zie-richtlijn-cervixcarcinoom",
+          "label": "(Micro-) invasief carcinoom",
+          "value": "micro-invasief-carcinoom",
+          "arrow": true
+        },
+        {
+          "id": "edge-uitslag-histologie-cervix-cin-1",
+          "from": "uitslag-histologie-cervix",
+          "to": "aanbeveling-individualiseer-behandeling",
+          "label": "CIN 1",
+          "value": "cin-1",
+          "arrow": true
+        },
+        {
+          "id": "edge-uitslag-histologie-cervix-2-ais",
+          "from": "uitslag-histologie-cervix-2",
+          "to": "aanbeveling-individualiseer-overleg-met-patholoog-en",
+          "label": "AIS",
+          "value": "ais",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-follow-up-met-hrhpv-en-cervixcytologie-verwijzing-follow-up-6-maanden-na-diagnose-behandelde-cin-2-3",
+          "from": "aanbeveling-follow-up-met-hrhpv-en-cervixcytologie",
+          "to": "verwijzing-follow-up-6-maanden-na-diagnose-behandelde-cin-2-3",
+          "arrow": true
+        },
+        {
+          "id": "edge-uitslag-histologie-cervix-2-cin-2-cin-3",
+          "from": "uitslag-histologie-cervix-2",
+          "to": "aanbeveling-follow-up-met-hrhpv-en-cervixcytologie",
+          "label": "CIN 2-CIN 3",
+          "value": "cin-2-cin-3",
+          "arrow": true
+        },
+        {
+          "id": "edge-aard-van-het-materiaal-cervixbiopt",
+          "from": "aard-van-het-materiaal",
+          "to": "uitslag-histologie-cervix",
+          "label": "Cervixbiopt",
+          "value": "cervixbiopt",
+          "arrow": true
+        },
+        {
+          "id": "edge-aard-van-het-materiaal-letz-weefsel",
+          "from": "aard-van-het-materiaal",
+          "to": "uitslag-histologie-cervix-2",
+          "label": "LETZ-weefsel",
+          "value": "letz-weefsel",
+          "arrow": true
+        },
+        {
+          "id": "edge-titel-aard-van-het-materiaal",
+          "from": "titel",
+          "to": "aard-van-het-materiaal",
+          "arrow": true
+        },
+        {
+          "id": "edge-uitslag-histologie-cervix-geen-afwijkingen",
+          "from": "uitslag-histologie-cervix",
+          "to": "aanbeveling-volgend-uitstrijkje-volgens-bvo-2",
+          "label": "Geen afwijkingen",
+          "value": "geen-afwijkingen",
+          "arrow": true
+        },
+        {
+          "id": "edge-uitslag-histologie-cervix-2-geen-afwijkingen-cin-1",
+          "from": "uitslag-histologie-cervix-2",
+          "to": "aanbeveling-volgend-uitstrijkje-volgens-bvo",
+          "label": "Geen afwijkingen; CIN 1",
+          "value": "geen-afwijkingen-cin-1",
+          "arrow": true
+        },
+        {
+          "id": "edge-uitslag-histologie-cervix-2-micro-invasief-carcinoom",
+          "from": "uitslag-histologie-cervix-2",
+          "to": "aanbeveling-zie-richtlijn-cervixcarcinoom-2",
+          "label": "(Micro-) invasief carcinoom",
+          "value": "micro-invasief-carcinoom",
+          "arrow": true
+        }
+      ]
+    },
+    "fu-12-onbehandeld-cin2": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "title",
+          "label": "Follow up - 12 maanden na diagnose onbehandelde CIN2",
+          "id": "titel",
+          "gridX": 45,
+          "gridY": 0
+        },
+        {
+          "type": "dataItem",
+          "label": "hrHPV-status",
+          "id": "hrhpv-status",
+          "gridX": 0,
+          "gridY": 60,
+          "interactive": true,
+          "options": [
+            {
+              "value": "positief",
+              "label": "Positief",
+              "edge": "edge-hrhpv-status-positief"
+            },
+            {
+              "value": "negatief",
+              "label": "Negatief",
+              "edge": "edge-hrhpv-status-negatief"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "PAP-score",
+          "id": "pap-score",
+          "gridX": 45,
+          "gridY": 30,
+          "interactive": true,
+          "options": [
+            {
+              "value": "pap-1",
+              "label": "PAP 1",
+              "edge": "edge-pap-score-pap-1"
+            },
+            {
+              "value": "pap-2-pap-3a1",
+              "label": "PAP 2-PAP 3a1",
+              "edge": "edge-pap-score-pap-2-pap-3a1"
+            },
+            {
+              "value": "pap-3a2",
+              "label": "PAP 3a2",
+              "edge": "edge-pap-score-pap-3a2"
+            },
+            {
+              "value": "pap-3b-pap-5",
+              "label": "PAP 3b-PAP 5",
+              "edge": "edge-pap-score-pap-3b-pap-5"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Follow up met\nhrHPV EN cervixcytologie\n{i} na 18 maanden",
+          "height": 20,
+          "id": "aanbeveling-follow-up-met",
+          "gridX": 0,
+          "gridY": 95
+        },
+        {
+          "type": "recommendation",
+          "text": "Follow up met\nhrHPV EN cervixcytologie\n{i} na 12 maanden",
+          "height": 20,
+          "id": "aanbeveling-follow-up-met-2",
+          "gridX": 45,
+          "gridY": 95
+        },
+        {
+          "type": "recommendation",
+          "text": "Colposcopische beoordeling met LETZ",
+          "height": 20,
+          "id": "aanbeveling-colposcopische-beoordeling-met-letz",
+          "gridX": 135,
+          "gridY": 95
+        },
+        {
+          "type": "reference",
+          "label": "Follow up - 24 maanden na diagnose onbehandelde CIN2",
+          "to": "fu-24-onbehandeld-cin2",
+          "id": "verwijzing-follow-up-24-maanden-na-diagnose-onbehandelde-cin2",
+          "gridX": 45,
+          "gridY": 125
+        },
+        {
+          "type": "recommendation",
+          "text": "Colposcopische beoordeling met biopten",
+          "height": 20,
+          "id": "aanbeveling-colposcopische-beoordeling-met-biopten",
+          "gridX": 90,
+          "gridY": 95
+        },
+        {
+          "type": "reference",
+          "label": "Follow up - 30 maanden na diagnose behandelde CIN 2/3",
+          "to": "fu-30-behandeld-cin23",
+          "id": "verwijzing-follow-up-30-maanden-na-diagnose-behandelde-cin-2-3",
+          "gridX": 0,
+          "gridY": 125
+        },
+        {
+          "type": "reference",
+          "label": "Beleid na biopt na 12 maanden onbehandelde CIN2",
+          "to": "beleid-biopt-12-onbehandeld-cin2",
+          "id": "verwijzing-beleid-na-biopt-na-12-maanden-onbehandelde-cin2",
+          "gridX": 90,
+          "gridY": 125
+        },
+        {
+          "type": "reference",
+          "label": "Beleid na histologie",
+          "to": "beleid-na-histologie",
+          "id": "verwijzing-beleid-na-histologie",
+          "gridX": 135,
+          "gridY": 125
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-titel-pap-score",
+          "from": "titel",
+          "to": "pap-score",
+          "arrow": true
+        },
+        {
+          "id": "edge-pap-score-pap-3b-pap-5",
+          "from": "pap-score",
+          "to": "aanbeveling-colposcopische-beoordeling-met-letz",
+          "label": "PAP 3b-PAP 5",
+          "value": "pap-3b-pap-5",
+          "arrow": true
+        },
+        {
+          "id": "edge-pap-score-pap-2-pap-3a1",
+          "from": "pap-score",
+          "to": "aanbeveling-follow-up-met-2",
+          "label": "PAP 2-PAP 3a1",
+          "value": "pap-2-pap-3a1",
+          "arrow": true
+        },
+        {
+          "id": "edge-pap-score-pap-1",
+          "from": "pap-score",
+          "to": "hrhpv-status",
+          "label": "PAP 1",
+          "value": "pap-1",
+          "arrow": true
+        },
+        {
+          "id": "edge-hrhpv-status-negatief",
+          "from": "hrhpv-status",
+          "to": "aanbeveling-follow-up-met",
+          "label": "Negatief",
+          "value": "negatief",
+          "arrow": true
+        },
+        {
+          "id": "edge-hrhpv-status-positief",
+          "from": "hrhpv-status",
+          "to": "aanbeveling-follow-up-met-2",
+          "label": "Positief",
+          "value": "positief",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-follow-up-met-2-verwijzing-follow-up-24-maanden-na-diagnose-onbehandelde-cin2",
+          "from": "aanbeveling-follow-up-met-2",
+          "to": "verwijzing-follow-up-24-maanden-na-diagnose-onbehandelde-cin2",
+          "arrow": true
+        },
+        {
+          "id": "edge-pap-score-pap-3a2",
+          "from": "pap-score",
+          "to": "aanbeveling-colposcopische-beoordeling-met-biopten",
+          "label": "PAP 3a2",
+          "value": "pap-3a2",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-follow-up-met-verwijzing-follow-up-30-maanden-na-diagnose-behandelde-cin-2-3",
+          "from": "aanbeveling-follow-up-met",
+          "to": "verwijzing-follow-up-30-maanden-na-diagnose-behandelde-cin-2-3",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-colposcopische-beoordeling-met-biopten-verwijzing-beleid-na-biopt-na-12-maanden-onbehandelde-cin2",
+          "from": "aanbeveling-colposcopische-beoordeling-met-biopten",
+          "to": "verwijzing-beleid-na-biopt-na-12-maanden-onbehandelde-cin2",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-colposcopische-beoordeling-met-letz-verwijzing-beleid-na-histologie",
+          "from": "aanbeveling-colposcopische-beoordeling-met-letz",
+          "to": "verwijzing-beleid-na-histologie",
+          "arrow": true
+        }
+      ]
+    },
+    "fu-24-onbehandeld-cin2": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "title",
+          "label": "Follow up - 24 maanden na diagnose onbehandelde CIN2",
+          "id": "titel",
+          "gridX": 45,
+          "gridY": 0
+        },
+        {
+          "type": "dataItem",
+          "label": "hrHPV-status",
+          "id": "hrhpv-status",
+          "gridX": 0,
+          "gridY": 55,
+          "interactive": true,
+          "options": [
+            {
+              "value": "positief",
+              "label": "Positief",
+              "edge": "edge-hrhpv-status-positief"
+            },
+            {
+              "value": "negatief",
+              "label": "Negatief",
+              "edge": "edge-hrhpv-status-negatief"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "PAP-score",
+          "id": "pap-score",
+          "gridX": 45,
+          "gridY": 25,
+          "interactive": true,
+          "options": [
+            {
+              "value": "pap-1",
+              "label": "PAP 1",
+              "edge": "edge-pap-score-pap-1"
+            },
+            {
+              "value": "pap-2-pap-3a1",
+              "label": "PAP 2-PAP 3a1",
+              "edge": "edge-pap-score-pap-2-pap-3a1"
+            },
+            {
+              "value": "pap-3a2",
+              "label": "PAP 3a2",
+              "edge": "edge-pap-score-pap-3a2"
+            },
+            {
+              "value": "gte-pap-3b",
+              "label": ">= PAP 3b",
+              "edge": "edge-pap-score-gte-pap-3b"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Follow up met\nhrHPV EN cervixcytologie\n{i} na 18 maanden",
+          "height": 20,
+          "id": "aanbeveling-follow-up-met",
+          "gridX": 0,
+          "gridY": 90
+        },
+        {
+          "type": "recommendation",
+          "text": "Individualiseer behandeling",
+          "height": 20,
+          "id": "aanbeveling-individualiseer-behandeling",
+          "gridX": 45,
+          "gridY": 90
+        },
+        {
+          "type": "recommendation",
+          "text": "Colposcopische beoordeling met\nLETZ\nGevolgd door behandeling",
+          "height": 20,
+          "id": "aanbeveling-colposcopische-beoordeling-met",
+          "gridX": 135,
+          "gridY": 90
+        },
+        {
+          "type": "recommendation",
+          "text": "Colposcopische beoordeling met\nBiopten\nGevolgd door behandeling",
+          "height": 20,
+          "id": "aanbeveling-colposcopische-beoordeling-met-2",
+          "gridX": 90,
+          "gridY": 90
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-pap-score-gte-pap-3b",
+          "from": "pap-score",
+          "to": "aanbeveling-colposcopische-beoordeling-met",
+          "label": ">= PAP 3b",
+          "value": "gte-pap-3b",
+          "arrow": true
+        },
+        {
+          "id": "edge-pap-score-pap-2-pap-3a1",
+          "from": "pap-score",
+          "to": "aanbeveling-individualiseer-behandeling",
+          "label": "PAP 2-PAP 3a1",
+          "value": "pap-2-pap-3a1",
+          "arrow": true
+        },
+        {
+          "id": "edge-pap-score-pap-1",
+          "from": "pap-score",
+          "to": "hrhpv-status",
+          "label": "PAP 1",
+          "value": "pap-1",
+          "arrow": true
+        },
+        {
+          "id": "edge-hrhpv-status-negatief",
+          "from": "hrhpv-status",
+          "to": "aanbeveling-follow-up-met",
+          "label": "Negatief",
+          "value": "negatief",
+          "arrow": true
+        },
+        {
+          "id": "edge-hrhpv-status-positief",
+          "from": "hrhpv-status",
+          "to": "aanbeveling-individualiseer-behandeling",
+          "label": "Positief",
+          "value": "positief",
+          "arrow": true
+        },
+        {
+          "id": "edge-titel-pap-score",
+          "from": "titel",
+          "to": "pap-score",
+          "arrow": true
+        },
+        {
+          "id": "edge-pap-score-pap-3a2",
+          "from": "pap-score",
+          "to": "aanbeveling-colposcopische-beoordeling-met-2",
+          "label": "PAP 3a2",
+          "value": "pap-3a2",
+          "arrow": true
+        }
+      ]
+    },
+    "beleid-biopt-12-onbehandeld-cin2": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "title",
+          "label": "Beleid na biopt na 12 maanden onbehandelde CIN2",
+          "id": "titel",
+          "gridX": 90,
+          "gridY": 0
+        },
+        {
+          "type": "recommendation",
+          "text": "LETZ\nOF\nExpectatief beleid\nFollow-up met\nhrHPV en cervixcytologie\n{i} na 6 maanden",
+          "height": 29,
+          "id": "aanbeveling-letz",
+          "gridX": 90,
+          "gridY": 95
+        },
+        {
+          "type": "recommendation",
+          "text": "Individualiseer behandeling mbv shared decision making.\nExpectatief beleid\nFollow-up met\nhrHPV en cervixcytologie\n{i} na 6 maanden\nOF\nImiquimod\nOF\nLETZ",
+          "height": 45,
+          "id": "aanbeveling-individualiseer-behandeling-mbv-shared",
+          "gridX": 45,
+          "gridY": 95
+        },
+        {
+          "type": "dataItem",
+          "label": "Kinderwens",
+          "id": "kinderwens",
+          "gridX": 45,
+          "gridY": 60,
+          "interactive": true,
+          "options": [
+            {
+              "value": "ja",
+              "label": "Ja",
+              "edge": "edge-kinderwens-ja"
+            },
+            {
+              "value": "nee",
+              "label": "Nee",
+              "edge": "edge-kinderwens-nee"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "{x} Behandeling niet geïndiceerd\n{i} bij discrepantie met klinisch beeld: individualiseer behandeling en overleg met patholoog\n{i} bij recidiverende laaggradige afwijkingen in niet-fertiele levensfase kan men samen met patiënte besluiten tot behandeling om tijd tussen controles te vergroten of controles te kunnen staken.",
+          "height": 55,
+          "id": "aanbeveling-geen-behandeling-niet-geindiceerd",
+          "gridX": 0,
+          "gridY": 95
+        },
+        {
+          "type": "dataItem",
+          "label": "Uitslag histologie cervix",
+          "id": "uitslag-histologie-cervix",
+          "gridX": 90,
+          "gridY": 30,
+          "interactive": true,
+          "options": [
+            {
+              "value": "geen-afwijkingen",
+              "label": "Geen afwijkingen",
+              "edge": "edge-uitslag-histologie-cervix-geen-afwijkingen"
+            },
+            {
+              "value": "cin-2",
+              "label": "CIN 2",
+              "edge": "edge-uitslag-histologie-cervix-cin-2"
+            },
+            {
+              "value": "cin-3",
+              "label": "CIN 3",
+              "edge": "edge-uitslag-histologie-cervix-cin-3"
+            }
+          ]
+        },
+        {
+          "type": "reference",
+          "label": "Follow up – 18 maanden na diagnose onbehandelde CIN2",
+          "to": "fu-18-onbehandeld-cin2",
+          "id": "verwijzing-follow-up-18-maanden-na-diagnose-onbehandelde-cin2",
+          "gridX": 45,
+          "gridY": 160
+        },
+        {
+          "type": "reference",
+          "label": "Beleid na histologie",
+          "to": "beleid-na-histologie",
+          "id": "verwijzing-beleid-na-histologie",
+          "gridX": 45,
+          "gridY": 185
+        },
+        {
+          "type": "reference",
+          "label": "Beleid na histologie",
+          "to": "beleid-na-histologie",
+          "id": "verwijzing-beleid-na-histologie-2",
+          "gridX": 135,
+          "gridY": 135
+        },
+        {
+          "type": "reference",
+          "label": "Beleid na histologie",
+          "to": "beleid-na-histologie",
+          "id": "verwijzing-beleid-na-histologie-3",
+          "gridX": 90,
+          "gridY": 135
+        },
+        {
+          "type": "recommendation",
+          "text": "LETZ\nOF\nExconisatie van de cervix op indicatie",
+          "height": 20,
+          "id": "aanbeveling-letz-2",
+          "gridX": 135,
+          "gridY": 95
+        },
+        {
+          "type": "reference",
+          "label": "Follow up – 18 maanden na diagnose onbehandelde CIN2",
+          "to": "fu-18-onbehandeld-cin2",
+          "id": "verwijzing-follow-up-18-maanden-na-diagnose-onbehandelde-cin2-2",
+          "gridX": 90,
+          "gridY": 160
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-aanbeveling-individualiseer-behandeling-mbv-shared-verwijzing-beleid-na-histologie",
+          "from": "aanbeveling-individualiseer-behandeling-mbv-shared",
+          "to": "verwijzing-beleid-na-histologie",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-letz-2-verwijzing-beleid-na-histologie-2",
+          "from": "aanbeveling-letz-2",
+          "to": "verwijzing-beleid-na-histologie-2",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-letz-verwijzing-beleid-na-histologie-3",
+          "from": "aanbeveling-letz",
+          "to": "verwijzing-beleid-na-histologie-3",
+          "arrow": true
+        },
+        {
+          "id": "edge-uitslag-histologie-cervix-cin-3",
+          "from": "uitslag-histologie-cervix",
+          "to": "aanbeveling-letz-2",
+          "label": "CIN 3",
+          "value": "cin-3",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-letz-verwijzing-follow-up-18-maanden-na-diagnose-onbehandelde-cin2-2",
+          "from": "aanbeveling-letz",
+          "to": "verwijzing-follow-up-18-maanden-na-diagnose-onbehandelde-cin2-2",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-individualiseer-behandeling-mbv-shared-verwijzing-follow-up-18-maanden-na-diagnose-onbehandelde-cin2",
+          "from": "aanbeveling-individualiseer-behandeling-mbv-shared",
+          "to": "verwijzing-follow-up-18-maanden-na-diagnose-onbehandelde-cin2",
+          "arrow": true
+        },
+        {
+          "id": "edge-titel-uitslag-histologie-cervix",
+          "from": "titel",
+          "to": "uitslag-histologie-cervix",
+          "arrow": true
+        },
+        {
+          "id": "edge-kinderwens-nee",
+          "from": "kinderwens",
+          "to": "aanbeveling-letz",
+          "label": "Nee",
+          "value": "nee",
+          "arrow": true
+        },
+        {
+          "id": "edge-kinderwens-ja",
+          "from": "kinderwens",
+          "to": "aanbeveling-individualiseer-behandeling-mbv-shared",
+          "label": "Ja",
+          "value": "ja",
+          "arrow": true
+        },
+        {
+          "id": "edge-uitslag-histologie-cervix-cin-2",
+          "from": "uitslag-histologie-cervix",
+          "to": "kinderwens",
+          "label": "CIN 2",
+          "value": "cin-2",
+          "arrow": true
+        },
+        {
+          "id": "edge-uitslag-histologie-cervix-geen-afwijkingen",
+          "from": "uitslag-histologie-cervix",
+          "to": "aanbeveling-geen-behandeling-niet-geindiceerd",
+          "label": "Geen afwijkingen, CIN 1",
+          "value": "geen-afwijkingen",
+          "arrow": true
+        }
+      ]
+    },
+    "fu-18-onbehandeld-cin2": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "title",
+          "label": "Follow up – 18 maanden na diagnose onbehandelde CIN2",
+          "id": "titel",
+          "gridX": 45,
+          "gridY": 0
+        },
+        {
+          "type": "dataItem",
+          "label": "hrHPV-status",
+          "id": "hrhpv-status",
+          "gridX": 0,
+          "gridY": 60,
+          "interactive": true,
+          "options": [
+            {
+              "value": "positief",
+              "label": "Positief",
+              "edge": "edge-hrhpv-status-positief"
+            },
+            {
+              "value": "negatief",
+              "label": "Negatief",
+              "edge": "edge-hrhpv-status-negatief"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "PAP-score",
+          "id": "pap-score",
+          "gridX": 45,
+          "gridY": 30,
+          "interactive": true,
+          "options": [
+            {
+              "value": "pap-1",
+              "label": "PAP 1",
+              "edge": "edge-pap-score-pap-1"
+            },
+            {
+              "value": "pap-2-pap-3a2",
+              "label": "PAP 2-PAP 3a2",
+              "edge": "edge-pap-score-pap-2-pap-3a2"
+            },
+            {
+              "value": "pap-3b-pap-5",
+              "label": "PAP 3b-PAP 5",
+              "edge": "edge-pap-score-pap-3b-pap-5"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Follow up met\nhrHPV EN cervixcytologie\n{i} na 18 maanden",
+          "height": 20,
+          "id": "aanbeveling-follow-up-met",
+          "gridX": 0,
+          "gridY": 95
+        },
+        {
+          "type": "recommendation",
+          "text": "Follow up met\nhrHPV EN cervixcytologie\n{i} na 6 maanden",
+          "height": 20,
+          "id": "aanbeveling-follow-up-met-2",
+          "gridX": 45,
+          "gridY": 95
+        },
+        {
+          "type": "recommendation",
+          "text": "Colposcopische beoordeling met LETZ",
+          "height": 20,
+          "id": "aanbeveling-colposcopische-beoordeling-met-letz",
+          "gridX": 90,
+          "gridY": 95
+        },
+        {
+          "type": "reference",
+          "label": "Follow up - 24 maanden na diagnose onbehandelde CIN2",
+          "to": "fu-24-onbehandeld-cin2",
+          "id": "verwijzing-follow-up-24-maanden-na-diagnose-onbehandelde-cin2",
+          "gridX": 45,
+          "gridY": 125
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-titel-pap-score",
+          "from": "titel",
+          "to": "pap-score",
+          "arrow": true
+        },
+        {
+          "id": "edge-pap-score-pap-3b-pap-5",
+          "from": "pap-score",
+          "to": "aanbeveling-colposcopische-beoordeling-met-letz",
+          "label": "PAP 3b-PAP 5",
+          "value": "pap-3b-pap-5",
+          "arrow": true
+        },
+        {
+          "id": "edge-pap-score-pap-2-pap-3a2",
+          "from": "pap-score",
+          "to": "aanbeveling-follow-up-met-2",
+          "label": "PAP 2-PAP 3a2",
+          "value": "pap-2-pap-3a2",
+          "arrow": true
+        },
+        {
+          "id": "edge-pap-score-pap-1",
+          "from": "pap-score",
+          "to": "hrhpv-status",
+          "label": "PAP 1",
+          "value": "pap-1",
+          "arrow": true
+        },
+        {
+          "id": "edge-hrhpv-status-negatief",
+          "from": "hrhpv-status",
+          "to": "aanbeveling-follow-up-met",
+          "label": "Negatief",
+          "value": "negatief",
+          "arrow": true
+        },
+        {
+          "id": "edge-hrhpv-status-positief",
+          "from": "hrhpv-status",
+          "to": "aanbeveling-follow-up-met-2",
+          "label": "Positief",
+          "value": "positief",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-follow-up-met-2-verwijzing-follow-up-24-maanden-na-diagnose-onbehandelde-cin2",
+          "from": "aanbeveling-follow-up-met-2",
+          "to": "verwijzing-follow-up-24-maanden-na-diagnose-onbehandelde-cin2",
+          "arrow": true
+        }
+      ]
+    },
+    "fu-12-laaggradig": {
+      "bron": {
+        "url": "https://www.oncoline.nl/cin-ais-en-vain"
+      },
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "dataItem",
+          "label": "PAP-score",
+          "id": "pap-score",
+          "gridX": 50,
+          "gridY": 30,
+          "interactive": true,
+          "options": [
+            {
+              "value": "pap-1",
+              "label": "PAP 1",
+              "edge": "edge-pap-score-pap-1"
+            },
+            {
+              "value": "pap-2-3a1",
+              "label": "PAP 2-3a1",
+              "edge": "edge-pap-score-pap-2-3a1"
+            },
+            {
+              "value": "gte-pap-3a2",
+              "label": ">= PAP 3a2",
+              "edge": "edge-pap-score-gte-pap-3a2"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "hrHPV-status",
+          "id": "hrhpv-status",
+          "gridX": 0,
+          "gridY": 60,
+          "interactive": true,
+          "options": [
+            {
+              "value": "positief",
+              "label": "Positief",
+              "edge": "edge-hrhpv-status-positief"
+            },
+            {
+              "value": "negatief",
+              "label": "Negatief",
+              "edge": "edge-hrhpv-status-negatief"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Follow up na 12 maanden met hrHPV EN Cervixcytologie",
+          "height": 20,
+          "id": "aanbeveling-follow-up-na-12-maanden-met-hrhpv-en",
+          "gridX": 50,
+          "gridY": 100
+        },
+        {
+          "type": "recommendation",
+          "text": "Volgend uitstrijkje volgens BVO",
+          "height": 20,
+          "id": "aanbeveling-volgend-uitstrijkje-volgens-bvo",
+          "gridX": 0,
+          "gridY": 100
+        },
+        {
+          "type": "recommendation",
+          "text": "Colposcopie met afnemen biopt(en)",
+          "height": 20,
+          "id": "aanbeveling-colposcopie-met-afnemen-biopt-en",
+          "gridX": 100,
+          "gridY": 100
+        },
+        {
+          "type": "title",
+          "label": "Follow up - 12 maanden na verdenking/diagnose laaggradige afwijking",
+          "id": "titel",
+          "gridX": 50,
+          "gridY": 0
+        },
+        {
+          "type": "reference",
+          "label": "Follow up - 24 maanden na verdenking/diagnose laaggradige afwijking",
+          "to": "fu-24-laaggradig",
+          "id": "verwijzing-follow-up-24-maanden-na-verdenking-diagnose-laaggradige-afwijking",
+          "gridX": 50,
+          "gridY": 130
+        },
+        {
+          "type": "reference",
+          "label": "Beleid na histologie na primair behandelde CIN 2/3",
+          "to": "beleid-histologie-primair-behandeld-cin23",
+          "id": "verwijzing-beleid-na-histologie-na-primair-behandelde-cin-2-3",
+          "gridX": 100,
+          "gridY": 130
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-titel-pap-score",
+          "from": "titel",
+          "to": "pap-score",
+          "arrow": true
+        },
+        {
+          "id": "edge-pap-score-gte-pap-3a2",
+          "from": "pap-score",
+          "to": "aanbeveling-colposcopie-met-afnemen-biopt-en",
+          "label": ">= PAP 3a2",
+          "value": "gte-pap-3a2",
+          "arrow": true
+        },
+        {
+          "id": "edge-hrhpv-status-positief",
+          "from": "hrhpv-status",
+          "to": "aanbeveling-follow-up-na-12-maanden-met-hrhpv-en",
+          "label": "Positief",
+          "value": "positief",
+          "arrow": true
+        },
+        {
+          "id": "edge-pap-score-pap-2-3a1",
+          "from": "pap-score",
+          "to": "aanbeveling-follow-up-na-12-maanden-met-hrhpv-en",
+          "label": "PAP 2-3a1",
+          "value": "pap-2-3a1",
+          "arrow": true
+        },
+        {
+          "id": "edge-pap-score-pap-1",
+          "from": "pap-score",
+          "to": "hrhpv-status",
+          "label": "PAP 1",
+          "value": "pap-1",
+          "arrow": true
+        },
+        {
+          "id": "edge-hrhpv-status-negatief",
+          "from": "hrhpv-status",
+          "to": "aanbeveling-volgend-uitstrijkje-volgens-bvo",
+          "label": "Negatief",
+          "value": "negatief",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-colposcopie-met-afnemen-biopt-en-verwijzing-beleid-na-histologie-na-primair-behandelde-cin-2-3",
+          "from": "aanbeveling-colposcopie-met-afnemen-biopt-en",
+          "to": "verwijzing-beleid-na-histologie-na-primair-behandelde-cin-2-3",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-follow-up-na-12-maanden-met-hrhpv-en-verwijzing-follow-up-24-maanden-na-verdenking-diagnose-laaggradige-afwijking",
+          "from": "aanbeveling-follow-up-na-12-maanden-met-hrhpv-en",
+          "to": "verwijzing-follow-up-24-maanden-na-verdenking-diagnose-laaggradige-afwijking",
+          "arrow": true
+        }
+      ]
+    },
+    "fu-24-laaggradig": {
+      "bron": {
+        "url": "https://www.oncoline.nl/cin-ais-en-vain"
+      },
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "title",
+          "label": "Follow up - 24 maanden na verdenking/diagnose laaggradige afwijking",
+          "id": "titel",
+          "gridX": 50,
+          "gridY": 0
+        },
+        {
+          "type": "recommendation",
+          "text": "Colposcopie met afnemen biopt(en)\nOF\nLETZ",
+          "height": 20,
+          "id": "aanbeveling-colposcopie-met-afnemen-biopt-en",
+          "gridX": 100,
+          "gridY": 110
+        },
+        {
+          "type": "recommendation",
+          "text": "Volgend uitstrijkje volgens BVO",
+          "height": 20,
+          "id": "aanbeveling-volgend-uitstrijkje-volgens-bvo",
+          "gridX": 50,
+          "gridY": 110
+        },
+        {
+          "type": "recommendation",
+          "text": "Volgend uitstrijkje volgens BVO\n{i} Ongeacht de uitslag van een eventueel uitgevoerde hrHPV-test",
+          "height": 26,
+          "id": "aanbeveling-volgend-uitstrijkje-volgens-bvo-2",
+          "gridX": 0,
+          "gridY": 110
+        },
+        {
+          "type": "dataItem",
+          "label": "hrHPV-status",
+          "id": "hrhpv-status",
+          "gridX": 50,
+          "gridY": 70,
+          "interactive": true,
+          "options": [
+            {
+              "value": "positief",
+              "label": "Positief",
+              "edge": "edge-hrhpv-status-positief"
+            },
+            {
+              "value": "negatief",
+              "label": "Negatief",
+              "edge": "edge-hrhpv-status-negatief"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "PAP-score",
+          "id": "pap-score",
+          "gridX": 50,
+          "gridY": 30,
+          "interactive": true,
+          "options": [
+            {
+              "value": "pap-1",
+              "label": "PAP 1",
+              "edge": "edge-pap-score-pap-1"
+            },
+            {
+              "value": "pap-2-3a1",
+              "label": "PAP 2-3a1",
+              "edge": "edge-pap-score-pap-2-3a1"
+            },
+            {
+              "value": "gte-pap-3a2",
+              "label": ">= PAP 3a2",
+              "edge": "edge-pap-score-gte-pap-3a2"
+            }
+          ]
+        },
+        {
+          "type": "reference",
+          "label": "Beleid na histologie na primair onbehandelde laaggradige afwijking",
+          "to": "beleid-histologie-primair-onbehandeld-laaggradig",
+          "id": "verwijzing-beleid-na-histologie-na-primair-onbehandelde-laaggradige-afwijking",
+          "gridX": 100,
+          "gridY": 145
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-pap-score-pap-2-3a1",
+          "from": "pap-score",
+          "to": "hrhpv-status",
+          "label": "PAP 2-3a1",
+          "value": "pap-2-3a1",
+          "arrow": true
+        },
+        {
+          "id": "edge-pap-score-pap-1",
+          "from": "pap-score",
+          "to": "aanbeveling-volgend-uitstrijkje-volgens-bvo-2",
+          "label": "PAP 1",
+          "value": "pap-1",
+          "arrow": true
+        },
+        {
+          "id": "edge-hrhpv-status-negatief",
+          "from": "hrhpv-status",
+          "to": "aanbeveling-volgend-uitstrijkje-volgens-bvo",
+          "label": "Negatief",
+          "value": "negatief",
+          "arrow": true
+        },
+        {
+          "id": "edge-hrhpv-status-positief",
+          "from": "hrhpv-status",
+          "to": "aanbeveling-colposcopie-met-afnemen-biopt-en",
+          "label": "Positief",
+          "value": "positief",
+          "arrow": true
+        },
+        {
+          "id": "edge-pap-score-gte-pap-3a2",
+          "from": "pap-score",
+          "to": "aanbeveling-colposcopie-met-afnemen-biopt-en",
+          "label": ">= PAP 3a2",
+          "value": "gte-pap-3a2",
+          "arrow": true
+        },
+        {
+          "id": "edge-titel-pap-score",
+          "from": "titel",
+          "to": "pap-score",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-colposcopie-met-afnemen-biopt-en-verwijzing-beleid-na-histologie-na-primair-onbehandelde-laaggradige-afwijking",
+          "from": "aanbeveling-colposcopie-met-afnemen-biopt-en",
+          "to": "verwijzing-beleid-na-histologie-na-primair-onbehandelde-laaggradige-afwijking",
+          "arrow": true
+        }
+      ]
+    },
+    "beleid-biopten-24-onbehandeld-cin2": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "recommendation",
+          "text": "LETZ\nOF\nExconisatie van de cervix op indicatie",
+          "height": 20,
+          "id": "aanbeveling-letz",
+          "gridX": 135,
+          "gridY": 95
+        },
+        {
+          "type": "recommendation",
+          "text": "LETZ",
+          "height": 20,
+          "id": "aanbeveling-letz-2",
+          "gridX": 90,
+          "gridY": 95
+        },
+        {
+          "type": "recommendation",
+          "text": "Individualiseer behandeling mbv shared decision making.\nVaginale imiquimod behandeling\nOF\nLETZ",
+          "height": 29,
+          "id": "aanbeveling-individualiseer-behandeling-mbv-shared",
+          "gridX": 45,
+          "gridY": 95
+        },
+        {
+          "type": "recommendation",
+          "text": "{x} Behandeling niet geïndiceerd\n{i} bij discrepantie met klinisch beeld: individualiseer behandeling en overleg met patholoog\n{i} bij recidiverende laaggradige afwijkingen in niet-fertiele levensfase kan men samen met patiënte besluiten tot behandeling om tijd tussen controles te vergroten of controles te kunnen staken.",
+          "height": 55,
+          "id": "aanbeveling-geen-behandeling-niet-geindiceerd",
+          "gridX": 0,
+          "gridY": 95
+        },
+        {
+          "type": "dataItem",
+          "label": "Kinderwens",
+          "id": "kinderwens",
+          "gridX": 45,
+          "gridY": 60,
+          "interactive": true,
+          "options": [
+            {
+              "value": "ja",
+              "label": "Ja",
+              "edge": "edge-kinderwens-ja"
+            },
+            {
+              "value": "nee",
+              "label": "Nee",
+              "edge": "edge-kinderwens-nee"
+            }
+          ]
+        },
+        {
+          "type": "title",
+          "label": "Beleid na biopten (bij follow up 24 mnd na diagnose onbehandelde CIN2)",
+          "id": "titel",
+          "gridX": 90,
+          "gridY": 0
+        },
+        {
+          "type": "dataItem",
+          "label": "Uitslag histologie cervix",
+          "id": "uitslag-histologie-cervix",
+          "gridX": 90,
+          "gridY": 30,
+          "interactive": true,
+          "options": [
+            {
+              "value": "geen-afwijkingen",
+              "label": "Geen afwijkingen",
+              "edge": "edge-uitslag-histologie-cervix-geen-afwijkingen"
+            },
+            {
+              "value": "cin-2",
+              "label": "CIN 2",
+              "edge": "edge-uitslag-histologie-cervix-cin-2"
+            },
+            {
+              "value": "cin-3",
+              "label": "CIN 3",
+              "edge": "edge-uitslag-histologie-cervix-cin-3"
+            }
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-titel-uitslag-histologie-cervix",
+          "from": "titel",
+          "to": "uitslag-histologie-cervix",
+          "arrow": true
+        },
+        {
+          "id": "edge-uitslag-histologie-cervix-geen-afwijkingen",
+          "from": "uitslag-histologie-cervix",
+          "to": "aanbeveling-geen-behandeling-niet-geindiceerd",
+          "label": "Geen afwijkingen, CIN 1",
+          "value": "geen-afwijkingen",
+          "arrow": true
+        },
+        {
+          "id": "edge-uitslag-histologie-cervix-cin-2",
+          "from": "uitslag-histologie-cervix",
+          "to": "kinderwens",
+          "label": "CIN 2",
+          "value": "cin-2",
+          "arrow": true
+        },
+        {
+          "id": "edge-kinderwens-nee",
+          "from": "kinderwens",
+          "to": "aanbeveling-letz-2",
+          "label": "Nee",
+          "value": "nee",
+          "arrow": true
+        },
+        {
+          "id": "edge-kinderwens-ja",
+          "from": "kinderwens",
+          "to": "aanbeveling-individualiseer-behandeling-mbv-shared",
+          "label": "Ja",
+          "value": "ja",
+          "arrow": true
+        },
+        {
+          "id": "edge-uitslag-histologie-cervix-cin-3",
+          "from": "uitslag-histologie-cervix",
+          "to": "aanbeveling-letz",
+          "label": "CIN 3",
+          "value": "cin-3",
+          "arrow": true
+        }
+      ]
+    }
+  }
 }

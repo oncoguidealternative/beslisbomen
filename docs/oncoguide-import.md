@@ -48,7 +48,9 @@ Maak `tools/oncoguide/configs/<tumor-id>.json`:
 | `bomen` | Optioneel: een eigen id per Oncoguide-boom. Anders wordt het id gemaakt uit de naam. |
 | `vervang` | Optioneel: tekstcorrecties, bijvoorbeeld tikfouten uit Oncoguide (`[oud, nieuw]`) |
 | `overzicht` | Optioneel: aanpassingen per stap in het overzicht, bijvoorbeeld `{"stap-id": {"tumor": "…", "tree": "…"}}` |
-| `behoudOverzicht` | `true`: het bestaande overzicht blijft staan; alleen de beslisbomen worden (opnieuw) gemaakt |
+| `menu` | Optioneel: nummer van de menuboom (het zorgpad) in Oncoguide, het nummer uit de link. Nodig als een project meer menubomen heeft, zoals Trofoblastziekten (Nederlands, Engels en een test). Alleen bomen die vanuit dit menu bereikbaar zijn, worden omgezet. |
+| `eenheden` | Optioneel: eenheid per meting als Oncoguide die leeg laat, bijv. `{"Leeftijd": "jaar"}`. Zonder deze instelling kiest het script een redelijke eenheid (jaar, kuren, score, aantal of getal). |
+| `behoudOverzicht` | `true`: het bestaande overzicht blijft staan. Elke stap wordt op naam gekoppeld aan de Oncoguide-boom, en die boom krijgt het id van de stap. Stappen die bij een andere tumor horen, gaan naar die tumor. |
 
 ### 3. Omzetten
 

@@ -1,0 +1,26 @@
+{
+  "tumor": "trofoblast",
+  "export": "../exports/oncoguide-56.json",
+  "menu": 10644,
+  "titel": "Zorgpad trofoblastziekten",
+  "bron": {
+    "richtlijn": "Trofoblastziekten",
+    "organisatie": "NVOG (Nederlandse Vereniging voor Obstetrie en Gynaecologie)",
+    "url": "https://richtlijnendatabase.nl/richtlijn/trofoblastziekten/diagnostiek_bij_trofoblastziekten.html"
+  },
+  "behoudOverzicht": true,
+  "vervang": [
+    [
+      "cyctectomie",
+      "cystectomie"
+    ],
+    [
+      "bordeline",
+      "borderline"
+    ],
+    [
+      "menopausaal",
+      "menopauzaal"
+    ]
+  ]
+}

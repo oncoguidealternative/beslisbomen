@@ -1,0 +1,26 @@
+{
+  "tumor": "cin-ais-vain",
+  "export": "../exports/oncoguide-28.json",
+  "menu": 11145,
+  "titel": "Zorgpad CIN, AIS, VAIN",
+  "bron": {
+    "richtlijn": "CIN, AIS en VAIN",
+    "organisatie": "NVOG (Nederlandse Vereniging voor Obstetrie en Gynaecologie)",
+    "url": "https://richtlijnendatabase.nl/richtlijn/cin_ais_en_vain/startpagina_-_cin_ais_en_vain.html"
+  },
+  "behoudOverzicht": true,
+  "vervang": [
+    [
+      "cyctectomie",
+      "cystectomie"
+    ],
+    [
+      "bordeline",
+      "borderline"
+    ],
+    [
+      "menopausaal",
+      "menopauzaal"
+    ]
+  ]
+}

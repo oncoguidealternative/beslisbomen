@@ -1,6 +1,12 @@
 {
   "id": "niet-epitheliaal-ovarium",
   "titel": "Zorgpad niet epitheliale ovarium maligniteiten",
+  "bron": {
+    "richtlijn": "Niet epitheliale maligniteiten van het ovarium",
+    "organisatie": "NVOG (Nederlandse Vereniging voor Obstetrie en Gynaecologie)",
+    "url": "https://richtlijnendatabase.nl/richtlijn/niet_epitheliale_maligniteiten_ovarium/algemeen.html",
+    "opmerking": "Omgezet uit Oncoguide (IKNL, project 68, publicatie 15-04-2021)."
+  },
   "overview": {
     "layout": {
       "unit": 5,
@@ -22,14 +28,18 @@
         "gridX": 120,
         "gridY": 40,
         "label": "Klinisch (verdenking op) vergroot ovarium",
-        "drill": true
+        "tumor": "vergroot-ovarium",
+        "tree": "klinisch-vergroot-ovarium",
+        "icon": "down"
       },
       {
         "id": "initieel-beleid-vergroot-ovarium",
         "gridX": 120,
         "gridY": 80,
         "label": "Initieel beleid vergroot ovarium",
-        "drill": true
+        "tumor": "vergroot-ovarium",
+        "tree": "initieel-beleid",
+        "icon": "down"
       },
       {
         "id": "aanvullende-diagnostiek",
@@ -134,14 +144,16 @@
         "gridX": 60,
         "gridY": 440,
         "label": "Follow-up kiemceltumoren",
-        "drill": true
+        "drill": true,
+        "to": "follow-up-kiemceltumoren"
       },
       {
         "id": "follow-up-sexcord-2",
         "gridX": 140,
         "gridY": 440,
         "label": "Follow-up sexcord stromaceltumoren",
-        "drill": true
+        "drill": true,
+        "to": "follow-up-sexcord"
       }
     ],
     "edges": [
@@ -475,5 +487,2835 @@
       }
     ]
   },
-  "trees": {}
+  "trees": {
+    "follow-up-sexcord": {
+      "onderbouwing": "Follow-up: Gedurende de eerste twee jaar controle elke 3 maanden daarna elke 6 maanden. Overweeg een langere follow-up van 10-15 jaar.\n\nFollow up bestaat uit:\n\nAnamnese\n\nEN\n\nLichamelijk onderzoek\n\nEN\n\nGynaecologisch onderzoek\n\nEN\n\nControle tumormarkers (Inhibine)\n\n(i) aandacht voor fertiliteit indien van toepassing",
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "title",
+          "label": "Follow-up sexcord stromaceltumoren",
+          "id": "titel",
+          "gridX": 0,
+          "gridY": 0
+        },
+        {
+          "type": "recommendation",
+          "text": "Follow-up in Oncologisch centrum gedurende tenminste 5 jaar\n(zie onderbouwing voor details)",
+          "height": 23,
+          "id": "aanbeveling-follow-up-in-oncologisch-centrum-gedurende",
+          "gridX": 0,
+          "gridY": 30
+        },
+        {
+          "type": "reference",
+          "label": "Recidief behandeling sexcord stromaceltumoren",
+          "to": "recidief-behandeling-sexcord",
+          "id": "verwijzing-recidief-behandeling-sexcord-stromaceltumoren",
+          "gridX": 0,
+          "gridY": 65
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-aanbeveling-follow-up-in-oncologisch-centrum-gedurende-verwijzing-recidief-behandeling-sexcord-stromaceltumoren",
+          "from": "aanbeveling-follow-up-in-oncologisch-centrum-gedurende",
+          "to": "verwijzing-recidief-behandeling-sexcord-stromaceltumoren",
+          "arrow": true
+        },
+        {
+          "id": "edge-titel-aanbeveling-follow-up-in-oncologisch-centrum-gedurende",
+          "from": "titel",
+          "to": "aanbeveling-follow-up-in-oncologisch-centrum-gedurende",
+          "arrow": true
+        }
+      ]
+    },
+    "recidief-behandeling-sexcord": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "recommendation",
+          "text": "Chirurgie",
+          "height": 20,
+          "id": "aanbeveling-chirurgie",
+          "gridX": 50,
+          "gridY": 130
+        },
+        {
+          "type": "reference",
+          "label": "Follow-up sexcord stromaceltumoren",
+          "to": "follow-up-sexcord",
+          "id": "verwijzing-follow-up-sexcord-stromaceltumoren",
+          "gridX": 150,
+          "gridY": 185
+        },
+        {
+          "type": "reference",
+          "label": "Follow-up sexcord stromaceltumoren",
+          "to": "follow-up-sexcord",
+          "id": "verwijzing-follow-up-sexcord-stromaceltumoren-2",
+          "gridX": 100,
+          "gridY": 185
+        },
+        {
+          "type": "reference",
+          "label": "Follow-up sexcord stromaceltumoren",
+          "to": "follow-up-sexcord",
+          "id": "verwijzing-follow-up-sexcord-stromaceltumoren-3",
+          "gridX": 50,
+          "gridY": 185
+        },
+        {
+          "type": "title",
+          "label": "Recidief behandeling sexcord stromaceltumoren",
+          "id": "titel",
+          "gridX": 0,
+          "gridY": 0
+        },
+        {
+          "type": "recommendation",
+          "text": "Overweeg chemotherapie\nOF\nOverweeg hormonale therapie\nEN\nBij respons\nheroverweeg chirurgie",
+          "height": 29,
+          "id": "aanbeveling-overweeg-chemotherapie",
+          "gridX": 150,
+          "gridY": 130
+        },
+        {
+          "type": "recommendation",
+          "text": "Expectatief tot klachten\nOF\nOverweeg anti-hormonale therapie met tamoxifen, aromataseremmers, GnRH-analogen of progestagenen\nOF\nOverweeg herchirurgie bij progressie",
+          "height": 39,
+          "id": "aanbeveling-expectatief-tot-klachten",
+          "gridX": 100,
+          "gridY": 130
+        },
+        {
+          "type": "recommendation",
+          "text": "De richtlijn doet hier geen uitspraak over",
+          "height": 20,
+          "id": "aanbeveling-de-richtlijn-doet-hier-geen-uitspraak-over",
+          "gridX": 0,
+          "gridY": 130
+        },
+        {
+          "type": "dataItem",
+          "label": "Symptomatisch recidief",
+          "id": "symptomatisch-recidief",
+          "gridX": 50,
+          "gridY": 95,
+          "interactive": true,
+          "options": [
+            {
+              "value": "afwezig",
+              "label": "Afwezig",
+              "edge": "edge-symptomatisch-recidief-afwezig"
+            },
+            {
+              "value": "aanwezig",
+              "label": "Aanwezig",
+              "edge": "edge-symptomatisch-recidief-aanwezig"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Type sexcord stromaceltumor",
+          "id": "type-sexcord-stromaceltumor",
+          "gridX": 0,
+          "gridY": 30,
+          "interactive": true,
+          "options": [
+            {
+              "value": "overig",
+              "label": "Overig",
+              "edge": "edge-type-sexcord-stromaceltumor-overig"
+            },
+            {
+              "value": "granulosaceltumor",
+              "label": "Granulosaceltumor",
+              "edge": "edge-type-sexcord-stromaceltumor-granulosaceltumor"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Resectabiliteit",
+          "id": "resectabiliteit",
+          "gridX": 50,
+          "gridY": 60,
+          "interactive": true,
+          "options": [
+            {
+              "value": "irresectabel",
+              "label": "Irresectabel",
+              "edge": "edge-resectabiliteit-irresectabel"
+            },
+            {
+              "value": "resectabel",
+              "label": "Resectabel",
+              "edge": "edge-resectabiliteit-resectabel"
+            }
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-aanbeveling-chirurgie-verwijzing-follow-up-sexcord-stromaceltumoren-3",
+          "from": "aanbeveling-chirurgie",
+          "to": "verwijzing-follow-up-sexcord-stromaceltumoren-3",
+          "arrow": true
+        },
+        {
+          "id": "edge-symptomatisch-recidief-aanwezig",
+          "from": "symptomatisch-recidief",
+          "to": "aanbeveling-chirurgie",
+          "label": "Aanwezig",
+          "value": "aanwezig",
+          "arrow": true
+        },
+        {
+          "id": "edge-symptomatisch-recidief-afwezig",
+          "from": "symptomatisch-recidief",
+          "to": "aanbeveling-expectatief-tot-klachten",
+          "label": "Afwezig",
+          "value": "afwezig",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-expectatief-tot-klachten-verwijzing-follow-up-sexcord-stromaceltumoren-2",
+          "from": "aanbeveling-expectatief-tot-klachten",
+          "to": "verwijzing-follow-up-sexcord-stromaceltumoren-2",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-overweeg-chemotherapie-verwijzing-follow-up-sexcord-stromaceltumoren",
+          "from": "aanbeveling-overweeg-chemotherapie",
+          "to": "verwijzing-follow-up-sexcord-stromaceltumoren",
+          "arrow": true
+        },
+        {
+          "id": "edge-type-sexcord-stromaceltumor-overig",
+          "from": "type-sexcord-stromaceltumor",
+          "to": "aanbeveling-de-richtlijn-doet-hier-geen-uitspraak-over",
+          "label": "Overig",
+          "value": "overig",
+          "arrow": true
+        },
+        {
+          "id": "edge-type-sexcord-stromaceltumor-granulosaceltumor",
+          "from": "type-sexcord-stromaceltumor",
+          "to": "resectabiliteit",
+          "label": "Granulosaceltumor",
+          "value": "granulosaceltumor",
+          "arrow": true
+        },
+        {
+          "id": "edge-titel-type-sexcord-stromaceltumor",
+          "from": "titel",
+          "to": "type-sexcord-stromaceltumor",
+          "arrow": true
+        },
+        {
+          "id": "edge-resectabiliteit-resectabel",
+          "from": "resectabiliteit",
+          "to": "symptomatisch-recidief",
+          "label": "Resectabel",
+          "value": "resectabel",
+          "arrow": true
+        },
+        {
+          "id": "edge-resectabiliteit-irresectabel",
+          "from": "resectabiliteit",
+          "to": "aanbeveling-overweeg-chemotherapie",
+          "label": "Irresectabel",
+          "value": "irresectabel",
+          "arrow": true
+        }
+      ]
+    },
+    "aanvullende-diagnostiek": {
+      "onderbouwing": "Tumor AFPhCG17 beta-oestradiolInhibine BPuur dysgerminoomnormaalnormaal tot licht verhoogd Immatuur teratoomkan verhoogd zijnnormaal Endodermale sinustumorverhoogdnormaal Embryonaalcelcarcinoomverhoogdverhoogd Choriocarcinoomnormaalverhoogd Ganulosaceltumornormaalnormaalverhoogdverhoogd",
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "title",
+          "label": "Aanvullende diagnostiek",
+          "id": "titel",
+          "gridX": 0,
+          "gridY": 0
+        },
+        {
+          "type": "recommendation",
+          "text": "CT-thorax en abdomen",
+          "height": 20,
+          "id": "aanbeveling-ct-thorax-en-abdomen",
+          "gridX": 0,
+          "gridY": 30
+        },
+        {
+          "type": "reference",
+          "label": "Aanvullende diagnostiek na tumormarkers en CT",
+          "to": "aanvullende-diagnostiek-tumormarkers-ct",
+          "id": "verwijzing-aanvullende-diagnostiek-na-tumormarkers-en-ct",
+          "gridX": 0,
+          "gridY": 60
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-aanbeveling-ct-thorax-en-abdomen-verwijzing-aanvullende-diagnostiek-na-tumormarkers-en-ct",
+          "from": "aanbeveling-ct-thorax-en-abdomen",
+          "to": "verwijzing-aanvullende-diagnostiek-na-tumormarkers-en-ct",
+          "arrow": true
+        },
+        {
+          "id": "edge-titel-aanbeveling-ct-thorax-en-abdomen",
+          "from": "titel",
+          "to": "aanbeveling-ct-thorax-en-abdomen",
+          "arrow": true
+        }
+      ]
+    },
+    "aanvullende-diagnostiek-tumormarkers-ct": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "recommendation",
+          "text": "Overweeg erfelijkheidsonderzoek",
+          "height": 20,
+          "id": "aanbeveling-overweeg-erfelijkheidsonderzoek",
+          "gridX": 150,
+          "gridY": 75
+        },
+        {
+          "type": "recommendation",
+          "text": "Ga naar desbetreffende richtlijn",
+          "height": 20,
+          "id": "aanbeveling-ga-naar-desbetreffende-richtlijn",
+          "gridX": 0,
+          "gridY": 75
+        },
+        {
+          "type": "reference",
+          "label": "Pathologie en stagering",
+          "to": "pathologie-stagering",
+          "id": "verwijzing-pathologie-en-stagering",
+          "gridX": 100,
+          "gridY": 115
+        },
+        {
+          "type": "title",
+          "label": "Aanvullende diagnostiek na tumormarkers en CT",
+          "id": "titel",
+          "gridX": 50,
+          "gridY": 0
+        },
+        {
+          "type": "dataItem",
+          "label": "Waarschijnlijkheidsdiagnose",
+          "id": "waarschijnlijkheidsdiagnose",
+          "gridX": 50,
+          "gridY": 30,
+          "interactive": true,
+          "options": [
+            {
+              "value": "overige-kiemceltumoren-overige-sexcordstromaceltumoren-mesenchymale-tumoren",
+              "label": "Overige kiemceltumoren Overige sexcordstromaceltumoren Mesenchymale tumoren",
+              "edge": "edge-waarschijnlijkheidsdiagnose-overige-kiemceltumoren-overige-sexcordstromaceltumoren-mesenchymale-tumoren"
+            },
+            {
+              "value": "overige-ovarium-tumoren",
+              "label": "Overige ovarium tumoren",
+              "edge": "edge-waarschijnlijkheidsdiagnose-overige-ovarium-tumoren"
+            },
+            {
+              "value": "non-gestational-choriocarcinoom",
+              "label": "Non-gestational choriocarcinoom",
+              "edge": "edge-waarschijnlijkheidsdiagnose-non-gestational-choriocarcinoom"
+            },
+            {
+              "value": "granulosaceltumor",
+              "label": "Granulosaceltumor",
+              "edge": "edge-waarschijnlijkheidsdiagnose-granulosaceltumor"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Verwijzen naar Oncologisch centrum\nEN\nOverweeg Endometrium diagnostiek",
+          "height": 23,
+          "id": "aanbeveling-verwijzen-naar-oncologisch-centrum",
+          "gridX": 50,
+          "gridY": 75
+        },
+        {
+          "type": "reference",
+          "label": "Pathologie en stagering",
+          "to": "pathologie-stagering",
+          "id": "verwijzing-pathologie-en-stagering-2",
+          "gridX": 50,
+          "gridY": 115
+        },
+        {
+          "type": "recommendation",
+          "text": "Verwijzen naar Oncologisch centrum",
+          "height": 20,
+          "id": "aanbeveling-verwijzen-naar-oncologisch-centrum-2",
+          "gridX": 100,
+          "gridY": 75
+        },
+        {
+          "type": "reference",
+          "label": "Beleid choriocarcinoom",
+          "to": "beleid-choriocarcinoom",
+          "id": "verwijzing-beleid-choriocarcinoom",
+          "gridX": 150,
+          "gridY": 115
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-waarschijnlijkheidsdiagnose-overige-ovarium-tumoren",
+          "from": "waarschijnlijkheidsdiagnose",
+          "to": "aanbeveling-ga-naar-desbetreffende-richtlijn",
+          "label": "Overige ovarium tumoren",
+          "value": "overige-ovarium-tumoren",
+          "arrow": true
+        },
+        {
+          "id": "edge-titel-waarschijnlijkheidsdiagnose",
+          "from": "titel",
+          "to": "waarschijnlijkheidsdiagnose",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-verwijzen-naar-oncologisch-centrum-2-verwijzing-pathologie-en-stagering",
+          "from": "aanbeveling-verwijzen-naar-oncologisch-centrum-2",
+          "to": "verwijzing-pathologie-en-stagering",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-verwijzen-naar-oncologisch-centrum-verwijzing-pathologie-en-stagering-2",
+          "from": "aanbeveling-verwijzen-naar-oncologisch-centrum",
+          "to": "verwijzing-pathologie-en-stagering-2",
+          "arrow": true
+        },
+        {
+          "id": "edge-waarschijnlijkheidsdiagnose-granulosaceltumor",
+          "from": "waarschijnlijkheidsdiagnose",
+          "to": "aanbeveling-verwijzen-naar-oncologisch-centrum",
+          "label": "Granulosaceltumor",
+          "value": "granulosaceltumor",
+          "arrow": true
+        },
+        {
+          "id": "edge-waarschijnlijkheidsdiagnose-overige-kiemceltumoren-overige-sexcordstromaceltumoren-mesenchymale-tumoren",
+          "from": "waarschijnlijkheidsdiagnose",
+          "to": "aanbeveling-verwijzen-naar-oncologisch-centrum-2",
+          "label": "Overige kiemceltumoren Overige sexcordstromaceltumoren Mesenchymale tumoren",
+          "value": "overige-kiemceltumoren-overige-sexcordstromaceltumoren-mesenchymale-tumoren",
+          "arrow": true
+        },
+        {
+          "id": "edge-waarschijnlijkheidsdiagnose-non-gestational-choriocarcinoom",
+          "from": "waarschijnlijkheidsdiagnose",
+          "to": "aanbeveling-overweeg-erfelijkheidsonderzoek",
+          "label": "Non-gestational choriocarcinoom",
+          "value": "non-gestational-choriocarcinoom",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-overweeg-erfelijkheidsonderzoek-verwijzing-beleid-choriocarcinoom",
+          "from": "aanbeveling-overweeg-erfelijkheidsonderzoek",
+          "to": "verwijzing-beleid-choriocarcinoom",
+          "arrow": true
+        }
+      ]
+    },
+    "pathologie-stagering": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "title",
+          "label": "Pathologie en stagering",
+          "id": "titel",
+          "gridX": 0,
+          "gridY": 0
+        },
+        {
+          "type": "reference",
+          "label": "Beleid na definitieve histologie",
+          "to": "beleid-definitieve-histologie",
+          "id": "verwijzing-beleid-na-definitieve-histologie",
+          "gridX": 50,
+          "gridY": 130
+        },
+        {
+          "type": "recommendation",
+          "text": "Streven naar spillvrije exploratieve chirurgie\n{i} met inachtneming van leeftijd en kinderwens\nEN\nVriescoupe\nOF\nStreven naar spillvrije exploratieve chirurgie\n{i} met inachtneming van leeftijd en kinderwens\nEN\nDefinitieve PA afwachten",
+          "height": 55,
+          "id": "aanbeveling-streven-naar-spillvrije-exploratieve",
+          "gridX": 50,
+          "gridY": 65
+        },
+        {
+          "type": "reference",
+          "label": "Beleid na definitieve histologie",
+          "to": "beleid-definitieve-histologie",
+          "id": "verwijzing-beleid-na-definitieve-histologie-2",
+          "gridX": 0,
+          "gridY": 130
+        },
+        {
+          "type": "recommendation",
+          "text": "Verricht histologische punctie\nOF\nBiopt\nOF\nExploratieve chirurgie\n{i} met inachtneming van leeftijd en kinderwens",
+          "height": 36,
+          "id": "aanbeveling-verricht-histologische-punctie",
+          "gridX": 0,
+          "gridY": 65
+        },
+        {
+          "type": "dataItem",
+          "label": "Uitgebreidheid ziekte",
+          "id": "uitgebreidheid-ziekte",
+          "gridX": 0,
+          "gridY": 30,
+          "interactive": true,
+          "options": [
+            {
+              "value": "evident-buiten-ovarium",
+              "label": "Evident buiten ovarium",
+              "edge": "edge-uitgebreidheid-ziekte-evident-buiten-ovarium"
+            },
+            {
+              "value": "niet-uitgebreid",
+              "label": "Niet uitgebreid",
+              "edge": "edge-uitgebreidheid-ziekte-niet-uitgebreid"
+            }
+          ]
+        },
+        {
+          "type": "reference",
+          "label": "Beleid na verkrijgen vriescoupe",
+          "to": "beleid-vriescoupe",
+          "id": "verwijzing-beleid-na-verkrijgen-vriescoupe",
+          "gridX": 100,
+          "gridY": 130
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-uitgebreidheid-ziekte-evident-buiten-ovarium",
+          "from": "uitgebreidheid-ziekte",
+          "to": "aanbeveling-verricht-histologische-punctie",
+          "label": "Evident buiten ovarium",
+          "value": "evident-buiten-ovarium",
+          "arrow": true
+        },
+        {
+          "id": "edge-uitgebreidheid-ziekte-niet-uitgebreid",
+          "from": "uitgebreidheid-ziekte",
+          "to": "aanbeveling-streven-naar-spillvrije-exploratieve",
+          "label": "Niet uitgebreid",
+          "value": "niet-uitgebreid",
+          "arrow": true
+        },
+        {
+          "id": "edge-titel-uitgebreidheid-ziekte",
+          "from": "titel",
+          "to": "uitgebreidheid-ziekte",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-streven-naar-spillvrije-exploratieve-verwijzing-beleid-na-definitieve-histologie",
+          "from": "aanbeveling-streven-naar-spillvrije-exploratieve",
+          "to": "verwijzing-beleid-na-definitieve-histologie",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-verricht-histologische-punctie-verwijzing-beleid-na-definitieve-histologie-2",
+          "from": "aanbeveling-verricht-histologische-punctie",
+          "to": "verwijzing-beleid-na-definitieve-histologie-2",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-streven-naar-spillvrije-exploratieve-verwijzing-beleid-na-verkrijgen-vriescoupe",
+          "from": "aanbeveling-streven-naar-spillvrije-exploratieve",
+          "to": "verwijzing-beleid-na-verkrijgen-vriescoupe",
+          "arrow": true
+        }
+      ]
+    },
+    "beleid-definitieve-histologie": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "recommendation",
+          "text": "Overweeg stagering bestaande uit:\n-extirpatie aangedane adnex\n-omentectomie\n-spoelvloeistof\n-biopsie van de peritoneumvlakken (pelvien, paracolisch en diafragma)\nEN\nUterus extirpatie en bilateraal adnexextirpatie\n{i} bij postmenopauzale patiënten\nEN\n(\\) Geen standaard lymfkliersampling geïndiceerd",
+          "height": 71,
+          "id": "aanbeveling-extirpatie-aangedane-adnex",
+          "gridX": 100,
+          "gridY": 135
+        },
+        {
+          "type": "dataItem",
+          "label": "Uitbreiding tumor",
+          "id": "uitbreiding-tumor",
+          "gridX": 250,
+          "gridY": 65,
+          "interactive": true,
+          "options": [
+            {
+              "value": "buiten-ovarium",
+              "label": "Buiten ovarium",
+              "edge": "edge-uitbreiding-tumor-buiten-ovarium"
+            },
+            {
+              "value": "beperkt-tot-ovarium",
+              "label": "Beperkt tot ovarium",
+              "edge": "edge-uitbreiding-tumor-beperkt-tot-ovarium"
+            }
+          ]
+        },
+        {
+          "type": "reference",
+          "label": "Adjuvante behandeling sexcordstromaceltumoren",
+          "to": "adjuvante-behandeling-sexcord",
+          "id": "verwijzing-adjuvante-behandeling-sexcordstromaceltumoren",
+          "gridX": 250,
+          "gridY": 220
+        },
+        {
+          "type": "dataItem",
+          "label": "Kiemcel tumor subtype",
+          "id": "kiemcel-tumor-subtype",
+          "gridX": 100,
+          "gridY": 65,
+          "interactive": true,
+          "options": [
+            {
+              "value": "overig",
+              "label": "Overig",
+              "edge": "edge-kiemcel-tumor-subtype-overig"
+            },
+            {
+              "value": "non-gestational-choriocarcinoom",
+              "label": "Non gestational choriocarcinoom",
+              "edge": "edge-kiemcel-tumor-subtype-non-gestational-choriocarcinoom"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Resectabiliteit",
+          "id": "resectabiliteit",
+          "gridX": 350,
+          "gridY": 100,
+          "interactive": true,
+          "options": [
+            {
+              "value": "irresectabel",
+              "label": "Irresectabel",
+              "edge": "edge-resectabiliteit-irresectabel"
+            },
+            {
+              "value": "resectabel",
+              "label": "Resectabel",
+              "edge": "edge-resectabiliteit-resectabel"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Histologie",
+          "id": "histologie",
+          "gridX": 100,
+          "gridY": 30,
+          "interactive": true,
+          "options": [
+            {
+              "value": "overig",
+              "label": "Overig",
+              "edge": "edge-histologie-overig"
+            },
+            {
+              "value": "mesenchymale-tumor",
+              "label": "Mesenchymale tumor",
+              "edge": "edge-histologie-mesenchymale-tumor"
+            },
+            {
+              "value": "sexcordstromaceltumor",
+              "label": "Sexcordstromaceltumor",
+              "edge": "edge-histologie-sexcordstromaceltumor"
+            },
+            {
+              "value": "kiemceltumor",
+              "label": "Kiemceltumor",
+              "edge": "edge-histologie-kiemceltumor"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Individualiseer behandeling of ga naar betreffende richtlijn",
+          "height": 20,
+          "id": "aanbeveling-individualiseer-behandeling-of-ga-naar",
+          "gridX": 0,
+          "gridY": 135
+        },
+        {
+          "type": "recommendation",
+          "text": "Ga naar RL Sarcomen",
+          "height": 20,
+          "id": "aanbeveling-ga-naar-rl-sarcomen",
+          "gridX": 50,
+          "gridY": 135
+        },
+        {
+          "type": "title",
+          "label": "Beleid na definitieve histologie",
+          "id": "titel",
+          "gridX": 100,
+          "gridY": 0
+        },
+        {
+          "type": "recommendation",
+          "text": "Verwijs naar oncologisch centrum\nEN\nIndividualiseer behandeling\n{i} in geval van een choriocarcinoom met intermediaire of slechte prognose is beeldvorming (MRI) van de hersenen aan te bevelen voor start chemotherapie",
+          "height": 49,
+          "id": "aanbeveling-verwijs-naar-oncologisch-centrum",
+          "gridX": 200,
+          "gridY": 135
+        },
+        {
+          "type": "recommendation",
+          "text": "Overweeg stagering bestaande uit:\n- extirpatie aangedane adnex\n- omentectomie\n- spoelvloeistof\n- biopsie van de peritoneumvlakken (pelvien, paracolisch en diafragma)\n{i} indien endometriumdiagnostiek is uitgevoerd",
+          "height": 52,
+          "id": "aanbeveling-extirpatie-aangedane-adnex-2",
+          "gridX": 250,
+          "gridY": 135
+        },
+        {
+          "type": "reference",
+          "label": "Follow-up kiemceltumoren",
+          "to": "follow-up-kiemceltumoren",
+          "id": "verwijzing-follow-up-kiemceltumoren",
+          "gridX": 200,
+          "gridY": 220
+        },
+        {
+          "type": "reference",
+          "label": "Adjuvante behandeling sexcordstromaceltumoren",
+          "to": "adjuvante-behandeling-sexcord",
+          "id": "verwijzing-adjuvante-behandeling-sexcordstromaceltumoren-2",
+          "gridX": 300,
+          "gridY": 220
+        },
+        {
+          "type": "reference",
+          "label": "Adjuvante behandeling kiemceltumoren",
+          "to": "adjuvante-behandeling-kiemceltumoren",
+          "id": "verwijzing-adjuvante-behandeling-kiemceltumoren",
+          "gridX": 150,
+          "gridY": 220
+        },
+        {
+          "type": "dataItem",
+          "label": "Menopauzale status",
+          "id": "menopauzale-status",
+          "gridX": 250,
+          "gridY": 100,
+          "interactive": true,
+          "options": [
+            {
+              "value": "postmenopauzaal",
+              "label": "Postmenopauzaal",
+              "edge": "edge-menopauzale-status-postmenopauzaal"
+            },
+            {
+              "value": "premenopauzaal",
+              "label": "Premenopauzaal",
+              "edge": "edge-menopauzale-status-premenopauzaal"
+            }
+          ]
+        },
+        {
+          "type": "reference",
+          "label": "Adjuvante behandeling kiemceltumoren",
+          "to": "adjuvante-behandeling-kiemceltumoren",
+          "id": "verwijzing-adjuvante-behandeling-kiemceltumoren-2",
+          "gridX": 100,
+          "gridY": 220
+        },
+        {
+          "type": "recommendation",
+          "text": "Overweeg stagering bestaande uit:\n- omentectomie\n- spoelvloeistof\n- biopsie van de peritoneumvlakken (pelvien, paracolisch en diafragma)\nEN\nHysterectomie met bilaterale salpingo-oophorectomie",
+          "height": 45,
+          "id": "aanbeveling-omentectomie",
+          "gridX": 300,
+          "gridY": 135
+        },
+        {
+          "type": "dataItem",
+          "label": "Uitbreiding tumor",
+          "id": "uitbreiding-tumor-2",
+          "gridX": 100,
+          "gridY": 100,
+          "interactive": true,
+          "options": [
+            {
+              "value": "buiten-ovarium",
+              "label": "Buiten ovarium",
+              "edge": "edge-uitbreiding-tumor-2-buiten-ovarium"
+            },
+            {
+              "value": "beperkt-tot-ovarium",
+              "label": "Beperkt tot ovarium",
+              "edge": "edge-uitbreiding-tumor-2-beperkt-tot-ovarium"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Overweeg (neoadjuvante) chemotherapie\nOF\nDebulking\n{i} op basis van leeftijd, comorbiditeit, conditie, mogelijkheid tot resectie van de tumor",
+          "height": 36,
+          "id": "aanbeveling-overweeg-neoadjuvante-chemotherapie",
+          "gridX": 150,
+          "gridY": 135
+        },
+        {
+          "type": "recommendation",
+          "text": "Overweeg palliatieve systemische therapie",
+          "height": 20,
+          "id": "aanbeveling-overweeg-palliatieve-systemische-therapie",
+          "gridX": 400,
+          "gridY": 135
+        },
+        {
+          "type": "reference",
+          "label": "Follow-up sexcord stromaceltumoren",
+          "to": "follow-up-sexcord",
+          "id": "verwijzing-follow-up-sexcord-stromaceltumoren",
+          "gridX": 400,
+          "gridY": 220
+        },
+        {
+          "type": "recommendation",
+          "text": "Debulking",
+          "height": 20,
+          "id": "aanbeveling-debulking",
+          "gridX": 350,
+          "gridY": 135
+        },
+        {
+          "type": "reference",
+          "label": "Adjuvante behandeling sexcordstromaceltumoren",
+          "to": "adjuvante-behandeling-sexcord",
+          "id": "verwijzing-adjuvante-behandeling-sexcordstromaceltumoren-3",
+          "gridX": 350,
+          "gridY": 220
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-uitbreiding-tumor-2-buiten-ovarium",
+          "from": "uitbreiding-tumor-2",
+          "to": "aanbeveling-overweeg-neoadjuvante-chemotherapie",
+          "label": "Buiten ovarium",
+          "value": "buiten-ovarium",
+          "arrow": true
+        },
+        {
+          "id": "edge-kiemcel-tumor-subtype-non-gestational-choriocarcinoom",
+          "from": "kiemcel-tumor-subtype",
+          "to": "aanbeveling-verwijs-naar-oncologisch-centrum",
+          "label": "Non gestational choriocarcinoom",
+          "value": "non-gestational-choriocarcinoom",
+          "arrow": true
+        },
+        {
+          "id": "edge-titel-histologie",
+          "from": "titel",
+          "to": "histologie",
+          "arrow": true
+        },
+        {
+          "id": "edge-uitbreiding-tumor-2-beperkt-tot-ovarium",
+          "from": "uitbreiding-tumor-2",
+          "to": "aanbeveling-extirpatie-aangedane-adnex",
+          "label": "Beperkt tot ovarium",
+          "value": "beperkt-tot-ovarium",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-extirpatie-aangedane-adnex-verwijzing-adjuvante-behandeling-kiemceltumoren-2",
+          "from": "aanbeveling-extirpatie-aangedane-adnex",
+          "to": "verwijzing-adjuvante-behandeling-kiemceltumoren-2",
+          "arrow": true
+        },
+        {
+          "id": "edge-histologie-mesenchymale-tumor",
+          "from": "histologie",
+          "to": "aanbeveling-ga-naar-rl-sarcomen",
+          "label": "Mesenchymale tumor",
+          "value": "mesenchymale-tumor",
+          "arrow": true
+        },
+        {
+          "id": "edge-histologie-overig",
+          "from": "histologie",
+          "to": "aanbeveling-individualiseer-behandeling-of-ga-naar",
+          "label": "Overig",
+          "value": "overig",
+          "arrow": true
+        },
+        {
+          "id": "edge-histologie-kiemceltumor",
+          "from": "histologie",
+          "to": "kiemcel-tumor-subtype",
+          "label": "Kiemceltumor",
+          "value": "kiemceltumor",
+          "arrow": true
+        },
+        {
+          "id": "edge-resectabiliteit-irresectabel",
+          "from": "resectabiliteit",
+          "to": "aanbeveling-overweeg-palliatieve-systemische-therapie",
+          "label": "Irresectabel",
+          "value": "irresectabel",
+          "arrow": true
+        },
+        {
+          "id": "edge-resectabiliteit-resectabel",
+          "from": "resectabiliteit",
+          "to": "aanbeveling-debulking",
+          "label": "Resectabel",
+          "value": "resectabel",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-overweeg-neoadjuvante-chemotherapie-verwijzing-adjuvante-behandeling-kiemceltumoren",
+          "from": "aanbeveling-overweeg-neoadjuvante-chemotherapie",
+          "to": "verwijzing-adjuvante-behandeling-kiemceltumoren",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-omentectomie-verwijzing-adjuvante-behandeling-sexcordstromaceltumoren-2",
+          "from": "aanbeveling-omentectomie",
+          "to": "verwijzing-adjuvante-behandeling-sexcordstromaceltumoren-2",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-debulking-verwijzing-adjuvante-behandeling-sexcordstromaceltumoren-3",
+          "from": "aanbeveling-debulking",
+          "to": "verwijzing-adjuvante-behandeling-sexcordstromaceltumoren-3",
+          "arrow": true
+        },
+        {
+          "id": "edge-uitbreiding-tumor-buiten-ovarium",
+          "from": "uitbreiding-tumor",
+          "to": "resectabiliteit",
+          "label": "Buiten ovarium",
+          "value": "buiten-ovarium",
+          "arrow": true
+        },
+        {
+          "id": "edge-kiemcel-tumor-subtype-overig",
+          "from": "kiemcel-tumor-subtype",
+          "to": "uitbreiding-tumor-2",
+          "label": "Overig",
+          "value": "overig",
+          "arrow": true
+        },
+        {
+          "id": "edge-menopauzale-status-premenopauzaal",
+          "from": "menopauzale-status",
+          "to": "aanbeveling-extirpatie-aangedane-adnex-2",
+          "label": "Premenopauzaal",
+          "value": "premenopauzaal",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-overweeg-palliatieve-systemische-therapie-verwijzing-follow-up-sexcord-stromaceltumoren",
+          "from": "aanbeveling-overweeg-palliatieve-systemische-therapie",
+          "to": "verwijzing-follow-up-sexcord-stromaceltumoren",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-verwijs-naar-oncologisch-centrum-verwijzing-follow-up-kiemceltumoren",
+          "from": "aanbeveling-verwijs-naar-oncologisch-centrum",
+          "to": "verwijzing-follow-up-kiemceltumoren",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-extirpatie-aangedane-adnex-2-verwijzing-adjuvante-behandeling-sexcordstromaceltumoren",
+          "from": "aanbeveling-extirpatie-aangedane-adnex-2",
+          "to": "verwijzing-adjuvante-behandeling-sexcordstromaceltumoren",
+          "arrow": true
+        },
+        {
+          "id": "edge-menopauzale-status-postmenopauzaal",
+          "from": "menopauzale-status",
+          "to": "aanbeveling-omentectomie",
+          "label": "Postmenopauzaal",
+          "value": "postmenopauzaal",
+          "arrow": true
+        },
+        {
+          "id": "edge-histologie-sexcordstromaceltumor",
+          "from": "histologie",
+          "to": "uitbreiding-tumor",
+          "label": "Sexcordstromaceltumor",
+          "value": "sexcordstromaceltumor",
+          "arrow": true
+        },
+        {
+          "id": "edge-uitbreiding-tumor-beperkt-tot-ovarium",
+          "from": "uitbreiding-tumor",
+          "to": "menopauzale-status",
+          "label": "Beperkt tot ovarium",
+          "value": "beperkt-tot-ovarium",
+          "arrow": true
+        }
+      ]
+    },
+    "adjuvante-behandeling-sexcord": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "title",
+          "label": "Adjuvante behandeling sexcordstromaceltumoren",
+          "id": "titel",
+          "gridX": 0,
+          "gridY": 0
+        },
+        {
+          "type": "recommendation",
+          "text": "Geen aanvullende therapie geindiceerd",
+          "height": 20,
+          "id": "aanbeveling-geen-aanvullende-therapie-geindiceerd",
+          "gridX": 0,
+          "gridY": 95
+        },
+        {
+          "type": "recommendation",
+          "text": "Overweeg hormoontherapie\nOF\nOverweeg chemotherapie\nOF\nOverweeg\nradiotherapie",
+          "height": 29,
+          "id": "aanbeveling-overweeg-hormoontherapie",
+          "gridX": 50,
+          "gridY": 95
+        },
+        {
+          "type": "dataItem",
+          "label": "Niet te resecteren tumor achtergebleven",
+          "id": "niet-te-resecteren-tumor-achtergebleven",
+          "gridX": 0,
+          "gridY": 30,
+          "interactive": true,
+          "options": [
+            {
+              "value": "ja",
+              "label": "Ja",
+              "edge": "edge-niet-te-resecteren-tumor-achtergebleven-ja"
+            },
+            {
+              "value": "nee",
+              "label": "Nee",
+              "edge": "edge-niet-te-resecteren-tumor-achtergebleven-nee"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Overweeg hormoontherapie\nOF\nOverweeg chemotherapie",
+          "height": 20,
+          "id": "aanbeveling-overweeg-hormoontherapie-2",
+          "gridX": 100,
+          "gridY": 95
+        },
+        {
+          "type": "reference",
+          "label": "Follow-up sexcord stromaceltumoren",
+          "to": "follow-up-sexcord",
+          "id": "verwijzing-follow-up-sexcord-stromaceltumoren",
+          "gridX": 0,
+          "gridY": 145
+        },
+        {
+          "type": "reference",
+          "label": "Follow-up sexcord stromaceltumoren",
+          "to": "follow-up-sexcord",
+          "id": "verwijzing-follow-up-sexcord-stromaceltumoren-2",
+          "gridX": 50,
+          "gridY": 145
+        },
+        {
+          "type": "reference",
+          "label": "Follow-up sexcord stromaceltumoren",
+          "to": "follow-up-sexcord",
+          "id": "verwijzing-follow-up-sexcord-stromaceltumoren-3",
+          "gridX": 100,
+          "gridY": 145
+        },
+        {
+          "type": "dataItem",
+          "label": "Tumordistributie",
+          "id": "tumordistributie",
+          "gridX": 50,
+          "gridY": 60,
+          "interactive": true,
+          "options": [
+            {
+              "value": "multifocaal",
+              "label": "Multifocaal",
+              "edge": "edge-tumordistributie-multifocaal"
+            },
+            {
+              "value": "unifocaal",
+              "label": "Unifocaal",
+              "edge": "edge-tumordistributie-unifocaal"
+            }
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-titel-niet-te-resecteren-tumor-achtergebleven",
+          "from": "titel",
+          "to": "niet-te-resecteren-tumor-achtergebleven",
+          "arrow": true
+        },
+        {
+          "id": "edge-niet-te-resecteren-tumor-achtergebleven-nee",
+          "from": "niet-te-resecteren-tumor-achtergebleven",
+          "to": "aanbeveling-geen-aanvullende-therapie-geindiceerd",
+          "label": "Nee",
+          "value": "nee",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-geen-aanvullende-therapie-geindiceerd-verwijzing-follow-up-sexcord-stromaceltumoren",
+          "from": "aanbeveling-geen-aanvullende-therapie-geindiceerd",
+          "to": "verwijzing-follow-up-sexcord-stromaceltumoren",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-overweeg-hormoontherapie-verwijzing-follow-up-sexcord-stromaceltumoren-2",
+          "from": "aanbeveling-overweeg-hormoontherapie",
+          "to": "verwijzing-follow-up-sexcord-stromaceltumoren-2",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-overweeg-hormoontherapie-2-verwijzing-follow-up-sexcord-stromaceltumoren-3",
+          "from": "aanbeveling-overweeg-hormoontherapie-2",
+          "to": "verwijzing-follow-up-sexcord-stromaceltumoren-3",
+          "arrow": true
+        },
+        {
+          "id": "edge-niet-te-resecteren-tumor-achtergebleven-ja",
+          "from": "niet-te-resecteren-tumor-achtergebleven",
+          "to": "tumordistributie",
+          "label": "Ja",
+          "value": "ja",
+          "arrow": true
+        },
+        {
+          "id": "edge-tumordistributie-unifocaal",
+          "from": "tumordistributie",
+          "to": "aanbeveling-overweeg-hormoontherapie",
+          "label": "Unifocaal",
+          "value": "unifocaal",
+          "arrow": true
+        },
+        {
+          "id": "edge-tumordistributie-multifocaal",
+          "from": "tumordistributie",
+          "to": "aanbeveling-overweeg-hormoontherapie-2",
+          "label": "Multifocaal",
+          "value": "multifocaal",
+          "arrow": true
+        }
+      ]
+    },
+    "follow-up-kiemceltumoren": {
+      "onderbouwing": "Follow-up : Gedurende eerste jaar na chemotherapie: maandelijks, tweede jaar tweemaandelijks, derde jaar driemaandelijks, vierde en vijfde jaar halfjaarlijks, daarna jaarlijks.\n\nFollow up bestaat uit:\n\nAlgemeen onderzoek\n\nEN\n\nGynaecologisch onderzoek\n\nEN\n\nControle tumormarkers (AFP en hCG)\n\nEN\n\nCT thorax/abdomen (eerste jaar driemaandelijks en tweede jaar viermaandelijks)\n\nEN\n\nJaarlijks controle van bloeddruk\n\nEN\n\nTweejaarlijks controle metabole veranderingen\n\n(i) aandacht voor fertiliteit indien van toepassing\n\n(i) na 2 jaar patiënte informeren over mogelijke zwangerschap en aan het eind van de follow-up overhandig patiënte End-of-Treatment summary",
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "title",
+          "label": "Follow-up kiemceltumoren",
+          "id": "titel",
+          "gridX": 0,
+          "gridY": 0
+        },
+        {
+          "type": "recommendation",
+          "text": "Follow-up in Oncologische centrum\n{i} non-dysgerminoom gedurende 5 jaar\n{i} dysgerminoom gedurende 10 jaar\n(zie onderbouwing voor details)",
+          "height": 36,
+          "id": "aanbeveling-follow-up-in-oncologische-centrum",
+          "gridX": 0,
+          "gridY": 30
+        },
+        {
+          "type": "reference",
+          "label": "Recidief diagnostiek kiemceltumoren",
+          "to": "recidief-diagnostiek-kiemceltumoren",
+          "id": "verwijzing-recidief-diagnostiek-kiemceltumoren",
+          "gridX": 0,
+          "gridY": 70
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-aanbeveling-follow-up-in-oncologische-centrum-verwijzing-recidief-diagnostiek-kiemceltumoren",
+          "from": "aanbeveling-follow-up-in-oncologische-centrum",
+          "to": "verwijzing-recidief-diagnostiek-kiemceltumoren",
+          "arrow": true
+        },
+        {
+          "id": "edge-titel-aanbeveling-follow-up-in-oncologische-centrum",
+          "from": "titel",
+          "to": "aanbeveling-follow-up-in-oncologische-centrum",
+          "arrow": true
+        }
+      ]
+    },
+    "recidief-diagnostiek-kiemceltumoren": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "title",
+          "label": "Recidief diagnostiek kiemceltumoren",
+          "id": "titel",
+          "gridX": 0,
+          "gridY": 0
+        },
+        {
+          "type": "recommendation",
+          "text": "CT thorax/abdomen\nEN\nLab (tumormarkers)",
+          "height": 20,
+          "id": "aanbeveling-ct-thorax-abdomen",
+          "gridX": 0,
+          "gridY": 30
+        },
+        {
+          "type": "reference",
+          "label": "Recidief behandeling kiemceltumoren",
+          "to": "recidief-behandeling-kiemceltumoren",
+          "id": "verwijzing-recidief-behandeling-kiemceltumoren",
+          "gridX": 0,
+          "gridY": 60
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-titel-aanbeveling-ct-thorax-abdomen",
+          "from": "titel",
+          "to": "aanbeveling-ct-thorax-abdomen",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-ct-thorax-abdomen-verwijzing-recidief-behandeling-kiemceltumoren",
+          "from": "aanbeveling-ct-thorax-abdomen",
+          "to": "verwijzing-recidief-behandeling-kiemceltumoren",
+          "arrow": true
+        }
+      ]
+    },
+    "recidief-behandeling-kiemceltumoren": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "title",
+          "label": "Recidief behandeling kiemceltumoren",
+          "id": "titel",
+          "gridX": 0,
+          "gridY": 0
+        },
+        {
+          "type": "recommendation",
+          "text": "Individualiseer behandeling in Oncologisch centrum",
+          "height": 20,
+          "id": "aanbeveling-individualiseer-behandeling-in-oncologisch",
+          "gridX": 0,
+          "gridY": 30
+        },
+        {
+          "type": "reference",
+          "label": "Follow-up kiemceltumoren",
+          "to": "follow-up-kiemceltumoren",
+          "id": "verwijzing-follow-up-kiemceltumoren",
+          "gridX": 0,
+          "gridY": 60
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-titel-aanbeveling-individualiseer-behandeling-in-oncologisch",
+          "from": "titel",
+          "to": "aanbeveling-individualiseer-behandeling-in-oncologisch",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-individualiseer-behandeling-in-oncologisch-verwijzing-follow-up-kiemceltumoren",
+          "from": "aanbeveling-individualiseer-behandeling-in-oncologisch",
+          "to": "verwijzing-follow-up-kiemceltumoren",
+          "arrow": true
+        }
+      ]
+    },
+    "adjuvante-behandeling-kiemceltumoren": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "recommendation",
+          "text": "{x} geen adjuvante behandeling geïndiceerd",
+          "height": 20,
+          "id": "aanbeveling-geen-adjuvante-behandeling-geindiceerd",
+          "gridX": 150,
+          "gridY": 160
+        },
+        {
+          "type": "dataItem",
+          "label": "Stadium",
+          "id": "stadium",
+          "gridX": 0,
+          "gridY": 60,
+          "interactive": true,
+          "options": [
+            {
+              "value": "gte-ib",
+              "label": ">=IB",
+              "edge": "edge-stadium-gte-ib"
+            },
+            {
+              "value": "ia",
+              "label": "IA",
+              "edge": "edge-stadium-ia"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Stadium",
+          "id": "stadium-2",
+          "gridX": 150,
+          "gridY": 60,
+          "interactive": true,
+          "options": [
+            {
+              "value": "gte-ib",
+              "label": ">=IB",
+              "edge": "edge-stadium-2-gte-ib"
+            },
+            {
+              "value": "ia",
+              "label": "IA",
+              "edge": "edge-stadium-2-ia"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Kiemcel tumortype",
+          "id": "kiemcel-tumortype",
+          "gridX": 50,
+          "gridY": 30,
+          "interactive": true,
+          "options": [
+            {
+              "value": "overig",
+              "label": "Overig",
+              "edge": "edge-kiemcel-tumortype-overig"
+            },
+            {
+              "value": "immatuur-teratoom",
+              "label": "Immatuur teratoom",
+              "edge": "edge-kiemcel-tumortype-immatuur-teratoom"
+            },
+            {
+              "value": "dysgerminoom",
+              "label": "Dysgerminoom",
+              "edge": "edge-kiemcel-tumortype-dysgerminoom"
+            }
+          ]
+        },
+        {
+          "type": "title",
+          "label": "Adjuvante behandeling kiemceltumoren",
+          "id": "titel",
+          "gridX": 50,
+          "gridY": 0
+        },
+        {
+          "type": "reference",
+          "label": "Follow-up kiemceltumoren",
+          "to": "follow-up-kiemceltumoren",
+          "id": "verwijzing-follow-up-kiemceltumoren",
+          "gridX": 0,
+          "gridY": 240
+        },
+        {
+          "type": "reference",
+          "label": "Follow-up kiemceltumoren",
+          "to": "follow-up-kiemceltumoren",
+          "id": "verwijzing-follow-up-kiemceltumoren-2",
+          "gridX": 150,
+          "gridY": 240
+        },
+        {
+          "type": "reference",
+          "label": "Follow-up kiemceltumoren",
+          "to": "follow-up-kiemceltumoren",
+          "id": "verwijzing-follow-up-kiemceltumoren-3",
+          "gridX": 100,
+          "gridY": 240
+        },
+        {
+          "type": "recommendation",
+          "text": "{x} geen adjuvante behandeling geïndiceerd",
+          "height": 20,
+          "id": "aanbeveling-geen-adjuvante-behandeling-geindiceerd-2",
+          "gridX": 0,
+          "gridY": 160
+        },
+        {
+          "type": "reference",
+          "label": "Follow-up kiemceltumoren",
+          "to": "follow-up-kiemceltumoren",
+          "id": "verwijzing-follow-up-kiemceltumoren-4",
+          "gridX": 50,
+          "gridY": 240
+        },
+        {
+          "type": "recommendation",
+          "text": "3 kuren\nBEP-chemotherapie\n{i} De chemotherapie moet in opzet zonder uitstel en met volledige dosis worden toegediend\n{i} 4 keer EP bij slechte longfunctie",
+          "height": 36,
+          "id": "aanbeveling-3-kuren",
+          "gridX": 50,
+          "gridY": 160
+        },
+        {
+          "type": "recommendation",
+          "text": "4 kuren\nBEP-chemotherapie\n{i} De chemotherapie moet in opzet zonder uitstel en met volledige dosis worden toegediend\n{i} 4 keer VIP bij slechte longfunctie\nEN\nWekelijks AFP en hCG\n{i} totdat de markers zijn genormaliseerd\n{i} indien marker genormaliseerd maar kuur nog niet afgerond dan controle a 3 weken tot einde kuur.",
+          "height": 68,
+          "id": "aanbeveling-4-kuren",
+          "gridX": 100,
+          "gridY": 160
+        },
+        {
+          "type": "dataItem",
+          "label": "Prognose",
+          "id": "prognose",
+          "gridX": 50,
+          "gridY": 125,
+          "interactive": true,
+          "options": [
+            {
+              "value": "goed",
+              "label": "Goed",
+              "edge": "edge-prognose-goed"
+            },
+            {
+              "value": "intermediair",
+              "label": "Intermediair",
+              "edge": "edge-prognose-intermediair"
+            },
+            {
+              "value": "slecht",
+              "label": "Slecht",
+              "edge": "edge-prognose-intermediair"
+            }
+          ],
+          "subtree": {
+            "tree": "prognose",
+            "map": {
+              "aanbeveling-slecht": "slecht",
+              "aanbeveling-intermediair": "intermediair",
+              "aanbeveling-slecht-2": "slecht",
+              "aanbeveling-goed": "goed",
+              "aanbeveling-goed-2": "goed",
+              "aanbeveling-slecht-3": "slecht",
+              "aanbeveling-intermediair-2": "intermediair",
+              "aanbeveling-intermediair-3": "intermediair",
+              "aanbeveling-goed-3": "goed",
+              "aanbeveling-goed-4": "goed",
+              "aanbeveling-intermediair-4": "intermediair"
+            }
+          }
+        },
+        {
+          "type": "dataItem",
+          "label": "Differentiatiegraad",
+          "id": "differentiatiegraad",
+          "gridX": 150,
+          "gridY": 95,
+          "interactive": true,
+          "options": [
+            {
+              "value": "goed",
+              "label": "Goed",
+              "edge": "edge-differentiatiegraad-goed"
+            },
+            {
+              "value": "intermediair",
+              "label": "Intermediair",
+              "edge": "edge-differentiatiegraad-intermediair"
+            },
+            {
+              "value": "slecht",
+              "label": "Slecht",
+              "edge": "edge-differentiatiegraad-intermediair"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Prognose",
+          "id": "prognose-2",
+          "gridX": 200,
+          "gridY": 125,
+          "interactive": true,
+          "options": [
+            {
+              "value": "goed",
+              "label": "Goed",
+              "edge": "edge-prognose-2-goed"
+            },
+            {
+              "value": "intermediair",
+              "label": "Intermediair",
+              "edge": "edge-prognose-2-intermediair"
+            },
+            {
+              "value": "slecht",
+              "label": "Slecht",
+              "edge": "edge-prognose-2-intermediair"
+            }
+          ],
+          "subtree": {
+            "tree": "prognose",
+            "map": {
+              "aanbeveling-slecht": "slecht",
+              "aanbeveling-intermediair": "intermediair",
+              "aanbeveling-slecht-2": "slecht",
+              "aanbeveling-goed": "goed",
+              "aanbeveling-goed-2": "goed",
+              "aanbeveling-slecht-3": "slecht",
+              "aanbeveling-intermediair-2": "intermediair",
+              "aanbeveling-intermediair-3": "intermediair",
+              "aanbeveling-goed-3": "goed",
+              "aanbeveling-goed-4": "goed",
+              "aanbeveling-intermediair-4": "intermediair"
+            }
+          }
+        },
+        {
+          "type": "recommendation",
+          "text": "3 kuren\nBEP-chemotherapie\n{i} De chemotherapie moet in opzet zonder uitstel en met volledige dosis worden toegediend\n{i} 4 keer EP bij slechte longfunctie",
+          "height": 36,
+          "id": "aanbeveling-3-kuren-2",
+          "gridX": 200,
+          "gridY": 160
+        },
+        {
+          "type": "recommendation",
+          "text": "4 kuren\nBEP-chemotherapie\n{i} De chemotherapie moet in opzet zonder uitstel en met volledige dosis worden toegediend\n{i} 4 keer VIP bij slechte longfunctie\nEN\nWekelijks AFP en hCG\n{i} totdat de markers zijn genormaliseerd\n{i} indien marker genormaliseerd maar kuur nog niet afgerond dan controle a 3 weken tot einde kuur.",
+          "height": 68,
+          "id": "aanbeveling-4-kuren-2",
+          "gridX": 250,
+          "gridY": 160
+        },
+        {
+          "type": "reference",
+          "label": "Follow-up kiemceltumoren",
+          "to": "follow-up-kiemceltumoren",
+          "id": "verwijzing-follow-up-kiemceltumoren-5",
+          "gridX": 200,
+          "gridY": 240
+        },
+        {
+          "type": "reference",
+          "label": "Follow-up kiemceltumoren",
+          "to": "follow-up-kiemceltumoren",
+          "id": "verwijzing-follow-up-kiemceltumoren-6",
+          "gridX": 250,
+          "gridY": 240
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-aanbeveling-geen-adjuvante-behandeling-geindiceerd-2-verwijzing-follow-up-kiemceltumoren",
+          "from": "aanbeveling-geen-adjuvante-behandeling-geindiceerd-2",
+          "to": "verwijzing-follow-up-kiemceltumoren",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-3-kuren-2-verwijzing-follow-up-kiemceltumoren-5",
+          "from": "aanbeveling-3-kuren-2",
+          "to": "verwijzing-follow-up-kiemceltumoren-5",
+          "arrow": true
+        },
+        {
+          "id": "edge-stadium-ia",
+          "from": "stadium",
+          "to": "aanbeveling-geen-adjuvante-behandeling-geindiceerd-2",
+          "label": "IA",
+          "value": "ia",
+          "arrow": true
+        },
+        {
+          "id": "edge-titel-kiemcel-tumortype",
+          "from": "titel",
+          "to": "kiemcel-tumortype",
+          "arrow": true
+        },
+        {
+          "id": "edge-kiemcel-tumortype-dysgerminoom",
+          "from": "kiemcel-tumortype",
+          "to": "stadium",
+          "label": "Dysgerminoom",
+          "value": "dysgerminoom",
+          "arrow": true
+        },
+        {
+          "id": "edge-kiemcel-tumortype-immatuur-teratoom",
+          "from": "kiemcel-tumortype",
+          "to": "stadium-2",
+          "label": "Immatuur teratoom",
+          "value": "immatuur-teratoom",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-4-kuren-verwijzing-follow-up-kiemceltumoren-3",
+          "from": "aanbeveling-4-kuren",
+          "to": "verwijzing-follow-up-kiemceltumoren-3",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-3-kuren-verwijzing-follow-up-kiemceltumoren-4",
+          "from": "aanbeveling-3-kuren",
+          "to": "verwijzing-follow-up-kiemceltumoren-4",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-geen-adjuvante-behandeling-geindiceerd-verwijzing-follow-up-kiemceltumoren-2",
+          "from": "aanbeveling-geen-adjuvante-behandeling-geindiceerd",
+          "to": "verwijzing-follow-up-kiemceltumoren-2",
+          "arrow": true
+        },
+        {
+          "id": "edge-kiemcel-tumortype-overig",
+          "from": "kiemcel-tumortype",
+          "to": "prognose",
+          "label": "Overig",
+          "value": "overig",
+          "arrow": true
+        },
+        {
+          "id": "edge-stadium-gte-ib",
+          "from": "stadium",
+          "to": "prognose",
+          "label": ">=IB",
+          "value": "gte-ib",
+          "arrow": true
+        },
+        {
+          "id": "edge-prognose-goed",
+          "from": "prognose",
+          "to": "aanbeveling-3-kuren",
+          "label": "Goed",
+          "value": "goed",
+          "arrow": true
+        },
+        {
+          "id": "edge-prognose-intermediair",
+          "from": "prognose",
+          "to": "aanbeveling-4-kuren",
+          "label": "Intermediair, Slecht",
+          "value": [
+            "intermediair",
+            "slecht"
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-stadium-2-ia",
+          "from": "stadium-2",
+          "to": "differentiatiegraad",
+          "label": "IA",
+          "value": "ia",
+          "arrow": true
+        },
+        {
+          "id": "edge-differentiatiegraad-goed",
+          "from": "differentiatiegraad",
+          "to": "aanbeveling-geen-adjuvante-behandeling-geindiceerd",
+          "label": "Goed",
+          "value": "goed",
+          "arrow": true
+        },
+        {
+          "id": "edge-stadium-2-gte-ib",
+          "from": "stadium-2",
+          "to": "prognose-2",
+          "label": ">=IB",
+          "value": "gte-ib",
+          "arrow": true
+        },
+        {
+          "id": "edge-prognose-2-goed",
+          "from": "prognose-2",
+          "to": "aanbeveling-3-kuren-2",
+          "label": "Goed",
+          "value": "goed",
+          "arrow": true
+        },
+        {
+          "id": "edge-prognose-2-intermediair",
+          "from": "prognose-2",
+          "to": "aanbeveling-4-kuren-2",
+          "label": "Intermediair, Slecht",
+          "value": [
+            "intermediair",
+            "slecht"
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-4-kuren-2-verwijzing-follow-up-kiemceltumoren-6",
+          "from": "aanbeveling-4-kuren-2",
+          "to": "verwijzing-follow-up-kiemceltumoren-6",
+          "arrow": true
+        },
+        {
+          "id": "edge-differentiatiegraad-intermediair",
+          "from": "differentiatiegraad",
+          "to": "prognose-2",
+          "label": "Intermediair, Slecht",
+          "value": [
+            "intermediair",
+            "slecht"
+          ],
+          "arrow": true
+        }
+      ]
+    },
+    "prognose": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "title",
+          "label": "Prognose",
+          "id": "titel",
+          "gridX": 350,
+          "gridY": 0
+        },
+        {
+          "type": "dataItem",
+          "label": "hCG",
+          "id": "hcg",
+          "gridX": 200,
+          "gridY": 170,
+          "measure": {
+            "unit": "IU/L"
+          },
+          "interactive": true,
+          "options": [
+            {
+              "value": "lt-5000-iu-l",
+              "label": "<5000 IU/L",
+              "lt": 5000,
+              "edge": "edge-hcg-lt-5000-iu-l"
+            },
+            {
+              "value": "5000-50000-iu-l",
+              "label": "5000-50000 IU/L",
+              "gte": 5000,
+              "lte": 50000,
+              "edge": "edge-hcg-5000-50000-iu-l"
+            },
+            {
+              "value": "gt-50000-iu-l",
+              "label": ">50000 IU/L",
+              "gt": 50000,
+              "edge": "edge-hcg-gt-50000-iu-l"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "LDH",
+          "id": "ldh",
+          "gridX": 350,
+          "gridY": 205,
+          "interactive": true,
+          "options": [
+            {
+              "value": "gt-10-keer-bovengrens-van-de-normaalwaarde",
+              "label": "> 10 keer bovengrens van de normaalwaarde",
+              "edge": "edge-ldh-gt-10-keer-bovengrens-van-de-normaalwaarde"
+            },
+            {
+              "value": "lte-10-keer-bovengrens-van-de-normaalwaarde",
+              "label": "<=10 keer bovengrens van de normaalwaarde",
+              "edge": "edge-ldh-lte-10-keer-bovengrens-van-de-normaalwaarde"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Slecht",
+          "height": 20,
+          "id": "aanbeveling-slecht",
+          "gridX": 400,
+          "gridY": 240
+        },
+        {
+          "type": "recommendation",
+          "text": "Intermediair",
+          "height": 20,
+          "id": "aanbeveling-intermediair",
+          "gridX": 350,
+          "gridY": 240
+        },
+        {
+          "type": "recommendation",
+          "text": "Slecht",
+          "height": 20,
+          "id": "aanbeveling-slecht-2",
+          "gridX": 100,
+          "gridY": 240
+        },
+        {
+          "type": "recommendation",
+          "text": "Goed",
+          "height": 20,
+          "id": "aanbeveling-goed",
+          "gridX": 150,
+          "gridY": 240
+        },
+        {
+          "type": "recommendation",
+          "text": "Goed",
+          "height": 20,
+          "id": "aanbeveling-goed-2",
+          "gridX": 300,
+          "gridY": 240
+        },
+        {
+          "type": "dataItem",
+          "label": "LDH",
+          "id": "ldh-2",
+          "gridX": 200,
+          "gridY": 205,
+          "interactive": true,
+          "options": [
+            {
+              "value": "gt-10-keer-bovengrens-van-de-normaalwaarde",
+              "label": "> 10 keer bovengrens van de normaalwaarde",
+              "edge": "edge-ldh-2-gt-10-keer-bovengrens-van-de-normaalwaarde"
+            },
+            {
+              "value": "1-5-10-keer-bovengrens-van-de-normaalwaarde",
+              "label": "1,5- 10 keer bovengrens van de normaalwaarde",
+              "edge": "edge-ldh-2-1-5-10-keer-bovengrens-van-de-normaalwaarde"
+            },
+            {
+              "value": "lt-1-5-keer-bovengrens-van-de-normaalwaarde",
+              "label": "<1,5 keer bovengrens van de normaalwaarde",
+              "edge": "edge-ldh-2-lt-1-5-keer-bovengrens-van-de-normaalwaarde"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Slecht",
+          "height": 20,
+          "id": "aanbeveling-slecht-3",
+          "gridX": 250,
+          "gridY": 240
+        },
+        {
+          "type": "dataItem",
+          "label": "hCG",
+          "id": "hcg-2",
+          "gridX": 350,
+          "gridY": 170,
+          "measure": {
+            "unit": "IU/L"
+          },
+          "interactive": true,
+          "options": [
+            {
+              "value": "lt-5000-iu-l",
+              "label": "<5000 IU/L",
+              "lt": 5000,
+              "edge": "edge-hcg-2-lt-5000-iu-l"
+            },
+            {
+              "value": "5000-50000-iu-l",
+              "label": "5000-50000 IU/L",
+              "gte": 5000,
+              "lte": 50000,
+              "edge": "edge-hcg-2-5000-50000-iu-l"
+            },
+            {
+              "value": "gt-50000-iu-l",
+              "label": ">50000 IU/L",
+              "gt": 50000,
+              "edge": "edge-hcg-2-gt-50000-iu-l"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "AFP",
+          "id": "afp",
+          "gridX": 350,
+          "gridY": 135,
+          "measure": {
+            "unit": "mg/l"
+          },
+          "interactive": true,
+          "options": [
+            {
+              "value": "lt-1000-mg-l",
+              "label": "<1000 mg/l",
+              "lt": 1000,
+              "edge": "edge-afp-lt-1000-mg-l"
+            },
+            {
+              "value": "1000-10000-mg-l",
+              "label": "1000-10000 mg/l",
+              "gte": 1000,
+              "lte": 10000,
+              "edge": "edge-afp-1000-10000-mg-l"
+            },
+            {
+              "value": "gt-10000-mg-l",
+              "label": ">10000 mg/l",
+              "gt": 10000,
+              "edge": "edge-afp-gt-10000-mg-l"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Extrapulmonale viscerale metastasen",
+          "id": "extrapulmonale-viscerale-metastasen",
+          "gridX": 350,
+          "gridY": 65,
+          "interactive": true,
+          "options": [
+            {
+              "value": "ja",
+              "label": "Ja",
+              "edge": "edge-extrapulmonale-viscerale-metastasen-ja"
+            },
+            {
+              "value": "nee",
+              "label": "Nee",
+              "edge": "edge-extrapulmonale-viscerale-metastasen-nee"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Primaire mediastinale lokalisatie",
+          "id": "primaire-mediastinale-lokalisatie",
+          "gridX": 350,
+          "gridY": 100,
+          "interactive": true,
+          "options": [
+            {
+              "value": "ja",
+              "label": "Ja",
+              "edge": "edge-primaire-mediastinale-lokalisatie-ja"
+            },
+            {
+              "value": "nee",
+              "label": "Nee",
+              "edge": "edge-primaire-mediastinale-lokalisatie-nee"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Type kiemceltumor",
+          "id": "type-kiemceltumor",
+          "gridX": 350,
+          "gridY": 30,
+          "interactive": true,
+          "options": [
+            {
+              "value": "dysgerminoom",
+              "label": "Dysgerminoom",
+              "edge": "edge-type-kiemceltumor-dysgerminoom"
+            },
+            {
+              "value": "non-dysgerminoom",
+              "label": "Non dysgerminoom",
+              "edge": "edge-type-kiemceltumor-non-dysgerminoom"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Intermediair",
+          "height": 20,
+          "id": "aanbeveling-intermediair-2",
+          "gridX": 200,
+          "gridY": 240
+        },
+        {
+          "type": "recommendation",
+          "text": "Intermediair",
+          "height": 20,
+          "id": "aanbeveling-intermediair-3",
+          "gridX": 50,
+          "gridY": 240
+        },
+        {
+          "type": "recommendation",
+          "text": "Goed",
+          "height": 20,
+          "id": "aanbeveling-goed-3",
+          "gridX": 0,
+          "gridY": 240
+        },
+        {
+          "type": "dataItem",
+          "label": "LDH",
+          "id": "ldh-3",
+          "gridX": 50,
+          "gridY": 205,
+          "interactive": true,
+          "options": [
+            {
+              "value": "gt-10-keer-bovengrens-van-de-normaalwaarde",
+              "label": "> 10 keer bovengrens van de normaalwaarde",
+              "edge": "edge-ldh-3-gt-10-keer-bovengrens-van-de-normaalwaarde"
+            },
+            {
+              "value": "1-5-10-keer-bovengrens-van-de-normaalwaarde",
+              "label": "1,5- 10 keer bovengrens van de normaalwaarde",
+              "edge": "edge-ldh-3-1-5-10-keer-bovengrens-van-de-normaalwaarde"
+            },
+            {
+              "value": "lt-1-5-keer-bovengrens-van-de-normaalwaarde",
+              "label": "<1,5 keer bovengrens van de normaalwaarde",
+              "edge": "edge-ldh-3-lt-1-5-keer-bovengrens-van-de-normaalwaarde"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Goed",
+          "height": 20,
+          "id": "aanbeveling-goed-4",
+          "gridX": 450,
+          "gridY": 240
+        },
+        {
+          "type": "dataItem",
+          "label": "Extrapulmonale viscerale metastasen",
+          "id": "extrapulmonale-viscerale-metastasen-2",
+          "gridX": 450,
+          "gridY": 65,
+          "interactive": true,
+          "options": [
+            {
+              "value": "ja",
+              "label": "Ja",
+              "edge": "edge-extrapulmonale-viscerale-metastasen-2-ja"
+            },
+            {
+              "value": "nee",
+              "label": "Nee",
+              "edge": "edge-extrapulmonale-viscerale-metastasen-2-nee"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Intermediair",
+          "height": 20,
+          "id": "aanbeveling-intermediair-4",
+          "gridX": 500,
+          "gridY": 240
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-titel-type-kiemceltumor",
+          "from": "titel",
+          "to": "type-kiemceltumor",
+          "arrow": true
+        },
+        {
+          "id": "edge-extrapulmonale-viscerale-metastasen-nee",
+          "from": "extrapulmonale-viscerale-metastasen",
+          "to": "primaire-mediastinale-lokalisatie",
+          "label": "Nee",
+          "value": "nee",
+          "arrow": true
+        },
+        {
+          "id": "edge-type-kiemceltumor-non-dysgerminoom",
+          "from": "type-kiemceltumor",
+          "to": "extrapulmonale-viscerale-metastasen",
+          "label": "Non dysgerminoom",
+          "value": "non-dysgerminoom",
+          "arrow": true
+        },
+        {
+          "id": "edge-extrapulmonale-viscerale-metastasen-2-ja",
+          "from": "extrapulmonale-viscerale-metastasen-2",
+          "to": "aanbeveling-intermediair-4",
+          "label": "Ja",
+          "value": "ja",
+          "arrow": true
+        },
+        {
+          "id": "edge-extrapulmonale-viscerale-metastasen-2-nee",
+          "from": "extrapulmonale-viscerale-metastasen-2",
+          "to": "aanbeveling-goed-4",
+          "label": "Nee",
+          "value": "nee",
+          "arrow": true
+        },
+        {
+          "id": "edge-hcg-5000-50000-iu-l",
+          "from": "hcg",
+          "to": "ldh-2",
+          "label": "5000-50000 IU/L",
+          "value": "5000-50000-iu-l",
+          "arrow": true
+        },
+        {
+          "id": "edge-hcg-gt-50000-iu-l",
+          "from": "hcg",
+          "to": "aanbeveling-slecht-3",
+          "label": ">50000 IU/L",
+          "value": "gt-50000-iu-l",
+          "arrow": true
+        },
+        {
+          "id": "edge-hcg-2-lt-5000-iu-l",
+          "from": "hcg-2",
+          "to": "aanbeveling-goed-2",
+          "label": "<5000 IU/L",
+          "value": "lt-5000-iu-l",
+          "arrow": true
+        },
+        {
+          "id": "edge-afp-lt-1000-mg-l",
+          "from": "afp",
+          "to": "hcg",
+          "label": "<1000 mg/l",
+          "value": "lt-1000-mg-l",
+          "arrow": true
+        },
+        {
+          "id": "edge-ldh-lte-10-keer-bovengrens-van-de-normaalwaarde",
+          "from": "ldh",
+          "to": "aanbeveling-intermediair",
+          "label": "<=10 keer bovengrens van de normaalwaarde",
+          "value": "lte-10-keer-bovengrens-van-de-normaalwaarde",
+          "arrow": true
+        },
+        {
+          "id": "edge-ldh-2-gt-10-keer-bovengrens-van-de-normaalwaarde",
+          "from": "ldh-2",
+          "to": "aanbeveling-slecht-3",
+          "label": "> 10 keer bovengrens van de normaalwaarde",
+          "value": "gt-10-keer-bovengrens-van-de-normaalwaarde",
+          "arrow": true
+        },
+        {
+          "id": "edge-ldh-gt-10-keer-bovengrens-van-de-normaalwaarde",
+          "from": "ldh",
+          "to": "aanbeveling-slecht",
+          "label": "> 10 keer bovengrens van de normaalwaarde",
+          "value": "gt-10-keer-bovengrens-van-de-normaalwaarde",
+          "arrow": true
+        },
+        {
+          "id": "edge-hcg-2-gt-50000-iu-l",
+          "from": "hcg-2",
+          "to": "aanbeveling-slecht",
+          "label": ">50000 IU/L",
+          "value": "gt-50000-iu-l",
+          "arrow": true
+        },
+        {
+          "id": "edge-afp-gt-10000-mg-l",
+          "from": "afp",
+          "to": "aanbeveling-slecht",
+          "label": ">10000 mg/l",
+          "value": "gt-10000-mg-l",
+          "arrow": true
+        },
+        {
+          "id": "edge-primaire-mediastinale-lokalisatie-ja",
+          "from": "primaire-mediastinale-lokalisatie",
+          "to": "aanbeveling-slecht",
+          "label": "Ja",
+          "value": "ja",
+          "arrow": true
+        },
+        {
+          "id": "edge-afp-1000-10000-mg-l",
+          "from": "afp",
+          "to": "hcg-2",
+          "label": "1000-10000 mg/l",
+          "value": "1000-10000-mg-l",
+          "arrow": true
+        },
+        {
+          "id": "edge-hcg-2-5000-50000-iu-l",
+          "from": "hcg-2",
+          "to": "ldh",
+          "label": "5000-50000 IU/L",
+          "value": "5000-50000-iu-l",
+          "arrow": true
+        },
+        {
+          "id": "edge-ldh-2-1-5-10-keer-bovengrens-van-de-normaalwaarde",
+          "from": "ldh-2",
+          "to": "aanbeveling-intermediair-2",
+          "label": "1,5- 10 keer bovengrens van de normaalwaarde",
+          "value": "1-5-10-keer-bovengrens-van-de-normaalwaarde",
+          "arrow": true
+        },
+        {
+          "id": "edge-ldh-2-lt-1-5-keer-bovengrens-van-de-normaalwaarde",
+          "from": "ldh-2",
+          "to": "aanbeveling-goed",
+          "label": "<1,5 keer bovengrens van de normaalwaarde",
+          "value": "lt-1-5-keer-bovengrens-van-de-normaalwaarde",
+          "arrow": true
+        },
+        {
+          "id": "edge-hcg-lt-5000-iu-l",
+          "from": "hcg",
+          "to": "ldh-3",
+          "label": "<5000 IU/L",
+          "value": "lt-5000-iu-l",
+          "arrow": true
+        },
+        {
+          "id": "edge-ldh-3-gt-10-keer-bovengrens-van-de-normaalwaarde",
+          "from": "ldh-3",
+          "to": "aanbeveling-slecht-2",
+          "label": "> 10 keer bovengrens van de normaalwaarde",
+          "value": "gt-10-keer-bovengrens-van-de-normaalwaarde",
+          "arrow": true
+        },
+        {
+          "id": "edge-ldh-3-1-5-10-keer-bovengrens-van-de-normaalwaarde",
+          "from": "ldh-3",
+          "to": "aanbeveling-intermediair-3",
+          "label": "1,5- 10 keer bovengrens van de normaalwaarde",
+          "value": "1-5-10-keer-bovengrens-van-de-normaalwaarde",
+          "arrow": true
+        },
+        {
+          "id": "edge-ldh-3-lt-1-5-keer-bovengrens-van-de-normaalwaarde",
+          "from": "ldh-3",
+          "to": "aanbeveling-goed-3",
+          "label": "<1,5 keer bovengrens van de normaalwaarde",
+          "value": "lt-1-5-keer-bovengrens-van-de-normaalwaarde",
+          "arrow": true
+        },
+        {
+          "id": "edge-type-kiemceltumor-dysgerminoom",
+          "from": "type-kiemceltumor",
+          "to": "extrapulmonale-viscerale-metastasen-2",
+          "label": "Dysgerminoom",
+          "value": "dysgerminoom",
+          "arrow": true
+        },
+        {
+          "id": "edge-primaire-mediastinale-lokalisatie-nee",
+          "from": "primaire-mediastinale-lokalisatie",
+          "to": "afp",
+          "label": "Nee",
+          "value": "nee",
+          "arrow": true
+        },
+        {
+          "id": "edge-extrapulmonale-viscerale-metastasen-ja",
+          "from": "extrapulmonale-viscerale-metastasen",
+          "to": "aanbeveling-slecht",
+          "label": "Ja",
+          "value": "ja",
+          "arrow": true
+        }
+      ]
+    },
+    "beleid-vriescoupe": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "title",
+          "label": "Beleid na verkrijgen vriescoupe",
+          "id": "titel",
+          "gridX": 100,
+          "gridY": 0
+        },
+        {
+          "type": "dataItem",
+          "label": "Vriescoupe uitslag",
+          "id": "vriescoupe-uitslag",
+          "gridX": 100,
+          "gridY": 30,
+          "interactive": true,
+          "options": [
+            {
+              "value": "mesenchymale-tumor",
+              "label": "Mesenchymale tumor",
+              "edge": "edge-vriescoupe-uitslag-mesenchymale-tumor"
+            },
+            {
+              "value": "overig",
+              "label": "Overig",
+              "edge": "edge-vriescoupe-uitslag-overig"
+            },
+            {
+              "value": "kiemceltumor",
+              "label": "Kiemceltumor",
+              "edge": "edge-vriescoupe-uitslag-kiemceltumor"
+            },
+            {
+              "value": "sexcord-stromaceltumor-incl-granulosaceltumor",
+              "label": "Sexcord stromaceltumor incl granulosaceltumor",
+              "edge": "edge-vriescoupe-uitslag-sexcord-stromaceltumor-incl-granulosaceltumor"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Uitbreiding tumor",
+          "id": "uitbreiding-tumor",
+          "gridX": 100,
+          "gridY": 65,
+          "interactive": true,
+          "options": [
+            {
+              "value": "buiten-ovarium",
+              "label": "Buiten ovarium",
+              "edge": "edge-uitbreiding-tumor-buiten-ovarium"
+            },
+            {
+              "value": "beperkt-tot-ovarium",
+              "label": "Beperkt tot ovarium",
+              "edge": "edge-uitbreiding-tumor-beperkt-tot-ovarium"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Overweeg (neoadjuvante) chemotherapie\nOF\nDebulking\n{i} op basis van leeftijd, conditie, mogelijkheid tot resetie van de tumor",
+          "height": 32,
+          "id": "aanbeveling-overweeg-neoadjuvante-chemotherapie",
+          "gridX": 150,
+          "gridY": 135
+        },
+        {
+          "type": "recommendation",
+          "text": "Individualiseer behandeling of ga naar betreffende richtlijn",
+          "height": 20,
+          "id": "aanbeveling-individualiseer-behandeling-of-ga-naar",
+          "gridX": 0,
+          "gridY": 135
+        },
+        {
+          "type": "recommendation",
+          "text": "Ga naar RL Sarcomen",
+          "height": 20,
+          "id": "aanbeveling-ga-naar-rl-sarcomen",
+          "gridX": 50,
+          "gridY": 135
+        },
+        {
+          "type": "dataItem",
+          "label": "Uitbreiding tumor",
+          "id": "uitbreiding-tumor-2",
+          "gridX": 200,
+          "gridY": 65,
+          "interactive": true,
+          "options": [
+            {
+              "value": "buiten-ovarium",
+              "label": "Buiten ovarium",
+              "edge": "edge-uitbreiding-tumor-2-buiten-ovarium"
+            },
+            {
+              "value": "beperkt-tot-ovarium",
+              "label": "Beperkt tot ovarium",
+              "edge": "edge-uitbreiding-tumor-2-beperkt-tot-ovarium"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Stagering bestaande uit:\n-extirpatie aangedane adnex\n-omentectomie\n-spoelvloeistof\n-biopsie van de peritoneumvlakken (pelvien, paracolisch en diafragma)\nEN\nUterus extirpatie en bilateraal adnexextirpatie\n{i} bij postmenopauzale patiënten\nEN\n{x} Geen standaard lymfkliersampling geïndiceerd",
+          "height": 68,
+          "id": "aanbeveling-extirpatie-aangedane-adnex",
+          "gridX": 100,
+          "gridY": 135
+        },
+        {
+          "type": "dataItem",
+          "label": "Menopauzale status",
+          "id": "menopauzale-status",
+          "gridX": 200,
+          "gridY": 100,
+          "interactive": true,
+          "options": [
+            {
+              "value": "postmenopauzaal",
+              "label": "Postmenopauzaal",
+              "edge": "edge-menopauzale-status-postmenopauzaal"
+            },
+            {
+              "value": "premenopauzaal",
+              "label": "Premenopauzaal",
+              "edge": "edge-menopauzale-status-premenopauzaal"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Stagering bestaande uit:\n-extirpatie aangedane adnex\n-omentectomie\n-spoelvloeistof\n-biopsie van de peritoneumvlakken (pelvien, paracolisch en diafragma)\n{i} indien endometriumdiagnostiek is uitgevoerd",
+          "height": 49,
+          "id": "aanbeveling-extirpatie-aangedane-adnex-2",
+          "gridX": 200,
+          "gridY": 135
+        },
+        {
+          "type": "recommendation",
+          "text": "Stagering bestaande uit:\n-extirpatie aangedane adnex\n-omentectomie\n-spoelvloeistof\n-biopsie van de peritoneumvlakken (pelvien, paracolisch en diafragma)\nEN\nHysterectomie met bilaterale salpingo-oophorectomie",
+          "height": 49,
+          "id": "aanbeveling-extirpatie-aangedane-adnex-3",
+          "gridX": 250,
+          "gridY": 135
+        },
+        {
+          "type": "dataItem",
+          "label": "Resectabiliteit op basis van vriescoupe",
+          "id": "resectabiliteit-op-basis-van-vriescoupe",
+          "gridX": 300,
+          "gridY": 100,
+          "interactive": true,
+          "options": [
+            {
+              "value": "irresectabel",
+              "label": "Irresectabel",
+              "edge": "edge-resectabiliteit-op-basis-van-vriescoupe-irresectabel"
+            },
+            {
+              "value": "resectabel",
+              "label": "Resectabel",
+              "edge": "edge-resectabiliteit-op-basis-van-vriescoupe-resectabel"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Debulking",
+          "height": 20,
+          "id": "aanbeveling-debulking",
+          "gridX": 300,
+          "gridY": 135
+        },
+        {
+          "type": "recommendation",
+          "text": "Overweeg palliatieve systemische therapie\n{i} indien peroperatief irresectabiliteit overweeg chirurgie aan te passen",
+          "height": 26,
+          "id": "aanbeveling-overweeg-palliatieve-systemische-therapie",
+          "gridX": 350,
+          "gridY": 135
+        },
+        {
+          "type": "reference",
+          "label": "Adjuvante behandeling kiemceltumoren",
+          "to": "adjuvante-behandeling-kiemceltumoren",
+          "id": "verwijzing-adjuvante-behandeling-kiemceltumoren",
+          "gridX": 100,
+          "gridY": 215
+        },
+        {
+          "type": "reference",
+          "label": "Adjuvante behandeling kiemceltumoren",
+          "to": "adjuvante-behandeling-kiemceltumoren",
+          "id": "verwijzing-adjuvante-behandeling-kiemceltumoren-2",
+          "gridX": 150,
+          "gridY": 215
+        },
+        {
+          "type": "reference",
+          "label": "Adjuvante behandeling sexcordstromaceltumoren",
+          "to": "adjuvante-behandeling-sexcord",
+          "id": "verwijzing-adjuvante-behandeling-sexcordstromaceltumoren",
+          "gridX": 200,
+          "gridY": 215
+        },
+        {
+          "type": "reference",
+          "label": "Adjuvante behandeling sexcordstromaceltumoren",
+          "to": "adjuvante-behandeling-sexcord",
+          "id": "verwijzing-adjuvante-behandeling-sexcordstromaceltumoren-2",
+          "gridX": 250,
+          "gridY": 215
+        },
+        {
+          "type": "reference",
+          "label": "Adjuvante behandeling sexcordstromaceltumoren",
+          "to": "adjuvante-behandeling-sexcord",
+          "id": "verwijzing-adjuvante-behandeling-sexcordstromaceltumoren-3",
+          "gridX": 300,
+          "gridY": 215
+        },
+        {
+          "type": "reference",
+          "label": "Follow-up sexcord stromaceltumoren",
+          "to": "follow-up-sexcord",
+          "id": "verwijzing-follow-up-sexcord-stromaceltumoren",
+          "gridX": 350,
+          "gridY": 215
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-titel-vriescoupe-uitslag",
+          "from": "titel",
+          "to": "vriescoupe-uitslag",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-extirpatie-aangedane-adnex-3-verwijzing-adjuvante-behandeling-sexcordstromaceltumoren-2",
+          "from": "aanbeveling-extirpatie-aangedane-adnex-3",
+          "to": "verwijzing-adjuvante-behandeling-sexcordstromaceltumoren-2",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-extirpatie-aangedane-adnex-2-verwijzing-adjuvante-behandeling-sexcordstromaceltumoren",
+          "from": "aanbeveling-extirpatie-aangedane-adnex-2",
+          "to": "verwijzing-adjuvante-behandeling-sexcordstromaceltumoren",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-overweeg-neoadjuvante-chemotherapie-verwijzing-adjuvante-behandeling-kiemceltumoren-2",
+          "from": "aanbeveling-overweeg-neoadjuvante-chemotherapie",
+          "to": "verwijzing-adjuvante-behandeling-kiemceltumoren-2",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-extirpatie-aangedane-adnex-verwijzing-adjuvante-behandeling-kiemceltumoren",
+          "from": "aanbeveling-extirpatie-aangedane-adnex",
+          "to": "verwijzing-adjuvante-behandeling-kiemceltumoren",
+          "arrow": true
+        },
+        {
+          "id": "edge-resectabiliteit-op-basis-van-vriescoupe-resectabel",
+          "from": "resectabiliteit-op-basis-van-vriescoupe",
+          "to": "aanbeveling-debulking",
+          "label": "Resectabel",
+          "value": "resectabel",
+          "arrow": true
+        },
+        {
+          "id": "edge-resectabiliteit-op-basis-van-vriescoupe-irresectabel",
+          "from": "resectabiliteit-op-basis-van-vriescoupe",
+          "to": "aanbeveling-overweeg-palliatieve-systemische-therapie",
+          "label": "Irresectabel",
+          "value": "irresectabel",
+          "arrow": true
+        },
+        {
+          "id": "edge-menopauzale-status-postmenopauzaal",
+          "from": "menopauzale-status",
+          "to": "aanbeveling-extirpatie-aangedane-adnex-3",
+          "label": "Postmenopauzaal",
+          "value": "postmenopauzaal",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-debulking-verwijzing-adjuvante-behandeling-sexcordstromaceltumoren-3",
+          "from": "aanbeveling-debulking",
+          "to": "verwijzing-adjuvante-behandeling-sexcordstromaceltumoren-3",
+          "arrow": true
+        },
+        {
+          "id": "edge-menopauzale-status-premenopauzaal",
+          "from": "menopauzale-status",
+          "to": "aanbeveling-extirpatie-aangedane-adnex-2",
+          "label": "Premenopauzaal",
+          "value": "premenopauzaal",
+          "arrow": true
+        },
+        {
+          "id": "edge-uitbreiding-tumor-2-beperkt-tot-ovarium",
+          "from": "uitbreiding-tumor-2",
+          "to": "menopauzale-status",
+          "label": "Beperkt tot ovarium",
+          "value": "beperkt-tot-ovarium",
+          "arrow": true
+        },
+        {
+          "id": "edge-uitbreiding-tumor-beperkt-tot-ovarium",
+          "from": "uitbreiding-tumor",
+          "to": "aanbeveling-extirpatie-aangedane-adnex",
+          "label": "Beperkt tot ovarium",
+          "value": "beperkt-tot-ovarium",
+          "arrow": true
+        },
+        {
+          "id": "edge-vriescoupe-uitslag-sexcord-stromaceltumor-incl-granulosaceltumor",
+          "from": "vriescoupe-uitslag",
+          "to": "uitbreiding-tumor-2",
+          "label": "Sexcord stromaceltumor incl granulosaceltumor",
+          "value": "sexcord-stromaceltumor-incl-granulosaceltumor",
+          "arrow": true
+        },
+        {
+          "id": "edge-vriescoupe-uitslag-mesenchymale-tumor",
+          "from": "vriescoupe-uitslag",
+          "to": "aanbeveling-ga-naar-rl-sarcomen",
+          "label": "Mesenchymale tumor",
+          "value": "mesenchymale-tumor",
+          "arrow": true
+        },
+        {
+          "id": "edge-vriescoupe-uitslag-overig",
+          "from": "vriescoupe-uitslag",
+          "to": "aanbeveling-individualiseer-behandeling-of-ga-naar",
+          "label": "Overig",
+          "value": "overig",
+          "arrow": true
+        },
+        {
+          "id": "edge-uitbreiding-tumor-buiten-ovarium",
+          "from": "uitbreiding-tumor",
+          "to": "aanbeveling-overweeg-neoadjuvante-chemotherapie",
+          "label": "Buiten ovarium",
+          "value": "buiten-ovarium",
+          "arrow": true
+        },
+        {
+          "id": "edge-vriescoupe-uitslag-kiemceltumor",
+          "from": "vriescoupe-uitslag",
+          "to": "uitbreiding-tumor",
+          "label": "Kiemceltumor",
+          "value": "kiemceltumor",
+          "arrow": true
+        },
+        {
+          "id": "edge-uitbreiding-tumor-2-buiten-ovarium",
+          "from": "uitbreiding-tumor-2",
+          "to": "resectabiliteit-op-basis-van-vriescoupe",
+          "label": "Buiten ovarium",
+          "value": "buiten-ovarium",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-overweeg-palliatieve-systemische-therapie-verwijzing-follow-up-sexcord-stromaceltumoren",
+          "from": "aanbeveling-overweeg-palliatieve-systemische-therapie",
+          "to": "verwijzing-follow-up-sexcord-stromaceltumoren",
+          "arrow": true
+        }
+      ]
+    },
+    "beleid-choriocarcinoom": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "recommendation",
+          "text": "Verwijs naar Oncologisch centrum\nEN\nIndividualiseer behandeling\n{i} in geval van een choriocarcinoom met intermediaire of slechte prognose is beeldvorming (MRI) van de hersenen aan te bevelen voor start chemotherapie",
+          "height": 49,
+          "id": "aanbeveling-verwijs-naar-oncologisch-centrum",
+          "gridX": 50,
+          "gridY": 65
+        },
+        {
+          "type": "recommendation",
+          "text": "Ga naar richtlijn GTN",
+          "height": 20,
+          "id": "aanbeveling-ga-naar-richtlijn-gtn",
+          "gridX": 0,
+          "gridY": 65
+        },
+        {
+          "type": "dataItem",
+          "label": "Type choriocarcinoom",
+          "id": "type-choriocarcinoom",
+          "gridX": 0,
+          "gridY": 30,
+          "interactive": true,
+          "options": [
+            {
+              "value": "gestational-choriocarcinoom",
+              "label": "Gestational choriocarcinoom",
+              "edge": "edge-type-choriocarcinoom-gestational-choriocarcinoom"
+            },
+            {
+              "value": "non-gestational-choriocarcinoom",
+              "label": "Non gestational choriocarcinoom",
+              "edge": "edge-type-choriocarcinoom-non-gestational-choriocarcinoom"
+            }
+          ]
+        },
+        {
+          "type": "title",
+          "label": "Beleid choriocarcinoom",
+          "id": "titel",
+          "gridX": 0,
+          "gridY": 0
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-type-choriocarcinoom-non-gestational-choriocarcinoom",
+          "from": "type-choriocarcinoom",
+          "to": "aanbeveling-verwijs-naar-oncologisch-centrum",
+          "label": "Non gestational choriocarcinoom",
+          "value": "non-gestational-choriocarcinoom",
+          "arrow": true
+        },
+        {
+          "id": "edge-type-choriocarcinoom-gestational-choriocarcinoom",
+          "from": "type-choriocarcinoom",
+          "to": "aanbeveling-ga-naar-richtlijn-gtn",
+          "label": "Gestational choriocarcinoom",
+          "value": "gestational-choriocarcinoom",
+          "arrow": true
+        },
+        {
+          "id": "edge-titel-type-choriocarcinoom",
+          "from": "titel",
+          "to": "type-choriocarcinoom",
+          "arrow": true
+        }
+      ]
+    },
+    "recidief-diagnostiek-sexcord": {
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "title",
+          "label": "Recidief diagnostiek sexcordstromalceltumoren",
+          "id": "titel",
+          "gridX": 0,
+          "gridY": 0
+        },
+        {
+          "type": "recommendation",
+          "text": "CT thorax/abdomen\nEN\nLab (tumormarkers)",
+          "height": 20,
+          "id": "aanbeveling-ct-thorax-abdomen",
+          "gridX": 0,
+          "gridY": 30
+        },
+        {
+          "type": "reference",
+          "label": "Recidief behandeling sexcord stromaceltumoren",
+          "to": "recidief-behandeling-sexcord",
+          "id": "verwijzing-recidief-behandeling-sexcord-stromaceltumoren",
+          "gridX": 0,
+          "gridY": 60
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-titel-aanbeveling-ct-thorax-abdomen",
+          "from": "titel",
+          "to": "aanbeveling-ct-thorax-abdomen",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-ct-thorax-abdomen-verwijzing-recidief-behandeling-sexcord-stromaceltumoren",
+          "from": "aanbeveling-ct-thorax-abdomen",
+          "to": "verwijzing-recidief-behandeling-sexcord-stromaceltumoren",
+          "arrow": true
+        }
+      ]
+    }
+  }
 }
