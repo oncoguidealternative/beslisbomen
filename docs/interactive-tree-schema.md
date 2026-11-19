@@ -72,7 +72,7 @@ Het overzicht en elke beslisboom zijn een **graph** met dezelfde opbouw (§3).
 | `layout` | Het raster. `unit` = pixels per rasterhokje, `blockWidth`/`blockHeight` = standaardblok in hokjes. Zie `layout-engine.md`. |
 | `nodes` | De blokken |
 | `edges` | De verbindingen tussen blokken |
-| `wrap` | Optioneel: maximaal aantal tekens per regel bij automatisch afbreken |
+| `wrap` | Vervallen: titels worden automatisch afgebroken op de gemeten tekstbreedte (met ruimte voor icoon en afgeronde hoeken). Mag blijven staan, maar wordt genegeerd |
 | `same` | Optioneel: `"same": "<boom-id>"` hergebruikt een andere boom (zelfde tekening, eigen keuzes). Een boom met `same` heeft geen eigen `nodes`. |
 | `bron` | Optioneel: bronvermelding van deze boom (vult die van het zorgpad aan) |
 
@@ -97,7 +97,7 @@ Het overzicht en elke beslisboom zijn een **graph** met dezelfde opbouw (§3).
 | `label` | Korte tekst (één regel, wordt automatisch afgebroken) |
 | `text` | Langere tekst met eigen regels (`\n`). Heeft voorrang op `label` voor de weergave. |
 | `items` | Optioneel: lijst `[{ "text": "…" }]`, getoond met "EN" ertussen |
-| `tone`, `icon`, `rx`, `wrap` | Optioneel: opmaak (kleur, icoon, afronding, regellengte) |
+| `tone`, `icon`, `rx` | Optioneel: opmaak (kleur, icoon, afronding). `wrap` wordt niet meer gebruikt |
 
 **Opmaakcodes in `text`:**
 - `{i}` aan het begin van een regel: info-icoon

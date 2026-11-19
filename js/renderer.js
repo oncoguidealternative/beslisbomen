@@ -64,16 +64,44 @@ const Renderer = (function () {
   function wrapMeasured(parent, text, max, firstMax, fs) {
     var probe = el('text', {'font-size': fs, visibility: 'hidden'}, parent);
     var measure = function (str) { probe.textContent = str; return probe.getComputedTextLength(); };
-    var words = text.split(/\s+/).filter(Boolean), lines = [], cur = '';
-    words.forEach(function (word) {
+    var words = [], lines = [], cur = '';
+    // Een woord dat op zich te breed is en schuine strepen bevat ("cystoscopie/rectoscopie/botscan"),
+    // mag ook na een schuine streep worden afgebroken.
+    text.split(/\s+/).filter(Boolean).forEach(function (word) {
+      if (word.indexOf('/') > 0 && measure(word) > max) {
+        word.split(/(?<=\/)/).forEach(function (part, i) { words.push({t: part, glue: i > 0}); });
+      } else words.push({t: word, glue: false});
+    });
+    words.forEach(function (wd) {
       var limit = lines.length === 0 && firstMax ? firstMax : max;
-      var next = cur ? cur + ' ' + word : word;
-      if (cur && measure(next) > limit) { lines.push(cur); cur = word; }
+      var next = cur ? cur + (wd.glue ? '' : ' ') + wd.t : wd.t;
+      if (cur && measure(next) > limit) { lines.push(cur); cur = wd.t; }
       else cur = next;
     });
     if (cur) lines.push(cur);
     parent.removeChild(probe);
     return lines.length ? lines : [''];
+  }
+
+  function measureText(parent, str, fs) {
+    var probe = el('text', {'font-size': fs, visibility: 'hidden'}, parent);
+    probe.textContent = str;
+    var len = probe.getComputedTextLength();
+    parent.removeChild(probe);
+    return len;
+  }
+
+  /* Ruimte (px) die een titel aan elke kant vrij moet laten. De tekst staat gecentreerd, dus de ruimte
+     is aan beide kanten even groot:
+     - altijd de gewone binnenmarge;
+     - bij een icoon op de rechterrand (pijl, plus, min): het deel van het icoon binnen het blok plus een tussenruimte;
+     - bij afgeronde blokken (titel van zorgpad of beslisboom): een deel van de hoekafronding. */
+  function labelSide(type, w, h, icon, s, pad) {
+    var side = pad;
+    if (icon) side = Math.max(side, 2 + 16 * s + 6 * s);
+    if (type === 'root') side = Math.max(side, Math.min(40 * s, h / 2) * 0.55 + 4 * s);
+    if (type === 'start') side = Math.max(side, Math.min(30 * s, h / 2) * 0.55 + 4 * s);
+    return side;
   }
 
   function setRich(t, str) {
@@ -253,7 +281,7 @@ const Renderer = (function () {
     var source = graph; // oorspronkelijke graph: bevat from/value van de edges
     graph = laidOut(graph);
     var svg = els.svg;
-    var size = graph.nodeSize, s = size[0] / 179, maxChars = graph.wrap || 24;
+    var size = graph.nodeSize, s = size[0] / 179;
     svg.innerHTML = '';
     if (graph.native) {
       // Native: geen viewBox; 1 SVG-eenheid = 1 px, zoom en pan staan op de inhoudsgroep.
@@ -451,7 +479,7 @@ const Renderer = (function () {
       } else if (n.text !== undefined) {
         // Afbreken op de werkelijke tekstbreedte (gemeten), met binnenmarge en ruimte voor het icoon,
         // zodat geen tekst buiten het blok valt.
-        var iconRoom = 20 * s;
+        var iconRoom = 20 * s, textSide = icon ? labelSide(type, w, h, icon, s, pad) : pad;
         textSegments(n.text, type === 'outcome').forEach(function (seg) {
           if (seg === '') lines.push({t: ''});
           else if (/^\s*-{3,}\s*$/.test(seg)) lines.push({t: '', rule: true}); // "---" = scheidingslijn
@@ -460,13 +488,30 @@ const Renderer = (function () {
             // {i} = info-icoon, {x} = "geen"-symbool (doorgestreepte cirkel) aan het begin van een regel
             var marker = seg.indexOf('{i}') === 0 ? 'i' : (seg.indexOf('{x}') === 0 ? 'x' : null);
             var body = seg.replace(/^\{[ix]\}\s*/, '');
-            wrapMeasured(g, body, w - 2 * pad, marker ? w - 2 * pad - iconRoom : null, fs).forEach(function (l, j) {
+            wrapMeasured(g, body, w - 2 * textSide, marker ? w - 2 * textSide - iconRoom : null, fs).forEach(function (l, j) {
               lines.push({t: l, info: marker && j === 0 ? '' : null, kind: marker});
             });
           }
         });
       } else {
-        wrap(n.label, n.wrap || maxChars).forEach(function (l) { lines.push({t: l}); });
+        // Titels worden afgebroken op de gemeten tekstbreedte (niet op aantal tekens), met ruimte voor het
+        // icoon en de afgeronde hoeken. Past het dan nog niet (een heel lang woord, of te veel regels),
+        // dan wordt de letter in dit blok iets kleiner. "wrap" in de JSON is hiervoor niet meer nodig.
+        var labelMax = w - 2 * labelSide(type, w, h, icon, s, pad);
+        var labelLines = null, labelFs = fs;
+        [1, 0.94, 0.88, 0.82].some(function (f) {
+          labelFs = 12.5 * s * f;
+          labelLines = [];
+          String(n.label || '').split('\n').forEach(function (seg) {
+            labelLines = labelLines.concat(wrapMeasured(g, seg, labelMax, null, labelFs));
+          });
+          var widest = 0;
+          labelLines.forEach(function (l) { widest = Math.max(widest, measureText(g, l, labelFs)); });
+          var tall = (labelLines.length - 1) * 14.5 * s * f + labelFs;
+          return widest <= labelMax && tall <= h - 2 * TEXT_PAD_Y * s;
+        });
+        if (labelFs !== fs) { lh = lh * labelFs / fs; fs = labelFs; }
+        labelLines.forEach(function (l) { lines.push({t: l}); });
       }
 
       // De hoogste aanbeveling in een rij staat boven uitgelijnd. Lagere aanbevelingen in die rij, overige
