@@ -389,17 +389,17 @@
       },
       "layout": {
         "unit": 5,
-        "blockWidth": 60,
-        "blockHeight": 30,
-        "margin": 5
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
       },
       "wrap": 24,
       "nodes": [
         {
           "id": "root",
           "type": "title",
-          "gridX": 30,
-          "gridY": 5,
+          "gridX": 0,
+          "gridY": 0,
           "label": "Initiële diagnostiek",
           "icon": "minus-light",
           "tone": "blue",
@@ -409,16 +409,16 @@
         {
           "id": "acties",
           "type": "decision",
-          "gridX": 30,
-          "gridY": 50,
-          "height": 70,
+          "gridX": 0,
+          "gridY": 30,
+          "height": 47,
           "text": "Anamnese\n\nEN\n\nGynaecologisch onderzoek\n{i}incl rectaal toucher\n\nEN\n\nTransvaginale echo"
         },
         {
           "id": "volgende",
           "type": "reference",
-          "gridX": 30,
-          "gridY": 140,
+          "gridX": 0,
+          "gridY": 92,
           "label": "Aanvullende diagnostiek",
           "icon": "down",
           "to": "aanvullend"
@@ -431,12 +431,12 @@
           "to": "acties",
           "points": [
             [
-              300,
-              175
+              100,
+              100
             ],
             [
-              300,
-              230
+              100,
+              137
             ]
           ],
           "arrow": true,
@@ -449,12 +449,12 @@
           "to": "volgende",
           "points": [
             [
-              300,
-              600
+              100,
+              385
             ],
             [
-              300,
-              700
+              100,
+              460
             ]
           ],
           "arrow": true
@@ -468,17 +468,17 @@
       },
       "layout": {
         "unit": 5,
-        "blockWidth": 60,
-        "blockHeight": 31,
-        "margin": 5
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
       },
       "wrap": 24,
       "nodes": [
         {
           "id": "root",
           "type": "title",
-          "gridX": 15,
-          "gridY": 5,
+          "gridX": 0,
+          "gridY": 0,
           "label": "Aanvullende diagnostiek",
           "icon": "minus-light",
           "tone": "blue",
@@ -488,8 +488,8 @@
         {
           "id": "echo",
           "type": "dataItem",
-          "gridX": 15,
-          "gridY": 50,
+          "gridX": 0,
+          "gridY": 30,
           "label": "Uitslag echo",
           "interactive": true,
           "options": [
@@ -508,23 +508,23 @@
         {
           "id": "normaal",
           "type": "recommendation",
-          "gridX": 15,
-          "gridY": 124,
+          "gridX": 0,
+          "gridY": 65,
           "text": "Wordt niet beschreven in\nde richtlijn"
         },
         {
           "id": "afwijkend",
           "type": "recommendation",
-          "gridX": 100,
-          "gridY": 124,
-          "height": 46,
+          "gridX": 57,
+          "gridY": 65,
+          "height": 31,
           "text": "Endometriumsampling\n\nEN\n\nEndocervicale curettage\n{i}indien baarmoeder afwijkend is"
         },
         {
           "id": "volgende",
           "type": "reference",
-          "gridX": 100,
-          "gridY": 184,
+          "gridX": 57,
+          "gridY": 106,
           "label": "Stageringsdiagnostiek",
           "icon": "down",
           "to": "stagering"
@@ -537,12 +537,12 @@
           "to": "echo",
           "points": [
             [
-              225,
-              180
+              100,
+              100
             ],
             [
-              225,
-              250
+              100,
+              150
             ]
           ],
           "arrow": true
@@ -555,21 +555,21 @@
           "label": "Normaal",
           "points": [
             [
-              75,
-              330
+              0,
+              202
             ],
             [
-              225,
-              330
+              100,
+              202
             ],
             [
-              225,
-              620
+              100,
+              325
             ]
           ],
           "dot": [
-            225,
-            500
+            100,
+            283
           ],
           "arrow": true
         },
@@ -581,21 +581,21 @@
           "label": "Afwijkend",
           "points": [
             [
-              375,
-              330
+              200,
+              202
             ],
             [
-              650,
-              330
+              385,
+              202
             ],
             [
-              650,
-              620
+              385,
+              325
             ]
           ],
           "dot": [
-            525,
-            330
+            302,
+            202
           ],
           "arrow": true
         },
@@ -605,12 +605,12 @@
           "to": "volgende",
           "points": [
             [
-              650,
-              850
+              385,
+              480
             ],
             [
-              650,
-              920
+              385,
+              530
             ]
           ],
           "arrow": true
@@ -624,17 +624,17 @@
       },
       "layout": {
         "unit": 5,
-        "blockWidth": 72,
-        "blockHeight": 38,
-        "margin": 5
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
       },
       "wrap": 24,
       "nodes": [
         {
           "id": "root",
           "type": "title",
-          "gridX": 12,
-          "gridY": 5,
+          "gridX": 0,
+          "gridY": 0,
           "label": "Stageringsdiagnostiek",
           "icon": "minus-light",
           "tone": "blue",
@@ -644,8 +644,8 @@
         {
           "id": "uitslag",
           "type": "dataItem",
-          "gridX": 12,
-          "gridY": 56,
+          "gridX": 0,
+          "gridY": 30,
           "label": "Uitslag endometrium sampling",
           "interactive": true,
           "options": [
@@ -664,8 +664,8 @@
         {
           "id": "graad",
           "type": "dataItem",
-          "gridX": 94,
-          "gridY": 108,
+          "gridX": 46,
+          "gridY": 65,
           "label": "Graad",
           "icon": "plus-light",
           "interactive": true,
@@ -685,8 +685,8 @@
         {
           "id": "uitbreiding",
           "type": "dataItem",
-          "gridX": 94,
-          "gridY": 172,
+          "gridX": 46,
+          "gridY": 100,
           "label": "Verdenking uitbreiding",
           "interactive": true,
           "options": [
@@ -705,61 +705,58 @@
         {
           "id": "benigne",
           "type": "recommendation",
-          "gridX": 12,
-          "gridY": 250,
+          "gridX": 0,
+          "gridY": 135,
           "text": "Individualiseer behandeling volgens\ndesbetreffende richtlijn"
         },
         {
           "id": "geen",
           "type": "recommendation",
-          "gridX": 94,
-          "gridY": 250,
+          "gridX": 46,
+          "gridY": 135,
           "text": "X-thorax"
         },
         {
           "id": "uitbr",
           "type": "recommendation",
-          "gridX": 176,
-          "gridY": 250,
-          "height": 63,
+          "gridX": 93,
+          "gridY": 135,
+          "height": 35,
           "text": "CA-125\n\nEN\n\nCystoscopie en/of Rectoscopie\n\nEN\n\nCT/MRI"
         },
         {
           "id": "g3",
           "type": "recommendation",
-          "gridX": 258,
-          "gridY": 250,
+          "gridX": 139,
+          "gridY": 135,
           "text": "CA-125\n\nEN\n\nCT-abdomen"
         },
         {
           "id": "p1",
           "type": "reference",
-          "gridX": 94,
-          "gridY": 302,
+          "gridX": 46,
+          "gridY": 180,
           "label": "Primaire behandeling",
           "icon": "down",
-          "to": "primair",
-          "height": 44
+          "to": "primair"
         },
         {
           "id": "p2",
           "type": "reference",
-          "gridX": 176,
-          "gridY": 302,
+          "gridX": 93,
+          "gridY": 180,
           "label": "Primaire behandeling",
           "icon": "down",
-          "to": "primair",
-          "height": 44
+          "to": "primair"
         },
         {
           "id": "p3",
           "type": "reference",
-          "gridX": 258,
-          "gridY": 302,
+          "gridX": 139,
+          "gridY": 180,
           "label": "Primaire behandeling",
           "icon": "down",
-          "to": "primair",
-          "height": 44
+          "to": "primair"
         }
       ],
       "edges": [
@@ -769,12 +766,12 @@
           "to": "uitslag",
           "points": [
             [
-              240,
-              215
+              100,
+              100
             ],
             [
-              240,
-              280
+              100,
+              150
             ]
           ],
           "arrow": true
@@ -787,21 +784,21 @@
           "label": "Benigne",
           "points": [
             [
-              60,
-              375
+              0,
+              200
             ],
             [
-              240,
-              375
+              100,
+              200
             ],
             [
-              240,
-              1250
+              100,
+              675
             ]
           ],
           "dot": [
-            240,
-            780
+            100,
+            419
           ],
           "arrow": true
         },
@@ -813,21 +810,21 @@
           "label": "Maligne",
           "points": [
             [
-              420,
-              375
+              200,
+              200
             ],
             [
-              650,
-              375
+              330,
+              200
             ],
             [
-              650,
-              540
+              330,
+              325
             ]
           ],
           "dot": [
-            530,
-            375
+            263,
+            200
           ],
           "arrow": true
         },
@@ -839,17 +836,17 @@
           "label": "1,2",
           "points": [
             [
-              650,
-              730
+              330,
+              425
             ],
             [
-              650,
-              860
+              330,
+              500
             ]
           ],
           "dot": [
-            650,
-            790
+            330,
+            460
           ],
           "arrow": true
         },
@@ -861,21 +858,21 @@
           "label": "3",
           "points": [
             [
-              830,
-              635
+              430,
+              375
             ],
             [
-              1470,
-              635
+              795,
+              375
             ],
             [
-              1470,
-              1250
+              795,
+              675
             ]
           ],
           "dot": [
-            1110,
-            635
+            591,
+            375
           ],
           "arrow": true
         },
@@ -887,17 +884,17 @@
           "label": "Geen",
           "points": [
             [
-              650,
-              1050
+              330,
+              600
             ],
             [
-              650,
-              1250
+              330,
+              675
             ]
           ],
           "dot": [
-            650,
-            1140
+            330,
+            634
           ],
           "arrow": true
         },
@@ -909,21 +906,21 @@
           "label": "Blaas en/of\nRectum",
           "points": [
             [
-              830,
-              955
+              430,
+              550
             ],
             [
-              1060,
-              955
+              565,
+              550
             ],
             [
-              1060,
-              1250
+              565,
+              675
             ]
           ],
           "dot": [
-            945,
-            955
+            501,
+            550
           ],
           "arrow": true
         },
@@ -933,12 +930,12 @@
           "to": "p1",
           "points": [
             [
-              650,
-              1440
+              330,
+              775
             ],
             [
-              650,
-              1510
+              330,
+              900
             ]
           ],
           "arrow": true
@@ -949,12 +946,12 @@
           "to": "p2",
           "points": [
             [
-              1060,
-              1565
+              565,
+              850
             ],
             [
-              1060,
-              1510
+              565,
+              819
             ]
           ],
           "arrow": true
@@ -965,12 +962,12 @@
           "to": "p3",
           "points": [
             [
-              1470,
-              1440
+              795,
+              775
             ],
             [
-              1470,
-              1510
+              795,
+              900
             ]
           ],
           "arrow": true
@@ -984,9 +981,9 @@
       },
       "layout": {
         "unit": 5,
-        "blockWidth": 44,
-        "blockHeight": 24,
-        "margin": 3
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
       },
       "zoom": 0.8,
       "wrap": 22,
@@ -994,8 +991,8 @@
         {
           "id": "root",
           "type": "title",
-          "gridX": 308,
-          "gridY": 3,
+          "gridX": 303,
+          "gridY": 0,
           "label": "Primaire behandeling",
           "icon": "minus-light",
           "tone": "blue",
@@ -1005,8 +1002,8 @@
         {
           "id": "histologie",
           "type": "dataItem",
-          "gridX": 308,
-          "gridY": 34,
+          "gridX": 303,
+          "gridY": 30,
           "label": "Histologie",
           "interactive": true,
           "options": [
@@ -1025,8 +1022,8 @@
         {
           "id": "stadium-e",
           "type": "dataItem",
-          "gridX": 196,
-          "gridY": 69,
+          "gridX": 186,
+          "gridY": 65,
           "label": "Klinisch stadium",
           "icon": "plus-light",
           "interactive": true,
@@ -1056,8 +1053,8 @@
         {
           "id": "kinderwens",
           "type": "dataItem",
-          "gridX": 66,
-          "gridY": 104,
+          "gridX": 49,
+          "gridY": 100,
           "label": "Kinderwens",
           "interactive": true,
           "options": [
@@ -1076,8 +1073,8 @@
         {
           "id": "graad",
           "type": "dataItem",
-          "gridX": 22,
-          "gridY": 140,
+          "gridX": 3,
+          "gridY": 135,
           "label": "Graad",
           "icon": "plus-light",
           "interactive": true,
@@ -1097,8 +1094,8 @@
         {
           "id": "leeftijd",
           "type": "dataItem",
-          "gridX": 22,
-          "gridY": 175,
+          "gridX": 3,
+          "gridY": 170,
           "label": "Leeftijd",
           "interactive": true,
           "options": [
@@ -1117,8 +1114,8 @@
         {
           "id": "pr",
           "type": "dataItem",
-          "gridX": 22,
-          "gridY": 210,
+          "gridX": 3,
+          "gridY": 205,
           "label": "Status progesteron receptor",
           "interactive": true,
           "options": [
@@ -1137,8 +1134,8 @@
         {
           "id": "locatie",
           "type": "dataItem",
-          "gridX": 196,
-          "gridY": 116,
+          "gridX": 186,
+          "gridY": 100,
           "label": "Locatie tumor",
           "interactive": true,
           "options": [
@@ -1157,8 +1154,8 @@
         {
           "id": "radicaal",
           "type": "dataItem",
-          "gridX": 196,
-          "gridY": 156,
+          "gridX": 186,
+          "gridY": 135,
           "label": "Radicale behandeling mogelijk",
           "interactive": true,
           "options": [
@@ -1178,7 +1175,7 @@
           "id": "stadium-s",
           "type": "dataItem",
           "gridX": 392,
-          "gridY": 69,
+          "gridY": 65,
           "label": "Klinisch stadium",
           "icon": "plus-light",
           "interactionNote": "Niet interactief (AMBIGUOUS): optie \"III\": pijl eindigt op de grens van meerdere nodes serousi,serousiii."
@@ -1186,96 +1183,96 @@
         {
           "id": "mri",
           "type": "recommendation",
-          "gridX": 22,
+          "gridX": 3,
           "gridY": 240,
           "text": "MRI\n\nEN\n\nHysteroscopie\n{i}indien nog niet verricht",
-          "height": 30
+          "height": 28
         },
         {
           "id": "hyst",
           "type": "recommendation",
-          "gridX": 76,
-          "gridY": 224,
-          "height": 46,
+          "gridX": 60,
+          "gridY": 240,
+          "height": 42,
           "text": "Totale abdominale hysterectomie*\nOF\nTotale laparoscopische hysterectomie*\n\nEN\n\nBSO\n\n* zie onderbouwing"
         },
         {
           "id": "endoi",
           "type": "recommendation",
-          "gridX": 138,
-          "gridY": 216,
-          "height": 43,
+          "gridX": 125,
+          "gridY": 173,
+          "height": 40,
           "text": "Verwijs naar oncologisch centrum\n\nEN\n\nHysterectomie\n{i}streef naar R0, indien nodig (gemodificeerde) radicale hysterectomie"
         },
         {
           "id": "endoiii",
           "type": "recommendation",
-          "gridX": 196,
-          "gridY": 216,
-          "height": 57,
+          "gridX": 186,
+          "gridY": 173,
+          "height": 52,
           "text": "Verwijs naar oncologisch centrum\n\nEN\n\nTotale abdominale hysterectomie\nEN\nBSO*\n\nOF\n\nOverweeg hormoontherapie"
         },
         {
           "id": "rad",
           "type": "recommendation",
-          "gridX": 254,
-          "gridY": 216,
-          "height": 53,
+          "gridX": 247,
+          "gridY": 173,
+          "height": 49,
           "text": "Primair uitwendige radiotherapie*\n\nEN\n\nInwendige radiotherapie evt gevolgd door hysterectomie*\n\nOF\n\nOverweeg hormoontherapie"
         },
         {
           "id": "iiic",
           "type": "recommendation",
-          "gridX": 312,
-          "gridY": 216,
-          "height": 68,
+          "gridX": 308,
+          "gridY": 173,
+          "height": 62,
           "text": "Verwijs naar oncologisch centrum\n\nEN\n\nTotale abdominale hysterectomie\nEN\nBSO*\nEN\nOverweeg resectie lymfkliermetastasen*\n\nOF\n\nOverweeg hormoontherapie"
         },
         {
           "id": "hormoon",
           "type": "recommendation",
-          "gridX": 370,
-          "gridY": 216,
-          "height": 46,
+          "gridX": 368,
+          "gridY": 173,
+          "height": 42,
           "text": "Overweeg laag gedoseerd medroxyprogesteron (200 mg/dag)\n{i}zeker bij PR+ tumoren\n\nOF\n\nOverweeg megestrol-acetaat (160 mg/dag)"
         },
         {
           "id": "stad",
           "type": "recommendation",
-          "gridX": 428,
-          "gridY": 164,
-          "height": 28,
+          "gridX": 429,
+          "gridY": 142,
+          "height": 26,
           "text": "Verwijs naar oncologisch centrum\n\nEN\n\nComplete stadiëring"
         },
         {
           "id": "serousi",
           "type": "recommendation",
-          "gridX": 428,
-          "gridY": 216,
-          "height": 39,
+          "gridX": 429,
+          "gridY": 173,
+          "height": 36,
           "text": "Verwijs naar oncologisch centrum\n\nEN\n\nHysterectomie\n{i}streef naar R0, indien nodig"
         },
         {
           "id": "serousiii",
           "type": "recommendation",
-          "gridX": 472,
-          "gridY": 216,
-          "height": 46,
+          "gridX": 476,
+          "gridY": 173,
+          "height": 42,
           "text": "Verwijs naar oncologisch centrum*\n\nEN\n\nDebulking*\n\nOF\n\nOverweeg hormoontherapie"
         },
         {
           "id": "serousiv",
           "type": "recommendation",
-          "gridX": 472,
-          "gridY": 144,
-          "height": 32,
+          "gridX": 476,
+          "gridY": 138,
+          "height": 30,
           "text": "Overweeg laag gedoseerd medroxyprogesteron\n\nOF\n\nOverweeg megestrol-acetaat"
         },
         {
           "id": "lk",
           "type": "reference",
-          "gridX": 22,
-          "gridY": 286,
+          "gridX": 3,
+          "gridY": 287,
           "label": "Kinderwens en primaire behandeling",
           "icon": "down",
           "to": "kinder-primair"
@@ -1283,8 +1280,8 @@
         {
           "id": "la1",
           "type": "reference",
-          "gridX": 76,
-          "gridY": 286,
+          "gridX": 60,
+          "gridY": 287,
           "label": "Adjuvante behandeling endometrioïd",
           "icon": "down",
           "to": "adjuvant-endometrioid"
@@ -1292,8 +1289,8 @@
         {
           "id": "la2",
           "type": "reference",
-          "gridX": 138,
-          "gridY": 286,
+          "gridX": 125,
+          "gridY": 287,
           "label": "Adjuvante behandeling endometrioïd",
           "icon": "down",
           "to": "adjuvant-endometrioid"
@@ -1301,8 +1298,8 @@
         {
           "id": "la3",
           "type": "reference",
-          "gridX": 196,
-          "gridY": 286,
+          "gridX": 186,
+          "gridY": 287,
           "label": "Adjuvante behandeling endometrioïd",
           "icon": "down",
           "to": "adjuvant-endometrioid"
@@ -1310,8 +1307,8 @@
         {
           "id": "la4",
           "type": "reference",
-          "gridX": 254,
-          "gridY": 286,
+          "gridX": 247,
+          "gridY": 287,
           "label": "Adjuvante behandeling endometrioïd",
           "icon": "down",
           "to": "adjuvant-endometrioid"
@@ -1319,8 +1316,8 @@
         {
           "id": "le",
           "type": "reference",
-          "gridX": 370,
-          "gridY": 286,
+          "gridX": 368,
+          "gridY": 287,
           "label": "Evaluatie stadiëring",
           "icon": "down",
           "to": "evaluatie-stadiering"
@@ -1328,8 +1325,8 @@
         {
           "id": "ls",
           "type": "reference",
-          "gridX": 428,
-          "gridY": 286,
+          "gridX": 429,
+          "gridY": 287,
           "label": "Adjuvante behandeling sereus/clear cell",
           "icon": "down",
           "to": "adjuvant-serous"
@@ -1337,8 +1334,8 @@
         {
           "id": "lh",
           "type": "reference",
-          "gridX": 472,
-          "gridY": 286,
+          "gridX": 476,
+          "gridY": 287,
           "label": "Beleid na hormoontherapie",
           "icon": "down",
           "to": "beleid-hormoon"
@@ -1351,12 +1348,12 @@
           "to": "histologie",
           "points": [
             [
-              1650,
-              135
+              1615,
+              100
             ],
             [
-              1650,
-              170
+              1615,
+              150
             ]
           ],
           "arrow": true
@@ -1369,21 +1366,21 @@
           "label": "Endometrioïd adenocarcinoom",
           "points": [
             [
-              1540,
-              230
+              1515,
+              200
             ],
             [
-              1090,
-              230
+              1030,
+              200
             ],
             [
-              1090,
-              345
+              1030,
+              325
             ]
           ],
           "dot": [
-            1320,
-            230
+            1266,
+            200
           ],
           "arrow": true
         },
@@ -1395,21 +1392,21 @@
           "label": "Clearcell adenocarcinoom, Sereus adenocarcinoom",
           "points": [
             [
-              1760,
-              230
+              1715,
+              200
             ],
             [
-              2070,
-              230
+              2060,
+              200
             ],
             [
-              2070,
-              345
+              2060,
+              325
             ]
           ],
           "dot": [
-            1915,
-            230
+            1905,
+            200
           ],
           "arrow": true
         },
@@ -1421,21 +1418,21 @@
           "label": "I",
           "points": [
             [
-              980,
-              405
+              930,
+              375
             ],
             [
-              440,
-              405
+              345,
+              375
             ],
             [
-              440,
-              520
+              345,
+              500
             ]
           ],
           "dot": [
-            650,
-            405
+            558,
+            375
           ],
           "arrow": true
         },
@@ -1447,21 +1444,21 @@
           "label": "Aanwezig",
           "points": [
             [
-              330,
-              640
+              245,
+              600
             ],
             [
-              220,
-              640
+              115,
+              600
             ],
             [
-              220,
-              700
+              115,
+              675
             ]
           ],
           "dot": [
-            275,
-            640
+            165,
+            600
           ],
           "arrow": true
         },
@@ -1473,17 +1470,17 @@
           "label": "Afwezig",
           "points": [
             [
-              440,
-              640
+              345,
+              600
             ],
             [
-              440,
-              1120
+              345,
+              1200
             ]
           ],
           "dot": [
-            440,
-            760
+            345,
+            750
           ],
           "arrow": true
         },
@@ -1495,17 +1492,17 @@
           "label": "1",
           "points": [
             [
-              220,
-              820
+              115,
+              775
             ],
             [
-              220,
-              875
+              115,
+              850
             ]
           ],
           "dot": [
-            220,
-            845
+            115,
+            809
           ],
           "arrow": true
         },
@@ -1517,31 +1514,31 @@
           "label": "2,3",
           "points": [
             [
-              330,
-              760
+              215,
+              725
             ],
             [
-              440,
-              760
+              355,
+              725
             ]
           ],
           "selectedPoints": [
             [
-              330,
-              760
+              215,
+              725
             ],
             [
-              440,
-              760
+              355,
+              725
             ],
             [
-              440,
-              1120
+              355,
+              1200
             ]
           ],
           "dot": [
-            385,
-            760
+            305,
+            725
           ]
         },
         {
@@ -1552,17 +1549,17 @@
           "label": "<=40 Jaar",
           "points": [
             [
-              220,
-              995
+              115,
+              950
             ],
             [
-              220,
-              1050
+              115,
+              1025
             ]
           ],
           "dot": [
-            220,
-            1020
+            115,
+            984
           ],
           "arrow": true
         },
@@ -1574,31 +1571,31 @@
           "label": ">40 Jaar",
           "points": [
             [
-              330,
-              935
+              215,
+              900
             ],
             [
-              440,
-              935
+              355,
+              900
             ]
           ],
           "selectedPoints": [
             [
-              330,
-              935
+              215,
+              900
             ],
             [
-              440,
-              935
+              355,
+              900
             ],
             [
-              440,
-              1120
+              355,
+              1200
             ]
           ],
           "dot": [
-            385,
-            935
+            305,
+            900
           ]
         },
         {
@@ -1609,17 +1606,17 @@
           "label": "Positief",
           "points": [
             [
-              220,
-              1170
+              115,
+              1125
             ],
             [
-              220,
+              115,
               1200
             ]
           ],
           "dot": [
-            220,
-            1185
+            115,
+            1162
           ],
           "arrow": true
         },
@@ -1631,31 +1628,31 @@
           "label": "Negatief",
           "points": [
             [
-              330,
-              1110
+              215,
+              1075
             ],
             [
-              440,
-              1110
+              355,
+              1075
             ]
           ],
           "selectedPoints": [
             [
-              330,
-              1110
+              215,
+              1075
             ],
             [
-              440,
-              1110
+              355,
+              1075
             ],
             [
-              440,
-              1120
+              355,
+              1083
             ]
           ],
           "dot": [
-            385,
-            1110
+            305,
+            1075
           ]
         },
         {
@@ -1666,17 +1663,17 @@
           "label": "IIIB",
           "points": [
             [
-              1090,
-              465
+              1030,
+              425
             ],
             [
-              1090,
-              580
+              1030,
+              500
             ]
           ],
           "dot": [
-            1090,
-            520
+            1030,
+            461
           ],
           "arrow": true
         },
@@ -1688,21 +1685,21 @@
           "label": "Parametrium",
           "points": [
             [
-              980,
-              640
+              930,
+              550
             ],
             [
-              870,
-              640
+              789,
+              550
             ],
             [
-              870,
-              1080
+              789,
+              865
             ]
           ],
           "dot": [
-            925,
-            640
+            848,
+            550
           ],
           "arrow": true
         },
@@ -1714,17 +1711,17 @@
           "label": "Vagina",
           "points": [
             [
-              1090,
-              700
+              1030,
+              600
             ],
             [
-              1090,
-              780
+              1030,
+              675
             ]
           ],
           "dot": [
-            1090,
-            740
+            1030,
+            638
           ],
           "arrow": true
         },
@@ -1736,31 +1733,31 @@
           "label": "Ja",
           "points": [
             [
-              980,
-              840
+              930,
+              725
             ],
             [
-              870,
-              840
+              789,
+              725
             ]
           ],
           "selectedPoints": [
             [
-              980,
-              840
+              930,
+              725
             ],
             [
-              870,
-              840
+              789,
+              725
             ],
             [
-              870,
-              1080
+              789,
+              865
             ]
           ],
           "dot": [
-            925,
-            840
+            848,
+            725
           ]
         },
         {
@@ -1771,17 +1768,17 @@
           "label": "Nee",
           "points": [
             [
-              1090,
-              900
+              1030,
+              775
             ],
             [
-              1090,
-              1080
+              1030,
+              865
             ]
           ],
           "dot": [
-            1090,
-            980
+            1030,
+            815
           ],
           "arrow": true
         },
@@ -1793,21 +1790,21 @@
           "label": "IIIC",
           "points": [
             [
-              1200,
-              405
+              1130,
+              375
             ],
             [
-              1560,
-              405
+              1540,
+              375
             ],
             [
-              1560,
-              1080
+              1540,
+              865
             ]
           ],
           "dot": [
-            1380,
-            405
+            1335,
+            375
           ],
           "arrow": true
         },
@@ -1819,21 +1816,21 @@
           "label": "IV",
           "points": [
             [
-              1200,
-              405
+              1130,
+              375
             ],
             [
-              1850,
-              405
+              1840,
+              375
             ],
             [
-              1850,
-              1080
+              1840,
+              865
             ]
           ],
           "dot": [
-            1650,
-            405
+            1622,
+            375
           ],
           "arrow": true
         },
@@ -1841,21 +1838,21 @@
           "label": "I",
           "points": [
             [
-              1960,
-              405
+              1947,
+              375
             ],
             [
-              2140,
-              405
+              2145,
+              375
             ],
             [
-              2140,
-              820
+              2145,
+              765
             ]
           ],
           "dot": [
-            2050,
-            405
+            2028,
+            375
           ],
           "arrow": true
         },
@@ -1863,17 +1860,17 @@
           "label": "II",
           "points": [
             [
-              2070,
-              465
+              2047,
+              425
             ],
             [
-              2070,
-              1080
+              2047,
+              1025
             ]
           ],
           "dot": [
-            2070,
-            730
+            2047,
+            699
           ],
           "arrow": true
         },
@@ -1881,21 +1878,21 @@
           "label": "III",
           "points": [
             [
-              2180,
-              405
+              2160,
+              375
             ],
             [
-              2360,
-              405
+              2362,
+              375
             ],
             [
-              2360,
-              1080
+              2362,
+              1025
             ]
           ],
           "dot": [
-            2270,
-            405
+            2266,
+            375
           ],
           "arrow": true
         },
@@ -1903,21 +1900,21 @@
           "label": "IV",
           "points": [
             [
-              2180,
-              405
+              2160,
+              375
             ],
             [
-              2470,
-              405
+              2480,
+              375
             ],
             [
-              2470,
-              720
+              2480,
+              690
             ]
           ],
           "dot": [
             2325,
-            405
+            375
           ],
           "arrow": true
         }
@@ -1930,17 +1927,17 @@
       },
       "layout": {
         "unit": 5,
-        "blockWidth": 38,
+        "blockWidth": 40,
         "blockHeight": 20,
-        "margin": 3
+        "margin": 10
       },
       "zoom": 0.8,
       "nodes": [
         {
           "id": "root",
           "type": "title",
-          "gridX": 202,
-          "gridY": 3,
+          "gridX": 219,
+          "gridY": 0,
           "label": "Adjuvante behandeling endometrioïd",
           "icon": "minus-light",
           "tone": "blue",
@@ -1950,8 +1947,8 @@
         {
           "id": "figo",
           "type": "dataItem",
-          "gridX": 202,
-          "gridY": 35,
+          "gridX": 219,
+          "gridY": 30,
           "label": "FIGO",
           "icon": "plus-light",
           "interactive": true,
@@ -1981,8 +1978,8 @@
         {
           "id": "gia",
           "type": "dataItem",
-          "gridX": 120,
-          "gridY": 67,
+          "gridX": 129,
+          "gridY": 65,
           "label": "Graad",
           "icon": "plus-light",
           "interactive": true,
@@ -2003,7 +2000,7 @@
           "id": "lv1",
           "type": "dataItem",
           "gridX": 36,
-          "gridY": 104,
+          "gridY": 100,
           "label": "LVSI",
           "interactive": true,
           "options": [
@@ -2022,8 +2019,8 @@
         {
           "id": "lv2",
           "type": "dataItem",
-          "gridX": 120,
-          "gridY": 104,
+          "gridX": 129,
+          "gridY": 100,
           "label": "LVSI",
           "interactive": true,
           "options": [
@@ -2042,8 +2039,8 @@
         {
           "id": "age2",
           "type": "dataItem",
-          "gridX": 120,
-          "gridY": 137,
+          "gridX": 129,
+          "gridY": 135,
           "label": "Leeftijd",
           "interactive": true,
           "options": [
@@ -2062,8 +2059,8 @@
         {
           "id": "gib",
           "type": "dataItem",
-          "gridX": 202,
-          "gridY": 67,
+          "gridX": 219,
+          "gridY": 65,
           "label": "Graad",
           "icon": "plus-light",
           "interactive": true,
@@ -2083,8 +2080,8 @@
         {
           "id": "lv3",
           "type": "dataItem",
-          "gridX": 202,
-          "gridY": 104,
+          "gridX": 219,
+          "gridY": 100,
           "label": "LVSI",
           "interactive": true,
           "options": [
@@ -2103,8 +2100,8 @@
         {
           "id": "age3",
           "type": "dataItem",
-          "gridX": 202,
-          "gridY": 137,
+          "gridX": 219,
+          "gridY": 135,
           "label": "Leeftijd",
           "interactive": true,
           "options": [
@@ -2123,7 +2120,7 @@
         {
           "id": "o1",
           "type": "recommendation",
-          "gridX": 4,
+          "gridX": 1,
           "gridY": 170,
           "height": 20,
           "text": "⊘ Geen adjuvante\ntherapie"
@@ -2131,7 +2128,7 @@
         {
           "id": "o2",
           "type": "recommendation",
-          "gridX": 46,
+          "gridX": 47,
           "gridY": 170,
           "height": 20,
           "text": "Radiotherapie"
@@ -2139,7 +2136,7 @@
         {
           "id": "o3",
           "type": "recommendation",
-          "gridX": 88,
+          "gridX": 93,
           "gridY": 170,
           "height": 20,
           "text": "⊘ Geen adjuvante\ntherapie"
@@ -2147,7 +2144,7 @@
         {
           "id": "o4",
           "type": "recommendation",
-          "gridX": 130,
+          "gridX": 140,
           "gridY": 170,
           "height": 20,
           "text": "Overweeg vaginale\nbrachytherapie"
@@ -2155,7 +2152,7 @@
         {
           "id": "o5",
           "type": "recommendation",
-          "gridX": 172,
+          "gridX": 186,
           "gridY": 170,
           "height": 20,
           "text": "Overweeg uitwendige\nradiotherapie"
@@ -2163,7 +2160,7 @@
         {
           "id": "o6",
           "type": "recommendation",
-          "gridX": 214,
+          "gridX": 232,
           "gridY": 170,
           "height": 20,
           "text": "⊘ Geen adjuvante\ntherapie"
@@ -2171,7 +2168,7 @@
         {
           "id": "o7",
           "type": "recommendation",
-          "gridX": 256,
+          "gridX": 278,
           "gridY": 170,
           "height": 20,
           "text": "Overweeg vaginale\nbrachytherapie"
@@ -2179,7 +2176,7 @@
         {
           "id": "o8",
           "type": "recommendation",
-          "gridX": 298,
+          "gridX": 324,
           "gridY": 170,
           "height": 20,
           "text": "Overweeg uitwendige\nradiotherapie"
@@ -2187,15 +2184,15 @@
         {
           "id": "o9",
           "type": "recommendation",
-          "gridX": 340,
+          "gridX": 371,
           "gridY": 170,
-          "height": 22,
+          "height": 24,
           "text": "Uitwendige radiotherapie\n\nEN\n\nOverweeg chemotherapie"
         },
         {
           "id": "o10",
           "type": "recommendation",
-          "gridX": 382,
+          "gridX": 417,
           "gridY": 170,
           "height": 20,
           "text": "Individualiseer\nbehandeling"
@@ -2203,7 +2200,7 @@
         {
           "id": "f1",
           "type": "reference",
-          "gridX": 4,
+          "gridX": 1,
           "gridY": 206,
           "label": "Follow up",
           "icon": "down",
@@ -2212,7 +2209,7 @@
         {
           "id": "f2",
           "type": "reference",
-          "gridX": 46,
+          "gridX": 47,
           "gridY": 206,
           "label": "Follow up",
           "icon": "down",
@@ -2221,7 +2218,7 @@
         {
           "id": "f3",
           "type": "reference",
-          "gridX": 88,
+          "gridX": 93,
           "gridY": 206,
           "label": "Follow up",
           "icon": "down",
@@ -2230,7 +2227,7 @@
         {
           "id": "f4",
           "type": "reference",
-          "gridX": 130,
+          "gridX": 140,
           "gridY": 206,
           "label": "Follow up",
           "icon": "down",
@@ -2239,7 +2236,7 @@
         {
           "id": "f5",
           "type": "reference",
-          "gridX": 172,
+          "gridX": 186,
           "gridY": 206,
           "label": "Follow up",
           "icon": "down",
@@ -2248,7 +2245,7 @@
         {
           "id": "f6",
           "type": "reference",
-          "gridX": 214,
+          "gridX": 232,
           "gridY": 206,
           "label": "Follow up",
           "icon": "down",
@@ -2257,7 +2254,7 @@
         {
           "id": "f7",
           "type": "reference",
-          "gridX": 256,
+          "gridX": 278,
           "gridY": 206,
           "label": "Follow up",
           "icon": "down",
@@ -2266,7 +2263,7 @@
         {
           "id": "f8",
           "type": "reference",
-          "gridX": 298,
+          "gridX": 324,
           "gridY": 206,
           "label": "Follow up",
           "icon": "down",
@@ -2275,7 +2272,7 @@
         {
           "id": "f9",
           "type": "reference",
-          "gridX": 340,
+          "gridX": 371,
           "gridY": 206,
           "label": "Follow up",
           "icon": "down",
@@ -2289,12 +2286,12 @@
           "to": "figo",
           "points": [
             [
-              1105,
-              115
+              1195,
+              100
             ],
             [
-              1105,
-              175
+              1195,
+              150
             ]
           ],
           "arrow": true
@@ -2307,21 +2304,21 @@
           "label": "I A",
           "points": [
             [
-              1010,
-              225
+              1095,
+              200
             ],
             [
-              695,
-              225
+              745,
+              200
             ],
             [
-              695,
-              335
+              745,
+              325
             ]
           ],
           "dot": [
-            855,
-            225
+            919,
+            200
           ],
           "arrow": true
         },
@@ -2333,17 +2330,17 @@
           "label": "I B",
           "points": [
             [
-              1105,
-              275
+              1195,
+              250
             ],
             [
-              1105,
-              335
+              1195,
+              325
             ]
           ],
           "dot": [
-            1105,
-            300
+            1195,
+            281
           ],
           "arrow": true
         },
@@ -2355,21 +2352,21 @@
           "label": "II, III",
           "points": [
             [
-              1200,
-              225
+              1295,
+              200
             ],
             [
-              1795,
-              225
+              1955,
+              200
             ],
             [
-              1795,
+              1955,
               850
             ]
           ],
           "dot": [
-            1585,
-            225
+            1726,
+            200
           ],
           "arrow": true
         },
@@ -2381,21 +2378,21 @@
           "label": "IV",
           "points": [
             [
-              1200,
-              225
+              1295,
+              200
             ],
             [
-              2005,
-              225
+              2185,
+              200
             ],
             [
-              2005,
+              2185,
               850
             ]
           ],
           "dot": [
-            1900,
-            225
+            2074,
+            200
           ],
           "arrow": true
         },
@@ -2407,21 +2404,21 @@
           "label": "1,2",
           "points": [
             [
-              600,
-              385
+              645,
+              375
             ],
             [
-              275,
-              385
+              280,
+              375
             ],
             [
-              275,
-              520
+              280,
+              500
             ]
           ],
           "dot": [
-            435,
-            385
+            455,
+            375
           ],
           "arrow": true
         },
@@ -2433,17 +2430,17 @@
           "label": "3",
           "points": [
             [
-              695,
-              435
+              745,
+              425
             ],
             [
-              695,
-              520
+              745,
+              500
             ]
           ],
           "dot": [
-            695,
-            460
+            745,
+            447
           ],
           "arrow": true
         },
@@ -2456,20 +2453,20 @@
           "points": [
             [
               180,
-              570
+              550
             ],
             [
-              115,
-              570
+              105,
+              550
             ],
             [
-              115,
+              105,
               850
             ]
           ],
           "dot": [
-            145,
-            570
+            137,
+            550
           ],
           "arrow": true
         },
@@ -2481,21 +2478,21 @@
           "label": "Ja",
           "points": [
             [
-              275,
-              620
+              280,
+              600
             ],
             [
-              335,
-              620
+              343,
+              600
             ],
             [
-              335,
+              343,
               850
             ]
           ],
           "dot": [
-            305,
-            620
+            312,
+            600
           ],
           "arrow": true
         },
@@ -2507,17 +2504,17 @@
           "label": "Nee",
           "points": [
             [
-              695,
-              620
+              745,
+              600
             ],
             [
-              695,
-              685
+              745,
+              675
             ]
           ],
           "dot": [
-            695,
-            650
+            745,
+            635
           ],
           "arrow": true
         },
@@ -2529,21 +2526,21 @@
           "label": "Ja",
           "points": [
             [
-              790,
-              570
+              845,
+              550
             ],
             [
-              955,
-              570
+              1030,
+              550
             ],
             [
-              955,
+              1030,
               850
             ]
           ],
           "dot": [
-            870,
-            570
+            941,
+            550
           ],
           "arrow": true
         },
@@ -2555,21 +2552,21 @@
           "label": "<60 Jaar",
           "points": [
             [
-              600,
-              735
+              645,
+              725
             ],
             [
-              545,
-              735
+              576,
+              725
             ],
             [
-              545,
+              576,
               850
             ]
           ],
           "dot": [
-            570,
-            735
+            602,
+            725
           ],
           "arrow": true
         },
@@ -2581,21 +2578,21 @@
           "label": ">=60 Jaar",
           "points": [
             [
-              695,
-              785
+              745,
+              775
             ],
             [
-              755,
-              785
+              808,
+              775
             ],
             [
-              755,
+              808,
               850
             ]
           ],
           "dot": [
-            725,
-            785
+            777,
+            775
           ],
           "arrow": true
         },
@@ -2607,17 +2604,17 @@
           "label": "1,2",
           "points": [
             [
-              1105,
-              435
+              1195,
+              425
             ],
             [
-              1105,
-              520
+              1195,
+              500
             ]
           ],
           "dot": [
-            1105,
-            460
+            1195,
+            447
           ],
           "arrow": true
         },
@@ -2629,21 +2626,21 @@
           "label": "3",
           "points": [
             [
-              1200,
-              385
+              1295,
+              375
             ],
             [
-              1585,
-              385
+              1720,
+              375
             ],
             [
-              1585,
+              1720,
               850
             ]
           ],
           "dot": [
-            1390,
-            385
+            1508,
+            375
           ],
           "arrow": true
         },
@@ -2655,17 +2652,17 @@
           "label": "Nee",
           "points": [
             [
-              1105,
-              620
+              1195,
+              600
             ],
             [
-              1105,
-              685
+              1195,
+              675
             ]
           ],
           "dot": [
-            1105,
-            650
+            1195,
+            635
           ],
           "arrow": true
         },
@@ -2677,31 +2674,31 @@
           "label": "Ja",
           "points": [
             [
-              1200,
-              570
+              1295,
+              550
             ],
             [
-              1585,
-              570
+              1720,
+              550
             ]
           ],
           "selectedPoints": [
             [
-              1200,
-              570
+              1295,
+              550
             ],
             [
-              1585,
-              570
+              1720,
+              550
             ],
             [
-              1585,
+              1720,
               850
             ]
           ],
           "dot": [
-            1390,
-            570
+            1508,
+            550
           ]
         },
         {
@@ -2712,21 +2709,21 @@
           "label": "<60 Jaar",
           "points": [
             [
-              1010,
-              735
+              1095,
+              725
             ],
             [
-              965,
-              735
+              1041,
+              725
             ],
             [
-              965,
+              1041,
               850
             ]
           ],
           "dot": [
-            990,
-            735
+            1067,
+            725
           ],
           "arrow": true
         },
@@ -2738,21 +2735,21 @@
           "label": ">=60 Jaar",
           "points": [
             [
-              1200,
-              735
+              1295,
+              725
             ],
             [
-              1375,
-              735
+              1490,
+              725
             ],
             [
-              1375,
+              1490,
               850
             ]
           ],
           "dot": [
-            1290,
-            735
+            1401,
+            725
           ],
           "arrow": true
         }
@@ -2761,17 +2758,17 @@
     "evaluatie-stadiering": {
       "layout": {
         "unit": 5,
-        "blockWidth": 54,
-        "blockHeight": 28,
-        "margin": 5
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
       },
       "wrap": 22,
       "nodes": [
         {
           "id": "root",
           "type": "title",
-          "gridX": 10,
-          "gridY": 5,
+          "gridX": 0,
+          "gridY": 0,
           "label": "Evaluatie stadiëring",
           "icon": "minus-light",
           "tone": "blue",
@@ -2781,8 +2778,8 @@
         {
           "id": "uitslag",
           "type": "dataItem",
-          "gridX": 10,
-          "gridY": 46,
+          "gridX": 0,
+          "gridY": 30,
           "label": "Uitslag stadiëring",
           "interactive": true,
           "options": [
@@ -2801,23 +2798,23 @@
         {
           "id": "compleet",
           "type": "recommendation",
-          "gridX": 10,
-          "gridY": 100,
+          "gridX": 0,
+          "gridY": 65,
           "text": "Adjuvante therapie"
         },
         {
           "id": "incompleet",
           "type": "recommendation",
-          "gridX": 78,
-          "gridY": 100,
-          "height": 48,
+          "gridX": 50,
+          "gridY": 65,
+          "height": 36,
           "text": "Restadiëren\n{i}indien restadiëring niet kan worden verricht, of niet wenselijk wordt geacht, kan worden overwogen om patiënten aanvullend te behandelen als een FIGO III tumor"
         },
         {
           "id": "l1",
           "type": "reference",
-          "gridX": 10,
-          "gridY": 154,
+          "gridX": 0,
+          "gridY": 111,
           "label": "Adjuvante behandeling sereus/clear cell",
           "icon": "down",
           "to": "adjuvant-serous"
@@ -2825,8 +2822,8 @@
         {
           "id": "l2",
           "type": "reference",
-          "gridX": 78,
-          "gridY": 154,
+          "gridX": 50,
+          "gridY": 111,
           "label": "Adjuvante behandeling sereus/clear cell",
           "icon": "down",
           "to": "adjuvant-serous"
@@ -2839,12 +2836,12 @@
           "to": "uitslag",
           "points": [
             [
-              185,
-              160
+              100,
+              96
             ],
             [
-              185,
-              230
+              100,
+              150
             ]
           ],
           "arrow": true
@@ -2857,17 +2854,17 @@
           "label": "Compleet",
           "points": [
             [
-              185,
-              370
+              100,
+              250
             ],
             [
-              185,
-              500
+              100,
+              325
             ]
           ],
           "dot": [
-            185,
-            430
+            100,
+            285
           ],
           "arrow": true
         },
@@ -2879,21 +2876,21 @@
           "label": "Incompleet",
           "points": [
             [
-              320,
-              300
+              200,
+              200
             ],
             [
-              525,
-              300
+              350,
+              200
             ],
             [
-              525,
-              500
+              350,
+              325
             ]
           ],
           "dot": [
-            420,
-            300
+            272,
+            200
           ],
           "arrow": true
         },
@@ -2903,12 +2900,12 @@
           "to": "l1",
           "points": [
             [
-              185,
-              640
+              100,
+              425
             ],
             [
-              185,
-              770
+              100,
+              555
             ]
           ],
           "arrow": true
@@ -2919,12 +2916,12 @@
           "to": "l2",
           "points": [
             [
-              525,
-              740
+              350,
+              505
             ],
             [
-              525,
-              770
+              350,
+              555
             ]
           ],
           "arrow": true
@@ -2938,16 +2935,16 @@
       },
       "layout": {
         "unit": 5,
-        "blockWidth": 52,
-        "blockHeight": 25,
-        "margin": 5
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
       },
       "nodes": [
         {
           "id": "root",
           "type": "title",
-          "gridX": 11,
-          "gridY": 5,
+          "gridX": 0,
+          "gridY": 0,
           "label": "Adjuvante behandeling sereus/clear cell",
           "icon": "minus-light",
           "tone": "blue",
@@ -2957,16 +2954,16 @@
         {
           "id": "acties",
           "type": "decision",
-          "gridX": 11,
-          "gridY": 46,
-          "height": 38,
+          "gridX": 0,
+          "gridY": 30,
+          "height": 30,
           "text": "Uitwendige radiotherapie\n\nEN\n\nOverweeg chemotherapie"
         },
         {
           "id": "v",
           "type": "reference",
-          "gridX": 11,
-          "gridY": 94,
+          "gridX": 0,
+          "gridY": 75,
           "label": "Follow up",
           "icon": "down",
           "to": "followup"
@@ -2979,12 +2976,12 @@
           "to": "acties",
           "points": [
             [
-              185,
-              150
+              100,
+              100
             ],
             [
-              185,
-              210
+              100,
+              138
             ]
           ],
           "arrow": true,
@@ -2997,12 +2994,12 @@
           "to": "v",
           "points": [
             [
-              185,
-              420
+              100,
+              300
             ],
             [
-              185,
-              470
+              100,
+              375
             ]
           ],
           "arrow": true
@@ -3016,17 +3013,17 @@
       },
       "layout": {
         "unit": 5,
-        "blockWidth": 60,
-        "blockHeight": 29,
-        "margin": 5
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
       },
       "wrap": 24,
       "nodes": [
         {
           "id": "root",
           "type": "title",
-          "gridX": 90,
-          "gridY": 5,
+          "gridX": 53,
+          "gridY": 0,
           "label": "Follow up",
           "icon": "minus-light",
           "tone": "blue",
@@ -3036,8 +3033,8 @@
         {
           "id": "jaren",
           "type": "dataItem",
-          "gridX": 90,
-          "gridY": 48,
+          "gridX": 53,
+          "gridY": 30,
           "label": "Jaren sinds afloop\nprimaire behandeling",
           "interactive": true,
           "options": [
@@ -3061,32 +3058,32 @@
         {
           "id": "o1",
           "type": "recommendation",
-          "gridX": 10,
-          "gridY": 108,
-          "height": 112,
+          "gridX": 0,
+          "gridY": 65,
+          "height": 75,
           "text": "Lichamelijk onderzoek\n\nEN\n\nGynaecologisch onderzoek\n{i}incl recto-vaginaal toucher\n\nEN\n\nVoorlichting\n\nEN\n\nControle na 3-4 maanden\n\n──────\n\n⊘ Routinematig afnemen vaginatopcytologie is niet geïndiceerd"
         },
         {
           "id": "o2",
           "type": "recommendation",
-          "gridX": 90,
-          "gridY": 108,
-          "height": 112,
+          "gridX": 53,
+          "gridY": 65,
+          "height": 75,
           "text": "Lichamelijk onderzoek\n\nEN\n\nGynaecologisch onderzoek\n{i}incl recto-vaginaal toucher\n\nEN\n\nVoorlichting\n\nEN\n\nControle na 4-6 maanden\n\n──────\n\n⊘ Routinematig afnemen vaginatopcytologie is niet geïndiceerd"
         },
         {
           "id": "o3",
           "type": "recommendation",
-          "gridX": 170,
-          "gridY": 108,
-          "height": 112,
+          "gridX": 107,
+          "gridY": 65,
+          "height": 75,
           "text": "Lichamelijk onderzoek\n\nEN\n\nGynaecologisch onderzoek\n{i}incl recto-vaginaal toucher\n\nEN\n\nVoorlichting\n\nEN\n\nControle elke 12 maanden\n\n──────\n\n⊘ Routinematig afnemen vaginatopcytologie is niet geïndiceerd"
         },
         {
           "id": "l1",
           "type": "reference",
-          "gridX": 10,
-          "gridY": 228,
+          "gridX": 0,
+          "gridY": 150,
           "label": "Recidief diagnostiek",
           "icon": "down",
           "to": "recidiefdiag"
@@ -3094,8 +3091,8 @@
         {
           "id": "l2",
           "type": "reference",
-          "gridX": 90,
-          "gridY": 228,
+          "gridX": 53,
+          "gridY": 150,
           "label": "Recidief diagnostiek",
           "icon": "down",
           "to": "recidiefdiag"
@@ -3103,8 +3100,8 @@
         {
           "id": "l3",
           "type": "reference",
-          "gridX": 170,
-          "gridY": 228,
+          "gridX": 107,
+          "gridY": 150,
           "label": "Recidief diagnostiek",
           "icon": "down",
           "to": "recidiefdiag"
@@ -3117,12 +3114,12 @@
           "to": "jaren",
           "points": [
             [
-              600,
-              170
+              365,
+              100
             ],
             [
-              600,
-              240
+              365,
+              150
             ]
           ],
           "arrow": true
@@ -3135,21 +3132,21 @@
           "label": "<=2",
           "points": [
             [
-              450,
-              310
+              265,
+              198
             ],
             [
-              200,
-              310
+              100,
+              198
             ],
             [
-              200,
-              540
+              100,
+              325
             ]
           ],
           "dot": [
-            325,
-            310
+            183,
+            198
           ],
           "arrow": true
         },
@@ -3161,17 +3158,17 @@
           "label": "2-3",
           "points": [
             [
-              600,
-              385
+              365,
+              250
             ],
             [
-              600,
-              540
+              365,
+              325
             ]
           ],
           "dot": [
-            600,
-            455
+            365,
+            284
           ],
           "arrow": true
         },
@@ -3183,21 +3180,21 @@
           "label": "3-5",
           "points": [
             [
-              750,
-              310
+              465,
+              198
             ],
             [
-              1000,
-              310
+              635,
+              198
             ],
             [
-              1000,
-              540
+              635,
+              325
             ]
           ],
           "dot": [
-            875,
-            310
+            552,
+            198
           ],
           "arrow": true
         },
@@ -3207,12 +3204,12 @@
           "to": "l1",
           "points": [
             [
-              200,
-              1100
+              100,
+              700
             ],
             [
-              200,
-              1140
+              100,
+              750
             ]
           ],
           "arrow": true
@@ -3223,12 +3220,12 @@
           "to": "l2",
           "points": [
             [
-              600,
-              1100
+              365,
+              700
             ],
             [
-              600,
-              1140
+              365,
+              750
             ]
           ],
           "arrow": true
@@ -3239,12 +3236,12 @@
           "to": "l3",
           "points": [
             [
-              1000,
-              1100
+              635,
+              700
             ],
             [
-              1000,
-              1140
+              635,
+              750
             ]
           ],
           "arrow": true
@@ -3254,16 +3251,16 @@
     "recidiefdiag": {
       "layout": {
         "unit": 5,
-        "blockWidth": 60,
-        "blockHeight": 31,
-        "margin": 5
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
       },
       "nodes": [
         {
           "id": "root",
           "type": "title",
-          "gridX": 10,
-          "gridY": 5,
+          "gridX": 0,
+          "gridY": 0,
           "label": "Recidief diagnostiek",
           "icon": "minus-light",
           "tone": "blue",
@@ -3273,8 +3270,8 @@
         {
           "id": "type",
           "type": "dataItem",
-          "gridX": 10,
-          "gridY": 49,
+          "gridX": 0,
+          "gridY": 30,
           "label": "Type recidief",
           "interactive": true,
           "options": [
@@ -3293,24 +3290,24 @@
         {
           "id": "l",
           "type": "recommendation",
-          "gridX": 10,
-          "gridY": 116,
-          "height": 102,
+          "gridX": 0,
+          "gridY": 65,
+          "height": 68,
           "text": "Biopt\n\nEN\n\nCT thorax/abdomen\n\nEN\n\nBloedbeeld,\n{i}lever- en nierfunctie\n\nEN\n\nCA 125\n\nEN\n\nIndien nodig cystoscopie/rectoscopie/botscan"
         },
         {
           "id": "r",
           "type": "recommendation",
-          "gridX": 96,
-          "gridY": 116,
-          "height": 86,
+          "gridX": 57,
+          "gridY": 65,
+          "height": 58,
           "text": "CT thorax/abdomen\n\nEN\n\nBloedbeeld,\n{i}lever- en nierfunctie\n\nEN\n\nCA 125\n\nEN\n\nIndien nodig cystoscopie/rectoscopie/botscan"
         },
         {
           "id": "l1",
           "type": "reference",
-          "gridX": 10,
-          "gridY": 230,
+          "gridX": 0,
+          "gridY": 143,
           "label": "Recidief behandeling",
           "icon": "down",
           "to": "recidiefbehandeling"
@@ -3318,8 +3315,8 @@
         {
           "id": "l2",
           "type": "reference",
-          "gridX": 96,
-          "gridY": 230,
+          "gridX": 57,
+          "gridY": 143,
           "label": "Recidief behandeling",
           "icon": "down",
           "to": "recidiefbehandeling"
@@ -3332,12 +3329,12 @@
           "to": "type",
           "points": [
             [
-              200,
-              180
+              100,
+              100
             ],
             [
-              200,
-              245
+              100,
+              150
             ]
           ],
           "arrow": true
@@ -3350,17 +3347,17 @@
           "label": "Lokaal",
           "points": [
             [
-              200,
-              400
+              100,
+              250
             ],
             [
-              200,
-              580
+              100,
+              325
             ]
           ],
           "dot": [
-            200,
-            485
+            100,
+            285
           ],
           "arrow": true
         },
@@ -3372,21 +3369,21 @@
           "label": "Regionaal,\nAfstands",
           "points": [
             [
-              350,
-              320
+              200,
+              198
             ],
             [
-              630,
-              320
+              385,
+              198
             ],
             [
-              630,
-              580
+              385,
+              325
             ]
           ],
           "dot": [
-            490,
-            320
+            292,
+            198
           ],
           "arrow": true
         },
@@ -3396,12 +3393,12 @@
           "to": "l1",
           "points": [
             [
-              200,
-              1090
+              100,
+              665
             ],
             [
-              200,
-              1150
+              100,
+              715
             ]
           ],
           "arrow": true
@@ -3412,12 +3409,12 @@
           "to": "l2",
           "points": [
             [
-              630,
-              1010
+              385,
+              615
             ],
             [
-              630,
-              1150
+              385,
+              715
             ]
           ],
           "arrow": true
@@ -3431,16 +3428,16 @@
       },
       "layout": {
         "unit": 5,
-        "blockWidth": 60,
-        "blockHeight": 30,
-        "margin": 5
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
       },
       "nodes": [
         {
           "id": "root",
           "type": "title",
-          "gridX": 14,
-          "gridY": 5,
+          "gridX": 0,
+          "gridY": 0,
           "label": "Beleid na hormoontherapie",
           "icon": "minus-light",
           "tone": "blue",
@@ -3450,9 +3447,9 @@
         {
           "id": "a",
           "type": "decision",
-          "gridX": 14,
-          "gridY": 52,
-          "height": 50,
+          "gridX": 0,
+          "gridY": 30,
+          "height": 34,
           "text": "Overweeg tamoxifen\n{i}met name na eerdere respons op progestativa"
         }
       ],
@@ -3463,12 +3460,12 @@
           "to": "a",
           "points": [
             [
-              220,
-              175
+              100,
+              100
             ],
             [
-              220,
-              240
+              100,
+              138
             ]
           ],
           "arrow": true,
@@ -3484,16 +3481,16 @@
       },
       "layout": {
         "unit": 5,
-        "blockWidth": 60,
-        "blockHeight": 31,
-        "margin": 5
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
       },
       "nodes": [
         {
           "id": "root",
           "type": "title",
-          "gridX": 12,
-          "gridY": 5,
+          "gridX": 0,
+          "gridY": 0,
           "label": "Kinderwens en primaire behandeling",
           "icon": "minus-light",
           "tone": "blue",
@@ -3503,8 +3500,8 @@
         {
           "id": "stadium",
           "type": "dataItem",
-          "gridX": 12,
-          "gridY": 52,
+          "gridX": 0,
+          "gridY": 30,
           "label": "Klinisch stadium",
           "icon": "plus-light",
           "interactive": true,
@@ -3524,23 +3521,23 @@
         {
           "id": "laag",
           "type": "recommendation",
-          "gridX": 12,
-          "gridY": 122,
-          "height": 82,
+          "gridX": 0,
+          "gridY": 65,
+          "height": 55,
           "text": "Medroxyprogesteron\n200 mg/dag 3mnd\n\n(na 3mnd)\nGEVOLGD DOOR\n\nHysteroscopie\n\nEN\n\nEndometriumsampling na kuur I\n\nIncludeer in internationale registratiestudie"
         },
         {
           "id": "hoog",
           "type": "recommendation",
-          "gridX": 96,
-          "gridY": 122,
+          "gridX": 56,
+          "gridY": 65,
           "text": "Standaard behandeling"
         },
         {
           "id": "v",
           "type": "reference",
-          "gridX": 12,
-          "gridY": 214,
+          "gridX": 0,
+          "gridY": 130,
           "label": "Kinderwens en vervolg behandeling",
           "icon": "down",
           "to": "kinder-vervolg"
@@ -3553,12 +3550,12 @@
           "to": "stadium",
           "points": [
             [
-              210,
-              180
+              100,
+              100
             ],
             [
-              210,
-              260
+              100,
+              150
             ]
           ],
           "arrow": true
@@ -3571,17 +3568,17 @@
           "label": "laagstadium",
           "points": [
             [
-              210,
-              415
+              100,
+              250
             ],
             [
-              210,
-              610
+              100,
+              325
             ]
           ],
           "dot": [
-            210,
-            500
+            100,
+            283
           ],
           "arrow": true
         },
@@ -3593,21 +3590,21 @@
           "label": "hoogstadium",
           "points": [
             [
-              360,
-              335
+              200,
+              198
             ],
             [
-              630,
-              335
+              380,
+              198
             ],
             [
-              630,
-              610
+              380,
+              325
             ]
           ],
           "dot": [
-            500,
-            335
+            293,
+            198
           ],
           "arrow": true
         },
@@ -3617,12 +3614,12 @@
           "to": "v",
           "points": [
             [
-              210,
-              1020
+              100,
+              600
             ],
             [
-              210,
-              1070
+              100,
+              650
             ]
           ],
           "arrow": true
@@ -3636,16 +3633,16 @@
       },
       "layout": {
         "unit": 5,
-        "blockWidth": 62,
-        "blockHeight": 31,
-        "margin": 5
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
       },
       "nodes": [
         {
           "id": "root",
           "type": "title",
-          "gridX": 12,
-          "gridY": 5,
+          "gridX": 0,
+          "gridY": 0,
           "label": "Kinderwens en conceptiefase",
           "icon": "minus-light",
           "tone": "blue",
@@ -3655,8 +3652,8 @@
         {
           "id": "pa",
           "type": "dataItem",
-          "gridX": 12,
-          "gridY": 52,
+          "gridX": 0,
+          "gridY": 30,
           "label": "PA uitslag",
           "interactive": true,
           "options": [
@@ -3675,22 +3672,22 @@
         {
           "id": "start",
           "type": "recommendation",
-          "gridX": 12,
-          "gridY": 120,
+          "gridX": 0,
+          "gridY": 65,
           "text": "Start conceptie"
         },
         {
           "id": "std",
           "type": "recommendation",
-          "gridX": 100,
-          "gridY": 120,
+          "gridX": 57,
+          "gridY": 65,
           "text": "Standaard behandeling\n\nOF\n\nBehandeling recidief"
         },
         {
           "id": "v",
           "type": "reference",
-          "gridX": 12,
-          "gridY": 170,
+          "gridX": 0,
+          "gridY": 95,
           "label": "Kinderwens en follow up tijdens conceptiefase",
           "icon": "down",
           "to": "kinder-followup"
@@ -3703,12 +3700,12 @@
           "to": "pa",
           "points": [
             [
-              215,
-              180
+              100,
+              100
             ],
             [
-              215,
-              260
+              100,
+              150
             ]
           ],
           "arrow": true
@@ -3721,17 +3718,17 @@
           "label": "Geen maligniteit",
           "points": [
             [
-              215,
-              415
+              100,
+              250
             ],
             [
-              215,
-              600
+              100,
+              325
             ]
           ],
           "dot": [
-            215,
-            510
+            100,
+            289
           ],
           "arrow": true
         },
@@ -3743,21 +3740,21 @@
           "label": "Maligniteit",
           "points": [
             [
-              370,
-              335
+              200,
+              198
             ],
             [
-              655,
-              335
+              385,
+              198
             ],
             [
-              655,
-              600
+              385,
+              325
             ]
           ],
           "dot": [
-            510,
-            335
+            291,
+            198
           ],
           "arrow": true
         },
@@ -3767,12 +3764,12 @@
           "to": "v",
           "points": [
             [
-              215,
-              755
+              100,
+              425
             ],
             [
-              215,
-              850
+              100,
+              475
             ]
           ],
           "arrow": true
@@ -3786,16 +3783,16 @@
       },
       "layout": {
         "unit": 5,
-        "blockWidth": 64,
-        "blockHeight": 34,
-        "margin": 5
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
       },
       "nodes": [
         {
           "id": "root",
           "type": "title",
-          "gridX": 11,
-          "gridY": 5,
+          "gridX": 0,
+          "gridY": 0,
           "label": "Kinderwens en follow up tijdens conceptiefase",
           "icon": "minus-light",
           "tone": "blue",
@@ -3805,8 +3802,8 @@
         {
           "id": "zwanger",
           "type": "dataItem",
-          "gridX": 11,
-          "gridY": 57,
+          "gridX": 0,
+          "gridY": 30,
           "label": "Zwanger",
           "interactive": true,
           "options": [
@@ -3825,8 +3822,8 @@
         {
           "id": "wens",
           "type": "dataItem",
-          "gridX": 104,
-          "gridY": 122,
+          "gridX": 58,
+          "gridY": 65,
           "label": "Kinderwens",
           "interactive": true,
           "options": [
@@ -3845,24 +3842,24 @@
         {
           "id": "ja",
           "type": "recommendation",
-          "gridX": 11,
-          "gridY": 180,
-          "height": 67,
+          "gridX": 0,
+          "gridY": 100,
+          "height": 42,
           "text": "Follow up > 6mnd post partum:\n\nEcho\n\nEN\n\nPipelle\n\nEN\n\nHysteroscopie"
         },
         {
           "id": "aan",
           "type": "recommendation",
-          "gridX": 104,
-          "gridY": 180,
-          "height": 67,
+          "gridX": 58,
+          "gridY": 100,
+          "height": 42,
           "text": "Elke 3 mnd:\n\nEcho\n\nEN\n\nPipelle\n\nEN\n\nHysteroscopie"
         },
         {
           "id": "af",
           "type": "recommendation",
-          "gridX": 190,
-          "gridY": 180,
+          "gridX": 112,
+          "gridY": 100,
           "text": "Standaard behandeling"
         }
       ],
@@ -3873,12 +3870,12 @@
           "to": "zwanger",
           "points": [
             [
-              215,
-              195
+              100,
+              100
             ],
             [
-              215,
-              285
+              100,
+              150
             ]
           ],
           "arrow": true
@@ -3891,17 +3888,17 @@
           "label": "Ja",
           "points": [
             [
-              215,
-              455
+              100,
+              250
             ],
             [
-              215,
-              900
+              100,
+              500
             ]
           ],
           "dot": [
-            215,
-            670
+            100,
+            371
           ],
           "arrow": true
         },
@@ -3913,21 +3910,21 @@
           "label": "Nee",
           "points": [
             [
-              375,
-              370
+              200,
+              200
             ],
             [
-              680,
-              370
+              390,
+              200
             ],
             [
-              680,
-              610
+              390,
+              325
             ]
           ],
           "dot": [
-            525,
-            370
+            293,
+            200
           ],
           "arrow": true
         },
@@ -3939,17 +3936,17 @@
           "label": "Aanwezig",
           "points": [
             [
-              680,
-              780
+              390,
+              425
             ],
             [
-              680,
-              900
+              390,
+              500
             ]
           ],
           "dot": [
-            680,
-            835
+            390,
+            459
           ],
           "arrow": true
         },
@@ -3961,21 +3958,21 @@
           "label": "Afwezig",
           "points": [
             [
-              840,
-              695
+              490,
+              375
             ],
             [
-              1110,
-              695
+              660,
+              375
             ],
             [
-              1110,
-              900
+              660,
+              500
             ]
           ],
           "dot": [
-            975,
-            695
+            576,
+            375
           ],
           "arrow": true
         }
@@ -3988,16 +3985,16 @@
       },
       "layout": {
         "unit": 5,
-        "blockWidth": 62,
-        "blockHeight": 31,
-        "margin": 5
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
       },
       "nodes": [
         {
           "id": "root",
           "type": "title",
-          "gridX": 11,
-          "gridY": 5,
+          "gridX": 0,
+          "gridY": 0,
           "label": "Kinderwens vervolg follow up tijdens conceptiefase",
           "icon": "minus-light",
           "tone": "blue",
@@ -4007,8 +4004,8 @@
         {
           "id": "cyt",
           "type": "dataItem",
-          "gridX": 11,
-          "gridY": 52,
+          "gridX": 0,
+          "gridY": 30,
           "label": "Uitslag cytologie",
           "interactive": true,
           "options": [
@@ -4027,22 +4024,22 @@
         {
           "id": "neg",
           "type": "recommendation",
-          "gridX": 11,
-          "gridY": 122,
+          "gridX": 0,
+          "gridY": 65,
           "text": "Follow up"
         },
         {
           "id": "pos",
           "type": "recommendation",
-          "gridX": 94,
-          "gridY": 122,
+          "gridX": 54,
+          "gridY": 65,
           "text": "Standaard behandeling\n\nOF\n\nBehandeling recidief"
         },
         {
           "id": "v",
           "type": "reference",
-          "gridX": 11,
-          "gridY": 170,
+          "gridX": 0,
+          "gridY": 95,
           "label": "Kinderwens vervolg follow up tijdens conceptiefase",
           "icon": "down",
           "to": "kinder-vervolg-followup"
@@ -4055,12 +4052,12 @@
           "to": "cyt",
           "points": [
             [
-              210,
-              180
+              100,
+              100
             ],
             [
-              210,
-              260
+              100,
+              150
             ]
           ],
           "arrow": true
@@ -4073,17 +4070,17 @@
           "label": "Negatief",
           "points": [
             [
-              210,
-              415
+              100,
+              250
             ],
             [
-              210,
-              610
+              100,
+              325
             ]
           ],
           "dot": [
-            210,
-            510
+            100,
+            287
           ],
           "arrow": true
         },
@@ -4095,21 +4092,21 @@
           "label": "Positief",
           "points": [
             [
-              365,
-              335
+              200,
+              198
             ],
             [
-              625,
-              335
+              370,
+              198
             ],
             [
-              625,
-              610
+              370,
+              325
             ]
           ],
           "dot": [
-            495,
-            335
+            286,
+            198
           ],
           "arrow": true
         },
@@ -4119,12 +4116,12 @@
           "to": "v",
           "points": [
             [
-              210,
-              765
+              100,
+              425
             ],
             [
-              210,
-              850
+              100,
+              475
             ]
           ],
           "arrow": true
@@ -4138,16 +4135,16 @@
       },
       "layout": {
         "unit": 5,
-        "blockWidth": 60,
-        "blockHeight": 31,
-        "margin": 5
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
       },
       "nodes": [
         {
           "id": "root",
           "type": "title",
-          "gridX": 80,
-          "gridY": 5,
+          "gridX": 57,
+          "gridY": 0,
           "label": "Kinderwens en vervolg behandeling",
           "icon": "minus-light",
           "tone": "blue",
@@ -4157,8 +4154,8 @@
         {
           "id": "pa",
           "type": "dataItem",
-          "gridX": 80,
-          "gridY": 49,
+          "gridX": 57,
+          "gridY": 30,
           "label": "PA uitslag",
           "interactive": true,
           "options": [
@@ -4177,8 +4174,8 @@
         {
           "id": "graad",
           "type": "dataItem",
-          "gridX": 80,
-          "gridY": 102,
+          "gridX": 57,
+          "gridY": 65,
           "label": "Graad",
           "icon": "plus-light",
           "interactive": true,
@@ -4198,8 +4195,8 @@
         {
           "id": "tijd",
           "type": "dataItem",
-          "gridX": 80,
-          "gridY": 154,
+          "gridX": 57,
+          "gridY": 100,
           "label": "Tijd na start behandeling",
           "interactive": true,
           "options": [
@@ -4223,63 +4220,60 @@
         {
           "id": "vroeg",
           "type": "recommendation",
-          "gridX": 10,
-          "gridY": 214,
-          "height": 58,
+          "gridX": 3,
+          "gridY": 135,
+          "height": 39,
           "text": "Medroxyprogesteron 200 mg/dag (elke 3 mnd)\n\nGEVOLGD DOOR\n\nHysteroscopie\n\nEN\n\nEndometriumsampling"
         },
         {
           "id": "midden",
           "type": "recommendation",
-          "gridX": 80,
-          "gridY": 214,
-          "height": 78,
+          "gridX": 57,
+          "gridY": 135,
+          "height": 52,
           "text": "Medroxyprogesteron 200 mg/dag\n\nOF\n\nOverweeg hormoonhoudend IUD\n\nGEVOLGD DOOR\n\nHysteroscopie\n\nEN\n\nEndometriumsampling"
         },
         {
           "id": "std",
           "type": "recommendation",
-          "gridX": 150,
-          "gridY": 214,
+          "gridX": 111,
+          "gridY": 135,
           "text": "Standaard behandeling"
         },
         {
           "id": "geen",
           "type": "recommendation",
-          "gridX": 210,
-          "gridY": 214,
-          "height": 46,
+          "gridX": 157,
+          "gridY": 135,
+          "height": 31,
           "text": "Medroxyprogesteron 200 mg/dag 3 mnd (consolidatiekuur)\n\nEN\n\nEndometriumsampling"
         },
         {
           "id": "l1",
           "type": "reference",
-          "gridX": 10,
-          "gridY": 272,
+          "gridX": 3,
+          "gridY": 192,
           "label": "Kinderwens en vervolg behandeling",
           "icon": "down",
-          "to": "kinder-vervolg",
-          "height": 33
+          "to": "kinder-vervolg"
         },
         {
           "id": "l2",
           "type": "reference",
-          "gridX": 80,
-          "gridY": 272,
+          "gridX": 57,
+          "gridY": 192,
           "label": "Kinderwens en vervolg behandeling",
           "icon": "down",
-          "to": "kinder-vervolg",
-          "height": 33
+          "to": "kinder-vervolg"
         },
         {
           "id": "l3",
           "type": "reference",
-          "gridX": 210,
-          "gridY": 272,
+          "gridX": 157,
+          "gridY": 192,
           "label": "Kinderwens en conceptiefase",
           "icon": "down",
-          "to": "kinder-conceptie",
-          "height": 33
+          "to": "kinder-conceptie"
         }
       ],
       "edges": [
@@ -4289,12 +4283,12 @@
           "to": "pa",
           "points": [
             [
-              550,
-              180
+              385,
+              100
             ],
             [
-              550,
-              245
+              385,
+              150
             ]
           ],
           "arrow": true
@@ -4307,17 +4301,17 @@
           "label": "Maligniteit",
           "points": [
             [
-              550,
-              400
+              385,
+              250
             ],
             [
-              550,
-              510
+              385,
+              325
             ]
           ],
           "dot": [
-            550,
-            455
+            385,
+            288
           ],
           "arrow": true
         },
@@ -4329,21 +4323,21 @@
           "label": "Geen maligniteit",
           "points": [
             [
-              700,
-              320
+              485,
+              198
             ],
             [
-              1200,
-              320
+              885,
+              198
             ],
             [
-              1200,
-              1070
+              885,
+              675
             ]
           ],
           "dot": [
-            950,
-            320
+            699,
+            198
           ],
           "arrow": true
         },
@@ -4355,17 +4349,17 @@
           "label": "1",
           "points": [
             [
-              550,
-              665
+              385,
+              425
             ],
             [
-              550,
-              770
+              385,
+              500
             ]
           ],
           "dot": [
-            550,
-            715
+            385,
+            461
           ],
           "arrow": true
         },
@@ -4377,21 +4371,21 @@
           "label": ">1",
           "points": [
             [
-              700,
-              585
+              485,
+              373
             ],
             [
-              900,
-              585
+              655,
+              373
             ],
             [
-              900,
-              1070
+              655,
+              675
             ]
           ],
           "dot": [
-            800,
-            585
+            588,
+            373
           ],
           "arrow": true
         },
@@ -4403,21 +4397,21 @@
           "label": "<=6 mnd",
           "points": [
             [
-              400,
-              845
+              285,
+              548
             ],
             [
-              200,
-              845
+              115,
+              548
             ],
             [
-              200,
-              1070
+              115,
+              675
             ]
           ],
           "dot": [
-            300,
-            845
+            182,
+            548
           ],
           "arrow": true
         },
@@ -4429,17 +4423,17 @@
           "label": "6-12 mnd",
           "points": [
             [
-              550,
-              925
+              385,
+              600
             ],
             [
-              550,
-              1070
+              385,
+              675
             ]
           ],
           "dot": [
-            550,
-            980
+            385,
+            628
           ],
           "arrow": true
         },
@@ -4451,31 +4445,31 @@
           "label": ">=12 mnd",
           "points": [
             [
-              700,
-              845
+              485,
+              548
             ],
             [
-              900,
-              845
+              655,
+              548
             ]
           ],
           "selectedPoints": [
             [
-              700,
-              845
+              485,
+              548
             ],
             [
-              900,
-              845
+              655,
+              548
             ],
             [
-              900,
-              1070
+              655,
+              675
             ]
           ],
           "dot": [
-            800,
-            845
+            588,
+            548
           ]
         }
       ]
@@ -4487,17 +4481,17 @@
       },
       "layout": {
         "unit": 5,
-        "blockWidth": 44,
-        "blockHeight": 24,
-        "margin": 3
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
       },
       "zoom": 0.8,
       "nodes": [
         {
           "id": "root",
           "type": "title",
-          "gridX": 236,
-          "gridY": 3,
+          "gridX": 224,
+          "gridY": 0,
           "label": "Recidief behandeling",
           "icon": "minus-light",
           "tone": "blue",
@@ -4507,8 +4501,8 @@
         {
           "id": "type",
           "type": "dataItem",
-          "gridX": 236,
-          "gridY": 34,
+          "gridX": 224,
+          "gridY": 30,
           "label": "Type recidief",
           "interactive": true,
           "options": [
@@ -4532,8 +4526,8 @@
         {
           "id": "behandeling",
           "type": "dataItem",
-          "gridX": 130,
-          "gridY": 62,
+          "gridX": 122,
+          "gridY": 65,
           "label": "Eerdere behandeling",
           "interactive": true,
           "options": [
@@ -4552,8 +4546,8 @@
         {
           "id": "grootte",
           "type": "dataItem",
-          "gridX": 46,
-          "gridY": 112,
+          "gridX": 42,
+          "gridY": 100,
           "label": "Grootte recidief",
           "interactive": true,
           "options": [
@@ -4572,7 +4566,7 @@
         {
           "id": "mogelijk",
           "type": "dataItem",
-          "gridX": 130,
+          "gridX": 122,
           "gridY": 100,
           "label": "Mogelijke behandeling",
           "interactive": true,
@@ -4592,8 +4586,8 @@
         {
           "id": "pr",
           "type": "dataItem",
-          "gridX": 130,
-          "gridY": 140,
+          "gridX": 122,
+          "gridY": 135,
           "label": "Status progesteron receptor",
           "interactive": true,
           "options": [
@@ -4612,7 +4606,7 @@
         {
           "id": "locatie",
           "type": "dataItem",
-          "gridX": 236,
+          "gridX": 224,
           "gridY": 100,
           "label": "Locatie regionaal recidief",
           "interactive": true,
@@ -4632,95 +4626,95 @@
         {
           "id": "ev",
           "type": "dataItem",
-          "gridX": 236,
-          "gridY": 140,
+          "gridX": 224,
+          "gridY": 135,
           "label": "Eerdere behandeling",
           "interactionNote": "Niet interactief (INCOMPLETE): geen uitgaande edges in de data."
         },
         {
           "id": "eb",
           "type": "dataItem",
-          "gridX": 332,
-          "gridY": 140,
+          "gridX": 317,
+          "gridY": 135,
           "label": "Eerdere behandeling",
           "interactionNote": "Niet interactief (INCOMPLETE): niet bereikbaar vanaf de root via gemodelleerde edges (upstream onvolledig of dubbelzinnig, of inkomende edge ontbreekt)."
         },
         {
           "id": "o1",
           "type": "recommendation",
-          "gridX": 4,
-          "gridY": 176,
+          "gridX": 1,
+          "gridY": 170,
           "text": "Radiotherapie"
         },
         {
           "id": "o2",
           "type": "recommendation",
-          "gridX": 52,
-          "gridY": 176,
+          "gridX": 47,
+          "gridY": 170,
           "text": "Radiotherapie\nOF\nOverweeg debulking\nGEVOLGD DOOR\nRadiotherapie"
         },
         {
           "id": "o3",
           "type": "recommendation",
-          "gridX": 100,
-          "gridY": 176,
+          "gridX": 94,
+          "gridY": 170,
           "text": "Verwijs naar oncologisch centrum\nEN\nOverweeg exenteratie"
         },
         {
           "id": "o4",
           "type": "recommendation",
-          "gridX": 148,
-          "gridY": 176,
+          "gridX": 140,
+          "gridY": 170,
           "text": "Hormonale therapie"
         },
         {
           "id": "o5",
           "type": "recommendation",
-          "gridX": 196,
-          "gridY": 176,
+          "gridX": 186,
+          "gridY": 170,
           "text": "Overweeg systemische chemotherapie"
         },
         {
           "id": "o6",
           "type": "recommendation",
-          "gridX": 244,
-          "gridY": 176,
+          "gridX": 232,
+          "gridY": 170,
           "text": "Chirurgie in oncologisch centrum"
         },
         {
           "id": "o7",
           "type": "recommendation",
-          "gridX": 292,
-          "gridY": 176,
+          "gridX": 278,
+          "gridY": 170,
           "text": "Radiotherapie"
         },
         {
           "id": "o8",
           "type": "recommendation",
-          "gridX": 340,
-          "gridY": 176,
+          "gridX": 325,
+          "gridY": 170,
           "text": "Hormonale therapie"
         },
         {
           "id": "o9",
           "type": "recommendation",
-          "gridX": 388,
-          "gridY": 176,
+          "gridX": 371,
+          "gridY": 170,
           "text": "Radiotherapie"
         },
         {
           "id": "o10",
           "type": "recommendation",
-          "gridX": 436,
-          "gridY": 164,
-          "height": 25,
+          "gridX": 417,
+          "gridY": 65,
+          "height": 23,
           "text": "Overweeg laag gedoseerd medroxyprogesteron\nOF\nOverweeg megestrol-acetaat"
         },
         {
           "id": "beleid",
           "type": "reference",
-          "gridX": 436,
-          "gridY": 216,
+          "gridX": 417,
+          "gridY": 203,
           "label": "Beleid na hormoontherapie",
           "icon": "down",
           "to": "beleid-hormoon"
@@ -4733,12 +4727,12 @@
           "to": "type",
           "points": [
             [
-              1290,
-              135
+              1220,
+              100
             ],
             [
-              1290,
-              170
+              1220,
+              150
             ]
           ],
           "arrow": true
@@ -4751,21 +4745,21 @@
           "label": "Lokaal",
           "points": [
             [
-              1180,
-              230
+              1120,
+              200
             ],
             [
-              760,
-              230
+              710,
+              200
             ],
             [
-              760,
-              310
+              710,
+              325
             ]
           ],
           "dot": [
-            970,
-            230
+            910,
+            200
           ],
           "arrow": true
         },
@@ -4777,17 +4771,17 @@
           "label": "Regionaal",
           "points": [
             [
-              1290,
-              290
+              1220,
+              250
             ],
             [
-              1290,
+              1220,
               500
             ]
           ],
           "dot": [
-            1290,
-            385
+            1220,
+            363
           ],
           "arrow": true
         },
@@ -4799,21 +4793,21 @@
           "label": "Afstands",
           "points": [
             [
-              1400,
-              230
+              1320,
+              200
             ],
             [
-              2290,
-              230
+              2185,
+              200
             ],
             [
-              2290,
-              820
+              2185,
+              325
             ]
           ],
           "dot": [
-            1845,
-            230
+            1756,
+            200
           ],
           "arrow": true
         },
@@ -4825,21 +4819,21 @@
           "label": "Anders",
           "points": [
             [
-              650,
-              370
+              610,
+              375
             ],
             [
-              340,
-              370
+              310,
+              375
             ],
             [
-              340,
-              560
+              310,
+              500
             ]
           ],
           "dot": [
-            495,
-            370
+            455,
+            375
           ],
           "arrow": true
         },
@@ -4851,17 +4845,17 @@
           "label": "Radiotherapie",
           "points": [
             [
-              760,
-              430
+              710,
+              425
             ],
             [
-              760,
+              710,
               500
             ]
           ],
           "dot": [
-            760,
-            460
+            710,
+            457
           ],
           "arrow": true
         },
@@ -4873,21 +4867,21 @@
           "label": "<=2 cm",
           "points": [
             [
-              230,
-              620
+              210,
+              550
             ],
             [
-              130,
-              620
+              105,
+              550
             ],
             [
-              130,
-              880
+              105,
+              850
             ]
           ],
           "dot": [
-            180,
-            620
+            150,
+            550
           ],
           "arrow": true
         },
@@ -4899,21 +4893,21 @@
           "label": ">2 cm",
           "points": [
             [
-              340,
-              680
+              310,
+              600
             ],
             [
-              370,
-              680
+              337,
+              600
             ],
             [
-              370,
-              880
+              337,
+              850
             ]
           ],
           "dot": [
-            355,
-            680
+            324,
+            600
           ],
           "arrow": true
         },
@@ -4925,21 +4919,21 @@
           "label": "Radicaal",
           "points": [
             [
-              650,
-              560
+              610,
+              550
             ],
             [
-              610,
-              560
+              570,
+              550
             ],
             [
-              610,
-              880
+              570,
+              850
             ]
           ],
           "dot": [
-            630,
-            560
+            588,
+            550
           ],
           "arrow": true
         },
@@ -4951,17 +4945,17 @@
           "label": "Niet-radicaal",
           "points": [
             [
-              760,
-              620
+              710,
+              600
             ],
             [
-              760,
-              700
+              710,
+              675
             ]
           ],
           "dot": [
-            760,
-            660
+            710,
+            638
           ],
           "arrow": true
         },
@@ -4973,21 +4967,21 @@
           "label": "Positief",
           "points": [
             [
-              650,
-              760
+              610,
+              725
             ],
             [
-              850,
-              760
+              792,
+              725
             ],
             [
-              850,
-              880
+              792,
+              850
             ]
           ],
           "dot": [
-            760,
-            760
+            710,
+            725
           ],
           "arrow": true
         },
@@ -4999,21 +4993,21 @@
           "label": "Negatief",
           "points": [
             [
-              870,
-              760
+              810,
+              725
             ],
             [
-              1090,
-              760
+              1030,
+              725
             ],
             [
-              1090,
-              880
+              1030,
+              850
             ]
           ],
           "dot": [
-            980,
-            760
+            930,
+            725
           ],
           "arrow": true
         },
@@ -5025,17 +5019,17 @@
           "label": "Laag in vagina",
           "points": [
             [
-              1290,
-              620
+              1220,
+              600
             ],
             [
-              1290,
-              700
+              1220,
+              675
             ]
           ],
           "dot": [
-            1290,
-            660
+            1220,
+            638
           ],
           "arrow": true
         },
@@ -5047,21 +5041,21 @@
           "label": "Bekkenwand, ingroei blaas of rectum",
           "points": [
             [
-              1400,
-              560
+              1320,
+              550
             ],
             [
-              1570,
-              560
+              1490,
+              550
             ],
             [
-              1570,
-              880
+              1490,
+              850
             ]
           ],
           "dot": [
-            1485,
-            560
+            1413,
+            550
           ],
           "arrow": true
         },
@@ -5069,21 +5063,21 @@
           "label": "Radiotherapie",
           "points": [
             [
-              1660,
-              760
+              1585,
+              725
             ],
             [
-              1810,
-              760
+              1725,
+              725
             ],
             [
-              1810,
-              880
+              1725,
+              850
             ]
           ],
           "dot": [
-            1735,
-            760
+            1655,
+            725
           ],
           "arrow": true
         },
@@ -5091,21 +5085,21 @@
           "label": "Anders",
           "points": [
             [
-              1880,
-              760
+              1785,
+              725
             ],
             [
-              2050,
-              760
+              1955,
+              725
             ],
             [
-              2050,
-              880
+              1955,
+              850
             ]
           ],
           "dot": [
-            1965,
-            760
+            1878,
+            725
           ],
           "arrow": true
         }

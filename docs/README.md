@@ -26,7 +26,6 @@ Automatische controle van alle inhoud (tools/check.js, ook op GitHub)
 Automatische controle of alle tekst in de blokken past (tools/check-tekst.js, ook op GitHub)
 Automatische controle van het raster: maten van blokken en afstanden (tools/check-raster.js, ook op GitHub)
 In voorbereiding
-Endometriumcarcinoom opnieuw opbouwen op het raster
 Bronvermelding voor de overige zorgpaden (cervixcarcinoom, endometriumcarcinoom en vulvacarcinoom hebben er al een)
 Technische uitgangspunten
 De applicatie gebruikt uitsluitend:

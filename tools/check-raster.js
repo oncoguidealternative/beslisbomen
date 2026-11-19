@@ -32,7 +32,8 @@ const roleOf = function (n) {
   const t = n.type || 'step';
   if (/^(title|root|start)$/.test(t)) return 'title';
   if (/^(recommendation|outcome)$/.test(t)) return 'rec';
-  if (/^(dataItem|item|criterion|decision)$/.test(t)) return 'item';
+  if (/^decision$/.test(t)) return 'rec';   // groen tekstblok: mag hoger zijn, zoals een aanbeveling
+  if (/^(dataItem|item|criterion)$/.test(t)) return 'item';
   return 'other';
 };
 

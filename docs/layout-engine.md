@@ -45,7 +45,7 @@ Alle zorgpaden en beslisbomen gebruiken hetzelfde raster, zodat ze er op de webs
 | Beslisboom: onder een gegeven | 15 hokjes (75 px) |
 | Beslisboom: onder een aanbeveling of verwijzing | 10 hokjes (50 px) |
 `node tools/check-raster.js` controleert dit (ook op GitHub). Voorbeeld: `data/cervixcarcinoom/zorgpad.json`.
-Vulva- en endometriumcarcinoom hebben nog een eigen raster (blokken in andere maten, afgeleid van afbeeldingen).
+Groene tekstblokken (`decision`) mogen net als aanbevelingen hoger zijn.
 3. Nodetypes
 Layout-rol	Type in de JSON	Wordt in de renderer
 Beslisboomtitel	`title` (of `root`, `start`)	`root` in een boom (blauwe pil, min-icoon, terug naar overzicht), `start` in het overzicht
