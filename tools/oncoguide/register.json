@@ -1,0 +1,57 @@
+{
+  "10481": {
+    "tumor": "borderline-ovarium",
+    "tree": "screening",
+    "naam": "Screening"
+  },
+  "10484": {
+    "tumor": "borderline-ovarium",
+    "tree": "aanvullende-diagnostiek-tijdens-operatie",
+    "naam": "Aanvullende diagnostiek tijdens operatie"
+  },
+  "10485": {
+    "tumor": "borderline-ovarium",
+    "tree": "behandeling-borderline-ovariumtumor",
+    "naam": "Behandeling borderline ovariumtumor"
+  },
+  "10486": {
+    "tumor": "borderline-ovarium",
+    "tree": "postoperatief-beleid",
+    "naam": "Postoperatief beleid"
+  },
+  "10487": {
+    "tumor": "borderline-ovarium",
+    "tree": "follow-up",
+    "naam": "Follow-up"
+  },
+  "10488": {
+    "tumor": "borderline-ovarium",
+    "tree": "diagnostiek-recidief",
+    "naam": "Diagnostiek recidief"
+  },
+  "10489": {
+    "tumor": "borderline-ovarium",
+    "tree": "behandeling-recidief",
+    "naam": "Behandeling recidief"
+  },
+  "10490": {
+    "tumor": "borderline-ovarium",
+    "tree": "secundaire-behandeling-resttumor",
+    "naam": "Secundaire behandeling resttumor"
+  },
+  "10988": {
+    "tumor": "borderline-ovarium",
+    "tree": "morfologie",
+    "naam": "Morfologie"
+  },
+  "11078": {
+    "tumor": "vergroot-ovarium",
+    "tree": "initieel-beleid",
+    "naam": "Initieel beleid vergroot ovarium"
+  },
+  "11080": {
+    "tumor": "vergroot-ovarium",
+    "tree": "klinisch-vergroot-ovarium",
+    "naam": "Klinisch (verdenking op) vergroot ovarium"
+  }
+}

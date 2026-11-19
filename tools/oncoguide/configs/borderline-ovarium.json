@@ -7,16 +7,6 @@
     "organisatie": "NVOG (Nederlandse Vereniging voor Obstetrie en Gynaecologie)",
     "url": "https://richtlijnendatabase.nl/richtlijn/borderline_ovariumtumoren/borderline_ovariumtumoren_-_startpagina.html"
   },
-  "extern": {
-    "11080": {
-      "tumor": "vergroot-ovarium",
-      "tree": "klinisch-vergroot-ovarium"
-    },
-    "11078": {
-      "tumor": "vergroot-ovarium",
-      "tree": "initieel-beleid"
-    }
-  },
   "bomen": {
     "10487": "follow-up",
     "10988": "morfologie"

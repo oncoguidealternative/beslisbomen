@@ -44,7 +44,7 @@ Maak `tools/oncoguide/configs/<tumor-id>.json`:
 | `export` | Het exportbestand, ten opzichte van de configuratie |
 | `titel` | Titel van het zorgpad (anders de naam uit Oncoguide) |
 | `bron` | Bronvermelding (zie `interactive-tree-schema.md` §7). Een opmerking over de herkomst uit Oncoguide wordt automatisch toegevoegd. |
-| `extern` | Oncoguide-bomen die al bij een **andere tumor** staan: een verwijzing ernaar gaat naar die tumor (en boom). Deze bomen worden niet nog eens omgezet. Het nummer staat in de adresbalk van Oncoguide (`.../tree/<nummer>`). |
+| `extern` | Optioneel: Oncoguide-bomen die bij een **andere tumor** staan maar (nog) niet in het register (zie hieronder). Een verwijzing ernaar gaat naar die tumor en boom; ze worden niet nog eens omgezet. Het nummer staat in de adresbalk van Oncoguide (`.../tree/<nummer>`). |
 | `bomen` | Optioneel: een eigen id per Oncoguide-boom. Anders wordt het id gemaakt uit de naam. |
 | `vervang` | Optioneel: tekstcorrecties, bijvoorbeeld tikfouten uit Oncoguide (`[oud, nieuw]`) |
 | `overzicht` | Optioneel: aanpassingen per stap in het overzicht, bijvoorbeeld `{"stap-id": {"tumor": "…", "tree": "…"}}` |
@@ -68,6 +68,15 @@ node tools/check-tekst.js <tumor-id>
 ```
 
 Bekijk daarna de bomen op de website. Verhoog bij publicatie het versienummer (zie `README.md`).
+
+## Verwijzen in plaats van kopiëren
+
+Veel bomen komen in Oncoguide in meer projecten voor (bijvoorbeeld *Initieel beleid vergroot ovarium* in het project Borderline ovariumtumoren). Zo'n boom staat op de website maar **één keer**: andere zorgpaden verwijzen ernaar.
+
+- `tools/oncoguide/register.json` houdt bij welke Oncoguide-boom (nummer) bij welke tumor staat. Het script werkt dit bestand na elke omzetting zelf bij.
+- Een boom die in het register al bij een andere tumor staat, wordt **niet** opnieuw omgezet. Elke verwijzing ernaar (in een boom of in het overzicht) gaat naar die tumor. Het script meldt dit met `→ verwijst naar …`.
+- Bomen die niet met het script zijn gemaakt, kun je met de hand in het register zetten (zoals de bomen van Vergroot ovarium), of per tumor onder `extern` in de configuratie. `extern` gaat voor het register.
+- Lijkt een nieuwe boom sterk op een boom bij een andere tumor (zelfde naam en minstens 60% dezelfde blokteksten), dan geeft het script een melding met de regel die je onder `extern` kunt zetten. Dat gebeurt niet automatisch: bomen met dezelfde naam (zoals *Follow-up*) hebben per richtlijn vaak een andere inhoud.
 
 ## Wat het script omzet
 

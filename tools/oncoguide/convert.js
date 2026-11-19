@@ -107,16 +107,26 @@ function estimateHeight(text) {
 
 /* ---------- omzetten ---------- */
 
-function convert(exp, cfg) {
+/* register: Oncoguide-boomnummer → {tumor, tree, naam}; zie tools/oncoguide/register.json.
+   bestaand: [{tumor, tree, titel}] van de bomen die al op de website staan (voor suggesties op naam). */
+function convert(exp, cfg, register, bestaand) {
   const warnings = [];
+  register = register || {};
+  bestaand = bestaand || [];
   const di = {};
   exp.dataitems.forEach(function (d) { di[d.id] = d; });
 
   // Sleutels van de bomen: uit de configuratie, anders uit de naam
   const keys = {}, usedKeys = new Set();
   const menu = exp.trees.find(function (t) { return t.isMenuTree || t.type === 21; });
-  const extern = cfg.extern || {};
-  // Bomen die als "extern" naar een andere tumor verwijzen, worden hier niet omgezet
+  // Bomen die al bij een andere tumor staan (register) of in de configuratie onder "extern":
+  // daar wordt naar verwezen, ze worden hier niet nog eens omgezet.
+  const extern = {};
+  Object.keys(register).forEach(function (id) {
+    const r = register[id];
+    if (r.tumor !== cfg.tumor) extern[id] = {tumor: r.tumor, tree: r.tree};
+  });
+  Object.assign(extern, cfg.extern || {});
   const own = exp.trees.filter(function (t) { return t === menu || !extern[t.id]; });
   own.forEach(function (t) {
     if (t === menu) return;
@@ -128,7 +138,8 @@ function convert(exp, cfg) {
   function target(refId, where) {
     if (extern[refId]) return Object.assign({}, extern[refId]);
     if (keys[refId]) return {to: keys[refId]};
-    warnings.push(where + ': verwijzing naar Oncoguide-boom ' + refId + ' die niet in dit project zit; voeg die toe onder "extern" in de configuratie.');
+    warnings.push(where + ': verwijzing naar Oncoguide-boom ' + refId + ' die niet in dit project zit en nog bij geen andere tumor staat; ' +
+      'zet de juiste tumor en boom onder "extern" in de configuratie, of zet die tumor eerst om.');
     return {};
   }
 
@@ -291,7 +302,32 @@ function convert(exp, cfg) {
     const g = graph(menu, true);
     overview = {layout: Object.assign({}, LAYOUT), nodes: g.nodes, edges: g.edges};
   } else warnings.push('geen menuboom (overzicht) gevonden in de export');
-  return {overview: overview, trees: trees, warnings: warnings};
+  // Suggestie: een boom die inhoudelijk grotendeels gelijk is aan een boom die al bij een andere tumor staat
+  // (zelfde naam én minstens 60% dezelfde blokteksten). Niet automatisch: dat beslis je in de configuratie.
+  const words = function (nodes) {
+    return new Set(nodes.map(function (n) { return slug(n.text || n.label || ''); }).filter(Boolean));
+  };
+  Object.keys(trees).forEach(function (k) {
+    const mine = words(trees[k].nodes);
+    const titel = (trees[k].nodes.find(function (n) { return n.type === 'title'; }) || {}).label || '';
+    const ogId = Object.keys(keys).find(function (id) { return keys[id] === k; });
+    bestaand.forEach(function (b) {
+      if (b.tumor === cfg.tumor || slug(b.titel) !== slug(titel)) return;
+      let same = 0;
+      mine.forEach(function (w) { if (b.woorden.has(w)) same++; });
+      const score = same / Math.max(mine.size, b.woorden.size, 1);
+      if (score >= 0.6) {
+        warnings.push('"' + titel + '" (Oncoguide-boom ' + ogId + ') lijkt voor ' + Math.round(score * 100) + '% op ' + b.tumor + ' / ' + b.tree +
+          '. Is het dezelfde boom? Zet dan in de configuratie onder "extern": "' + ogId + '": {"tumor": "' + b.tumor + '", "tree": "' + b.tree + '"}');
+      }
+    });
+  });
+
+  const ownTrees = {};
+  own.forEach(function (t) { if (t !== menu) ownTrees[t.id] = {tree: keys[t.id], naam: label(t.name, cfg)}; });
+  const linked = Object.keys(extern).filter(function (id) { return exp.trees.some(function (t) { return String(t.id) === id; }); })
+    .map(function (id) { return extern[id]; });
+  return {overview: overview, trees: trees, warnings: warnings, ownTrees: ownTrees, linked: linked};
 }
 
 /* ---------- hoogtes nameten in de browser (--measure) ---------- */
@@ -363,7 +399,20 @@ async function main() {
   if (!cfgFile) { console.error('Gebruik: node tools/oncoguide/convert.js tools/oncoguide/configs/<tumor>.json [--measure]'); process.exit(2); }
   const cfg = JSON.parse(fs.readFileSync(cfgFile, 'utf8'));
   const exp = JSON.parse(fs.readFileSync(path.resolve(path.dirname(cfgFile), cfg.export), 'utf8'));
-  const res = convert(exp, cfg);
+  const regFile = path.join(__dirname, 'register.json');
+  const register = fs.existsSync(regFile) ? JSON.parse(fs.readFileSync(regFile, 'utf8')) : {};
+  const bestaand = [];
+  fs.readdirSync(path.join(ROOT, 'data')).forEach(function (d) {
+    const f = path.join(ROOT, 'data', d, 'zorgpad.json');
+    if (d === cfg.tumor || !fs.existsSync(f)) return;
+    const z = JSON.parse(fs.readFileSync(f, 'utf8'));
+    Object.keys(z.trees || {}).forEach(function (k) {
+      const t = (z.trees[k].nodes || []).find(function (n) { return n.type === 'title' || n.type === 'root'; });
+      if (t) bestaand.push({tumor: d, tree: k, titel: t.label || '', woorden: new Set((z.trees[k].nodes || [])
+        .map(function (n) { return slug(n.text || n.label || ''); }).filter(Boolean))});
+    });
+  });
+  const res = convert(exp, cfg, register, bestaand);
 
   const file = path.join(ROOT, 'data', cfg.tumor, 'zorgpad.json');
   const old = fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, 'utf8')) : {};
@@ -387,7 +436,17 @@ async function main() {
   fs.writeFileSync(file, JSON.stringify(out, null, 2) + '\n');
   console.log('Geschreven: ' + path.relative(ROOT, file) + ' (' + Object.keys(out.trees).length + ' beslisbomen)');
   Object.keys(out.trees).forEach(function (k) { console.log('  ' + k + ': ' + out.trees[k].nodes.length + ' blokken'); });
+  res.linked.forEach(function (l) { console.log('  → verwijst naar ' + l.tumor + (l.tree ? ' / ' + l.tree : '') + ' (niet gekopieerd)'); });
   res.warnings.forEach(function (w) { console.log('  ! ' + w); });
+
+  // Register bijwerken: de bomen van deze tumor, zodat latere projecten ernaar verwijzen in plaats van te kopiëren
+  Object.keys(register).forEach(function (id) { if (register[id].tumor === cfg.tumor) delete register[id]; });
+  Object.keys(res.ownTrees).forEach(function (id) {
+    register[id] = {tumor: cfg.tumor, tree: res.ownTrees[id].tree, naam: res.ownTrees[id].naam};
+  });
+  const sorted = {};
+  Object.keys(register).sort(function (a, b) { return a - b; }).forEach(function (k) { sorted[k] = register[k]; });
+  fs.writeFileSync(regFile, JSON.stringify(sorted, null, 2) + '\n');
 
   // Tumor op de homepage zetten als die er nog niet staat
   const tf = path.join(ROOT, 'data', 'tumoren.json');
