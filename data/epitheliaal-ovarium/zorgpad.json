@@ -10,23 +10,23 @@
   "overview": {
     "layout": {
       "unit": 5,
-      "blockWidth": 44,
-      "blockHeight": 18,
-      "margin": 2
+      "blockWidth": 40,
+      "blockHeight": 20,
+      "margin": 10
     },
     "wrap": 28,
     "nodes": [
       {
         "id": "zorgpad-epitheliaal-ovarium",
         "type": "title",
-        "gridX": 100,
+        "gridX": 22,
         "gridY": 0,
         "label": "Zorgpad epitheliaal ovariumcarcinoom"
       },
       {
         "id": "klinisch-vergroot-ovarium",
-        "gridX": 100,
-        "gridY": 40,
+        "gridX": 22,
+        "gridY": 30,
         "label": "Klinisch (verdenking op) vergroot ovarium",
         "tumor": "vergroot-ovarium",
         "tree": "klinisch-vergroot-ovarium",
@@ -34,8 +34,8 @@
       },
       {
         "id": "initieel-beleid-vergroot-ovarium",
-        "gridX": 100,
-        "gridY": 80,
+        "gridX": 22,
+        "gridY": 60,
         "label": "Initieel beleid (verdenking op) vergroot ovarium",
         "tumor": "vergroot-ovarium",
         "tree": "initieel-beleid",
@@ -44,84 +44,84 @@
       {
         "id": "diagnose-epitheliaal-ovarium",
         "type": "recommendation",
-        "gridX": 100,
-        "gridY": 120,
+        "gridX": 22,
+        "gridY": 90,
         "label": "Diagnose epitheliaal ovariumcarcinoom"
       },
       {
         "id": "aanvullende-diagnostiek",
-        "gridX": 100,
-        "gridY": 160,
+        "gridX": 22,
+        "gridY": 120,
         "label": "Aanvullende diagnostiek epitheliaal ovariumcarcinoom",
         "drill": true
       },
       {
         "id": "vervolg-aanvullende-diagnostiek",
-        "gridX": 100,
-        "gridY": 200,
+        "gridX": 22,
+        "gridY": 150,
         "label": "Vervolg aanvullende diagnostiek",
         "drill": true
       },
       {
         "id": "primaire-behandeling",
-        "gridX": 100,
-        "gridY": 240,
+        "gridX": 22,
+        "gridY": 180,
         "label": "Primaire behandeling",
         "drill": true
       },
       {
         "id": "vervolg-exploratieve-chirurgie",
-        "gridX": 20,
-        "gridY": 280,
+        "gridX": 0,
+        "gridY": 210,
         "label": "Vervolg exploratieve chirurgie laag stadium epitheliaal ovariumcarcinoom",
         "drill": true
       },
       {
         "id": "beleid-na-primaire-operatie",
-        "gridX": 100,
-        "gridY": 320,
+        "gridX": 22,
+        "gridY": 240,
         "label": "Beleid na primaire operatie",
         "drill": true
       },
       {
         "id": "beleid-na-stadiering",
-        "gridX": 20,
-        "gridY": 360,
+        "gridX": 0,
+        "gridY": 270,
         "label": "Beleid na stadiering",
         "drill": true
       },
       {
         "id": "beleid-na-chemotherapie",
-        "gridX": 180,
-        "gridY": 360,
+        "gridX": 45,
+        "gridY": 270,
         "label": "Beleid na chemotherapie",
         "drill": true
       },
       {
         "id": "follow-up",
-        "gridX": 100,
-        "gridY": 400,
+        "gridX": 22,
+        "gridY": 300,
         "label": "Follow up",
         "drill": true
       },
       {
         "id": "aanvullend-onderzoek-follow-up",
-        "gridX": 100,
-        "gridY": 440,
+        "gridX": 22,
+        "gridY": 330,
         "label": "Aanvullend onderzoek follow up",
         "drill": true
       },
       {
         "id": "behandeling-recidief",
-        "gridX": 100,
-        "gridY": 480,
+        "gridX": 22,
+        "gridY": 360,
         "label": "Behandeling recidief",
         "drill": true
       },
       {
         "id": "beleid-na-behandeling-recidief",
-        "gridX": 100,
-        "gridY": 520,
+        "gridX": 22,
+        "gridY": 390,
         "label": "Beleid na behandeling recidief",
         "drill": true
       }
@@ -133,12 +133,12 @@
         "to": "klinisch-vergroot-ovarium",
         "points": [
           [
-            610,
-            90
+            210,
+            100
           ],
           [
-            610,
-            200
+            210,
+            150
           ]
         ],
         "arrow": true
@@ -149,12 +149,12 @@
         "to": "initieel-beleid-vergroot-ovarium",
         "points": [
           [
-            610,
-            290
+            210,
+            250
           ],
           [
-            610,
-            400
+            210,
+            300
           ]
         ],
         "arrow": true
@@ -165,12 +165,12 @@
         "to": "diagnose-epitheliaal-ovarium",
         "points": [
           [
-            610,
-            490
+            210,
+            400
           ],
           [
-            610,
-            600
+            210,
+            450
           ]
         ],
         "arrow": true
@@ -181,12 +181,12 @@
         "to": "aanvullende-diagnostiek",
         "points": [
           [
-            610,
-            690
+            210,
+            550
           ],
           [
-            610,
-            800
+            210,
+            600
           ]
         ],
         "arrow": true
@@ -197,12 +197,12 @@
         "to": "vervolg-aanvullende-diagnostiek",
         "points": [
           [
-            610,
-            890
+            210,
+            700
           ],
           [
-            610,
-            1000
+            210,
+            750
           ]
         ],
         "arrow": true
@@ -213,20 +213,20 @@
         "to": "vervolg-exploratieve-chirurgie",
         "points": [
           [
-            610,
-            1290
-          ],
-          [
-            610,
-            1345
+            210,
+            1000
           ],
           [
             210,
-            1345
+            1025
           ],
           [
-            210,
-            1400
+            100,
+            1025
+          ],
+          [
+            100,
+            1050
           ]
         ],
         "arrow": true
@@ -237,12 +237,12 @@
         "to": "beleid-na-primaire-operatie",
         "points": [
           [
-            610,
-            1290
+            210,
+            1000
           ],
           [
-            610,
-            1600
+            210,
+            1200
           ]
         ],
         "arrow": true
@@ -253,20 +253,20 @@
         "to": "beleid-na-chemotherapie",
         "points": [
           [
-            610,
-            1290
+            210,
+            1000
           ],
           [
-            610,
-            1545
+            210,
+            1175
           ],
           [
-            1010,
-            1545
+            325,
+            1175
           ],
           [
-            1010,
-            1800
+            325,
+            1350
           ]
         ],
         "arrow": true
@@ -277,12 +277,12 @@
         "to": "beleid-na-stadiering",
         "points": [
           [
-            210,
-            1490
+            100,
+            1150
           ],
           [
-            210,
-            1800
+            100,
+            1350
           ]
         ],
         "arrow": true
@@ -293,20 +293,20 @@
         "to": "beleid-na-primaire-operatie",
         "points": [
           [
-            210,
-            1490
+            100,
+            1150
+          ],
+          [
+            100,
+            1175
           ],
           [
             210,
-            1545
+            1175
           ],
           [
-            610,
-            1545
-          ],
-          [
-            610,
-            1600
+            210,
+            1200
           ]
         ],
         "arrow": true
@@ -317,20 +317,20 @@
         "to": "beleid-na-stadiering",
         "points": [
           [
-            610,
-            1690
-          ],
-          [
-            610,
-            1745
+            210,
+            1300
           ],
           [
             210,
-            1745
+            1325
           ],
           [
-            210,
-            1800
+            100,
+            1325
+          ],
+          [
+            100,
+            1350
           ]
         ],
         "arrow": true
@@ -341,20 +341,20 @@
         "to": "beleid-na-chemotherapie",
         "points": [
           [
-            610,
-            1690
+            210,
+            1300
           ],
           [
-            610,
-            1745
+            210,
+            1325
           ],
           [
-            1010,
-            1745
+            325,
+            1325
           ],
           [
-            1010,
-            1800
+            325,
+            1350
           ]
         ],
         "arrow": true
@@ -365,20 +365,20 @@
         "to": "follow-up",
         "points": [
           [
-            210,
-            1890
+            100,
+            1450
+          ],
+          [
+            100,
+            1475
           ],
           [
             210,
-            1945
+            1475
           ],
           [
-            610,
-            1945
-          ],
-          [
-            610,
-            2000
+            210,
+            1500
           ]
         ],
         "arrow": true
@@ -389,12 +389,12 @@
         "to": "follow-up",
         "points": [
           [
-            610,
-            1690
+            210,
+            1300
           ],
           [
-            610,
-            2000
+            210,
+            1500
           ]
         ],
         "arrow": true
@@ -405,20 +405,20 @@
         "to": "follow-up",
         "points": [
           [
-            1010,
-            1890
+            325,
+            1450
           ],
           [
-            1010,
-            1945
+            325,
+            1475
           ],
           [
-            610,
-            1945
+            210,
+            1475
           ],
           [
-            610,
-            2000
+            210,
+            1500
           ]
         ],
         "arrow": true
@@ -429,12 +429,12 @@
         "to": "aanvullend-onderzoek-follow-up",
         "points": [
           [
-            610,
-            2090
+            210,
+            1600
           ],
           [
-            610,
-            2200
+            210,
+            1650
           ]
         ],
         "arrow": true
@@ -445,12 +445,12 @@
         "to": "behandeling-recidief",
         "points": [
           [
-            610,
-            2290
+            210,
+            1750
           ],
           [
-            610,
-            2400
+            210,
+            1800
           ]
         ],
         "arrow": true
@@ -461,12 +461,12 @@
         "to": "beleid-na-behandeling-recidief",
         "points": [
           [
-            610,
-            2490
+            210,
+            1900
           ],
           [
-            610,
-            2600
+            210,
+            1950
           ]
         ],
         "arrow": true
@@ -514,7 +514,7 @@
           "label": "Jaren sinds afloop primaire behandeling",
           "id": "jaren-sinds-afloop-primaire-behandeling",
           "gridX": 45,
-          "gridY": 60,
+          "gridY": 65,
           "measure": {
             "unit": "jaren"
           },
@@ -548,7 +548,7 @@
           "height": 23,
           "id": "aanbeveling-geen-aanvullernd-onderzoek",
           "gridX": 45,
-          "gridY": 95
+          "gridY": 100
         },
         {
           "type": "recommendation",
@@ -556,7 +556,7 @@
           "height": 23,
           "id": "aanbeveling-geen-aanvullend-onderzoek",
           "gridX": 0,
-          "gridY": 95
+          "gridY": 100
         },
         {
           "type": "recommendation",
@@ -564,7 +564,7 @@
           "height": 23,
           "id": "aanbeveling-geen-aanvullend-onderzoek-2",
           "gridX": 90,
-          "gridY": 95
+          "gridY": 100
         },
         {
           "type": "recommendation",
@@ -572,7 +572,7 @@
           "height": 23,
           "id": "aanbeveling-beeldvormend-onderzoek",
           "gridX": 135,
-          "gridY": 95
+          "gridY": 100
         },
         {
           "type": "reference",
@@ -580,7 +580,7 @@
           "to": "behandeling-recidief",
           "id": "verwijzing-behandeling-recidief",
           "gridX": 135,
-          "gridY": 130
+          "gridY": 133
         },
         {
           "type": "reference",
@@ -588,7 +588,7 @@
           "to": "follow-up",
           "id": "verwijzing-follow-up",
           "gridX": 90,
-          "gridY": 130
+          "gridY": 133
         },
         {
           "type": "reference",
@@ -596,7 +596,7 @@
           "to": "follow-up",
           "id": "verwijzing-follow-up-2",
           "gridX": 45,
-          "gridY": 130
+          "gridY": 133
         },
         {
           "type": "reference",
@@ -604,7 +604,7 @@
           "to": "follow-up",
           "id": "verwijzing-follow-up-3",
           "gridX": 0,
-          "gridY": 130
+          "gridY": 133
         }
       ],
       "edges": [
@@ -693,7 +693,7 @@
           "label": "Therapievrij interval",
           "id": "therapievrij-interval",
           "gridX": 45,
-          "gridY": 60,
+          "gridY": 65,
           "measure": {
             "unit": "maanden"
           },
@@ -718,7 +718,7 @@
           "label": "Remissie na initiële therapie",
           "id": "remissie-na-initiele-therapie",
           "gridX": 90,
-          "gridY": 85,
+          "gridY": 100,
           "interactive": true,
           "options": [
             {
@@ -743,7 +743,7 @@
           "label": "Inschatting secundaire debulking",
           "id": "inschatting-secundaire-debulking",
           "gridX": 135,
-          "gridY": 120,
+          "gridY": 135,
           "interactive": true,
           "options": [
             {
@@ -768,7 +768,7 @@
           "label": "Performance status (ECOG)",
           "id": "performance-status-ecog",
           "gridX": 135,
-          "gridY": 155,
+          "gridY": 170,
           "measure": {
             "unit": "score"
           },
@@ -796,7 +796,7 @@
           "height": 62,
           "id": "aanbeveling-herhaalde-behandeling-met-combinatie-taxol",
           "gridX": 135,
-          "gridY": 190
+          "gridY": 205
         },
         {
           "type": "recommendation",
@@ -804,7 +804,7 @@
           "height": 26,
           "id": "aanbeveling-herhaalde-behandeling-met-combinatie-taxol-2",
           "gridX": 90,
-          "gridY": 190
+          "gridY": 205
         },
         {
           "type": "recommendation",
@@ -812,7 +812,7 @@
           "height": 32,
           "id": "aanbeveling-overweeg-palliatieve-chemotherapie",
           "gridX": 45,
-          "gridY": 190
+          "gridY": 205
         },
         {
           "type": "dataItem",
@@ -847,7 +847,7 @@
           "height": 20,
           "id": "aanbeveling-follow-up",
           "gridX": 0,
-          "gridY": 190
+          "gridY": 205
         },
         {
           "type": "reference",
@@ -855,7 +855,7 @@
           "to": "beleid-na-behandeling-recidief",
           "id": "verwijzing-beleid-na-behandeling-recidief",
           "gridX": 135,
-          "gridY": 265
+          "gridY": 277
         },
         {
           "type": "reference",
@@ -863,7 +863,7 @@
           "to": "beleid-na-behandeling-recidief",
           "id": "verwijzing-beleid-na-behandeling-recidief-2",
           "gridX": 90,
-          "gridY": 230
+          "gridY": 247
         },
         {
           "type": "reference",
@@ -871,7 +871,7 @@
           "to": "beleid-na-behandeling-recidief",
           "id": "verwijzing-beleid-na-behandeling-recidief-3",
           "gridX": 45,
-          "gridY": 230
+          "gridY": 247
         },
         {
           "type": "reference",
@@ -879,7 +879,7 @@
           "to": "follow-up",
           "id": "verwijzing-follow-up",
           "gridX": 135,
-          "gridY": 290
+          "gridY": 302
         },
         {
           "type": "reference",
@@ -887,7 +887,7 @@
           "to": "follow-up",
           "id": "verwijzing-follow-up-2",
           "gridX": 0,
-          "gridY": 230
+          "gridY": 247
         }
       ],
       "edges": [
@@ -1116,7 +1116,7 @@
           "height": 20,
           "id": "aanbeveling-onderhoudsbehandeling-met-parp-remmers",
           "gridX": 45,
-          "gridY": 145
+          "gridY": 135
         },
         {
           "type": "recommendation",
@@ -1124,7 +1124,7 @@
           "height": 20,
           "id": "aanbeveling-palliatieve-behandeling",
           "gridX": 0,
-          "gridY": 145
+          "gridY": 135
         }
       ],
       "edges": [
@@ -1243,7 +1243,7 @@
           "to": "aanvullend-onderzoek-follow-up",
           "id": "verwijzing-aanvullend-onderzoek-follow-up",
           "gridX": 0,
-          "gridY": 125
+          "gridY": 104
         },
         {
           "type": "reference",
@@ -1251,7 +1251,7 @@
           "to": "aanvullend-onderzoek-follow-up",
           "id": "verwijzing-aanvullend-onderzoek-follow-up-2",
           "gridX": 45,
-          "gridY": 125
+          "gridY": 104
         },
         {
           "type": "title",
@@ -1338,7 +1338,7 @@
           "label": "Restadiering",
           "id": "restadiering",
           "gridX": 90,
-          "gridY": 60,
+          "gridY": 65,
           "interactive": true,
           "options": [
             {
@@ -1358,7 +1358,7 @@
           "label": "FIGO",
           "id": "figo",
           "gridX": 0,
-          "gridY": 60,
+          "gridY": 65,
           "interactive": true,
           "options": [
             {
@@ -1399,7 +1399,7 @@
           "height": 20,
           "id": "aanbeveling-restageringsoperatie",
           "gridX": 90,
-          "gridY": 95
+          "gridY": 100
         },
         {
           "type": "recommendation",
@@ -1407,7 +1407,7 @@
           "height": 20,
           "id": "aanbeveling-6-kuren-paclitaxel-en-carboplatine",
           "gridX": 45,
-          "gridY": 95
+          "gridY": 100
         },
         {
           "type": "recommendation",
@@ -1415,7 +1415,7 @@
           "height": 23,
           "id": "aanbeveling-expectatief-beleid",
           "gridX": 0,
-          "gridY": 95
+          "gridY": 100
         },
         {
           "type": "recommendation",
@@ -1423,7 +1423,7 @@
           "height": 20,
           "id": "aanbeveling-6-kuren-paclitaxel-en-carboplatine-2",
           "gridX": 135,
-          "gridY": 95
+          "gridY": 100
         },
         {
           "type": "reference",
@@ -1431,7 +1431,7 @@
           "to": "follow-up",
           "id": "verwijzing-follow-up",
           "gridX": 0,
-          "gridY": 130
+          "gridY": 133
         },
         {
           "type": "reference",
@@ -1439,7 +1439,7 @@
           "to": "follow-up",
           "id": "verwijzing-follow-up-2",
           "gridX": 45,
-          "gridY": 130
+          "gridY": 133
         },
         {
           "type": "reference",
@@ -1447,7 +1447,7 @@
           "to": "follow-up",
           "id": "verwijzing-follow-up-3",
           "gridX": 135,
-          "gridY": 130
+          "gridY": 133
         },
         {
           "type": "reference",
@@ -1455,7 +1455,7 @@
           "to": "beleid-na-stadiering",
           "id": "verwijzing-beleid-na-stadiering",
           "gridX": 90,
-          "gridY": 130
+          "gridY": 133
         }
       ],
       "edges": [
@@ -1553,7 +1553,7 @@
           "height": 20,
           "id": "aanbeveling-ia",
           "gridX": 0,
-          "gridY": 125
+          "gridY": 135
         },
         {
           "type": "title",
@@ -1568,7 +1568,7 @@
           "height": 20,
           "id": "aanbeveling-ib",
           "gridX": 45,
-          "gridY": 125
+          "gridY": 135
         },
         {
           "type": "recommendation",
@@ -1576,7 +1576,7 @@
           "height": 20,
           "id": "aanbeveling-ic",
           "gridX": 90,
-          "gridY": 125
+          "gridY": 135
         },
         {
           "type": "recommendation",
@@ -1584,7 +1584,7 @@
           "height": 20,
           "id": "aanbeveling-iia",
           "gridX": 135,
-          "gridY": 125
+          "gridY": 135
         },
         {
           "type": "recommendation",
@@ -1592,7 +1592,7 @@
           "height": 20,
           "id": "aanbeveling-iib",
           "gridX": 180,
-          "gridY": 125
+          "gridY": 135
         },
         {
           "type": "recommendation",
@@ -1600,7 +1600,7 @@
           "height": 20,
           "id": "aanbeveling-iiia2",
           "gridX": 225,
-          "gridY": 125
+          "gridY": 135
         },
         {
           "type": "recommendation",
@@ -1608,7 +1608,7 @@
           "height": 20,
           "id": "aanbeveling-iiib",
           "gridX": 270,
-          "gridY": 125
+          "gridY": 135
         },
         {
           "type": "recommendation",
@@ -1616,7 +1616,7 @@
           "height": 20,
           "id": "aanbeveling-iiic",
           "gridX": 315,
-          "gridY": 125
+          "gridY": 135
         },
         {
           "type": "recommendation",
@@ -1624,7 +1624,7 @@
           "height": 20,
           "id": "aanbeveling-iiia1",
           "gridX": 405,
-          "gridY": 125
+          "gridY": 135
         },
         {
           "type": "recommendation",
@@ -1632,7 +1632,7 @@
           "height": 20,
           "id": "aanbeveling-iiia2-2",
           "gridX": 450,
-          "gridY": 125
+          "gridY": 135
         },
         {
           "type": "recommendation",
@@ -1640,7 +1640,7 @@
           "height": 20,
           "id": "aanbeveling-iiib-2",
           "gridX": 495,
-          "gridY": 125
+          "gridY": 135
         },
         {
           "type": "recommendation",
@@ -1648,7 +1648,7 @@
           "height": 20,
           "id": "aanbeveling-iiic-2",
           "gridX": 540,
-          "gridY": 125
+          "gridY": 135
         },
         {
           "type": "recommendation",
@@ -1656,7 +1656,7 @@
           "height": 20,
           "id": "aanbeveling-iva",
           "gridX": 585,
-          "gridY": 125
+          "gridY": 135
         },
         {
           "type": "recommendation",
@@ -1664,14 +1664,14 @@
           "height": 20,
           "id": "aanbeveling-ivb",
           "gridX": 630,
-          "gridY": 125
+          "gridY": 135
         },
         {
           "type": "dataItem",
           "label": "pT",
           "id": "pt",
           "gridX": 450,
-          "gridY": 90,
+          "gridY": 100,
           "interactive": true,
           "options": [
             {
@@ -1729,7 +1729,7 @@
           "label": "pT",
           "id": "pt-2",
           "gridX": 225,
-          "gridY": 90,
+          "gridY": 100,
           "interactive": true,
           "options": [
             {
@@ -1807,7 +1807,7 @@
           "label": "pN",
           "id": "pn",
           "gridX": 360,
-          "gridY": 60,
+          "gridY": 65,
           "interactive": true,
           "options": [
             {
@@ -1875,7 +1875,7 @@
           "height": 20,
           "id": "aanbeveling-stadium-is-niet-te-bepalen",
           "gridX": 360,
-          "gridY": 125
+          "gridY": 135
         }
       ],
       "edges": [
@@ -2067,14 +2067,14 @@
           "height": 20,
           "id": "aanbeveling-ptx",
           "gridX": 0,
-          "gridY": 245
+          "gridY": 275
         },
         {
           "type": "dataItem",
           "label": "Diameter (tumor) cT",
           "id": "diameter-tumor-ct",
           "gridX": 495,
-          "gridY": 130,
+          "gridY": 135,
           "measure": {
             "unit": "mm"
           },
@@ -2099,7 +2099,7 @@
           "label": "Histologische peritoneale uitbreiding",
           "id": "histologische-peritoneale-uitbreiding",
           "gridX": 405,
-          "gridY": 90,
+          "gridY": 100,
           "interactive": true,
           "options": [
             {
@@ -2119,7 +2119,7 @@
           "label": "Uitbreiding ziekte",
           "id": "uitbreiding-ziekte",
           "gridX": 315,
-          "gridY": 60,
+          "gridY": 65,
           "interactive": true,
           "options": [
             {
@@ -2149,7 +2149,7 @@
           "label": "Cellen in ascites",
           "id": "cellen-in-ascites",
           "gridX": 270,
-          "gridY": 90,
+          "gridY": 100,
           "interactive": true,
           "options": [
             {
@@ -2170,7 +2170,7 @@
           "height": 20,
           "id": "aanbeveling-pt2a",
           "gridX": 315,
-          "gridY": 245
+          "gridY": 275
         },
         {
           "type": "recommendation",
@@ -2178,7 +2178,7 @@
           "height": 20,
           "id": "aanbeveling-pt0",
           "gridX": 45,
-          "gridY": 245
+          "gridY": 275
         },
         {
           "type": "recommendation",
@@ -2186,7 +2186,7 @@
           "height": 20,
           "id": "aanbeveling-pt1a",
           "gridX": 90,
-          "gridY": 245
+          "gridY": 275
         },
         {
           "type": "recommendation",
@@ -2194,14 +2194,14 @@
           "height": 20,
           "id": "aanbeveling-pt1b",
           "gridX": 135,
-          "gridY": 245
+          "gridY": 275
         },
         {
           "type": "dataItem",
           "label": "pN",
           "id": "pn",
           "gridX": 495,
-          "gridY": 180,
+          "gridY": 205,
           "interactive": true,
           "options": [
             {
@@ -2236,7 +2236,7 @@
           "height": 20,
           "id": "aanbeveling-pt1c1",
           "gridX": 180,
-          "gridY": 245
+          "gridY": 275
         },
         {
           "type": "recommendation",
@@ -2244,7 +2244,7 @@
           "height": 20,
           "id": "aanbeveling-pt1c3",
           "gridX": 270,
-          "gridY": 245
+          "gridY": 275
         },
         {
           "type": "recommendation",
@@ -2252,14 +2252,14 @@
           "height": 20,
           "id": "aanbeveling-pt2b",
           "gridX": 360,
-          "gridY": 245
+          "gridY": 275
         },
         {
           "type": "dataItem",
           "label": "Kapsel",
           "id": "kapsel",
           "gridX": 225,
-          "gridY": 120,
+          "gridY": 135,
           "interactive": true,
           "options": [
             {
@@ -2280,7 +2280,7 @@
           "height": 20,
           "id": "aanbeveling-pt3a",
           "gridX": 405,
-          "gridY": 245
+          "gridY": 275
         },
         {
           "type": "recommendation",
@@ -2288,7 +2288,7 @@
           "height": 20,
           "id": "aanbeveling-pt3b",
           "gridX": 495,
-          "gridY": 245
+          "gridY": 275
         },
         {
           "type": "recommendation",
@@ -2296,14 +2296,14 @@
           "height": 20,
           "id": "aanbeveling-pt3c",
           "gridX": 540,
-          "gridY": 245
+          "gridY": 275
         },
         {
           "type": "dataItem",
           "label": "Aantal Ovaria",
           "id": "aantal-ovaria",
           "gridX": 90,
-          "gridY": 210,
+          "gridY": 240,
           "measure": {
             "unit": "aantal"
           },
@@ -2330,7 +2330,7 @@
           "label": "Chirurgische lekkage",
           "id": "chirurgische-lekkage",
           "gridX": 135,
-          "gridY": 180,
+          "gridY": 205,
           "interactive": true,
           "options": [
             {
@@ -2350,7 +2350,7 @@
           "label": "Tumorcellen op ovarium oppervlak",
           "id": "tumorcellen-op-ovarium-oppervlak",
           "gridX": 180,
-          "gridY": 150,
+          "gridY": 170,
           "interactive": true,
           "options": [
             {
@@ -2371,7 +2371,7 @@
           "height": 20,
           "id": "aanbeveling-pt1c2",
           "gridX": 225,
-          "gridY": 245
+          "gridY": 275
         },
         {
           "type": "title",
@@ -2411,7 +2411,7 @@
           "height": 20,
           "id": "aanbeveling-er-kan-geen-stadium-worden-vastgesteld",
           "gridX": 450,
-          "gridY": 245
+          "gridY": 275
         }
       ],
       "edges": [
@@ -2660,7 +2660,7 @@
           "label": "Diameter (grootste dimensie) pN",
           "id": "diameter-grootste-dimensie-pn",
           "gridX": 90,
-          "gridY": 60,
+          "gridY": 65,
           "measure": {
             "unit": "mm"
           },
@@ -2686,7 +2686,7 @@
           "height": 20,
           "id": "aanbeveling-pn1a",
           "gridX": 90,
-          "gridY": 95
+          "gridY": 100
         },
         {
           "type": "recommendation",
@@ -2694,7 +2694,7 @@
           "height": 20,
           "id": "aanbeveling-pn1b",
           "gridX": 135,
-          "gridY": 95
+          "gridY": 100
         },
         {
           "type": "recommendation",
@@ -2702,7 +2702,7 @@
           "height": 20,
           "id": "aanbeveling-pn0",
           "gridX": 45,
-          "gridY": 95
+          "gridY": 100
         },
         {
           "type": "recommendation",
@@ -2710,7 +2710,7 @@
           "height": 20,
           "id": "aanbeveling-pnx",
           "gridX": 0,
-          "gridY": 95
+          "gridY": 100
         }
       ],
       "edges": [
@@ -2809,7 +2809,7 @@
           "label": "Pleurale effusie",
           "id": "pleurale-effusie",
           "gridX": 0,
-          "gridY": 55,
+          "gridY": 65,
           "interactive": true,
           "options": [
             {
@@ -2829,7 +2829,7 @@
           "label": "Cytologie pleurale effusie",
           "id": "cytologie-pleurale-effusie",
           "gridX": 45,
-          "gridY": 85,
+          "gridY": 100,
           "interactive": true,
           "options": [
             {
@@ -2850,7 +2850,7 @@
           "height": 20,
           "id": "aanbeveling-cm1a",
           "gridX": 45,
-          "gridY": 120
+          "gridY": 135
         },
         {
           "type": "recommendation",
@@ -2858,7 +2858,7 @@
           "height": 20,
           "id": "aanbeveling-cm1b",
           "gridX": 90,
-          "gridY": 120
+          "gridY": 135
         },
         {
           "type": "recommendation",
@@ -2866,7 +2866,7 @@
           "height": 20,
           "id": "aanbeveling-m0",
           "gridX": 0,
-          "gridY": 120
+          "gridY": 135
         }
       ],
       "edges": [
@@ -2964,7 +2964,7 @@
           "label": "Klinisch stadium",
           "id": "klinisch-stadium",
           "gridX": 45,
-          "gridY": 60,
+          "gridY": 65,
           "interactive": true,
           "options": [
             {
@@ -2998,7 +2998,7 @@
           "label": "WHO performance status",
           "id": "who-performance-status",
           "gridX": 0,
-          "gridY": 90,
+          "gridY": 100,
           "measure": {
             "unit": "score"
           },
@@ -3026,7 +3026,7 @@
           "height": 39,
           "id": "aanbeveling-intervaldebulking",
           "gridX": 0,
-          "gridY": 125
+          "gridY": 135
         },
         {
           "type": "recommendation",
@@ -3034,7 +3034,7 @@
           "height": 20,
           "id": "aanbeveling-continueer",
           "gridX": 45,
-          "gridY": 125
+          "gridY": 135
         },
         {
           "type": "recommendation",
@@ -3042,7 +3042,7 @@
           "height": 20,
           "id": "aanbeveling-intervaldebulking-2",
           "gridX": 90,
-          "gridY": 125
+          "gridY": 135
         },
         {
           "type": "recommendation",
@@ -3050,7 +3050,7 @@
           "height": 23,
           "id": "aanbeveling-overweeg-stoppen-chemotherapie",
           "gridX": 135,
-          "gridY": 125
+          "gridY": 135
         },
         {
           "type": "reference",
@@ -3058,7 +3058,7 @@
           "to": "follow-up",
           "id": "verwijzing-follow-up",
           "gridX": 0,
-          "gridY": 180
+          "gridY": 184
         },
         {
           "type": "title",
@@ -3073,7 +3073,7 @@
           "to": "follow-up",
           "id": "verwijzing-follow-up-2",
           "gridX": 90,
-          "gridY": 160
+          "gridY": 165
         }
       ],
       "edges": [
@@ -3162,7 +3162,7 @@
           "height": 20,
           "id": "aanbeveling-ia",
           "gridX": 0,
-          "gridY": 125
+          "gridY": 135
         },
         {
           "type": "title",
@@ -3176,7 +3176,7 @@
           "label": "cT",
           "id": "ct",
           "gridX": 225,
-          "gridY": 90,
+          "gridY": 100,
           "interactive": true,
           "options": [
             {
@@ -3254,7 +3254,7 @@
           "label": "cT",
           "id": "ct-2",
           "gridX": 450,
-          "gridY": 90,
+          "gridY": 100,
           "interactive": true,
           "options": [
             {
@@ -3313,7 +3313,7 @@
           "height": 20,
           "id": "aanbeveling-ivb",
           "gridX": 630,
-          "gridY": 125
+          "gridY": 135
         },
         {
           "type": "recommendation",
@@ -3321,7 +3321,7 @@
           "height": 20,
           "id": "aanbeveling-iva",
           "gridX": 585,
-          "gridY": 125
+          "gridY": 135
         },
         {
           "type": "recommendation",
@@ -3329,7 +3329,7 @@
           "height": 20,
           "id": "aanbeveling-iiic",
           "gridX": 540,
-          "gridY": 125
+          "gridY": 135
         },
         {
           "type": "recommendation",
@@ -3337,7 +3337,7 @@
           "height": 20,
           "id": "aanbeveling-iiib",
           "gridX": 495,
-          "gridY": 125
+          "gridY": 135
         },
         {
           "type": "recommendation",
@@ -3345,7 +3345,7 @@
           "height": 20,
           "id": "aanbeveling-iiia2",
           "gridX": 450,
-          "gridY": 125
+          "gridY": 135
         },
         {
           "type": "recommendation",
@@ -3353,7 +3353,7 @@
           "height": 20,
           "id": "aanbeveling-iiia1",
           "gridX": 405,
-          "gridY": 125
+          "gridY": 135
         },
         {
           "type": "recommendation",
@@ -3361,7 +3361,7 @@
           "height": 20,
           "id": "aanbeveling-iiic-2",
           "gridX": 315,
-          "gridY": 125
+          "gridY": 135
         },
         {
           "type": "recommendation",
@@ -3369,7 +3369,7 @@
           "height": 20,
           "id": "aanbeveling-iiib-2",
           "gridX": 270,
-          "gridY": 125
+          "gridY": 135
         },
         {
           "type": "recommendation",
@@ -3377,7 +3377,7 @@
           "height": 20,
           "id": "aanbeveling-iiia2-2",
           "gridX": 225,
-          "gridY": 125
+          "gridY": 135
         },
         {
           "type": "recommendation",
@@ -3385,7 +3385,7 @@
           "height": 20,
           "id": "aanbeveling-iib",
           "gridX": 180,
-          "gridY": 125
+          "gridY": 135
         },
         {
           "type": "recommendation",
@@ -3393,7 +3393,7 @@
           "height": 20,
           "id": "aanbeveling-iia",
           "gridX": 135,
-          "gridY": 125
+          "gridY": 135
         },
         {
           "type": "recommendation",
@@ -3401,7 +3401,7 @@
           "height": 20,
           "id": "aanbeveling-ic",
           "gridX": 90,
-          "gridY": 125
+          "gridY": 135
         },
         {
           "type": "recommendation",
@@ -3409,14 +3409,14 @@
           "height": 20,
           "id": "aanbeveling-ib",
           "gridX": 45,
-          "gridY": 125
+          "gridY": 135
         },
         {
           "type": "dataItem",
           "label": "cN",
           "id": "cn",
           "gridX": 360,
-          "gridY": 60,
+          "gridY": 65,
           "interactive": true,
           "options": [
             {
@@ -3484,7 +3484,7 @@
           "height": 20,
           "id": "aanbeveling-stadium-is-niet-te-bepalen",
           "gridX": 360,
-          "gridY": 125
+          "gridY": 135
         }
       ],
       "edges": [
@@ -3676,7 +3676,7 @@
           "height": 20,
           "id": "aanbeveling-ctx",
           "gridX": 0,
-          "gridY": 245
+          "gridY": 275
         },
         {
           "type": "recommendation",
@@ -3684,14 +3684,14 @@
           "height": 20,
           "id": "aanbeveling-ct1c2",
           "gridX": 225,
-          "gridY": 245
+          "gridY": 275
         },
         {
           "type": "dataItem",
           "label": "Tumorcellen op ovarium oppervlak",
           "id": "tumorcellen-op-ovarium-oppervlak",
           "gridX": 180,
-          "gridY": 150,
+          "gridY": 170,
           "interactive": true,
           "options": [
             {
@@ -3711,7 +3711,7 @@
           "label": "Chirurgische lekkage",
           "id": "chirurgische-lekkage",
           "gridX": 135,
-          "gridY": 180,
+          "gridY": 205,
           "interactive": true,
           "options": [
             {
@@ -3731,7 +3731,7 @@
           "label": "Aantal Ovaria",
           "id": "aantal-ovaria",
           "gridX": 90,
-          "gridY": 210,
+          "gridY": 240,
           "measure": {
             "unit": "aantal"
           },
@@ -3759,7 +3759,7 @@
           "height": 20,
           "id": "aanbeveling-ct3c",
           "gridX": 540,
-          "gridY": 245
+          "gridY": 275
         },
         {
           "type": "recommendation",
@@ -3767,7 +3767,7 @@
           "height": 20,
           "id": "aanbeveling-ct3b",
           "gridX": 495,
-          "gridY": 245
+          "gridY": 275
         },
         {
           "type": "recommendation",
@@ -3775,14 +3775,14 @@
           "height": 20,
           "id": "aanbeveling-ct3a",
           "gridX": 405,
-          "gridY": 245
+          "gridY": 275
         },
         {
           "type": "dataItem",
           "label": "Kapsel",
           "id": "kapsel",
           "gridX": 225,
-          "gridY": 120,
+          "gridY": 135,
           "interactive": true,
           "options": [
             {
@@ -3803,7 +3803,7 @@
           "height": 20,
           "id": "aanbeveling-ct2b",
           "gridX": 360,
-          "gridY": 245
+          "gridY": 275
         },
         {
           "type": "recommendation",
@@ -3811,7 +3811,7 @@
           "height": 20,
           "id": "aanbeveling-ct1c3",
           "gridX": 270,
-          "gridY": 245
+          "gridY": 275
         },
         {
           "type": "recommendation",
@@ -3819,14 +3819,14 @@
           "height": 20,
           "id": "aanbeveling-ct1c1",
           "gridX": 180,
-          "gridY": 245
+          "gridY": 275
         },
         {
           "type": "dataItem",
           "label": "cN",
           "id": "cn",
           "gridX": 495,
-          "gridY": 180,
+          "gridY": 205,
           "interactive": true,
           "options": [
             {
@@ -3861,7 +3861,7 @@
           "height": 20,
           "id": "aanbeveling-ct1b",
           "gridX": 135,
-          "gridY": 245
+          "gridY": 275
         },
         {
           "type": "recommendation",
@@ -3869,7 +3869,7 @@
           "height": 20,
           "id": "aanbeveling-ct1a",
           "gridX": 90,
-          "gridY": 245
+          "gridY": 275
         },
         {
           "type": "recommendation",
@@ -3877,7 +3877,7 @@
           "height": 20,
           "id": "aanbeveling-ct0",
           "gridX": 45,
-          "gridY": 245
+          "gridY": 275
         },
         {
           "type": "recommendation",
@@ -3885,7 +3885,7 @@
           "height": 20,
           "id": "aanbeveling-ct2a",
           "gridX": 315,
-          "gridY": 245
+          "gridY": 275
         },
         {
           "type": "title",
@@ -3899,7 +3899,7 @@
           "label": "Cellen in ascites",
           "id": "cellen-in-ascites",
           "gridX": 270,
-          "gridY": 90,
+          "gridY": 100,
           "interactive": true,
           "options": [
             {
@@ -3919,7 +3919,7 @@
           "label": "Uitbreiding ziekte",
           "id": "uitbreiding-ziekte",
           "gridX": 315,
-          "gridY": 60,
+          "gridY": 65,
           "interactive": true,
           "options": [
             {
@@ -3949,7 +3949,7 @@
           "label": "Histologische peritoneale uitbreiding",
           "id": "histologische-peritoneale-uitbreiding",
           "gridX": 405,
-          "gridY": 90,
+          "gridY": 100,
           "interactive": true,
           "options": [
             {
@@ -3969,7 +3969,7 @@
           "label": "Diameter (tumor) cT",
           "id": "diameter-tumor-ct",
           "gridX": 495,
-          "gridY": 130,
+          "gridY": 135,
           "measure": {
             "unit": "mm"
           },
@@ -4020,7 +4020,7 @@
           "height": 20,
           "id": "aanbeveling-staat-niet-in-de-richtlijn",
           "gridX": 450,
-          "gridY": 245
+          "gridY": 275
         }
       ],
       "edges": [
@@ -4269,7 +4269,7 @@
           "label": "Diameter (grootste dimensie) cN",
           "id": "diameter-grootste-dimensie-cn",
           "gridX": 90,
-          "gridY": 60,
+          "gridY": 65,
           "measure": {
             "unit": "mm"
           },
@@ -4295,7 +4295,7 @@
           "height": 20,
           "id": "aanbeveling-cn1a",
           "gridX": 90,
-          "gridY": 95
+          "gridY": 100
         },
         {
           "type": "recommendation",
@@ -4303,7 +4303,7 @@
           "height": 20,
           "id": "aanbeveling-cn1b",
           "gridX": 135,
-          "gridY": 95
+          "gridY": 100
         },
         {
           "type": "recommendation",
@@ -4311,7 +4311,7 @@
           "height": 20,
           "id": "aanbeveling-cn0",
           "gridX": 45,
-          "gridY": 95
+          "gridY": 100
         },
         {
           "type": "recommendation",
@@ -4319,7 +4319,7 @@
           "height": 20,
           "id": "aanbeveling-cnx",
           "gridX": 0,
-          "gridY": 95
+          "gridY": 100
         }
       ],
       "edges": [
@@ -4400,7 +4400,7 @@
           "label": "Primaire behandeling",
           "id": "primaire-behandeling",
           "gridX": 45,
-          "gridY": 90,
+          "gridY": 100,
           "interactive": true,
           "options": [
             {
@@ -4585,7 +4585,7 @@
           "to": "follow-up",
           "id": "verwijzing-follow-up",
           "gridX": 225,
-          "gridY": 170
+          "gridY": 171
         },
         {
           "type": "reference",
@@ -4593,7 +4593,7 @@
           "to": "beleid-na-chemotherapie",
           "id": "verwijzing-beleid-na-chemotherapie",
           "gridX": 180,
-          "gridY": 170
+          "gridY": 171
         },
         {
           "type": "reference",
@@ -4601,7 +4601,7 @@
           "to": "follow-up",
           "id": "verwijzing-follow-up-2",
           "gridX": 135,
-          "gridY": 170
+          "gridY": 171
         },
         {
           "type": "reference",
@@ -4609,7 +4609,7 @@
           "to": "follow-up",
           "id": "verwijzing-follow-up-3",
           "gridX": 90,
-          "gridY": 170
+          "gridY": 171
         },
         {
           "type": "reference",
@@ -4617,7 +4617,7 @@
           "to": "follow-up",
           "id": "verwijzing-follow-up-4",
           "gridX": 45,
-          "gridY": 170
+          "gridY": 171
         },
         {
           "type": "reference",
@@ -4625,7 +4625,7 @@
           "to": "follow-up",
           "id": "verwijzing-follow-up-5",
           "gridX": 0,
-          "gridY": 170
+          "gridY": 171
         }
       ],
       "edges": [
@@ -4772,7 +4772,7 @@
           "to": "beleid-na-stadiering",
           "id": "verwijzing-beleid-na-stadiering",
           "gridX": 45,
-          "gridY": 205
+          "gridY": 209
         },
         {
           "type": "dataItem",
@@ -4844,7 +4844,7 @@
           "label": "Morfologie",
           "id": "morfologie",
           "gridX": 135,
-          "gridY": 90,
+          "gridY": 100,
           "interactive": true,
           "options": [
             {
@@ -4864,7 +4864,7 @@
           "label": "Morfologie",
           "id": "morfologie-2",
           "gridX": 0,
-          "gridY": 95,
+          "gridY": 100,
           "interactive": true,
           "options": [
             {
@@ -4884,7 +4884,7 @@
           "label": "Tumorkenmerk",
           "id": "tumorkenmerk",
           "gridX": 45,
-          "gridY": 125,
+          "gridY": 135,
           "interactive": true,
           "options": [
             {
@@ -4904,7 +4904,7 @@
           "label": "Tumorkenmerk",
           "id": "tumorkenmerk-2",
           "gridX": 135,
-          "gridY": 125,
+          "gridY": 135,
           "interactive": true,
           "options": [
             {
@@ -4925,7 +4925,7 @@
           "height": 23,
           "id": "aanbeveling-stadieringsoperatie",
           "gridX": 135,
-          "gridY": 160
+          "gridY": 170
         },
         {
           "type": "recommendation",
@@ -4933,7 +4933,7 @@
           "height": 20,
           "id": "aanbeveling-primaire-debulking",
           "gridX": 180,
-          "gridY": 160
+          "gridY": 170
         },
         {
           "type": "recommendation",
@@ -4941,7 +4941,7 @@
           "height": 23,
           "id": "aanbeveling-stadieringsoperatie-met-lymfekliersampling",
           "gridX": 90,
-          "gridY": 160
+          "gridY": 170
         },
         {
           "type": "recommendation",
@@ -4949,7 +4949,7 @@
           "height": 29,
           "id": "aanbeveling-stadieringsoperatie-2",
           "gridX": 45,
-          "gridY": 160
+          "gridY": 170
         },
         {
           "type": "recommendation",
@@ -4957,7 +4957,7 @@
           "height": 29,
           "id": "aanbeveling-stadieringsoperatie-3",
           "gridX": 0,
-          "gridY": 160
+          "gridY": 170
         },
         {
           "type": "title",
@@ -4972,7 +4972,7 @@
           "to": "beleid-na-stadiering",
           "id": "verwijzing-beleid-na-stadiering-2",
           "gridX": 90,
-          "gridY": 195
+          "gridY": 203
         },
         {
           "type": "reference",
@@ -4980,7 +4980,7 @@
           "to": "beleid-na-stadiering",
           "id": "verwijzing-beleid-na-stadiering-3",
           "gridX": 0,
-          "gridY": 205
+          "gridY": 209
         },
         {
           "type": "reference",
@@ -4988,7 +4988,7 @@
           "to": "beleid-na-stadiering",
           "id": "verwijzing-beleid-na-stadiering-4",
           "gridX": 135,
-          "gridY": 195
+          "gridY": 203
         },
         {
           "type": "reference",
@@ -4996,7 +4996,7 @@
           "to": "beleid-na-primaire-operatie",
           "id": "verwijzing-beleid-na-primaire-operatie",
           "gridX": 180,
-          "gridY": 195
+          "gridY": 203
         }
       ],
       "edges": [
@@ -5182,7 +5182,7 @@
           "label": "Resectabel obv beeldvorming",
           "id": "resectabel-obv-beeldvorming",
           "gridX": 180,
-          "gridY": 55,
+          "gridY": 65,
           "interactive": true,
           "options": [
             {
@@ -5207,7 +5207,7 @@
           "label": "Klinisch stadium",
           "id": "klinisch-stadium",
           "gridX": 135,
-          "gridY": 85,
+          "gridY": 100,
           "interactive": true,
           "options": [
             {
@@ -5241,7 +5241,7 @@
           "height": 20,
           "id": "aanbeveling-primaire-debulking",
           "gridX": 135,
-          "gridY": 120
+          "gridY": 135
         },
         {
           "type": "recommendation",
@@ -5249,7 +5249,7 @@
           "height": 49,
           "id": "aanbeveling-overweeg-diagnostische-laparoscopie",
           "gridX": 180,
-          "gridY": 120
+          "gridY": 135
         },
         {
           "type": "recommendation",
@@ -5257,7 +5257,7 @@
           "height": 29,
           "id": "aanbeveling-3-kuren-driewekelijks-paclitaxel-carboplatin",
           "gridX": 225,
-          "gridY": 120
+          "gridY": 135
         },
         {
           "type": "recommendation",
@@ -5265,7 +5265,7 @@
           "height": 20,
           "id": "aanbeveling-primaire-debulking-2",
           "gridX": 90,
-          "gridY": 120
+          "gridY": 135
         },
         {
           "type": "reference",
@@ -5273,7 +5273,7 @@
           "to": "vervolg-exploratieve-chirurgie",
           "id": "verwijzing-vervolg-exploratieve-chirurgie-laag-stadium-epitheliaal-ovariumcarcinoom",
           "gridX": 0,
-          "gridY": 153
+          "gridY": 174
         },
         {
           "type": "reference",
@@ -5281,7 +5281,7 @@
           "to": "beleid-na-primaire-operatie",
           "id": "verwijzing-beleid-na-primaire-operatie",
           "gridX": 90,
-          "gridY": 153
+          "gridY": 174
         },
         {
           "type": "reference",
@@ -5289,7 +5289,7 @@
           "to": "beleid-na-primaire-operatie",
           "id": "verwijzing-beleid-na-primaire-operatie-2",
           "gridX": 135,
-          "gridY": 153
+          "gridY": 174
         },
         {
           "type": "reference",
@@ -5297,7 +5297,7 @@
           "to": "primaire-behandeling",
           "id": "verwijzing-primaire-behandeling",
           "gridX": 180,
-          "gridY": 193
+          "gridY": 194
         },
         {
           "type": "reference",
@@ -5305,7 +5305,7 @@
           "to": "beleid-na-primaire-operatie",
           "id": "verwijzing-beleid-na-primaire-operatie-3",
           "gridX": 180,
-          "gridY": 218
+          "gridY": 224
         },
         {
           "type": "reference",
@@ -5313,7 +5313,7 @@
           "to": "beleid-na-chemotherapie",
           "id": "verwijzing-beleid-na-chemotherapie",
           "gridX": 180,
-          "gridY": 243
+          "gridY": 254
         },
         {
           "type": "reference",
@@ -5321,7 +5321,7 @@
           "to": "beleid-na-chemotherapie",
           "id": "verwijzing-beleid-na-chemotherapie-2",
           "gridX": 225,
-          "gridY": 153
+          "gridY": 174
         },
         {
           "type": "recommendation",
@@ -5329,14 +5329,14 @@
           "height": 20,
           "id": "aanbeveling-exploratieve-chirurgie",
           "gridX": 0,
-          "gridY": 120
+          "gridY": 135
         },
         {
           "type": "dataItem",
           "label": "Kinderwens",
           "id": "kinderwens",
           "gridX": 45,
-          "gridY": 85,
+          "gridY": 100,
           "interactive": true,
           "options": [
             {
@@ -5357,7 +5357,7 @@
           "height": 23,
           "id": "aanbeveling-exploratieve-chirurgie-2",
           "gridX": 45,
-          "gridY": 120
+          "gridY": 135
         },
         {
           "type": "reference",
@@ -5365,7 +5365,7 @@
           "to": "vervolg-exploratieve-chirurgie",
           "id": "verwijzing-vervolg-exploratieve-chirurgie-laag-stadium-epitheliaal-ovariumcarcinoom-2",
           "gridX": 45,
-          "gridY": 150
+          "gridY": 174
         }
       ],
       "edges": [
@@ -5562,7 +5562,7 @@
           "to": "primaire-behandeling",
           "id": "verwijzing-primaire-behandeling-2",
           "gridX": 45,
-          "gridY": 130
+          "gridY": 117
         }
       ],
       "edges": [

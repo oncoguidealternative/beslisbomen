@@ -18,6 +18,8 @@ jobs:
           node-version: 20
       - name: Zorgpaden en code controleren
         run: node tools/check.js
+      - name: Raster controleren (maten van blokken en afstanden)
+        run: node tools/check-raster.js
 
   tekst:
     # Opent elk zorgpad en elke beslisboom in een echte browser en meldt tekst die niet in een blok past

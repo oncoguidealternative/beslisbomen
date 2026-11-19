@@ -33,6 +33,19 @@ Standaardblok: 8 hokjes breed en 4 hoog (bij `unit` 25: 200 × 100 px).
 `viewBox`: wordt afgeleid uit de inhoud plus `margin` hokjes rondom als het ontbreekt (dan wordt alles zo verschoven
 dat de marge links en boven klopt). Een expliciete `viewBox` wordt nooit verschoven.
 Een blok mag een eigen `width` en `height` hebben (in hokjes) en een eigen `gap` (in hokjes) die de standaardafstand overschrijft.
+Het standaardraster (afspraak voor alle zorgpaden)
+Alle zorgpaden en beslisbomen gebruiken hetzelfde raster, zodat ze er op de website even groot en even ruim uitzien:
+| Wat | Waarde |
+|---|---|
+| `layout` | `{ "unit": 5, "blockWidth": 40, "blockHeight": 20, "margin": 10 }` |
+| Blok | 40 × 20 hokjes = 200 × 100 px. Aanbevelingen mogen hoger zijn (`height`), niet lager. |
+| Naast elkaar | minstens 5 hokjes (25 px) tussen blokken; kolommen dus om de 45 hokjes |
+| Onder de titel | 10 hokjes (50 px) |
+| Overzicht: tussen stappen | 10 hokjes (50 px); rijen dus om de 30 hokjes |
+| Beslisboom: onder een gegeven | 15 hokjes (75 px) |
+| Beslisboom: onder een aanbeveling of verwijzing | 10 hokjes (50 px) |
+`node tools/check-raster.js` controleert dit (ook op GitHub). Voorbeeld: `data/cervixcarcinoom/zorgpad.json`.
+Vulva- en endometriumcarcinoom hebben nog een eigen raster (blokken in andere maten, afgeleid van afbeeldingen).
 3. Nodetypes
 Layout-rol	Type in de JSON	Wordt in de renderer
 Beslisboomtitel	`title` (of `root`, `start`)	`root` in een boom (blauwe pil, min-icoon, terug naar overzicht), `start` in het overzicht

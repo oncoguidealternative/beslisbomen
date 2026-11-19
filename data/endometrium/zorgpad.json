@@ -12,120 +12,120 @@
   "overview": {
     "layout": {
       "unit": 5,
-      "blockWidth": 46,
-      "blockHeight": 24,
-      "margin": 5
+      "blockWidth": 40,
+      "blockHeight": 20,
+      "margin": 10
     },
     "nodes": [
       {
         "id": "start",
         "type": "title",
-        "gridX": 123,
-        "gridY": 5,
+        "gridX": 45,
+        "gridY": 0,
         "label": "Zorgpad endometriumcarcinoom"
       },
       {
         "id": "initieel",
-        "gridX": 123,
-        "gridY": 36,
+        "gridX": 45,
+        "gridY": 30,
         "drill": true,
         "label": "Initiële diagnostiek"
       },
       {
         "id": "aanvullend",
-        "gridX": 123,
-        "gridY": 67,
+        "gridX": 45,
+        "gridY": 60,
         "drill": true,
         "label": "Aanvullende diagnostiek"
       },
       {
         "id": "stagering",
-        "gridX": 123,
-        "gridY": 98,
+        "gridX": 45,
+        "gridY": 90,
         "drill": true,
         "label": "Stageringsdiagnostiek"
       },
       {
         "id": "primair",
-        "gridX": 123,
-        "gridY": 129,
+        "gridX": 45,
+        "gridY": 120,
         "drill": true,
         "label": "Primaire behandeling"
       },
       {
         "id": "kinder-primair",
-        "gridX": 48,
-        "gridY": 160,
+        "gridX": 0,
+        "gridY": 150,
         "drill": true,
         "label": "Kinderwens en primaire behandeling"
       },
       {
         "id": "evaluatie-stadiering",
-        "gridX": 198,
-        "gridY": 160,
+        "gridX": 90,
+        "gridY": 150,
         "drill": true,
         "label": "Evaluatie stadiëring"
       },
       {
         "id": "adjuvant-endometrioid",
-        "gridX": 123,
-        "gridY": 191,
+        "gridX": 45,
+        "gridY": 180,
         "drill": true,
         "label": "Adjuvante behandeling endometrioïd"
       },
       {
         "id": "adjuvant-serous",
-        "gridX": 198,
-        "gridY": 191,
+        "gridX": 90,
+        "gridY": 180,
         "drill": true,
         "label": "Adjuvante behandeling sereus/clear cell"
       },
       {
         "id": "kinder-vervolg",
-        "gridX": 48,
-        "gridY": 222,
+        "gridX": 0,
+        "gridY": 210,
         "drill": true,
         "label": "Kinderwens en vervolg behandeling"
       },
       {
         "id": "followup",
-        "gridX": 123,
-        "gridY": 253,
+        "gridX": 45,
+        "gridY": 240,
         "drill": true,
         "label": "Follow up"
       },
       {
         "id": "kinder-conceptie",
-        "gridX": 48,
-        "gridY": 284,
+        "gridX": 0,
+        "gridY": 270,
         "drill": true,
         "label": "Kinderwens en conceptiefase"
       },
       {
         "id": "recidiefdiag",
-        "gridX": 123,
-        "gridY": 315,
+        "gridX": 45,
+        "gridY": 300,
         "drill": true,
         "label": "Recidief diagnostiek"
       },
       {
         "id": "kinder-followup",
-        "gridX": 48,
-        "gridY": 346,
+        "gridX": 0,
+        "gridY": 330,
         "drill": true,
         "label": "Kinderwens en follow up tijdens conceptiefase"
       },
       {
         "id": "recidiefbehandeling",
-        "gridX": 123,
-        "gridY": 377,
+        "gridX": 45,
+        "gridY": 360,
         "drill": true,
         "label": "Recidief behandeling"
       },
       {
         "id": "kinder-vervolg-followup",
-        "gridX": 48,
-        "gridY": 377,
+        "gridX": 0,
+        "gridY": 360,
         "drill": true,
         "label": "Kinderwens vervolg follow up tijdens conceptiefase"
       }
@@ -137,12 +137,12 @@
         "to": "initieel",
         "points": [
           [
-            730,
-            145
+            325,
+            100
           ],
           [
-            730,
-            180
+            325,
+            150
           ]
         ],
         "arrow": true
@@ -153,12 +153,12 @@
         "to": "aanvullend",
         "points": [
           [
-            730,
-            300
+            325,
+            250
           ],
           [
-            730,
-            335
+            325,
+            300
           ]
         ],
         "arrow": true
@@ -169,12 +169,12 @@
         "to": "stagering",
         "points": [
           [
-            730,
-            455
+            325,
+            400
           ],
           [
-            730,
-            490
+            325,
+            450
           ]
         ],
         "arrow": true
@@ -185,12 +185,12 @@
         "to": "primair",
         "points": [
           [
-            730,
-            610
+            325,
+            550
           ],
           [
-            730,
-            645
+            325,
+            600
           ]
         ],
         "arrow": true
@@ -201,16 +201,16 @@
         "to": "kinder-primair",
         "points": [
           [
-            615,
-            705
+            225,
+            650
           ],
           [
-            355,
-            705
+            100,
+            650
           ],
           [
-            355,
-            800
+            100,
+            750
           ]
         ],
         "arrow": true
@@ -221,16 +221,16 @@
         "to": "evaluatie-stadiering",
         "points": [
           [
-            845,
-            705
+            425,
+            650
           ],
           [
-            1105,
-            705
+            550,
+            650
           ],
           [
-            1105,
-            800
+            550,
+            750
           ]
         ],
         "arrow": true
@@ -241,12 +241,12 @@
         "to": "adjuvant-endometrioid",
         "points": [
           [
-            730,
-            765
+            325,
+            700
           ],
           [
-            730,
-            955
+            325,
+            900
           ]
         ],
         "arrow": true
@@ -257,12 +257,12 @@
         "to": "adjuvant-serous",
         "points": [
           [
-            1105,
-            920
+            550,
+            850
           ],
           [
-            1105,
-            955
+            550,
+            900
           ]
         ],
         "arrow": true
@@ -273,12 +273,12 @@
         "to": "kinder-vervolg",
         "points": [
           [
-            355,
-            920
+            100,
+            850
           ],
           [
-            355,
-            1110
+            100,
+            1050
           ]
         ],
         "arrow": true
@@ -289,12 +289,12 @@
         "to": "followup",
         "points": [
           [
-            730,
-            1075
+            325,
+            1000
           ],
           [
-            730,
-            1265
+            325,
+            1200
           ]
         ],
         "arrow": true
@@ -305,12 +305,12 @@
         "to": "kinder-conceptie",
         "points": [
           [
-            355,
-            1230
+            100,
+            1150
           ],
           [
-            355,
-            1420
+            100,
+            1350
           ]
         ],
         "arrow": true
@@ -321,12 +321,12 @@
         "to": "recidiefdiag",
         "points": [
           [
-            730,
-            1385
+            325,
+            1300
           ],
           [
-            730,
-            1575
+            325,
+            1500
           ]
         ],
         "arrow": true
@@ -337,12 +337,12 @@
         "to": "kinder-followup",
         "points": [
           [
-            355,
-            1540
+            100,
+            1450
           ],
           [
-            355,
-            1730
+            100,
+            1650
           ]
         ],
         "arrow": true
@@ -353,12 +353,12 @@
         "to": "recidiefbehandeling",
         "points": [
           [
-            730,
-            1695
+            325,
+            1600
           ],
           [
-            730,
-            1885
+            325,
+            1800
           ]
         ],
         "arrow": true
@@ -369,12 +369,12 @@
         "to": "kinder-vervolg-followup",
         "points": [
           [
-            355,
-            1850
+            100,
+            1750
           ],
           [
-            355,
-            1885
+            100,
+            1800
           ]
         ],
         "arrow": true

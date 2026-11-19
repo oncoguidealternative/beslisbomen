@@ -84,7 +84,7 @@ Veel bomen komen in Oncoguide in meer projecten voor (bijvoorbeeld *Initieel bel
 
 | Oncoguide | Website |
 |---|---|
-| Positie van een blok (pixels) | `gridX`/`gridY`, 1 op 1 (unit 5). Kleine scheefstanden worden rechtgetrokken (25 px). |
+| Positie van een blok (pixels) | `gridX`/`gridY` (unit 5). Kolommen 1 op 1; de rijen worden op het standaardraster gelegd (onder de titel 50 px, onder een gegeven 75 px, onder een aanbeveling of verwijzing 50 px). Blokken die in Oncoguide op één rij stonden, blijven op één rij. |
 | Titel van een boom | `title` |
 | Gegeven (vraag) | `dataItem` met `interactive: true` en een optie per waarde |
 | Meting (getal met eenheid) | `dataItem` met `measure` en bereiken (`gt`, `gte`, `lt`, `lte`) |

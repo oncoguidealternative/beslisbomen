@@ -2674,7 +2674,7 @@
           "label": "Follow up benigne ovariumcyste",
           "to": "follow-up-benigne-ovariumcyste",
           "gridX": 0,
-          "gridY": 66
+          "gridY": 68
         }
       ],
       "edges": [
@@ -2705,7 +2705,7 @@
             ],
             [
               100.0,
-              330
+              340
             ]
           ],
           "arrow": true

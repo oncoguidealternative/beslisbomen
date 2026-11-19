@@ -20,21 +20,21 @@
         "type": "title",
         "label": "Zorgpad 2021 CIN, AIS, VAIN",
         "text": "Zorgpad 2021\nCIN, AIS, VAIN",
-        "gridX": 30,
+        "gridX": 22,
         "gridY": 0
       },
       {
         "id": "beleid-tijdens-colposcopie",
         "drill": true,
         "label": "Beleid tijdens colposcopie",
-        "gridX": 30,
+        "gridX": 22,
         "gridY": 30
       },
       {
         "id": "beleid-na-histologie",
         "drill": true,
         "label": "Beleid na histologie",
-        "gridX": 30,
+        "gridX": 22,
         "gridY": 60
       },
       {
@@ -42,135 +42,135 @@
         "tone": "dark",
         "label": "Laaggradige afwijking",
         "gridX": 0,
-        "gridY": 85
+        "gridY": 90
       },
       {
         "id": "hooggradige-afwijking",
         "tone": "dark",
         "label": "Hooggradige afwijking",
-        "gridX": 80,
-        "gridY": 85
+        "gridX": 68,
+        "gridY": 90
       },
       {
         "id": "expectatief-beleid",
         "tone": "dark",
         "label": "Expectatief beleid",
-        "gridX": 180,
-        "gridY": 85
+        "gridX": 158,
+        "gridY": 90
       },
       {
         "id": "fu-12-laaggradig",
         "drill": true,
         "label": "Follow up - 12 maanden na verdenking/diagnose laaggradige afwijking",
         "gridX": 0,
-        "gridY": 110
+        "gridY": 120
       },
       {
         "id": "fu-6-behandeld-cin23",
         "drill": true,
         "label": "Follow up - 6 maanden na diagnose behandelde CIN 2/3",
-        "gridX": 80,
-        "gridY": 110
+        "gridX": 68,
+        "gridY": 120
       },
       {
         "id": "fu-6-onbehandeld-cin2",
         "drill": true,
         "label": "Follow up - 6 maanden na diagnose onbehandelde CIN2",
-        "gridX": 180,
-        "gridY": 110
+        "gridX": 158,
+        "gridY": 120
       },
       {
         "id": "fu-24-laaggradig",
         "drill": true,
         "label": "Follow up - 24 maanden na verdenking/diagnose laaggradige afwijking",
         "gridX": 0,
-        "gridY": 135
+        "gridY": 150
       },
       {
         "id": "fu-12-behandeld-cin23",
         "drill": true,
         "label": "Follow up - 12 maanden na diagnose behandelde CIN 2/3",
-        "gridX": 80,
-        "gridY": 135
+        "gridX": 68,
+        "gridY": 150
       },
       {
         "id": "fu-12-onbehandeld-cin2",
         "drill": true,
         "label": "Follow up - 12 maanden na diagnose onbehandelde CIN2",
-        "gridX": 180,
-        "gridY": 135
+        "gridX": 158,
+        "gridY": 150
       },
       {
         "id": "beleid-histologie-primair-onbehandeld-laaggradig",
         "drill": true,
         "label": "Beleid na histologie na primair onbehandelde laaggradige afwijking",
-        "gridX": 30,
-        "gridY": 160
+        "gridX": 22,
+        "gridY": 180
       },
       {
         "id": "fu-24-behandeld-cin23",
         "drill": true,
         "label": "Follow up - 24 maanden na diagnose behandelde CIN 2/3",
-        "gridX": 80,
-        "gridY": 160
+        "gridX": 68,
+        "gridY": 180
       },
       {
         "id": "fu-24-behandeld-cin23-expectatief",
         "drill": true,
         "label": "Follow up - 24 maanden na diagnose behandelde CIN 2/3",
-        "gridX": 150,
-        "gridY": 160,
+        "gridX": 135,
+        "gridY": 180,
         "to": "fu-24-behandeld-cin23"
       },
       {
         "id": "beleid-biopt-12-onbehandeld-cin2",
         "drill": true,
         "label": "Beleid na biopt na 12 maanden onbehandelde CIN2",
-        "gridX": 210,
-        "gridY": 160
+        "gridX": 180,
+        "gridY": 180
       },
       {
         "id": "fu-30-behandeld-cin23",
         "drill": true,
         "label": "Follow up - 30 maanden na diagnose behandelde CIN 2/3",
-        "gridX": 80,
-        "gridY": 185
+        "gridX": 68,
+        "gridY": 210
       },
       {
         "id": "fu-18-onbehandeld-cin2",
         "drill": true,
         "label": "Follow up – 18 maanden na diagnose onbehandelde CIN2",
-        "gridX": 210,
-        "gridY": 185
+        "gridX": 180,
+        "gridY": 210
       },
       {
         "id": "beleid-histologie-primair-behandeld-cin23",
         "drill": true,
         "label": "Beleid na histologie na primair behandelde CIN 2/3",
-        "gridX": 110,
-        "gridY": 210
+        "gridX": 90,
+        "gridY": 240
       },
       {
         "id": "fu-24-onbehandeld-cin2",
         "drill": true,
         "label": "Follow up - 24 maanden na diagnose onbehandelde CIN2",
-        "gridX": 180,
-        "gridY": 210
+        "gridX": 158,
+        "gridY": 240
       },
       {
         "id": "beleid-biopten-24-onbehandeld-cin2",
         "drill": true,
         "label": "Beleid na biopten (bij follow up 24 mnd na diagnose onbehandelde CIN2)",
         "text": "Beleid na biopten\n(bij follow up 24 mnd na diagnose onbehandelde CIN2)",
-        "gridX": 180,
-        "gridY": 235
+        "gridX": 158,
+        "gridY": 270
       },
       {
         "id": "beleid-na-histologie-2",
         "drill": true,
         "label": "Beleid na histologie",
-        "gridX": 255,
-        "gridY": 235,
+        "gridX": 225,
+        "gridY": 270,
         "to": "beleid-na-histologie"
       }
     ],
@@ -181,11 +181,11 @@
         "to": "beleid-tijdens-colposcopie",
         "points": [
           [
-            250,
+            210,
             100
           ],
           [
-            250,
+            210,
             150
           ]
         ],
@@ -197,11 +197,11 @@
         "to": "beleid-na-histologie",
         "points": [
           [
-            250,
+            210,
             250
           ],
           [
-            250,
+            210,
             300
           ]
         ],
@@ -213,7 +213,7 @@
         "to": "laaggradige-afwijking",
         "points": [
           [
-            150,
+            110,
             350
           ],
           [
@@ -222,7 +222,7 @@
           ],
           [
             100,
-            425
+            450
           ]
         ],
         "arrow": true
@@ -233,16 +233,16 @@
         "to": "hooggradige-afwijking",
         "points": [
           [
-            350,
+            310,
             350
           ],
           [
-            500,
+            440,
             350
           ],
           [
-            500,
-            425
+            440,
+            450
           ]
         ],
         "arrow": true
@@ -253,16 +253,16 @@
         "to": "expectatief-beleid",
         "points": [
           [
-            500,
+            440,
             350
           ],
           [
-            1000,
+            890,
             350
           ],
           [
-            1000,
-            425
+            890,
+            450
           ]
         ],
         "arrow": true
@@ -274,11 +274,11 @@
         "points": [
           [
             100,
-            525
+            550
           ],
           [
             100,
-            550
+            600
           ]
         ],
         "arrow": true
@@ -289,12 +289,12 @@
         "to": "fu-6-behandeld-cin23",
         "points": [
           [
-            500,
-            525
+            440,
+            550
           ],
           [
-            500,
-            550
+            440,
+            600
           ]
         ],
         "arrow": true
@@ -305,12 +305,12 @@
         "to": "fu-6-onbehandeld-cin2",
         "points": [
           [
-            1000,
-            525
+            890,
+            550
           ],
           [
-            1000,
-            550
+            890,
+            600
           ]
         ],
         "arrow": true
@@ -322,11 +322,11 @@
         "points": [
           [
             100,
-            650
+            700
           ],
           [
             100,
-            675
+            750
           ]
         ],
         "arrow": true
@@ -337,12 +337,12 @@
         "to": "fu-12-behandeld-cin23",
         "points": [
           [
-            500,
-            650
+            440,
+            700
           ],
           [
-            500,
-            675
+            440,
+            750
           ]
         ],
         "arrow": true
@@ -353,12 +353,12 @@
         "to": "fu-24-behandeld-cin23",
         "points": [
           [
-            500,
-            775
+            440,
+            850
           ],
           [
-            500,
-            800
+            440,
+            900
           ]
         ],
         "arrow": true
@@ -369,12 +369,12 @@
         "to": "fu-30-behandeld-cin23",
         "points": [
           [
-            500,
-            900
+            440,
+            1000
           ],
           [
-            500,
-            925
+            440,
+            1050
           ]
         ],
         "arrow": true
@@ -385,12 +385,12 @@
         "to": "fu-12-onbehandeld-cin2",
         "points": [
           [
-            1000,
-            650
+            890,
+            700
           ],
           [
-            1000,
-            675
+            890,
+            750
           ]
         ],
         "arrow": true
@@ -402,15 +402,15 @@
         "points": [
           [
             200,
-            600
+            650
           ],
           [
-            250,
-            600
+            210,
+            650
           ],
           [
-            250,
-            800
+            210,
+            900
           ]
         ],
         "arrow": true
@@ -422,11 +422,11 @@
         "points": [
           [
             200,
-            725
+            800
           ],
           [
-            250,
-            725
+            210,
+            800
           ]
         ]
       },
@@ -436,16 +436,16 @@
         "to": "beleid-histologie-primair-behandeld-cin23",
         "points": [
           [
-            600,
-            600
+            540,
+            650
           ],
           [
-            650,
-            600
+            550,
+            650
           ],
           [
-            650,
-            1050
+            550,
+            1200
           ]
         ],
         "arrow": true
@@ -456,12 +456,12 @@
         "to": "beleid-histologie-primair-behandeld-cin23",
         "points": [
           [
-            600,
-            725
+            540,
+            800
           ],
           [
-            650,
-            725
+            550,
+            800
           ]
         ]
       },
@@ -471,12 +471,12 @@
         "to": "beleid-histologie-primair-behandeld-cin23",
         "points": [
           [
-            600,
-            850
+            540,
+            950
           ],
           [
-            650,
-            850
+            550,
+            950
           ]
         ]
       },
@@ -486,12 +486,12 @@
         "to": "beleid-histologie-primair-behandeld-cin23",
         "points": [
           [
-            600,
-            975
+            540,
+            1100
           ],
           [
-            650,
-            975
+            550,
+            1100
           ]
         ]
       },
@@ -501,16 +501,16 @@
         "to": "fu-24-behandeld-cin23-expectatief",
         "points": [
           [
-            900,
-            600
+            790,
+            650
           ],
           [
-            850,
-            600
+            775,
+            650
           ],
           [
-            850,
-            800
+            775,
+            900
           ]
         ],
         "arrow": true
@@ -521,16 +521,16 @@
         "to": "beleid-na-histologie-2",
         "points": [
           [
-            1100,
-            600
+            990,
+            650
           ],
           [
-            1375,
-            600
+            1225,
+            650
           ],
           [
-            1375,
-            1175
+            1225,
+            1350
           ]
         ],
         "arrow": true
@@ -541,16 +541,16 @@
         "to": "beleid-biopt-12-onbehandeld-cin2",
         "points": [
           [
-            1100,
-            725
-          ],
-          [
-            1150,
-            725
-          ],
-          [
-            1150,
+            990,
             800
+          ],
+          [
+            1000,
+            800
+          ],
+          [
+            1000,
+            900
           ]
         ],
         "arrow": true
@@ -561,12 +561,12 @@
         "to": "beleid-na-histologie-2",
         "points": [
           [
-            1100,
-            725
+            990,
+            800
           ],
           [
-            1375,
-            725
+            1225,
+            800
           ]
         ]
       },
@@ -576,12 +576,12 @@
         "to": "fu-24-onbehandeld-cin2",
         "points": [
           [
-            1000,
-            775
+            890,
+            850
           ],
           [
-            1000,
-            1050
+            890,
+            1200
           ]
         ],
         "arrow": true
@@ -592,12 +592,12 @@
         "to": "fu-18-onbehandeld-cin2",
         "points": [
           [
-            1150,
-            900
+            1000,
+            1000
           ],
           [
-            1150,
-            925
+            1000,
+            1050
           ]
         ],
         "arrow": true
@@ -608,12 +608,12 @@
         "to": "beleid-na-histologie-2",
         "points": [
           [
-            1250,
-            850
+            1100,
+            950
           ],
           [
-            1375,
-            850
+            1225,
+            950
           ]
         ]
       },
@@ -623,12 +623,12 @@
         "to": "fu-24-onbehandeld-cin2",
         "points": [
           [
-            1050,
-            975
+            900,
+            1100
           ],
           [
-            1000,
-            975
+            890,
+            1100
           ]
         ]
       },
@@ -638,12 +638,12 @@
         "to": "beleid-biopten-24-onbehandeld-cin2",
         "points": [
           [
-            1000,
-            1150
+            890,
+            1300
           ],
           [
-            1000,
-            1175
+            890,
+            1350
           ]
         ],
         "arrow": true
@@ -665,14 +665,14 @@
           "to": "beleid-na-histologie",
           "id": "verwijzing-beleid-na-histologie",
           "gridX": 0,
-          "gridY": 200
+          "gridY": 190
         },
         {
           "type": "dataItem",
           "label": "PAP-score",
           "id": "pap-score",
           "gridX": 150,
-          "gridY": 90,
+          "gridY": 100,
           "interactive": true,
           "options": [
             {
@@ -693,7 +693,7 @@
           "height": 26,
           "id": "aanbeveling-neem-minimaal-twee-willekeurige-biopten-af",
           "gridX": 100,
-          "gridY": 130
+          "gridY": 135
         },
         {
           "type": "reference",
@@ -701,7 +701,7 @@
           "to": "beleid-na-histologie",
           "id": "verwijzing-beleid-na-histologie-2",
           "gridX": 100,
-          "gridY": 200
+          "gridY": 190
         },
         {
           "type": "recommendation",
@@ -709,7 +709,7 @@
           "height": 23,
           "id": "aanbeveling-neem-twee-gerichte-biopten-af",
           "gridX": 150,
-          "gridY": 130
+          "gridY": 135
         },
         {
           "type": "reference",
@@ -717,7 +717,7 @@
           "to": "beleid-na-histologie",
           "id": "verwijzing-beleid-na-histologie-3",
           "gridX": 150,
-          "gridY": 200
+          "gridY": 190
         },
         {
           "type": "recommendation",
@@ -725,7 +725,7 @@
           "height": 32,
           "id": "aanbeveling-neem-twee-gerichte-biopten-af-2",
           "gridX": 200,
-          "gridY": 130
+          "gridY": 135
         },
         {
           "type": "reference",
@@ -733,7 +733,7 @@
           "to": "beleid-na-histologie",
           "id": "verwijzing-beleid-na-histologie-4",
           "gridX": 200,
-          "gridY": 200
+          "gridY": 190
         },
         {
           "type": "recommendation",
@@ -741,7 +741,7 @@
           "height": 45,
           "id": "aanbeveling-endocervicale-curretage",
           "gridX": 250,
-          "gridY": 130
+          "gridY": 135
         },
         {
           "type": "reference",
@@ -749,7 +749,7 @@
           "to": "beleid-na-histologie",
           "id": "verwijzing-beleid-na-histologie-5",
           "gridX": 250,
-          "gridY": 200
+          "gridY": 190
         },
         {
           "type": "recommendation",
@@ -757,7 +757,7 @@
           "height": 23,
           "id": "aanbeveling-neem-twee-gerichte-biopten-af-3",
           "gridX": 300,
-          "gridY": 130
+          "gridY": 135
         },
         {
           "type": "reference",
@@ -765,7 +765,7 @@
           "to": "beleid-na-histologie",
           "id": "verwijzing-beleid-na-histologie-6",
           "gridX": 300,
-          "gridY": 200
+          "gridY": 190
         },
         {
           "type": "reference",
@@ -773,7 +773,7 @@
           "to": "beleid-na-histologie",
           "id": "verwijzing-beleid-na-histologie-7",
           "gridX": 350,
-          "gridY": 200
+          "gridY": 190
         },
         {
           "type": "dataItem",
@@ -800,7 +800,7 @@
           "label": "Colposcopische afwijkingen",
           "id": "colposcopische-afwijkingen",
           "gridX": 250,
-          "gridY": 60,
+          "gridY": 65,
           "interactive": true,
           "options": [
             {
@@ -820,7 +820,7 @@
           "label": "PAP-score",
           "id": "pap-score-2",
           "gridX": 50,
-          "gridY": 90,
+          "gridY": 100,
           "interactive": true,
           "options": [
             {
@@ -841,7 +841,7 @@
           "height": 20,
           "id": "aanbeveling-biopsie-niet-strikt-noodzakelijk",
           "gridX": 50,
-          "gridY": 130
+          "gridY": 135
         },
         {
           "type": "reference",
@@ -849,14 +849,14 @@
           "to": "fu-12-laaggradig",
           "id": "verwijzing-follow-up-12-maanden-na-verdenking-diagnose-laaggradige-afwijking",
           "gridX": 50,
-          "gridY": 200
+          "gridY": 190
         },
         {
           "type": "dataItem",
           "label": "PAP-score",
           "id": "pap-score-3",
           "gridX": 300,
-          "gridY": 90,
+          "gridY": 100,
           "interactive": true,
           "options": [
             {
@@ -883,7 +883,7 @@
           "label": "Colposcopische afwijkingen",
           "id": "colposcopische-afwijkingen-2",
           "gridX": 100,
-          "gridY": 60,
+          "gridY": 65,
           "interactive": true,
           "options": [
             {
@@ -904,7 +904,7 @@
           "height": 20,
           "id": "aanbeveling-neem-twee-gerichte-biopten-af-4",
           "gridX": 350,
-          "gridY": 130
+          "gridY": 135
         }
       ],
       "edges": [
@@ -1074,7 +1074,7 @@
           "height": 29,
           "id": "aanbeveling-follow-up-met",
           "gridX": 50,
-          "gridY": 150
+          "gridY": 135
         },
         {
           "type": "reference",
@@ -1082,7 +1082,7 @@
           "to": "fu-6-onbehandeld-cin2",
           "id": "verwijzing-follow-up-6-maanden-na-diagnose-onbehandelde-cin2",
           "gridX": 300,
-          "gridY": 220
+          "gridY": 207
         },
         {
           "type": "reference",
@@ -1090,7 +1090,7 @@
           "to": "fu-6-behandeld-cin23",
           "id": "verwijzing-follow-up-6-maanden-na-diagnose-behandelde-cin-2-3",
           "gridX": 300,
-          "gridY": 195
+          "gridY": 177
         },
         {
           "type": "reference",
@@ -1098,7 +1098,7 @@
           "to": "fu-6-behandeld-cin23",
           "id": "verwijzing-follow-up-6-maanden-na-diagnose-behandelde-cin-2-3-2",
           "gridX": 50,
-          "gridY": 220
+          "gridY": 207
         },
         {
           "type": "recommendation",
@@ -1106,7 +1106,7 @@
           "height": 20,
           "id": "aanbeveling-letz",
           "gridX": 400,
-          "gridY": 150
+          "gridY": 135
         },
         {
           "type": "title",
@@ -1121,7 +1121,7 @@
           "to": "fu-6-onbehandeld-cin2",
           "id": "verwijzing-follow-up-6-maanden-na-diagnose-onbehandelde-cin2-2",
           "gridX": 250,
-          "gridY": 220
+          "gridY": 207
         },
         {
           "type": "recommendation",
@@ -1129,7 +1129,7 @@
           "height": 32,
           "id": "aanbeveling-volgend-uitstrijkje-volgens-bvo",
           "gridX": 0,
-          "gridY": 150
+          "gridY": 135
         },
         {
           "type": "recommendation",
@@ -1137,7 +1137,7 @@
           "height": 20,
           "id": "aanbeveling-zie-richtlijn-cervixcarcinoom",
           "gridX": 450,
-          "gridY": 150
+          "gridY": 135
         },
         {
           "type": "recommendation",
@@ -1145,7 +1145,7 @@
           "height": 20,
           "id": "aanbeveling-zie-richtlijn-cervixcarcinoom-2",
           "gridX": 150,
-          "gridY": 150
+          "gridY": 135
         },
         {
           "type": "recommendation",
@@ -1153,7 +1153,7 @@
           "height": 58,
           "id": "aanbeveling-behandeling-niet-geindiceerd",
           "gridX": 200,
-          "gridY": 150
+          "gridY": 135
         },
         {
           "type": "reference",
@@ -1161,7 +1161,7 @@
           "to": "fu-12-laaggradig",
           "id": "verwijzing-follow-up-12-maanden-na-verdenking-diagnose-laaggradige-afwijking",
           "gridX": 200,
-          "gridY": 220
+          "gridY": 207
         },
         {
           "type": "recommendation",
@@ -1169,7 +1169,7 @@
           "height": 26,
           "id": "aanbeveling-expectatief-beleid",
           "gridX": 250,
-          "gridY": 150
+          "gridY": 135
         },
         {
           "type": "reference",
@@ -1177,14 +1177,14 @@
           "to": "beleid-na-histologie",
           "id": "verwijzing-beleid-na-histologie",
           "gridX": 350,
-          "gridY": 220
+          "gridY": 207
         },
         {
           "type": "dataItem",
           "label": "Uitslag histologie cervix",
           "id": "uitslag-histologie-cervix",
           "gridX": 100,
-          "gridY": 110,
+          "gridY": 100,
           "interactive": true,
           "options": [
             {
@@ -1215,7 +1215,7 @@
           "height": 20,
           "id": "aanbeveling-individualiseer-de-follow-up",
           "gridX": 500,
-          "gridY": 150
+          "gridY": 135
         },
         {
           "type": "dataItem",
@@ -1252,7 +1252,7 @@
           "label": "Leeftijd",
           "id": "leeftijd",
           "gridX": 250,
-          "gridY": 110,
+          "gridY": 100,
           "measure": {
             "unit": "jaar"
           },
@@ -1280,14 +1280,14 @@
           "height": 36,
           "id": "aanbeveling-excisie",
           "gridX": 550,
-          "gridY": 150
+          "gridY": 135
         },
         {
           "type": "dataItem",
           "label": "Uitslag histologie cervix",
           "id": "uitslag-histologie-cervix-2",
           "gridX": 250,
-          "gridY": 70,
+          "gridY": 65,
           "interactive": true,
           "options": [
             {
@@ -1323,7 +1323,7 @@
           "height": 29,
           "id": "aanbeveling-vaginale-imiquimod-behandeling",
           "gridX": 350,
-          "gridY": 150
+          "gridY": 135
         },
         {
           "type": "reference",
@@ -1331,14 +1331,14 @@
           "to": "beleid-na-histologie",
           "id": "verwijzing-beleid-na-histologie-2",
           "gridX": 300,
-          "gridY": 245
+          "gridY": 237
         },
         {
           "type": "dataItem",
           "label": "Kinderwens",
           "id": "kinderwens",
           "gridX": 350,
-          "gridY": 110,
+          "gridY": 100,
           "interactive": true,
           "options": [
             {
@@ -1359,7 +1359,7 @@
           "height": 20,
           "id": "aanbeveling-individualiseer",
           "gridX": 100,
-          "gridY": 150
+          "gridY": 135
         },
         {
           "type": "recommendation",
@@ -1367,14 +1367,14 @@
           "height": 32,
           "id": "aanbeveling-individualiseer-behandeling-mbv-shared",
           "gridX": 300,
-          "gridY": 150
+          "gridY": 135
         },
         {
           "type": "dataItem",
           "label": "Uitslag histologie vaginawand",
           "id": "uitslag-histologie-vaginawand",
           "gridX": 500,
-          "gridY": 110,
+          "gridY": 100,
           "interactive": true,
           "options": [
             {
@@ -1395,7 +1395,7 @@
           "to": "beleid-na-histologie",
           "id": "verwijzing-beleid-na-histologie-3",
           "gridX": 400,
-          "gridY": 220
+          "gridY": 207
         }
       ],
       "edges": [
@@ -1622,7 +1622,7 @@
           "label": "hrHPV-status",
           "id": "hrhpv-status",
           "gridX": 0,
-          "gridY": 60,
+          "gridY": 65,
           "interactive": true,
           "options": [
             {
@@ -1668,7 +1668,7 @@
           "height": 20,
           "id": "aanbeveling-follow-up-met",
           "gridX": 0,
-          "gridY": 95
+          "gridY": 100
         },
         {
           "type": "recommendation",
@@ -1676,7 +1676,7 @@
           "height": 20,
           "id": "aanbeveling-follow-up-met-2",
           "gridX": 45,
-          "gridY": 95
+          "gridY": 100
         },
         {
           "type": "recommendation",
@@ -1684,7 +1684,7 @@
           "height": 20,
           "id": "aanbeveling-colposcopische-beoordeling-met-letz",
           "gridX": 90,
-          "gridY": 95
+          "gridY": 100
         },
         {
           "type": "reference",
@@ -1692,7 +1692,7 @@
           "to": "fu-24-behandeld-cin23",
           "id": "verwijzing-follow-up-24-maanden-na-diagnose-behandelde-cin-2-3",
           "gridX": 0,
-          "gridY": 125
+          "gridY": 130
         },
         {
           "type": "reference",
@@ -1700,7 +1700,7 @@
           "to": "fu-12-onbehandeld-cin2",
           "id": "verwijzing-follow-up-12-maanden-na-diagnose-onbehandelde-cin2",
           "gridX": 45,
-          "gridY": 125
+          "gridY": 130
         },
         {
           "type": "reference",
@@ -1708,7 +1708,7 @@
           "to": "beleid-na-histologie",
           "id": "verwijzing-beleid-na-histologie",
           "gridX": 90,
-          "gridY": 125
+          "gridY": 130
         }
       ],
       "edges": [
@@ -1795,7 +1795,7 @@
           "height": 20,
           "id": "aanbeveling-volgend-uitstrijkje-volgens-bvo",
           "gridX": 0,
-          "gridY": 110
+          "gridY": 100
         },
         {
           "type": "title",
@@ -1810,14 +1810,14 @@
           "height": 20,
           "id": "aanbeveling-follow-up-na-6-maanden-met-cervixcytologie",
           "gridX": 50,
-          "gridY": 110
+          "gridY": 100
         },
         {
           "type": "dataItem",
           "label": "hrHPV-status",
           "id": "hrhpv-status",
           "gridX": 0,
-          "gridY": 70,
+          "gridY": 65,
           "interactive": true,
           "options": [
             {
@@ -1863,7 +1863,7 @@
           "height": 36,
           "id": "aanbeveling-colposcopie-met-afnemen-biopt-en",
           "gridX": 100,
-          "gridY": 110
+          "gridY": 100
         },
         {
           "type": "reference",
@@ -1871,7 +1871,7 @@
           "to": "fu-30-behandeld-cin23",
           "id": "verwijzing-follow-up-30-maanden-na-diagnose-behandelde-cin-2-3",
           "gridX": 50,
-          "gridY": 160
+          "gridY": 146
         },
         {
           "type": "reference",
@@ -1879,7 +1879,7 @@
           "to": "beleid-histologie-primair-onbehandeld-laaggradig",
           "id": "verwijzing-beleid-na-histologie-na-primair-onbehandelde-laaggradige-afwijking",
           "gridX": 100,
-          "gridY": 160
+          "gridY": 146
         }
       ],
       "edges": [
@@ -1987,7 +1987,7 @@
           "height": 20,
           "id": "aanbeveling-volgend-uitstrijkje-volgens-bvo",
           "gridX": 0,
-          "gridY": 70
+          "gridY": 65
         },
         {
           "type": "recommendation",
@@ -1995,7 +1995,7 @@
           "height": 20,
           "id": "aanbeveling-colposcopie",
           "gridX": 50,
-          "gridY": 70
+          "gridY": 65
         },
         {
           "type": "reference",
@@ -2003,7 +2003,7 @@
           "to": "beleid-histologie-primair-behandeld-cin23",
           "id": "verwijzing-beleid-na-histologie-na-primair-behandelde-cin-2-3",
           "gridX": 50,
-          "gridY": 100
+          "gridY": 95
         }
       ],
       "edges": [
@@ -2061,7 +2061,7 @@
           "height": 29,
           "id": "aanbeveling-follow-up-met-hrhpv-en-cervixcytologie",
           "gridX": 50,
-          "gridY": 70
+          "gridY": 65
         },
         {
           "type": "dataItem",
@@ -2094,7 +2094,7 @@
           "height": 20,
           "id": "aanbeveling-individualiseren",
           "gridX": 0,
-          "gridY": 70
+          "gridY": 65
         },
         {
           "type": "recommendation",
@@ -2102,7 +2102,7 @@
           "height": 20,
           "id": "aanbeveling-individualiseer-overleg-met-patholoog-en",
           "gridX": 100,
-          "gridY": 70
+          "gridY": 65
         },
         {
           "type": "reference",
@@ -2110,7 +2110,7 @@
           "to": "fu-6-behandeld-cin23",
           "id": "verwijzing-follow-up-6-maanden-na-diagnose-behandelde-cin-2-3",
           "gridX": 50,
-          "gridY": 105
+          "gridY": 104
         }
       ],
       "edges": [
@@ -2168,7 +2168,7 @@
           "label": "hrHPV-status",
           "id": "hrhpv-status",
           "gridX": 0,
-          "gridY": 60,
+          "gridY": 65,
           "interactive": true,
           "options": [
             {
@@ -2240,7 +2240,7 @@
           "to": "fu-24-behandeld-cin23",
           "id": "verwijzing-follow-up-24-maanden-na-diagnose-behandelde-cin-2-3",
           "gridX": 0,
-          "gridY": 130
+          "gridY": 136
         },
         {
           "type": "reference",
@@ -2248,7 +2248,7 @@
           "to": "fu-12-behandeld-cin23",
           "id": "verwijzing-follow-up-12-maanden-na-diagnose-behandelde-cin-2-3",
           "gridX": 50,
-          "gridY": 130
+          "gridY": 136
         },
         {
           "type": "reference",
@@ -2256,7 +2256,7 @@
           "to": "beleid-histologie-primair-behandeld-cin23",
           "id": "verwijzing-beleid-na-histologie-na-primair-behandelde-cin-2-3",
           "gridX": 100,
-          "gridY": 130
+          "gridY": 136
         }
       ],
       "edges": [
@@ -2362,7 +2362,7 @@
           "height": 26,
           "id": "aanbeveling-colposcopie",
           "gridX": 50,
-          "gridY": 70
+          "gridY": 65
         },
         {
           "type": "recommendation",
@@ -2370,7 +2370,7 @@
           "height": 20,
           "id": "aanbeveling-follow-up-na-18-maanden-met-hrhpv-en",
           "gridX": 0,
-          "gridY": 70
+          "gridY": 65
         },
         {
           "type": "reference",
@@ -2378,7 +2378,7 @@
           "to": "fu-24-behandeld-cin23",
           "id": "verwijzing-follow-up-24-maanden-na-diagnose-behandelde-cin-2-3",
           "gridX": 0,
-          "gridY": 100
+          "gridY": 101
         },
         {
           "type": "reference",
@@ -2386,7 +2386,7 @@
           "to": "beleid-histologie-primair-behandeld-cin23",
           "id": "verwijzing-beleid-na-histologie-na-primair-behandelde-cin-2-3",
           "gridX": 50,
-          "gridY": 100
+          "gridY": 101
         }
       ],
       "edges": [
@@ -2443,14 +2443,14 @@
           "height": 45,
           "id": "aanbeveling-letz",
           "gridX": 310,
-          "gridY": 150
+          "gridY": 135
         },
         {
           "type": "dataItem",
           "label": "Kinderwens",
           "id": "kinderwens",
           "gridX": 280,
-          "gridY": 110,
+          "gridY": 100,
           "interactive": true,
           "options": [
             {
@@ -2471,7 +2471,7 @@
           "height": 20,
           "id": "aanbeveling-handelen-naar-bevinden",
           "gridX": 405,
-          "gridY": 150
+          "gridY": 135
         },
         {
           "type": "recommendation",
@@ -2479,7 +2479,7 @@
           "height": 20,
           "id": "aanbeveling-zie-richtlijn-cervixcarcinoom",
           "gridX": 360,
-          "gridY": 150
+          "gridY": 135
         },
         {
           "type": "recommendation",
@@ -2487,7 +2487,7 @@
           "height": 20,
           "id": "aanbeveling-individualiseer-overleg-met-patholoog-en",
           "gridX": 100,
-          "gridY": 150
+          "gridY": 135
         },
         {
           "type": "recommendation",
@@ -2495,7 +2495,7 @@
           "height": 20,
           "id": "aanbeveling-volgend-uitstrijkje-volgens-bvo",
           "gridX": 0,
-          "gridY": 150
+          "gridY": 135
         },
         {
           "type": "reference",
@@ -2503,7 +2503,7 @@
           "to": "fu-6-behandeld-cin23",
           "id": "verwijzing-follow-up-6-maanden-na-diagnose-behandelde-cin-2-3",
           "gridX": 50,
-          "gridY": 185
+          "gridY": 168
         },
         {
           "type": "recommendation",
@@ -2511,7 +2511,7 @@
           "height": 23,
           "id": "aanbeveling-follow-up-met-hrhpv-en-cervixcytologie",
           "gridX": 50,
-          "gridY": 150
+          "gridY": 135
         },
         {
           "type": "dataItem",
@@ -2551,7 +2551,7 @@
           "height": 20,
           "id": "aanbeveling-volgend-uitstrijkje-volgens-bvo-2",
           "gridX": 200,
-          "gridY": 150
+          "gridY": 135
         },
         {
           "type": "recommendation",
@@ -2559,14 +2559,14 @@
           "height": 20,
           "id": "aanbeveling-individualiseer-behandeling",
           "gridX": 250,
-          "gridY": 150
+          "gridY": 135
         },
         {
           "type": "dataItem",
           "label": "Uitslag histologie cervix",
           "id": "uitslag-histologie-cervix",
           "gridX": 250,
-          "gridY": 70,
+          "gridY": 65,
           "interactive": true,
           "options": [
             {
@@ -2602,14 +2602,14 @@
           "height": 20,
           "id": "aanbeveling-zie-richtlijn-cervixcarcinoom-2",
           "gridX": 150,
-          "gridY": 150
+          "gridY": 135
         },
         {
           "type": "dataItem",
           "label": "Uitslag histologie cervix",
           "id": "uitslag-histologie-cervix-2",
           "gridX": 100,
-          "gridY": 110,
+          "gridY": 100,
           "interactive": true,
           "options": [
             {
@@ -2640,7 +2640,7 @@
           "to": "fu-6-behandeld-cin23",
           "id": "verwijzing-follow-up-6-maanden-na-diagnose-behandelde-cin-2-3-2",
           "gridX": 310,
-          "gridY": 210
+          "gridY": 190
         }
       ],
       "edges": [
@@ -2796,7 +2796,7 @@
           "label": "hrHPV-status",
           "id": "hrhpv-status",
           "gridX": 0,
-          "gridY": 60,
+          "gridY": 65,
           "interactive": true,
           "options": [
             {
@@ -2847,7 +2847,7 @@
           "height": 20,
           "id": "aanbeveling-follow-up-met",
           "gridX": 0,
-          "gridY": 95
+          "gridY": 100
         },
         {
           "type": "recommendation",
@@ -2855,7 +2855,7 @@
           "height": 20,
           "id": "aanbeveling-follow-up-met-2",
           "gridX": 45,
-          "gridY": 95
+          "gridY": 100
         },
         {
           "type": "recommendation",
@@ -2863,7 +2863,7 @@
           "height": 20,
           "id": "aanbeveling-colposcopische-beoordeling-met-letz",
           "gridX": 135,
-          "gridY": 95
+          "gridY": 100
         },
         {
           "type": "reference",
@@ -2871,7 +2871,7 @@
           "to": "fu-24-onbehandeld-cin2",
           "id": "verwijzing-follow-up-24-maanden-na-diagnose-onbehandelde-cin2",
           "gridX": 45,
-          "gridY": 125
+          "gridY": 130
         },
         {
           "type": "recommendation",
@@ -2879,7 +2879,7 @@
           "height": 20,
           "id": "aanbeveling-colposcopische-beoordeling-met-biopten",
           "gridX": 90,
-          "gridY": 95
+          "gridY": 100
         },
         {
           "type": "reference",
@@ -2887,7 +2887,7 @@
           "to": "fu-30-behandeld-cin23",
           "id": "verwijzing-follow-up-30-maanden-na-diagnose-behandelde-cin-2-3",
           "gridX": 0,
-          "gridY": 125
+          "gridY": 130
         },
         {
           "type": "reference",
@@ -2895,7 +2895,7 @@
           "to": "beleid-biopt-12-onbehandeld-cin2",
           "id": "verwijzing-beleid-na-biopt-na-12-maanden-onbehandelde-cin2",
           "gridX": 90,
-          "gridY": 125
+          "gridY": 130
         },
         {
           "type": "reference",
@@ -2903,7 +2903,7 @@
           "to": "beleid-na-histologie",
           "id": "verwijzing-beleid-na-histologie",
           "gridX": 135,
-          "gridY": 125
+          "gridY": 130
         }
       ],
       "edges": [
@@ -3007,7 +3007,7 @@
           "label": "hrHPV-status",
           "id": "hrhpv-status",
           "gridX": 0,
-          "gridY": 55,
+          "gridY": 65,
           "interactive": true,
           "options": [
             {
@@ -3027,7 +3027,7 @@
           "label": "PAP-score",
           "id": "pap-score",
           "gridX": 45,
-          "gridY": 25,
+          "gridY": 30,
           "interactive": true,
           "options": [
             {
@@ -3058,7 +3058,7 @@
           "height": 20,
           "id": "aanbeveling-follow-up-met",
           "gridX": 0,
-          "gridY": 90
+          "gridY": 100
         },
         {
           "type": "recommendation",
@@ -3066,7 +3066,7 @@
           "height": 20,
           "id": "aanbeveling-individualiseer-behandeling",
           "gridX": 45,
-          "gridY": 90
+          "gridY": 100
         },
         {
           "type": "recommendation",
@@ -3074,7 +3074,7 @@
           "height": 20,
           "id": "aanbeveling-colposcopische-beoordeling-met",
           "gridX": 135,
-          "gridY": 90
+          "gridY": 100
         },
         {
           "type": "recommendation",
@@ -3082,7 +3082,7 @@
           "height": 20,
           "id": "aanbeveling-colposcopische-beoordeling-met-2",
           "gridX": 90,
-          "gridY": 90
+          "gridY": 100
         }
       ],
       "edges": [
@@ -3163,7 +3163,7 @@
           "height": 29,
           "id": "aanbeveling-letz",
           "gridX": 90,
-          "gridY": 95
+          "gridY": 100
         },
         {
           "type": "recommendation",
@@ -3171,14 +3171,14 @@
           "height": 45,
           "id": "aanbeveling-individualiseer-behandeling-mbv-shared",
           "gridX": 45,
-          "gridY": 95
+          "gridY": 100
         },
         {
           "type": "dataItem",
           "label": "Kinderwens",
           "id": "kinderwens",
           "gridX": 45,
-          "gridY": 60,
+          "gridY": 65,
           "interactive": true,
           "options": [
             {
@@ -3199,7 +3199,7 @@
           "height": 55,
           "id": "aanbeveling-geen-behandeling-niet-geindiceerd",
           "gridX": 0,
-          "gridY": 95
+          "gridY": 100
         },
         {
           "type": "dataItem",
@@ -3232,7 +3232,7 @@
           "to": "fu-18-onbehandeld-cin2",
           "id": "verwijzing-follow-up-18-maanden-na-diagnose-onbehandelde-cin2",
           "gridX": 45,
-          "gridY": 160
+          "gridY": 164
         },
         {
           "type": "reference",
@@ -3240,7 +3240,7 @@
           "to": "beleid-na-histologie",
           "id": "verwijzing-beleid-na-histologie",
           "gridX": 45,
-          "gridY": 185
+          "gridY": 189
         },
         {
           "type": "reference",
@@ -3248,7 +3248,7 @@
           "to": "beleid-na-histologie",
           "id": "verwijzing-beleid-na-histologie-2",
           "gridX": 135,
-          "gridY": 135
+          "gridY": 139
         },
         {
           "type": "reference",
@@ -3256,7 +3256,7 @@
           "to": "beleid-na-histologie",
           "id": "verwijzing-beleid-na-histologie-3",
           "gridX": 90,
-          "gridY": 135
+          "gridY": 139
         },
         {
           "type": "recommendation",
@@ -3264,7 +3264,7 @@
           "height": 20,
           "id": "aanbeveling-letz-2",
           "gridX": 135,
-          "gridY": 95
+          "gridY": 100
         },
         {
           "type": "reference",
@@ -3272,7 +3272,7 @@
           "to": "fu-18-onbehandeld-cin2",
           "id": "verwijzing-follow-up-18-maanden-na-diagnose-onbehandelde-cin2-2",
           "gridX": 90,
-          "gridY": 160
+          "gridY": 164
         }
       ],
       "edges": [
@@ -3374,7 +3374,7 @@
           "label": "hrHPV-status",
           "id": "hrhpv-status",
           "gridX": 0,
-          "gridY": 60,
+          "gridY": 65,
           "interactive": true,
           "options": [
             {
@@ -3420,7 +3420,7 @@
           "height": 20,
           "id": "aanbeveling-follow-up-met",
           "gridX": 0,
-          "gridY": 95
+          "gridY": 100
         },
         {
           "type": "recommendation",
@@ -3428,7 +3428,7 @@
           "height": 20,
           "id": "aanbeveling-follow-up-met-2",
           "gridX": 45,
-          "gridY": 95
+          "gridY": 100
         },
         {
           "type": "recommendation",
@@ -3436,7 +3436,7 @@
           "height": 20,
           "id": "aanbeveling-colposcopische-beoordeling-met-letz",
           "gridX": 90,
-          "gridY": 95
+          "gridY": 100
         },
         {
           "type": "reference",
@@ -3444,7 +3444,7 @@
           "to": "fu-24-onbehandeld-cin2",
           "id": "verwijzing-follow-up-24-maanden-na-diagnose-onbehandelde-cin2",
           "gridX": 45,
-          "gridY": 125
+          "gridY": 130
         }
       ],
       "edges": [
@@ -3543,7 +3543,7 @@
           "label": "hrHPV-status",
           "id": "hrhpv-status",
           "gridX": 0,
-          "gridY": 60,
+          "gridY": 65,
           "interactive": true,
           "options": [
             {
@@ -3691,7 +3691,7 @@
           "height": 20,
           "id": "aanbeveling-colposcopie-met-afnemen-biopt-en",
           "gridX": 100,
-          "gridY": 110
+          "gridY": 100
         },
         {
           "type": "recommendation",
@@ -3699,7 +3699,7 @@
           "height": 20,
           "id": "aanbeveling-volgend-uitstrijkje-volgens-bvo",
           "gridX": 50,
-          "gridY": 110
+          "gridY": 100
         },
         {
           "type": "recommendation",
@@ -3707,14 +3707,14 @@
           "height": 26,
           "id": "aanbeveling-volgend-uitstrijkje-volgens-bvo-2",
           "gridX": 0,
-          "gridY": 110
+          "gridY": 100
         },
         {
           "type": "dataItem",
           "label": "hrHPV-status",
           "id": "hrhpv-status",
           "gridX": 50,
-          "gridY": 70,
+          "gridY": 65,
           "interactive": true,
           "options": [
             {
@@ -3760,7 +3760,7 @@
           "to": "beleid-histologie-primair-onbehandeld-laaggradig",
           "id": "verwijzing-beleid-na-histologie-na-primair-onbehandelde-laaggradige-afwijking",
           "gridX": 100,
-          "gridY": 145
+          "gridY": 130
         }
       ],
       "edges": [
@@ -3832,7 +3832,7 @@
           "height": 20,
           "id": "aanbeveling-letz",
           "gridX": 135,
-          "gridY": 95
+          "gridY": 100
         },
         {
           "type": "recommendation",
@@ -3840,7 +3840,7 @@
           "height": 20,
           "id": "aanbeveling-letz-2",
           "gridX": 90,
-          "gridY": 95
+          "gridY": 100
         },
         {
           "type": "recommendation",
@@ -3848,7 +3848,7 @@
           "height": 29,
           "id": "aanbeveling-individualiseer-behandeling-mbv-shared",
           "gridX": 45,
-          "gridY": 95
+          "gridY": 100
         },
         {
           "type": "recommendation",
@@ -3856,14 +3856,14 @@
           "height": 55,
           "id": "aanbeveling-geen-behandeling-niet-geindiceerd",
           "gridX": 0,
-          "gridY": 95
+          "gridY": 100
         },
         {
           "type": "dataItem",
           "label": "Kinderwens",
           "id": "kinderwens",
           "gridX": 45,
-          "gridY": 60,
+          "gridY": 65,
           "interactive": true,
           "options": [
             {
