@@ -1382,7 +1382,7 @@
           "text": "Geen aanvullende diagnostiek",
           "gridX": 90,
           "gridY": 65,
-          "height": 21
+          "height": 20
         },
         {
           "id": "verwijzing-vervolg-diagnostiek-lymfeklier-metastase",
@@ -1406,7 +1406,7 @@
           "label": "Vervolg diagnostiek (lymfeklier)metastasen",
           "to": "vervolg-diagnostiek-lymfeklier-metastasen",
           "gridX": 90,
-          "gridY": 96
+          "gridY": 95
         }
       ],
       "edges": [
@@ -1542,11 +1542,11 @@
           "points": [
             [
               550,
-              430
+              425
             ],
             [
               550,
-              480
+              475
             ]
           ],
           "arrow": true
@@ -3520,7 +3520,7 @@
           "text": "Conisatie\n\nOF\n\nGeen interventie\n{i} indien bij reeds verrichte lisexcisie snijraden goed beoordeelbaar en tumorvrij\n\n---EN---\n\nOverweeg pelviene lymfadenectomie\n{i} verwijs naar oncologisch centrum",
           "gridX": 135,
           "gridY": 115,
-          "height": 69
+          "height": 65
         },
         {
           "id": "o-behandelen-volgens-stadium-ib1",
@@ -3567,7 +3567,7 @@
           "label": "Follow-up",
           "to": "follow-up",
           "gridX": 135,
-          "gridY": 194
+          "gridY": 190
         }
       ],
       "edges": [
@@ -3842,11 +3842,11 @@
           "points": [
             [
               775,
-              920
+              900
             ],
             [
               775,
-              970
+              950
             ]
           ],
           "arrow": true
@@ -3994,7 +3994,7 @@
           "text": "Verwijs naar oncologisch centrum\n\nEN\n\nUterusextirpatie\n\nEN\n\nPelviene lymfadenectomie",
           "gridX": 90,
           "gridY": 115,
-          "height": 44
+          "height": 39
         },
         {
           "id": "o-verwijs-naar-oncologisch-centrum-2",
@@ -4041,7 +4041,7 @@
           "label": "Adjuvante behandeling",
           "to": "adjuvante-behandeling",
           "gridX": 90,
-          "gridY": 169
+          "gridY": 164
         },
         {
           "id": "verwijzing-adjuvante-behandeling-2",
@@ -4308,11 +4308,11 @@
           "points": [
             [
               550,
-              795
+              770
             ],
             [
               550,
-              845
+              820
             ]
           ],
           "arrow": true
@@ -4466,7 +4466,7 @@
           "text": "Verwijs naar oncologisch centrum\n\n--EN--\n\nInformeer over zwangerschapskans, recidiefrisico incl. lage bewijskracht van de literatuur.\n\n---\n\nNeo-adjuvante chemotherapie GEVOLGD DOOR fertiliteitsparende chirurgie\n{i} in studieverband.\n\nOF\n\nFertiliteitsparend niet mogelijk/wenselijk",
           "gridX": 135,
           "gridY": 90,
-          "height": 88
+          "height": 84
         },
         {
           "id": "verwijzing-respons-beoordeling",
@@ -4490,7 +4490,7 @@
           "label": "Behandeling stadium IB1 & IB2",
           "to": "stadium-ib1-ib2",
           "gridX": 135,
-          "gridY": 203
+          "gridY": 184
         },
         {
           "id": "verwijzing-bepaling-vervolg-chirurgie-2",
@@ -4721,11 +4721,11 @@
           "points": [
             [
               775,
-              890
+              870
             ],
             [
               775,
-              1015
+              920
             ]
           ],
           "arrow": true
@@ -6086,7 +6086,7 @@
           "text": "Geen adjuvante behandeling",
           "gridX": 0,
           "gridY": 190,
-          "height": 21
+          "height": 20
         },
         {
           "id": "o-overweeg-radiotherapie",
@@ -6102,7 +6102,7 @@
           "text": "Geen adjuvante behandeling",
           "gridX": 90,
           "gridY": 190,
-          "height": 21
+          "height": 20
         },
         {
           "id": "o-overweeg-radiotherapie-2",
@@ -6134,7 +6134,7 @@
           "label": "Follow-up",
           "to": "follow-up",
           "gridX": 0,
-          "gridY": 254
+          "gridY": 220
         },
         {
           "id": "verwijzing-follow-up-2",
@@ -6150,7 +6150,7 @@
           "label": "Follow-up",
           "to": "follow-up",
           "gridX": 90,
-          "gridY": 254
+          "gridY": 220
         },
         {
           "id": "verwijzing-follow-up-4",
@@ -6681,11 +6681,11 @@
           "points": [
             [
               100,
-              1055
+              1050
             ],
             [
               100,
-              1270
+              1100
             ]
           ],
           "arrow": true
@@ -6713,11 +6713,11 @@
           "points": [
             [
               550,
-              1055
+              1050
             ],
             [
               550,
-              1270
+              1100
             ]
           ],
           "arrow": true
@@ -7611,7 +7611,7 @@
           "text": "Overweeg radicale chirurgie\n\nOF\n\nOverweeg brachytherapie\n{i} indien radiotherapeutische ruimte\n{i} indien contraindicatie operatie",
           "gridX": 90,
           "gridY": 125,
-          "height": 51
+          "height": 42
         },
         {
           "id": "o-overweeg-radicale-chirurgie-2",
@@ -7642,7 +7642,7 @@
           "text": "Individualiseer palliatieve behandeling\n\nOverweeg chemotherapie met bevacizumab",
           "gridX": 315,
           "gridY": 153,
-          "height": 29
+          "height": 23
         },
         {
           "id": "o-individualiseer-palliatieve-behandeling-2",
@@ -7650,7 +7650,7 @@
           "text": "Individualiseer palliatieve behandeling\n\nOverweeg palliatieve radiotherapie\n\nOverweeg chemotherapie met bevacizumab",
           "gridX": 360,
           "gridY": 153,
-          "height": 38
+          "height": 32
         }
       ],
       "edges": [

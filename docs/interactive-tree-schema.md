@@ -111,6 +111,7 @@ Het overzicht en elke beslisboom zijn een **graph** met dezelfde opbouw (§3).
 - In een aanbeveling krijgt een `{i}`-regel een witregel ervoor, zodat de toelichting los staat van de aanbeveling erboven. Opeenvolgende `{i}`-regels blijven bij elkaar.
 - Tekst staat in elk blok horizontaal én verticaal gecentreerd.
 - Past de tekst niet in het blok, dan krijgt het blok in de tekening `data-overflow="y"`; maak het blok dan hoger (`height`) en schuif wat eronder staat mee.
+- Een aanbeveling is niet hoger dan de tekst nodig heeft (binnenmarge 12 px boven en onder, nooit lager dan het standaardblok). `node tools/check-witruimte.js --fix` maakt te hoge aanbevelingen passend.
 
 ### Types
 

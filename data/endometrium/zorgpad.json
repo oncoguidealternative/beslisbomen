@@ -1196,7 +1196,7 @@
           "type": "recommendation",
           "gridX": 76,
           "gridY": 224,
-          "height": 61,
+          "height": 46,
           "text": "Totale abdominale hysterectomie*\nOF\nTotale laparoscopische hysterectomie*\n\nEN\n\nBSO\n\n* zie onderbouwing"
         },
         {
@@ -1204,7 +1204,7 @@
           "type": "recommendation",
           "gridX": 138,
           "gridY": 216,
-          "height": 66,
+          "height": 43,
           "text": "Verwijs naar oncologisch centrum\n\nEN\n\nHysterectomie\n{i}streef naar R0, indien nodig (gemodificeerde) radicale hysterectomie"
         },
         {
@@ -1212,7 +1212,7 @@
           "type": "recommendation",
           "gridX": 196,
           "gridY": 216,
-          "height": 74,
+          "height": 57,
           "text": "Verwijs naar oncologisch centrum\n\nEN\n\nTotale abdominale hysterectomie\nEN\nBSO*\n\nOF\n\nOverweeg hormoontherapie"
         },
         {
@@ -1220,7 +1220,7 @@
           "type": "recommendation",
           "gridX": 254,
           "gridY": 216,
-          "height": 74,
+          "height": 53,
           "text": "Primair uitwendige radiotherapie*\n\nEN\n\nInwendige radiotherapie evt gevolgd door hysterectomie*\n\nOF\n\nOverweeg hormoontherapie"
         },
         {
@@ -1228,7 +1228,7 @@
           "type": "recommendation",
           "gridX": 312,
           "gridY": 216,
-          "height": 76,
+          "height": 68,
           "text": "Verwijs naar oncologisch centrum\n\nEN\n\nTotale abdominale hysterectomie\nEN\nBSO*\nEN\nOverweeg resectie lymfkliermetastasen*\n\nOF\n\nOverweeg hormoontherapie"
         },
         {
@@ -1236,7 +1236,7 @@
           "type": "recommendation",
           "gridX": 370,
           "gridY": 216,
-          "height": 66,
+          "height": 46,
           "text": "Overweeg laag gedoseerd medroxyprogesteron (200 mg/dag)\n{i}zeker bij PR+ tumoren\n\nOF\n\nOverweeg megestrol-acetaat (160 mg/dag)"
         },
         {
@@ -1244,7 +1244,7 @@
           "type": "recommendation",
           "gridX": 428,
           "gridY": 164,
-          "height": 40,
+          "height": 28,
           "text": "Verwijs naar oncologisch centrum\n\nEN\n\nComplete stadiëring"
         },
         {
@@ -1252,7 +1252,7 @@
           "type": "recommendation",
           "gridX": 428,
           "gridY": 216,
-          "height": 58,
+          "height": 39,
           "text": "Verwijs naar oncologisch centrum\n\nEN\n\nHysterectomie\n{i}streef naar R0, indien nodig"
         },
         {
@@ -1260,7 +1260,7 @@
           "type": "recommendation",
           "gridX": 472,
           "gridY": 216,
-          "height": 66,
+          "height": 46,
           "text": "Verwijs naar oncologisch centrum*\n\nEN\n\nDebulking*\n\nOF\n\nOverweeg hormoontherapie"
         },
         {
@@ -1268,7 +1268,7 @@
           "type": "recommendation",
           "gridX": 472,
           "gridY": 144,
-          "height": 52,
+          "height": 32,
           "text": "Overweeg laag gedoseerd medroxyprogesteron\n\nOF\n\nOverweeg megestrol-acetaat"
         },
         {
@@ -2189,7 +2189,7 @@
           "type": "recommendation",
           "gridX": 340,
           "gridY": 170,
-          "height": 26,
+          "height": 22,
           "text": "Uitwendige radiotherapie\n\nEN\n\nOverweeg chemotherapie"
         },
         {
@@ -3526,7 +3526,7 @@
           "type": "recommendation",
           "gridX": 12,
           "gridY": 122,
-          "height": 86,
+          "height": 82,
           "text": "Medroxyprogesteron\n200 mg/dag 3mnd\n\n(na 3mnd)\nGEVOLGD DOOR\n\nHysteroscopie\n\nEN\n\nEndometriumsampling na kuur I\n\nIncludeer in internationale registratiestudie"
         },
         {
@@ -3540,7 +3540,7 @@
           "id": "v",
           "type": "reference",
           "gridX": 12,
-          "gridY": 220,
+          "gridY": 214,
           "label": "Kinderwens en vervolg behandeling",
           "icon": "down",
           "to": "kinder-vervolg"
@@ -3618,11 +3618,11 @@
           "points": [
             [
               210,
-              1040
+              1020
             ],
             [
               210,
-              1100
+              1070
             ]
           ],
           "arrow": true
@@ -4225,7 +4225,7 @@
           "type": "recommendation",
           "gridX": 10,
           "gridY": 214,
-          "height": 62,
+          "height": 58,
           "text": "Medroxyprogesteron 200 mg/dag (elke 3 mnd)\n\nGEVOLGD DOOR\n\nHysteroscopie\n\nEN\n\nEndometriumsampling"
         },
         {
@@ -4713,7 +4713,7 @@
           "type": "recommendation",
           "gridX": 436,
           "gridY": 164,
-          "height": 52,
+          "height": 25,
           "text": "Overweeg laag gedoseerd medroxyprogesteron\nOF\nOverweeg megestrol-acetaat"
         },
         {
