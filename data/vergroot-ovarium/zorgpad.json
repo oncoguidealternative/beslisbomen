@@ -773,7 +773,8 @@
           "id": "verwijzing-behandeling-borderline",
           "type": "reference",
           "label": "Behandeling borderline ovariumtumor",
-          "to": "behandeling-borderline-ovariumtumor",
+          "tumor": "borderline-ovarium",
+          "tree": "behandeling-borderline-ovariumtumor",
           "gridX": 270,
           "gridY": 365
         },
