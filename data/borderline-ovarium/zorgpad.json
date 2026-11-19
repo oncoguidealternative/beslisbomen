@@ -1,6 +1,13 @@
 {
   "id": "borderline-ovarium",
   "titel": "Zorgpad borderline ovariumtumoren",
+  "bron": {
+    "richtlijn": "Borderline ovariumtumoren",
+    "organisatie": "NVOG (Nederlandse Vereniging voor Obstetrie en Gynaecologie)",
+    "url": "https://richtlijnendatabase.nl/richtlijn/borderline_ovariumtumoren/borderline_ovariumtumoren_-_startpagina.html",
+    "bijgewerkt": "2026-11-19",
+    "opmerking": "Omgezet uit de beslisbomen van Oncoguide (IKNL, project Borderline ovariumtumoren, publicatie 15-04-2021). De stappen 'Klinisch (verdenking op) vergroot ovarium' en 'Initieel beleid vergroot ovarium' verwijzen naar het zorgpad Vergroot ovarium."
+  },
   "overview": {
     "layout": {
       "unit": 5,
@@ -299,26 +306,26 @@
       },
       "nodes": [
         {
-          "id": "titel",
           "type": "title",
           "label": "Screening",
+          "id": "titel",
           "gridX": 0,
           "gridY": 0
         },
         {
-          "id": "aanbeveling-screening-niet-geindiceerd",
           "type": "recommendation",
           "text": "Screening niet geïndiceerd",
           "height": 20,
+          "id": "aanbeveling-screening-niet-geindiceerd",
           "gridX": 0,
           "gridY": 35
         },
         {
-          "id": "verwijzing-klinisch-verdenking-op-vergroot-ovarium",
           "type": "reference",
           "label": "Klinisch (verdenking op) vergroot ovarium",
           "tumor": "vergroot-ovarium",
           "tree": "klinisch-vergroot-ovarium",
+          "id": "verwijzing-klinisch-verdenking-op-vergroot-ovarium",
           "gridX": 0,
           "gridY": 65
         }
@@ -339,7 +346,7 @@
       ]
     },
     "behandeling-borderline-ovariumtumor": {
-      "onderbouwing": "Laparoscopie of laparotomie? Doel is volledige verwijdering van de ovariumtumor en stadiering (Vandenput 2005). Macroscopische resttumor na operatie was in een studie de enige prognostische factor met een significant effect op de overleving (Gershenson 1998). Dit is aanleiding om te pleiten voor (mediane) laparotomie in plaats van laparoscopie omdat dit de beste garantie is voor complete, spilvrije chirurgische resectie van alle macroscopische afwijkingen, en adequate stagiering (Cadron 2007).\n\nVoordeel laparoscopie: minimaal invasief. Nadeel laparoscopie: meer spil bij de verwijdering van ovariumtumoren (Maneo 2004); mogelijk minder adequate stadiering en gemis van palpatie (Maneo 2004; Vandenput 2005; Cadron 2007).\n\nBuik(spoel)vocht voor cytologie dient te worden afgenomen en minstens wordt een enkelzijdige salpingo-oophorectomie verricht. Bij postmenopauzale patiënten is een bilaterale salpingo-oophorectomie aangewezen. Wanneer er geen sprake (meer) is van kinderwens bij een premenopauzale patiënte dient het al dan niet verwijderen van het contralaterale ovarium tevoren met patiënte te worden besproken. Wanneer er sprake is van (mogelijke) kinderwens kan met een unilaterale salpingo-oophorectomie worden volstaan. In geval van een mono-ovarium bij kinderwens kan volstaan worden met een ovariële cystectomie, hoewel dit gepaard gaat met een grotere kans (8-58%) op een locaal recidief waarbij het gaat om retrospectieve data in beperkte series (Lim-Tan 1988; Trope 1998; Tazelaar 1985; Gotlieb 1998; Morice 2001; Cadron 2007; Piura 1992).\n\nIn geval van een mucineuze ovariumtumor is zorgvuldige inspectie van de appendix en darmen aangewezen en is appendectomie geïndiceerd omdat het hier een ovariële metastase kan betreffen (Sherman 2003; Webb 2004).\n\nDe waarde van een uitgebreide stagieringsprocedure, zoals bij ovariumcarcinoom, is bewezen niet nuttig: het heeft geen invloed op verder beleid en leidt niet tot betere prognose. Volstaan kan worden met een grondige inspectie en palpatie van de buikholte, darmen en mesenterium, omentum, de pelviene en para-aortale klierstations en beoordeling van het contralaterale ovarium. Evident afwijkende gebieden dienen geëxcideerd te worden. Een infracolische omentectomie en standaard peritoneale bioptering (beiderzijds paracolisch en diafragmakoepels, van blaaskoepel en cavum Douglasi) is weliswaar van nut voor het vinden van peritoneale implantaties (stagiering) maar heeft geen consequenties voor de behandeling. Een pelviene lymfadenectomie hoort niet tot de standaard stagieringsprocedure, evenmin als een hysterectomie, hoewel aanbevolen in literatuur (Cadron 2007).\n\nIndien de uitslag \"borderline tumor van het ovarium\" pas achteraf bekend wordt hoeft geen relaparotomie verricht te worden voor de stagiering. Bij patiënten die zonder resttumor zijn geopereerd heeft de uitgebreidheid van de chirurgie geen invloed op overleving (Kaern 1993).\n\nEen aparte categorie vormen de borderline tumoren met peritoneale implantaties. Deze kunnen benigne, microinvasief maar ook maligne (invasieve implantaties) zijn. In retrospectieve studies heeft alleen de zeldzame groep patiënten met een sereuze borderline tumor met invasieve implantaties een slechtere prognose (Prat 2002; Michael 1986) hoewel anderen dit niet kunnen bevestigen (Michael 1986). In een Zweedse cohortserie overleden 3/399 patiënten, alledrie met een mucineuze tumor (FIGO IA, IA, IIIC) (Akeson 2008). Voor zover in (retrospectieve) studies is geëvalueerd heeft aanvullende behandeling geen aantoonbaar effect op overleving.\n\nKies bij verdenking op een unilaterale borderline ovariumtumor bij een patiënt met een kinderwens voor een unilaterale salpingo-oöphorectomie. De recidiefkans na cystectomie is groter.\n\nOverweeg, na counseling van de patiënt, bij een verdenking op een bilaterale borderline ovariumtumor bij een patiënt met kinderwens een bilaterale cystectomie (indien technisch mogelijk), i.p.v. unilaterale salpingo-oöphorectomie en contralaterale cystectomie, wegens een significante hogere kans op zwangerschap en een kortere mediane duur tot zwangerschap.\n\nAdviseer de patiënt om na een bilaterale cystectomie niet te wachten met het vervullen van de kinderwens. De recidiefkans is gelijk aan unilaterale salpingo-oöphorectomie gecombineerd met unilaterale cystectomie, maar het termijn tot recidief is korter (16 versus 48 maanden). Bij laparoscopie wordt het gebruik van een endoscopie zak aanbevolen. De kans op spill in de buikholte is groter bij cystectomie.",
+      "onderbouwing": "Laparoscopie of laparotomie?\n\nDoel is volledige verwijdering van de ovariumtumor en stadiering (Vandenput 2005). Macroscopische resttumor na operatie was in een studie de enige prognostische factor met een significant effect op de overleving (Gershenson 1998). Dit is aanleiding om te pleiten voor (mediane) laparotomie in plaats van laparoscopie omdat dit de beste garantie is voor complete, spilvrije chirurgische resectie van alle macroscopische afwijkingen, en adequate stagiering (Cadron 2007).\n\nVoordeel laparoscopie:\n\n- Minimaal invasief.\n\nNadeel laparoscopie:\n\n- Meer spil bij de verwijdering van ovariumtumoren (Maneo 2004)\n\n- Mogelijk minder adequate stadiering en gemis van palpatie (Maneo 2004; Vandenput 2005; Cadron 2007)\n\n- Buik(spoel)vocht voor cytologie dient te worden afgenomen en minstens wordt een enkelzijdige salpingo-oophorectomie verricht. Bij postmenopauzale patiënten is een bilaterale salpingo-oophorectomie aangewezen. Wanneer er geen sprake (meer) is van kinderwens bij een premenopauzale patiënte dient het al dan niet verwijderen van het contralaterale ovarium tevoren met patiënte te worden besproken. Wanneer er sprake is van (mogelijke) kinderwens kan met een unilaterale salpingo-oophorectomie worden volstaan. In geval van een mono-ovarium bij kinderwens kan volstaan worden met een ovariële cystectomie, hoewel dit gepaard gaat met een grotere kans (8-58%) op een locaal recidief waarbij het gaat om retrospectieve data in beperkte series (Lim-Tan 1988; Trope 1998; Tazelaar 1985; Gotlieb 1998; Morice 2001; Cadron 2007; Piura 1992)\n\n- In geval van een mucineuze ovariumtumor is zorgvuldige inspectie van de appendix en darmen aangewezen en is appendectomie geïndiceerd omdat het hier een ovariële metastase kan betreffen (Sherman 2003; Webb 2004).\n\n- De waarde van een uitgebreide stagieringsprocedure, zoals bij ovariumcarcinoom, is bewezen niet nuttig: het heeft geen invloed op verder beleid en leidt niet tot betere prognose. Volstaan kan worden met een grondige inspectie en palpatie van de buikholte, darmen en mesenterium, omentum, de pelviene en para-aortale klierstations en beoordeling van het contralaterale ovarium. Evident afwijkende gebieden dienen geëxcideerd te worden. Een infracolische omentectomie en standaard peritoneale bioptering (beiderzijds paracolisch en diafragmakoepels, van blaaskoepel en cavum Douglasi) is weliswaar van nut voor het vinden van peritoneale implantaties (stagiering) maar heeft geen consequenties voor de behandeling. Een pelviene lymfadenectomie hoort niet tot de standaard stagieringsprocedure, evenmin als een hysterectomie, hoewel aanbevolen in literatuur (Cadron 2007).\n\n- Indien de uitslag \"borderline tumor van het ovarium'' pas achteraf bekend wordt hoeft geen relaparotomie verricht te worden voor de stagiering. Bij patienten die zonder resttumor zijn geopereerd heeft de uitgebreidheid van de chirurgie geen invloed op overleving (Kaern 1993).\n\n- Een aparte categorie vormen de borderline tumoren met peritoneale implantaties. Deze kunnen benigne, microinvasief maar ook maligne (invasieve implantaties) zijn. In retrospectieve studies heeft alleen de zeldzame groep patiënten met een sereuze borderline tumor met invasieve implantaties een slechtere prognose (Prat 2002; Michael 1986) hoewel anderen dit niet kunnen bevestigen (Michael 1986). In een Zweedse cohortserie overleden 3/399 patiënten, alledrie met een mucineuze tumor (FIGO IA, IA, IIIC) (Akeson 2008).. Voor zover in (retrospectieve) studies is geëvalueerd heeft aanvullende behandeling geen aantoonbaar effect op overleving.\n\n- Kies bij verdenking op een unilaterale borderline ovariumtumor bij een patiënt met een kinderwens voor een unilaterale salpingo-oöphorectomie. De recidiefkans na cystectomie is groter.\n\n- Overweeg, na counseling van de patiënt, bij een verdenking op een bilaterale borderline ovariumtumor bij een patiënt met kinderwens een bilaterale cystectomie (indien technisch mogelijk), i.p.v. unilaterale salpingo-oöphorectomie en contralaterale cystectomie, wegens een significante hogere kans op zwangerschap en een kortere mediane duur tot zwangerschap.\n\n- Adviseer de patiënt om na een bilaterale cystectomie niet te wachten met het vervullen van de kinderwens. De recidiefkans is gelijk aan unilaterale salpingo-oöphorectomie gecombineerd met unilaterale cystectomie, maar het termijn tot recidief is korter (16 versus 48 maanden).\n\nBij laparoscopie wordt het gebruik van een endoscopie zak aanbevolen. De kans op spill in de buikholte is groter bij cystectomie.",
       "bron": {
         "url": "https://richtlijnendatabase.nl/richtlijn/borderline_ovariumtumoren/cystectomie_bij_borderline_ovariumtumor.html"
       },
@@ -351,99 +358,52 @@
       },
       "nodes": [
         {
-          "id": "titel",
-          "type": "title",
-          "label": "Behandeling borderline ovariumtumor",
-          "gridX": 0,
-          "gridY": 0
+          "type": "recommendation",
+          "text": "Grondige inspectie (en palpatie bij laparotomie)\n{i} van buikholte, darmen en mesenterium, appendix, pelviene en para-aortale klierstations en contralaterale ovarium\n{i} indien afwijkingen neem biopten\nEN\nUnilaterale salpingo-oophorectomie\nEN\nCytologie buik(spoel)vocht\nEN\nOverweeg vriescoupe onderzoek van de aangedane adnex\nEN\n{x} Geen standaard lymfadenectomie en hysterectomie",
+          "height": 81,
+          "id": "aanbeveling-unilaterale-salpingo-oophorectomie",
+          "gridX": 270,
+          "gridY": 205
         },
         {
-          "id": "menopauzale-status",
-          "type": "dataItem",
-          "label": "Menopauzale status",
-          "interactive": true,
-          "gridX": 0,
-          "gridY": 30,
-          "options": [
-            {
-              "value": "premenopauzaal",
-              "label": "Premenopauzaal",
-              "edge": "edge-menopauzale-status-premenopauzaal"
-            },
-            {
-              "value": "postmenopauzaal",
-              "label": "Postmenopauzaal",
-              "edge": "edge-menopauzale-status-postmenopauzaal"
-            }
-          ]
+          "type": "recommendation",
+          "text": "Grondige inspectie (en palpatie bij laparotomie)\n{i} van buikholte, darmen en mesenterium, appendix, pelviene en para-aortale klierstations en contralaterale ovarium\n{i} indien afwijkingen neem biopten\nEN\nEnkelzijdige salpingo-oophorectomie\n{i} minstens enkelzijdig\nEN\nCytologie buik(spoel)vocht\nEN\nOverweeg vriescoupe onderzoek van de aangedane adnex\nEN\n{x} Geen standaard lymfadenectomie en hysterectomie",
+          "height": 88,
+          "id": "aanbeveling-enkelzijdige-salpingo-oophorectomie",
+          "gridX": 90,
+          "gridY": 205
         },
         {
-          "id": "kinderwens",
-          "type": "dataItem",
-          "label": "Kinderwens",
-          "interactive": true,
-          "gridX": 0,
-          "gridY": 65,
-          "options": [
-            {
-              "value": "aanwezig",
-              "label": "Aanwezig",
-              "edge": "edge-kinderwens-aanwezig"
-            },
-            {
-              "value": "afwezig",
-              "label": "Afwezig",
-              "edge": "edge-kinderwens-afwezig"
-            }
-          ]
+          "type": "recommendation",
+          "text": "Grondige inspectie (en palpatie bij laparotomie)\n{i} van buikholte, darmen en mesenterium, appendix, pelviene en para-aortale klierstations en contralaterale ovarium\n{i} indien afwijkingen neem biopten\nEN\nBilaterale ovariële cystectomie zonder spill\nEN\nChirurgische verwijdering tumordeposities\nEN\nCytologie buik(spoel)vocht\nEN\nOverweeg vriescoupe onderzoek van de aangedane adnex\nEN\n{x} Geen standaard lymfadenectomie en hysterectomie\nEN\n{x} Adjuvante chemotherapie is niet geïndiceerd",
+          "height": 104,
+          "id": "aanbeveling-bilaterale-ovariele-cystectomie-zonder-spill-en-deposities",
+          "gridX": 225,
+          "gridY": 205
         },
         {
-          "id": "lateraliteit-tumor",
-          "type": "dataItem",
-          "label": "Lateraliteit tumor",
-          "interactive": true,
-          "gridX": 0,
-          "gridY": 100,
-          "options": [
-            {
-              "value": "unilateraal",
-              "label": "Unilateraal",
-              "edge": "edge-lateraliteit-tumor-unilateraal"
-            },
-            {
-              "value": "bilateraal",
-              "label": "Bilateraal",
-              "edge": "edge-lateraliteit-tumor-bilateraal"
-            }
-          ]
+          "type": "recommendation",
+          "text": "Grondige inspectie (en palpatie bij laparotomie)\n{i} van buikholte, darmen en mesenterium, appendix, pelviene en para-aortale klierstations en contralaterale ovarium\n{i} indien afwijkingen neem biopten\nEN\nBilaterale salpingo-oophorectomie\nEN\nChirurgische verwijdering tumordeposities\nEN\nCytologie buik(spoel)vocht\nEN\nOverweeg vriescoupe onderzoek van de aangedane adnex\nEN\n{x} Geen standaard lymfadenectomie en hysterectomie\nEN\n{x} Adjuvante chemotherapie is niet geïndiceerd",
+          "height": 104,
+          "id": "aanbeveling-bilaterale-salpingo-oophorectomie-en-deposities",
+          "gridX": 315,
+          "gridY": 205
         },
         {
-          "id": "mono-ovarium",
-          "type": "dataItem",
-          "label": "Mono ovarium",
-          "interactive": true,
-          "gridX": 0,
-          "gridY": 135,
-          "options": [
-            {
-              "value": "ja",
-              "label": "Ja",
-              "edge": "edge-mono-ovarium-ja"
-            },
-            {
-              "value": "nee",
-              "label": "Nee",
-              "edge": "edge-mono-ovarium-nee"
-            }
-          ]
+          "type": "reference",
+          "label": "Aanvullende diagnostiek tijdens operatie",
+          "to": "aanvullende-diagnostiek-tijdens-operatie",
+          "id": "verwijzing-aanvullende-diagnostiek-tijdens-operatie",
+          "gridX": 315,
+          "gridY": 370
         },
         {
-          "id": "intraperitoneale-tumordeposities",
           "type": "dataItem",
           "label": "Intraperitoneale tumordeposities",
-          "interactive": true,
-          "gridX": 0,
+          "id": "intraperitoneale-tumordeposities",
+          "gridX": 270,
           "gridY": 170,
+          "interactive": true,
           "options": [
             {
               "value": "ja",
@@ -458,12 +418,36 @@
           ]
         },
         {
-          "id": "intraperitoneale-tumordeposities-2",
+          "type": "recommendation",
+          "text": "Grondige inspectie (en palpatie bij laparotomie)\n{i} van buikholte, darmen en mesenterium, appendix, pelviene en para-aortale klierstations en contralaterale ovarium\n{i} indien afwijkingen neem biopten\nEN\nBilaterale salpingo-oophorectomie\nEN\nCytologie buik(spoel)vocht\nEN\nOverweeg vriescoupe onderzoek van de aangedane adnex\nEN\n{x} Geen standaard lymfadenectomie en hysterectomie",
+          "height": 81,
+          "id": "aanbeveling-bilaterale-salpingo-oophorectomie",
+          "gridX": 360,
+          "gridY": 205
+        },
+        {
+          "type": "reference",
+          "label": "Aanvullende diagnostiek tijdens operatie",
+          "to": "aanvullende-diagnostiek-tijdens-operatie",
+          "id": "verwijzing-aanvullende-diagnostiek-tijdens-operatie-2",
+          "gridX": 360,
+          "gridY": 370
+        },
+        {
+          "type": "reference",
+          "label": "Aanvullende diagnostiek tijdens operatie",
+          "to": "aanvullende-diagnostiek-tijdens-operatie",
+          "id": "verwijzing-aanvullende-diagnostiek-tijdens-operatie-3",
+          "gridX": 270,
+          "gridY": 370
+        },
+        {
           "type": "dataItem",
           "label": "Intraperitoneale tumordeposities",
-          "interactive": true,
-          "gridX": 90,
+          "id": "intraperitoneale-tumordeposities-2",
+          "gridX": 180,
           "gridY": 170,
+          "interactive": true,
           "options": [
             {
               "value": "ja",
@@ -478,12 +462,68 @@
           ]
         },
         {
-          "id": "intraperitoneale-tumordeposities-3",
+          "type": "reference",
+          "label": "Aanvullende diagnostiek tijdens operatie",
+          "to": "aanvullende-diagnostiek-tijdens-operatie",
+          "id": "verwijzing-aanvullende-diagnostiek-tijdens-operatie-4",
+          "gridX": 90,
+          "gridY": 370
+        },
+        {
+          "type": "recommendation",
+          "text": "Grondige inspectie (en palpatie bij laparotomie)\n{i} van buikholte, darmen en mesenterium, appendix, pelviene en para-aortale klierstations en contralaterale ovarium\n{i} indien afwijkingen neem biopten\nEN\nBilaterale ovariële cystectomie zonder spill\nEN\nCytologie buik(spoel)vocht\nEN\nOverweeg vriescoupe onderzoek van de aangedane adnex\nEN\n{x} Geen standaard lymfadenectomie en hysterectomie",
+          "height": 81,
+          "id": "aanbeveling-bilaterale-ovariele-cystectomie-zonder-spill",
+          "gridX": 180,
+          "gridY": 205
+        },
+        {
+          "type": "reference",
+          "label": "Aanvullende diagnostiek tijdens operatie",
+          "to": "aanvullende-diagnostiek-tijdens-operatie",
+          "id": "verwijzing-aanvullende-diagnostiek-tijdens-operatie-5",
+          "gridX": 135,
+          "gridY": 370
+        },
+        {
+          "type": "recommendation",
+          "text": "Grondige inspectie (en palpatie bij laparotomie)\n{i} van buikholte, darmen en mesenterium, appendix, pelviene en para-aortale klierstations en contralaterale ovarium\n{i} indien afwijkingen neem biopten\nEN\nEnkelzijdige salpingo-oophorectomie\n{i} minstens enkelzijdig\nEN\nChirurgische verwijdering tumordeposities\nEN\nCytologie buik(spoel)vocht\nEN\nOverweeg vriescoupe onderzoek van de aangedane adnex\nEN\n{x} Geen standaard lymfadenectomie en hysterectomie\nEN\n{x} Adjuvante chemotherapie is niet geïndiceerd",
+          "height": 110,
+          "id": "aanbeveling-enkelzijdige-salpingo-oophorectomie-en-deposities",
+          "gridX": 135,
+          "gridY": 205
+        },
+        {
+          "type": "reference",
+          "label": "Aanvullende diagnostiek tijdens operatie",
+          "to": "aanvullende-diagnostiek-tijdens-operatie",
+          "id": "verwijzing-aanvullende-diagnostiek-tijdens-operatie-6",
+          "gridX": 0,
+          "gridY": 370
+        },
+        {
+          "type": "reference",
+          "label": "Aanvullende diagnostiek tijdens operatie",
+          "to": "aanvullende-diagnostiek-tijdens-operatie",
+          "id": "verwijzing-aanvullende-diagnostiek-tijdens-operatie-7",
+          "gridX": 180,
+          "gridY": 370
+        },
+        {
+          "type": "recommendation",
+          "text": "Grondige inspectie (en palpatie bij laparotomie)\n{i} van buikholte, darmen en mesenterium, appendix, pelviene en para-aortale klierstations en contralaterale ovarium\n{i} indien afwijkingen neem biopten\nEN\nOvariële cystectomie zonder spill\nEN\nCytologie buik(spoel)vocht\nEN\nOverweeg vriescoupe onderzoek van de aangedane adnex\nEN\n{x} Geen standaard lymfadenectomie en hysterectomie",
+          "height": 81,
+          "id": "aanbeveling-ovariele-cystectomie-zonder-spill",
+          "gridX": 0,
+          "gridY": 205
+        },
+        {
           "type": "dataItem",
           "label": "Intraperitoneale tumordeposities",
-          "interactive": true,
-          "gridX": 180,
+          "id": "intraperitoneale-tumordeposities-3",
+          "gridX": 0,
           "gridY": 170,
+          "interactive": true,
           "options": [
             {
               "value": "ja",
@@ -498,12 +538,84 @@
           ]
         },
         {
-          "id": "intraperitoneale-tumordeposities-4",
+          "type": "reference",
+          "label": "Aanvullende diagnostiek tijdens operatie",
+          "to": "aanvullende-diagnostiek-tijdens-operatie",
+          "id": "verwijzing-aanvullende-diagnostiek-tijdens-operatie-8",
+          "gridX": 45,
+          "gridY": 370
+        },
+        {
+          "type": "recommendation",
+          "text": "Grondige inspectie (en palpatie bij laparotomie)\n{i} van buikholte, darmen en mesenterium, appendix, pelviene en para-aortale klierstations en contralaterale ovarium\n{i} indien afwijkingen neem biopten\nEN\nOvariële cystectomie zonder spill\nEN\nChirurgische verwijdering tumordeposities\nEN\nCytologie buik(spoel)vocht\nEN\nOverweeg vriescoupe onderzoek van de aangedane adnex\nEN\n{x} Geen standaard lymfadenectomie en hysterectomie\nEN\n{x} Adjuvante chemotherapie is niet geïndiceerd",
+          "height": 104,
+          "id": "aanbeveling-ovariele-cystectomie-zonder-spill-en-deposities",
+          "gridX": 45,
+          "gridY": 205
+        },
+        {
+          "type": "reference",
+          "label": "Aanvullende diagnostiek tijdens operatie",
+          "to": "aanvullende-diagnostiek-tijdens-operatie",
+          "id": "verwijzing-aanvullende-diagnostiek-tijdens-operatie-9",
+          "gridX": 225,
+          "gridY": 370
+        },
+        {
+          "type": "recommendation",
+          "text": "Grondige inspectie (en palpatie bij laparotomie)\n{i} van buikholte, darmen en mesenterium, appendix, pelviene en para-aortale klierstations en contralaterale ovarium\n{i} indien afwijkingen neem biopten\nEN\nBilaterale salpingo-oophorectomie\nEN\nChirurgische verwijdering tumordeposities\nEN\nCytologie buik(spoel)vocht\nEN\nOverweeg vriescoupe onderzoek van de aangedane adnex\nEN\n{x} Geen standaard lymfadenectomie en hysterectomie\nEN\n{x} Adjuvante chemotherapie is niet geïndiceerd",
+          "height": 104,
+          "id": "aanbeveling-bilaterale-salpingo-oophorectomie-en-deposities-2",
+          "gridX": 405,
+          "gridY": 205
+        },
+        {
+          "type": "dataItem",
+          "label": "Lateraliteit tumor",
+          "id": "lateraliteit-tumor",
+          "gridX": 0,
+          "gridY": 100,
+          "interactive": true,
+          "options": [
+            {
+              "value": "unilateraal",
+              "label": "Unilateraal",
+              "edge": "edge-lateraliteit-tumor-unilateraal"
+            },
+            {
+              "value": "bilateraal",
+              "label": "Bilateraal",
+              "edge": "edge-lateraliteit-tumor-bilateraal"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Kinderwens",
+          "id": "kinderwens",
+          "gridX": 0,
+          "gridY": 65,
+          "interactive": true,
+          "options": [
+            {
+              "value": "aanwezig",
+              "label": "Aanwezig",
+              "edge": "edge-kinderwens-aanwezig"
+            },
+            {
+              "value": "afwezig",
+              "label": "Afwezig",
+              "edge": "edge-kinderwens-afwezig"
+            }
+          ]
+        },
+        {
           "type": "dataItem",
           "label": "Intraperitoneale tumordeposities",
-          "interactive": true,
-          "gridX": 270,
+          "id": "intraperitoneale-tumordeposities-4",
+          "gridX": 360,
           "gridY": 170,
+          "interactive": true,
           "options": [
             {
               "value": "ja",
@@ -518,12 +630,47 @@
           ]
         },
         {
-          "id": "intraperitoneale-tumordeposities-5",
+          "type": "dataItem",
+          "label": "Menopauzale status",
+          "id": "menopauzale-status",
+          "gridX": 0,
+          "gridY": 30,
+          "interactive": true,
+          "options": [
+            {
+              "value": "premenopauzaal",
+              "label": "Premenopauzaal",
+              "edge": "edge-menopauzale-status-premenopauzaal"
+            },
+            {
+              "value": "postmenopauzaal",
+              "label": "Postmenopauzaal",
+              "edge": "edge-menopauzale-status-postmenopauzaal"
+            }
+          ]
+        },
+        {
+          "type": "title",
+          "label": "Behandeling borderline ovariumtumor",
+          "id": "titel",
+          "gridX": 0,
+          "gridY": 0
+        },
+        {
+          "type": "reference",
+          "label": "Aanvullende diagnostiek tijdens operatie",
+          "to": "aanvullende-diagnostiek-tijdens-operatie",
+          "id": "verwijzing-aanvullende-diagnostiek-tijdens-operatie-10",
+          "gridX": 405,
+          "gridY": 370
+        },
+        {
           "type": "dataItem",
           "label": "Intraperitoneale tumordeposities",
-          "interactive": true,
-          "gridX": 360,
+          "id": "intraperitoneale-tumordeposities-5",
+          "gridX": 90,
           "gridY": 170,
+          "interactive": true,
           "options": [
             {
               "value": "ja",
@@ -538,187 +685,147 @@
           ]
         },
         {
-          "id": "aanbeveling-ovariele-cystectomie-zonder-spill",
-          "type": "recommendation",
-          "text": "Grondige inspectie (en palpatie bij laparotomie)\n{i} van buikholte, darmen en mesenterium, appendix, pelviene en para-aortale klierstations en contralaterale ovarium\n{i} indien afwijkingen neem biopten\nEN\nOvariële cystectomie zonder spill\nEN\nCytologie buik(spoel)vocht\nEN\nOverweeg vriescoupe onderzoek van de aangedane adnex\nEN\n{x} Geen standaard lymfadenectomie en hysterectomie",
-          "height": 81,
+          "type": "dataItem",
+          "label": "Mono ovarium",
+          "id": "mono-ovarium",
           "gridX": 0,
-          "gridY": 205
-        },
-        {
-          "id": "aanbeveling-ovariele-cystectomie-zonder-spill-en-deposities",
-          "type": "recommendation",
-          "text": "Grondige inspectie (en palpatie bij laparotomie)\n{i} van buikholte, darmen en mesenterium, appendix, pelviene en para-aortale klierstations en contralaterale ovarium\n{i} indien afwijkingen neem biopten\nEN\nOvariële cystectomie zonder spill\nEN\nChirurgische verwijdering tumordeposities\nEN\nCytologie buik(spoel)vocht\nEN\nOverweeg vriescoupe onderzoek van de aangedane adnex\nEN\n{x} Geen standaard lymfadenectomie en hysterectomie\nEN\n{x} Adjuvante chemotherapie is niet geïndiceerd",
-          "height": 104,
-          "gridX": 45,
-          "gridY": 205
-        },
-        {
-          "id": "aanbeveling-enkelzijdige-salpingo-oophorectomie",
-          "type": "recommendation",
-          "text": "Grondige inspectie (en palpatie bij laparotomie)\n{i} van buikholte, darmen en mesenterium, appendix, pelviene en para-aortale klierstations en contralaterale ovarium\n{i} indien afwijkingen neem biopten\nEN\nEnkelzijdige salpingo-oophorectomie\n{i} minstens enkelzijdig\nEN\nCytologie buik(spoel)vocht\nEN\nOverweeg vriescoupe onderzoek van de aangedane adnex\nEN\n{x} Geen standaard lymfadenectomie en hysterectomie",
-          "height": 88,
-          "gridX": 90,
-          "gridY": 205
-        },
-        {
-          "id": "aanbeveling-enkelzijdige-salpingo-oophorectomie-en-deposities",
-          "type": "recommendation",
-          "text": "Grondige inspectie (en palpatie bij laparotomie)\n{i} van buikholte, darmen en mesenterium, appendix, pelviene en para-aortale klierstations en contralaterale ovarium\n{i} indien afwijkingen neem biopten\nEN\nEnkelzijdige salpingo-oophorectomie\n{i} minstens enkelzijdig\nEN\nChirurgische verwijdering tumordeposities\nEN\nCytologie buik(spoel)vocht\nEN\nOverweeg vriescoupe onderzoek van de aangedane adnex\nEN\n{x} Geen standaard lymfadenectomie en hysterectomie\nEN\n{x} Adjuvante chemotherapie is niet geïndiceerd",
-          "height": 110,
-          "gridX": 135,
-          "gridY": 205
-        },
-        {
-          "id": "aanbeveling-bilaterale-ovariele-cystectomie-zonder-spill",
-          "type": "recommendation",
-          "text": "Grondige inspectie (en palpatie bij laparotomie)\n{i} van buikholte, darmen en mesenterium, appendix, pelviene en para-aortale klierstations en contralaterale ovarium\n{i} indien afwijkingen neem biopten\nEN\nBilaterale ovariële cystectomie zonder spill\nEN\nCytologie buik(spoel)vocht\nEN\nOverweeg vriescoupe onderzoek van de aangedane adnex\nEN\n{x} Geen standaard lymfadenectomie en hysterectomie",
-          "height": 81,
-          "gridX": 180,
-          "gridY": 205
-        },
-        {
-          "id": "aanbeveling-bilaterale-ovariele-cystectomie-zonder-spill-en-deposities",
-          "type": "recommendation",
-          "text": "Grondige inspectie (en palpatie bij laparotomie)\n{i} van buikholte, darmen en mesenterium, appendix, pelviene en para-aortale klierstations en contralaterale ovarium\n{i} indien afwijkingen neem biopten\nEN\nBilaterale ovariële cystectomie zonder spill\nEN\nChirurgische verwijdering tumordeposities\nEN\nCytologie buik(spoel)vocht\nEN\nOverweeg vriescoupe onderzoek van de aangedane adnex\nEN\n{x} Geen standaard lymfadenectomie en hysterectomie\nEN\n{x} Adjuvante chemotherapie is niet geïndiceerd",
-          "height": 104,
-          "gridX": 225,
-          "gridY": 205
-        },
-        {
-          "id": "aanbeveling-unilaterale-salpingo-oophorectomie",
-          "type": "recommendation",
-          "text": "Grondige inspectie (en palpatie bij laparotomie)\n{i} van buikholte, darmen en mesenterium, appendix, pelviene en para-aortale klierstations en contralaterale ovarium\n{i} indien afwijkingen neem biopten\nEN\nUnilaterale salpingo-oophorectomie\nEN\nCytologie buik(spoel)vocht\nEN\nOverweeg vriescoupe onderzoek van de aangedane adnex\nEN\n{x} Geen standaard lymfadenectomie en hysterectomie",
-          "height": 81,
-          "gridX": 270,
-          "gridY": 205
-        },
-        {
-          "id": "aanbeveling-bilaterale-salpingo-oophorectomie-en-deposities",
-          "type": "recommendation",
-          "text": "Grondige inspectie (en palpatie bij laparotomie)\n{i} van buikholte, darmen en mesenterium, appendix, pelviene en para-aortale klierstations en contralaterale ovarium\n{i} indien afwijkingen neem biopten\nEN\nBilaterale salpingo-oophorectomie\nEN\nChirurgische verwijdering tumordeposities\nEN\nCytologie buik(spoel)vocht\nEN\nOverweeg vriescoupe onderzoek van de aangedane adnex\nEN\n{x} Geen standaard lymfadenectomie en hysterectomie\nEN\n{x} Adjuvante chemotherapie is niet geïndiceerd",
-          "height": 104,
-          "gridX": 315,
-          "gridY": 205
-        },
-        {
-          "id": "aanbeveling-bilaterale-salpingo-oophorectomie",
-          "type": "recommendation",
-          "text": "Grondige inspectie (en palpatie bij laparotomie)\n{i} van buikholte, darmen en mesenterium, appendix, pelviene en para-aortale klierstations en contralaterale ovarium\n{i} indien afwijkingen neem biopten\nEN\nBilaterale salpingo-oophorectomie\nEN\nCytologie buik(spoel)vocht\nEN\nOverweeg vriescoupe onderzoek van de aangedane adnex\nEN\n{x} Geen standaard lymfadenectomie en hysterectomie",
-          "height": 81,
-          "gridX": 360,
-          "gridY": 205
-        },
-        {
-          "id": "aanbeveling-bilaterale-salpingo-oophorectomie-en-deposities-2",
-          "type": "recommendation",
-          "text": "Grondige inspectie (en palpatie bij laparotomie)\n{i} van buikholte, darmen en mesenterium, appendix, pelviene en para-aortale klierstations en contralaterale ovarium\n{i} indien afwijkingen neem biopten\nEN\nBilaterale salpingo-oophorectomie\nEN\nChirurgische verwijdering tumordeposities\nEN\nCytologie buik(spoel)vocht\nEN\nOverweeg vriescoupe onderzoek van de aangedane adnex\nEN\n{x} Geen standaard lymfadenectomie en hysterectomie\nEN\n{x} Adjuvante chemotherapie is niet geïndiceerd",
-          "height": 104,
-          "gridX": 405,
-          "gridY": 205
-        },
-        {
-          "id": "verwijzing-aanvullende-diagnostiek-tijdens-operatie",
-          "type": "reference",
-          "label": "Aanvullende diagnostiek tijdens operatie",
-          "to": "aanvullende-diagnostiek-tijdens-operatie",
-          "gridX": 0,
-          "gridY": 370
-        },
-        {
-          "id": "verwijzing-aanvullende-diagnostiek-tijdens-operatie-2",
-          "type": "reference",
-          "label": "Aanvullende diagnostiek tijdens operatie",
-          "to": "aanvullende-diagnostiek-tijdens-operatie",
-          "gridX": 45,
-          "gridY": 370
-        },
-        {
-          "id": "verwijzing-aanvullende-diagnostiek-tijdens-operatie-3",
-          "type": "reference",
-          "label": "Aanvullende diagnostiek tijdens operatie",
-          "to": "aanvullende-diagnostiek-tijdens-operatie",
-          "gridX": 90,
-          "gridY": 370
-        },
-        {
-          "id": "verwijzing-aanvullende-diagnostiek-tijdens-operatie-4",
-          "type": "reference",
-          "label": "Aanvullende diagnostiek tijdens operatie",
-          "to": "aanvullende-diagnostiek-tijdens-operatie",
-          "gridX": 135,
-          "gridY": 370
-        },
-        {
-          "id": "verwijzing-aanvullende-diagnostiek-tijdens-operatie-5",
-          "type": "reference",
-          "label": "Aanvullende diagnostiek tijdens operatie",
-          "to": "aanvullende-diagnostiek-tijdens-operatie",
-          "gridX": 180,
-          "gridY": 370
-        },
-        {
-          "id": "verwijzing-aanvullende-diagnostiek-tijdens-operatie-6",
-          "type": "reference",
-          "label": "Aanvullende diagnostiek tijdens operatie",
-          "to": "aanvullende-diagnostiek-tijdens-operatie",
-          "gridX": 225,
-          "gridY": 370
-        },
-        {
-          "id": "verwijzing-aanvullende-diagnostiek-tijdens-operatie-7",
-          "type": "reference",
-          "label": "Aanvullende diagnostiek tijdens operatie",
-          "to": "aanvullende-diagnostiek-tijdens-operatie",
-          "gridX": 270,
-          "gridY": 370
-        },
-        {
-          "id": "verwijzing-aanvullende-diagnostiek-tijdens-operatie-8",
-          "type": "reference",
-          "label": "Aanvullende diagnostiek tijdens operatie",
-          "to": "aanvullende-diagnostiek-tijdens-operatie",
-          "gridX": 315,
-          "gridY": 370
-        },
-        {
-          "id": "verwijzing-aanvullende-diagnostiek-tijdens-operatie-9",
-          "type": "reference",
-          "label": "Aanvullende diagnostiek tijdens operatie",
-          "to": "aanvullende-diagnostiek-tijdens-operatie",
-          "gridX": 360,
-          "gridY": 370
-        },
-        {
-          "id": "verwijzing-aanvullende-diagnostiek-tijdens-operatie-10",
-          "type": "reference",
-          "label": "Aanvullende diagnostiek tijdens operatie",
-          "to": "aanvullende-diagnostiek-tijdens-operatie",
-          "gridX": 405,
-          "gridY": 370
+          "gridY": 135,
+          "interactive": true,
+          "options": [
+            {
+              "value": "ja",
+              "label": "Ja",
+              "edge": "edge-mono-ovarium-ja"
+            },
+            {
+              "value": "nee",
+              "label": "Nee",
+              "edge": "edge-mono-ovarium-nee"
+            }
+          ]
         }
       ],
       "edges": [
         {
-          "id": "edge-titel-menopauzale-status",
-          "from": "titel",
-          "to": "menopauzale-status",
+          "id": "edge-aanbeveling-unilaterale-salpingo-oophorectomie-verwijzing-aanvullende-diagnostiek-tijdens-operatie-3",
+          "from": "aanbeveling-unilaterale-salpingo-oophorectomie",
+          "to": "verwijzing-aanvullende-diagnostiek-tijdens-operatie-3",
           "arrow": true
         },
         {
-          "id": "edge-menopauzale-status-premenopauzaal",
-          "from": "menopauzale-status",
-          "to": "kinderwens",
-          "label": "Premenopauzaal",
-          "value": "premenopauzaal",
+          "id": "edge-mono-ovarium-ja",
+          "from": "mono-ovarium",
+          "to": "intraperitoneale-tumordeposities-3",
+          "label": "Ja",
+          "value": "ja",
           "arrow": true
         },
         {
-          "id": "edge-menopauzale-status-postmenopauzaal",
-          "from": "menopauzale-status",
+          "id": "edge-intraperitoneale-tumordeposities-5-nee",
+          "from": "intraperitoneale-tumordeposities-5",
+          "to": "aanbeveling-enkelzijdige-salpingo-oophorectomie",
+          "label": "Nee",
+          "value": "nee",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-bilaterale-salpingo-oophorectomie-en-deposities-verwijzing-aanvullende-diagnostiek-tijdens-operatie",
+          "from": "aanbeveling-bilaterale-salpingo-oophorectomie-en-deposities",
+          "to": "verwijzing-aanvullende-diagnostiek-tijdens-operatie",
+          "arrow": true
+        },
+        {
+          "id": "edge-intraperitoneale-tumordeposities-ja",
+          "from": "intraperitoneale-tumordeposities",
+          "to": "aanbeveling-bilaterale-salpingo-oophorectomie-en-deposities",
+          "label": "Ja",
+          "value": "ja",
+          "arrow": true
+        },
+        {
+          "id": "edge-intraperitoneale-tumordeposities-nee",
+          "from": "intraperitoneale-tumordeposities",
+          "to": "aanbeveling-unilaterale-salpingo-oophorectomie",
+          "label": "Nee",
+          "value": "nee",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-enkelzijdige-salpingo-oophorectomie-verwijzing-aanvullende-diagnostiek-tijdens-operatie-4",
+          "from": "aanbeveling-enkelzijdige-salpingo-oophorectomie",
+          "to": "verwijzing-aanvullende-diagnostiek-tijdens-operatie-4",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-enkelzijdige-salpingo-oophorectomie-en-deposities-verwijzing-aanvullende-diagnostiek-tijdens-operatie-5",
+          "from": "aanbeveling-enkelzijdige-salpingo-oophorectomie-en-deposities",
+          "to": "verwijzing-aanvullende-diagnostiek-tijdens-operatie-5",
+          "arrow": true
+        },
+        {
+          "id": "edge-intraperitoneale-tumordeposities-5-ja",
+          "from": "intraperitoneale-tumordeposities-5",
+          "to": "aanbeveling-enkelzijdige-salpingo-oophorectomie-en-deposities",
+          "label": "Ja",
+          "value": "ja",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-ovariele-cystectomie-zonder-spill-verwijzing-aanvullende-diagnostiek-tijdens-operatie-6",
+          "from": "aanbeveling-ovariele-cystectomie-zonder-spill",
+          "to": "verwijzing-aanvullende-diagnostiek-tijdens-operatie-6",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-bilaterale-ovariele-cystectomie-zonder-spill-verwijzing-aanvullende-diagnostiek-tijdens-operatie-7",
+          "from": "aanbeveling-bilaterale-ovariele-cystectomie-zonder-spill",
+          "to": "verwijzing-aanvullende-diagnostiek-tijdens-operatie-7",
+          "arrow": true
+        },
+        {
+          "id": "edge-intraperitoneale-tumordeposities-3-nee",
+          "from": "intraperitoneale-tumordeposities-3",
+          "to": "aanbeveling-ovariele-cystectomie-zonder-spill",
+          "label": "Nee",
+          "value": "nee",
+          "arrow": true
+        },
+        {
+          "id": "edge-intraperitoneale-tumordeposities-3-ja",
+          "from": "intraperitoneale-tumordeposities-3",
+          "to": "aanbeveling-ovariele-cystectomie-zonder-spill-en-deposities",
+          "label": "Ja",
+          "value": "ja",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-ovariele-cystectomie-zonder-spill-en-deposities-verwijzing-aanvullende-diagnostiek-tijdens-operatie-8",
+          "from": "aanbeveling-ovariele-cystectomie-zonder-spill-en-deposities",
+          "to": "verwijzing-aanvullende-diagnostiek-tijdens-operatie-8",
+          "arrow": true
+        },
+        {
+          "id": "edge-mono-ovarium-nee",
+          "from": "mono-ovarium",
           "to": "intraperitoneale-tumordeposities-5",
-          "label": "Postmenopauzaal",
-          "value": "postmenopauzaal",
+          "label": "Nee",
+          "value": "nee",
+          "arrow": true
+        },
+        {
+          "id": "edge-intraperitoneale-tumordeposities-2-nee",
+          "from": "intraperitoneale-tumordeposities-2",
+          "to": "aanbeveling-bilaterale-ovariele-cystectomie-zonder-spill",
+          "label": "Nee",
+          "value": "nee",
+          "arrow": true
+        },
+        {
+          "id": "edge-lateraliteit-tumor-bilateraal",
+          "from": "lateraliteit-tumor",
+          "to": "intraperitoneale-tumordeposities-2",
+          "label": "Bilateraal",
+          "value": "bilateraal",
           "arrow": true
         },
         {
@@ -730,11 +837,69 @@
           "arrow": true
         },
         {
+          "id": "edge-menopauzale-status-premenopauzaal",
+          "from": "menopauzale-status",
+          "to": "kinderwens",
+          "label": "Premenopauzaal",
+          "value": "premenopauzaal",
+          "arrow": true
+        },
+        {
           "id": "edge-kinderwens-afwezig",
           "from": "kinderwens",
-          "to": "intraperitoneale-tumordeposities-4",
+          "to": "intraperitoneale-tumordeposities",
           "label": "Afwezig",
           "value": "afwezig",
+          "arrow": true
+        },
+        {
+          "id": "edge-menopauzale-status-postmenopauzaal",
+          "from": "menopauzale-status",
+          "to": "intraperitoneale-tumordeposities-4",
+          "label": "Postmenopauzaal",
+          "value": "postmenopauzaal",
+          "arrow": true
+        },
+        {
+          "id": "edge-intraperitoneale-tumordeposities-4-nee",
+          "from": "intraperitoneale-tumordeposities-4",
+          "to": "aanbeveling-bilaterale-salpingo-oophorectomie",
+          "label": "Nee",
+          "value": "nee",
+          "arrow": true
+        },
+        {
+          "id": "edge-intraperitoneale-tumordeposities-4-ja",
+          "from": "intraperitoneale-tumordeposities-4",
+          "to": "aanbeveling-bilaterale-salpingo-oophorectomie-en-deposities-2",
+          "label": "Ja",
+          "value": "ja",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-bilaterale-salpingo-oophorectomie-en-deposities-2-verwijzing-aanvullende-diagnostiek-tijdens-operatie-10",
+          "from": "aanbeveling-bilaterale-salpingo-oophorectomie-en-deposities-2",
+          "to": "verwijzing-aanvullende-diagnostiek-tijdens-operatie-10",
+          "arrow": true
+        },
+        {
+          "id": "edge-intraperitoneale-tumordeposities-2-ja",
+          "from": "intraperitoneale-tumordeposities-2",
+          "to": "aanbeveling-bilaterale-ovariele-cystectomie-zonder-spill-en-deposities",
+          "label": "Ja",
+          "value": "ja",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-bilaterale-salpingo-oophorectomie-verwijzing-aanvullende-diagnostiek-tijdens-operatie-2",
+          "from": "aanbeveling-bilaterale-salpingo-oophorectomie",
+          "to": "verwijzing-aanvullende-diagnostiek-tijdens-operatie-2",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-bilaterale-ovariele-cystectomie-zonder-spill-en-deposities-verwijzing-aanvullende-diagnostiek-tijdens-operatie-9",
+          "from": "aanbeveling-bilaterale-ovariele-cystectomie-zonder-spill-en-deposities",
+          "to": "verwijzing-aanvullende-diagnostiek-tijdens-operatie-9",
           "arrow": true
         },
         {
@@ -746,167 +911,9 @@
           "arrow": true
         },
         {
-          "id": "edge-lateraliteit-tumor-bilateraal",
-          "from": "lateraliteit-tumor",
-          "to": "intraperitoneale-tumordeposities-3",
-          "label": "Bilateraal",
-          "value": "bilateraal",
-          "arrow": true
-        },
-        {
-          "id": "edge-mono-ovarium-ja",
-          "from": "mono-ovarium",
-          "to": "intraperitoneale-tumordeposities",
-          "label": "Ja",
-          "value": "ja",
-          "arrow": true
-        },
-        {
-          "id": "edge-mono-ovarium-nee",
-          "from": "mono-ovarium",
-          "to": "intraperitoneale-tumordeposities-2",
-          "label": "Nee",
-          "value": "nee",
-          "arrow": true
-        },
-        {
-          "id": "edge-intraperitoneale-tumordeposities-nee",
-          "from": "intraperitoneale-tumordeposities",
-          "to": "aanbeveling-ovariele-cystectomie-zonder-spill",
-          "label": "Nee",
-          "value": "nee",
-          "arrow": true
-        },
-        {
-          "id": "edge-intraperitoneale-tumordeposities-ja",
-          "from": "intraperitoneale-tumordeposities",
-          "to": "aanbeveling-ovariele-cystectomie-zonder-spill-en-deposities",
-          "label": "Ja",
-          "value": "ja",
-          "arrow": true
-        },
-        {
-          "id": "edge-intraperitoneale-tumordeposities-2-nee",
-          "from": "intraperitoneale-tumordeposities-2",
-          "to": "aanbeveling-enkelzijdige-salpingo-oophorectomie",
-          "label": "Nee",
-          "value": "nee",
-          "arrow": true
-        },
-        {
-          "id": "edge-intraperitoneale-tumordeposities-2-ja",
-          "from": "intraperitoneale-tumordeposities-2",
-          "to": "aanbeveling-enkelzijdige-salpingo-oophorectomie-en-deposities",
-          "label": "Ja",
-          "value": "ja",
-          "arrow": true
-        },
-        {
-          "id": "edge-intraperitoneale-tumordeposities-3-nee",
-          "from": "intraperitoneale-tumordeposities-3",
-          "to": "aanbeveling-bilaterale-ovariele-cystectomie-zonder-spill",
-          "label": "Nee",
-          "value": "nee",
-          "arrow": true
-        },
-        {
-          "id": "edge-intraperitoneale-tumordeposities-3-ja",
-          "from": "intraperitoneale-tumordeposities-3",
-          "to": "aanbeveling-bilaterale-ovariele-cystectomie-zonder-spill-en-deposities",
-          "label": "Ja",
-          "value": "ja",
-          "arrow": true
-        },
-        {
-          "id": "edge-intraperitoneale-tumordeposities-4-nee",
-          "from": "intraperitoneale-tumordeposities-4",
-          "to": "aanbeveling-unilaterale-salpingo-oophorectomie",
-          "label": "Nee",
-          "value": "nee",
-          "arrow": true
-        },
-        {
-          "id": "edge-intraperitoneale-tumordeposities-4-ja",
-          "from": "intraperitoneale-tumordeposities-4",
-          "to": "aanbeveling-bilaterale-salpingo-oophorectomie-en-deposities",
-          "label": "Ja",
-          "value": "ja",
-          "arrow": true
-        },
-        {
-          "id": "edge-intraperitoneale-tumordeposities-5-nee",
-          "from": "intraperitoneale-tumordeposities-5",
-          "to": "aanbeveling-bilaterale-salpingo-oophorectomie",
-          "label": "Nee",
-          "value": "nee",
-          "arrow": true
-        },
-        {
-          "id": "edge-intraperitoneale-tumordeposities-5-ja",
-          "from": "intraperitoneale-tumordeposities-5",
-          "to": "aanbeveling-bilaterale-salpingo-oophorectomie-en-deposities-2",
-          "label": "Ja",
-          "value": "ja",
-          "arrow": true
-        },
-        {
-          "id": "edge-aanbeveling-ovariele-cystectomie-zonder-spill-verwijzing-aanvullende-diagnostiek-tijdens-operatie",
-          "from": "aanbeveling-ovariele-cystectomie-zonder-spill",
-          "to": "verwijzing-aanvullende-diagnostiek-tijdens-operatie",
-          "arrow": true
-        },
-        {
-          "id": "edge-aanbeveling-ovariele-cystectomie-zonder-spill-en-deposities-verwijzing-aanvullende-diagnostiek-tijdens-operatie-2",
-          "from": "aanbeveling-ovariele-cystectomie-zonder-spill-en-deposities",
-          "to": "verwijzing-aanvullende-diagnostiek-tijdens-operatie-2",
-          "arrow": true
-        },
-        {
-          "id": "edge-aanbeveling-enkelzijdige-salpingo-oophorectomie-verwijzing-aanvullende-diagnostiek-tijdens-operatie-3",
-          "from": "aanbeveling-enkelzijdige-salpingo-oophorectomie",
-          "to": "verwijzing-aanvullende-diagnostiek-tijdens-operatie-3",
-          "arrow": true
-        },
-        {
-          "id": "edge-aanbeveling-enkelzijdige-salpingo-oophorectomie-en-deposities-verwijzing-aanvullende-diagnostiek-tijdens-operatie-4",
-          "from": "aanbeveling-enkelzijdige-salpingo-oophorectomie-en-deposities",
-          "to": "verwijzing-aanvullende-diagnostiek-tijdens-operatie-4",
-          "arrow": true
-        },
-        {
-          "id": "edge-aanbeveling-bilaterale-ovariele-cystectomie-zonder-spill-verwijzing-aanvullende-diagnostiek-tijdens-operatie-5",
-          "from": "aanbeveling-bilaterale-ovariele-cystectomie-zonder-spill",
-          "to": "verwijzing-aanvullende-diagnostiek-tijdens-operatie-5",
-          "arrow": true
-        },
-        {
-          "id": "edge-aanbeveling-bilaterale-ovariele-cystectomie-zonder-spill-en-deposities-verwijzing-aanvullende-diagnostiek-tijdens-operatie-6",
-          "from": "aanbeveling-bilaterale-ovariele-cystectomie-zonder-spill-en-deposities",
-          "to": "verwijzing-aanvullende-diagnostiek-tijdens-operatie-6",
-          "arrow": true
-        },
-        {
-          "id": "edge-aanbeveling-unilaterale-salpingo-oophorectomie-verwijzing-aanvullende-diagnostiek-tijdens-operatie-7",
-          "from": "aanbeveling-unilaterale-salpingo-oophorectomie",
-          "to": "verwijzing-aanvullende-diagnostiek-tijdens-operatie-7",
-          "arrow": true
-        },
-        {
-          "id": "edge-aanbeveling-bilaterale-salpingo-oophorectomie-en-deposities-verwijzing-aanvullende-diagnostiek-tijdens-operatie-8",
-          "from": "aanbeveling-bilaterale-salpingo-oophorectomie-en-deposities",
-          "to": "verwijzing-aanvullende-diagnostiek-tijdens-operatie-8",
-          "arrow": true
-        },
-        {
-          "id": "edge-aanbeveling-bilaterale-salpingo-oophorectomie-verwijzing-aanvullende-diagnostiek-tijdens-operatie-9",
-          "from": "aanbeveling-bilaterale-salpingo-oophorectomie",
-          "to": "verwijzing-aanvullende-diagnostiek-tijdens-operatie-9",
-          "arrow": true
-        },
-        {
-          "id": "edge-aanbeveling-bilaterale-salpingo-oophorectomie-en-deposities-2-verwijzing-aanvullende-diagnostiek-tijdens-operatie-10",
-          "from": "aanbeveling-bilaterale-salpingo-oophorectomie-en-deposities-2",
-          "to": "verwijzing-aanvullende-diagnostiek-tijdens-operatie-10",
+          "id": "edge-titel-menopauzale-status",
+          "from": "titel",
+          "to": "menopauzale-status",
           "arrow": true
         }
       ]
@@ -921,39 +928,12 @@
       },
       "nodes": [
         {
-          "id": "titel",
-          "type": "title",
-          "label": "Aanvullende diagnostiek tijdens operatie",
-          "gridX": 50,
-          "gridY": 0
-        },
-        {
-          "id": "vriescoupe-afgenomen",
-          "type": "dataItem",
-          "label": "Vriescoupe afgenomen",
-          "interactive": true,
-          "gridX": 50,
-          "gridY": 30,
-          "options": [
-            {
-              "value": "ja",
-              "label": "Ja",
-              "edge": "edge-vriescoupe-afgenomen-ja"
-            },
-            {
-              "value": "nee",
-              "label": "Nee",
-              "edge": "edge-vriescoupe-afgenomen-nee"
-            }
-          ]
-        },
-        {
-          "id": "uitslag-vriescoupe",
           "type": "dataItem",
           "label": "Uitslag vriescoupe",
-          "interactive": true,
+          "id": "uitslag-vriescoupe",
           "gridX": 50,
           "gridY": 65,
+          "interactive": true,
           "options": [
             {
               "value": "benigne",
@@ -983,77 +963,82 @@
           ]
         },
         {
-          "id": "aanbeveling-geen-aanvullende-inspectie-van-de-appendix",
-          "type": "recommendation",
-          "text": "{x} Geen aanvullende inspectie van de appendix geïndiceerd",
-          "height": 20,
-          "gridX": 0,
-          "gridY": 110
-        },
-        {
-          "id": "aanbeveling-zorgvuldige-intraoperatieve-inspectie-van",
           "type": "recommendation",
           "text": "Zorgvuldige intraoperatieve inspectie van appendix en tractus digestivus\n{i} indien afwijkend appendectomie",
           "height": 29,
+          "id": "aanbeveling-zorgvuldige-intraoperatieve-inspectie-van",
           "gridX": 50,
           "gridY": 110
         },
         {
-          "id": "aanbeveling-ga-naar-desbetreffende-richtlijn",
           "type": "recommendation",
           "text": "Ga naar desbetreffende richtlijn",
           "height": 20,
+          "id": "aanbeveling-ga-naar-desbetreffende-richtlijn",
           "gridX": 100,
           "gridY": 110
         },
         {
-          "id": "verwijzing-postoperatief-beleid",
-          "type": "reference",
-          "label": "Postoperatief beleid",
-          "to": "postoperatief-beleid",
+          "type": "recommendation",
+          "text": "{x} Geen aanvullende inspectie van de appendix geïndiceerd",
+          "height": 20,
+          "id": "aanbeveling-geen-aanvullende-inspectie-van-de-appendix",
           "gridX": 0,
-          "gridY": 145
+          "gridY": 110
         },
         {
-          "id": "verwijzing-postoperatief-beleid-2",
+          "type": "dataItem",
+          "label": "Vriescoupe afgenomen",
+          "id": "vriescoupe-afgenomen",
+          "gridX": 50,
+          "gridY": 30,
+          "interactive": true,
+          "options": [
+            {
+              "value": "ja",
+              "label": "Ja",
+              "edge": "edge-vriescoupe-afgenomen-ja"
+            },
+            {
+              "value": "nee",
+              "label": "Nee",
+              "edge": "edge-vriescoupe-afgenomen-nee"
+            }
+          ]
+        },
+        {
+          "type": "title",
+          "label": "Aanvullende diagnostiek tijdens operatie",
+          "id": "titel",
+          "gridX": 50,
+          "gridY": 0
+        },
+        {
           "type": "reference",
           "label": "Postoperatief beleid",
           "to": "postoperatief-beleid",
+          "id": "verwijzing-postoperatief-beleid",
           "gridX": 50,
           "gridY": 145
         },
         {
-          "id": "verwijzing-postoperatief-beleid-3",
           "type": "reference",
           "label": "Postoperatief beleid",
           "to": "postoperatief-beleid",
+          "id": "verwijzing-postoperatief-beleid-2",
           "gridX": 145,
+          "gridY": 145
+        },
+        {
+          "type": "reference",
+          "label": "Postoperatief beleid",
+          "to": "postoperatief-beleid",
+          "id": "verwijzing-postoperatief-beleid-3",
+          "gridX": 0,
           "gridY": 145
         }
       ],
       "edges": [
-        {
-          "id": "edge-titel-vriescoupe-afgenomen",
-          "from": "titel",
-          "to": "vriescoupe-afgenomen",
-          "arrow": true
-        },
-        {
-          "id": "edge-vriescoupe-afgenomen-ja",
-          "from": "vriescoupe-afgenomen",
-          "to": "uitslag-vriescoupe",
-          "label": "Ja",
-          "value": "ja",
-          "arrow": true
-        },
-        {
-          "id": "edge-vriescoupe-afgenomen-nee",
-          "from": "vriescoupe-afgenomen",
-          "to": "verwijzing-postoperatief-beleid-3",
-          "label": "Nee",
-          "value": "nee",
-          "arrow": true
-        },
         {
           "id": "edge-uitslag-vriescoupe-aanbeveling-geen-aanvullende-inspectie-van-de-appendix",
           "from": "uitslag-vriescoupe",
@@ -1071,8 +1056,8 @@
           "to": "aanbeveling-zorgvuldige-intraoperatieve-inspectie-van",
           "label": "Mucineuze borderline, Onzeker",
           "value": [
-            "mucineuze-borderline",
-            "onzeker"
+            "onzeker",
+            "mucineuze-borderline"
           ],
           "arrow": true
         },
@@ -1085,15 +1070,37 @@
           "arrow": true
         },
         {
-          "id": "edge-aanbeveling-zorgvuldige-intraoperatieve-inspectie-van-verwijzing-postoperatief-beleid-2",
-          "from": "aanbeveling-zorgvuldige-intraoperatieve-inspectie-van",
-          "to": "verwijzing-postoperatief-beleid-2",
+          "id": "edge-titel-vriescoupe-afgenomen",
+          "from": "titel",
+          "to": "vriescoupe-afgenomen",
           "arrow": true
         },
         {
-          "id": "edge-aanbeveling-geen-aanvullende-inspectie-van-de-appendix-verwijzing-postoperatief-beleid",
-          "from": "aanbeveling-geen-aanvullende-inspectie-van-de-appendix",
+          "id": "edge-vriescoupe-afgenomen-ja",
+          "from": "vriescoupe-afgenomen",
+          "to": "uitslag-vriescoupe",
+          "label": "Ja",
+          "value": "ja",
+          "arrow": true
+        },
+        {
+          "id": "edge-vriescoupe-afgenomen-nee",
+          "from": "vriescoupe-afgenomen",
+          "to": "verwijzing-postoperatief-beleid-2",
+          "label": "Nee",
+          "value": "nee",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-zorgvuldige-intraoperatieve-inspectie-van-verwijzing-postoperatief-beleid",
+          "from": "aanbeveling-zorgvuldige-intraoperatieve-inspectie-van",
           "to": "verwijzing-postoperatief-beleid",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-geen-aanvullende-inspectie-van-de-appendix-verwijzing-postoperatief-beleid-3",
+          "from": "aanbeveling-geen-aanvullende-inspectie-van-de-appendix",
+          "to": "verwijzing-postoperatief-beleid-3",
           "arrow": true
         }
       ]
@@ -1108,39 +1115,12 @@
       },
       "nodes": [
         {
-          "id": "titel",
-          "type": "title",
-          "label": "Postoperatief beleid",
-          "gridX": 45,
-          "gridY": 0
-        },
-        {
-          "id": "compleetheid-resectie",
-          "type": "dataItem",
-          "label": "Compleetheid resectie",
-          "interactive": true,
-          "gridX": 45,
-          "gridY": 30,
-          "options": [
-            {
-              "value": "compleet",
-              "label": "Compleet",
-              "edge": "edge-compleetheid-resectie-compleet"
-            },
-            {
-              "value": "incompleet",
-              "label": "Incompleet",
-              "edge": "edge-compleetheid-resectie-incompleet"
-            }
-          ]
-        },
-        {
-          "id": "morfologie",
           "type": "dataItem",
           "label": "Morfologie",
-          "interactive": true,
+          "id": "morfologie",
           "gridX": 45,
           "gridY": 65,
+          "interactive": true,
           "options": [
             {
               "value": "maligne",
@@ -1161,44 +1141,68 @@
           "subtree": {
             "tree": "morfologie",
             "map": {
-              "aanbeveling-borderline": "borderline",
               "aanbeveling-maligne": "maligne",
-              "aanbeveling-borderline-2": "borderline",
+              "aanbeveling-borderline": "borderline",
               "aanbeveling-maligne-2": "maligne",
-              "aanbeveling-borderline-3": "borderline",
-              "aanbeveling-borderline-4": "borderline",
+              "aanbeveling-borderline-2": "borderline",
               "aanbeveling-maligne-3": "maligne",
-              "aanbeveling-maligne-4": "maligne"
+              "aanbeveling-borderline-3": "borderline",
+              "aanbeveling-maligne-4": "maligne",
+              "aanbeveling-borderline-4": "borderline"
             }
           }
         },
         {
-          "id": "ovaria-in-situ",
+          "type": "recommendation",
+          "text": "Verder beleid volgens betreffende richtlijn",
+          "height": 20,
+          "id": "aanbeveling-verder-beleid-volgens-betreffende-richtlijn",
+          "gridX": 0,
+          "gridY": 165
+        },
+        {
           "type": "dataItem",
-          "label": "Ovaria in situ",
-          "interactive": true,
+          "label": "Compleetheid resectie",
+          "id": "compleetheid-resectie",
           "gridX": 45,
-          "gridY": 100,
+          "gridY": 30,
+          "interactive": true,
           "options": [
             {
-              "value": "ja",
-              "label": "Ja",
-              "edge": "edge-ovaria-in-situ-ja"
+              "value": "compleet",
+              "label": "Compleet",
+              "edge": "edge-compleetheid-resectie-compleet"
             },
             {
-              "value": "nee",
-              "label": "Nee",
-              "edge": "edge-ovaria-in-situ-nee"
+              "value": "incompleet",
+              "label": "Incompleet",
+              "edge": "edge-compleetheid-resectie-incompleet"
             }
           ]
         },
         {
-          "id": "primaire-lokalisatie",
+          "type": "recommendation",
+          "text": "Debulking\nOF\nAfwachtend beleid",
+          "height": 20,
+          "id": "aanbeveling-debulking",
+          "gridX": 225,
+          "gridY": 165
+        },
+        {
+          "type": "reference",
+          "label": "Secundaire behandeling resttumor",
+          "to": "secundaire-behandeling-resttumor",
+          "id": "verwijzing-secundaire-behandeling-resttumor",
+          "gridX": 225,
+          "gridY": 195
+        },
+        {
           "type": "dataItem",
           "label": "Primaire lokalisatie",
-          "interactive": true,
+          "id": "primaire-lokalisatie",
           "gridX": 135,
           "gridY": 100,
+          "interactive": true,
           "options": [
             {
               "value": "appendix",
@@ -1218,12 +1222,20 @@
           ]
         },
         {
-          "id": "invasieve-implantaties",
+          "type": "recommendation",
+          "text": "{x} Geen Follow-up",
+          "height": 20,
+          "id": "aanbeveling-geen-follow-up",
+          "gridX": 45,
+          "gridY": 165
+        },
+        {
           "type": "dataItem",
           "label": "Invasieve implantaties",
-          "interactive": true,
+          "id": "invasieve-implantaties",
           "gridX": 90,
           "gridY": 130,
+          "interactive": true,
           "options": [
             {
               "value": "aanwezig",
@@ -1238,83 +1250,100 @@
           ]
         },
         {
-          "id": "aanbeveling-verder-beleid-volgens-betreffende-richtlijn",
-          "type": "recommendation",
-          "text": "Verder beleid volgens betreffende richtlijn",
-          "height": 20,
-          "gridX": 0,
-          "gridY": 165
-        },
-        {
-          "id": "aanbeveling-geen-follow-up",
-          "type": "recommendation",
-          "text": "{x} Geen follow-up",
-          "height": 20,
-          "gridX": 45,
-          "gridY": 165
-        },
-        {
-          "id": "aanbeveling-geen-adjuvante-behandeling-en-stagiering",
           "type": "recommendation",
           "text": "{x} Adjuvante behandeling en stagiëring zijn niet geïndiceerd",
           "height": 20,
+          "id": "aanbeveling-geen-adjuvante-behandeling-en-stagiering",
           "gridX": 90,
           "gridY": 165
         },
         {
-          "id": "aanbeveling-verder-beleid-volgens-richtlijn",
+          "type": "title",
+          "label": "Postoperatief beleid",
+          "id": "titel",
+          "gridX": 45,
+          "gridY": 0
+        },
+        {
           "type": "recommendation",
           "text": "Verder beleid volgens richtlijn ovariumcarcinoom",
           "height": 20,
+          "id": "aanbeveling-verder-beleid-volgens-richtlijn",
           "gridX": 135,
           "gridY": 165
         },
         {
-          "id": "aanbeveling-verder-beleid-volgens-betreffende-richtlijn-2",
           "type": "recommendation",
           "text": "Verder beleid volgens betreffende richtlijn\nEN\nOverleg met GE",
           "height": 20,
+          "id": "aanbeveling-verder-beleid-volgens-betreffende-richtlijn-2",
           "gridX": 180,
           "gridY": 165
         },
         {
-          "id": "aanbeveling-debulking",
-          "type": "recommendation",
-          "text": "Debulking\nOF\nAfwachtend beleid",
-          "height": 20,
-          "gridX": 225,
-          "gridY": 165
-        },
-        {
-          "id": "verwijzing-follow-up",
           "type": "reference",
           "label": "Follow-up",
           "to": "follow-up",
+          "id": "verwijzing-follow-up",
           "gridX": 90,
           "gridY": 195
         },
         {
-          "id": "verwijzing-secundaire-behandeling-resttumor",
-          "type": "reference",
-          "label": "Secundaire behandeling resttumor",
-          "to": "secundaire-behandeling-resttumor",
-          "gridX": 225,
-          "gridY": 195
+          "type": "dataItem",
+          "label": "Ovaria in situ",
+          "id": "ovaria-in-situ",
+          "gridX": 45,
+          "gridY": 100,
+          "interactive": true,
+          "options": [
+            {
+              "value": "ja",
+              "label": "Ja",
+              "edge": "edge-ovaria-in-situ-ja"
+            },
+            {
+              "value": "nee",
+              "label": "Nee",
+              "edge": "edge-ovaria-in-situ-nee"
+            }
+          ]
         }
       ],
       "edges": [
         {
-          "id": "edge-titel-compleetheid-resectie",
-          "from": "titel",
-          "to": "compleetheid-resectie",
+          "id": "edge-aanbeveling-geen-adjuvante-behandeling-en-stagiering-verwijzing-follow-up",
+          "from": "aanbeveling-geen-adjuvante-behandeling-en-stagiering",
+          "to": "verwijzing-follow-up",
           "arrow": true
         },
         {
-          "id": "edge-compleetheid-resectie-compleet",
-          "from": "compleetheid-resectie",
-          "to": "morfologie",
-          "label": "Compleet",
-          "value": "compleet",
+          "id": "edge-invasieve-implantaties-afwezig",
+          "from": "invasieve-implantaties",
+          "to": "aanbeveling-geen-follow-up",
+          "label": "Afwezig",
+          "value": "afwezig",
+          "arrow": true
+        },
+        {
+          "id": "edge-morfologie-maligne",
+          "from": "morfologie",
+          "to": "primaire-lokalisatie",
+          "label": "Maligne",
+          "value": "maligne",
+          "arrow": true
+        },
+        {
+          "id": "edge-primaire-lokalisatie-ovarium",
+          "from": "primaire-lokalisatie",
+          "to": "aanbeveling-verder-beleid-volgens-richtlijn",
+          "label": "Ovarium",
+          "value": "ovarium",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-debulking-verwijzing-secundaire-behandeling-resttumor",
+          "from": "aanbeveling-debulking",
+          "to": "verwijzing-secundaire-behandeling-resttumor",
           "arrow": true
         },
         {
@@ -1326,6 +1355,22 @@
           "arrow": true
         },
         {
+          "id": "edge-invasieve-implantaties-aanwezig",
+          "from": "invasieve-implantaties",
+          "to": "aanbeveling-geen-adjuvante-behandeling-en-stagiering",
+          "label": "Aanwezig",
+          "value": "aanwezig",
+          "arrow": true
+        },
+        {
+          "id": "edge-compleetheid-resectie-compleet",
+          "from": "compleetheid-resectie",
+          "to": "morfologie",
+          "label": "Compleet",
+          "value": "compleet",
+          "arrow": true
+        },
+        {
           "id": "edge-morfologie-benigne",
           "from": "morfologie",
           "to": "aanbeveling-verder-beleid-volgens-betreffende-richtlijn",
@@ -1334,19 +1379,28 @@
           "arrow": true
         },
         {
+          "id": "edge-primaire-lokalisatie-appendix",
+          "from": "primaire-lokalisatie",
+          "to": "aanbeveling-verder-beleid-volgens-betreffende-richtlijn-2",
+          "label": "Appendix, Overig",
+          "value": [
+            "appendix",
+            "overig"
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-titel-compleetheid-resectie",
+          "from": "titel",
+          "to": "compleetheid-resectie",
+          "arrow": true
+        },
+        {
           "id": "edge-morfologie-borderline",
           "from": "morfologie",
           "to": "ovaria-in-situ",
           "label": "Borderline",
           "value": "borderline",
-          "arrow": true
-        },
-        {
-          "id": "edge-morfologie-maligne",
-          "from": "morfologie",
-          "to": "primaire-lokalisatie",
-          "label": "Maligne",
-          "value": "maligne",
           "arrow": true
         },
         {
@@ -1364,434 +1418,6 @@
           "label": "Nee",
           "value": "nee",
           "arrow": true
-        },
-        {
-          "id": "edge-invasieve-implantaties-afwezig",
-          "from": "invasieve-implantaties",
-          "to": "aanbeveling-geen-follow-up",
-          "label": "Afwezig",
-          "value": "afwezig",
-          "arrow": true
-        },
-        {
-          "id": "edge-invasieve-implantaties-aanwezig",
-          "from": "invasieve-implantaties",
-          "to": "aanbeveling-geen-adjuvante-behandeling-en-stagiering",
-          "label": "Aanwezig",
-          "value": "aanwezig",
-          "arrow": true
-        },
-        {
-          "id": "edge-primaire-lokalisatie-ovarium",
-          "from": "primaire-lokalisatie",
-          "to": "aanbeveling-verder-beleid-volgens-richtlijn",
-          "label": "Ovarium",
-          "value": "ovarium",
-          "arrow": true
-        },
-        {
-          "id": "edge-primaire-lokalisatie-appendix",
-          "from": "primaire-lokalisatie",
-          "to": "aanbeveling-verder-beleid-volgens-betreffende-richtlijn-2",
-          "label": "Appendix, Overig",
-          "value": [
-            "appendix",
-            "overig"
-          ],
-          "arrow": true
-        },
-        {
-          "id": "edge-aanbeveling-geen-adjuvante-behandeling-en-stagiering-verwijzing-follow-up",
-          "from": "aanbeveling-geen-adjuvante-behandeling-en-stagiering",
-          "to": "verwijzing-follow-up",
-          "arrow": true
-        },
-        {
-          "id": "edge-aanbeveling-debulking-verwijzing-secundaire-behandeling-resttumor",
-          "from": "aanbeveling-debulking",
-          "to": "verwijzing-secundaire-behandeling-resttumor",
-          "arrow": true
-        }
-      ]
-    },
-    "morfologie": {
-      "onderbouwing": "Microinvasie: het invasieve gebied mag niet groter zijn dan 5 mm in doorsnede. Het totale oppervlak van deze microinvasie mag niet groter zijn dan 10 mm² en een individueel veld mag maximaal een diameter hebben van 3 mm. Indien de afmetingen groter zijn is sprake van een ovariumcarcinoom.\n\nDe gebieden met een micropapillair groeipatroon dienen groter te zijn dan 5 mm in doorsnede.\n\nScherp gedefinieerde criteria voor de diagnose maligniteit zijn er niet. Sommige auteurs houden bij cribriforme groei een limiet aan van 5 mm diameter.",
-      "bron": {
-        "url": "https://richtlijnendatabase.nl/richtlijn/borderline_ovariumtumoren/borderline_ovariumtumoren_-_startpagina.html"
-      },
-      "layout": {
-        "unit": 5,
-        "blockWidth": 40,
-        "blockHeight": 20,
-        "margin": 10
-      },
-      "nodes": [
-        {
-          "id": "titel",
-          "type": "title",
-          "label": "Morfologie",
-          "gridX": 90,
-          "gridY": 0
-        },
-        {
-          "id": "morfologie",
-          "type": "dataItem",
-          "label": "Morfologie",
-          "interactive": true,
-          "gridX": 90,
-          "gridY": 30,
-          "options": [
-            {
-              "value": "sereuze-borderline-tumor",
-              "label": "Sereuze borderline tumor",
-              "edge": "edge-morfologie-sereuze-borderline-tumor"
-            },
-            {
-              "value": "mucineuze-borderline-tumor",
-              "label": "Mucineuze borderline tumor",
-              "edge": "edge-morfologie-mucineuze-borderline-tumor"
-            },
-            {
-              "value": "clearcell-type-borderline-ovariumtumor",
-              "label": "Clearcell type borderline ovariumtumor",
-              "edge": "edge-morfologie-aanbeveling-borderline-3"
-            },
-            {
-              "value": "prolifererende-brennertumor",
-              "label": "Prolifererende Brennertumor",
-              "edge": "edge-morfologie-aanbeveling-borderline-3"
-            },
-            {
-              "value": "endometrioide-borderline-ovariumtumor",
-              "label": "Endometrioïde borderline ovariumtumor",
-              "edge": "edge-morfologie-diameter-cribriforme-groei"
-            },
-            {
-              "value": "invasieve-tumor",
-              "label": "Invasieve tumor",
-              "edge": "edge-morfologie-invasieve-tumor"
-            }
-          ]
-        },
-        {
-          "id": "totaal-oppervlak-microinvasie",
-          "type": "dataItem",
-          "label": "Totaal oppervlak microinvasie",
-          "interactive": true,
-          "gridX": 0,
-          "gridY": 65,
-          "measure": {
-            "unit": "mm2"
-          },
-          "options": [
-            {
-              "value": "lte-10-mm2",
-              "label": "<=10 mm2",
-              "lte": 10,
-              "edge": "edge-totaal-oppervlak-microinvasie-10-mm2"
-            },
-            {
-              "value": "gt-10-mm2",
-              "label": ">10 mm2",
-              "gt": 10,
-              "edge": "edge-totaal-oppervlak-microinvasie-10-mm2-2"
-            }
-          ]
-        },
-        {
-          "id": "doorsnede-invasief-gebied",
-          "type": "dataItem",
-          "label": "Doorsnede invasief gebied",
-          "interactive": true,
-          "gridX": 90,
-          "gridY": 65,
-          "measure": {
-            "unit": "mm"
-          },
-          "options": [
-            {
-              "value": "lte-5-mm",
-              "label": "<=5 mm",
-              "lte": 5,
-              "edge": "edge-doorsnede-invasief-gebied-5-mm"
-            },
-            {
-              "value": "gt-5-mm",
-              "label": ">5 mm",
-              "gt": 5,
-              "edge": "edge-doorsnede-invasief-gebied-5-mm-2"
-            }
-          ]
-        },
-        {
-          "id": "diameter-cribriforme-groei",
-          "type": "dataItem",
-          "label": "Diameter cribriforme groei",
-          "interactive": true,
-          "gridX": 225,
-          "gridY": 65,
-          "measure": {
-            "unit": "mm"
-          },
-          "options": [
-            {
-              "value": "lte-5-mm",
-              "label": "<=5 mm",
-              "lte": 5,
-              "edge": "edge-diameter-cribriforme-groei-5-mm"
-            },
-            {
-              "value": "gt-5-mm",
-              "label": ">5 mm",
-              "gt": 5,
-              "edge": "edge-diameter-cribriforme-groei-5-mm-2"
-            }
-          ]
-        },
-        {
-          "id": "diameter-individueel-veld",
-          "type": "dataItem",
-          "label": "Diameter individueel veld",
-          "interactive": true,
-          "gridX": 0,
-          "gridY": 100,
-          "measure": {
-            "unit": "mm"
-          },
-          "options": [
-            {
-              "value": "lte-3-mm",
-              "label": "<=3 mm",
-              "lte": 3,
-              "edge": "edge-diameter-individueel-veld-3-mm"
-            },
-            {
-              "value": "gt-3-mm",
-              "label": ">3 mm",
-              "gt": 3,
-              "edge": "edge-diameter-individueel-veld-3-mm-2"
-            }
-          ]
-        },
-        {
-          "id": "doorsnede-micropapillair-groeipatroon",
-          "type": "dataItem",
-          "label": "Doorsnede micropapillair groeipatroon",
-          "interactive": true,
-          "gridX": 0,
-          "gridY": 135,
-          "measure": {
-            "unit": "mm"
-          },
-          "options": [
-            {
-              "value": "lte-5-mm",
-              "label": "<=5 mm",
-              "lte": 5,
-              "edge": "edge-doorsnede-micropapillair-groeipatroon-5-mm"
-            },
-            {
-              "value": "gt-5-mm",
-              "label": ">5 mm",
-              "gt": 5,
-              "edge": "edge-doorsnede-micropapillair-groeipatroon-5-mm-2"
-            }
-          ]
-        },
-        {
-          "id": "aanbeveling-borderline",
-          "type": "recommendation",
-          "text": "Borderline",
-          "height": 20,
-          "gridX": 0,
-          "gridY": 170
-        },
-        {
-          "id": "aanbeveling-maligne",
-          "type": "recommendation",
-          "text": "Maligne",
-          "height": 20,
-          "gridX": 45,
-          "gridY": 170
-        },
-        {
-          "id": "aanbeveling-borderline-2",
-          "type": "recommendation",
-          "text": "Borderline",
-          "height": 20,
-          "gridX": 90,
-          "gridY": 170
-        },
-        {
-          "id": "aanbeveling-maligne-2",
-          "type": "recommendation",
-          "text": "Maligne",
-          "height": 20,
-          "gridX": 135,
-          "gridY": 170
-        },
-        {
-          "id": "aanbeveling-borderline-3",
-          "type": "recommendation",
-          "text": "Borderline",
-          "height": 20,
-          "gridX": 180,
-          "gridY": 170
-        },
-        {
-          "id": "aanbeveling-borderline-4",
-          "type": "recommendation",
-          "text": "Borderline",
-          "height": 20,
-          "gridX": 225,
-          "gridY": 170
-        },
-        {
-          "id": "aanbeveling-maligne-3",
-          "type": "recommendation",
-          "text": "Maligne",
-          "height": 20,
-          "gridX": 270,
-          "gridY": 170
-        },
-        {
-          "id": "aanbeveling-maligne-4",
-          "type": "recommendation",
-          "text": "Maligne",
-          "height": 20,
-          "gridX": 315,
-          "gridY": 170
-        }
-      ],
-      "edges": [
-        {
-          "id": "edge-titel-morfologie",
-          "from": "titel",
-          "to": "morfologie",
-          "arrow": true
-        },
-        {
-          "id": "edge-morfologie-sereuze-borderline-tumor",
-          "from": "morfologie",
-          "to": "totaal-oppervlak-microinvasie",
-          "label": "Sereuze borderline tumor",
-          "value": "sereuze-borderline-tumor",
-          "arrow": true
-        },
-        {
-          "id": "edge-morfologie-mucineuze-borderline-tumor",
-          "from": "morfologie",
-          "to": "doorsnede-invasief-gebied",
-          "label": "Mucineuze borderline tumor",
-          "value": "mucineuze-borderline-tumor",
-          "arrow": true
-        },
-        {
-          "id": "edge-morfologie-aanbeveling-borderline-3",
-          "from": "morfologie",
-          "to": "aanbeveling-borderline-3",
-          "label": "Clearcell type borderline ovariumtumor, Prolifererende Brennertumor",
-          "value": [
-            "clearcell-type-borderline-ovariumtumor",
-            "prolifererende-brennertumor"
-          ],
-          "arrow": true
-        },
-        {
-          "id": "edge-morfologie-diameter-cribriforme-groei",
-          "from": "morfologie",
-          "to": "diameter-cribriforme-groei",
-          "label": "Endometrioïde borderline ovariumtumor",
-          "value": "endometrioide-borderline-ovariumtumor",
-          "arrow": true
-        },
-        {
-          "id": "edge-morfologie-invasieve-tumor",
-          "from": "morfologie",
-          "to": "aanbeveling-maligne-4",
-          "label": "Invasieve tumor",
-          "value": "invasieve-tumor",
-          "arrow": true
-        },
-        {
-          "id": "edge-totaal-oppervlak-microinvasie-10-mm2",
-          "from": "totaal-oppervlak-microinvasie",
-          "to": "diameter-individueel-veld",
-          "label": "<=10 mm2",
-          "value": "lte-10-mm2",
-          "arrow": true
-        },
-        {
-          "id": "edge-totaal-oppervlak-microinvasie-10-mm2-2",
-          "from": "totaal-oppervlak-microinvasie",
-          "to": "aanbeveling-maligne",
-          "label": ">10 mm2",
-          "value": "gt-10-mm2",
-          "arrow": true
-        },
-        {
-          "id": "edge-diameter-individueel-veld-3-mm",
-          "from": "diameter-individueel-veld",
-          "to": "doorsnede-micropapillair-groeipatroon",
-          "label": "<=3 mm",
-          "value": "lte-3-mm",
-          "arrow": true
-        },
-        {
-          "id": "edge-diameter-individueel-veld-3-mm-2",
-          "from": "diameter-individueel-veld",
-          "to": "aanbeveling-maligne",
-          "label": ">3 mm",
-          "value": "gt-3-mm",
-          "arrow": true
-        },
-        {
-          "id": "edge-doorsnede-micropapillair-groeipatroon-5-mm",
-          "from": "doorsnede-micropapillair-groeipatroon",
-          "to": "aanbeveling-borderline",
-          "label": "<=5 mm",
-          "value": "lte-5-mm",
-          "arrow": true
-        },
-        {
-          "id": "edge-doorsnede-micropapillair-groeipatroon-5-mm-2",
-          "from": "doorsnede-micropapillair-groeipatroon",
-          "to": "aanbeveling-maligne",
-          "label": ">5 mm",
-          "value": "gt-5-mm",
-          "arrow": true
-        },
-        {
-          "id": "edge-doorsnede-invasief-gebied-5-mm",
-          "from": "doorsnede-invasief-gebied",
-          "to": "aanbeveling-borderline-2",
-          "label": "<=5 mm",
-          "value": "lte-5-mm",
-          "arrow": true
-        },
-        {
-          "id": "edge-doorsnede-invasief-gebied-5-mm-2",
-          "from": "doorsnede-invasief-gebied",
-          "to": "aanbeveling-maligne-2",
-          "label": ">5 mm",
-          "value": "gt-5-mm",
-          "arrow": true
-        },
-        {
-          "id": "edge-diameter-cribriforme-groei-5-mm",
-          "from": "diameter-cribriforme-groei",
-          "to": "aanbeveling-borderline-4",
-          "label": "<=5 mm",
-          "value": "lte-5-mm",
-          "arrow": true
-        },
-        {
-          "id": "edge-diameter-cribriforme-groei-5-mm-2",
-          "from": "diameter-cribriforme-groei",
-          "to": "aanbeveling-maligne-3",
-          "label": ">5 mm",
-          "value": "gt-5-mm",
-          "arrow": true
         }
       ]
     },
@@ -1805,19 +1431,43 @@
       },
       "nodes": [
         {
-          "id": "titel",
+          "type": "recommendation",
+          "text": "Geen aanvullende behandeling nodig",
+          "height": 20,
+          "id": "aanbeveling-geen-aanvullende-behandeling-nodig",
+          "gridX": 0,
+          "gridY": 65
+        },
+        {
+          "type": "reference",
+          "label": "Follow-up",
+          "to": "follow-up",
+          "id": "verwijzing-follow-up",
+          "gridX": 0,
+          "gridY": 95
+        },
+        {
+          "type": "recommendation",
+          "text": "Individualiseer behandeling",
+          "height": 20,
+          "id": "aanbeveling-individualiseer-behandeling",
+          "gridX": 45,
+          "gridY": 65
+        },
+        {
           "type": "title",
           "label": "Secundaire behandeling resttumor",
+          "id": "titel",
           "gridX": 0,
           "gridY": 0
         },
         {
-          "id": "compleetheid-re-resectie",
           "type": "dataItem",
           "label": "Compleetheid re-resectie",
-          "interactive": true,
+          "id": "compleetheid-re-resectie",
           "gridX": 0,
           "gridY": 30,
+          "interactive": true,
           "options": [
             {
               "value": "incompleet",
@@ -1830,45 +1480,19 @@
               "edge": "edge-compleetheid-re-resectie-compleet"
             }
           ]
-        },
-        {
-          "id": "aanbeveling-geen-aanvullende-behandeling-nodig",
-          "type": "recommendation",
-          "text": "Geen aanvullende behandeling nodig",
-          "height": 20,
-          "gridX": 0,
-          "gridY": 65
-        },
-        {
-          "id": "aanbeveling-individualiseer-behandeling",
-          "type": "recommendation",
-          "text": "Individualiseer behandeling",
-          "height": 20,
-          "gridX": 45,
-          "gridY": 65
-        },
-        {
-          "id": "verwijzing-follow-up",
-          "type": "reference",
-          "label": "Follow-up",
-          "to": "follow-up",
-          "gridX": 0,
-          "gridY": 95
         }
       ],
       "edges": [
         {
-          "id": "edge-titel-compleetheid-re-resectie",
-          "from": "titel",
-          "to": "compleetheid-re-resectie",
+          "id": "edge-aanbeveling-geen-aanvullende-behandeling-nodig-verwijzing-follow-up",
+          "from": "aanbeveling-geen-aanvullende-behandeling-nodig",
+          "to": "verwijzing-follow-up",
           "arrow": true
         },
         {
-          "id": "edge-compleetheid-re-resectie-compleet",
-          "from": "compleetheid-re-resectie",
-          "to": "aanbeveling-geen-aanvullende-behandeling-nodig",
-          "label": "Compleet",
-          "value": "compleet",
+          "id": "edge-titel-compleetheid-re-resectie",
+          "from": "titel",
+          "to": "compleetheid-re-resectie",
           "arrow": true
         },
         {
@@ -1880,15 +1504,17 @@
           "arrow": true
         },
         {
-          "id": "edge-aanbeveling-geen-aanvullende-behandeling-nodig-verwijzing-follow-up",
-          "from": "aanbeveling-geen-aanvullende-behandeling-nodig",
-          "to": "verwijzing-follow-up",
+          "id": "edge-compleetheid-re-resectie-compleet",
+          "from": "compleetheid-re-resectie",
+          "to": "aanbeveling-geen-aanvullende-behandeling-nodig",
+          "label": "Compleet",
+          "value": "compleet",
           "arrow": true
         }
       ]
     },
     "follow-up": {
-      "onderbouwing": "In buitenlandse studies wordt follow-up aanbevolen tot 5 jaar na behandeling, in de vorm van gynaecologisch onderzoek, CA125 en transvaginale echoscopie in geval van een restovarium in situ en CA19.9 voor mucineuze tumoren (Zanetta 2001; Cadron 2007; Akeson 2008). Over de effectiviteit van deze nazorg zijn echter geen data voorhanden, maar gezien de zeer goede prognose is effect van follow-up op de overleving onwaarschijnlijk.\n\nDe commissie is van oordeel dat, indien beide ovaria verwijderd zijn, follow-up na borderline ovariumtumor niet rationeel is. Indien er nog een ovarium in situ is of sprake is van invasieve implantaties, kan follow-up gedurende 5 jaar in overleg met patiënte worden overwogen.",
+      "onderbouwing": "In buitenlandse studies wordt follow-up aanbevolen tot 5 jaar na behandeling. in de vorm van gynaecologisch onderzoek, CA125 en transvaginale echoscopie in geval van een restovarium in situ en CA19.9 voor mucineuze tumoren (Zanetta 2001; Cadron 2007; Akeson 2008). Over de effectiviteit van deze nazorg zijn echter geen data voorhanden, maar gezien de zeer goede prognose is effect van follow up op de overleving onwaarschijnlijk. De commissie is van oordeel dat, indien beide ovaria verwijderd zijn, follow-up na borderline ovariumtumor niet rationeel is. Indien er nog een ovarium in situ is of sprake is van invasieve implantaties, kan follow up gedurende 5 jaar in overleg met patiënte worden overwogen.",
       "layout": {
         "unit": 5,
         "blockWidth": 40,
@@ -1897,46 +1523,46 @@
       },
       "nodes": [
         {
-          "id": "titel",
-          "type": "title",
-          "label": "Follow-up",
-          "gridX": 0,
-          "gridY": 0
-        },
-        {
-          "id": "aanbeveling-overweeg-follow-up-gedurende-5-jaar",
           "type": "recommendation",
-          "text": "Overweeg follow-up gedurende 5 jaar\n\nOverweeg:\nGynaecologisch onderzoek\nEN\nCA125\n{i} indien mucineuze borderline tumor ook CA19.9\nEN\nTransvaginale echoscopie",
-          "height": 49,
+          "text": "Overweeg follow-up gedurende 5 jaar\nOverweeg:\nGynaecologisch onderzoek\nEN\nCA125\n{i} indien mucineuze borderline tumor ook CA19.9\nEN\nTransvaginale echoscopie",
+          "height": 45,
+          "id": "aanbeveling-overweeg-follow-up-gedurende-5-jaar",
           "gridX": 0,
           "gridY": 30
         },
         {
-          "id": "verwijzing-diagnostiek-recidief",
           "type": "reference",
           "label": "Diagnostiek recidief",
           "to": "diagnostiek-recidief",
+          "id": "verwijzing-diagnostiek-recidief",
           "gridX": 0,
           "gridY": 105
+        },
+        {
+          "type": "title",
+          "label": "Follow-up",
+          "id": "titel",
+          "gridX": 0,
+          "gridY": 0
         }
       ],
       "edges": [
-        {
-          "id": "edge-titel-aanbeveling-overweeg-follow-up-gedurende-5-jaar",
-          "from": "titel",
-          "to": "aanbeveling-overweeg-follow-up-gedurende-5-jaar",
-          "arrow": true
-        },
         {
           "id": "edge-aanbeveling-overweeg-follow-up-gedurende-5-jaar-verwijzing-diagnostiek-recidief",
           "from": "aanbeveling-overweeg-follow-up-gedurende-5-jaar",
           "to": "verwijzing-diagnostiek-recidief",
           "arrow": true
+        },
+        {
+          "id": "edge-titel-aanbeveling-overweeg-follow-up-gedurende-5-jaar",
+          "from": "titel",
+          "to": "aanbeveling-overweeg-follow-up-gedurende-5-jaar",
+          "arrow": true
         }
       ]
     },
     "diagnostiek-recidief": {
-      "onderbouwing": "In geval van recidief dient histologie van de primaire tumor, voor zover nog niet eerder verricht, (centraal) te worden gereviseerd om een invasief ovariumcarcinoom uit te sluiten.\n\nEr zijn geen gegevens over de waarde van aanvullende beeldvorming. Bij verdenking op tumorprogressie kan een CT-scan aangevraagd worden.",
+      "onderbouwing": "In geval van recidief dient histologie van de primaire tumor, voor zover nog niet eerder verricht, (centraal) te worden gereviseerd om een invasief ovariumcarcinoom uit te sluiten\n\nEr zijn geen gegevens over de waarde van aanvullende beeldvorming. Bij verdenking op tumorprogressie kan een CT scan aangevraagd worden.",
       "layout": {
         "unit": 5,
         "blockWidth": 40,
@@ -1945,46 +1571,46 @@
       },
       "nodes": [
         {
-          "id": "titel",
-          "type": "title",
-          "label": "Diagnostiek recidief",
+          "type": "reference",
+          "label": "Behandeling recidief",
+          "to": "behandeling-recidief",
+          "id": "verwijzing-behandeling-recidief",
           "gridX": 0,
-          "gridY": 0
+          "gridY": 70
         },
         {
-          "id": "aanbeveling-centrale-revisie-histologie-van-de-primaire",
           "type": "recommendation",
           "text": "(Centrale) revisie histologie van de primaire tumor\n{i} indien niet eerder verricht\nEN\nCT-scan",
           "height": 32,
+          "id": "aanbeveling-centrale-revisie-histologie-van-de-primaire",
           "gridX": 0,
           "gridY": 30
         },
         {
-          "id": "verwijzing-behandeling-recidief",
-          "type": "reference",
-          "label": "Behandeling recidief",
-          "to": "behandeling-recidief",
+          "type": "title",
+          "label": "Diagnostiek recidief",
+          "id": "titel",
           "gridX": 0,
-          "gridY": 70
+          "gridY": 0
         }
       ],
       "edges": [
-        {
-          "id": "edge-titel-aanbeveling-centrale-revisie-histologie-van-de-primaire",
-          "from": "titel",
-          "to": "aanbeveling-centrale-revisie-histologie-van-de-primaire",
-          "arrow": true
-        },
         {
           "id": "edge-aanbeveling-centrale-revisie-histologie-van-de-primaire-verwijzing-behandeling-recidief",
           "from": "aanbeveling-centrale-revisie-histologie-van-de-primaire",
           "to": "verwijzing-behandeling-recidief",
           "arrow": true
+        },
+        {
+          "id": "edge-titel-aanbeveling-centrale-revisie-histologie-van-de-primaire",
+          "from": "titel",
+          "to": "aanbeveling-centrale-revisie-histologie-van-de-primaire",
+          "arrow": true
         }
       ]
     },
     "behandeling-recidief": {
-      "onderbouwing": "De goede prognose van patiënten met lymfkliermetastasen bij borderline tumoren (Camatte 2002) en de diploïde DNA content (Tan 1994) pleiten tegen het verrichten van routinematige lymfadenectomie.\n\nIn geval van recidief is chirurgie de enige optie in vorm van een nieuwe debulking operatie. In geval van klinische progressie bij resttumor geldt hetzelfde.\n\nDe effectiviteit van aanvullende chemotherapie na verwijdering van locaal gerecidiveerde of intraperitoneaal gemetastaseerde borderline tumoren van het ovarium is niet aangetoond. Advies is dan ook om geen chemotherapie te geven. Sommige studies wijzen overigens wel op effectiviteit (Barakat 1995), terwijl anderen hiervoor geen aanwijzingen vonden (Gershenson 1998; Akeson 2008).",
+      "onderbouwing": "De goede prognose van patiënten met lymfkliermetastasen bij borderline tumoren (Camatte 2002) en de diploïde DNA content (Tan 1994) pleiten tegen het verrichten van routinematige lymfadenectomie.\n\nIn geval van recidief is chirurgie de enige optie in vorm van een nieuwe debulking operatie. In geval van klinische progressie bij resttumor geldt hetzelfde.\n\nDe effectiviteit van aanvullende chemotherapie na verwijdering van locaal gerecidiveerde of intraperitoneaal gemetastaseerde borderline tumoren van het ovarium is niet aangetoond. Advies is dan ook om geen chemotherapie te geven. Sommige studies wijzen overigens wel op effectiviteit (Barakat 1995), terwijl anderen hiervoor geen aanwijzingen vonden ( Gershenson 1998; Akeson 2008).",
       "layout": {
         "unit": 5,
         "blockWidth": 40,
@@ -1993,19 +1619,43 @@
       },
       "nodes": [
         {
-          "id": "titel",
+          "type": "recommendation",
+          "text": "Individualiseer behandeling",
+          "height": 20,
+          "id": "aanbeveling-individualiseer-behandeling",
+          "gridX": 45,
+          "gridY": 100
+        },
+        {
           "type": "title",
           "label": "Behandeling recidief",
+          "id": "titel",
           "gridX": 0,
           "gridY": 0
         },
         {
-          "id": "uitslag-pathologie-revisie-primaire-tumor",
+          "type": "recommendation",
+          "text": "Verder beleid\nconform\nbetreffende richtlijn",
+          "height": 20,
+          "id": "aanbeveling-verder-beleid",
+          "gridX": 90,
+          "gridY": 100
+        },
+        {
+          "type": "reference",
+          "label": "Follow-up",
+          "to": "follow-up",
+          "id": "verwijzing-follow-up",
+          "gridX": 0,
+          "gridY": 140
+        },
+        {
           "type": "dataItem",
           "label": "Uitslag pathologie revisie primaire tumor",
-          "interactive": true,
+          "id": "uitslag-pathologie-revisie-primaire-tumor",
           "gridX": 0,
           "gridY": 30,
+          "interactive": true,
           "options": [
             {
               "value": "borderline",
@@ -2020,12 +1670,20 @@
           ]
         },
         {
-          "id": "type-recidief",
+          "type": "recommendation",
+          "text": "Chirurgische verwijdering tumordeposities\nEN\n{x} Adjuvante chemotherapie is niet geïndiceerd",
+          "height": 26,
+          "id": "aanbeveling-chirurgische-verwijdering-tumordeposities",
+          "gridX": 0,
+          "gridY": 100
+        },
+        {
           "type": "dataItem",
           "label": "Type recidief",
-          "interactive": true,
+          "id": "type-recidief",
           "gridX": 0,
           "gridY": 65,
+          "interactive": true,
           "options": [
             {
               "value": "intra-abdominaal",
@@ -2038,38 +1696,6 @@
               "edge": "edge-type-recidief-afstands"
             }
           ]
-        },
-        {
-          "id": "aanbeveling-chirurgische-verwijdering-tumordeposities",
-          "type": "recommendation",
-          "text": "Chirurgische verwijdering tumordeposities\nEN\n{x} Adjuvante chemotherapie is niet geïndiceerd",
-          "height": 26,
-          "gridX": 0,
-          "gridY": 100
-        },
-        {
-          "id": "aanbeveling-individualiseer-behandeling",
-          "type": "recommendation",
-          "text": "Individualiseer behandeling",
-          "height": 20,
-          "gridX": 45,
-          "gridY": 100
-        },
-        {
-          "id": "aanbeveling-verder-beleid-conform-betreffende-richtlijn",
-          "type": "recommendation",
-          "text": "Verder beleid conform betreffende richtlijn",
-          "height": 20,
-          "gridX": 90,
-          "gridY": 100
-        },
-        {
-          "id": "verwijzing-follow-up",
-          "type": "reference",
-          "label": "Follow-up",
-          "to": "follow-up",
-          "gridX": 0,
-          "gridY": 140
         }
       ],
       "edges": [
@@ -2080,19 +1706,25 @@
           "arrow": true
         },
         {
+          "id": "edge-uitslag-pathologie-revisie-primaire-tumor-maligne",
+          "from": "uitslag-pathologie-revisie-primaire-tumor",
+          "to": "aanbeveling-verder-beleid",
+          "label": "Maligne",
+          "value": "maligne",
+          "arrow": true
+        },
+        {
+          "id": "edge-aanbeveling-chirurgische-verwijdering-tumordeposities-verwijzing-follow-up",
+          "from": "aanbeveling-chirurgische-verwijdering-tumordeposities",
+          "to": "verwijzing-follow-up",
+          "arrow": true
+        },
+        {
           "id": "edge-uitslag-pathologie-revisie-primaire-tumor-borderline",
           "from": "uitslag-pathologie-revisie-primaire-tumor",
           "to": "type-recidief",
           "label": "Borderline",
           "value": "borderline",
-          "arrow": true
-        },
-        {
-          "id": "edge-uitslag-pathologie-revisie-primaire-tumor-maligne",
-          "from": "uitslag-pathologie-revisie-primaire-tumor",
-          "to": "aanbeveling-verder-beleid-conform-betreffende-richtlijn",
-          "label": "Maligne",
-          "value": "maligne",
           "arrow": true
         },
         {
@@ -2110,21 +1742,389 @@
           "label": "Afstands",
           "value": "afstands",
           "arrow": true
+        }
+      ]
+    },
+    "morfologie": {
+      "onderbouwing": "Het totale oppervlak van deze microinvasie mag niet groter zijn dan 10 mm² en een individueel veld mag maximaal een diameter hebben van 3 mm. Indien de afmetingen groter zijn is sprake van een ovariumcarcinoom.\n\nDe gebieden met een micropapillair groeipatroon dienen groter te zijn dan 5 mm in doorsnede\n\nMicroinvasie: het invasieve gebied mag niet groter zijn dan 5 mm in doorsnede.\n\nScherp gedefinieerde criteria voor de diagnose maligniteit zijn er niet.\n\nSommige auteurs houden bij cribriforme groei een limiet aan van 5 mm diameter.",
+      "bron": {
+        "url": "https://www.oncoline.nl/borderline-ovariumtumoren"
+      },
+      "layout": {
+        "unit": 5,
+        "blockWidth": 40,
+        "blockHeight": 20,
+        "margin": 10
+      },
+      "nodes": [
+        {
+          "type": "title",
+          "label": "Morfologie",
+          "id": "titel",
+          "gridX": 90,
+          "gridY": 0
         },
         {
-          "id": "edge-aanbeveling-chirurgische-verwijdering-tumordeposities-verwijzing-follow-up",
-          "from": "aanbeveling-chirurgische-verwijdering-tumordeposities",
-          "to": "verwijzing-follow-up",
+          "type": "dataItem",
+          "label": "Diameter cribriforme groei",
+          "id": "diameter-cribriforme-groei",
+          "gridX": 225,
+          "gridY": 65,
+          "measure": {
+            "unit": "mm"
+          },
+          "interactive": true,
+          "options": [
+            {
+              "value": "lte-5-mm",
+              "label": "<=5 mm",
+              "lte": 5,
+              "edge": "edge-diameter-cribriforme-groei-lte-5-mm"
+            },
+            {
+              "value": "gt-5-mm",
+              "label": ">5 mm",
+              "gt": 5,
+              "edge": "edge-diameter-cribriforme-groei-gt-5-mm"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Doorsnede micropapillair groeipatroon",
+          "id": "doorsnede-micropapillair-groeipatroon",
+          "gridX": 0,
+          "gridY": 135,
+          "measure": {
+            "unit": "mm"
+          },
+          "interactive": true,
+          "options": [
+            {
+              "value": "lte-5-mm",
+              "label": "<=5 mm",
+              "lte": 5,
+              "edge": "edge-doorsnede-micropapillair-groeipatroon-lte-5-mm"
+            },
+            {
+              "value": "gt-5-mm",
+              "label": ">5 mm",
+              "gt": 5,
+              "edge": "edge-doorsnede-micropapillair-groeipatroon-gt-5-mm"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Doorsnede invasief gebied",
+          "id": "doorsnede-invasief-gebied",
+          "gridX": 90,
+          "gridY": 65,
+          "measure": {
+            "unit": "mm"
+          },
+          "interactive": true,
+          "options": [
+            {
+              "value": "lte-5-mm",
+              "label": "<=5 mm",
+              "lte": 5,
+              "edge": "edge-doorsnede-invasief-gebied-lte-5-mm"
+            },
+            {
+              "value": "gt-5-mm",
+              "label": ">5 mm",
+              "gt": 5,
+              "edge": "edge-doorsnede-invasief-gebied-gt-5-mm"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Maligne",
+          "height": 20,
+          "id": "aanbeveling-maligne",
+          "gridX": 270,
+          "gridY": 170
+        },
+        {
+          "type": "recommendation",
+          "text": "Borderline",
+          "height": 20,
+          "id": "aanbeveling-borderline",
+          "gridX": 90,
+          "gridY": 170
+        },
+        {
+          "type": "recommendation",
+          "text": "Maligne",
+          "height": 20,
+          "id": "aanbeveling-maligne-2",
+          "gridX": 45,
+          "gridY": 170
+        },
+        {
+          "type": "dataItem",
+          "label": "Diameter individueel veld",
+          "id": "diameter-individueel-veld",
+          "gridX": 0,
+          "gridY": 100,
+          "measure": {
+            "unit": "mm"
+          },
+          "interactive": true,
+          "options": [
+            {
+              "value": "lte-3-mm",
+              "label": "<=3 mm",
+              "lte": 3,
+              "edge": "edge-diameter-individueel-veld-lte-3-mm"
+            },
+            {
+              "value": "gt-3-mm",
+              "label": ">3 mm",
+              "gt": 3,
+              "edge": "edge-diameter-individueel-veld-gt-3-mm"
+            }
+          ]
+        },
+        {
+          "type": "dataItem",
+          "label": "Totaal oppervlak microinvasie",
+          "id": "totaal-oppervlak-microinvasie",
+          "gridX": 0,
+          "gridY": 65,
+          "measure": {
+            "unit": "mm2"
+          },
+          "interactive": true,
+          "options": [
+            {
+              "value": "lte-10-mm2",
+              "label": "<=10 mm2",
+              "lte": 10,
+              "edge": "edge-totaal-oppervlak-microinvasie-lte-10-mm2"
+            },
+            {
+              "value": "gt-10-mm2",
+              "label": ">10 mm2",
+              "gt": 10,
+              "edge": "edge-totaal-oppervlak-microinvasie-gt-10-mm2"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Borderline",
+          "height": 20,
+          "id": "aanbeveling-borderline-2",
+          "gridX": 225,
+          "gridY": 170
+        },
+        {
+          "type": "recommendation",
+          "text": "Maligne",
+          "height": 20,
+          "id": "aanbeveling-maligne-3",
+          "gridX": 135,
+          "gridY": 170
+        },
+        {
+          "type": "recommendation",
+          "text": "Borderline",
+          "height": 20,
+          "id": "aanbeveling-borderline-3",
+          "gridX": 0,
+          "gridY": 170
+        },
+        {
+          "type": "recommendation",
+          "text": "Maligne",
+          "height": 20,
+          "id": "aanbeveling-maligne-4",
+          "gridX": 315,
+          "gridY": 170
+        },
+        {
+          "type": "dataItem",
+          "label": "Morfologie",
+          "id": "morfologie",
+          "gridX": 90,
+          "gridY": 30,
+          "interactive": true,
+          "options": [
+            {
+              "value": "sereuze-borderline-tumor",
+              "label": "Sereuze borderline tumor",
+              "edge": "edge-morfologie-sereuze-borderline-tumor"
+            },
+            {
+              "value": "mucineuze-borderline-tumor",
+              "label": "Mucineuze borderline tumor",
+              "edge": "edge-morfologie-mucineuze-borderline-tumor"
+            },
+            {
+              "value": "clearcell-type-borderline-ovariumtumor",
+              "label": "Clearcell type borderline ovariumtumor",
+              "edge": "edge-morfologie-aanbeveling-borderline-4"
+            },
+            {
+              "value": "prolifererende-brennertumor",
+              "label": "Prolifererende Brennertumor",
+              "edge": "edge-morfologie-aanbeveling-borderline-4"
+            },
+            {
+              "value": "endometrioide-borderline-ovariumtumor",
+              "label": "Endometrioïde borderline ovariumtumor",
+              "edge": "edge-morfologie-endometrioide-borderline-ovariumtumor"
+            },
+            {
+              "value": "invasieve-tumor",
+              "label": "Invasieve tumor",
+              "edge": "edge-morfologie-invasieve-tumor"
+            }
+          ]
+        },
+        {
+          "type": "recommendation",
+          "text": "Borderline",
+          "height": 20,
+          "id": "aanbeveling-borderline-4",
+          "gridX": 180,
+          "gridY": 170
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-diameter-individueel-veld-lte-3-mm",
+          "from": "diameter-individueel-veld",
+          "to": "doorsnede-micropapillair-groeipatroon",
+          "label": "<=3 mm",
+          "value": "lte-3-mm",
+          "arrow": true
+        },
+        {
+          "id": "edge-totaal-oppervlak-microinvasie-lte-10-mm2",
+          "from": "totaal-oppervlak-microinvasie",
+          "to": "diameter-individueel-veld",
+          "label": "<=10 mm2",
+          "value": "lte-10-mm2",
+          "arrow": true
+        },
+        {
+          "id": "edge-doorsnede-micropapillair-groeipatroon-gt-5-mm",
+          "from": "doorsnede-micropapillair-groeipatroon",
+          "to": "aanbeveling-maligne-2",
+          "label": ">5 mm",
+          "value": "gt-5-mm",
+          "arrow": true
+        },
+        {
+          "id": "edge-diameter-cribriforme-groei-gt-5-mm",
+          "from": "diameter-cribriforme-groei",
+          "to": "aanbeveling-maligne",
+          "label": ">5 mm",
+          "value": "gt-5-mm",
+          "arrow": true
+        },
+        {
+          "id": "edge-doorsnede-micropapillair-groeipatroon-lte-5-mm",
+          "from": "doorsnede-micropapillair-groeipatroon",
+          "to": "aanbeveling-borderline-3",
+          "label": "<=5 mm",
+          "value": "lte-5-mm",
+          "arrow": true
+        },
+        {
+          "id": "edge-doorsnede-invasief-gebied-lte-5-mm",
+          "from": "doorsnede-invasief-gebied",
+          "to": "aanbeveling-borderline",
+          "label": "<=5 mm",
+          "value": "lte-5-mm",
+          "arrow": true
+        },
+        {
+          "id": "edge-totaal-oppervlak-microinvasie-gt-10-mm2",
+          "from": "totaal-oppervlak-microinvasie",
+          "to": "aanbeveling-maligne-2",
+          "label": ">10 mm2",
+          "value": "gt-10-mm2",
+          "arrow": true
+        },
+        {
+          "id": "edge-doorsnede-invasief-gebied-gt-5-mm",
+          "from": "doorsnede-invasief-gebied",
+          "to": "aanbeveling-maligne-3",
+          "label": ">5 mm",
+          "value": "gt-5-mm",
+          "arrow": true
+        },
+        {
+          "id": "edge-diameter-cribriforme-groei-lte-5-mm",
+          "from": "diameter-cribriforme-groei",
+          "to": "aanbeveling-borderline-2",
+          "label": "<=5 mm",
+          "value": "lte-5-mm",
+          "arrow": true
+        },
+        {
+          "id": "edge-diameter-individueel-veld-gt-3-mm",
+          "from": "diameter-individueel-veld",
+          "to": "aanbeveling-maligne-2",
+          "label": ">3 mm",
+          "value": "gt-3-mm",
+          "arrow": true
+        },
+        {
+          "id": "edge-morfologie-endometrioide-borderline-ovariumtumor",
+          "from": "morfologie",
+          "to": "diameter-cribriforme-groei",
+          "label": "Endometrioïde borderline ovariumtumor",
+          "value": "endometrioide-borderline-ovariumtumor",
+          "arrow": true
+        },
+        {
+          "id": "edge-morfologie-invasieve-tumor",
+          "from": "morfologie",
+          "to": "aanbeveling-maligne-4",
+          "label": "Invasieve tumor",
+          "value": "invasieve-tumor",
+          "arrow": true
+        },
+        {
+          "id": "edge-morfologie-aanbeveling-borderline-4",
+          "from": "morfologie",
+          "to": "aanbeveling-borderline-4",
+          "label": "Clearcell type borderline ovariumtumor, Prolifererende Brennertumor",
+          "value": [
+            "clearcell-type-borderline-ovariumtumor",
+            "prolifererende-brennertumor"
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-morfologie-mucineuze-borderline-tumor",
+          "from": "morfologie",
+          "to": "doorsnede-invasief-gebied",
+          "label": "Mucineuze borderline tumor",
+          "value": "mucineuze-borderline-tumor",
+          "arrow": true
+        },
+        {
+          "id": "edge-morfologie-sereuze-borderline-tumor",
+          "from": "morfologie",
+          "to": "totaal-oppervlak-microinvasie",
+          "label": "Sereuze borderline tumor",
+          "value": "sereuze-borderline-tumor",
+          "arrow": true
+        },
+        {
+          "id": "edge-titel-morfologie",
+          "from": "titel",
+          "to": "morfologie",
           "arrow": true
         }
       ]
     }
-  },
-  "bron": {
-    "richtlijn": "Borderline ovariumtumoren",
-    "organisatie": "NVOG (Nederlandse Vereniging voor Obstetrie en Gynaecologie)",
-    "url": "https://richtlijnendatabase.nl/richtlijn/borderline_ovariumtumoren/borderline_ovariumtumoren_-_startpagina.html",
-    "bijgewerkt": "2026-11-19",
-    "opmerking": "Omgezet uit de beslisbomen van Oncoguide (IKNL, project Borderline ovariumtumoren, publicatie 15-04-2021). De stappen 'Klinisch (verdenking op) vergroot ovarium' en 'Initieel beleid vergroot ovarium' verwijzen naar het zorgpad Vergroot ovarium."
   }
 }
