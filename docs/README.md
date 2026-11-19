@@ -23,6 +23,7 @@ Nieuwe keuze wist de oranje markering uit het aanbevelingenoverzicht
 Paneel met patiëntinformatie: alle gegevens van een beslisboom invullen vanuit één lijst
 Bronvermelding per zorgpad en beslisboom (klik op de titel)
 Automatische controle van alle inhoud (tools/check.js, ook op GitHub)
+Automatische controle of alle tekst in de blokken past (tools/check-tekst.js, ook op GitHub)
 In voorbereiding
 Endometriumcarcinoom opnieuw opbouwen op het raster
 Bronvermelding voor de overige zorgpaden (cervixcarcinoom, endometriumcarcinoom en vulvacarcinoom hebben er al een)
@@ -73,6 +74,7 @@ docs/
 
 tools/
   check.js                 controle van alle inhoud: node tools/check.js
+  check-tekst.js           controle in een echte browser of alle tekst in de blokken past: node tools/check-tekst.js
 
 .github/workflows/check.yml    draait de controle bij elke wijziging op GitHub
 

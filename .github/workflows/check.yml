@@ -18,3 +18,17 @@ jobs:
           node-version: 20
       - name: Zorgpaden en code controleren
         run: node tools/check.js
+
+  tekst:
+    # Opent elk zorgpad en elke beslisboom in een echte browser en meldt tekst die niet in een blok past
+    # of over een icoon loopt (zie tools/check-tekst.js).
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Browser installeren
+        run: npm install --no-save playwright && npx playwright install --with-deps chromium
+      - name: Controleren of alle tekst in de blokken past
+        run: node tools/check-tekst.js
