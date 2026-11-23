@@ -15,6 +15,9 @@ const Journey = (function () {
   function create(options) {
     const viewport = options.viewport;
     const getGraph = options.getGraph;
+    // Delen van het werkvlak die door een paneel zijn afgedekt (bv. het aanbevelingenoverzicht): daar wordt niet
+    // naartoe gecentreerd.
+    const getInsets = options.getInsets || function () { return null; };
     let guidedTimer = null;
 
     function cancel() {
@@ -49,8 +52,9 @@ const Journey = (function () {
       // Een outcome of een nog niet interactieve node waar de route stopt ('end') wordt alleen gecentreerd
       // als die onvoldoende zichtbaar is.
       const graph = getGraph();
-      if (graph && graph.native && viewport.needsMove(target.id, target.kind === "available" ? "available" : "outcome")) {
-        viewport.movePanTo(viewport.centeredPan(target.id), finish);
+      const insets = getInsets();
+      if (graph && graph.native && viewport.needsMove(target.id, target.kind === "available" ? "available" : "outcome", insets)) {
+        viewport.movePanTo(viewport.centeredPan(target.id, insets), finish);
       } else {
         finish();
       }

@@ -334,8 +334,11 @@
         up: parent ? { href: parent.href, label: parent.title }
                    : { href: '#/' + encodeURIComponent(tumorId), label: 'Zorgpad' },
         title: title,
-        desktop: '../zorgpad.html?tumor=' + encodeURIComponent(tumorId) + '#/' + encodeURIComponent(treeId)
+        // De boomweergave leest de antwoorden uit dezelfde soort link: #/<boom>?<node>=<waarde>&...
+        desktop: '../zorgpad.html?tumor=' + encodeURIComponent(tumorId) + '#/' + encodeURIComponent(treeId) +
+          (Object.keys(v.selections).length ? '?' + new URLSearchParams(v.selections).toString() : '')
       });
+      if (typeof Recent !== 'undefined' && !parent) Recent.add({ tumorId: tumorId, tumorTitle: zp.titel, treeId: treeId, title: title });
 
       var html = '';
       if (parent) {

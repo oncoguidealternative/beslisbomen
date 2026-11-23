@@ -5,14 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Interactieve zorgpaden en beslisbomen voor gynaecologische tumoren.">
   <title>Oncoguide Alternative</title>
-  <link rel="stylesheet" href="./css/styles.css?v=2026-11-19c">
+  <link rel="stylesheet" href="./css/styles.css?v=2026-11-23a">
 </head>
 <body class="home-page">
   <main class="home-shell">
     <header class="home-header">
       <h1>Gynaecologische zorgpaden</h1>
       <p>Interactieve zorgpaden en beslisbomen voor gynaecologische tumoren</p>
+      <div class="home-search header-search">
+        <label for="home-search" class="visually-hidden">Zoek een beslisboom</label>
+        <svg class="header-search-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+        <input id="home-search" type="search" placeholder="Zoek een beslisboom, bijvoorbeeld ‘IB1’ of ‘follow-up’">
+      </div>
+      <p class="home-alt"><a href="mobiel/">Op de telefoon? Gebruik de mobiele versie: één vraag per scherm.</a></p>
     </header>
+
+    <section id="recent" class="recent" aria-labelledby="recent-title" hidden>
+      <h2 id="recent-title" class="recent-title">Recent geopend</h2>
+      <ul id="recent-list" class="recent-list"></ul>
+    </section>
 
     <section class="tumor-overview" aria-labelledby="tumor-overview-title">
       <h2 id="tumor-overview-title" class="visually-hidden">Beschikbare gynaecologische zorgpaden</h2>
@@ -63,7 +74,9 @@
   </aside>
 
   <!-- Verhoog ?v= bij elke publicatie, zodat browsers de nieuwe versie laden in plaats van een oude uit de cache. -->
-  <script src="./js/content-panel.js?v=2026-11-19c"></script>
-  <script src="./js/home.js?v=2026-11-19c"></script>
+  <script src="./js/content-panel.js?v=2026-11-23a"></script>
+  <script src="./js/search.js?v=2026-11-23a"></script>
+  <script src="./js/recent.js?v=2026-11-23a"></script>
+  <script src="./js/home.js?v=2026-11-23a"></script>
 </body>
 </html>

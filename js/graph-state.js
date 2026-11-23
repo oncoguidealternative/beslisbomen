@@ -222,10 +222,11 @@ const GraphState = (function () {
   /* ===== Meetwaarden =====
      Een keuzenode kan een meetwaarde zijn: "measure": { "unit": "mm" }. Elke optie is dan een bereik met
      "gt" (>), "gte" (>=), "lt" (<) en/of "lte" (<=), in dezelfde eenheid. De gebruiker vult een getal in;
-     de optie waarvan het bereik dat getal bevat, wordt de keuze. */
+     de optie waarvan het bereik dat getal bevat, wordt de keuze. "integer": true betekent dat alleen hele getallen
+     bestaan (een score, een aantal): dan is er tussen "0" en "1" geen gat. */
   function measureOf(node) {
     if (!isChoice(node) || !node.measure || typeof node.measure !== 'object') return null;
-    return { unit: String(node.measure.unit || '') };
+    return { unit: String(node.measure.unit || ''), integer: node.measure.integer === true };
   }
 
   function inRange(option, x) {

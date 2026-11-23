@@ -182,6 +182,12 @@ const GraphValidator = (function () {
         for (var bi = 1; bi < bounds.length; bi++) {
           var p = bounds[bi - 1], q = bounds[bi];
           if (q.lo < p.hi || (q.lo === p.hi && q.loIn && p.hiIn)) nodeError(n.id, 'Node "' + n.id + '": bereiken van "' + p.v + '" en "' + q.v + '" overlappen.');
+          else if (isObject(n.measure) && n.measure.integer === true) {
+            // Alleen hele getallen: een gat is er pas als er een heel getal tussen de twee bereiken valt.
+            var pMax = p.hiIn ? Math.floor(p.hi) : Math.ceil(p.hi) - 1;
+            var qMin = q.loIn ? Math.ceil(q.lo) : Math.floor(q.lo) + 1;
+            if (qMin > pMax + 1) add('warning', n.id, 'Node "' + n.id + '": tussen "' + p.v + '" en "' + q.v + '" ontbreken hele getallen; die hebben geen optie.');
+          }
           else if (q.lo > p.hi || (q.lo === p.hi && !q.loIn && !p.hiIn)) add('warning', n.id, 'Node "' + n.id + '": tussen "' + p.v + '" en "' + q.v + '" ligt een gat; een getal daar heeft geen optie.');
         }
       }
@@ -307,7 +313,8 @@ const GraphValidator = (function () {
         (Array.isArray(n.options) ? n.options : []).forEach(function (o) { if (o) values[o.value] = true; });
         Object.keys(ref.map).forEach(function (outcomeId) {
           if (!outcomes[outcomeId]) add(treeId, n.id, 'Node "' + n.id + '": map verwijst naar onbekende uitkomst "' + outcomeId + '" in hulpbeslisboom "' + ref.tree + '".');
-          else if (!values[ref.map[outcomeId]]) add(treeId, n.id, 'Node "' + n.id + '": map-waarde "' + ref.map[outcomeId] + '" voor uitkomst "' + outcomeId + '" is geen option van deze node.');
+          // null: deze uitkomst past bewust bij geen enkele optie van deze node (bv. stadium IA bij een vraag III/IV).
+          else if (ref.map[outcomeId] !== null && !values[ref.map[outcomeId]]) add(treeId, n.id, 'Node "' + n.id + '": map-waarde "' + ref.map[outcomeId] + '" voor uitkomst "' + outcomeId + '" is geen option van deze node.');
         });
         Object.keys(outcomes).forEach(function (outcomeId) {
           var o = outcomes[outcomeId];

@@ -770,7 +770,8 @@
           "gridX": 135,
           "gridY": 170,
           "measure": {
-            "unit": "score"
+            "unit": "score",
+            "integer": true
           },
           "interactive": true,
           "options": [
@@ -785,7 +786,7 @@
               "value": "1-5",
               "label": "1-5",
               "gte": 1,
-              "lt": 5,
+              "lte": 5,
               "edge": "edge-performance-status-ecog-1-5"
             }
           ]
@@ -2305,7 +2306,8 @@
           "gridX": 90,
           "gridY": 240,
           "measure": {
-            "unit": "aantal"
+            "unit": "aantal",
+            "integer": true
           },
           "interactive": true,
           "options": [
@@ -2784,7 +2786,8 @@
           "gridX": 45,
           "gridY": 30,
           "measure": {
-            "unit": "getal"
+            "unit": "getal",
+            "integer": true
           },
           "interactive": true,
           "options": [
@@ -2989,7 +2992,13 @@
               "aanbeveling-iiia1": "iii",
               "aanbeveling-iiic-2": "iii",
               "aanbeveling-iiib-2": "iii",
-              "aanbeveling-iiia2-2": "iii"
+              "aanbeveling-iiia2-2": "iii",
+              "aanbeveling-ia": null,
+              "aanbeveling-ib": null,
+              "aanbeveling-ic": null,
+              "aanbeveling-iia": null,
+              "aanbeveling-iib": null,
+              "aanbeveling-stadium-is-niet-te-bepalen": null
             }
           }
         },
@@ -3000,14 +3009,15 @@
           "gridX": 0,
           "gridY": 100,
           "measure": {
-            "unit": "score"
+            "unit": "score",
+            "integer": true
           },
           "interactive": true,
           "options": [
             {
               "value": "0-2",
               "label": "0-2",
-              "gt": 0,
+              "gte": 0,
               "lte": 2,
               "edge": "edge-who-performance-status-0-2"
             },
@@ -3733,7 +3743,8 @@
           "gridX": 90,
           "gridY": 240,
           "measure": {
-            "unit": "aantal"
+            "unit": "aantal",
+            "integer": true
           },
           "interactive": true,
           "options": [
@@ -5231,7 +5242,14 @@
               "aanbeveling-iiic-2": "iii",
               "aanbeveling-iiib-2": "iii",
               "aanbeveling-iiia2-2": "iii",
-              "aanbeveling-iib": "iib"
+              "aanbeveling-iib": "iib",
+              "aanbeveling-ia": null,
+              "aanbeveling-ib": null,
+              "aanbeveling-ic": null,
+              "aanbeveling-iia": null,
+              "aanbeveling-iva": null,
+              "aanbeveling-ivb": null,
+              "aanbeveling-stadium-is-niet-te-bepalen": null
             }
           }
         },

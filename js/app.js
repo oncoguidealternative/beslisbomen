@@ -13,7 +13,16 @@
      patient-panel.js         paneel met patiëntinformatie (links, in- en uitklapbaar)
      recommendations-panel.js aanbevelingenoverzicht
      bron.js                  bronvermelding in het informatiepaneel
+     summary.js               samenvatting als tekst, bronregel en link voor een melding
+     stage-tools.js           zoomknoppen en bronregel op het werkvlak
+     next-step.js             balk met de volgende vraag en sneltoetsen
+     carry-over.js            gegevens uit eerdere bomen voorstellen om over te nemen
+     search.js, recent.js     zoeken over alle beslisbomen; recent geopend (startpagina)
+     help.js                  uitleg bij het eerste bezoek; balk met de gebruiksvoorwaarden
      app.js                   dit bestand: laden, navigatie en het selectiepad
+
+   De keuzes van de getoonde boom staan in de link (#/<boom>?<node>=<waarde>&...), zodat een link precies hetzelfde
+   pad opent en de keuzes een verversing overleven.
 
    De homepage (index.html) gebruikt js/home.js. */
 (function () {
@@ -169,7 +178,7 @@
       onUserMove: function () {},
       onReset: function () {}
     });
-    const journey = Journey.create({ viewport: viewport, getGraph: getGraph });
+    const journey = Journey.create({ viewport: viewport, getGraph: getGraph, getInsets: function () { return RP.coveredInsets(); } });
     const subtrees = Subtrees.create({
       zorgpad: zorgpad,
       refs: refs,
@@ -203,6 +212,167 @@
       }
     });
 
+    // ---------- Bediening op het werkvlak ----------
+    // Het paneel met patiëntinformatie heeft het werkvlak in een rij gezet: [paneel | kolom[balken, werkvlak]].
+    const stageWrap = refs.stage.parentNode;
+    const column = stageWrap.parentNode;
+    const work = refs.stage.closest(".zp-work") || refs.main;
+    const stageTools = (typeof StageTools !== "undefined") ? StageTools.create({
+      container: stageWrap,
+      onZoomIn: function () { viewport.zoomBy(0.2); },
+      onZoomOut: function () { viewport.zoomBy(-0.2); },
+      onFit: function () { if (currentGraph && currentGraph.native) { viewport.cancelMove(); viewport.fit(currentGraph); } },
+      onStart: function () {
+        if (!currentGraph || !currentGraph.native) return;
+        viewport.cancelMove();
+        if (currentTreeId) viewport.start(currentGraph); else viewport.startOverview(currentGraph);
+      },
+      onBron: function (info) { showBron(info); }
+    }) : { setBron: function () {}, setVisible: function () {} };
+
+    // Volgorde van de keuzes in deze boom (voor Backspace: laatste keuze ongedaan maken).
+    let choiceHistory = [];
+    const nextStep = (typeof NextStep !== "undefined") ? NextStep.create({
+      container: stageWrap,
+      // Een optie kiezen gaat via hetzelfde selectiepad als het keuzevenster (ook bij een meetwaarde: dan wordt
+      // het bereik gekozen zonder getal).
+      onChoose: function (node, option) {
+        selectOption(currentTreeId, node.id, option.value, {
+          nodeLabel: GraphState.describeNode(node),
+          optionLabel: option.label !== undefined ? option.label : option.value
+        });
+      },
+      onLocate: function (nodeId) { journey.locate(nodeId); },
+      onShowOutcome: function (nodeId) { ChoicePanel.close(false); RP.showFor(nodeId); },
+      onSubtree: function (node, ref) { subtrees.enter({ nodeId: node.id, tree: ref.tree, label: node.label }); },
+      onUndo: undoLastChoice,
+      isBlocked: function () { return ChoicePanel.isOpen ? ChoicePanel.isOpen() : false; }
+    }) : { update: function () {} };
+
+    // Gegevens die in een eerdere boom van dit zorgpad al zijn ingevuld: voorstellen om over te nemen.
+    const carryDismissed = {};
+    const carryBar = (typeof CarryOver !== "undefined") ? CarryOver.createBar({
+      container: column,
+      before: stageWrap,
+      onApply: applyCarry,
+      onDismiss: function () { if (currentTreeId) carryDismissed[currentTreeId] = true; },
+      // De knoppen rechtsboven (Aanbevelingen) schuiven mee omlaag zolang de balk er staat.
+      onHeight: function (px) { work.style.setProperty("--carry-h", px + "px"); }
+    }) : { show: function () {}, hide: function () {} };
+
+    function offerCarry() {
+      if (typeof CarryOver === "undefined" || !currentTreeId || carryDismissed[currentTreeId] || !graphIsInteractive()) {
+        carryBar.hide();
+        return;
+      }
+      const list = CarryOver.candidates({
+        graph: currentGraph,
+        treeId: currentTreeId,
+        selectionsByTree: getState().selections,
+        graphOf: function (id) {
+          const t = zorgpad.trees[id];
+          const g = t && t.same ? zorgpad.trees[t.same] : t;
+          return g && Array.isArray(g.nodes) ? validatedGraph(id, g) : null;
+        },
+        titleOf: function (id) { return treeTitleOf(id); }
+      });
+      carryBar.show(list);
+    }
+
+    function applyCarry(list) {
+      if (!currentTreeId || !list.length) return;
+      journey.cancel();
+      list.forEach(function (c) {
+        GraphState.sameData(currentGraph, c.nodeId, c.value).forEach(function (id) { setSelection(currentTreeId, id, c.value); });
+        choiceHistory.push(c.nodeId);
+      });
+      removeInvalidSelections();
+      ChoicePanel.announce("Overgenomen: " + list.map(function (c) { return c.nodeLabel + ": " + c.optionLabel; }).join(", ") + ".");
+    }
+
+    function treeTitleOf(id) {
+      const t = zorgpad.trees[id];
+      const g = t && t.same ? zorgpad.trees[t.same] : t;
+      const root = g && Array.isArray(g.nodes) && g.nodes.filter(function (n) { return n.type === "root" && n.label; })[0];
+      return root ? String(root.label).replace(/\s+/g, " ").trim() : id;
+    }
+
+    // Backspace: de laatst gemaakte keuze in deze boom ongedaan maken. Geeft true als er iets is gewist.
+    function undoLastChoice() {
+      if (!currentTreeId || !graphIsInteractive()) return false;
+      const values = getSelections(currentTreeId);
+      while (choiceHistory.length) {
+        const id = choiceHistory.pop();
+        if (values[id] === undefined) continue;
+        const node = nodeById(id);
+        clearNodes(currentTreeId, GraphState.sameData(currentGraph, id).filter(function (x) { return values[x] !== undefined; }),
+          { nodeLabel: GraphState.describeNode(node) || id });
+        return true;
+      }
+      return false;
+    }
+
+    // ---------- Keuzes in de link ----------
+    let applyingUrl = false;
+
+    function selectionsFromHash(params) {
+      const sel = {};
+      params.forEach(function (v, k) { if (k !== "from") sel[k] = v; });
+      return sel;
+    }
+
+    // Zet de keuzes uit de link in de state (de link wint van wat er in het geheugen stond). Alleen bestaande
+    // keuzenodes met een bestaande optie; de rekenkern schoont daarna op wat niet samen kan.
+    function applyUrlSelections(treeId, sel) {
+      if (!treeId || !graphIsInteractive() || !Object.keys(sel).length) return;
+      const current = getSelections(treeId);
+      const valid = {};
+      Object.keys(sel).forEach(function (id) {
+        const node = nodeById(id);
+        if (GraphState.isChoice(node) && node.options.some(function (o) { return o.value === sel[id]; })) valid[id] = sel[id];
+      });
+      if (JSON.stringify(valid) === JSON.stringify(current)) return;
+      applyingUrl = true;
+      try {
+        clearAllSelections(treeId);
+        Object.keys(valid).forEach(function (id) { setSelection(treeId, id, valid[id]); choiceHistory.push(id); });
+        removeInvalidSelections();
+      } finally {
+        applyingUrl = false;
+      }
+    }
+
+    // De link volgt de keuzes: elke wijziging vervangt de huidige link (geen extra stap in de geschiedenis).
+    function syncUrl() {
+      if (applyingUrl || !currentTreeId) return;
+      const parsed = parseHash();
+      if (parsed.id !== currentTreeId) return;
+      const q = new URLSearchParams();
+      if (parsed.fromRaw) q.set("from", parsed.fromRaw);
+      const sel = getSelections(currentTreeId);
+      Object.keys(sel).forEach(function (k) { if (k !== "from") q.append(k, sel[k]); });
+      const qs = q.toString();
+      const hash = "#/" + currentTreeId + (qs ? "?" + qs : "");
+      if (location.hash !== hash) history.replaceState(history.state, "", location.pathname + location.search + hash);
+      updateMobileLink();
+    }
+
+    function updateMobileLink() {
+      const a = document.getElementById("zp-mobile");
+      if (!a) return;
+      let href = "mobiel/#/" + encodeURIComponent(tumorId);
+      if (currentTreeId) {
+        href += "/" + encodeURIComponent(currentTreeId);
+        const q = new URLSearchParams(getSelections(currentTreeId)).toString();
+        if (q) href += "?" + q;
+      }
+      a.href = href;
+    }
+
+    function shareUrl() {
+      return location.href;
+    }
+
     // ---------- Navigatie ----------
     // target: boom-id ("" = overzicht) binnen dit zorgpad, of { tumor, tree } voor het zorgpad van een andere tumor.
     // Overgang bij een klik op een vervolgboom (zoals op Oncoguide): de huidige boom schuift omhoog weg en de
@@ -235,18 +405,18 @@
       location.hash = target ? "#/" + target : "";
     }
 
-    // Hash: #/<boom>[?from=<oudboom>:<node>]. "from" onthoudt vanuit welke node een hulpbeslisboom is geopend.
+    // Hash: #/<boom>[?from=<oudboom>:<node>][&<node>=<waarde>...]. "from" onthoudt vanuit welke node een
+    // hulpbeslisboom is geopend; de overige parameters zijn de keuzes in de getoonde boom.
     function parseHash() {
       const raw = location.hash.replace(/^#\//, "");
       const q = raw.indexOf("?");
-      const id = q < 0 ? raw : raw.slice(0, q);
+      const id = decodeURIComponent(q < 0 ? raw : raw.slice(0, q));
+      const params = new URLSearchParams(q >= 0 ? raw.slice(q + 1) : "");
       let from = null;
-      if (q >= 0) {
-        const value = new URLSearchParams(raw.slice(q + 1)).get("from");
-        const i = value ? value.indexOf(":") : -1;
-        if (i > 0) from = { treeId: value.slice(0, i), nodeId: value.slice(i + 1) };
-      }
-      return { id: id, from: from };
+      const value = params.get("from");
+      const i = value ? value.indexOf(":") : -1;
+      if (i > 0) from = { treeId: value.slice(0, i), nodeId: value.slice(i + 1) };
+      return { id: id, from: from, fromRaw: i > 0 ? value : "", selections: selectionsFromHash(params) };
     }
 
     // Kruimelpad: zorgpadtitel uit de JSON; bij een beslisboom ook de titel van die boom.
@@ -305,10 +475,24 @@
       RP.setTree({ treeId: view.treeId, graph: view.treeId && view.graph && GraphState.isInteractive(view.graph) ? view.graph : null });
       // Een klik op een aanbeveling (lichtblauw blok) opent hetzelfde paneel op die aanbeveling.
       if (Renderer.setRecommendable) Renderer.setRecommendable(RP.items());
-      // Pas na het tekenen: pas dan heeft het werkvlak zijn (native) afmetingen. Elke boom en het overzicht beginnen
-      // op dezelfde manier: vaste afmetingen, titel bovenaan in het midden (zie Viewport.start).
-      if (view.graph && view.graph.native) viewport.start(view.graph);
+      // Pas na het tekenen: pas dan heeft het werkvlak zijn (native) afmetingen. Elke boom begint op dezelfde manier:
+      // vaste afmetingen, titel bovenaan in het midden (zie Viewport.start). Een overzicht zo veel mogelijk passend.
+      if (view.graph && view.graph.native) {
+        if (view.treeId) viewport.start(view.graph); else viewport.startOverview(view.graph);
+      }
+      stageTools.setVisible(!!(view.graph && view.graph.native));
+      const bron = typeof Summary !== "undefined" ? Summary.bronLine(zorgpad, view.treeId) : null;
+      stageTools.setBron(bron ? bron.text : null);
+      choiceHistory = [];
+      applyUrlSelections(view.treeId, parsed.selections);
       refreshGraph();
+      syncUrl();
+      updateMobileLink();
+      offerCarry();
+      if (view.treeId) {
+        if (typeof Recent !== "undefined") Recent.add({ tumorId: tumorId, tumorTitle: zorgpad.titel, treeId: view.treeId, title: view.label });
+        if (typeof Help !== "undefined") Help.treeShown();
+      }
       subtrees.refreshBar();
       subtrees.applyPendingReturn();
       if (view.treeId) window.scrollTo(0, 0);
@@ -343,10 +527,26 @@
     }
 
     RP.init({
-      host: refs.main,
+      host: work,
       stage: refs.stage,
       onShow: showRecommendation,
-      onClear: function () { Renderer.setRouteHighlight(null); }
+      onClear: function () { Renderer.setRouteHighlight(null); },
+      summary: function () {
+        if (!currentTreeId || !currentGraph || typeof Summary === "undefined") return "";
+        const values = getSelections(currentTreeId);
+        return Summary.text({ zorgpad: zorgpad, treeId: currentTreeId, label: currentLabel, graph: currentGraph,
+          selections: values, status: GraphState.compute(currentGraph, values), url: shareUrl() });
+      },
+      link: shareUrl,
+      bron: function () { return typeof Summary !== "undefined" ? Summary.bronLine(zorgpad, currentTreeId) : null; },
+      feedbackUrl: function (nodeId) {
+        return Summary.feedbackUrl({ zorgpad: zorgpad, treeId: currentTreeId, label: currentLabel, node: nodeById(nodeId), url: shareUrl() });
+      },
+      // Op een breed scherm staat het paneel naast het diagram: houd het midden van het beeld op dezelfde plek.
+      onLayout: function (oldWidth, newWidth) {
+        const v = getState().viewport;
+        setPan(v.panX + (newWidth - oldWidth) / 2, v.panY);
+      }
     });
 
     // ---------- Keuzes ----------
@@ -362,13 +562,14 @@
 
     // Berekent de status uit graph + selecties en laat de renderer die toepassen.
     function refreshGraph() {
-      if (!graphIsInteractive()) return;
+      if (!graphIsInteractive()) { nextStep.update(null, null); return; }
       const values = getSelections(currentTreeId);
       const status = GraphState.compute(currentGraph, values);
       Renderer.applyStatus(status, values);
       RP.refresh(status);
       patientPanel.refresh(status, values, getMeasurements(currentTreeId));
       subtrees.refreshBar(status);
+      nextStep.update(currentGraph, status);
     }
 
     // Verwijdert keuzes die door een wijziging niet meer geldig of mogelijk zijn (via de state-functies).
@@ -397,6 +598,7 @@
       if (!changed.length) return;
       journey.cancel();
       changed.forEach(function (id) { setSelection(treeId, id, value); });
+      choiceHistory.push(nodeIds[0]);
       // Nodes met hetzelfde gegeven die deze waarde niet kennen (bv. "cT" met een andere indeling in een andere tak):
       // hun oude waarde zou tegenstrijdig zijn, dus die wordt gewist.
       const current = getSelections(treeId);
@@ -535,6 +737,7 @@
         if (!detail || !detail.treeId || detail.treeId === currentTreeId) {
           refreshGraph();
           ChoicePanel.sync();
+          syncUrl();
         }
       }
     });
@@ -543,6 +746,18 @@
       Breadcrumb.init({ onCarepathNavigate: function () { navigate(""); } });
     }
     window.addEventListener("hashchange", showRoute);
+
+    if (typeof Search !== "undefined") {
+      const searchInput = document.getElementById("zp-search");
+      if (searchInput) Search.attach(searchInput, { base: "./" });
+    }
+    if (typeof Help !== "undefined") {
+      Help.init({
+        helpButton: document.getElementById("zp-help"),
+        termsLink: document.getElementById("zp-terms"),
+        footer: document.getElementById("zp-footer")
+      });
+    }
 
     try {
       showRoute();

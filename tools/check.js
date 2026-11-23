@@ -38,6 +38,10 @@ const DATE = /^\d{4}-\d{2}-\d{2}$/;
 
 const errors = [];
 const warnings = [];
+// Inhoud die nog ontbreekt (onderbouwing, bron, nog niet toegevoegde bomen): bekend werk, geen fout in de data.
+// Apart getoond, zodat een nieuwe waarschuwing niet ondersneeuwt.
+const todos = [];
+function todo(where, message) { todos.push(where + ': ' + message); }
 function error(where, message) { errors.push(where + ': ' + message); }
 function warn(where, message) { warnings.push(where + ': ' + message); }
 
@@ -130,7 +134,7 @@ function checkFormat(file, treeId, graph, trees) {
 
   // De website toont bij zo'n stap "nog niet toegevoegd"; dat is geen fout, maar wel goed om te weten.
   if (missing.length) {
-    warn(where, missing.length + ' stap(pen) verwijzen naar een beslisboom die nog niet is toegevoegd: ' + missing.join(', '));
+    todo(where, missing.length + ' stap(pen) verwijzen naar een beslisboom die nog niet is toegevoegd: ' + missing.join(', '));
   }
 
   (graph.edges || []).forEach(function (e, i) {
@@ -167,7 +171,7 @@ function checkZorgpad(tumor, engine) {
   const trees = zorgpad.trees || {};
   graphsOf(zorgpad).forEach(function (g) { checkFormat(file, g.id, g.graph, trees); });
 
-  if (zorgpad.bron === undefined) warn(file, 'geen bronvermelding ("bron")');
+  if (zorgpad.bron === undefined) todo(file, 'geen bronvermelding ("bron")');
   checkBron(file, '', zorgpad.bron, engine.Bron);
   Object.keys(trees).forEach(function (id) { if (trees[id]) checkBron(file, id, trees[id].bron, null); });
 
@@ -183,7 +187,7 @@ function checkZorgpad(tumor, engine) {
     if (!ok) error(file + ' [' + id + ']', '"onderbouwing" moet tekst zijn, of een object met "blocks" of "sections"');
   });
   if (zonder.length) {
-    warn(file, zonder.length + ' van ' + Object.keys(trees).filter(function (id) { return trees[id] && !trees[id].same; }).length +
+    todo(file, zonder.length + ' van ' + Object.keys(trees).filter(function (id) { return trees[id] && !trees[id].same; }).length +
       ' beslisbomen hebben nog geen onderbouwing: ' + zonder.join(', '));
   }
 
@@ -335,12 +339,14 @@ function main() {
     list.forEach(function (m) { console.log('  ' + symbol + ' ' + m); });
   };
   print('Verschillen met de informatiestandaard (ter informatie)', notes, '·');
+  print('Nog te doen: inhoud die nog ontbreekt', todos, '○');
   print('Waarschuwingen', warnings, '!');
   print('Fouten', errors, '✗');
 
   const failed = errors.length > 0 || (STRICT && warnings.length > 0);
   console.log('\n' + (failed ? '✗ Controle mislukt' : '✓ Controle geslaagd') +
-    ': ' + tumoren.length + ' zorgpaden, ' + errors.length + ' fouten, ' + warnings.length + ' waarschuwingen' +
+    ': ' + tumoren.length + ' zorgpaden, ' + errors.length + ' fouten, ' + warnings.length + ' waarschuwingen, ' +
+    todos.length + ' punten nog te doen' +
     (STRICT ? ' (strikt)' : '') + '.');
   process.exit(failed ? 1 : 0);
 }

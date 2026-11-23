@@ -22,7 +22,20 @@ Overgang bij een klik op een vervolgboom: de huidige boom schuift omhoog weg, de
 Nieuwe keuze wist de oranje markering uit het aanbevelingenoverzicht
 Paneel met patiëntinformatie: alle gegevens van een beslisboom invullen vanuit één lijst
 Bronvermelding per zorgpad en beslisboom (klik op de titel)
-Automatische controle van alle inhoud (tools/check.js, ook op GitHub)
+Keuzes in de link: een link opent precies hetzelfde pad, en keuzes blijven bewaard bij verversen
+Kopieer samenvatting (gegevens, aanbeveling, bron en link) en kopieer link, in het aanbevelingenoverzicht
+Bron (richtlijn, module, beoordelingsdatum) linksonder in beeld en onderaan het aanbevelingenoverzicht
+Per aanbeveling "Klopt dit niet? Meld het": opent een vooraf ingevulde melding op GitHub
+Zoomknoppen (inzoomen, uitzoomen, passend maken, beginweergave); grotere beginweergave op brede schermen; zorgpadoverzicht zo veel mogelijk passend
+Een bereikte aanbeveling komt na een keuze in beeld, ook als het aanbevelingenoverzicht open staat; van een lange aanbeveling het begin
+Balk "Volgende vraag" onderin met de opties als knoppen; sneltoetsen 1 t/m 9 om te kiezen, Backspace om de laatste keuze ongedaan te maken
+Gegevens uit eerdere beslisbomen van hetzelfde zorgpad worden voorgesteld om over te nemen (altijd na bevestiging)
+Op een breed scherm (vanaf 1600 px) staat het aanbevelingenoverzicht naast het diagram, ook tegelijk met Patiëntinformatie
+Zoeken over alle beslisbomen (startpagina en kop), Recent geopend op de startpagina, eigen pictogram per orgaan en het aantal beslisbomen per zorgpad
+Uitleg in drie stappen bij het eerste bezoek aan een beslisboom (later terug te halen via Uitleg in de kop)
+Gebruiksvoorwaarden: na "Begrepen" verdwijnt de balk onderaan en staan de voorwaarden als link in de kop
+Automatische controle van alle inhoud (tools/check.js, ook op GitHub); ontbrekende inhoud (onderbouwing, bron) staat apart onder "Nog te doen"
+Automatische controle van alle routes: elke combinatie van keuzes eindigt bij een aanbeveling (mobiel/tools/check-flow.js, ook op GitHub)
 Automatische controle of alle tekst in de blokken past (tools/check-tekst.js, ook op GitHub)
 Automatische controle van het raster: maten van blokken en afstanden (tools/check-raster.js, ook op GitHub)
 In voorbereiding
@@ -67,6 +80,13 @@ js/
   choice-panel.js          keuzevenster
   patient-panel.js         paneel met patiëntinformatie
   recommendations-panel.js aanbevelingenoverzicht
+  summary.js               samenvatting, bronregel en link voor een melding
+  stage-tools.js           zoomknoppen en bronregel op het werkvlak
+  next-step.js             balk met de volgende vraag en sneltoetsen
+  carry-over.js            gegevens uit eerdere bomen voorstellen om over te nemen
+  search.js                zoeken over alle beslisbomen
+  recent.js                recent geopende beslisbomen
+  help.js                  uitleg bij het eerste bezoek; balk met de gebruiksvoorwaarden
   bron.js                  bronvermelding
   content-panel.js         informatiepaneel
   breadcrumb.js            kruimelpad

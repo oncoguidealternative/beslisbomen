@@ -239,6 +239,7 @@ Een gegeven dat een **meting** is (diameter, invasiediepte, lineaire extensie) v
 - Valt het getal buiten alle bereiken van de gekozen node, dan meldt het venster dat en wordt er niets ingevuld.
 - In het paneel met patiëntinformatie staat bij zo'n gegeven ook een invoerveld; de regel toont het getal met eenheid.
 - De validator controleert dat elke optie een bereik heeft en dat bereiken elkaar niet overlappen, en waarschuwt bij een gat tussen twee bereiken.
+- Bestaan er alleen **hele getallen** (een score, een aantal), zet dan `"measure": { "unit": "score", "integer": true }`. Tussen `"0"` (`gte 0, lte 0`) en `"1-5"` (`gte 1, lte 5`) is dan geen gat, en het invoerveld toont een cijfertoetsenbord.
 
 ### Paneel met patiëntinformatie
 
