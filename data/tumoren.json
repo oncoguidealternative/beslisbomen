@@ -4,71 +4,61 @@
       "id": "borderline-ovarium",
       "titel": "Borderline ovariumtumoren",
       "afbeelding": "images/Gynaecologie_vierkant.png",
-      "status": "available",
-      "pictogram": "ovarium"
+      "status": "available"
     },
     {
       "id": "cervixcarcinoom",
       "titel": "Cervixcarcinoom",
       "afbeelding": "images/Gynaecologie_vierkant.png",
-      "status": "available",
-      "pictogram": "cervix"
+      "status": "available"
     },
     {
       "id": "cervixcytologie",
       "titel": "Cervixcytologie",
       "afbeelding": "images/Gynaecologie_vierkant.png",
-      "status": "available",
-      "pictogram": "cellen"
+      "status": "available"
     },
     {
       "id": "cin-ais-vain",
       "titel": "CIN, AIS, VAIN",
       "afbeelding": "images/Gynaecologie_vierkant.png",
-      "status": "available",
-      "pictogram": "cellen-afwijkend"
+      "status": "available"
     },
     {
       "id": "endometrium",
       "titel": "Endometrium carcinoom",
       "afbeelding": "images/Gynaecologie_vierkant.png",
-      "status": "available",
-      "pictogram": "endometrium"
+      "status": "available"
     },
     {
       "id": "epitheliaal-ovarium",
       "titel": "Epitheliaal ovariumcarcinoom",
       "afbeelding": "images/Gynaecologie_vierkant.png",
-      "status": "available",
-      "pictogram": "ovarium"
+      "status": "available"
     },
     {
       "id": "niet-epitheliaal-ovarium",
       "titel": "Niet epitheliale ovarium maligniteiten",
       "afbeelding": "images/Gynaecologie_vierkant.png",
-      "status": "available",
-      "pictogram": "ovarium"
+      "status": "available"
     },
     {
       "id": "trofoblast",
       "titel": "Trofoblastziekten",
       "afbeelding": "images/Gynaecologie_vierkant.png",
-      "status": "available",
-      "pictogram": "trofoblast"
+      "status": "available"
     },
     {
       "id": "vergroot-ovarium",
       "titel": "Vergroot ovarium",
       "afbeelding": "images/Gynaecologie_vierkant.png",
-      "status": "available",
-      "pictogram": "ovarium-groot"
+      "status": "available"
     },
     {
       "id": "vulva",
       "titel": "Vulvacarcinoom",
       "afbeelding": "images/Gynaecologie_vierkant.png",
-      "status": "available",
-      "pictogram": "vulva"
+      "status": "available"
     }
   ]
 }
