@@ -31,7 +31,7 @@ Een bereikte aanbeveling komt na een keuze in beeld, ook als het aanbevelingenov
 Balk "Volgende vraag" onderin met de opties als knoppen; sneltoetsen 1 t/m 9 om te kiezen, Backspace om de laatste keuze ongedaan te maken
 Gegevens uit eerdere beslisbomen van hetzelfde zorgpad worden voorgesteld om over te nemen (altijd na bevestiging)
 Op een breed scherm (vanaf 1600 px) staat het aanbevelingenoverzicht naast het diagram, ook tegelijk met Patiëntinformatie
-Zoeken over alle beslisbomen (startpagina en kop), Recent geopend op de startpagina en het aantal beslisbomen per zorgpad
+Zoeken over alle beslisbomen (startpagina en kop), Recent geopend op de startpagina; 'In voorbereiding' bij een zorgpad zonder beslisbomen
 Uitleg in drie stappen bij het eerste bezoek aan een beslisboom (later terug te halen via Uitleg in de kop)
 Gebruiksvoorwaarden: na "Begrepen" verdwijnt de balk onderaan en staan de voorwaarden als link in de kop
 Automatische controle van alle inhoud (tools/check.js, ook op GitHub); ontbrekende inhoud (onderbouwing, bron) staat apart onder "Nog te doen"

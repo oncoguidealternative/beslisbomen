@@ -2,7 +2,7 @@
    - status "available": de kaart linkt naar zorgpad.html?tumor=<id>
    - andere status: de kaart opent een melding dat het zorgpad later volgt
    Kaarten staan op alfabetische volgorde van de titel.
-   - Onder de titel: het aantal beslisbomen, of "In voorbereiding" als er nog geen zijn.
+   - Onder de titel "In voorbereiding" als een zorgpad nog geen beslisbomen heeft.
    - Zoeken over alle beslisbomen (js/search.js) en "Recent geopend" (js/recent.js). */
 (function () {
   'use strict';
@@ -78,15 +78,16 @@
       addCounts();
     }
 
-    // Aantal beslisbomen per zorgpad (uit dezelfde index als het zoeken). Zonder bomen: "In voorbereiding".
+    // Zorgpaden zonder beslisbomen (uit dezelfde index als het zoeken) krijgen "In voorbereiding".
     function addCounts() {
       if (typeof Search === 'undefined') return;
       Search.index('./').then(function (items) {
         items.filter(function (it) { return !it.treeId; }).forEach(function (it) {
           const meta = grid.querySelector('[data-meta-for="' + it.tumorId + '"]');
           if (!meta) return;
-          meta.textContent = it.trees ? it.trees + ' beslisbomen' : 'In voorbereiding';
-          if (!it.trees) meta.closest('.tumor-card').classList.add('is-preparing');
+          if (it.trees) return;
+          meta.textContent = 'In voorbereiding';
+          meta.closest('.tumor-card').classList.add('is-preparing');
         });
       }).catch(function () { /* zonder aantallen is de pagina ook bruikbaar */ });
     }

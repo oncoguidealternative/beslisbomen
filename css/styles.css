@@ -1305,7 +1305,7 @@ body[data-page="zorgpad"] { height: 100vh; height: 100dvh; min-height: 0; }
   .ns-bar { max-width: calc(100% - 140px); }
 }
 
-/* ===== Startpagina: zoeken, recent geopend en aantallen ===== */
+/* ===== Startpagina: zoeken, recent geopend, in voorbereiding ===== */
 .home-search { max-width: 560px; margin: 22px auto 0; }
 .home-search input {
   width: 100%; height: 48px; padding: 8px 16px 8px 42px;
@@ -1331,6 +1331,7 @@ body[data-page="zorgpad"] { height: 100vh; height: 100dvh; min-height: 0; }
 .recent-name { font-weight: 600; }
 .recent-sub { font-size: .85rem; color: #CFE5EE; }
 
-.tumor-meta { display: block; min-height: 1.3em; margin-top: 2px; font-size: .85rem; color: #CFE5EE; }
+.tumor-meta { display: block; margin-top: 2px; font-size: .85rem; color: #CFE5EE; }
+.tumor-meta:empty { display: none; }
 .tumor-card.is-preparing .tumor-meta { color: #FFD9A8; }
 .tumor-title { min-height: 0; }
