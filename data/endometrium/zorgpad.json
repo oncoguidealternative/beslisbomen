@@ -1178,7 +1178,13 @@
           "gridY": 65,
           "label": "Klinisch stadium",
           "icon": "plus-light",
-          "interactionNote": "Niet interactief (AMBIGUOUS): optie \"III\": pijl eindigt op de grens van meerdere nodes serousi,serousiii."
+          "interactive": true,
+          "options": [
+            {"value": "i", "label": "I", "edge": "edge-stadium-s-i"},
+            {"value": "ii", "label": "II", "edge": "edge-stadium-s-ii"},
+            {"value": "iii", "label": "III", "edge": "edge-stadium-s-iii"},
+            {"value": "iv", "label": "IV", "edge": "edge-stadium-s-iv"}
+          ]
         },
         {
           "id": "mri",
@@ -1835,6 +1841,10 @@
           "arrow": true
         },
         {
+          "id": "edge-stadium-s-i",
+          "from": "stadium-s",
+          "to": "stad",
+          "value": "i",
           "label": "I",
           "points": [
             [
@@ -1857,6 +1867,10 @@
           "arrow": true
         },
         {
+          "id": "edge-stadium-s-ii",
+          "from": "stadium-s",
+          "to": "serousi",
+          "value": "ii",
           "label": "II",
           "points": [
             [
@@ -1875,6 +1889,10 @@
           "arrow": true
         },
         {
+          "id": "edge-stadium-s-iii",
+          "from": "stadium-s",
+          "to": "serousiii",
+          "value": "iii",
           "label": "III",
           "points": [
             [
@@ -1897,6 +1915,10 @@
           "arrow": true
         },
         {
+          "id": "edge-stadium-s-iv",
+          "from": "stadium-s",
+          "to": "serousiv",
+          "value": "iv",
           "label": "IV",
           "points": [
             [
