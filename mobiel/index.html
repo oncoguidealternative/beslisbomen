@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#1F627D">
+  <meta name="description" content="Gynaecologische zorgpaden als vragenlijst, voor op de telefoon (experimentele versie).">
+  <title>Zorgpaden mobiel</title>
+  <link rel="stylesheet" href="mobiel.css?v=2026-11-23a">
+</head>
+<body>
+  <a class="skip" href="#main">Naar de inhoud</a>
+
+  <header class="bar">
+    <a id="up" class="bar-up" href="#/" hidden>
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span id="up-label">Terug</span>
+    </a>
+    <span id="bar-brand" class="bar-brand">Zorgpaden</span>
+    <a id="desktop-link" class="bar-alt" href="../index.html">Boomweergave</a>
+  </header>
+  <p class="lab-strip">Experimentele mobiele versie</p>
+
+  <main id="main" class="main" tabindex="-1"></main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  <p id="live" class="visually-hidden" aria-live="polite"></p>
+
+  <footer class="foot">
+    <a href="#/info/gebruiksvoorwaarden">U bent akkoord met de gebruiksvoorwaarden</a>
+    <span aria-hidden="true">·</span>
+    <a href="#/info/over">Over</a>
+    <span aria-hidden="true">·</span>
+    <a href="#/info/privacy-statement">Privacy</a>
+  </footer>
+
+  <!-- Gedeelde rekenkern en datavoorbereiding van de hoofdsite: één bron van waarheid. -->
+  <script src="../js/graph-state.js?v=2026-11-23a"></script>
+  <script src="../js/graph-validator.js?v=2026-11-23a"></script>
+  <script src="../js/layout-engine.js?v=2026-11-23a"></script>
+  <!-- Alleen voor de mobiele weergave. -->
+  <script src="flow.js?v=2026-11-23a"></script>
+  <script src="app.js?v=2026-11-23a"></script>
+</body>
+</html>
