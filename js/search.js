@@ -127,7 +127,7 @@ const Search = (function () {
         t.textContent = r.title;
         const s = document.createElement('span');
         s.className = 'search-sub';
-        s.textContent = r.treeId ? r.tumorTitle : r.trees + ' beslisbomen';
+        s.textContent = r.treeId ? r.tumorTitle : 'Zorgpad';
         a.appendChild(t);
         a.appendChild(s);
         li.appendChild(a);
