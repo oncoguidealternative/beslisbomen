@@ -27,6 +27,15 @@ Automatische controle of alle tekst in de blokken past (tools/check-tekst.js, oo
 Automatische controle van het raster: maten van blokken en afstanden (tools/check-raster.js, ook op GitHub)
 In voorbereiding
 Bronvermelding voor de overige zorgpaden (cervixcarcinoom, endometriumcarcinoom en vulvacarcinoom hebben er al een)
+Varianten en experimenten
+Alles staat in één repository, met één set inhoud (data/) en één rekenkern (js/graph-state.js):
+
+index.html, zorgpad.html   hoofdsite met de beslisbomen
+mobiel/                    experimentele mobiele weergave: zorgpaden als vragenlijst (zie mobiel/README.md)
+lab/                       losse experimenten (zie lab/README.md)
+
+GitHub Pages publiceert elke map op een eigen adres, bijvoorbeeld https://oncoguidealternative.github.io/beslisbomen/mobiel/
+
 Technische uitgangspunten
 De applicatie gebruikt uitsluitend:
 
