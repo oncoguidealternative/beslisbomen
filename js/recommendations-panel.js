@@ -18,12 +18,17 @@
      items()                      [{ id, label }]: de aanbevelingen in het overzicht (outcome-nodes van de boom)
      showFor(nodeId)              opent het paneel op de aanbeveling van die outcome-node en markeert al haar routes
                                   (klik op het lichtblauwe blok in de boom); geeft false als die er niet in staat
-     coveredInsets()              { right, bottom }: hoeveel van het werkvlak het paneel (open) afdekt */
+     coveredInsets()              { right, bottom }: hoeveel van het werkvlak het paneel (open) afdekt
+   Optioneel in init: summary() → tekst, link() → url, bron() → { text, url } | null, feedbackUrl(nodeId) → url,
+     onLayout(oldStageWidth, newStageWidth): het paneel neemt op een breed scherm ruimte in naast het diagram
+     (vanaf DOCK_MIN px breed) in plaats van eroverheen te liggen; dan verandert de breedte van het werkvlak. */
 const RecommendationsPanel = (function () {
   'use strict';
 
   var host = null, stage = null, handlers = { onShow: function () {}, onClear: function () {} };
-  var bar, toggle, clearButton, panel, listEl, noteEl, live;
+  var extra = { summary: null, link: null, bron: null, feedbackUrl: null, onLayout: null };
+  var bar, toggle, clearButton, panel, listEl, noteEl, live, actionsEl, copyButton, linkButton, bronEl, copyStatus;
+  var DOCK_MIN = 1600;       // vanaf deze schermbreedte staat het paneel naast het diagram (zie CSS)
   var items = [];            // [{ rec, el, titleButton, badge, routes: [{ route, el, button, state, conds: [..] }] }]
   var active = null;         // { rec: index, route: index | null }
   var lastStatus = null;
@@ -75,7 +80,22 @@ const RecommendationsPanel = (function () {
     head.appendChild(title);
     head.appendChild(closeButton);
 
+    actionsEl = make('div', 'rec-actions');
+    copyButton = make('button', 'rec-action rec-copy', 'Kopieer samenvatting');
+    copyButton.type = 'button';
+    copyButton.addEventListener('click', function () { copy(extra.summary && extra.summary(), 'Samenvatting gekopieerd'); });
+    linkButton = make('button', 'rec-action', 'Kopieer link');
+    linkButton.type = 'button';
+    linkButton.addEventListener('click', function () { copy(extra.link ? extra.link() : location.href, 'Link gekopieerd'); });
+    copyStatus = make('span', 'rec-copy-status');
+    copyStatus.setAttribute('role', 'status');
+    actionsEl.appendChild(copyButton);
+    actionsEl.appendChild(linkButton);
+    actionsEl.appendChild(copyStatus);
+
     var hint = make('p', 'rec-hint', 'Klik op een aanbeveling of route om die in de beslisboom te markeren.');
+    bronEl = make('p', 'rec-bron');
+    bronEl.hidden = true;
     noteEl = make('p', 'rec-note');
     noteEl.hidden = true;
     listEl = make('ul', 'rec-list');
@@ -84,9 +104,11 @@ const RecommendationsPanel = (function () {
     live.setAttribute('aria-live', 'polite');
 
     panel.appendChild(head);
+    panel.appendChild(actionsEl);
     panel.appendChild(hint);
     panel.appendChild(noteEl);
     panel.appendChild(listEl);
+    panel.appendChild(bronEl);
     panel.appendChild(live);
 
     // Escape sluit het paneel, maar alleen als de focus in de knop of het paneel zit.
@@ -109,10 +131,21 @@ const RecommendationsPanel = (function () {
 
   function isOpen() { return !!panel && !panel.hidden; }
 
+  /* Op een breed scherm neemt het open paneel ruimte in naast het diagram (zie CSS .rec-docked). */
+  function setDocked(open) {
+    var docked = open && window.innerWidth >= DOCK_MIN;
+    if (host.classList.contains('rec-docked') === docked) return;
+    var before = stage ? stage.clientWidth : 0;
+    host.classList.toggle('rec-docked', docked);
+    var after = stage ? stage.clientWidth : 0;
+    if (extra.onLayout && before !== after) extra.onLayout(before, after);
+  }
+
   function open() {
     if (!panel || !items.length) return;
     panel.hidden = false;
     toggle.setAttribute('aria-expanded', 'true');
+    setDocked(true);
   }
 
   function close(returnFocus) {
@@ -120,7 +153,54 @@ const RecommendationsPanel = (function () {
     var hadFocus = panel.contains(document.activeElement);
     panel.hidden = true;
     toggle.setAttribute('aria-expanded', 'false');
+    setDocked(false);
     if (returnFocus && hadFocus) toggle.focus();
+  }
+
+  /* Kopiëren naar het klembord, met een korte bevestiging naast de knoppen. */
+  var copyTimer = null;
+  function copy(text, done) {
+    if (!text) return;
+    function ok() { flash(done); }
+    function fail() { flash('Kopiëren lukte niet; selecteer de tekst handmatig.'); }
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(ok, function () { fallbackCopy(text) ? ok() : fail(); });
+    } else if (fallbackCopy(text)) ok(); else fail();
+  }
+  function fallbackCopy(text) {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+    document.body.removeChild(ta);
+    return ok;
+  }
+  function flash(text) {
+    copyStatus.textContent = text;
+    clearTimeout(copyTimer);
+    copyTimer = setTimeout(function () { copyStatus.textContent = ''; }, 2500);
+  }
+
+  function renderBron() {
+    var b = extra.bron ? extra.bron() : null;
+    bronEl.textContent = '';
+    bronEl.hidden = !b;
+    if (!b) return;
+    bronEl.appendChild(make('strong', null, 'Bron: '));
+    bronEl.appendChild(document.createTextNode(b.text));
+    if (b.url) {
+      bronEl.appendChild(document.createTextNode(' · '));
+      var a = make('a', null, 'Richtlijnendatabase');
+      a.href = b.url;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      bronEl.appendChild(a);
+    }
   }
 
   function unionOf(lists) {
@@ -244,6 +324,16 @@ const RecommendationsPanel = (function () {
       entry.routes.push({ route: route, el: item, button: button, state: state, conds: conds });
     });
     li.appendChild(routesEl);
+    if (extra.feedbackUrl) {
+      var report = make('a', 'rec-report', 'Klopt dit niet? Meld het');
+      report.target = '_blank';
+      report.rel = 'noopener';
+      report.href = '#';
+      report.addEventListener('click', function () { report.href = extra.feedbackUrl(rec.id); });
+      report.addEventListener('focus', function () { report.href = extra.feedbackUrl(rec.id); });
+      report.addEventListener('mouseenter', function () { report.href = extra.feedbackUrl(rec.id); });
+      li.appendChild(report);
+    }
     return entry;
   }
 
@@ -283,6 +373,7 @@ const RecommendationsPanel = (function () {
     toggle.textContent = 'Aanbevelingen (' + items.length + ')';
     bar.hidden = items.length === 0;
     clearButton.hidden = true;
+    renderBron();
   }
 
   var BADGES = { selected: 'bereikt', excluded: 'niet meer mogelijk' };
@@ -396,7 +487,11 @@ const RecommendationsPanel = (function () {
     stage = options.stage || null;
     handlers.onShow = options.onShow || handlers.onShow;
     handlers.onClear = options.onClear || handlers.onClear;
+    ['summary', 'link', 'bron', 'feedbackUrl', 'onLayout'].forEach(function (k) {
+      if (typeof options[k] === 'function') extra[k] = options[k];
+    });
     build();
+    window.addEventListener('resize', function () { if (built) setDocked(isOpen()); });
   }
 
   return {

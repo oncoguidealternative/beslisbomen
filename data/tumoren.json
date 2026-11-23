@@ -4,61 +4,71 @@
       "id": "borderline-ovarium",
       "titel": "Borderline ovariumtumoren",
       "afbeelding": "images/Gynaecologie_vierkant.png",
-      "status": "available"
+      "status": "available",
+      "pictogram": "ovarium"
     },
-{
-  "id": "cervixcarcinoom",
-  "titel": "Cervixcarcinoom",
-  "afbeelding": "images/Gynaecologie_vierkant.png",
-  "status": "available"
-},
     {
-  "id": "cervixcytologie",
-  "titel": "Cervixcytologie",
-  "afbeelding": "images/Gynaecologie_vierkant.png",
-  "status": "available"
-},
+      "id": "cervixcarcinoom",
+      "titel": "Cervixcarcinoom",
+      "afbeelding": "images/Gynaecologie_vierkant.png",
+      "status": "available",
+      "pictogram": "cervix"
+    },
+    {
+      "id": "cervixcytologie",
+      "titel": "Cervixcytologie",
+      "afbeelding": "images/Gynaecologie_vierkant.png",
+      "status": "available",
+      "pictogram": "cellen"
+    },
     {
       "id": "cin-ais-vain",
       "titel": "CIN, AIS, VAIN",
       "afbeelding": "images/Gynaecologie_vierkant.png",
-      "status": "available"
+      "status": "available",
+      "pictogram": "cellen-afwijkend"
     },
     {
       "id": "endometrium",
       "titel": "Endometrium carcinoom",
       "afbeelding": "images/Gynaecologie_vierkant.png",
-      "status": "available"
+      "status": "available",
+      "pictogram": "endometrium"
     },
     {
       "id": "epitheliaal-ovarium",
       "titel": "Epitheliaal ovariumcarcinoom",
       "afbeelding": "images/Gynaecologie_vierkant.png",
-      "status": "available"
+      "status": "available",
+      "pictogram": "ovarium"
     },
     {
       "id": "niet-epitheliaal-ovarium",
       "titel": "Niet epitheliale ovarium maligniteiten",
       "afbeelding": "images/Gynaecologie_vierkant.png",
-      "status": "available"
+      "status": "available",
+      "pictogram": "ovarium"
     },
     {
       "id": "trofoblast",
       "titel": "Trofoblastziekten",
       "afbeelding": "images/Gynaecologie_vierkant.png",
-      "status": "available"
+      "status": "available",
+      "pictogram": "trofoblast"
     },
     {
       "id": "vergroot-ovarium",
       "titel": "Vergroot ovarium",
       "afbeelding": "images/Gynaecologie_vierkant.png",
-      "status": "available"
+      "status": "available",
+      "pictogram": "ovarium-groot"
     },
     {
       "id": "vulva",
       "titel": "Vulvacarcinoom",
       "afbeelding": "images/Gynaecologie_vierkant.png",
-      "status": "available"
+      "status": "available",
+      "pictogram": "vulva"
     }
   ]
 }

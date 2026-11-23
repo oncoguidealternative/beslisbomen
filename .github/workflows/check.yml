@@ -20,6 +20,8 @@ jobs:
         run: node tools/check.js
       - name: Raster controleren (maten van blokken en afstanden)
         run: node tools/check-raster.js
+      - name: Alle routes doorlopen (elke combinatie van keuzes eindigt bij een aanbeveling, zie mobiel/tools/check-flow.js)
+        run: node mobiel/tools/check-flow.js
 
   tekst:
     # Opent elk zorgpad en elke beslisboom in een echte browser en meldt tekst die niet in een blok past

@@ -230,7 +230,7 @@ const PatientPanel = (function () {
         const rowLabel = make('label', 'pp-measure');
         measureInput = make('input', 'pp-measure-input');
         measureInput.type = 'text';
-        measureInput.setAttribute('inputmode', 'decimal');
+        measureInput.setAttribute('inputmode', g.measure.integer ? 'numeric' : 'decimal');
         measureInput.setAttribute('autocomplete', 'off');
         measureInput.placeholder = 'Typ hier';
         measureInput.setAttribute('aria-label', g.label + (g.measure.unit ? ' in ' + g.measure.unit : ''));

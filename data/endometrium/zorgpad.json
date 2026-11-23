@@ -1178,7 +1178,29 @@
           "gridY": 65,
           "label": "Klinisch stadium",
           "icon": "plus-light",
-          "interactionNote": "Niet interactief (AMBIGUOUS): optie \"III\": pijl eindigt op de grens van meerdere nodes serousi,serousiii."
+          "interactive": true,
+          "options": [
+            {
+              "value": "i",
+              "label": "I",
+              "edge": "edge-stadium-s-i"
+            },
+            {
+              "value": "ii",
+              "label": "II",
+              "edge": "edge-stadium-s-ii"
+            },
+            {
+              "value": "iii",
+              "label": "III",
+              "edge": "edge-stadium-s-iii"
+            },
+            {
+              "value": "iv",
+              "label": "IV",
+              "edge": "edge-stadium-s-iv"
+            }
+          ]
         },
         {
           "id": "mri",
@@ -1835,6 +1857,10 @@
           "arrow": true
         },
         {
+          "id": "edge-stadium-s-i",
+          "from": "stadium-s",
+          "to": "stad",
+          "value": "i",
           "label": "I",
           "points": [
             [
@@ -1857,6 +1883,10 @@
           "arrow": true
         },
         {
+          "id": "edge-stadium-s-ii",
+          "from": "stadium-s",
+          "to": "serousi",
+          "value": "ii",
           "label": "II",
           "points": [
             [
@@ -1875,6 +1905,10 @@
           "arrow": true
         },
         {
+          "id": "edge-stadium-s-iii",
+          "from": "stadium-s",
+          "to": "serousiii",
+          "value": "iii",
           "label": "III",
           "points": [
             [
@@ -1897,6 +1931,10 @@
           "arrow": true
         },
         {
+          "id": "edge-stadium-s-iv",
+          "from": "stadium-s",
+          "to": "serousiv",
+          "value": "iv",
           "label": "IV",
           "points": [
             [
@@ -4629,7 +4667,19 @@
           "gridX": 224,
           "gridY": 135,
           "label": "Eerdere behandeling",
-          "interactionNote": "Niet interactief (INCOMPLETE): geen uitgaande edges in de data."
+          "interactive": true,
+          "options": [
+            {
+              "value": "anders",
+              "label": "Anders",
+              "edge": "edge-ev-anders"
+            },
+            {
+              "value": "radiotherapie",
+              "label": "Radiotherapie",
+              "edge": "edge-ev-radiotherapie"
+            }
+          ]
         },
         {
           "id": "eb",
@@ -4637,7 +4687,19 @@
           "gridX": 317,
           "gridY": 135,
           "label": "Eerdere behandeling",
-          "interactionNote": "Niet interactief (INCOMPLETE): niet bereikbaar vanaf de root via gemodelleerde edges (upstream onvolledig of dubbelzinnig, of inkomende edge ontbreekt)."
+          "interactive": true,
+          "options": [
+            {
+              "value": "anders",
+              "label": "Anders",
+              "edge": "edge-eb-anders"
+            },
+            {
+              "value": "radiotherapie",
+              "label": "Radiotherapie",
+              "edge": "edge-eb-radiotherapie"
+            }
+          ]
         },
         {
           "id": "o1",
@@ -4967,21 +5029,17 @@
           "label": "Positief",
           "points": [
             [
-              610,
-              725
+              755,
+              775
             ],
             [
-              792,
-              725
-            ],
-            [
-              792,
+              755,
               850
             ]
           ],
           "dot": [
-            710,
-            725
+            755,
+            812
           ],
           "arrow": true
         },
@@ -5036,7 +5094,7 @@
         {
           "id": "edge-locatie-bekkenwand-ingroei-blaas-of-rectum",
           "from": "locatie",
-          "to": "o7",
+          "to": "eb",
           "value": "bekkenwand-ingroei-blaas-of-rectum",
           "label": "Bekkenwand, ingroei blaas of rectum",
           "points": [
@@ -5045,43 +5103,47 @@
               550
             ],
             [
-              1490,
+              1685,
               550
             ],
             [
-              1490,
-              850
+              1685,
+              675
             ]
           ],
           "dot": [
-            1413,
+            1500,
             550
           ],
           "arrow": true
         },
         {
+          "id": "edge-eb-radiotherapie",
+          "from": "eb",
+          "to": "o8",
+          "value": "radiotherapie",
           "label": "Radiotherapie",
           "points": [
             [
-              1585,
-              725
+              1685,
+              775
             ],
             [
-              1725,
-              725
-            ],
-            [
-              1725,
+              1685,
               850
             ]
           ],
           "dot": [
-            1655,
-            725
+            1685,
+            812
           ],
           "arrow": true
         },
         {
+          "id": "edge-eb-anders",
+          "from": "eb",
+          "to": "o9",
+          "value": "anders",
           "label": "Anders",
           "points": [
             [
@@ -5099,6 +5161,54 @@
           ],
           "dot": [
             1878,
+            725
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-ev-radiotherapie",
+          "from": "ev",
+          "to": "o6",
+          "value": "radiotherapie",
+          "label": "Radiotherapie",
+          "points": [
+            [
+              1220,
+              775
+            ],
+            [
+              1220,
+              850
+            ]
+          ],
+          "dot": [
+            1220,
+            812
+          ],
+          "arrow": true
+        },
+        {
+          "id": "edge-ev-anders",
+          "from": "ev",
+          "to": "o7",
+          "value": "anders",
+          "label": "Anders",
+          "points": [
+            [
+              1320,
+              725
+            ],
+            [
+              1490,
+              725
+            ],
+            [
+              1490,
+              850
+            ]
+          ],
+          "dot": [
+            1395,
             725
           ],
           "arrow": true

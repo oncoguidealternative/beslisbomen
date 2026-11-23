@@ -1593,7 +1593,8 @@
               "o-ct1a": "ct1a",
               "o-ct1b": "ct1b",
               "o-ct2": "ct2",
-              "o-ct3": "ct3"
+              "o-ct3": "ct3",
+              "o-ctis": null
             }
           }
         },
@@ -1758,7 +1759,8 @@
               "o-ct1a": "ct1",
               "o-ct1b": "ct1",
               "o-ct2": "ct2",
-              "o-ct3": "ct3"
+              "o-ct3": "ct3",
+              "o-ctis": null
             }
           }
         },
@@ -3117,7 +3119,8 @@
               "o-pn2b-links": "gte-pn1",
               "o-pn2b-rechts": "gte-pn1",
               "o-pn2c": "gte-pn1",
-              "o-pn3": "gte-pn1"
+              "o-pn3": "gte-pn1",
+              "o-pnx": null
             }
           }
         },

@@ -26,3 +26,14 @@ Een keuzenode (`interactive:true`) kan een hulpbeslisboom aanwijzen. De node too
 1. Teken/modelleer de boom als nieuwe entry in `trees` (met raster: `gridX/gridY/width/height`).
 2. Voeg `subtree` toe aan de keuzenode met de `map`.
 3. Draai de validator; test `#/<boom>?from=...`.
+
+### Uitkomsten die bewust niet over te nemen zijn
+
+Past een uitkomst van de hulpbeslisboom bij geen enkele optie van de vraag (bijvoorbeeld stadium IA bij een vraag met alleen III en IV, of pNX), zet die uitkomst dan met `null` in de `map`:
+
+```json
+"subtree": { "tree": "klinisch-stadium", "map": { "aanbeveling-iiia1": "iii", "aanbeveling-ia": null } }
+```
+
+De uitkomst blijft dan niet over te nemen, maar de controle waarschuwt er niet meer over: het is vastgelegd dat dit zo hoort.
+

@@ -3211,7 +3211,7 @@
           "options": [
             {
               "value": "geen-afwijkingen",
-              "label": "Geen afwijkingen",
+              "label": "Geen afwijkingen, CIN 1",
               "edge": "edge-uitslag-histologie-cervix-geen-afwijkingen"
             },
             {
@@ -3895,7 +3895,7 @@
           "options": [
             {
               "value": "geen-afwijkingen",
-              "label": "Geen afwijkingen",
+              "label": "Geen afwijkingen, CIN 1",
               "edge": "edge-uitslag-histologie-cervix-geen-afwijkingen"
             },
             {

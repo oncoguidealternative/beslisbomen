@@ -11,7 +11,8 @@
        onUserMove,        // () => wordt aangeroepen zodra de gebruiker zelf zoomt of sleept
        onReset            // () => na dubbelklik op een leeg deel van het diagram (na het terugzetten naar de beginweergave)
      });
-   Functies: start (beginweergave), fit, nodeOnScreen, isFullyVisible, centeredPan, needsMove, movePanTo, cancelMove, focusWithoutPan. */
+   Functies: start (beginweergave), startOverview (beginweergave van een zorgpadoverzicht), fit, zoomBy, nodeOnScreen,
+   isFullyVisible, centeredPan, needsMove, movePanTo, cancelMove, focusWithoutPan. */
 const Viewport = (function () {
   'use strict';
 
@@ -26,7 +27,10 @@ const Viewport = (function () {
   const CENTER_TOLERANCE = 0.2;
   // Beginweergave van elke boom en elk overzicht (zie start()):
   const START_BLOCK_PX = 180;  // breedte van een standaardblok op het scherm, in pixels; groter = verder ingezoomd
+  const START_BLOCK_MAX_PX = 230; // op een breed werkvlak groeit een blok mee tot deze breedte (leesbaardere tekst)
+  const START_BLOCK_SHARE = 0.15; // ... namelijk tot dit deel van de breedte van het werkvlak
   const START_TOP_PX = 24;     // ruimte tussen de bovenrand van het werkvlak en de titel
+  const OVERVIEW_MIN_SHARE = 0.7; // een overzicht wordt passend gemaakt, maar niet kleiner dan dit deel van de beginzoom
 
   function easeInOutCubic(t) {
     return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
@@ -47,13 +51,37 @@ const Viewport = (function () {
 
     // Beginweergave: voor elke boom dezelfde afmetingen (een standaardblok is altijd START_BLOCK_PX breed, ongeacht
     // het raster van die boom) en de titel horizontaal in het midden, bovenaan het werkvlak.
+    function blockPx() {
+      return Math.max(START_BLOCK_PX, Math.min(START_BLOCK_MAX_PX, refs.stage.clientWidth * START_BLOCK_SHARE));
+    }
+
     function start(graph) {
       const info = Renderer.startBox(graph);
       if (!info) { fit(graph); return; }
-      setZoom(START_BLOCK_PX / info.blockWidth);
+      setZoom(blockPx() / info.blockWidth);
       const zoom = getState().viewport.zoom;   // na begrenzing door de state (ZOOM_MIN..ZOOM_MAX)
       setPan(refs.stage.clientWidth / 2 - (info.box.x + info.box.w / 2) * zoom, START_TOP_PX - info.box.y * zoom);
     }
+
+    // Beginweergave van een zorgpadoverzicht: zo veel mogelijk van het overzicht in beeld (alle takken naast elkaar),
+    // maar niet zo klein dat de tekst onleesbaar wordt. Past het niet helemaal, dan staat de titel bovenaan en het
+    // overzicht horizontaal in het midden.
+    function startOverview(graph) {
+      const info = Renderer.startBox(graph);
+      if (!info) { fit(graph); return; }
+      const w = refs.stage.clientWidth, h = refs.stage.clientHeight;
+      const f = Renderer.fitViewport(graph, w, h);
+      const startZoom = blockPx() / info.blockWidth;
+      if (f.zoom >= startZoom) { start(graph); return; }
+      const zoom = Math.max(f.zoom, startZoom * OVERVIEW_MIN_SHARE);
+      if (zoom === f.zoom) { setZoom(f.zoom); setPan(f.panX, f.panY); return; }
+      const cx = (w / 2 - f.panX) / f.zoom;     // horizontaal midden van het hele overzicht (fit centreert)
+      setZoom(zoom);
+      const z = getState().viewport.zoom;
+      setPan(w / 2 - cx * z, START_TOP_PX - info.box.y * z);
+    }
+
+    function zoomBy(delta) { stepZoom(delta); }
 
     // Zet de door de renderer berekende passende zoom en pan in de centrale state.
     function fit(graph) {
@@ -81,20 +109,23 @@ const Viewport = (function () {
     }
 
     // Pan waarbij de node in het midden van het (niet afgedekte) werkvlak staat; zoom blijft ongewijzigd.
+    // Is de node hoger of breder dan het vrije deel, dan komt de bovenkant (of linkerkant) in beeld in plaats van
+    // het midden: van een lange aanbeveling is dan in elk geval het begin te lezen.
     function centeredPan(nodeId, insets) {
       const box = Renderer.nodeBox(getGraph(), nodeId);
       const zoom = getState().viewport.zoom;
       const w = refs.stage.clientWidth - ((insets && insets.right) || 0);
       const h = refs.stage.clientHeight - ((insets && insets.bottom) || 0);
-      return {
-        x: w / 2 - (box.x + box.w / 2) * zoom,
-        y: h / 2 - (box.y + box.h / 2) * zoom
-      };
+      const x = box.w * zoom > w - 2 * VISIBLE_MARGIN
+        ? VISIBLE_MARGIN - box.x * zoom : w / 2 - (box.x + box.w / 2) * zoom;
+      const y = box.h * zoom > h - 2 * VISIBLE_MARGIN
+        ? VISIBLE_MARGIN - box.y * zoom : h / 2 - (box.y + box.h / 2) * zoom;
+      return { x: x, y: y };
     }
 
     // Is een viewportbeweging nodig? Niet als de node volledig zichtbaar is (en bij een criterium ook redelijk centraal).
-    function needsMove(nodeId, kind) {
-      if (!isFullyVisible(nodeId)) return true;
+    function needsMove(nodeId, kind, insets) {
+      if (!isFullyVisible(nodeId, insets)) return true;
       if (kind === "outcome") return false;
       const r = nodeOnScreen(nodeId);
       const w = refs.stage.clientWidth;
@@ -275,7 +306,9 @@ const Viewport = (function () {
 
     return {
       start: start,
+      startOverview: startOverview,
       fit: fit,
+      zoomBy: zoomBy,
       nodeOnScreen: nodeOnScreen,
       isFullyVisible: isFullyVisible,
       centeredPan: centeredPan,

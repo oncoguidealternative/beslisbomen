@@ -192,6 +192,7 @@ const ChoicePanel = (function () {
     measureMsg.textContent = '';
     if (open_.measure) {
       measureUnit.textContent = open_.measure.unit || '';
+      measureInput.setAttribute('inputmode', open_.measure.integer ? 'numeric' : 'decimal');
       measureInput.value = spec.measurement !== undefined && spec.measurement !== null ? String(spec.measurement).replace('.', ',') : '';
       measureInput.setAttribute('aria-label', spec.label + (open_.measure.unit ? ' in ' + open_.measure.unit : ''));
     }
@@ -227,6 +228,6 @@ const ChoicePanel = (function () {
     setTimeout(function () { live.textContent = text; }, 30);
   }
 
-  return { init: init, open: open, close: close, isOpenFor: isOpenFor,
+  return { init: init, open: open, close: close, isOpenFor: isOpenFor, isOpen: function () { return !!open_; },
            position: position, sync: sync, announce: announce };
 })();
